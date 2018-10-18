@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "524803",
+    "ThreadId": "235444",
+    "Html": "\r\n<p>Hi Kirill,</p>\r\n<p>I noticed a&nbsp;small issue when trying to detect if an object is selected.&nbsp; I narrowed it down to whether or not the coordinatesOnMouseDown were equal to the Coordinates of the MouseUp event.&nbsp; I found that by reducing the accuracy it was more\r\n reliable since a user could easily move the cursor just a tiny bit.&nbsp; By introducing the following code I found the &quot;SelectionChange&quot; event became more reliable.&nbsp; Does this sound reasonable to introduce to LG?</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>        <span style=\"color:blue\">public</span> <span style=\"color:blue\">override</span> <span style=\"color:blue\">void</span> MouseUp(<span style=\"color:blue\">object</span> sender, MouseButtonEventArgs e)\r\n        {\r\n            <span style=\"color:green\">//CR decreased accuracy of points being equal ... accounts for slight movement of cursor from down to up</span>\r\n            <span style=\"color:green\">//if (Coordinates(e) == coordinatesOnMouseDown)</span>\r\n            <span style=\"color:blue\">if</span> (PointsApproxEqual(Coordinates(e), coordinatesOnMouseDown))\r\n            {\r\n                UpdateSelection();\r\n                Drawing.RaiseSelectionChanged(Drawing.GetSelectedFigures());\r\n            }\r\n\r\n            startedMoving = <span style=\"color:blue\">false</span>;\r\n            moving = <span style=\"color:blue\">null</span>;\r\n            found = <span style=\"color:blue\">null</span>;\r\n        }\r\n\r\n        <span style=\"color:blue\">private</span> <span style=\"color:blue\">bool</span> PointsApproxEqual(Point pointUp, Point pointDown)\r\n        {\r\n            <span style=\"color:blue\">return</span> Math.Round(pointUp.X, 1) == Math.Round(pointDown.X, 1) &amp;&amp; Math.Round(pointUp.Y, 1) == Math.Round(pointDown.Y, 1);\r\n        }\r\n</pre>\r\n</div>\r\n<p>Best regards,</p>\r\n<p>Chris</p>\r\n",
+    "PostedDate": "2010-11-20T14:41:23.287-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

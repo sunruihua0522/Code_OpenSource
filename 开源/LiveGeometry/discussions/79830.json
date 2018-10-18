@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "273458",
+    "ThreadId": "79830",
+    "Html": "<p>First of all: love this project!</p>\r\n<p>Playing with it I noticed that the drag behavior sometimes is incorrect.</p>\r\n<p>One of the way to see this is as follows:</p>\r\n<ol>\r\n<li>Create a line</li>\r\n<li>Create a parrallel line in relation to the first line</li>\r\n<li>Drag the second line (by the line itself, not the FreePoint on it)</li>\r\n</ol>\r\n<p>(This is only one case but I verified that this behavior occurs for perpendular lines as well)</p>\r\n<p>When dragging the second line the first line is dragged too. I think this should not be the case.</p>\r\n<p>The reason why this happens is that inside Dragger.MouseDown DependencyAlgorithms.FindRoots is called to determine all roots of which all Dependents will be moved. In case of a parrallel line the original line will be added as a root and so it and all its Dependents will be moved. Only the direction of the line is dependent on the original line, not its position. This is why there is a need to distinguish between these different kinds of dependencies.</p>\r\n<p>In my first attempt to fiddle around with the code I fixed this doing the following:</p>\r\n<ol>\r\n<li>Addition if IFigure: IEnumerable&lt;IFigure&gt; MoveDependencies { get; }</li>\r\n<li>Implementation in FigureBase:&nbsp;public virtual IEnumerable&lt;IFigure&gt; MoveDependencies&nbsp;{&nbsp;get&nbsp;{&nbsp;return mDependencies;&nbsp;}&nbsp;}\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:17px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">&nbsp;&nbsp;public virtual IEnumerable&lt;IFigure&gt; MoveDependencies</div>\r\n&nbsp;</li>\r\n<li>Implementation in FigureDecorator: public IEnumerable&lt;IFigure&gt; MoveDependencies&nbsp;{&nbsp;get { return Decorated.MoveDependencies; }&nbsp;}\r\n<div id=\"_mcePaste\" style=\"left:-10000px;top:17px;width:1px;height:1px;overflow-x:hidden;overflow-y:hidden\">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;{</div>\r\n&nbsp;</li>\r\n<li>Implementation in FigureList:&nbsp;public virtual IEnumerable&lt;IFigure&gt; MoveDependencies { get; private set; }</li>\r\n<li>Override in ParrallelLine:&nbsp;public override IEnumerable&lt;IFigure&gt; MoveDependencies&nbsp;{&nbsp;get&nbsp;{&nbsp;return new FigureList { Dependencies.ToArray()[1] };&nbsp;}&nbsp;}</li>\r\n</ol>\r\n<p>I would love to participate in the improvement of this project as a developer.</p>\r\n<p>Regards, Jacco</p>",
+    "PostedDate": "2010-01-05T12:32:39.233-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "273631",
+    "ThreadId": "79830",
+    "Html": "<p>Yes, it's also a problem for CircleByRadius. The current behavior is counterintuitive, I agree.</p>\r\n<p>In the long term, I was thinking of solving the bigger problem behind it. For example, a parallel line doesn't really need a line, it just needs an angle value, a number from 0 to PI. Same for CircleByRadius, it doesn't really need two points, it just needs a numeric value &gt; 0. If some of the dependencies are numbers (e.g. Func&lt;double&gt;), then while traversing the dependency graph, we won't follow through numbers and this problem will be solved automatically. But your solution seems fine for now.</p>\r\n<p>You are welcome to contribute, I've added you as a developer. The only condition is that if I don't like something about the code, be prepared that I will change it my way :) Otherwise you're free to unleash your creativity :)</p>\r\n<p>Thanks!</p>\r\n<p>Kirill</p>",
+    "PostedDate": "2010-01-05T22:29:32.52-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

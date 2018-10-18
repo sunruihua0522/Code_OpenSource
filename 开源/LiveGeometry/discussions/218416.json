@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "463631",
+    "ThreadId": "218416",
+    "Html": "<p>hi guys!</p>\r\n<p>first of all thank you! when i run LiveGeometry-54113 WPFClient with VS 2008 SP1 Color Editor will not appear at all! whats wrong with it?</p>\r\n<p>thanks again!</p>",
+    "PostedDate": "2010-07-05T23:52:20.277-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "464436",
+    "ThreadId": "218416",
+    "Html": "Hi, \r\n\r\nthanks a lot for reporting this. I've fixed this in changeset 54293 (rewritten the entire ColorPicker control without XAML).\r\n\r\nThanks,\r\nKirill",
+    "PostedDate": "2010-07-07T11:54:47.233-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "464460",
+    "ThreadId": "218416",
+    "Html": "<p>Thanks a lot for your quick response Kirill!</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-07T12:38:32.843-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

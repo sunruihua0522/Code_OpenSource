@@ -1,0 +1,75 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2010-03-15T18:15:10.28-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi David,\n \nyour new algorithm to intersect ellipses and lines has a little issue. If you take a line and a circle, and click on one of the two intersection points, this point can jump randomly to the other intersection point when the line crosses the vertical position. The old circle/line intersection algorithm was preserving orientation so there was no sudden jumps where two intersection points could swap when line was passing horizontal or vertical position.\n \nWe might want to either modify the new algorithm to preserve orientation (good test is the startup drawing that appears when you click \"Samples\" - the three squares should all be pointing outside of the triangle).\n \nOr we might want to reintroduce circle/line for the special case of intersecting circles and lines. I like generic code and the idea of reusing all we have for ellipses, let's see if we can make it work.\n \nThe idea to make a circle a special case of an ellipse was a bold one. It potentially breaks a lot of assumptions, but looks like we can get it working, which will be great of course.",
+    "LastUpdatedDate": "2017-12-08T06:49:24.633-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "LiveGeometry",
+    "ReportedDate": "2010-03-14T18:04:17.94-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Ellipse/Line intersection algorithm doesn't preserve orientation",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 0,
+    "Id": 5567
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Sorry if I got too bold.  I'll make proposals or start discussions before future big changes.  I know you are busy with your work so I have been trying to minimize questions and interruptions.\r\n\r\nI'll works on the intersection issue.  Glad you found the problem and I apologize for not noticing it.\r\n",
+      "PostedDate": "2010-03-15T08:40:46.213-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-03-15T08:46:21.71-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Resolved with changeset 42477.",
+      "PostedDate": "2010-03-15T18:15:10.28-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "The intersection of an ellipse (circle or not) and line is found by transforming the ellipse-line system then calling the method for intersecting a circle and line.  This is possible because an ellipse is a linear transformation of a circle.  Because this approach uses the circle line intersection method, the orientation of points is preserved.\n \nI should have used this approach from the start. Apologies.",
+      "PostedDate": "2010-03-15T18:28:14.257-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-14T12:31:53.533-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T02:52:51.693-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-12-08T06:49:24.633-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

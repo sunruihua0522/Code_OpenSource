@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "154542",
+    "ThreadId": "46280",
+    "Html": "What is the best way to approach online dynamic geometry environment? We create an online dynamic geometry environment with <a href=\"http://gspvn.org\">dynamic manipulative models</a> or create&nbsp; models using Computer <a href=\"http://gspvn.org/forum\" title=\"The Geometer's Sketchpad\">dynamic geometry softwares</a> and export to Java applets?<br>\r\n",
+    "PostedDate": "2009-02-04T22:47:04.13-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "154918",
+    "ThreadId": "46280",
+    "Html": "It depends on your requirements. Both are probably valid approaches (btw the website about dynamic manipulative models doesn't exist for me).<br>\r\n<br>\r\nI chose to implement the software in Silverlight and will probably store the drawings as XML files. I have to come up with a format yet.<br>\r\nAs for the implementation platform, I'm not very fond of JavaScript from the programmer's perspective.\r\n",
+    "PostedDate": "2009-02-05T19:29:08.537-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "157902",
+    "ThreadId": "46280",
+    "Html": "Silverlight is an online-product, so I think it don't have enough feature as a computer-based softwares when we creating models. Almost dynamic geometry softwares builders have tried their best efforts to export models to <a href=\"http://gspvn.org/index.php?option=com_content&view=article&id=253:jsp-arc&catid=39:gspvn-gsp-models\" title=\"Java Sketchpad workaround\">java applets</a> that is satisfy &quot;WYSIWYG&quot;.<br>\r\n<br>\r\n<br>\r\n",
+    "PostedDate": "2009-02-15T19:14:31.313-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "166332",
+    "ThreadId": "46280",
+    "Html": "Silverlight is surprisingly feature-rich, so I don't think it is any more limited than a desktop dynamic geometry software.<br>\r\nIt is potentially richer than any java applet out there.\r\n",
+    "PostedDate": "2009-03-09T19:50:35.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

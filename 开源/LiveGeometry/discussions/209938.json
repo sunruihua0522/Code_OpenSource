@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "433258",
+    "ThreadId": "209938",
+    "Html": "<p>I'm posting a copy of an email exchange I had with Max.&nbsp; Perhaps others would like to offer ideas.</p>\r\n<p>----------- Max's Email ------------------------------</p>\r\n<p>Hello David,<br><br>I'm very interested in Dynamic geometry project. I have added nothing so far, but I'm going to improve some parts, if Kirill agree with me, then I will share my code. By the way, I see that you have contributed significant improvement to code and you of course understand code good. Could you explain me two things. First is I don't need to keep dependencies during translation object, other words how can I clone object and make new one as separated copy (stand alone). The other question, I need to implement &quot;extend&quot; and &quot;trim&quot; command for all linear objects (probably for circles and arcs too in future). I'm sure you know, but just in case to avoid misunderstandings. &quot;Extend&quot; - is command which allows you to prolong selected line to another one which is not parallel to first. &quot;Trim&quot; - is command which allows you to cut line with using another lines or figures. AutoCAD can give you probably the best example of these CAD tools.<br><br>I very appreciate for any help and advices. &nbsp;Thank you for cooperation.<br><br>Max.</p>\r\n<p>------------- My response ---------------------------------------</p>\r\n<div><span style=\"font-family:Calibri\">Max,</span></div>\r\n<div>&nbsp;</div>\r\n<div><span style=\"font-family:Calibri\">I'm new to Live Geometry but I'm also very interested in it.&nbsp; Glad to learn that you are thinking of contributing.&nbsp; My interest is in using the code to help&nbsp;implement a cross-platform version of a geometry program I created called Tabula.&nbsp; Right now it's a MacOS only destop app.&nbsp; <a title=\"http://www.numeracyworks.com/Site/Home.html CTRL + Click to follow link\">Here's the website</a> if you are interested.</span></div>\r\n<div>&nbsp;</div>\r\n<div><span style=\"font-family:Calibri\">Creating independent objects with transformations is a great idea.&nbsp; I'd also like to see this functionality.&nbsp; One way to get this done is to have the user check a &quot;transform a copy&quot;&nbsp;checkbox in the properties grid (the box that shows up when one starts a transformation).&nbsp; Then in each creator (TranslationCreator for example) the CreateAndAddFigure method would look to the checkbox and either create a FreePoint or a TranslationPoint.</span></div>\r\n<div>&nbsp;</div>\r\n<div><span style=\"font-family:Calibri\">Would it be okay with you if I created a discussion at the live geometry codeplex site?&nbsp; Kirill or another developer might have a suggestion or two.&nbsp; Kirill and I have been considering ways to change a point from one class to another (like a FreePoint to an IntersectionPoint).&nbsp; This is related to your ideas on having a transformed point become a free point.</span></div>\r\n<div>&nbsp;</div>\r\n<div><span style=\"font-family:Calibri\">As far as extend and trim, I'd suggest looking at the SquareCreator.&nbsp; You could make new behaviors for the toolbar, perhaps called &quot;Extend&quot; and &quot;Trim&quot;, that perform hidden constructions just like SquareCreator does.&nbsp; For example, extend could construct a line on top of the first segment, constuct a point at the intersection of the line and the second segment or figure, create a new segment that goes to the intersection point and hides all but the last segment. Again, Kirill, who is a much more experienced programmer than I am, may have some ideas.</span></div>\r\n<div>&nbsp;</div>\r\n<div><span style=\"font-family:Calibri\">Good luck,</span></div>\r\n<div><span style=\"font-family:Calibri\">David</span></div>",
+    "PostedDate": "2010-04-20T10:18:16.323-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435818",
+    "ThreadId": "209938",
+    "Html": "<p>Hi all,</p>\r\n<p>check out my latest changeset. It has an ability to convert between different figure types at runtime. For example, click a Segment and you'll be able to convert it to a Ray or a Line.</p>\r\n<p>Hope this helps!</p>\r\n<p>Kirill</p>",
+    "PostedDate": "2010-04-27T00:39:50.163-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "436090",
+    "ThreadId": "209938",
+    "Html": "<p>Kirill,</p>\r\n<p>So glad you added that.&nbsp; I'll follow your example and add some more conversions.&nbsp; This will also be the model I'll follow in Tabula.</p>",
+    "PostedDate": "2010-04-27T11:15:24.747-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

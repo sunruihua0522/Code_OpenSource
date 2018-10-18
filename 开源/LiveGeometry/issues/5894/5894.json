@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Could somebody fix it?\n \n- \"Join two segments\" doesn't work.\n- If \"Divide segment\" used for polygon then exception is thrown.\n \nThanks.",
+    "LastUpdatedDate": "2013-06-14T00:16:13.537-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "LiveGeometry",
+    "ReportedDate": "2010-04-27T22:38:24.113-07:00",
+    "Status": {
+      "Name": "Resolved",
+      "Id": 7
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Some bugs 2",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 5894
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

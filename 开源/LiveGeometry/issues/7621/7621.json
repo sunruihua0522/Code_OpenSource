@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi Kirill,\nWhen I made a polyline and then saved it to disk, I noticed that when I tried to load the .lgf file it would fail everytime.  When I added the condition \"if (Drawing != null)\" to the \"UpdateVisual\" method of the Polyline.cs class it seemed to solve the problem.  I didn't see any ramifications of putting this safety code there.  However, I am not sure why the Drawing was null in the first place.  But, I just wanted to make you aware of it.  Thanks again for an awesome project and making it open source.  You rock!\n \nChris\n \n        public override void UpdateVisual()\n        {\n            //CR when deserializing polyline from disk Drawing is null\n            //CR this helped to prevent runtime error\n            if (Drawing != null)\n            {\n                Shape.Points = Drawing.CoordinateSystem\n                    .ToPhysical(Dependencies.ToPoints())\n                    .ToPointCollection();\n            }\n        }",
+    "LastUpdatedDate": "2013-02-14T12:31:50.727-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "LiveGeometry",
+    "ReportedDate": "2010-11-18T22:34:30.213-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Loading file (.lgf) with polyline fails",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7621
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

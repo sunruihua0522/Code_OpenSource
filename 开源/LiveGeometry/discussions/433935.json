@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1004538",
+    "ThreadId": "433935",
+    "Html": "Hello\r<br />\nI fell over Live Geometry project in a Microsoft group.\r<br />\nAnd I must say that I am impressed :-)\r<br />\n<br />\nNow I have started to play around with the package, and would like to draw a shape consisting of several lines and a height and width with a mouse click and then specify the height and width.\r<br />\n<br />\nI just can not quite figure out how I make the last 3 points...<br />\n<pre><code> protected override IEnumerable&lt;IFigure&gt; CreateFigures()\n        {\n            var p1 = FoundDependencies[0] as IPoint;\n            \n            var p2 = new Point(p1.Coordinates.X + 10, p1.Coordinates.Y);\n            var p3 = new Point(p1.Coordinates.X + 10, p1.Coordinates.Y + 10);\n            var p4 = new Point(p1.Coordinates.X, p1.Coordinates.Y + 10);\n            \n            \n            var side0 = Factory.CreateSegment(Drawing, p1, p2);\n            var side1 = Factory.CreateSegment(Drawing, p2, p3);\n            var side2 = Factory.CreateSegment(Drawing, p3, p4);\n            var side3 = Factory.CreateSegment(Drawing, p4, p1);\n            var midpoint0 = Factory.CreateMidPoint(Drawing, side0);\n            var midpoint1 = Factory.CreateMidPoint(Drawing, side1);\n            var midpoint2 = Factory.CreateMidPoint(Drawing, side2);\n            var midpoint3 = Factory.CreateMidPoint(Drawing, side3);\n\n            var added = new IFigure[]\n            {\n                side0, \n                side1,\n                side2,\n                side3,\n            };\n\n\n            foreach (var item in added)\n            {\n                yield return item;\n            }\n        }</code></pre>\n\nSo I would like even control the coordinates of points B, C and D\r<br />\n<br />\nCan you help me started?\r<br />\n<br />\nThank you in advance\r<br />\n<br />\n//OleZen<br />\n",
+    "PostedDate": "2013-02-21T01:58:20.297-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "If you delete the coordinate grid from the Figure List (with the del key), it is pretty hard to get it back. The only thing that you can do it ctrl+z.\n \nClicking 'grid' under coordinates doesn't work, and selecting 'show coordinated axes and grids' from the settings menu gives you something that looks quite weird.",
+    "LastUpdatedDate": "2013-02-14T12:31:50.54-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "LiveGeometry",
+    "ReportedDate": "2011-01-20T22:46:22.96-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "When you delete the coordinate grid...",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7948
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

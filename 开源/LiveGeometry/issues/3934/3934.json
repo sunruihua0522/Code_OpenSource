@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I try to create a ParallelogramCreator following the idea of SquareCreator. But something wrong regarding intersection1! The whole diagram can not be shown during dragging of point 3. It seems the whole diagram is created but need another action such as moving the grid in order to make it visible. Would you kindly tell me what I have done wrong? Tks. David\n \nusing System.Windows;\nusing System.Windows.Media;\n \nnamespace DynamicGeometry\n{\n    public class ParallelogramCreator : FigureCreator\n    {\n        protected override IFigure CreateFigure()\n        {\n            // this won't be called since we override CreateAndAddFigure\n            // We create multiple figures here so returning one figure doesn't make sense\n            return null;\n        }\n \n        protected override void CreateAndAddFigure()\n        {\n            var p1 = FoundDependencies[0] as IPoint;\n            var p2 = FoundDependencies[1] as IPoint;\n            var p3 = FoundDependencies[2] as IPoint;\n            \n            var side0 = Factory.CreateSegment(Drawing, p1, p2);\n            var parallelline0 = Factory.CreateParallelLine(Drawing, new FigureList(side0, p3));\n            \n            var side1 = Factory.CreateSegment(Drawing, p2, p3);\n            var parallelline1 = Factory.CreateParallelLine(Drawing, new FigureList(side1, p1));\n \n            var intersection1 = Factory.CreateIntersectionPoint(Drawing, parallelline0, parallelline1,\n             parallelline1.Coordinates.P1);\n            \n            var side2 = Factory.CreateSegment(Drawing, intersection1,p3);\n            var side3 = Factory.CreateSegment(Drawing,  intersection1,p1);\n            var polygon = Factory.CreatePolygon(Drawing, new FigureList(p1, p2, p3, intersection1));\n            \n \n            var added = new IFigure[]\n            {\n                side0,\n                parallelline0,\n                side1,\n                parallelline1,\n                intersection1,\n                side2,\n                side3,\n                polygon\n            };\n            \n            parallelline1.Visible =\n            parallelline0.Visible = false;\n            \n            Drawing.Add(added);\n            Drawing.Recalculate();\n            TempResult = side0;\n        }\n \n        protected override DependencyList InitExpectedDependencies()\n        {\n            return DependencyList.PointPointPoint;\n        }\n \n        public override string Name\n        {\n            get { return \"Parallelogram\"; }\n        }\n \n        public override System.Windows.Controls.Panel CreateIcon()\n        {\n            return IconBuilder\n                .BuildIcon()\n                .Polygon(\n                    new SolidColorBrush(Color.FromArgb(255, 208, 230, 148)),\n                    new SolidColorBrush(Colors.Black),\n                    new Point(0.2, 0.3),\n                    new Point(0.7, 0.3),\n                    new Point(0.8, 0.7),\n                    new Point(0.3, 0.7)\n                    )\n                .Canvas;\n        }\n        \n        public override string HintText\n        {\n            get\n            {\n                return \"Create an isosceles triangle given two adjacent vertices\";\n            }\n        }\n    }\n}",
+    "LastUpdatedDate": "2013-02-14T12:31:55.823-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "LiveGeometry",
+    "ReportedDate": "2009-08-09T20:02:31.34-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "ParallelogramCreator: problem after intersection1",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 3934
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Sorry, I got it. It was because I am running your old version. With the new version, the bug is fixed.",
+      "PostedDate": "2009-08-10T03:24:13.51-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-14T12:31:55.823-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

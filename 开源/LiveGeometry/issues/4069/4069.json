@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "This is in using the Silverlight project / source code.\n \nWhen using the 'Orientation' button, the buttons are moved to the side.  However the buttons do not SCALE to the abreviated distance as Silverlight objects should.  Expected behaviour: The buttons would slightly scale down in size so that all buttons can be viewed on the side of the drawing surface.\n \nWhen using the 'Orientation' button and a button is selected while on the left side of the drawing surface, the descriptor tag is displayed BENEATH the buttons.  This makes that text mostly unreadable.  Expected behaviour: When the buttons are on the left side of the screeen, the text box would position itself with the left edge of the text aligned with the right edge of the button grid.",
+    "LastUpdatedDate": "2013-02-14T12:31:55.16-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "LiveGeometry",
+    "ReportedDate": "2009-08-20T09:44:07.38-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Orientation causes visual issues",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 4069
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

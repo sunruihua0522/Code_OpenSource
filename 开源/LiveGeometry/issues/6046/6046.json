@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2010-05-16T19:14:42.803-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "If middle point is created on segment, and then \"Divide segment\" tool is executed for the same segment with already created middle point, then middle point unlinks from initial segment.",
+    "LastUpdatedDate": "2013-05-16T02:52:50.517-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "LiveGeometry",
+    "ReportedDate": "2010-05-16T18:06:49.487-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Bug with midpoint",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 6046
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "This is by design. The midpoind doesn't know anything about the segment, it only depends on the two points. Dividing the segment doesn't actually change anything about the two points, hence the midpoint remains unchanged.",
+      "PostedDate": "2010-05-16T19:12:57.63-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-05-16T19:14:42.803-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-14T12:31:52.097-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T02:52:50.517-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

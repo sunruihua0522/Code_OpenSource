@@ -1,0 +1,45 @@
+<div class="wikidoc"><h1>Live Geometry Coding Guidelines</h1>This is a live document, please edit and add stuff as necessary. Every edit should be reviewed or discussed with the team.<br /> <br />Goals: the code should be uniform, consistent, readable.<br /> 
+<h2>Links:</h2><ul><li>Design Guidelines for Class Library Developers: <a href="http://msdn2.microsoft.com/en-us/library/czefa0ke(vs.71).aspx">http://msdn2.microsoft.com/en-us/library/czefa0ke(vs.71).aspx</a></li>
+<li>Krzysztof Cwalina: <a href="http://blogs.msdn.com/kcwalina/archive/2004/09/28/235232.aspx">http://blogs.msdn.com/kcwalina/archive/2004/09/28/235232.aspx</a></li>
+<li>Brad Abrams: <a href="http://blogs.msdn.com/brada/articles/361363.aspx">http://blogs.msdn.com/brada/articles/361363.aspx</a></li>
+<li>Kirill Osenkov (whitespace guidelines): <a href="http://blogs.msdn.com/kirillosenkov/archive/2009/03/12/kirill-s-whitespace-guidelines-for-c.aspx">http://blogs.msdn.com/kirillosenkov/archive/2009/03/12/kirill-s-whitespace-guidelines-for-c.aspx</a></li></ul>
+ 
+<h2>Project/solution structure</h2>File placement, file names and folder structure are very important. Carefully think when adding a new file, because changing the file structure is costly! If in doubt, ask other team members.<br />
+<h2>Tabs and indenting</h2>Tools -&gt; Options -&gt; Text Editor -&gt; Tabs -&gt; Insert spaces, tab size = 4<br />Tab characters (\0x09) should not be used in code. All indentation should be done with 4 space characters. This is the default Visual Studio setting.<br /> 
+<h2>Curlies</h2>Opening curly of a block should be on a new line like this:<br /><pre>
+block 
+{
+    stuff
+}
+</pre><br />and not like this:<br /><pre>
+block {
+    stuff
+}
+</pre><br />One line flow-control statements should still include a block statement:<br /><pre>
+if (something)
+{
+    something else;
+}
+</pre><br />and not:<br /><pre>
+if (something)
+    something else;
+</pre><br />This enhances maintainability by ensuring that someone modifying the code at a later date will not forget to add the braces.<br /> <br />This style will be applied consistently to all code construct that require an open/close brace pair (classes, namespaces in C#, method block, etc.)<br />
+<h2>Commenting</h2>It&#39;s OK to not have comments, since the code is still very much in flux. However it helps to have comments in difficult parts of the code.<br /><br /><b>Don&#39;t</b> use obvious comments that can be inferred by just reading the code:<br /><span class="codeInline"> AssignValue(instance); // assigns a value to instance </span><br /><br />Comments should be used to describe intention, algorithmic overview, and/or logical flow.  It would be ideal, if from reading the comments alone, someone other than the author could understand a function’s intended behavior and general operation. While there are no minimum comment requirements and certainly some very small routines need no commenting at all, it is hoped that most routines will have comments reflecting the programmer’s intent and approach.<br /><br />Types and members should use XML doc comments.<br /> 
+<h2>Spacing</h2>Spaces improve readability by decreasing code density. Here are some guidelines for the use of space characters within code:<br /> <br />Do use a single space after a comma between method arguments: <br />Right: <span class="codeInline"> Console.In.Read(myChar, 0, 1); </span><br />Wrong: <span class="codeInline"> Console.In.Read(myChar,0,1); </span><br /><br />Do not use a space after the parenthesis and method arguments: <br />Right: <span class="codeInline"> CreateFoo(myChar, 0, 1) </span><br />Wrong: <span class="codeInline"> CreateFoo( myChar, 0, 1 ) </span><br /><br />Do not use spaces between a method name and parenthesis: <br />Right: <span class="codeInline"> CreateFoo() </span><br />Wrong: <span class="codeInline"> CreateFoo () </span><br /><br />Do not use spaces inside brackets: <br />Right: <span class="codeInline"> x = dataArray[index]; </span><br />Wrong: <span class="codeInline"> x = dataArray[ index ]; </span><br /><br />Do use a single space before flow control statements: <br />Right: <span class="codeInline"> while (x == y), if (true) </span><br />Wrong: <span class="codeInline"> while(x==y), if(true) </span><br /><br />Do use a single space before and after binary operators: <br />Right: <span class="codeInline"> if (x == y), a = 2 + 3; </span><br />Wrong: <span class="codeInline"> if (x==y), a=2+3; </span><br /> 
+<h2>Vertical spacing:</h2> <br /><a href="http://blogs.msdn.com/kirillosenkov/archive/2009/03/12/kirill-s-whitespace-guidelines-for-c.aspx">http://blogs.msdn.com/kirillosenkov/archive/2009/03/12/kirill-s-whitespace-guidelines-for-c.aspx</a><br /> 
+<h2>Naming conventions</h2> <br /><a href="http://msdn2.microsoft.com/en-us/library/xzf533w0(vs.71).aspx">http://msdn2.microsoft.com/en-us/library/xzf533w0(vs.71).aspx</a>]<br />Follow all .NET Framework Design Guidelines for both internal and external members. Highlights of these include:<br />
+<ul><li>Names of types, members and enums (except fields): PascalCasing </li>
+<li>names of parameters, local variables and fields: camelCasing </li>
+<li>NO<i>SCREAMING</i>CAPS </li>
+<li>no<i>underscores</i>if_possible </li>
+<li>Prefix interfaces with I </li>
+<li>Do not use Hungarian notation (bstrSomething, frmMain)</li>
+<li>DontAbbrevLngWrdsBcseAbbrAreUsuDffcltToRd:</li></ul>
+<br />Use full words instead of shortened words: <br />expectedFilenames expFilenames<br />expectedMessageResourceIDs expMsgResIDs <br />localizedErrorMessage localizedErrMsg <br />modifier mod <br />projectReference projRef <br />languageOptions langOptions <br />  
+<h2>Method level</h2>Use shorter boolean conditionals:<br /><span class="codeInline"> if (X) </span> instead of <span class="codeInline"> if (X == true) </span><br /><span class="codeInline"> if (!X) </span> instead of <span class="codeInline"> if (X == false) </span><br /><span class="codeInline"> if (X &amp;&amp; !Y) </span> instead of <span class="codeInline"> if (X == true &amp;&amp; Y == false) </span><br /><br />Don&#39;t use the old C++ convention if (null == stuff), use if (stuff == null).<br /> 
+<h2>Type and Member design</h2><ul><li>Avoid using fields - use either properties or auto-properties (PascalCasing).</li>
+<li>User Defined Types - we are encouraged to define and use user defined types to clearly capture the intent of the code. Don&#39;t be afraid of adding a new user defined type.</li></ul>
+
+<h2>Library usage</h2><ul><li>Use FileInfo and DirectoryInfo instead of strings to store file and directory names </li>
+<li>Use Path.Combine to concatenate parts of a path </li>
+<li>Use File.ReadAllText(string) to read text from a file into a string</li></ul></div><div class="ClearBoth"></div>

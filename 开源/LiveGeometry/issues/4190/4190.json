@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Input of \"y(x)\" into the function graph field will crash Silverlight (StackOverflowException is most likely).  Because you can't simply catch the exception to avoid the problem:\n \nhttp://msdn.microsoft.com/en-us/library/system.stackoverflowexception.aspx\n \nYou have to avoid the possibility of self-reference.  I'm no python expert, so I don't know what other ways to self-reference, but the obvious one can be avoided easily:\nSilverlightClient\\DLR.cs takes the input and formats a string of python code to be compiled:\n \nstring.Format(@\"\nfrom math import *\n \ndef y(x):\n    return {0}\n \nfunc = y\n\", expression)\n \nThis code can easily be recursive.  To avoid this you could easily do the following:\n \nstring.Format(@\"\nfrom math import *\n \ndef SomeUnlikelyName(x):\n    return {0}\n \nfunc = SomeUnlikelyName\n\", expression.Replace(\"SomeUnlikelyName\",\"\"))",
+    "LastUpdatedDate": "2013-02-14T12:31:54.757-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "LiveGeometry",
+    "ReportedDate": "2009-09-03T07:14:51.807-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Crash for self-referential functions",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 4190
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Looking a little more at Python the following seems to crash the compiler for IronPython:  (lambda n: n(n))(lambda m: m(m)).  So perhaps you should also filter out \"lambda\".",
+      "PostedDate": "2009-09-03T07:42:06.61-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Also String.Replace isn't the best as you need to replace any instances after the search string is removed (i.e. \"SomeSomeUnlikelyNameUnlikelyName(x)\" would still recurse).  Perhaps the better approach would be to just check for the self reference and fail nicely if found:\r\n\r\nif (expression.Contains(\"SomeUnlikelyName\") || expression.Contains(\"lambda\"))\r\n   return x => 0;\r\nelse\r\n   ...",
+      "PostedDate": "2009-09-03T08:15:31.053-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-14T12:31:54.757-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

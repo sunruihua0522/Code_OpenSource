@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "460262",
+    "ThreadId": "217443",
+    "Html": "<p>I will be soon switching the Silverlight VS 2010 version to use Silverlight 4 instead of Silverlight 3. You can install the latest Silverlight 4 Tools for Visual Studio 2010 at <a href=\"http://www.silverlight.net\">www.silverlight.net</a>.</p>\r\n<p>Unfortunately Silverlight 4 doesn't work with VS 2008 so if you'd like to continue using the Silverlight version, I recommend to install VS 2010 and Silverlight 4. There is a free express edition (Visual Studio Web Developer Express 2010) that works with Silverlight 4.</p>",
+    "PostedDate": "2010-06-26T12:36:07.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

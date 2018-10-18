@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "465028",
+    "ThreadId": "218819",
+    "Html": "<p>Hi Friends.</p>\r\n<p>cheers.</p>\r\n<p><span id=\"result_box\"><span style=\"background-color:#e6ecf9;color:#000000\">What design pattern  do you use?</span></span></p>\r\n<p><span><span style=\"background-color:#e6ecf9;color:#000000\">Seems MVVM is Good design pattern for Silverlight and Wpf.</span></span></p>\r\n<p><span><span style=\"background-color:#e6ecf9;color:#000000\">shaahin<br></span></span></p>",
+    "PostedDate": "2010-07-08T12:19:30.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "467566",
+    "ThreadId": "218819",
+    "Html": "<p>Hi shaahin</p>\r\n<p>we use a lot of design patterns, it's hard to list them here. Just read the code and hopefully you will notice many usages.</p>\r\n<p>I highly recommend to read the GoF book if you haven't yet.</p>\r\n<p>Thanks,</p>\r\n<p>Kirill</p>",
+    "PostedDate": "2010-07-14T21:37:05.49-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

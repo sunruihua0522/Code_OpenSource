@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "419223",
+    "ThreadId": "205250",
+    "Html": "<p>I'm looking for suggestions or&nbsp;feedback regarding transformations.&nbsp; I checked in code that allows a user to translate a figure based on the new&nbsp;vector.&nbsp; Alternatively translation values can be entered in the properties grid.&nbsp; If a point is translated by values, these values can be edited at any time.&nbsp; I know translation is somewhat trivial but it is an important part of math education.</p>\r\n<p>Rotation and dilation values&nbsp;can also be made dependent on figures in the drawing.&nbsp; A rotation could use an angle measurement and a dilation could use two length measurements (to get a ratio).&nbsp; The&nbsp;user&nbsp;could&nbsp;optionally&nbsp;make the measurements invisible.&nbsp; If the measurements that a transformed point depend on are deleted then the point&nbsp;could switch to&nbsp;depending on values.&nbsp;&nbsp;But just like translation, values for&nbsp;rotation and dilation&nbsp;can be entered in the properties grid.</p>\r\n<p>I still think a scale transformation would be a nice addition.&nbsp; I added dilation first because in most american math classrooms, dilation is studied first.&nbsp; Scale is slightly more complicated in that it can have different factors for each orthogonal direction.</p>",
+    "PostedDate": "2010-03-17T07:04:22.287-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "421807",
+    "ThreadId": "205250",
+    "Html": "<p>David, your transformations are just great. Sorry I didn't have time so far to follow up in detail, but at first sight it looks terrific. Makes me think that one of the next steps we should implement is a slider control that has a value, and then one could use that value in any expressions. One could also type in an expression for transformation parameters that depends on one or more sliders. This is how line and circle equations are implemented now (you can specify any expressions for m and b in y = m * x + b line equation, and those expressions can depend on points, such as A.X and A.Y).</p>\r\n<p>I'm terribly busy testing the final build of Visual Studio 2010 right now, but things should be better after April 12, when the final release of VS 2010 is out the door. For now my next plan is to reach 100% functional parity with the old &quot;DG&quot; program that I wrote almost 10 years ago (<a href=\"http://dg.osenkov.com\">http://dg.osenkov.com</a>). Only some minor features are left. My next plan is labels for points (that show point names), list of all figures, step-by-step construction playback, help, mouse hover hints, and some minor cosmetic improvements. Once we're reached full parity with the original version, I will be more flexible in terms of what to implement next and can help out with stuff here and there.</p>\r\n<p>Thanks again!</p>\r\n<p>Kirill</p>",
+    "PostedDate": "2010-03-21T15:16:38.91-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

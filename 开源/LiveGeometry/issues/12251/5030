@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Drawing>
+  <Viewport Left="-12.3854166667" Top="12.96875" Right="27.6145833333" Bottom="-4.4895833333" />
+  <Styles>
+    <PointStyle Size="10" Fill="#FFFFFF00" IsFilled="true" Color="#FF000000" StrokeWidth="1" Name="1" />
+    <PointStyle Size="9" Fill="#FFFEFEBD" IsFilled="true" Color="#FFE1E0E0" StrokeWidth="1" Name="2" />
+    <PointStyle Size="13" Fill="#FF77FF00" IsFilled="true" Color="#FF1A621A" StrokeWidth="1" Name="3" />
+    <LineStyle Color="#FF000000" StrokeWidth="1" Name="4" />
+    <ShapeStyle Fill="#FFFFFF00" IsFilled="true" Color="#00FFFFFF" StrokeWidth="1" Name="5" />
+    <ShapeStyle Fill="#FFFFFF00" IsFilled="true" Color="#FF000000" StrokeWidth="1" Name="6" />
+    <TextStyle FontSize="14" Color="#FF000000" FontFamily="Arial" Bold="false" Italic="false" Underline="false" Name="7" />
+    <TextStyle FontSize="10" Color="#FF000000" FontFamily="Arial" Bold="false" Italic="false" Underline="false" Name="8" />
+    <LineStyle Color="#FFE2E2E2" StrokeWidth="1" Name="9" />
+    <LineStyle Color="#FFE03F3F" StrokeWidth="2.6" Name="10" />
+    <LineStyle Color="#FFB883DA" StrokeWidth="3" Name="11" />
+  </Styles>
+  <Figures>
+    <FreePoint Name="A" Style="1" X="0" Y="0" />
+    <LineTwoPoints Name="LineTwoPoints8" Style="4">
+      <Dependency Name="A" />
+      <Dependency Name="C" />
+    </LineTwoPoints>
+    <FreePoint Name="C" Style="2" X="9.9791666666" Y="-0.0208333333" />
+    <PointOnFigure Name="B" Style="2" X="11.97499999992" Y="-0.02499999996" Parameter="1.2">
+      <Dependency Name="LineTwoPoints8" />
+    </PointOnFigure>
+    <PerpendicularLine Name="PerpendicularLine9" Style="4">
+      <Dependency Name="LineTwoPoints8" />
+      <Dependency Name="A" />
+    </PerpendicularLine>
+    <PointOnFigure Name="D" Style="3" X="2.91059027769181" Y="-0.00607638887902778" Parameter="0.29166666666">
+      <Dependency Name="LineTwoPoints8" />
+    </PointOnFigure>
+    <PerpendicularLine Name="PerpendicularLine10" Style="9">
+      <Dependency Name="LineTwoPoints8" />
+      <Dependency Name="D" />
+    </PerpendicularLine>
+    <PointOnFigure Name="E" Style="2" X="4.98958333320021" Y="-0.0104166666497917" Parameter="0.49999999999">
+      <Dependency Name="LineTwoPoints8" />
+    </PointOnFigure>
+    <CircleByRadius Name="CircleByRadius12" Style="9">
+      <Dependency Name="A" />
+      <Dependency Name="E" />
+      <Dependency Name="D" />
+    </CircleByRadius>
+    <IntersectionPoint Name="F" Style="1" Algorithm="IntersectEllipseAndLine2">
+      <Dependency Name="CircleByRadius12" />
+      <Dependency Name="PerpendicularLine10" />
+    </IntersectionPoint>
+    <PointOnFigure Name="G" Style="3" X="5.30143229153146" Y="-0.0110677083154167" Parameter="0.53124999999">
+      <Dependency Name="LineTwoPoints8" />
+    </PointOnFigure>
+    <LineTwoPoints Name="LineTwoPoints13" Style="9">
+      <Dependency Name="F" />
+      <Dependency Name="G" />
+    </LineTwoPoints>
+    <CircleByRadius Name="CircleByRadius15" Style="9">
+      <Dependency Name="A" />
+      <Dependency Name="C" />
+      <Dependency Name="G" />
+    </CircleByRadius>
+    <IntersectionPoint Name="H" Style="1" Algorithm="IntersectEllipseAndLine2">
+      <Dependency Name="CircleByRadius15" />
+      <Dependency Name="LineTwoPoints13" />
+    </IntersectionPoint>
+    <Locus Name="Locus16" Style="11">
+      <Dependency Name="H" />
+      <Dependency Name="G" />
+    </Locus>
+    <PerpendicularLine Name="PerpendicularLine17" Style="9">
+      <Dependency Name="LineTwoPoints8" />
+      <Dependency Name="H" />
+    </PerpendicularLine>
+    <IntersectionPoint Name="I" Style="1" Algorithm="IntersectLineAndLine">
+      <Dependency Name="PerpendicularLine17" />
+      <Dependency Name="LineTwoPoints8" />
+    </IntersectionPoint>
+    <LineTwoPoints Name="LineTwoPoints18" Style="9">
+      <Dependency Name="F" />
+      <Dependency Name="I" />
+    </LineTwoPoints>
+    <CircleByRadius Name="CircleByRadius22" Style="9">
+      <Dependency Name="A" />
+      <Dependency Name="B" />
+      <Dependency Name="I" />
+    </CircleByRadius>
+    <IntersectionPoint Name="J" Style="1" Algorithm="IntersectEllipseAndLine2">
+      <Dependency Name="CircleByRadius22" />
+      <Dependency Name="LineTwoPoints18" />
+    </IntersectionPoint>
+    <PerpendicularLine Name="PerpendicularLine23" Style="9">
+      <Dependency Name="LineTwoPoints8" />
+      <Dependency Name="J" />
+    </PerpendicularLine>
+    <IntersectionPoint Name="K" Style="1" Algorithm="IntersectLineAndLine">
+      <Dependency Name="PerpendicularLine23" />
+      <Dependency Name="LineTwoPoints8" />
+    </IntersectionPoint>
+    <Segment Name="Segment24" Style="10">
+      <Dependency Name="H" />
+      <Dependency Name="I" />
+    </Segment>
+    <Segment Name="Segment25" Style="10">
+      <Dependency Name="J" />
+      <Dependency Name="K" />
+    </Segment>
+    <DistanceMeasurement Name="DistanceMeasurement26" Style="7" OffsetX="-0.0208333334000006" OffsetY="-0.1041666667">
+      <Dependency Name="I" />
+      <Dependency Name="K" />
+    </DistanceMeasurement>
+  </Figures>
+</Drawing>

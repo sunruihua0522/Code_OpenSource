@@ -1,0 +1,9 @@
+C:\Code\开源\MyCAD\codefans.net\CAD\CAD\bin\Debug\CAD.exe
+C:\Code\开源\MyCAD\codefans.net\CAD\CAD\bin\Debug\CAD.pdb
+C:\Code\开源\MyCAD\codefans.net\CAD\CAD\obj\Debug\CAD.csprojAssemblyReference.cache
+C:\Code\开源\MyCAD\codefans.net\CAD\CAD\obj\Debug\CAD.CADFrame.resources
+C:\Code\开源\MyCAD\codefans.net\CAD\CAD\obj\Debug\CAD.Properties.Resources.resources
+C:\Code\开源\MyCAD\codefans.net\CAD\CAD\obj\Debug\CAD.csproj.GenerateResource.cache
+C:\Code\开源\MyCAD\codefans.net\CAD\CAD\obj\Debug\CAD.csproj.CoreCompileInputs.cache
+C:\Code\开源\MyCAD\codefans.net\CAD\CAD\obj\Debug\CAD.exe
+C:\Code\开源\MyCAD\codefans.net\CAD\CAD\obj\Debug\CAD.pdb

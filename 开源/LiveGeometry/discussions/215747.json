@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "454498",
+    "ThreadId": "215747",
+    "Html": "<p>Hello,</p>\r\n<p>I have noticed that when you first draw the shapes the performance can get very iffy, especially whenever you zoom out the canvas. However moving those same shapes, or moving the vertices / lines in those shapes has no noticable&nbsp;performance hit at all.</p>\r\n<p>IE.</p>\r\n<p>1. Zoom canvas out some and draw a polygon... rendering speed while drawing is vastly reduced.</p>\r\n<p>2. Close the polygon.</p>\r\n<p>3. Select a line or point in the polygon and adjust it, no rendering speed isssues at all.</p>\r\n<p>4. Select the entire polygon and move it on the canvas, again, no rendering speed issues at all.</p>\r\n<p>Any insight into what might be causing this initial and in many cases huge performance hit while actually drawing the shape? Even a simple line with nothing else on the canvas suffers this hit, yet moving the endpoint of the line once it is recreated (which should be the same process as drawing the line to begin with as the moved line updates while you drag the endpoint around) has no noticeable hit at all. Any info leading to understanding would be greatly appreciated.</p>\r\n<p>Thanks in advance!</p>",
+    "PostedDate": "2010-06-11T09:57:07.02-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "459239",
+    "ThreadId": "215747",
+    "Html": "<p>I've followed the four steps and don't experience the performance problem.&nbsp; Perhaps someone else has the same problem and can help you diagnose it.</p>\r\n<p>Good luck,</p>\r\n<p>David</p>",
+    "PostedDate": "2010-06-23T20:06:16.907-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "461506",
+    "ThreadId": "215747",
+    "Html": "<p>I think I've seen this but I haven't investigated yet. It is possible that we're doing extra work in MouseMove when creating a shape, I'm not sure.</p>\r\n<p>I&nbsp;think I've heard somewhere that WPF/Silverlight is optimized when redrawing a shape, it will be careful to not redraw the entire screen.</p>\r\n<p>I'll take a look when I have some time.</p>\r\n<p>Thanks for reporting this!</p>\r\n<p>Kirill</p>",
+    "PostedDate": "2010-06-29T23:45:27.373-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,95 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Some bugs which I've found since I'm here.\n \n1). Current version LiveGeometry-46239\n \n- SilverlightClient.sln does not correspond to the current set of source files. Some of them are not loaded, project cannot be compiled.\n- \"Snap to grid\" does not work. (maybe due to problem with solution file)\n \n2). Other bugs:\n- if polygon is created, and if the next command is \"Undo\" and next one is \"Redo\", and if recently created polygon is moved (dragged), then the last (or maybe the first) point appears twice, and this additional point cannot be selected (as well deleted).\n- in the Full Window mode, fields (textboxes) cannot be changed in the property grid dialogs.\n- I created the polyline class which is based on polygon (very similar). This figure is opened, like a group of linked segments. For this figure I found one bug. It seems it is a silverlight bug, but maybe somebody also have met such behavior. The problem is following, if stroke < 1 (approx) for polyline based figure from time to time it's impossible to select, drug or change figure.\n \nKirill or somebody form team, could you look at these issues?\nThanks a lot.",
+    "LastUpdatedDate": "2013-02-14T12:31:53.18-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "LiveGeometry",
+    "ReportedDate": "2010-04-26T22:07:51.623-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Some bugs",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 5885
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Thanks! I'll take a loop as soon as I can.",
+      "PostedDate": "2010-04-27T00:49:21.99-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Associated with changeset 46741.",
+      "PostedDate": "2010-04-27T19:30:22.697-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Fixed the snapping problem.  Settings. Instance.snapGridSpacing was not getting initialized properly as so was returning 0.\nI don't have the same problem with the solution not corresponding with the source files.  Don't know what to tell you.  This is the first time I've worked in a managed source code environment.\nI'll take a look at the other issues later.",
+      "PostedDate": "2010-04-27T19:36:31.413-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "David, thanks for the fix! \r\nWhat version of Visual Studio do you have? Do you have Silverlight 3 or Silverlight 4 installed? Also, do you use TFC or Subversion for version control?\r\nI know what's the problem with SilverlightClient.csproj - it needs to be updated. I'll try to do it.",
+      "PostedDate": "2010-04-27T21:17:48.947-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "OK I fixed the SilverlightClient.sln",
+      "PostedDate": "2010-04-27T21:57:40.09-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "About solution, I meant that some files are not in the desired place if you open silverlight solution. It seems Kirill has fixed this problem. Thanks.\r\nThank you David for \"snap to grid\", actually I figured out by myself  in the same time.  But strange thing that in the Kirill's version there was explicit property declaration( Settings. Instance.snapGridSpacing). But you've deleted it and left only {get;set;} form.\r\n\r\nI use 2008 and silverligh 3.\r\n\r\nFull screen problem left and my private issue with polyline. And I found other problems, please see in the top of list.\r\n",
+      "PostedDate": "2010-04-27T22:34:09.503-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Editing text using the keyboard won't work in full screen mode in Silverlight 3.  It was a security decision Microsoft made.  In version 4 it can be done, but the app may have to be a \"trusted\" app.  The snap to grid problem was mysterious.  The old code looked fine but didn't work so I changed it to something that I knew worked.  There is still a lot I need to learn about C#.\r\n\r\nI'm still using version 3 but I'm in 2010 RC.  I'm also using TFS.  I've never used any of the other code management systems.  My limited experience programming is on a Mac, by myself, using Objective-C.",
+      "PostedDate": "2010-04-28T17:10:18.807-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Ok, but I don't understand what was the point to block input data in full screen mode. Strange...  Maybe Kirill can explain. Thank you David.",
+      "PostedDate": "2010-04-28T21:28:26.33-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I've fixed the Polygon Undo-Redo problem. Please let me know if you still see it. Thanks!",
+      "PostedDate": "2010-04-30T00:30:07.873-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I've fixed the Polygon Undo-Redo problem with my latest changeset. Please let me know if you still see issues there.",
+      "PostedDate": "2010-04-30T00:30:44.367-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-14T12:31:53.18-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

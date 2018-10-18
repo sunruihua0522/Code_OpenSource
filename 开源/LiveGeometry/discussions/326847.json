@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "779387",
+    "ThreadId": "326847",
+    "Html": "<p>I originally posted this issue to David who was kind enough to respond but who had no solution--I finally found a way to change the background color of the PropertyGrid and it is posted as my response to David's response to my original question about this  bug below.</p>\n<p>I assumed that the PropertyGrid had a parent that also need to be colored BUT it was my own fault because&nbsp;I was loading the library from an older copy of the DLL without my changes in the constructor of the PropertyGrid. &nbsp;Usually I add the DLL of the library from the directory where it is created to..</p>\n<p>Please accept my apology!</p>\n<p>Original question:</p>\n<p>Hi, First, you are a genius! Incredible piece of work... Congratulations!</p>\n<p>I was trying to change the default color of the PropertyGrid. <br /> It seemns that the PropertyGrid in your latest SilverlightClient code has a background and a border that are both Yellow.</p>\n<p>I was able to change the default color of the background of the PropertyGrid from Yellow to Gray BUT the border of the PropertyGrid still remains Yellow no matter what changes I make--I changed all the \"yellow\" colors to \"gray\" but the border of the PropertyGrid  is still Yellow!<br /> <br /> Could you please tell me how to change both the&nbsp;background&nbsp;AND the BORDER&nbsp;of the PropertyGrid to Gary so that the entire PropertyGrid is Gray?<br /> <br /> How to change the background color of the Status message to gray?</p>\n<p>Thank you!</p>",
+    "PostedDate": "2012-02-19T05:14:34.067-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "796558",
+    "ThreadId": "326847",
+    "Html": "<p>Not sure why this is not working for you.&nbsp; You are making changes in DrawingHost.﻿CreatePropertyGrid() right? I believe the border is black not yellow. You would change it to gray by changing the BorderBrush.&nbsp; For the status message make similar changes to ﻿﻿﻿﻿﻿﻿DrawingHost.CreateStatusBar().</p>",
+    "PostedDate": "2012-02-22T17:20:21.323-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "799609",
+    "ThreadId": "326847",
+    "Html": "<p>Hi, Thank you for responding.... I FOUND my mistake in painting the background of your PropertyGrid. &nbsp;&nbsp;</p>\n<p>I originally posted this issue to David who was kind enough to respond but who had no solution--I finally found a way to change the background color of the PropertyGrid and it is posted as my response to David's response to my original question about this bug below.</p>\n<p>I assumed that the PropertyGrid had a parent that also need to be colored BUT it was my own fault because&nbsp;I was loading the library from an older copy of the DLL without my changes in the constructor of the PropertyGrid. &nbsp;Usually I add the DLL of the library from the directory where it is created to..</p>\n<p>Please accept my apology!</p>\n<p><strong>// FIX ---&gt;&nbsp;This is how to change background color of PropertyGrid !!! &nbsp;&nbsp;</strong></p>\n<p>drawingHost.PropertyGrid.Margin = new Thickness(0);&nbsp; &nbsp; <br /> drawingHost.PropertyGrid.Background = new SolidColorBrush(Color.FromArgb(200, 213, 220, 232));&nbsp; &nbsp; drawingHost.PropertyGrid.<span style=\"color: #ff0000;\"><strong>Parent</strong></span>.SetValue(BackgroundProperty, <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;new SolidColorBrush(Color.FromArgb(200, 213, 220, 232)));</p>\n<p><strong>This \"solution\" I found was actually working on the OLDER copy of the library where the DLL had it set to yellow in the constructor of the PropertyGrid !</strong></p>\n<p>It was my fault. But this mistake does point out the need to make sure you are loading the NEW version of the library &nbsp;in VisualStudio.</p>",
+    "PostedDate": "2012-02-24T13:16:54.98-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

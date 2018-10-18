@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2010-08-27T00:50:16.3-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "A radio button would be very useful. Perhaps it could be an overload of the Domain attribute. For example Domain(\"Go\",\"Stop\",\"Wait\").\n \nDone",
+    "LastUpdatedDate": "2017-12-08T06:49:24.78-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "LiveGeometry",
+    "ReportedDate": "2010-05-04T08:44:28.173-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Radio Button for Property Grid",
+    "Type": {
+      "Name": "Feature",
+      "Id": 1
+    },
+    "VoteCount": 1,
+    "Id": 5938
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Can you try to create a property of type Enum? E.g. public enum States { Go, Stop, Wait } and then public States MyStates { get; set; }. It should pick up the EnumEditor and show a combobox.\r\nIf this doesn't work, I can easily extend EnumEditor to show RadioButtons instead of comboboxes.",
+      "PostedDate": "2010-05-04T09:12:27.73-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-08-27T00:49:42.33-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Resolved with changeset 56527.",
+      "PostedDate": "2010-08-27T00:50:16.3-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-14T12:31:52.62-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T02:52:50.663-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-12-08T06:49:24.78-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

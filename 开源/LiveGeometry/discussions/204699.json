@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "417193",
+    "ThreadId": "204699",
+    "Html": "<p>Hi,</p>\r\n<p>I have created a shape with line point and bezier points, I was wondering if there&acute;s a way to fill that shape, the same way you can fill a polygon.</p>\r\n<p>Congratulation on the project, its a great tool.</p>",
+    "PostedDate": "2010-03-11T14:47:55.08-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "417597",
+    "ThreadId": "204699",
+    "Html": "<p>I agree that filling in a bezier would be useful.&nbsp; However I'm not yet sure how to best add this option.&nbsp; I just joined the project.&nbsp; This is probably one for Kirill.&nbsp; I'll create a &quot;Work Item&quot; for your request though and let you know if I or someone else gets it done.</p>",
+    "PostedDate": "2010-03-12T11:40:44.363-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "417607",
+    "ThreadId": "204699",
+    "Html": "<div style=\"color:Black;background-color:White\">\r\n<pre><p>Thanks David,<br><br>I try to do it myself, I create a PolyBezierBase that inherits from ShapeBase&lt;System.Windows.Shapes.Path&gt;, and a Polybeziere with this UpdateVisual override</p><br><span style=\"color:Blue\"><br>public</span> <span style=\"color:Blue\">override</span> <span style=\"color:Blue\">void</span> UpdateVisual()\r\n    {\r\n      <span style=\"color:Blue\">var</span> geometry = <span style=\"color:Blue\">new</span> PathGeometry();\r\n      <span style=\"color:Blue\">foreach</span> (Bezier dependency <span style=\"color:Blue\">in</span> Dependencies)\r\n      {\r\n        <span style=\"color:Blue\">var</span> Figure = <span style=\"color:Blue\">new</span> PathFigure();\r\n        <span style=\"color:Blue\">var</span> BezierShape = <span style=\"color:Blue\">new</span> BezierSegment();\r\n        <span style=\"color:Blue\">var</span> p0 = dependency.Point(0);\r\n        <span style=\"color:Blue\">var</span> p1 = dependency.Point(1);\r\n        <span style=\"color:Blue\">var</span> p2 = dependency.Point(2);\r\n        <span style=\"color:Blue\">var</span> p3 = dependency.Point(3);\r\n\r\n        Figure.StartPoint = Drawing.CoordinateSystem.ToPhysical(p0);\r\n        BezierShape.Point1 = Drawing.CoordinateSystem.ToPhysical(p1);\r\n        BezierShape.Point2 = Drawing.CoordinateSystem.ToPhysical(p2);\r\n        BezierShape.Point3 = Drawing.CoordinateSystem.ToPhysical(p3);\r\n\r\n        Figure.IsClosed = <span style=\"color:Blue\">true</span>;\r\n        Figure.IsFilled = <span style=\"color:Blue\">true</span>;\r\n        Figure.Segments = <span style=\"color:Blue\">new</span> PathSegmentCollection(){BezierShape};\r\n        geometry.Figures.Add(Figure);\r\n      }\r\n      geometry.FillRule = FillRule.Nonzero;\r\n      Shape.Data = geometry;\r\n    }\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>But its not draggable and the FillRule don't seem to be applying. Anyway thanks, I will be checking for updates.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-03-12T12:07:46.14-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "418022",
+    "ThreadId": "204699",
+    "Html": "<p>Hi, you might want to check out the implementation of Bezier or Circle or Ellipse.</p>\r\n<p>IsClosed and IsFilled is the right way to go.</p>\r\n<p>I think we should generalize the Bezier example (the simple bezier curve) and change it to Path. One could keep adding segments, bezier curves and arcs to the Path. However this is something for a future version.</p>",
+    "PostedDate": "2010-03-14T16:41:44.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

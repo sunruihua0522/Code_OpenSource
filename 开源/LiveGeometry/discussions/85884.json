@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "292435",
+    "ThreadId": "85884",
+    "Html": "<p>Hello everyone and hello again Kirill. &nbsp;I'd like to offer to add three transformations to Live Geometry (LG). &nbsp;They are: rotation about a point by a measure, dilation about a point by a factor, and translation in a direction by a magnitude. &nbsp;I've been looking through the source code and I have an idea how to go about it.</p>\r\n<ul>\r\n<li>Make creators (much like ReflectionCreator class)</li>\r\n<li>Add three methods to Transformer class</li>\r\n<li>Add corresponding methods in Factory</li>\r\n<li>Add methods needed for dilating and translating (rotating is already there) to Math</li>\r\n</ul>\r\n<p>Some more thought about it.</p>\r\n<ul>\r\n<li>Perhaps we need a new Transform menu with Reflect, Dilate, Rotate, Translate as submenus. &nbsp;This would move Reflect from where it currently is. For example, this is how it is organized in <a title=GeoGebra href=\"http://www.geogebra.org/\">GeoGebra</a>.</li>\r\n<li>Rotating and dilating could be done by clicking a point and entering an amount.</li>\r\n<li>Translating could be done by entering both the mag and dir.</li>\r\n<li>Down the road, scaling can be added to the set of transformations. &nbsp;Unlike dilating, it can be anisotropic (different scale in different directions).</li>\r\n</ul>\r\n<p>I hope to make more contributions down the road. &nbsp;What's happening is I created a program for math teachers called Tabula. It's commercial. &nbsp;In Tabula one can cut, tape, fold, transform shapes and more. &nbsp;It does not have true dynamic relationships like LG and it is only available on MacOS. &nbsp;So for the next version I'd like to use the LG library and adapt it to my needs. &nbsp;But there is much that these programs have in common. &nbsp;And so I'd like to help contribute where suitable but also diverge. If you want to take a look at Tabula it's at my <a href=\"http://www.numeracyworks.com/Site/Home.html\">Numeracy Works</a> website. &nbsp;I'm not much of a programmer (I &nbsp;taught math for 10 years and have only programmed for 2, and that was in Objective-C) but I hope I can add some worthwhile functionality.</p>\r\n<p>So Kirill, I think I must ask you, can I become one of the developers? &nbsp;Or would it be better if I worked separately? &nbsp;Or is there another way to go about this?</p>\r\n<p>Thanks to all involved in LG,</p>\r\n<p>David</p>",
+    "PostedDate": "2010-02-18T16:54:00.567-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "304419",
+    "ThreadId": "85884",
+    "Html": "<p>I have a set of transformations working.&nbsp; <a href=\"http://www.utipu.com/app/tip/id/23436\">Here is a video showing how they work</a>.&nbsp; This is just one approach.&nbsp; What does everyone think?</p>",
+    "PostedDate": "2010-02-20T07:07:13.973-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "357093",
+    "ThreadId": "85884",
+    "Html": "<p>Hi David!</p>\r\n<p>This is awesome! I've added you as a developer and you're welcome to check in.</p>\r\n<p>Have fun!</p>\r\n<p>Kirill</p>",
+    "PostedDate": "2010-02-21T18:31:03.923-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "363289",
+    "ThreadId": "85884",
+    "Html": "<p>I saw your checkin! Great stuff. I've edited the .csproj files to include your files in the projects.</p>",
+    "PostedDate": "2010-02-23T10:39:21.333-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "363751",
+    "ThreadId": "85884",
+    "Html": "Kirill, thanks for doing that for me.  I think I get it now.<br><br>David",
+    "PostedDate": "2010-02-24T09:32:14.01-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

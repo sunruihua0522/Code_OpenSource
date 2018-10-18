@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "455044",
+    "ThreadId": "215901",
+    "Html": "<p>hi!</p>\r\n<p>Is there a full documentation for this project?</p>\r\n<p>thanks</p>",
+    "PostedDate": "2010-06-13T23:06:47.033-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "459238",
+    "ThreadId": "215901",
+    "Html": "<p>No, nothing like full documentation is available.&nbsp; Have you seen Kirill's 5 minute crash course video? Click on the Home tab.&nbsp; Better yet, if you have the time watch&nbsp;the screencast he gave at a recent event at <a href=\"http://events.boostweb20.com/Events/SeattleCodeCamp2010/default.aspx#state=sessionCode$2011-6\">http://events.boostweb20.com/Events/SeattleCodeCamp2010/default.aspx#state=sessionCode%242011-6</a>.&nbsp; It's long but informative.&nbsp; When you follow that link look for the green play button to get the video started.</p>\r\n<p>David</p>",
+    "PostedDate": "2010-06-23T19:56:07.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

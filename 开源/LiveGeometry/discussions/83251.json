@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "286223",
+    "ThreadId": "83251",
+    "Html": "<p>Hi Kirill,</p>\r\n<p>is it possible to rotate something like a selected polygon or other shapes or selected figures?</p>\r\n<p>If not jet possible, how can I implement something like this?</p>\r\n<p>Regards,</p>\r\n<p>Michael</p>",
+    "PostedDate": "2010-02-05T05:49:20.763-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "286706",
+    "ThreadId": "83251",
+    "Html": "<p>Hi Michael,</p>\r\n<p>it's not yet possible and it will require some thinking. Ideally it would be great to take a look at existing programs to see how they do it. There usually is one green &quot;anchor&quot; point for every selected figure and everything rotates around this figure.</p>\r\n<p>I can't promise implementing it in the near future since I'm very busy these days. However if you'd want to implement it yourself, I'd start with a new behavior based on Dragger (possible called RotationBehavior?)</p>\r\n<p>Maybe in a couple of months I'll get to it...</p>\r\n<p>Thanks,</p>\r\n<p>Kirill</p>",
+    "PostedDate": "2010-02-06T16:34:20.56-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

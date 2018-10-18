@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Doesn't repro on Silverlight 2 Beta 2 anymore.",
+    "ClosedDate": "2008-06-14T00:29:37.7-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Happens when undoing changes and the undo stack Scroll textbox is being updated.\n \n>\tSystem.Windows.dll!System.Windows.DependencyPropertyChangedWeakListener.Disconnect() + 0x4c bytes\t\n \tSystem.Windows.dll!System.Windows.DependencyPropertyChangedWeakListener.SourcePropertyChanged(System.Windows.DependencyObject c = {System.Windows.Controls.ScrollViewer}, System.Windows.DependencyProperty dp = {System.Windows.CustomDependencyProperty}) + 0x7f bytes\t\n \tSystem.Windows.dll!System.Windows.FrameworkElement.OnPropertyChanged(System.Windows.DependencyProperty dp = {System.Windows.CustomDependencyProperty}) + 0xa2 bytes\t\n \tSystem.Windows.dll!System.Windows.DependencyObject.RaisePropertyChangeNotifications(System.Windows.DependencyProperty dp = {System.Windows.CustomDependencyProperty}, object newValue = 278.11328125, object oldValue = 362.62744140625) + 0xbb bytes\t\n \tSystem.Windows.dll!System.Windows.DependencyObject.SetValueInternal(System.Windows.DependencyProperty dp = {System.Windows.CustomDependencyProperty}, object value = 278.11328125, bool isSetByStyle = false, bool isSetByBuiltInStyle = false) + 0xa3f bytes\t\n \tSystem.Windows.dll!System.Windows.DependencyObject.SetValueInternal(System.Windows.DependencyProperty dp = {System.Windows.CustomDependencyProperty}, object value = 278.11328125) + 0x2d bytes\t\n \tSystem.Windows.dll!System.Windows.DependencyObject.SetValue(System.Windows.DependencyProperty property = {System.Windows.CustomDependencyProperty}, double d = 278.11328125) + 0xb8 bytes\t\n \tSystem.Windows.dll!System.Windows.Controls.ScrollViewer.UpdateScrollInfo() + 0x5c6 bytes\t\n \tSystem.Windows.dll!System.Windows.Controls.ScrollContentPresenter.MeasureOverride(System.Windows.Size constraint = {964.415222167969,398}) + 0x549 bytes\t\n \tSystem.Windows.dll!System.Windows.FrameworkElement.MeasureOverride(System.IntPtr nativeTarget = 157001624, float inWidth = 964.4152, float inHeight = 398.0, out float outWidth = 0.0, out float outHeight = 0.0) + 0x104 bytes\t\n \t[Native to Managed Transition]\t\n \t[Managed to Native Transition]\t\n \tSystem.Windows.dll!MS.Internal.XcpImports.MeasureOverride(System.IntPtr ptr = 70603456, System.Windows.Size availableSize = {982.415222167969,398}) + 0x8e bytes\t\n \tSystem.Windows.dll!System.Windows.FrameworkElement.MeasureOverride(System.Windows.Size availableSize = {982.415222167969,398}) + 0x52 bytes\t\n \tSystem.Windows.dll!System.Windows.Controls.Grid.MeasureOverride(System.Windows.Size constraint = {982.415222167969,398}) + 0x41 bytes\t\n \tSystem.Windows.dll!System.Windows.FrameworkElement.MeasureOverride(System.IntPtr nativeTarget = 70603456, float inWidth = 982.4152, float inHeight = 398.0, out float outWidth = 0.0, out float outHeight = 0.0) + 0x104 bytes\t\n \t[Native to Managed Transition]\t\n \t[Managed to Native Transition]\t\n \tSystem.Windows.dll!MS.Internal.XcpImports.MeasureOverride(System.IntPtr ptr = 70671856, System.Windows.Size availableSize = {984.415222167969,400}) + 0x8e bytes\t\n \tSystem.Windows.dll!System.Windows.FrameworkElement.MeasureOverride(System.Windows.Size availableSize = {984.415222167969,400}) + 0x52 bytes\t\n \tSystem.Windows.dll!System.Windows.FrameworkElement.MeasureOverride(System.IntPtr nativeTarget = 70671856, float inWidth = 984.4152, float inHeight = 400.0, out float outWidth = 0.0, out float outHeight = 0.0) + 0x104 bytes\t\n \t[Native to Managed Transition]\t\n \t[Managed to Native Transition]\t\n \tSystem.Windows.dll!MS.Internal.XcpImports.MeasureOverride(System.IntPtr ptr = 48979496, System.Windows.Size availableSize = {984.415222167969,400}) + 0x8e bytes\t\n \tSystem.Windows.dll!System.Windows.FrameworkElement.MeasureOverride(System.Windows.Size availableSize = {984.415222167969,400}) + 0x52 bytes\t\n \tSystem.Windows.dll!System.Windows.Controls.ScrollViewer.MeasureOverride(System.Windows.Size constraint = {984.415222167969,400}) + 0x4f bytes\t\n \tSystem.Windows.dll!System.Windows.FrameworkElement.MeasureOverride(System.IntPtr nativeTarget = 48979496, float inWidth = 984.4152, float inHeight = 400.0, out float outWidth = 0.0, out float outHeight = 0.0) + 0x104 bytes\t\n \t[Native to Managed Transition]\t\n \t[Managed to Native Transition]\t\n \tSystem.Windows.dll!MS.Internal.XcpImports.MeasureOverride(System.IntPtr ptr = 67138352, System.Windows.Size availableSize = {1276,808}) + 0x8e bytes\t\n \tSystem.Windows.dll!System.Windows.FrameworkElement.MeasureOverride(System.Windows.Size availableSize = {1276,808}) + 0x52 bytes\t\n \tSystem.Windows.dll!System.Windows.Controls.Grid.MeasureOverride(System.Windows.Size constraint = {1276,808}) + 0x41 bytes\t\n \tSystem.Windows.dll!System.Windows.FrameworkElement.MeasureOverride(System.IntPtr nativeTarget = 67138352, float inWidth = 1276.0, float inHeight = 808.0, out float outWidth = 0.0, out float outHeight = 0.0) + 0x104 bytes\t\n \t[Appdomain Transition]\t\n \t[Native to Managed Transition]",
+    "LastUpdatedDate": "2013-05-16T02:52:54.62-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "LiveGeometry",
+    "ReportedDate": "2008-05-25T18:28:43.103-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "NullReferenceException in DependencyPropertyChangedWeakListener.Disconnect()",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 970
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

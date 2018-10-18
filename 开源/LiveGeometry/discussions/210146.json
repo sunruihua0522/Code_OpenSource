@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "434011",
+    "ThreadId": "210146",
+    "Html": "<p>I apologize for any&nbsp;potential inconvenience. Live Geometry is still in it's active development stages, and I still rename types once in a while.</p>\r\n<p>Loading and saving figures is implemented using reflection, where type names are important. When I rename a type, all saved drawings that use that type automatically become broken. Unfortunately there is no way for me to track already saved drawings. If you have any trouble opening your .lgf or .dgf files, paste here the XML and I will fix it for you.</p>\r\n<p>Thanks!</p>\r\n<p>Kirill</p>",
+    "PostedDate": "2010-04-21T23:24:34.6-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

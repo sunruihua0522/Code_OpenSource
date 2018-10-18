@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "785629",
+    "ThreadId": "332591",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>From inside say Page.cs... How would you programatically click one of the ToolButtons?</p>\r\n<p>I tried several ways but in evertry case I keep getting a null exception.</p>\r\n<p>So if I want to Click a toolButton programatically from inside of Page.cs how do you do it?</p>\r\n<p>The method calls made and properties set by clicking a button would be easier to work with if they were reachable from Page.cs.</p>\r\n<p>Can you give us one example of how to click a toolbutton programatically? Thanks!</p>\r\n",
+    "PostedDate": "2012-02-20T13:28:44.987-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

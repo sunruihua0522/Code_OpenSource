@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "226350",
+    "ThreadId": "66607",
+    "Html": "<p>This tool is really awesome.&nbsp;It's&nbsp;similar to the skectch environments of&nbsp;the current CAD modelling packages like Autodesk Inventor,&nbsp;SolidWorks,&nbsp;Alibre, etc. I've used each of these often over 25 years of CAD experience. I wanted to suggest a few things&nbsp;for you to&nbsp;consider&nbsp;adding to your tool, if you want to keep expanding it functionalilty.</p>\r\n<p>1.&nbsp;The ability to add contstraints to line segments *AFTER* they are created, specifially&nbsp;&quot;Horizontal&quot; and &quot;Vertical&quot;.&nbsp; The&nbsp;commercial packages I mentiond above all have these two constraints&nbsp;and it is one of the&nbsp;foundational&nbsp;steps of creating a sketch. Often, like in a square, you first draw the square at any arbitrary angle, then add a Horizontal constraint to the botom&nbsp;segment, and since&nbsp;the other segments are alreay linked by &quot;Perpendicular&quot; contstraints, the entire square will then re-align based on this one new contraint.</p>\r\n<p>2. The ability to apply a &quot;Perpendicular&quot; contraint between two existing line segments.&nbsp; Your tool already has Perpendicular segment, but requires it to be done at the time of creating the segment, and it also make an infinite length line, whereas you often want to apply a Perpendicar constraint to existing segments that are of finite length.</p>\r\n<p>3. The ability to add a &quot;Coincident&quot; constraint between two existing points. Again, your tool certainly has the concept of Coincident contraints, but again, they must be applied at the time of creation, whereas the commercial packages allow you to add this &quot;Coincident&quot; constraint after the fact.</p>\r\n<p>4. The ablity to &quot;Trim&quot; segments. So that if you have lines or arcs that intersect (and cross each other), you can trim off the part you do not want and it trims is back and creates.</p>\r\n<p>It's interesting (and&nbsp;actually a common workflow)&nbsp;to draw a bunch of disconnected segments, then begin&nbsp;applying the Coincident, Hor, Ver, Perpendicular constraints, and a few Trim operations and watch your sketch come together into a fully constrained skectch.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-08-21T07:55:18.993-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "226457",
+    "ThreadId": "66607",
+    "Html": "<p>Wow, these are nice ideas Matt. I haven't had any exposure to CAD tools so this is certainly helpful. This definitely goes into my to-do list.</p>\r\n<p>Also, you can potentially do more along these lines - put a constraint on a point to be always a given distance away from another point (constrain it to a circle), fix the angle between three points, etc. This way you can model linkages or &quot;matchstick&quot;-constructs that have certain degrees of freedom but are fixed otherwise. I also need to look more into, as you say, converting lines to segments and rays by clipping, allowing rays and segments to be perpendicular, etc.</p>",
+    "PostedDate": "2009-08-21T11:20:56.85-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "226529",
+    "ThreadId": "66607",
+    "Html": "<p>I&nbsp; second matt's opinion that is a really awesome tool.&nbsp;&nbsp; I think you have done a great job in building a framework that takes a sketching approach&nbsp;(see CAD mentioned by Matt).&nbsp; There are alot of packages out there that do a drawing approach (e.g. paint.net, inkscape,&nbsp;exp.&nbsp;design, illustrator, ), but none really give you good ways to create plane geometry.&nbsp; Hope you continue with the project!</p>",
+    "PostedDate": "2009-08-21T14:24:19.673-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

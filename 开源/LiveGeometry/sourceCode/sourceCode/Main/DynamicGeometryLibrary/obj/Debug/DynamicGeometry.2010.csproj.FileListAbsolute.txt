@@ -1,0 +1,2 @@
+C:\Code\开源\LiveGeometry\sourceCode\sourceCode\Main\DynamicGeometryLibrary\obj\Debug\DynamicGeometry.2010.csprojAssemblyReference.cache
+C:\Code\开源\LiveGeometry\sourceCode\sourceCode\Main\DynamicGeometryLibrary\obj\Debug\DynamicGeometry.2010.csproj.CoreCompileInputs.cache

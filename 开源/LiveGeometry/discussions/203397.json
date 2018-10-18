@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "412644",
+    "ThreadId": "203397",
+    "Html": "<p>Hello,</p>\r\n<p>Before anything, congratulations to Live Geometry developers and contributors. It is really a great tool.</p>\r\n<p>I am using Live Geometry to place some key points above an image. The points should be draggable around. They will be connected so it is kind a polygon. The coordinate system should be the same as image system, because I'll use those positions for computation. But I can't find a simple example on documentation, which shows direct point placing like in the home page's CAD example.</p>\r\n<p>Some guidelines would be great.</p>\r\n<p>Regards</p>\r\n<p><br>EDIT: I am actually able to add a point but it is placed always on the same location. And I always get only a number.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-03-01T04:25:35.06-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "418019",
+    "ThreadId": "203397",
+    "Html": "<p>Hi,</p>\r\n<p>I'm not quite sure what exactly do you want to achieve. Right now we support two ways to create a point - by clicking when the Point tool is active, the point will appear where you clicked. Also, you can enter the two coordinate values when the tool is active and the point will be created there.</p>\r\n<p>When you say you're &quot;able to add a point&quot;, do you mean you're able to write some code to implement this, or does the program already do this? What location is the point placed? What kind of number are you getting? Have you written some custom code or you're just using the current code that we have? If you've written some code, perhaps posting it might help us understand what's going on.</p>\r\n<p>Thanks!</p>",
+    "PostedDate": "2010-03-14T16:36:48.7-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

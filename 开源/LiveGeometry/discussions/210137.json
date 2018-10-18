@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "433982",
+    "ThreadId": "210137",
+    "Html": "<p>Hi folks,</p>\r\n<p>so I've been thinking about how we go about implementing the following behaviors:</p>\r\n<ul>\r\n<li>snap a point to a ILinearFigure (line, circle, arc, bezier or function graph)</li>\r\n<li>release a point from an ILinearFigure</li>\r\n<li>snap a point to become an intersection point</li>\r\n<li>release an intersection point</li>\r\n<li>cut a line from one side to become a ray</li>\r\n<li>cut a line from both sides to become a segment</li>\r\n<li>extend a ray to become a line</li>\r\n<li>extend a segment to become a line</li>\r\n<li>cut a circle to become an arc</li>\r\n<li>extend an arc to become a circle</li>\r\n</ul>\r\n<p>and it looks like the best way to do this would be to use ReplaceFigureAction&nbsp;to replace a figure with another one.</p>\r\n<p>Let me know what your thoughts are.</p>\r\n<p>Thanks,</p>\r\n<p>Kirill</p>",
+    "PostedDate": "2010-04-21T21:48:46.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

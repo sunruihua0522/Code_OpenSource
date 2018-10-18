@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "439117",
+    "ThreadId": "211607",
+    "Html": "<p>Hi all,</p>\r\n<p>I thought I'd share my plans regarding what I'm going to be doing next. The prototype of Live Geometry is an old program I created during 1999-2002 called DG. You can download it at <a href=\"http://dg.osenkov.com\">http://dg.osenkov.com</a> and read more about it here: <a href=\"http://kirillosenkov.blogspot.com/2007/12/dg-10-free-dynamic-geometry-software.html\">http://kirillosenkov.blogspot.com/2007/12/dg-10-free-dynamic-geometry-software.html</a></p>\r\n<p>My next plans would be to reach functional parity with this program: I want Live Geometry to be able to do everything that DG does. I can already import DG files (in .dgf format), so you can play with the library of drawings (downloadable from the link above) and import them into Live Geometry.</p>\r\n<p>Features still missing (and that I'm going to add next):</p>\r\n<ol>\r\n<li>PropertyGrid support for multiple selected objects (show the intersection of properties and methods)</li>\r\n<li>List of all figures as a listbox that supports multiple selection</li>\r\n<li>Step-by-step construction playback</li>\r\n<li>Snap points to figures, release points from figures</li>\r\n<li>Buttons that hide/show objects</li>\r\n<li>Hyperlink buttons</li>\r\n<li>and some very minor details here and there</li>\r\n</ol>",
+    "PostedDate": "2010-05-04T23:07:17.75-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "500601",
+    "ThreadId": "211607",
+    "Html": "<p>Hi Kirill,</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp; Live Geometry is quite the project! I wanted to try importing real CAD geometry into the drawing. How are you importing .dgf files?</p>\r\n<p>Thanks,</p>\r\n<p>Trent</p>",
+    "PostedDate": "2010-09-30T09:58:37.41-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "",
+    "LastUpdatedDate": "2017-12-08T06:55:20.57-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "LiveGeometry",
+    "ReportedDate": "2009-06-26T15:49:48.997-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Add other transformation tools, create a transformation definition framework",
+    "Type": {
+      "Name": "Feature",
+      "Id": 1
+    },
+    "VoteCount": 1,
+    "Id": 3808
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": " Copied from work item 3776\n6/22/2009 9:24:35 PMCreated by KirillOsenkov_cp6/26/2009 10:49:38 PMEdited by KirillOsenkov_cp\n",
+      "PostedDate": "2009-06-26T15:49:48.997-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2009-08-09T09:05:25.44-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Rotation, dilation, and translation added.  Still needs to be broadened into a framework.  Need to expose values (dilation factor, magnitude, direction) in properties grid.",
+      "PostedDate": "2010-03-04T08:35:50.657-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Associated with changeset 42502.",
+      "PostedDate": "2010-03-16T20:18:35.88-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Associated with changeset 42768.",
+      "PostedDate": "2010-03-25T08:30:07.363-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-12-08T06:55:20.57-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

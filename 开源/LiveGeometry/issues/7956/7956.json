@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Repro:\n \n1. Create a circle (using two points - the first way to create in the menu)\n2. Draw a line between the two points defining the circle.\n3. Create a macro as follows\n4. Select the two points on the circle for the inputs\n5. Select the circle and the radial line for the results.\n6. Now, run the macro. You will see that after creating two points, the circle and line do not appear as expected.",
+    "LastUpdatedDate": "2013-02-14T12:31:50.127-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "LiveGeometry",
+    "ReportedDate": "2011-01-22T19:11:00.423-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Macro tool doesn't work correctly.",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 7956
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

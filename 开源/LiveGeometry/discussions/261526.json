@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "628289",
+    "ThreadId": "261526",
+    "Html": "\r\n<p>Hello !</p>\r\n<p>Live Geometry seems very interesting but before starting a project and using it I would like some advices.</p>\r\n<p>I would like to retrieve geometries (polygons) from a custom database that stores geometries with the &quot;Geometry&quot; type of sqlserver. The final objective is to display them on a canvas, eventually modify them (using Live geometry tools ?) and save changes\r\n on the database. Does &quot;Live geometry&quot; seems a good tool for doing that ? Any idea of the easy way to do that ? It seems that live geometry has it's own &quot;Point&quot; class and it's not using existing wpf class... Does writing an adapter to convert sqlserver geometry\r\n to livegeometry &quot;Figures&quot; is possible ?</p>\r\n<p>&nbsp;</p>\r\n<p>Thank for any response,</p>\r\n",
+    "PostedDate": "2011-06-15T11:39:51.213-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "628315",
+    "ThreadId": "261526",
+    "Html": "<p>Hi,</p>\r\n<p>Live Geometry is a good tool for your purpose. Writing an adapter to convert SQL Server geometry to Live Geometry figures is very easy. Just use the Factory.CreatePolygon(...), Factory.CreatePoint(...) and similar methods.</p>\r\n<p>Thanks,</p>\r\n<p>Kirill</p>",
+    "PostedDate": "2011-06-15T12:10:48.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "645985",
+    "ThreadId": "261526",
+    "Html": "<p>Hello !</p>\r\n<p>Thanks for you help. I have a new question :</p>\r\n<p>I want to use the top left corner of my canvas as the orign point of the live geometry grid and keep the default WPF canvas coordinates system (X increasing on the right and Y increasing on the bottom). Is it possible to do that simply ? How ?</p>\r\n<p>Thank you</p>",
+    "PostedDate": "2011-07-22T02:15:00.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646958",
+    "ThreadId": "261526",
+    "Html": "<p>Take a look at the CoordinateSystem.cs class (<a href=\"http://livegeometry.codeplex.com/SourceControl/changeset/view/68218#963427\">http://livegeometry.codeplex.com/SourceControl/changeset/view/68218#963427</a>). There's Origin and there's UnitLength. By setting Origin to (0, 0) and UnitLength to 1.0 you can basically achieve what you want. You also need to flip the coordinates upside down (override the ToLogical() and ToPhysical() methods to not negate the Y coordinate). I can't tell if you'll need to derive from CoordinateSystem or you could get away with the existing one. If you end up needing minor modifications to the CoordinateSystem to get what you want, send us a patch and we'll look into making the change for you.</p>\r\n<p>Thanks,</p>\r\n<p>@KirillOsenkov</p>",
+    "PostedDate": "2011-07-25T00:24:21.927-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

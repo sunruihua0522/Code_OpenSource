@@ -1,0 +1,8 @@
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\CAD.CADFrame.resources
+obj\Debug\CAD.Properties.Resources.resources
+obj\Debug\CAD.csproj.GenerateResource.Cache
+bin\Debug\CAD.exe
+bin\Debug\CAD.pdb
+obj\Debug\CAD.exe
+obj\Debug\CAD.pdb

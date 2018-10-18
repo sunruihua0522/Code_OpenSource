@@ -1,0 +1,286 @@
+[
+  {
+    "Id": 970,
+    "Title": "NullReferenceException in DependencyPropertyChangedWeakListener.Disconnect()"
+  },
+  {
+    "Id": 3469,
+    "Title": "Undo action merging doesn't work"
+  },
+  {
+    "Id": 3470,
+    "Title": "Implement FunctionGraph the right way - more robust"
+  },
+  {
+    "Id": 3763,
+    "Title": "Use Isolated Storage to save and load drawings"
+  },
+  {
+    "Id": 3764,
+    "Title": "Allow to change the properties of labels (font, size, color, etc)"
+  },
+  {
+    "Id": 3765,
+    "Title": "Add proper serialization support to all figures"
+  },
+  {
+    "Id": 3766,
+    "Title": "Add point and figure labels that are bound to the figure"
+  },
+  {
+    "Id": 3767,
+    "Title": "Create hyperlink buttons and add support for properties and serialization"
+  },
+  {
+    "Id": 3768,
+    "Title": "Think about declarative serialization support (using attributes and reflection?)"
+  },
+  {
+    "Id": 3769,
+    "Title": "Edit figure style and attributes (ForeColor, FillColor, FontSize, etc)"
+  },
+  {
+    "Id": 3770,
+    "Title": "Add pictures"
+  },
+  {
+    "Id": 3771,
+    "Title": "Create a style library and stylesheet manager."
+  },
+  {
+    "Id": 3772,
+    "Title": "Save drawings as XAML"
+  },
+  {
+    "Id": 3773,
+    "Title": "Save drawings as BMP/JPG/GIF/PNG"
+  },
+  {
+    "Id": 3774,
+    "Title": "Add Angle bisector tool"
+  },
+  {
+    "Id": 3775,
+    "Title": "Convert inner angle to outer angle and vice versa by double-clicking or a button"
+  },
+  {
+    "Id": 3776,
+    "Title": "Add reflection"
+  },
+  {
+    "Id": 3777,
+    "Title": "Macros - define your own tools as a composition of primitive tools"
+  },
+  {
+    "Id": 3778,
+    "Title": "Add DLR scriptability to drawings (create drawings via an IronPython script)"
+  },
+  {
+    "Id": 3779,
+    "Title": "Add points, lines and circles defined by equations (y=ax+b etc.)"
+  },
+  {
+    "Id": 3780,
+    "Title": "Add vectors and vector operations"
+  },
+  {
+    "Id": 3781,
+    "Title": "Add Bezier curves"
+  },
+  {
+    "Id": 3782,
+    "Title": "Add buttons to show/hide sets of figures"
+  },
+  {
+    "Id": 3783,
+    "Title": "Add multi-selection functionality"
+  },
+  {
+    "Id": 3784,
+    "Title": "Better selection highlighting (then red/black)"
+  },
+  {
+    "Id": 3785,
+    "Title": "Add support for bulk changing figure properties and bulk deleting selected figures"
+  },
+  {
+    "Id": 3786,
+    "Title": "Add a Calculator to evaluate expressions (like a watch-window or an excel spreadsheet)"
+  },
+  {
+    "Id": 3787,
+    "Title": "Fullscreen"
+  },
+  {
+    "Id": 3788,
+    "Title": "Add ZoomIn/ZoomOut capabilities (buttons and mousewheel)"
+  },
+  {
+    "Id": 3789,
+    "Title": "Step-by-step construction playback"
+  },
+  {
+    "Id": 3790,
+    "Title": "Add a figure list dialog"
+  },
+  {
+    "Id": 3791,
+    "Title": "Option to rename a figure globally (updating all references)"
+  },
+  {
+    "Id": 3792,
+    "Title": "Add an AST and parser for expressions"
+  },
+  {
+    "Id": 3793,
+    "Title": "Add more program options (Tools Options) and default settings for figures"
+  },
+  {
+    "Id": 3794,
+    "Title": "Add support for Microsoft Surface and multi-touch using the Surface SDK"
+  },
+  {
+    "Id": 3795,
+    "Title": "Bring the WPF version on par with the Silverlight version in terms of exposed functionality"
+  },
+  {
+    "Id": 3798,
+    "Title": "Make sure the angle mark consists of two segments for 90 degree angles"
+  },
+  {
+    "Id": 3801,
+    "Title": "Need to fix how a point behaves on an arc"
+  },
+  {
+    "Id": 3802,
+    "Title": "Make reflection work on any figures, not just points"
+  },
+  {
+    "Id": 3808,
+    "Title": "Add other transformation tools, create a transformation definition framework"
+  },
+  {
+    "Id": 3934,
+    "Title": "ParallelogramCreator: problem after intersection1"
+  },
+  {
+    "Id": 3960,
+    "Title": "Ellipse"
+  },
+  {
+    "Id": 4069,
+    "Title": "Orientation causes visual issues"
+  },
+  {
+    "Id": 4190,
+    "Title": "Crash for self-referential functions"
+  },
+  {
+    "Id": 4198,
+    "Title": "The 5-point-egg macro causes a stack overflow"
+  },
+  {
+    "Id": 5284,
+    "Title": "log(x^2-x)"
+  },
+  {
+    "Id": 5446,
+    "Title": "Transformations - Rotation, Dilation, Translation"
+  },
+  {
+    "Id": 5546,
+    "Title": "Bezier Curve Fill"
+  },
+  {
+    "Id": 5567,
+    "Title": "Ellipse/Line intersection algorithm doesn't preserve orientation"
+  },
+  {
+    "Id": 5586,
+    "Title": "Use new IsFilled Property for HitTest?"
+  },
+  {
+    "Id": 5885,
+    "Title": "Some bugs"
+  },
+  {
+    "Id": 5890,
+    "Title": "Problem if dependent properties and dependency list are not one-to-one."
+  },
+  {
+    "Id": 5894,
+    "Title": "Some bugs 2"
+  },
+  {
+    "Id": 5938,
+    "Title": "Radio Button for Property Grid"
+  },
+  {
+    "Id": 5939,
+    "Title": "Editing drawing background color in Prop Grid -> problems."
+  },
+  {
+    "Id": 5953,
+    "Title": "User Guide And Documentation"
+  },
+  {
+    "Id": 6046,
+    "Title": "Bug with midpoint"
+  },
+  {
+    "Id": 6047,
+    "Title": "Macros missing"
+  },
+  {
+    "Id": 6071,
+    "Title": "Point by coordinates dependencies double (see ReverseEngineerBezier.lgf)"
+  },
+  {
+    "Id": 6668,
+    "Title": "problem with log() function"
+  },
+  {
+    "Id": 6670,
+    "Title": "Why dashTemplate's Default Value in lineStyle.cs is \"0 0\"?"
+  },
+  {
+    "Id": 7410,
+    "Title": "Problem in Deserialization"
+  },
+  {
+    "Id": 7430,
+    "Title": "Loading big .dxf files"
+  },
+  {
+    "Id": 7621,
+    "Title": "Loading file (.lgf) with polyline fails"
+  },
+  {
+    "Id": 7948,
+    "Title": "When you delete the coordinate grid..."
+  },
+  {
+    "Id": 7949,
+    "Title": "Check boxes do not sync"
+  },
+  {
+    "Id": 7956,
+    "Title": "Macro tool doesn't work correctly."
+  },
+  {
+    "Id": 8836,
+    "Title": "how to support image draw&drag in live geometry?"
+  },
+  {
+    "Id": 9176,
+    "Title": "2 errors:"
+  },
+  {
+    "Id": 11950,
+    "Title": ".res file missing in vb6"
+  },
+  {
+    "Id": 12251,
+    "Title": "Crash"
+  }
+]

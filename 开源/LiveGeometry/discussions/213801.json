@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "447226",
+    "ThreadId": "213801",
+    "Html": "<p><span style=\"font-size:10pt;color:black\">Dear all,</span></p>\r\n<p><span style=\"font-size:10pt;color:black\">My&nbsp;new features and functionality (CAD style) in the very beginning. I'm sorry if somebody&nbsp;has&nbsp;bad&nbsp;experience with some new change sets which I've uploaded to server. </span></p>\r\n<p><span style=\"font-size:10pt;color:black\">I'm hoping, these problems did not influence on your current work dramatically. I will try to avoid the same problem again.&nbsp; </span></p>\r\n<p><span style=\"font-size:10pt;color:black\">Thanks.</span></p>",
+    "PostedDate": "2010-05-25T10:59:43.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "447272",
+    "ThreadId": "213801",
+    "Html": "<p>No harm done.&nbsp; What you're doing is great but I agree with Kirill that the CAD features are a new direction that should fork off the main project.&nbsp; I face some of the same decisions as you.&nbsp; I'm developing a separate project and it&nbsp;is difficult to know when some functionality should be added to LG or to my separate code.&nbsp; I've more or less limited my contributions to LG to things that are general pupose, extensible, or stated in a work item.&nbsp; Oh yeah, and bug fixes.&nbsp; If you do choose to develop a CAD like adaptation, you and I can help Kirill keep LG extensible.</p>",
+    "PostedDate": "2010-05-25T12:34:25.093-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "801100",
+    "ThreadId": "213801",
+    "Html": "<p>Hi,</p>\r\n<p>You need to add a RECTANGLE where each side is parallel to an axis. This is the most useful shape in any CAD application and I am amzed you haven't added it? Why?</p>",
+    "PostedDate": "2012-02-26T17:19:21.067-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

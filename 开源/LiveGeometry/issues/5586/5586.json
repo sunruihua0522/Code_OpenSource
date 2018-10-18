@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2010-03-22T18:16:29.587-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Do we want to use the new (thanks for adding it Kirill) IsFilled ShapeStyle property for HitTests on ellipses, circles, arcs, and beziers?  My thought is that when one of these shapes is filled one should be able to select or drag it by clicking on the inside.  Perhaps this is already the plan, I just didn't know.\n \nDo we want an isStroke property?",
+    "LastUpdatedDate": "2013-05-16T02:52:51.527-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "LiveGeometry",
+    "ReportedDate": "2010-03-17T18:04:56.943-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Use new IsFilled Property for HitTest?",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 5586
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Resolved with changeset 42672.",
+      "PostedDate": "2010-03-22T18:16:29.587-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-14T12:31:53.363-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T02:52:51.527-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

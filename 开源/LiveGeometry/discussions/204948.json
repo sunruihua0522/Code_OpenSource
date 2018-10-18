@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "418059",
+    "ThreadId": "204948",
+    "Html": "<p>If your Silverlight or WPF project doesn't build, just do Rebuild all (right-click on Solution and select Rebuild). This is a bug where it doesn't rebuild the .dlls after you switch from Silverlight to WPF and back.</p>",
+    "PostedDate": "2010-03-14T21:04:40.507-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "418268",
+    "ThreadId": "204948",
+    "Html": "<p>Ah Ha!&nbsp; That little bug was getting me, but Rebuilding did the trick.</p>",
+    "PostedDate": "2010-03-15T08:19:49.323-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

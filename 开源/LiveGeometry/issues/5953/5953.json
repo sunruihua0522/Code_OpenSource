@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Shall we start thinking about a user guide?  I know it is early but I think we'd all benefit if features were documented as they are added.  For example, Max could document the upcoming Polar feature, Konstantinos (or was it Alex?) could document the Block feature.  Doing it in baby steps as we go seems smart.  Do we want a plain html user guide that shows up in a child window?  How about embedding some drawings?  I'm guessing we'll want to house the files on the web.  I just looked at Kirill's documentation of DG at http://dg.osenkov.com/download/en/DGUserGuideEn.pdf.  It might be a helpful reference in getting started.  I think documentation is one area that I can contribute - 10 years as a teacher hopefully did me some good.",
+    "LastUpdatedDate": "2013-02-14T12:31:52.27-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "LiveGeometry",
+    "ReportedDate": "2010-05-05T05:26:01.14-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "User Guide And Documentation",
+    "Type": {
+      "Name": "Feature",
+      "Id": 1
+    },
+    "VoteCount": 1,
+    "Id": 5953
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Yes, It would be very useful. For example some features I understood only after I saw video where Kirill explain functionality. Firstly we should select what kind of user guide it will be. The other thing that it has to look always the same. That's why we need to create rules or standard for such guide, or there must be one person who always will combined and edit (compile) all data from the other developers. In the last case I'm ready just write the text and prepare corresponding pictures in the determined (in rules) format for function that I've done. ",
+      "PostedDate": "2010-05-09T10:35:56.8-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-14T12:31:52.27-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

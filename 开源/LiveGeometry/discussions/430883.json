@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "992168",
+    "ThreadId": "430883",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>I was directed to this project from a MSDN forum post and I am&nbsp;definitely&nbsp;going to download the source and see if I can provide any useful contributions. I however need a quick pointer as to where to begin with my specific addition. Here is my\r\n business need and my thought is to just extend this product, satisfy my business need and submit the extension for review.</p>\r\n<p>My objective is to randomly create polygons for student analysis. The number of sides could be up to twenty and each length is random so...The number of sides would be randomly generated from 4-20 and then the length of each side would be randomly generated.\r\n Now to make things a bit more complicated I need the shape on some sort of a grid so students can calculate&nbsp;perimeter, area etc.</p>\r\n<p>So as I opened with I'm not asking anyone to do my job for me just point my nose in the right direction.</p>\r\n<p>Thank You</p>\r\n<p>JB</p>\r\n",
+    "PostedDate": "2013-01-25T09:35:27.833-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

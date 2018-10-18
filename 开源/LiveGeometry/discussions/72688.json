@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "248217",
+    "ThreadId": "72688",
+    "Html": "<p>Great software, Kirill!!!</p>\r\n<p>Is there the possibility to make an extension with Bezier curves? How to do this? I'm very interested in Bezier and Polybezier!</p>\r\n<p>Do you see any possibility in the near Future?</p>\r\n<p>Thanks, Michael.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-21T10:50:39.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "252047",
+    "ThreadId": "72688",
+    "Html": "<p>Hi Michael,</p>\r\n<p>adding Bezier support is really easy - I just spent half an hour and I have a&nbsp;minimal sample working: <a href=\"http://livegeometry.com\">http://livegeometry.com</a></p>\r\n<p>In a nutshell, I've just added two files:</p>\r\n<ol>\r\n<li><a href=\"http://livegeometry.codeplex.com/SourceControl/changeset/view/34442#598741\">http://livegeometry.codeplex.com/SourceControl/changeset/view/34442#598741</a>&nbsp;(Bezier.cs)</li>\r\n<li><a href=\"http://livegeometry.codeplex.com/SourceControl/changeset/view/34442#598742\">http://livegeometry.codeplex.com/SourceControl/changeset/view/34442#598742</a>&nbsp;(BezierCreator.cs)</li>\r\n</ol>\r\n<p>Let me know if this works for you. It&nbsp;should be easy to add further support (hit-testing, style support, polybeziers, etc.)</p>\r\n<p>Thanks,</p>\r\n<p>Kirill</p>",
+    "PostedDate": "2009-10-31T17:05:25.297-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "252230",
+    "ThreadId": "72688",
+    "Html": "<p>Check this out: <a href=\"http://blogs.msdn.com/kirillosenkov/archive/2009/11/01/bezier-curves-and-car-manufacturers.aspx\">http://blogs.msdn.com/kirillosenkov/archive/2009/11/01/bezier-curves-and-car-manufacturers.aspx</a></p>",
+    "PostedDate": "2009-11-01T17:14:29.907-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "252318",
+    "ThreadId": "72688",
+    "Html": "<p>Hi Kirill,</p>\r\n<p>many thanks for your reply and the code.</p>\r\n<p>I'll try it!</p>\r\n<p>Thanks,</p>\r\n<p>Michael</p>",
+    "PostedDate": "2009-11-02T01:20:20.593-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "286238",
+    "ThreadId": "72688",
+    "Html": "<p>Hi Kirill,</p>\r\n<p>it would be nice, if you find some time to implement Polybezier and hit-testing and style support for bezier curves and polybezier figures.</p>\r\n<p>Is this possible? It would be great if you can do this.</p>\r\n<p>Thanks,</p>\r\n<p>Michael</p>",
+    "PostedDate": "2010-02-05T06:27:12.487-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "286703",
+    "ThreadId": "72688",
+    "Html": "<p>I've just added Bezier hit-testing and style support. You can even place points on a Bezier curve.</p>\r\n<p>How would you like to see PolyBeziers? How should the user input it? What would be the dependencies?</p>",
+    "PostedDate": "2010-02-06T16:31:21.307-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

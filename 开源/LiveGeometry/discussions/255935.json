@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "605692",
+    "ThreadId": "255935",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>Hi,</p>\r\n<p>I would appreciate having some access to the LiveGeometry silverlight object from</p>\r\n<p>javascript, mainly, something like...&nbsp;</p>\r\n<p>LG.setXML(xml_drawing_string);<br>\r\nLG.getXML() -&gt;xml_drawing_string</p>\r\n<p>which would allow us to load and get the current Drawing's xml via javascript on the containing webpage.</p>\r\n<p>&nbsp;</p>\r\n<p>I have read...</p>\r\n<p>http://www.livegeometry.com/documentation<br>\r\nhttp://livegeometry.codeplex.com<br>\r\nhttp://blogs.msdn.com/b/kirillosenkov/&nbsp;</p>\r\n<p>and watched&nbsp;</p>\r\n<p><a href=\"http://events.boostweb20.com/Events/SeattleCodeCamp2010/default.aspx#state=sessionCode%242011-6\">http://events.boostweb20.com/Events/SeattleCodeCamp2010/default.aspx#state=sessionCode%242011-6</a></p>\r\n<p>internally LiveGeometry will follow LINKS and there is&nbsp;</p>\r\n<p>&lt;param name=&quot;initParams&quot; value=&quot;LoadFile=http://127.0.0.1:2/demo.xml,ShowToolbar=false&quot; /&gt;</p>\r\n<p>which aside from needing, a web server running with &nbsp;</p>\r\n<p>crossdomain.xml</p>\r\n<p>&lt;?xml version=&quot;1.0&quot;?&gt;</p>\r\n<p>&lt;!DOCTYPE cross-domain-policy SYSTEM &quot;http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd&quot;&gt;</p>\r\n<p>&lt;cross-domain-policy&gt;&lt;allow-http-request-headers-from domain=&quot;*&quot; headers=&quot;*&quot;/&gt;</p>\r\n<p>&lt;/cross-domain-policy&gt;</p>\r\n<p>in the root directory, works and is at least a start.</p>\r\n<p>Hopefully I missed part of the documentation, and a Live Geometry page (from a scripting perspective)&nbsp;<br>\r\nis less of an unreachable black box than&nbsp;it appears to be.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>thanks</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-05-01T21:14:19.67-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "609038",
+    "ThreadId": "255935",
+    "Html": "<p>Josh sorry for the delayed reply. Unfortunately I don't know almost anything about JavaScript so I didn't provide any interoperability with it. However this should be possible. If you'd be willing to figure it out and provide a patch, I could incorporate it into the product. Thanks! Kirill</p>",
+    "PostedDate": "2011-05-07T15:47:52.98-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I'd be embarassed to disclose the amount of time I have spent on this seemingly simple task.  Putting the drawing.cavas color in the property grid is easy.  The problem is that the color picker always inits with black which of course changes the canvas to black.  After the initial change to black it works fine.  I'm so frustrated with trying to fix this that I'm posting it here and hoping someone esle will have better luck.",
+    "LastUpdatedDate": "2013-02-14T12:31:52.447-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "LiveGeometry",
+    "ReportedDate": "2010-05-04T08:56:20.76-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Editing drawing background color in Prop Grid -> problems.",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 5939
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Don't worry David, I'll take care of it. This falls in line with my plans to fix the ColorPicker to be non-destructive",
+      "PostedDate": "2010-05-04T11:02:56.867-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-14T12:31:52.447-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

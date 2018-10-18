@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "673968",
+    "ThreadId": "273140",
+    "Html": "<p><span id=\"result_box\" lang=\"en\"><span>I want to hide</span> <span>a sub-</span><span>class</span> <span>FigureBase</span> <span>CreateNewStyle ().</span> <span>But found</span> <span>[PropertyGridVisible (false)]</span> <span>does not work.</span><br /><span>How do I resolve</span> <span>this problem</span><span>?</span></span></p>\n<p><span lang=\"en\"><span>&nbsp;</span></span><span lang=\"en\"><span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [PropertyGridVisible(false)]<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public override void CreateNewStyle()<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { base.CreateNewStyle(); }</span></span>\n<p>&nbsp;</p>\n</p>\n<p>\n<p><span lang=\"en\"><span><span lang=\"en\"><span><span id=\"result_box\" lang=\"en\"><span class=\"hps\">Others such as</span> <span class=\"hps\">the following</span><span>,</span> <span class=\"hps\">all</span> <span class=\"hps\">I want to hide</span><span>, because</span> <span class=\"hps\">these methods</span> <span class=\"hps\">have</span> <span class=\"hps\">abnormal behavior</span><span>.</span></span></span></span></span></span></p>\n</p>\n<p><span lang=\"en\"><span><span lang=\"en\"><span><span lang=\"en\"><span><span lang=\"en\"><span>﻿</span></span></span></span></span></span></span></span>SegmentBisector.cs , PerpendicularLine.cs , ParallelLine.cs:</p>\n<p><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [PropertyGridVisible(false)]<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public override void ConvertToRay()<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [PropertyGridVisible(false)]<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public override void ConvertToSegment()<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\n<p><span lang=\"en\"><span>﻿AngleBisector.cs :</span></span></p>\n<p><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [PropertyGridVisible(false)]<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public override void ConvertToLine()<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [PropertyGridVisible(false)]<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public override void ConvertToSegment()<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [PropertyGridVisible(false)]<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public override void Reverse()<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\n<p><span lang=\"en\"><span><span lang=\"en\"><span>﻿</span></span></span></span></p>\n<p><span lang=\"en\"><span>﻿</span></span></p>",
+    "PostedDate": "2011-09-19T18:00:12.99-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "674194",
+    "ThreadId": "273140",
+    "Html": "<p>I'm familiar with the problem.&nbsp; I'm going to let Kirill answer this one.</p>",
+    "PostedDate": "2011-09-20T06:54:36.97-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675003",
+    "ThreadId": "273140",
+    "Html": "<p><span id=\"result_box\" class=\"short_text\" lang=\"en\"><span class=\"hps\">Expect</span></span></p>",
+    "PostedDate": "2011-09-21T17:05:42.44-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

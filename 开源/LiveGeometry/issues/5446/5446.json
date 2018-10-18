@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2010-03-04T08:38:29.483-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Complete a set of basic transformations.  Reflection is already done and will serve as a model.",
+    "LastUpdatedDate": "2017-12-08T06:49:24.39-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "LiveGeometry",
+    "ReportedDate": "2010-02-22T16:20:52.597-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Transformations - Rotation, Dilation, Translation",
+    "Type": {
+      "Name": "Feature",
+      "Id": 1
+    },
+    "VoteCount": 0,
+    "Id": 5446
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "239770",
+    "ThreadId": "70399",
+    "Html": "<p>First of all, A great piece of work. Boy! there is lot to learn from your style of coding.</p>\r\n<p>Can you also consider creating an example where you click an intermediate figure under the mouse as soon as a tool is selected.</p>\r\n<p>&nbsp;</p>\r\n<p>Example: circle tool. &nbsp;Since you need two dependency list point-point so current behaviour is to get two points from the user before figure completion is completed.&nbsp;</p>\r\n<p>Other option will be, using a default radius a circle is&nbsp;immediately&nbsp;created with its center at current mouse position. User places it and then (if they wish) they can update it by&nbsp;dragging&nbsp;center/radius point.&nbsp;</p>\r\n<p>This is a big help if you have to create a lots of circles of uniform&nbsp;radius. The default radius can &nbsp;then be defined in the settings.</p>\r\n<p>&nbsp;</p>\r\n<p>I am trying extend your code to my particular needs. To summarize, I am working on extending your work on solving engineering calculations (solve graphically, circuit diagrams, solve automotive gearbox calculations where user will draw the gears).</p>\r\n<p>It would be a great help, if you can consider converting your classes to partial classes (which ever classes that can be changed to partial).</p>\r\n<p>That way, a user like me can extend the framework and also be in sync with your code.</p>\r\n<p>Once again, thanks a lot for your work. &nbsp;You are teaching lots of users by your work.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-09-28T18:29:52.463-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "240788",
+    "ThreadId": "70399",
+    "Html": "<p>Thanks a lot!</p>\r\n<p>I think that a tool could define a default dependency, but that would need some special casing. For your example, seems like the &quot;circle by radius&quot; tool would benefit from what you're saying - you set the radius once and then reuse it - click - click - click to create circles with that radius. I'll see what I can do. If you whip up some code - do let me know!</p>\r\n<p>I don't think converting all classes to partials would be a great idea - partial was not intended as an extensibility mechanism. Tell me how you'd like to extend the code (what would you like to add) and we'll figure out a clean architectural solution together. It would be super interesting and important for me to learn how to make my framework easily extensible given a real-world customer.</p>\r\n<p>I didn't seal any of the classes, so inheritance might be an option. As well as extension methods, aggregation, decorator pattern and lot's of other GoF-style goodies.</p>\r\n<p>That said, I will go ahead and unseal several primary classes by making them partial. You can give me a list of 5-10 classes and I will make them partial for now to unblock your work. However an even better alternative would be for you to describe what you want to achieve and I'll figure out a solution that possible doesn't involve partial classes :)</p>\r\n<p>Thanks!</p>\r\n<p>Kirill</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-10-01T01:01:47.857-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "240790",
+    "ThreadId": "70399",
+    "Html": "<p>Done!</p>\r\n<p><a href=\"http://livegeometry.codeplex.com/SourceControl/changeset/view/30823\">http://livegeometry.codeplex.com/SourceControl/changeset/view/30823</a></p>\r\n<p>Let me know if this helps!</p>",
+    "PostedDate": "2009-10-01T01:20:43.78-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "242614",
+    "ThreadId": "70399",
+    "Html": "<p>Thanks a lot for taking care of it.</p>\r\n<p>Regarding, completing the figure by defaults, I did not make any change to the base classes, I am just using cheap way by overriding click functions in my class and then calling base.click, multiple times followed by a modified mouse up call. I am sure this is&nbsp;not a best by to handle this scnario.</p>\r\n<p>Function that I miss most is the lack of Rotation implementation in the IFigure interface. The issue, is ; Since we did not implement any co-ordinate system in place while creating&nbsp;the graphic entities, We really can not use the magic of transformation matrix to redraw the figures at a given angle. That is something that you might want to think about. for future.</p>\r\n<p>Once again, this is a great piece of work. I admire your dedication to the project.</p>",
+    "PostedDate": "2009-10-06T09:55:54.45-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

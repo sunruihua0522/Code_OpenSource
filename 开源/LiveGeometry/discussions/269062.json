@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "658121",
+    "ThreadId": "269062",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>this is excellent stuff.</p>\r\n<p>I&nbsp;wants to use this to make a 3D software. But I am not able to get 3D coordinate system drawings&nbsp;.</p>\r\n<p>Could you please guide me how we can implement ,drawing a 3D shapes in LiveGeometry ?</p>\r\n",
+    "PostedDate": "2011-08-14T16:03:56.577-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "658140",
+    "ThreadId": "269062",
+    "Html": "<p>Unfortunately 3D is not supported.</p>",
+    "PostedDate": "2011-08-14T18:08:08.663-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

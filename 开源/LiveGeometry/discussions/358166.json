@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "844150",
+    "ThreadId": "358166",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I've been looking at the source code for a while now. &nbsp;I'm interested in creating new types of figures. &nbsp;I'm looking at how the figures&nbsp;are created to get a better understanding what to do to create a new figure, but I must be missing something.</p>\r\n<p>Take, for example, the ray and the segment. &nbsp;I think I understand the part about dependencies, and both these figures&nbsp;have the same point, point dependency. &nbsp;But where is it defined that the segment line ends at the second point and where\r\n the ray line continues on? &nbsp;I would think the segment and ray classes would have that kind of logic, but it doesn't look like it. &nbsp;</p>\r\n<p>Can someone point me in the right direction? thanks.</p>\r\n",
+    "PostedDate": "2012-06-03T17:37:49.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "852458",
+    "ThreadId": "358166",
+    "Html": "<p>Generally, all you need to define your own figure is the actual figure class, and a corresponding Creator class (that defines which dependencies are required to be entered&nbsp;by the user to fully specify your figure).</p>\r\n<p>Segment, Ray and Line all inherit from LineBase.</p>\r\n<p>LineBase defines a property called OnScreenCoordinates, which returns a PointPair of actual endpoints drawn in the viewport.</p>\r\n<p>The default LineBase implementation is just to return Coordinates (the two dependency points joined together).</p>\r\n<p>However Ray overrides this virtual property with an implementation which uses the first dependency point as is, and extends the second point of OnScreenCoordinates till the edge of the viewport.</p>\r\n<p>Line overrides this virtual property to extend both ends of the line to the edges of the viewport.</p>\r\n<p>The math to extend a line to end at the viewport edge is in Math.GetLineFromSegment().</p>\r\n<p>Hope this helps,</p>\r\n<p>Kirill</p>",
+    "PostedDate": "2012-06-22T00:10:01.963-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

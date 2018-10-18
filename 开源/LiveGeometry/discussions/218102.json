@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "462482",
+    "ThreadId": "218102",
+    "Html": "<p>Hi David and others,</p>\r\n<p>I'm looking at Settings.ClearSelectionOnAdd = true. There are two places in code where it is used:</p>\r\n<p>1. FigureCreator.Stopping:</p>\r\n<p>========================</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">public</span> <span style=\"color:blue\">override</span> <span style=\"color:blue\">void</span> Stopping()\r\n{\r\n    <span style=\"color:blue\">...</span></pre>\r\n<pre>    <span style=\"color:blue\">if</span> (Settings.ClearSelectionOnAdd)\r\n    {\r\n        Drawing.Figures.ClearSelection();\r\n    }\r\n\r\n</pre>\r\n</div>\r\n<p>========================</p>\r\n<p>2.</p>\r\n<p>========================</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">public</span> <span style=\"color:blue\">void</span> Add(IFigure figure)\r\n{\r\n    <span style=\"color:blue\">if</span> (Settings.ClearSelectionOnAdd)\r\n    {\r\n        Figures.ClearSelection();\r\n    }</pre>\r\n</div>\r\n<p>I'm thinking maybe we should juse remove both calls to ClearSelection and get rid of the setting.</p>\r\n<p>Thoughts?</p>\r\n<p>Thanks, Kirill</p>",
+    "PostedDate": "2010-07-01T23:04:23.45-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462619",
+    "ThreadId": "218102",
+    "Html": "Kirill,\r\n\r\nI added this setting as a way to change the behavior of the Dynamic Geometry library without having to subclass or replace a class altogether.  The ClearSelectionOnAdd settting was added because in Tabula (my adaption of the library) I would like figures to remain selected after they are added to the drawing.  So the default value for the DG Library is true, but I change this to false in Tabula.  This selection behavior is common for many vector drawing apps so I figure others who might also want to change the setting.  Without the ClearSelectionOnAdd setting developers like me would have to subclass or replace both FigureCreator and Drawing (plus make other related changes).\r\n\r\nSo with that said, is this a good strategy?  I think it and the other settings I added would be a nice convenience and not too much extra baggage.\r\n\r\nDavid",
+    "PostedDate": "2010-07-02T06:07:56.493-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462736",
+    "ThreadId": "218102",
+    "Html": "<p>Thanks David, this is a great change actually. I've switched the default to false for LiveGeometry as well. I'm thinking of completely deleting the setting and the code that clears the selection in those two places. Any objections?</p>",
+    "PostedDate": "2010-07-02T10:28:27.613-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "462748",
+    "ThreadId": "218102",
+    "Html": "No objections Kirill.  ( Glad to have you back! )",
+    "PostedDate": "2010-07-02T10:54:40.373-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

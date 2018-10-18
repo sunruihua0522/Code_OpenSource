@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "363501",
+    "ThreadId": "155586",
+    "Html": "<p>Hi everyone.</p>\r\n<p>I want to text figure enlargement by zoom in/out.</p>\r\n<p>How could it? Give me a some hint.</p>\r\n<p>Thank for your project and share it.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-02-23T19:13:34.087-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "418016",
+    "ThreadId": "155586",
+    "Html": "<p>Hello and sorry for the delayed reply,</p>\r\n<p>right now it's not possible but I imagine one could implement something like this by giving every Label a ScaleTransform and then just changing the ScaleX and ScaleY properties on the transform as the CoordinateSystem changes.</p>\r\n<p>I might implement this when I have some time.</p>",
+    "PostedDate": "2010-03-14T16:26:06.09-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "418461",
+    "ThreadId": "155586",
+    "Html": "<p>Thank you for your answer. :)</p>",
+    "PostedDate": "2010-03-15T16:08:08.727-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

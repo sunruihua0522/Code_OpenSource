@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "418455",
+    "ThreadId": "205046",
+    "Html": "<p>I was upgrading to the latest Silverlight 4 RC and noticed some compilation issue with TabControl. DynamicGeometry contains a TabControl with exactly the same namespace as the the one provided by the Silverlight. So VS2010 RC is complaining that TabControl exists in both DynamicGeoemtry.dll and System.Windows.Controls.dll during compilation. Anyone has this problem?</p>\r\n<p>Thanks,</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-03-15T15:25:11.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "418457",
+    "ThreadId": "205046",
+    "Html": "<p>Also, is there a plan to create a leaner version of DynamicGeometry.dll so that only the &quot;viewer&quot; part is included? In my case, I imagine others will have similar situation, the creation of the diagram and the &quot;viewing/displaying&quot; of the diagram are seperate. I only the part to display the saved LFG files. DynamicGeometry.dll weighs about 500KB - a bit on the heavy side.</p>",
+    "PostedDate": "2010-03-15T15:51:36.373-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "418549",
+    "ThreadId": "205046",
+    "Html": "<p>Regarding a player-only version of DynamicGeometry.dll - this sounds like a great idea!</p>\r\n<p>Would you like to see a Silverlight .dll or a WPF .dll&nbsp;or both?</p>\r\n<p>Do you want a version for VS 2008 or 2010 or both?</p>\r\n<p>Shall I include these parts in the &quot;player&quot;?</p>\r\n<ol>\r\n<li>Actions (Undo support) - I think NO?</li>\r\n<li>Behaviors (to create figures) - only the Dragger?</li>\r\n<li>Macros - I think NO?</li>\r\n<li>Expressions - will have to include (also need Irony) to evaluate stuff such as A.X and A.Y for points defined by coordinate equations</li>\r\n<li>PropertyGrid - I think NO? Clicking a figure shouldn't display anything?</li>\r\n<li>Serialization - just the Deserializer?</li>\r\n<li>UI - no Ribbon, no TabControl?</li>\r\n</ol>\r\n<p>Answering these questions will help me make a decision based on how to implement this:</p>\r\n<ul>\r\n<li>By creating a new .csproj file and including a subset of the .cs files</li>\r\n<li>Surround the files I'm not including in the player with #ifdef NOPLAYER - #endif (which will allow you to build the leaner assembly by defining NOPLAYER compilation constant in project properties)</li>\r\n<li>Actually create a new assembly DynamicGeometry.Core.dll and put the player-only types there? Make DynamicGeometry.Editor.dll reference the DynamicGeometry.Core.dll?</li>\r\n<li>Define a build configuration (PlayerOnly|AnyCPU) and include the editor-specific files in the &lt;ItemGroup Condition= element?</li>\r\n<li>Anything else I'm missing?</li>\r\n</ul>\r\n<p>Thanks!</p>",
+    "PostedDate": "2010-03-15T23:49:21.557-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "418551",
+    "ThreadId": "205046",
+    "Html": "<p>As for Silverlight 4 RC - it contains the TabControl built-in, so the workaround of having our custom TabControl isn't necessary anymore. However we still do development on Silverlight 3 and need to support it for a little bit until Silverlight 4 RTW propagates everywhere.</p>\r\n<p>What would you suggest?</p>\r\n<ol>\r\n<li>Move our TabControl from System to a custom namespace (to prevent the name conflict)?</li>\r\n<li>Define a conditional SILVERLIGHT4 and surround TabControl code with #if !SILVERLIGHT4</li>\r\n<li>Anything else?</li>\r\n</ol>\r\n<p>Thanks!</p>",
+    "PostedDate": "2010-03-15T23:53:59.167-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "418684",
+    "ThreadId": "205046",
+    "Html": "<p>I am also very interested in a player version.&nbsp; My interest is in allowing teachers to post documents that can be used for investigation and for students to post documents to share their work.&nbsp; To allow for investigation the dragger would be needed. I agree that the property grid would not be appropriate.&nbsp; But perhaps one day Live Geometry will have controls, such as a slider bound to a value or&nbsp;a button boundto an action, that could be part of the drawing.</p>",
+    "PostedDate": "2010-03-16T07:05:38.803-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "418800",
+    "ThreadId": "205046",
+    "Html": "<p>For me, I only need the Silverlight version. With VS2010 coming out in few weeks, I will vote for VS2010.</p>\r\n<p>I like the idea to create a DynamicaGeometryCore.dll that handles only the display part with the editor on different dll that references the core. The core dll should have none of the Ribbon UI, serialization can also be excluded from the core as it is not needed for display,&nbsp; Macro, action etc could also be outside of the core. I havn't used PropertyGrid so I can't say much about it. Dragger could stay in the core dll. Expression probably should stay in the core dll.</p>\r\n<p>As for TabControl (I see there is also a WrapPanel), I suggest changing the namespace (the class name can stay);&nbsp;&nbsp;as this is not part of the official Microsoft supported component (even though you work for MS), it should not re-use any of the out-of-box full type name that conflicts with the out of the box Silverlight controls. Otherwise, the compilation issue could arise as in my case.</p>\r\n<p>Thanks a lot! It is great component and very valuable for what I am working on.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-03-16T10:58:05.463-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "423967",
+    "ThreadId": "205046",
+    "Html": "<p>I've just checked in a prototype of the LiveGeometryPlayer. The size of the .xap file was reduced from 370 KB to 200 KB. You can find it under <a href=\"http://www.livegeometry.com/LiveGeometryPlayer.xap\">http://www.livegeometry.com/LiveGeometryPlayer.xap</a> and you can use it in your web pages like this:</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>    <span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">div</span> <span style=\"color:Red\">id</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">silverlightControlHost</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">&gt;</span>\r\n        <span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">object</span> <span style=\"color:Red\">data</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">data:application/x-silverlight-2,</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Red\">type</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">application/x-silverlight-2</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Red\">width</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">100%</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Red\">height</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">100%</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">&gt;</span>\r\n\t\t  <span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">param</span> <span style=\"color:Red\">name</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">source</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Red\">value</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">http://www.livegeometry.com/LiveGeometryPlayer.xap</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">/&gt;</span>\r\n\t\t  <span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">param</span> <span style=\"color:Red\">name</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">onError</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Red\">value</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">onSilverlightError</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Blue\">/&gt;</span>\r\n\t\t  <span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">param</span> <span style=\"color:Red\">name</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">background</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Red\">value</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">white</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Blue\">/&gt;</span>\r\n\t\t  <span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">param</span> <span style=\"color:Red\">name</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">minRuntimeVersion</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Red\">value</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">3.0.40818.0</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Blue\">/&gt;</span>\r\n\t\t  <span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">param</span> <span style=\"color:Red\">name</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">initParams</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Red\">value</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">LoadFile=http://guilabs.de/geometry/drawings/fun/car.lgf</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Blue\">/&gt;</span>\r\n\t\t  <span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">param</span> <span style=\"color:Red\">name</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">autoUpgrade</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Red\">value</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">true</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Blue\">/&gt;</span>\r\n\t\t  <span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">a</span> <span style=\"color:Red\">href</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">http://go.microsoft.com/fwlink/?LinkID=149156&amp;v=3.0.40818.0</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Red\">style</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">text-decoration:none</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">&gt;</span>\r\n \t\t\t  <span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">img</span> <span style=\"color:Red\">src</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">http://go.microsoft.com/fwlink/?LinkId=108181</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Red\">alt</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">Get Microsoft Silverlight</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Red\">style</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">border-style:none</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">/&gt;</span>\r\n\t\t  <span style=\"color:Blue\">&lt;/</span><span style=\"color:#A31515\">a</span><span style=\"color:Blue\">&gt;</span>\r\n\t    <span style=\"color:Blue\">&lt;/</span><span style=\"color:#A31515\">object</span><span style=\"color:Blue\">&gt;</span><span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">iframe</span> <span style=\"color:Red\">id</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">_sl_historyFrame</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Red\">style</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">visibility:hidden;height:0px;width:0px;border:0px</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">&gt;</span><span style=\"color:Blue\">&lt;/</span><span style=\"color:#A31515\">iframe</span><span style=\"color:Blue\">&gt;</span><span style=\"color:Blue\">&lt;/</span><span style=\"color:#A31515\">div</span><span style=\"color:Blue\">&gt;</span>\r\n</pre>\r\n</div>\r\n<p>It could be used for example here&nbsp;<a href=\"http://blogs.msdn.com/kirillosenkov/archive/2009/11/01/bezier-curves-and-car-manufacturers.aspx\">http://blogs.msdn.com/kirillosenkov/archive/2009/11/01/bezier-curves-and-car-manufacturers.aspx</a></p>\r\n<p>Hope this helps!</p>",
+    "PostedDate": "2010-03-26T01:34:55.44-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "423968",
+    "ThreadId": "205046",
+    "Html": "<p>As for TabControl, Silverlight 4 is coming soon, so I'll wait until we ship SL4 RTW and then rip out the TabControl sources altogether. I took it from Silverlight Toolkit since it wasn't in the box. I will also be moving all projects from Silverlight 3 to Silverlight 4 once it's out.</p>",
+    "PostedDate": "2010-03-26T01:37:02.263-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "492360",
+    "ThreadId": "205046",
+    "Html": "<p>FYI, I've just updated Live Geometry to Silverlight 4 and have removed the TabControl sources.</p>",
+    "PostedDate": "2010-09-11T16:04:05.65-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

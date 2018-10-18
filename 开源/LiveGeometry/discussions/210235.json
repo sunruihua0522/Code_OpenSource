@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "434374",
+    "ThreadId": "210235",
+    "Html": "<p>Hi everyone,</p>\r\n<p>while I was searching the web for this task I came across this project.</p>\r\n<p>What I want is to find the Intersection point(s) of a linesegment and an arcsegment in Silverlight.</p>\r\n<p>Trying the&nbsp;GetIntersectionOfEllipseAndLine(....) method in your Math Class I don't get the right points if semimajor and semiminor values are not the same, in other words if it's an ellipse.? Anyone having the same issue?</p>\r\n<p>For my understanding I get the Center of my ArcSegment (which is the center of the two points describing the arc), then the semimajor and semiminor (which are the Size value's of the ArcSegment), the RotationAngle of the ArcSegment and finally the two Points describing my line.&nbsp;</p>\r\n<p>If semiminor and semimajor are forming a circle everything is fine.</p>\r\n<p>Greets,</p>\r\n<p>kapaboo</p>",
+    "PostedDate": "2010-04-22T15:19:13.49-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "434576",
+    "ThreadId": "210235",
+    "Html": "<p>That sounds like some of the code I added.&nbsp; I'll have some time later today to take&nbsp;a look.</p>",
+    "PostedDate": "2010-04-23T05:04:28.143-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435736",
+    "ThreadId": "210235",
+    "Html": "<p>Kapaboo,</p>\r\n<p>Sorry about the delay.&nbsp; I'm not sure where the problem is but I suspect it has to do with the rotation angle of the arc.&nbsp; The Arc class in LG does not use ArcSegment's RotationAngle.&nbsp; All the algorithms are based on center, begin point, and end point.&nbsp; You'll notice that the Angle property in ArcBase (Arc's parent class) returns zero.&nbsp; Kirill set up the ArcBase and Arc class and could probably&nbsp;answer your question without much thought.</p>\r\n<p>I'd also like to know what's going on and I've wanted a way to create elliptical arcs too.&nbsp; So I'm going to try implementing it. I hope I'll have it uploaded tomorrow.&nbsp; In the process we'll figure out what's going on - perhaps you have already figured it out.&nbsp; I hope Kirill will also be okay with this added funtionality.</p>\r\n<p>David</p>",
+    "PostedDate": "2010-04-26T17:45:41.067-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435800",
+    "ThreadId": "210235",
+    "Html": "<p>I will be okay ;) Sorry folks, really busy these days.</p>",
+    "PostedDate": "2010-04-26T23:57:49.657-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "436096",
+    "ThreadId": "210235",
+    "Html": "<p>kapaboo,</p>\r\n<p>I just checked in my code that implements general elliptical arcs.&nbsp; Perhaps one thing that was messing up your attempts is the fact that ArcSegment.RotationAngle needs to be the negated when used in the Math intersection methods.</p>\r\n<p>I put the EllipseArc class in the Arc.cs file and the EllipseArcCreator in the ArcCreator.cs file.&nbsp; I also exposed a lot of ellipse arc&nbsp;properties in the properties grid.</p>\r\n<p>David</p>",
+    "PostedDate": "2010-04-27T11:21:07.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "436100",
+    "ThreadId": "210235",
+    "Html": "<p>Thanks David! I think what you're proposing with Arcs is great - please feel free to go ahead with your changes.</p>\r\n<p>Kirill</p>",
+    "PostedDate": "2010-04-27T11:25:12.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "436135",
+    "ThreadId": "210235",
+    "Html": "<p>hmm,</p>\r\n<p>figured out that this was not my real problem.</p>\r\n<p>Ok, my arcSegment must always draw Circle's. For this reason I calculate the Arc's Width with the following formula:</p>\r\n<p>arcXRadius = (4 * Math.Pow(height, 2) + Math.Pow(distanceArcPoints, 2)) / (8 * height);</p>\r\n<p>so Arcs.Size = (arcXRadius,height)</p>\r\n<p>But seems that the height is scaled down when drawn. I want to add a small Circle to the Arc's middle (highest point) so when you drag it it changes the arc Height but also changes the Width so it will remain a circle.&nbsp;</p>\r\n<p>Here's how I calculate the Circle's point:</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>Point middlePoint = GetMiddlePoint(arcPointA,arcPointB);\r\n<span style=\"color:blue\">double</span> arcYRadius = arcSegment.Size.Height;\r\n            <span style=\"color:blue\">if</span> (arcYRadius &lt;= 0)\r\n                <span style=\"color:blue\">return</span> middlePoint;\r\n            <span style=\"color:blue\">double</span> angle = arcSegment.RotationAngle;\r\n\r\n            Point ellinewPoint = <span style=\"color:blue\">new</span> Point();\r\n            ellinewPoint.X = Math.Cos((angle + 90) * Math.PI / 180) * arcYRadius + middlePoint.X;\r\n            ellinewPoint.Y = Math.Sin((angle + 90) * Math.PI / 180) * arcYRadius + middlePoint.Y;\r\n</pre>\r\n</div>\r\n</p>\r\n<p>Until Arc's.Size.Height Property gets Closer to the Width my Circle is not at the right Point.</p>\r\n<p>I'm sure this is not for this Discussion Forum but maybe someone can tell me what am I doing wrong.</p>\r\n<p>Cheers,</p>\r\n<p>kapaboo</p>",
+    "PostedDate": "2010-04-27T12:54:00.64-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

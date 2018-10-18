@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "499550",
+    "ThreadId": "228893",
+    "Html": "<p>Hi there, I know this is probably a really massive ask... I'm not sure if anyone will help, but it would REALLY be fantastic if they did....</p>\r\n<p>Basically we're putting together something very quickly in SilverLight and we need something very similar to the Draw Polygon tool. In fact, what is here is absolutely perfect for us... but we don't need any of the other features, and herein lies the problem :(</p>\r\n<p>I don't suppose any wonderfully kind soul could possibly help point us in the right direction to pulling out just that feature? (I hope such a thing is permissible under the MS-Pl license??) I'm sure it wouldn't be a problem for us to credit this project.</p>\r\n<p>We're new to the world of SilverLight and to OpenSource licenses, so please forgive me if I've stepped on anyone's toes or suggested something which is not permissible.</p>\r\n<p>Thanks a lot for any help.</p>\r\n<p>Faithfully,</p>\r\n<p>- JohnnyW</p>",
+    "PostedDate": "2010-09-28T10:18:17.63-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "499754",
+    "ThreadId": "228893",
+    "Html": "<p>Hey Johnny,</p>\r\n<p>first off, no problem whatsoever with using any part of the source in your own projects.</p>\r\n<p>Second, it will be probably much easier to rewrite what you want from scratch then to separate out the PolygonCreator.cs from the rest of the framework.</p>\r\n<p>Still, if you want to go that route, have a Canvas in your project, add Behavior.cs, FigureCreator.cs and PolygonCreator.cs. Then keep removing unused things and adding what's missing until you get it compiling. Or, take the entire source code, and keep deleting things step by step, while verifying that your polygon is still there.</p>\r\n<p>I don't think I will have time anytime soon to help you with that, so unfortunately you're on your own. The good news is that there shouldn't be any licensing or otherwise issues :)</p>\r\n<p>Good luck</p>\r\n<p>Kirill</p>",
+    "PostedDate": "2010-09-28T22:43:25.66-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "499827",
+    "ThreadId": "228893",
+    "Html": "<p>Hi Kirill, thanks so much for your help! We'll take a stab at it, based on your directions... maybe it won't be so bad!</p>\r\n<p>Great to hear about the licensing, too.</p>\r\n<p>Thanks again,</p>\r\n<p>- Johnny</p>",
+    "PostedDate": "2010-09-29T02:13:02.14-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

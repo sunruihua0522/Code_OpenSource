@@ -1,0 +1,65 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2009-06-26T15:04:47.67-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Repro:\n1. Create a point\n2. Move this point\n3. Move this point elsewhere\n4. Undo\n \nExpected results:\n==========\nThe Undo should undo both movements in one step\n \nActual results:\n=========\nUndo only undoes the second move - you have to press Undo again to return the point to the original location",
+    "LastUpdatedDate": "2017-12-08T06:55:14.647-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "LiveGeometry",
+    "ReportedDate": "2009-03-27T00:55:11.1-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Undo action merging doesn't work",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 0,
+    "Id": 3469
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Need to look at when it regressed",
+      "PostedDate": "2009-03-27T00:55:11.1-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "This is actually By Design.",
+      "PostedDate": "2009-06-26T15:04:47.67-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-14T12:31:57.613-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T02:52:54.457-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-12-08T06:55:14.647-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

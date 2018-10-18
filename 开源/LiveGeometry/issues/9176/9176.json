@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "2 errors:\n \n  * The Y position automatically marked wrong\n  * RegularPolygon deserialization in FigureTypes.ContainsKey (typeName)) will not find at the Dependency and returns null error.",
+    "LastUpdatedDate": "2013-02-14T12:31:49.347-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "LiveGeometry",
+    "ReportedDate": "2011-09-14T18:11:56.723-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "2 errors:",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 9176
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "The problem lies in CompositeFigure.cs:\r\n\r\n         public override void ReadXml (System.Xml.Linq.XElement element)\r\n         {\r\n             new DrawingDeserializer (). ReadFigureList (Children, element, Drawing);\r\n         }\r\n Here repeated ReadFigureList",
+      "PostedDate": "2011-09-15T18:52:45.21-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "In RegularPolygon.cs added:\r\n\r\n        public override void ReadXml(XElement element)\r\n        {\r\n            Visible = element.ReadBool(\"Visible\", true);\r\n            Locked = element.ReadBool(\"Locked\", false);\r\n            IsHitTestVisible = element.ReadBool(\"IsHitTestVisible\", true);\r\n            var styleAttribute = element.Attribute(\"Style\");\r\n            if (styleAttribute != null\r\n                && Drawing != null\r\n                && Drawing.StyleManager != null)\r\n            {\r\n                var style = Drawing.StyleManager[styleAttribute.Value];\r\n                if (style != null)\r\n                {\r\n                    this.polygon.Style = style;\r\n                }\r\n            }\r\n        }",
+      "PostedDate": "2011-09-15T20:02:51.497-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Thank you leonli77hot for reporting these issues.  I just checked in code that resolves the issues.  Your RegularPolygon.ReadXML override would work but instead I removed CompositePolygon.ReadXML (which was being used by RegularPolygon) and CompositePolygon.WriteXML.  These methods were descending into the Children when they shouldn't be.\r\n\r\nI use the Dynamic Geometry library for a separate project. However, I don't use the RegularPolygon class so I did not notice that error.\r\n\r\n- David",
+      "PostedDate": "2011-09-16T07:02:01.587-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-14T12:31:49.347-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

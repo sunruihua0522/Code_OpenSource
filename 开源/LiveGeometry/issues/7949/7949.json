@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Note: I am referring to coordinates throughout\n \nThe check boxes (and the 'grid' button) do not always sync properly. One example is where you set it through the settings dialog and then unset it some other way. In that case, the checkbox in settings will not become unchecked. Another one is if you set it through one of the two other methods (not through settings), then go to settings, the checkbox will not be checked.",
+    "LastUpdatedDate": "2013-02-14T12:31:50.3-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "LiveGeometry",
+    "ReportedDate": "2011-01-20T22:51:04.563-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Check boxes do not sync",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7949
+  },
+  "FileAttachments": [],
+  "Comments": []
+}
