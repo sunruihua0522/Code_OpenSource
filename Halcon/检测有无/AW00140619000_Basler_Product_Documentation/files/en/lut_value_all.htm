@@ -1,0 +1,255 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>LUT Value All</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_56";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  LUT Value All<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>LUT Value All</h1>
+<p class="teaser">The LUT Value All 
+ <a href="features.htm">camera feature</a> allows you to replace all pixel 
+ values in your images by values defined by you.</p>
+<p>This is done by replacing the entire user-defined lookup table (<a href="lut.htm">LUT</a>).</p>
+<p>To replace individual entries in the lookup table, use the <a href="lut.htm">LUT</a> 
+ feature.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot25281" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot25281', 'MTPOPUP25281');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP25281" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >How It Works</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark4" >12-bit Camera Models</a>
+</li>
+     <li><a href="#MiniTOCBookMark5" >10-bit Camera Models</a>
+</li>
+    </ul></li>
+    <li><a href="#MiniTOCBookMark6" >Setting or Getting All LUT Values</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark7" >Specifics</a>
+</li>
+   <li><a href="#MiniTOCBookMark8" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>How It Works</h3>
+<p>LUT is short for &quot;lookup table&quot;, which is basically an indexed 
+ list of numbers. For more information, see the <a href="lut.htm">LUT feature 
+ description</a>.</p>
+<p>While the <a href="lut.htm">LUT</a> feature allows you to change <strong>individual</strong> 
+ entries in the lookup table, the LUT Value All feature allows you to change 
+ <strong>all</strong> entries in the lookup table in a single operation. 
+ </p>
+<p>In many cases, this is faster than repeatedly changing individual entries 
+ in the LUT.</p>
+<p>To change all entries in the lookup table, use the <span class="parameter-name">LUTValueAll</span> 
+ parameter. The parameter structure depends on the <a href="pixel_format.htm#Maximum_Pixel_Bit_Depth">maximum 
+ pixel bit depth</a> of your camera.</p>
+<h4><a name="MiniTOCBookMark4"></a>12-bit Camera Models</h4>
+<p>On cameras with a <a href="pixel_format.htm#Maximum_Pixel_Bit_Depth">maximum 
+ pixel bit depth</a> of 12 bit, the <span class="parameter-name">LUTValueAll</span> 
+ parameter is an array that consists of 4096 x 4 bytes. Each 4-byte word 
+ represents a <span class="parameter-name">LUTValue</span> 
+ parameter value. </p>
+<p>The <span class="parameter-name">LUTValue</span> 
+ parameter values are sorted by the <span class="parameter-name">LUTIndex</span> 
+ number in ascending order (0 through 4095).</p>
+<div class="info">
+	<ul>
+		<li>The endianness of the 4-byte words (LUT values) depends on 
+		 <a href="#Specifics">your camera model</a>.</li>
+		<li>If the LUT is <a href="lut.htm#LUT_with_512_Entries">limited 
+		 to 512 entries</a>, only <strong>every eighth</strong> 4-byte 
+		 word (0, 8, 16, 24, ..., 4088) is actually used by the camera. 
+		 The other 4-byte words are ignored. <strong>Example:</strong><br />
+		<img src="images/drawing_lut_value_all_12_bit.png" alt="LUT Value All Parameter Structure (12-Bit Camera Models)" title="LUT Value All Parameter Structure (12-Bit Camera Models)" /></li>
+	</ul>
+</div>
+<h4><a name="MiniTOCBookMark5"></a>10-bit Camera Models</h4>
+<p>On cameras with a <a href="pixel_format.htm#Maximum_Pixel_Bit_Depth">maximum 
+ pixel bit depth</a> of 10 bit, the <span class="parameter-name">LUTValueAll</span> 
+ parameter&#160;is an array that consists of 1024 x 4 bytes. Each 4-byte 
+ word represents a <span class="parameter-name">LUTValue</span> 
+ parameter value.</p>
+<p>The <span class="parameter-name">LUTValue</span> 
+ parameter values are sorted by the <span class="parameter-name">LUTIndex</span> 
+ number in ascending order (0 through 1023).</p>
+<div class="info">
+	<ul>
+		<li>The endianness of the 4-byte words (LUT values) depends on 
+		 <a href="#Specifics">your camera model</a>.</li>
+		<li>If the LUT is <a href="lut.htm#LUT_with_512_Entries">limited 
+		 to 512 entries</a>, only <strong>every second</strong> 4-byte 
+		 word (0, 2, 4, 6, ..., 1022) is actually used by the camera. The 
+		 other 4-byte words are ignored. <strong>Example:</strong><br />
+		<img src="images/drawing_lut_value_all_10_bit.png" alt="LUT Value All Parameter Structure (10-Bit Camera Models)" title="LUT Value All Parameter Structure (10-Bit Camera Models)" /></li>
+	</ul>
+</div>
+<h3><a name="MiniTOCBookMark6"></a>Setting or Getting All LUT Values</h3>
+<p>To set all entries in the lookup table:</p>
+<ol>
+	<li>Set the <span class="parameter-name">LUTValueAll</span> 
+	 parameter to the desired value.<br />
+	Make sure to apply the correct <a href="#Specifics">endianness</a> 
+	 of the 4-byte words (LUT values).</li>
+	<li>Set the <span class="parameter-name">LUTEnable</span> 
+	 parameter to <span class="parameter-name">true</span>.</li>
+</ol>
+<p>To get all entries in the lookup table:</p>
+<ol>
+	<li>Get the value of the <span class="parameter-name">LUTValueAll</span> 
+	 parameter. <br />
+	Observe the <a href="#Specifics">endianness</a> of the 4-byte words 
+	 (LUT values).</li>
+</ol>
+<p class="info">The <span class="parameter-name">LUTValueAll</span> 
+ parameter is not available in the <a href="overview_of_the_pylon_viewer.htm">pylon 
+ Viewer</a> application. You can only set or get the parameter via the 
+ pylon API.</p>
+<h2 class="specifics"><a name="MiniTOCBookMark7"></a><a name="Specifics">Specifics</a></h2>
+<div>
+<table class="specifics-table">
+	<col />
+	<col />
+	<tr>
+		<th>Camera Model</th>
+		<th><p>Endianness of the 4-Byte Words (LUT Values)</p></th>
+	</tr>
+	<tr>
+		<td data-rhtags="33" class="rh-hide">All ace USB 3.0 camera models</td>
+		<td data-rhtags="33" class="rh-hide">Little-endian</td>
+	</tr>
+	<tr>
+		<td data-rhtags="18" class="rh-hide">All ace GigE camera models</td>
+		<td data-rhtags="18" class="rh-hide">Big-endian</td>
+	</tr>
+	<tr>
+		<td data-rhtags="44" class="rh-hide">All dart BCON for LVDS camera models</td>
+		<td data-rhtags="44" class="rh-hide">LUT Value All feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="21" class="rh-hide">All dart BCON for MIPI camera models</td>
+		<td data-rhtags="21" class="rh-hide">LUT Value All feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="42" class="rh-hide">All dart USB 3.0 camera models</td>
+		<td data-rhtags="42" class="rh-hide">LUT Value All feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="47" class="rh-hide">All pulse USB 3.0 camera models</td>
+		<td data-rhtags="47" class="rh-hide">LUT Value All feature 
+		 not supported</td>
+	</tr>
+</table>
+</div>
+<h2 class="sample-code"><a name="MiniTOCBookMark8"></a>Sample Code</h2>
+<div>
+<pre>
+<code class="cpp">// Write a lookup table to the device
+// The following lookup table inverts the pixel values
+// (bright -&gt; dark, dark -&gt; bright)
+// Only applies to cameras with a maximum pixel bit depth of 12 bit
+// Note: This is a simplified code sample.
+// You should always check the camera interface and 
+// the endianness of your system before using LUTValueAll.
+// For more information, see the 'LUTValueAll' code sample
+// in the C++ Programmer's Guide and Reference Documentation
+// delivered with the Basler pylon Camera Software Suite.
+uint32_t lutValues[4096];
+for (int i=0; i&lt;4096; i+=8)
+{
+&#160;&#160;&#160;lutValues[i] = 4095-i;
+}
+camera.LUTValueAll.SetValue(lutValues);
+// Enable the LUT
+camera.LUTEnable.SetValue(true);</code></pre>
+</div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

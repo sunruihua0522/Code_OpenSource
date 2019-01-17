@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="-496316615">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image (PdArrayMerge, 'C:/Code/Halcon/PD与AWG位置识别/PD Array Merge.png')</l>
+<l>dev_close_window()</l>
+<l>dev_open_window_fit_image(PdArrayMerge, 0, 0, 1400, 2000, WindowHandle)</l>
+<l>dev_display(PdArrayMerge)</l>
+<l>threshold (PdArrayMerge, Regions, 98, 255)</l>
+<l>opening_circle(Regions, RegionOpening, 30)</l>
+<l>shape_trans(RegionOpening, RegionTrans, 'rectangle2')</l>
+<c></c>
+<l>orientation_region(RegionTrans, Phi)</l>
+<l>area_center(RegionTrans, Area, Row, Column)</l>
+<l>gen_rectangle2(Rectangle, Row+320, Column, Phi, 1700, 70)</l>
+<l>reduce_domain(PdArrayMerge,Rectangle, ImageReduced)</l>
+<c></c>
+<l>threshold (ImageReduced, Regions1, 180, 255)</l>
+<l>connection(Regions1, ConnectedRegions)</l>
+<l>select_shape (ConnectedRegions, SelectedRegions, 'area', 'and', 2264.58, 4661.31)</l>
+<c></c>
+<l>area_center(SelectedRegions, Area1, Row1, Column1)</l>
+<c></c>
+<l>dev_clear_window()</l>
+<l>dev_display(PdArrayMerge)</l>
+<l>dev_set_color('green')</l>
+<l>disp_cross(WindowHandle, Row1, Column1, 86, 0)</l>
+<l>dev_set_color('red')</l>
+<l>disp_line(WindowHandle, Row1[0], Column1[0],  Row1[1], Column1[1])</l>
+<c></c>
+<l>angle_lx(Row1[0], Column1[0], Row1[1], Column1[1], Angle)</l>
+<c></c>
+<l>disp_line(WindowHandle, Row1[0]-500, Column1[0],  Row1[0]+500, Column1[0])</l>
+<c></c>
+<l>disp_arc(WindowHandle, Row1[0], Column1[0], Angle+rad(90), Row1[0]-80, Column1[0])</l>
+<c></c>
+<l>DispAngle:=(-Angle+rad(90))*180/3.1415926</l>
+<c></c>
+<l>disp_message(WindowHandle, 'Y轴', 'image', Row1[0]-600, Column1[0]-100, 'red', 'false')</l>
+<l>disp_message(WindowHandle, '与Y轴角度'+DispAngle+'度', 'image', Row1[0]-100, Column1[0]+100, 'red', 'true')</l>
+<l>disp_message(WindowHandle, '('+Row1[0]+','+Column1[0]+')', 'image', Row1[0]+100, Column1[0]-100, 'red', 'true')</l>
+<l>disp_message(WindowHandle, '('+Row1[1]+','+Column1[1]+')', 'image', Row1[1]+100, Column1[1]-100, 'red', 'true')</l>
+<c></c>
+<l>read_shape_model('PadModel.shm', ModelID)</l>
+<l>get_shape_model_origin(ModelID, Row4, Column4)</l>
+<l>find_shape_model(PdArrayMerge, ModelID, -0.39, 0.78, 0.3, 4, 0.5, 'least_squares', 0, 0.9, Row5, Column5, Angle2, Score1)</l>
+<l>dev_set_color('green')</l>
+<l>disp_cross(WindowHandle, Row5, Column5, 106,0)</l>
+<c></c>
+<l>for Index := 0 to |Row5|-1 by 1</l>
+<l>    RowDes:=Row5[Index]-Row4</l>
+<l>    ColDes:=Column5[Index]-Column4</l>
+<l>    disp_message(WindowHandle, '('+RowDes+','+ColDes+')', 'image', RowDes-100, ColDes-100, 'red', 'true')</l>
+<l>endfor</l>
+<c></c>
+<l>clear_shape_model(ModelID)</l>
+<c></c>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

@@ -1,0 +1,95 @@
+﻿<UserControl xmlns:dxga="http://schemas.devexpress.com/winfx/2008/xaml/gauges"  
+             x:Class="Irixi_Aligner_Common.View.UserControls.ContactSensor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Irixi_Aligner_Common.View.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="500">
+    <UserControl.Resources>
+        <DataTemplate x:Key="LinearIndicator">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                    <TextBox Text="{Binding Force, Mode=OneWay, StringFormat={}{0}mV}" VerticalAlignment="Center" IsReadOnly="True"/>
+                    <dxga:LinearGaugeControl Grid.Column="1" Margin="-15,15,0,-15" VerticalAlignment="Center" EnableAnimation="True">
+                    <dxga:LinearGaugeControl.LayoutTransform>
+                        <ScaleTransform ScaleY="0.5"/>
+                    </dxga:LinearGaugeControl.LayoutTransform>
+                    <dxga:LinearGaugeControl.Model>
+                        <dxga:LinearCleanWhiteModel/>
+                    </dxga:LinearGaugeControl.Model>
+                    <dxga:LinearGaugeControl.Scales>
+                        <dxga:LinearScale LayoutMode="LeftToRight" EndValue="5000">
+                            <dxga:LinearScale.Markers>
+                                <dxga:LinearScaleMarker Value="{Binding Force}">
+                                    <dxga:LinearScaleMarker.Animation>
+                                        <dxga:IndicatorAnimation Duration="0:0:0.3">
+                                            <dxga:IndicatorAnimation.EasingFunction>
+                                                <QuinticEase/>
+                                            </dxga:IndicatorAnimation.EasingFunction>
+                                        </dxga:IndicatorAnimation>
+                                    </dxga:LinearScaleMarker.Animation>
+                                </dxga:LinearScaleMarker>
+                            </dxga:LinearScale.Markers>
+                            <dxga:LinearScale.Ranges>
+                                <dxga:LinearScaleRange StartValue="0" EndValue="2400" >
+                                    <dxga:LinearScaleRange.Presentation>
+                                        <dxga:DefaultLinearScaleRangePresentation>
+                                            <dxga:DefaultLinearScaleRangePresentation.Fill>
+                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                    <GradientStop Color="#FFFF6565" Offset="0.7"/>
+                                                    <GradientStop Color="#FF7DFF77" Offset="0.5"/>
+                                                </LinearGradientBrush>
+                                            </dxga:DefaultLinearScaleRangePresentation.Fill>
+                                        </dxga:DefaultLinearScaleRangePresentation>
+                                    </dxga:LinearScaleRange.Presentation>
+                                </dxga:LinearScaleRange>
+                                <dxga:LinearScaleRange StartValue="2400" EndValue="2600" >
+                                    <dxga:LinearScaleRange.Presentation>
+                                        <dxga:DefaultLinearScaleRangePresentation Fill="#FF7DFF77"/>
+                                    </dxga:LinearScaleRange.Presentation>
+                                </dxga:LinearScaleRange>
+                                <dxga:LinearScaleRange StartValue="2600" EndValue="5000">
+                                    <dxga:LinearScaleRange.Presentation>
+                                        <dxga:DefaultLinearScaleRangePresentation>
+                                            <dxga:DefaultLinearScaleRangePresentation.Fill>
+                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                    <GradientStop Color="#FFFF6565" Offset="0.3"/>
+                                                    <GradientStop Color="#FF7DFF77" Offset="0.5"/>
+                                                </LinearGradientBrush>
+                                            </dxga:DefaultLinearScaleRangePresentation.Fill>
+                                        </dxga:DefaultLinearScaleRangePresentation>
+                                    </dxga:LinearScaleRange.Presentation>
+                                </dxga:LinearScaleRange>
+                            </dxga:LinearScale.Ranges>
+                        </dxga:LinearScale>
+                    </dxga:LinearGaugeControl.Scales>
+                </dxga:LinearGaugeControl>
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="CSS 1"/>
+        <TextBlock Grid.Row="1" Text="CSS 2"/>
+        <ContentControl Grid.Column="1" Content="{Binding CSS1}" ContentTemplate="{StaticResource LinearIndicator}"/>
+        <ContentControl Grid.Column="1" Grid.Row="1" Content="{Binding CSS2}" ContentTemplate="{StaticResource LinearIndicator}"/>
+    </Grid>
+</UserControl>

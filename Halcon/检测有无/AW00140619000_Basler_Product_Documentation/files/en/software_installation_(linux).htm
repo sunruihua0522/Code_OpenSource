@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="noindex" />
+<meta http-equiv="Content-Language" content="en-US" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Software Installation (Linux)</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.3.0_5";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Installation" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"camera_installation.htm\">Installation<\/a>  &gt;  Software Installation (Linux)<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1>Software Installation (Linux)</h1>
+<p class="teaser">This topic tells you how to install the <a href="pylon_camera_software_suite.htm">Basler 
+ pylon Camera Software Suite</a> for Linux. </p>
+<h2>Installation</h2>
+<p>To install the Basler pylon Camera Software Suite for Linux:</p>
+<ol>
+	<li>Download the pylon installer from the Basler website:</li>
+	<ol>
+		<li>If you need support for <strong>x86 architectures</strong>, 
+		 download the <a href="https://www.baslerweb.com/en/support/downloads/software-downloads#type=pylonsoftware;version=all;os=linuxx86">pylon 
+		 Linux x86 installer</a>.</li>
+		<li>If you need support for <strong>ARM architectures</strong><span> 
+		 and</span><strong> </strong><span>your ARM processor has a floating 
+		 point unit, downl</span>oad the <strong>hardfloat</strong> <a 
+		 href="https://www.baslerweb.com/en/support/downloads/software-downloads#type=pylonsoftware;version=all;os=linuxarm">pylon 
+		 Linux ARM installer or archive</a>.</li>
+		<li>If you need support for <strong>ARM architectures</strong><span> 
+		 and</span><strong> </strong><span>your ARM processor doesn't have 
+		 a floating point unit, or if you are unsure, downl</span>oad the 
+		 <strong>softfloat</strong> <a href="https://www.baslerweb.com/en/support/downloads/software-downloads#type=pylonsoftware;version=all;os=linuxarm">pylon 
+		 Linux ARM installer or archive</a>.</li>
+	</ol>
+	<li>Launch the installer or use an unzip tool of your choice to unpack 
+	 the archive to your home directory.</li>
+	<li>Change to the archive’s main directory and open the &quot;INSTALL&quot; 
+	 text file.</li>
+	<li>Follow the instructions to install the pylon Camera Software Suite 
+	 for Linux.</li>
+</ol>
+<div class="info">
+	<ul>
+		<li>If you want to operate dart BCON for LVDS cameras only, you 
+		 don’t need to install USB support.</li>
+		<li>For more information about operating dart BCON for LVDS cameras, 
+		 e.g., how to assign an I²C interface in pylon,&#160;see the <em>Programmer's 
+		 Guide and API Reference for Basler pylon BCON</em> included in 
+		 the pylon Camera Software Suite for Linux.<br />
+		The guide can be found in the <strong>pylonSDK-5.x.x.xxxx-yyyy.tar.gz</strong> 
+		 file in the <strong>/pylon5/share/doc/BCON</strong> directory. 
+		 Open the <strong>index.htm</strong> file in your browser to start.</li>
+	</ul>
+</div>
+<h2>Next Steps</h2>
+<p>Continue with the hardware installation:</p>
+<ul>
+	<li><a href="hardware_installation_(dart_bcon_for_lvds_mipi).htm">Hardware 
+	 Installation (dart BCON for LVDS)</a></li>
+	<li><a href="hardware_installation_(ace_gige).htm">Hardware Installation 
+	 (ace GigE)</a></li>
+	<li><a href="hardware_installation_(ace_dart_pulse_usb_3.0).htm">Hardware 
+	 Installation (ace/dart/pulse USB 3.0)</a></li>
+</ul>
+<div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

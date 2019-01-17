@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Center X and Center Y</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_19";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Center X and Center Y<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Center X and Center Y</h1>
+<p class="teaser">The Center X and Center Y 
+ <a href="features.htm">camera feature</a> allows you to center the <a href="image_roi.htm">image ROI</a> horizontally, vertically, or both.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot26486" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot26486', 'MTPOPUP26486');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP26486" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Enabling Center X</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Enabling Center Y</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >Guidelines</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark6" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a><a name="Enabling_Center_X">Enabling Center X</a></h3>
+<p>To enable Center X, set the <span class="parameter-name">CenterX</span> 
+ parameter to <span class="parameter-name">t</span><span class="parameter-name">rue</span>.</p>
+<p>The camera automatically adjusts the <span class="parameter-name">OffsetX</span> 
+ parameter value to center the <a href="image_roi.htm">image ROI</a> <strong>horizontally</strong>. 
+ The <span class="parameter-name">OffsetX</span> 
+ parameter becomes read-only.</p>
+<h3><a name="MiniTOCBookMark4"></a><a name="Enabling_Center_Y">Enabling Center Y</a></h3>
+<p>To enable Center Y, set the <span class="parameter-name">CenterY</span> 
+ parameter to <span class="parameter-name">t</span><span class="parameter-name">rue</span>.</p>
+<p>The camera automatically adjusts the <span class="parameter-name">OffsetY</span> 
+ parameter value to center the <a href="image_roi.htm">image ROI</a> <strong>vertically</strong>. 
+ The <span class="parameter-name">OffsetY</span> 
+ parameter becomes read-only.</p>
+<h3><a name="MiniTOCBookMark5"></a>Guidelines</h3>
+<ul>
+	<li>You can use Center X and Center Y at the same time.</li>
+	<li>When you enable Center X or Center Y, the camera doesn't save the 
+	 current <span class="parameter-name">OffsetX</span> 
+	 and <span class="parameter-name">OffsetY</span> 
+	 parameter values. To restore the original settings, you must adjust 
+	 the <span class="parameter-name">OffsetX</span> 
+	 and <span class="parameter-name">OffsetY</span> 
+	 parameters manually. </li>
+</ul>
+<h2 class="sample-code"><a name="MiniTOCBookMark6"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre><code class="cpp">// Enable Center X
+camera.CenterX.SetValue(true);
+// Enable Center Y
+camera.CenterY.SetValue(true);</code></pre></div><div class="tab-2 tab-content"><pre><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Enable Center X
+CBooleanPtr(nodemap.GetNode("CenterX"))-&gt;SetValue(true);
+// Enable Center Y
+CBooleanPtr(nodemap.GetNode("CenterY"))-&gt;SetValue(true);</code></pre></div><div class="tab-3 tab-content"><pre><code class="csharp" generated="true">// Enable Center X
+camera.Parameters[PLCamera.CenterX].SetValue(true);
+// Enable Center Y
+camera.Parameters[PLCamera.CenterY].SetValue(true);</code></pre></div><div class="tab-4 tab-content"><pre><code class="csharp" generated="true">// Enable Center X
+Pylon.DeviceSetBooleanFeature(hdev, "CenterX", true);
+// Enable Center Y
+Pylon.DeviceSetBooleanFeature(hdev, "CenterY", true);</code></pre></div><div class="tab-5 tab-content"><pre><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+/* Enable Center X */
+errRes = PylonDeviceSetBooleanFeature(hdev, "CenterX", 1);
+CHECK(errRes);
+/* Enable Center Y */
+errRes = PylonDeviceSetBooleanFeature(hdev, "CenterY", 1);
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

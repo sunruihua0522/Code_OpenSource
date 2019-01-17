@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Configuring a Camera</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "4.1.1.0_3";
+</script>
+ <meta name="topic-breadcrumbs" content="Software > pylon Camera Software Suite > pylon Viewer" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"pylon_camera_software_suite.htm\">Software<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"pylon_camera_software_suite.htm#bc-1\">pylon Camera Software Suite<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"overview_of_the_pylon_viewer.htm\">pylon Viewer<\/a>  &gt;  Configuring a Camera<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1>Configuring a Camera</h1>
+<p class="teaser">When connecting a camera to your computer for the first 
+ time, all features will be set to the factory values. This topic will 
+ help you to configure the camera according to your needs using the <a href="overview_of_the_pylon_viewer.htm">pylon Viewer</a>. </p>
+<h2>Configuring a Camera</h2>
+<p>To configure a camera:</p>
+<ol>
+	<li>Put an object in the camera’s field of view.</li>
+	<li>Make sure that the object is properly illuminated. Use continuous 
+	 illumination for this initial setup. If you want to use strobe light 
+	 in your application, it's better to try this after the initial setup. 
+	 If you need assistance in determining the optimum illumination for 
+	 your application, contact Basler technical support.</li>
+	<li>Open the lens aperture of the camera &quot;halfway&quot; by choosing 
+	 an intermediate f-number.</li>
+	<li>Double-click on your camera’s name in the device tree of the <a href="overview_of_the_pylon_viewer.htm">pylon Viewer</a> to select 
+	 the camera.<br />
+	Notice that your camera's name now appears at the top of the <span 
+	 class="gui-text">Features</span> pane. If you select a feature in 
+	 the <span class="gui-text">Features</span> pane, you can adjust its 
+	 settings.</li>
+	<li>(GigE cameras only:) In the <span class="gui-text">Features</span> 
+	 pane, click the <span class="gui-text">+</span> icon next to the <span 
+	 class="gui-text">Transport Layer</span> category and set the <span 
+	 class="gui-text">Packet Size</span> parameter to 1500.</li>
+	<li>Change the <span class="gui-text"><a href="gain.htm">Gain</a></span> 
+	 and <span class="gui-text"><a href="black_level.htm">Black Level</a></span> 
+	 settings to their lowest allowed values: 
+	<ol>
+		<li>In the <span class="gui-text">Features</span> pane, click the 
+		 <span class="gui-text">+</span> icon next to your camera’s name.<br />
+		A list of setting categories will appear.</li>
+		<li>Click the <span class="gui-text">+</span> icon next to the 
+		 <span class="gui-text">Analog Controls</span> category.</li>
+	</ol>
+	You can set the gain and the black level by using the slider next to 
+	 the value box, by using the up/down arrows next to the value box, 
+	 or by typing a new value into the box.<br />
+	<img src="images/screen_gain_blacklevel.png" alt="Changing gain and black level" title="Changing gain and black level" /> </li>
+	<li>Change the <span class="gui-text">Exposure Time</span> setting 
+	 to its lowest allowed value:</li>
+	<ol>
+		<li>Click the <span class="gui-text">+</span> icon next to the 
+		 <span class="gui-text">Acquisition Controls</span> category.<br />
+		The controls for setting the exposure time will appear as shown 
+		 below.</li>
+		<li>Use the slider to set the exposure time to its lowest allowed 
+		 value.<br />
+		<img src="images/screen_exposuretime.png" alt="Changing exposure time" title="Changing exposure time" /></li>
+	</ol>
+	<li>Click the <img src="images/icon_continuous_shot.png" alt="Continuous Shot Icon" title="Continuous Shot Icon" /> &#160;button 
+	 in the toolbar, press F7, or click <span class="gui-text">Camera</span> 
+	 in the menu bar and select <span class="gui-text">Continuous Shot</span>.<br />
+	The camera starts acquiring images continuously. The acquired images 
+	 are displayed in the image display window.</li>
+</ol>
+<h2>Adjusting Image Brightness</h2>
+<p>With the current camera settings, the images you are seeing may be very 
+ dark or perhaps even black. To adjust the image brightness:</p>
+<ol>
+	<li>Increase the <span class="gui-text">Exposure Time</span> setting 
+	 enough, so that the brightness of your image is almost at the desired 
+	 level. (The viewer is capturing and displaying images continuously, 
+	 so you should see the effect of any setting change almost immediately.)</li>
+	<li>If required, increase the <span class="gui-text">Gain</span> setting 
+	 slightly to improve the contrast.</li>
+	<li>If no image is visible, if it is not stable, or if the image displays 
+	 artifacts, try one or both of the following: 
+	<ol>
+		<li>Go to the <span class="gui-text">Acquisition Controls</span> 
+		 category and decrease the frame rate.</li>
+		<li>Go to the <span class="gui-text">Transport Layer</span> category 
+		 and decrease the packet size. (If you are using a GigE camera, 
+		 the network adapter to which your camera is connected, may not 
+		 be able to handle the packet size used by the camera.)</li>
+	</ol>
+	If you were able to solve the problem, go back to step 2. Otherwise, 
+	 contact <a href="http://www.baslerweb.com/en/support/contact">Basler 
+	 technical support</a>.</li>
+	<li>Adjust the focus ring on the lens so that the image is properly 
+	 focused.</li>
+	<li>Adjust the lens aperture to fine-tune the overall image brightness. 
+	 Also take note of the <a href="optimizing_image_quality.htm#Depth_of_Focus">depth 
+	 of focus</a> in the acquired images. Adjusting the aperture affects 
+	 the depth of focus.</li>
+	<li>Make small adjustments to the <a href="black_level.htm">black level</a> 
+	 to ensure that detail is still visible in the darkest parts of the 
+	 acquired images.</li>
+	<li>Stop image acquisition by clicking the <img src="images/icon_media-playback-stop.png" alt="Stop Icon" title="Stop Icon" /> button 
+	 in the toolbar, by pressing F8 or by clicking <span class="gui-text">Camera</span> 
+	 in the menu bar and selecting <span class="gui-text">Stop</span>.</li>
+	<li>Save the image in the display window by clicking the <img src="images/icon_document-save.png" alt="Save Icon" title="Save Icon" /> 
+	 button in the toolbar or by clicking <span class="gui-text">Camera</span> 
+	 in the menu bar and selecting <span class="gui-text">Save</span>.</li>
+</ol>
+<p>Now that you have configured the basic settings of your camera to acquire 
+ an image, you can <a href="optimizing_image_quality.htm">optimize the 
+ image quality</a>.</p>
+<div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

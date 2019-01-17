@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="982696954">
+<procedure name="main">
+<interface/>
+<body>
+<l>for Index := 1 to 8 by 1</l>
+<l>read_image (Image1, 'C:/Code/Halcon/检测有无/'+Index+'.jpg')</l>
+<l>decompose3(Image1, Image11, Image2, Image3)</l>
+<l>gray_histo(Image3, Image3, AbsoluteHisto, RelativeHisto)</l>
+<l>tuple_sort_index(AbsoluteHisto, Indices)</l>
+<l>Max:=Indices[255]-60</l>
+<l>threshold (Image3, Regions, 0, Max)</l>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<l>stop()</l>
+<l>endfor</l>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

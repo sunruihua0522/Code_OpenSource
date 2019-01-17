@@ -1,0 +1,1 @@
+gXMLBuffer ="<?xml version=\"1.0\" encoding=\"utf-8\" ?><data  src=\"toc.js\"  name=\"Embedded Vision Kits\" url=\"en/embedded_vision_kits.htm\"><item name=\"daA2500-14lc-MZ7010 \" url=\"en/daa2500-14lc-mz7010.htm\" /><item name=\"daA2500-60mc-SD820-DB8\" url=\"en/daa2500-60mc-sd820-db8.htm\" /></data>";

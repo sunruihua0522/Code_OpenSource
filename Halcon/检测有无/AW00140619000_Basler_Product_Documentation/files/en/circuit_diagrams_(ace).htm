@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Circuit Diagrams (ace)</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.4.0_1";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > I/O Control" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"i_o_control.htm\">I/O Control<\/a>  &gt;  Circuit Diagrams (ace)<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Circuit Diagrams (ace)</h1>
+<p class="teaser">This topic provides sample circuit diagrams for connecting 
+ your Basler <a href="basler_ace_gige.htm">ace GigE</a> or <a href="basler_ace_usb_3.0.htm">ace 
+ USB 3.0</a> camera to external circuitry.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot33511" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot33511', 'MTPOPUP33511');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP33511" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Opto-Coupled Input Line</a>
+</li>
+   <li><a href="#MiniTOCBookMark3" >Opto-Coupled Output Line</a>
+</li>
+   <li><a href="#MiniTOCBookMark4" >GPIO Input Line</a>
+</li>
+   <li><a href="#MiniTOCBookMark5" >GPIO Output Line</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Opto-Coupled Input Line</h2>
+<p>The following diagram shows a typical circuit using the <a href="opto-coupled_i_o_lines.htm">opto-coupled 
+ input line</a>. As an example, a TTL or CMOS logic gate is used in the 
+ external circuit.</p>
+<p><img class="large-image" src="images\drawing_circuit_diagram_ace_usb3_opto_input_th.png" alt="Opto-Coupled Input Line Circuit Diagram with a Typical External Circuit" title="Opto-Coupled Input Line Circuit Diagram with a Typical External Circuit" border="0" height="247" width="550" data-rhwidget="Basic" data-popupimage="images/drawing_circuit_diagram_ace_usb3_opto_input.png" /></p>
+<p>For electrical requirements of your camera model, see <span class="camera-topic-link" 
+	 data-bookmark="#Electrical_Requirements">here</span>.</p>
+<h2><a name="MiniTOCBookMark3"></a>Opto-Coupled Output Line</h2>
+<p>The following diagram shows a typical circuit using the <a href="opto-coupled_i_o_lines.htm">opto-coupled 
+ output line</a>.</p>
+<p><img class="large-image" src="images\drawing_circuit_diagram_ace_usb3_opto_output_th.png" alt="Opto-Coupled Output Line Circuit Diagram with a Typical Voltage Output Circuit" title="Opto-Coupled Output Line Circuit Diagram with a Typical Voltage Output Circuit" border="0" height="187" width="550" data-rhwidget="Basic" data-popupimage="images/drawing_circuit_diagram_ace_usb3_opto_output.png" /></p>
+<p>The following diagram shows a typical circuit you can use to monitor 
+ the <a href="opto-coupled_i_o_lines.htm">opto-coupled output line</a> 
+ with an LED.</p>
+<p>In this example, the voltage in the external circuit is 24 VDC. Current 
+ in the circuit is limited by an external resistor.</p>
+<p><img class="large-image" src="images\drawing_circuit_diagram_ace_usb3_opto_output_2_th.png" alt="Opto-Coupled Output Line Circuit Diagram with a Typical LED Output Signal at +24 VDC for the External Circuit" title="Opto-Coupled Output Line Circuit Diagram with a Typical LED Output Signal at +24 VDC for the External Circuit" border="0" height="184" width="550" data-rhwidget="Basic" data-popupimage="images/drawing_circuit_diagram_ace_usb3_opto_output_2.png" /></p>
+<p>For electrical requirements of your camera model, see <span class="camera-topic-link" 
+	 data-bookmark="#Electrical_Requirements">here</span>.</p>
+<h2><a name="MiniTOCBookMark4"></a>GPIO Input Line</h2>
+<p>The following diagram shows a typical circuit when a <a href="general_purpose_i_o_(gpio)_lines.htm">GPIO 
+ line</a>, if present on your camera model, is set to operate as an input. 
+ As an example, a TTL or CMOS logic gate is used in the external circuit.</p>
+<p><img class="large-image" src="images\drawing_circuit_diagram_ace_usb3_gpio_input_th.png" alt="GPIO Line Circuit Diagram with the GPIO Line Set as an Input and with a Typical External Circuit" title="GPIO Line Circuit Diagram with the GPIO Line Set as an Input and with a Typical External Circuit" border="0" height="370" width="550" data-rhwidget="Basic" data-popupimage="images/drawing_circuit_diagram_ace_usb3_gpio_input.png" /></p>
+<p>The following diagram shows a different example of an external circuit 
+ using a <a href="general_purpose_i_o_(gpio)_lines.htm">GPIO line</a>, 
+ if present on your camera model.</p>
+<p><img class="large-image" src="images\drawing_circuit_diagram_ace_usb3_gpio_input_2_th.png" alt="GPIO Line Circuit Diagram with the GPIO Line Set as an Input and with a Typical External Circuit" title="GPIO Line Circuit Diagram with the GPIO Line Set as an Input and with a Typical External Circuit" border="0" height="313" width="550" data-rhwidget="Basic" data-popupimage="images/drawing_circuit_diagram_ace_usb3_gpio_input_2.png" /></p>
+<p>For electrical requirements of your camera model, see <span class="camera-topic-link" 
+	 data-bookmark="#Electrical_Requirements">here</span>.</p>
+<h2><a name="MiniTOCBookMark5"></a>GPIO Output Line</h2>
+<p>The following diagram shows a typical circuit when a <a href="general_purpose_i_o_(gpio)_lines.htm">GPIO 
+ line</a>, if present on your camera model, is set to operate as an output.</p>
+<p><img class="large-image" src="images\drawing_circuit_diagram_ace_usb3_gpio_output_th.png" alt="GPIO Line Circuit Diagram with the GPIO Line Set as an Output and with a Typical Voltage Output Circuit" title="GPIO Line Circuit Diagram with the GPIO Line Set as an Output and with a Typical Voltage Output Circuit" border="0" height="324" width="550" data-rhwidget="Basic" data-popupimage="images/drawing_circuit_diagram_ace_usb3_gpio_output.png" /></p>
+<p>For electrical requirements of your camera model, see <span class="camera-topic-link" 
+	 data-bookmark="#Electrical_Requirements">here</span>.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

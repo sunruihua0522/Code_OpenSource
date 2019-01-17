@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Troubleshooting with the pylon USB Configurator</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "4.1.3.0_2";
+</script>
+ <meta name="topic-breadcrumbs" content="Software > pylon Camera Software Suite > pylon USB Configurator" />
+</head>
+
+<body>
+
+
+
+
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"pylon_camera_software_suite.htm\">Software<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"pylon_camera_software_suite.htm#bc-1\">pylon Camera Software Suite<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"overview_of_the_pylon_usb_configurator.htm\">pylon USB Configurator<\/a>  &gt;  Troubleshooting with the pylon USB Configurator<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Troubleshooting with the pylon USB Configurator</h1>
+<p class="teaser">The <a href="overview_of_the_pylon_usb_configurator.htm">pylon 
+ USB Configurator</a> is a useful tool if you're experiencing problems 
+ with your cameras. It can detect error conditions and offers solutions.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot44826" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot44826', 'MTPOPUP44826');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP44826" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Error Conditions</a>
+</li>
+   <li><a href="#MiniTOCBookMark3" >Generating Support Information</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Error Conditions</h2>
+<p>Error conditions are shown in the device info pane. In the example below, 
+ an acA1300-30um camera is connected to a USB 2.0 adapter instead of an 
+ USB 3.0 adapter. In this case, the camera is detected but will not work. 
+ At the bottom of the pane, detailed information about the problem and 
+ suggestions how to resolve the error condition are shown.</p>
+<p><img src="images/screen_pylon_usb_configurator_trouble.jpg" alt="Error Condition" title="Error Condition" /></p>
+<h2><a name="MiniTOCBookMark3"></a>Generating Support Information</h2>
+<p>The USB Configurator provides a convenient way of generating a report 
+ about the current USB device tree. If you are experiencing problems and 
+ need assistance, you can send the report to Basler technical support. 
+ There, the report will greatly help to assess your current installation 
+ and give you detailed advice.</p>
+<p>To generate support information</p>
+<ol>
+	<li>In the <span class="gui-text">pylon USB Configurator</span> window: 
+	 
+	<ol>
+		<li>Click the question mark <strong>?</strong> in the menu bar.</li>
+		<li>Click<span class="gui-text"> Generate Support Information...</span> 
+		 in the dropdown menu. </li>
+	</ol>
+	The <span class="gui-text">Support Information</span> window opens 
+	 displaying the report.<br />
+	<img src="images/screen_pylon_usb_configurator_report.jpg" alt="Support Information Window" title="Support Information Window" /></li>
+	<li>You can copy the report to the clipboard or save it: </li>
+	<ul>
+		<li>If you want to send it to Basler technical support, click the 
+		 <span class="gui-text">Copy to Clipboard</span> button and paste 
+		 the report into an email message to Basler technical support. 
+		 </li>
+		<li>Click the <span class="gui-text">Save</span> button to save 
+		 the report on your PC. </li>
+	</ul>
+</ol>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <BitmapImage x:Key="IconMessageConfirm">Images/Icons/right.png</BitmapImage>
+    <BitmapImage x:Key="IconMessageWarning">Images/Icons/warning_32x32.png</BitmapImage>
+    <BitmapImage x:Key="IconMessageError">Images/Icons/wrong.png</BitmapImage>
+    <BitmapImage x:Key="IconViewWsPanels">Images/Icons/show_view.png</BitmapImage>
+    <BitmapImage x:Key="IconLampON_64x64">Images/Icons/lamp_on_64x64.png</BitmapImage>
+    <BitmapImage x:Key="IconLampOFF_64x64">Images/Icons/lamp_off_64x64.png</BitmapImage>
+    <BitmapImage x:Key="IconSpiral_512x512">Images/Icons/spiral_512x512.png</BitmapImage>
+    <BitmapImage x:Key="IconSpiral_32x32">Images/Icons/spiral_32x32.png</BitmapImage>
+    <BitmapImage x:Key="IconRotating_512x512">Images/Icons/rotating_512x512.png</BitmapImage>
+    <BitmapImage x:Key="IconRotating_32x32">Images/Icons/rotating_32x32.png</BitmapImage>
+    <BitmapImage x:Key="IconAlignmentnD_512x512">Images/Icons/AlignmentnD_512x512.png</BitmapImage>
+    <BitmapImage x:Key="IconAlignmentnD_32x32">Images/Icons/AlignmentnD_32x32.png</BitmapImage>
+    <BitmapImage x:Key="IconCentralAlign_512x512">Images/Icons/CentralAlign_512x512.png</BitmapImage>
+    <BitmapImage x:Key="IconCentralAlign_32x32">Images/Icons/CentralAlign_32x32.png</BitmapImage>
+    <BitmapImage x:Key="IconSnake_512x512">Images/Icons/snake_512x512.png</BitmapImage>
+    <BitmapImage x:Key="IconSnake_32x32">Images/Icons/snake_32x32.png</BitmapImage>
+    <BitmapImage x:Key="IconPlay_256x256">Images/Icons/play_256x256.png</BitmapImage>
+    <BitmapImage x:Key="IconStop_256x256">Images/Icons/stop_256x256.png</BitmapImage>
+    <BitmapImage x:Key="IconList_32x32">Images/Icons/list_32x32.png</BitmapImage>
+    <BitmapImage x:Key="IconHome_32x32">Images/Icons/home_32x32.png</BitmapImage>
+    <BitmapImage x:Key="IconArrowRight">Images/Icons/arraw_right_96x96.png</BitmapImage>
+    <BitmapImage x:Key="IconArrowRight01">Images/Icons/arrawright01_512x512.png</BitmapImage>
+</ResourceDictionary>

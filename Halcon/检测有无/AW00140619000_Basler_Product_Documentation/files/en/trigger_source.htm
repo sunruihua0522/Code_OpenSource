@@ -1,0 +1,880 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Trigger Source</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_89";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Trigger Source<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Trigger Source</h1>
+<p class="teaser">The Trigger Source 
+ <a href="features.htm">camera feature</a> allows you to configure 
+ how the <a href="trigger_selector.htm">currently selected trigger</a> 
+ can be triggered. </p>
+<p>You can select an input line or a software command as a trigger source.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot26932" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot26932', 'MTPOPUP26932');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP26932" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Configuring a Hardware 
+ Trigger Source</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Configuring a Software 
+ Trigger Source</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark5" >Specifics</a>
+</li>
+   <li><a href="#MiniTOCBookMark6" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a><a name="Setting_a_Hardware_Trigger_Source">Configuring a Hardware 
+ Trigger Source</a></h3>
+<p><a href="#Specifics">If a hardware trigger source is available</a> on 
+ your camera model, you can set it as the source for a trigger. To do so:</p>
+<ol>
+	<li>Set the <span class="parameter-name">TriggerSelector</span> 
+	 parameter to the desired <a href="trigger_selector.htm">trigger type</a>, 
+	 e.g., <span class="parameter-name">FrameStart</span>.</li>
+	<li>Set the <span class="parameter-name">TriggerSource</span> 
+	 parameter to one of the following values:</li>
+</ol>
+<ul>
+	<ul>
+		<li><span class="parameter-name">Line1</span>, 
+		 <span class="parameter-name">Line2</span>, 
+		 <span class="parameter-name">Line3</span>, 
+		 <span class="parameter-name">Line4</span>: 
+		 <a href="#Specifics">If available</a>, the trigger selected can 
+		 be triggered by applying an electrical signal to I/O line 1, 2, 
+		 3, or 4. <br />
+		If the I/O line is a <a href="general_purpose_i_o_(gpio)_lines.htm">GPIO</a> 
+		 line, the line must be <a href="line_mode.htm">configured for 
+		 input</a>.</li>
+	</ul>
+</ul>
+<h3><a name="MiniTOCBookMark4"></a><a name="Setting_a_Software_Trigger_Source">Configuring a Software 
+ Trigger Source</a></h3>
+<ol>
+	<li>Set the <span class="parameter-name">TriggerSelector</span> 
+	 parameter to the desired <a href="trigger_selector.htm">trigger type</a>, 
+	 e.g., <span class="parameter-name">FrameStart</span>.</li>
+	<li>Set the <span class="parameter-name">TriggerSource</span> 
+	 parameter to one of the following values:</li>
+</ol>
+<ul>
+	<ul>
+		<li><span class="parameter-name">Software</span>: 
+		 The trigger selected can be triggered by executing a <span class="parameter-name">TriggerSoftware</span> 
+		 command.</li>
+		<li><span class="parameter-name">SoftwareSignal1</span>, 
+		 <span class="parameter-name">SoftwareSignal2</span>, 
+		 <span class="parameter-name">SoftwareSignal3</span>: 
+		 <a href="#Specifics">If available</a>, the trigger selected can 
+		 be triggered using the <a href="software_signal_pulse.htm">Software 
+		 Signal Pulse</a> feature.</li>
+		<li><span class="parameter-name">Action1</span>: 
+		 <a href="#Specifics">If available</a>, the trigger selected can 
+		 be triggered using the <a href="action_commands.htm">Action Commands</a> 
+		 feature.</li>
+	</ul>
+</ul>
+<h2 class="specifics"><a name="MiniTOCBookMark5"></a><a name="Specifics">Specifics</a></h2>
+<div>
+<table class="specifics-table">
+	<tr>
+		<th>Camera Model</th>
+		<th><p>Available Hardware Trigger Sources</p></th>
+		<th><p>Available Software Trigger Sources</p></th>
+	</tr>
+	<tr>
+		<td data-rhtags="50" class="rh-hide">acA640-90gm</td>
+		<td data-rhtags="50" class="rh-hide">Line 1</td>
+		<td data-rhtags="50" class="rh-hide">Software</td>
+	</tr>
+	<tr>
+		<td data-rhtags="51" class="rh-hide">acA640-90gc</td>
+		<td data-rhtags="51" class="rh-hide">Line 1</td>
+		<td data-rhtags="51" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="52" class="rh-hide">acA640-120gm</td>
+		<td data-rhtags="52" class="rh-hide">Line 1</td>
+		<td data-rhtags="52" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="53" class="rh-hide">acA640-120gc</td>
+		<td data-rhtags="53" class="rh-hide">Line 1</td>
+		<td data-rhtags="53" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="54" class="rh-hide">acA640-121gm</td>
+		<td data-rhtags="54" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="54" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="55" class="rh-hide">acA640-300gm</td>
+		<td data-rhtags="55" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="55" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="56" class="rh-hide">acA640-300gc</td>
+		<td data-rhtags="56" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="56" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="57" class="rh-hide">acA720-290gm</td>
+		<td data-rhtags="57" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="57" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="58" class="rh-hide">acA720-290gc</td>
+		<td data-rhtags="58" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="58" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="59" class="rh-hide">acA750-30gm</td>
+		<td data-rhtags="59" class="rh-hide">Line 1</td>
+		<td data-rhtags="59" class="rh-hide">Software</td>
+	</tr>
+	<tr>
+		<td data-rhtags="45" class="rh-hide">acA750-30gc</td>
+		<td data-rhtags="45" class="rh-hide">Line 1</td>
+		<td data-rhtags="45" class="rh-hide">Software</td>
+	</tr>
+	<tr>
+		<td data-rhtags="60" class="rh-hide">acA780-75gm</td>
+		<td data-rhtags="60" class="rh-hide">Line 1</td>
+		<td data-rhtags="60" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="61" class="rh-hide">acA780-75gc</td>
+		<td data-rhtags="61" class="rh-hide">Line 1</td>
+		<td data-rhtags="61" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="62" class="rh-hide">acA800-200gm</td>
+		<td data-rhtags="62" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="62" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="63" class="rh-hide">acA800-200gc</td>
+		<td data-rhtags="63" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="63" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="64" class="rh-hide">acA1280-60gm</td>
+		<td data-rhtags="64" class="rh-hide">Line 1</td>
+		<td data-rhtags="64" class="rh-hide">Software</td>
+	</tr>
+	<tr>
+		<td data-rhtags="65" class="rh-hide">acA1280-60gc</td>
+		<td data-rhtags="65" class="rh-hide">Line 1</td>
+		<td data-rhtags="65" class="rh-hide">Software</td>
+	</tr>
+	<tr>
+		<td data-rhtags="66" class="rh-hide">acA1300-22gm</td>
+		<td data-rhtags="66" class="rh-hide">Line 1</td>
+		<td data-rhtags="66" class="rh-hide">Software</td>
+	</tr>
+	<tr>
+		<td data-rhtags="67" class="rh-hide">acA1300-22gc</td>
+		<td data-rhtags="67" class="rh-hide">Line 1</td>
+		<td data-rhtags="67" class="rh-hide">Software</td>
+	</tr>
+	<tr>
+		<td data-rhtags="68" class="rh-hide">acA1300-30gm</td>
+		<td data-rhtags="68" class="rh-hide">Line 1</td>
+		<td data-rhtags="68" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="69" class="rh-hide">acA1300-30gc</td>
+		<td data-rhtags="69" class="rh-hide">Line 1</td>
+		<td data-rhtags="69" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="70" class="rh-hide">acA1300-60gm</td>
+		<td data-rhtags="70" class="rh-hide">Line 1</td>
+		<td data-rhtags="70" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="72" class="rh-hide">acA1300-60gc</td>
+		<td data-rhtags="72" class="rh-hide">Line 1</td>
+		<td data-rhtags="72" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="71" class="rh-hide">acA1300-60gmNIR</td>
+		<td data-rhtags="71" class="rh-hide">Line 1</td>
+		<td data-rhtags="71" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="73" class="rh-hide">acA1300-75gm</td>
+		<td data-rhtags="73" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="73" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="74" class="rh-hide">acA1300-75gc</td>
+		<td data-rhtags="74" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="74" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="75" class="rh-hide">acA1440-73gm</td>
+		<td data-rhtags="75" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="75" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="76" class="rh-hide">acA1440-73gc</td>
+		<td data-rhtags="76" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="76" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="77" class="rh-hide">acA1600-20gm</td>
+		<td data-rhtags="77" class="rh-hide">Line 1</td>
+		<td data-rhtags="77" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="78" class="rh-hide">acA1600-20gc</td>
+		<td data-rhtags="78" class="rh-hide">Line 1</td>
+		<td data-rhtags="78" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="79" class="rh-hide">acA1600-60gm</td>
+		<td data-rhtags="79" class="rh-hide">Line 1</td>
+		<td data-rhtags="79" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="80" class="rh-hide">acA1600-60gc</td>
+		<td data-rhtags="80" class="rh-hide">Line 1</td>
+		<td data-rhtags="80" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="81" class="rh-hide">acA1920-25gm</td>
+		<td data-rhtags="81" class="rh-hide">Line 1</td>
+		<td data-rhtags="81" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="82" class="rh-hide">acA1920-25gc</td>
+		<td data-rhtags="82" class="rh-hide">Line 1</td>
+		<td data-rhtags="82" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="83" class="rh-hide">acA1920-40gm</td>
+		<td data-rhtags="83" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="83" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="84" class="rh-hide">acA1920-40gc</td>
+		<td data-rhtags="84" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="84" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="85" class="rh-hide">acA1920-48gm</td>
+		<td data-rhtags="85" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="85" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="86" class="rh-hide">acA1920-48gc</td>
+		<td data-rhtags="86" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="86" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="87" class="rh-hide">acA1920-50gm</td>
+		<td data-rhtags="87" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="87" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="88" class="rh-hide">acA1920-50gc</td>
+		<td data-rhtags="88" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="88" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="89" class="rh-hide">acA2000-50gm</td>
+		<td data-rhtags="89" class="rh-hide">Line 1</td>
+		<td data-rhtags="89" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="91" class="rh-hide">acA2000-50gc</td>
+		<td data-rhtags="91" class="rh-hide">Line 1</td>
+		<td data-rhtags="91" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="90" class="rh-hide">acA2000-50gmNIR</td>
+		<td data-rhtags="90" class="rh-hide">Line 1</td>
+		<td data-rhtags="90" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="92" class="rh-hide">acA2040-25gm</td>
+		<td data-rhtags="92" class="rh-hide">Line 1</td>
+		<td data-rhtags="92" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="94" class="rh-hide">acA2040-25gc</td>
+		<td data-rhtags="94" class="rh-hide">Line 1</td>
+		<td data-rhtags="94" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="93" class="rh-hide">acA2040-25gmNIR</td>
+		<td data-rhtags="93" class="rh-hide">Line 1</td>
+		<td data-rhtags="93" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="95" class="rh-hide">acA2040-35gm</td>
+		<td data-rhtags="95" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="95" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="96" class="rh-hide">acA2040-35gc</td>
+		<td data-rhtags="96" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="96" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="97" class="rh-hide">acA2440-20gm</td>
+		<td data-rhtags="97" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="97" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="98" class="rh-hide">acA2440-20gc</td>
+		<td data-rhtags="98" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="98" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="99" class="rh-hide">acA2500-14gm</td>
+		<td data-rhtags="99" class="rh-hide">Line 1</td>
+		<td data-rhtags="99" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="100" class="rh-hide">acA2500-14gc</td>
+		<td data-rhtags="100" class="rh-hide">Line 1</td>
+		<td data-rhtags="100" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="101" class="rh-hide">acA2500-20gm</td>
+		<td data-rhtags="101" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="101" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="102" class="rh-hide">acA2500-20gc</td>
+		<td data-rhtags="102" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="102" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="103" class="rh-hide">acA2500-20gmMED</td>
+		<td data-rhtags="103" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="103" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="104" class="rh-hide">acA2500-20gcMED</td>
+		<td data-rhtags="104" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="104" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="105" class="rh-hide">acA3088-16gm</td>
+		<td data-rhtags="105" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="105" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="106" class="rh-hide">acA3088-16gc</td>
+		<td data-rhtags="106" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="106" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="107" class="rh-hide">acA3800-10gm</td>
+		<td data-rhtags="107" class="rh-hide">Line 1</td>
+		<td data-rhtags="107" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="108" class="rh-hide">acA3800-10gc</td>
+		<td data-rhtags="108" class="rh-hide">Line 1</td>
+		<td data-rhtags="108" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="109" class="rh-hide">acA4024-8gm</td>
+		<td data-rhtags="109" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="109" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="110" class="rh-hide">acA4024-8gc</td>
+		<td data-rhtags="110" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="110" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="111" class="rh-hide">acA4096-11gm</td>
+		<td data-rhtags="111" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="111" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="198" class="rh-hide">acA4096-11gc</td>
+		<td data-rhtags="198" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="198" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="113" class="rh-hide">acA4112-8gm</td>
+		<td data-rhtags="113" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="113" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="114" class="rh-hide">acA4112-8gc</td>
+		<td data-rhtags="114" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="114" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="115" class="rh-hide">acA4600-7gc</td>
+		<td data-rhtags="115" class="rh-hide">Line 1</td>
+		<td data-rhtags="115" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="116" class="rh-hide">acA5472-5gm</td>
+		<td data-rhtags="116" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="116" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="117" class="rh-hide">acA5472-5gc</td>
+		<td data-rhtags="117" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 3</li>
+		</ul></td>
+		<td data-rhtags="117" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Action 1</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="33" class="rh-hide">All ace USB 3.0 camera models</td>
+		<td data-rhtags="33" class="rh-hide"><ul>
+			<li>Line&#160;1</li>
+			<li>Line 3</li>
+			<li>Line 4</li>
+		</ul></td>
+		<td data-rhtags="33" class="rh-hide"><ul>
+			<li>Software</li>
+			<li>Software Signal 1</li>
+			<li>Software Signal 2</li>
+			<li>Software Signal 3 (<a href="software_signal_pulse.htm#Specifics">on 
+			 some camera models</a>)</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="44" class="rh-hide">All dart BCON for LVDS camera models</td>
+		<td data-rhtags="44" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 2</li>
+		</ul></td>
+		<td data-rhtags="44" class="rh-hide">Software</td>
+	</tr>
+	<tr>
+		<td data-rhtags="21" class="rh-hide">All dart BCON for MIPI camera models</td>
+		<td data-rhtags="21" class="rh-hide">Trigger Source feature 
+		 not supported</td>
+		<td data-rhtags="21" class="rh-hide">Trigger Source feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="42" class="rh-hide">All dart USB 3.0 camera models</td>
+		<td data-rhtags="42" class="rh-hide"><ul>
+			<li>Line 1</li>
+			<li>Line 2</li>
+		</ul></td>
+		<td data-rhtags="42" class="rh-hide">Software</td>
+	</tr>
+	<tr>
+		<td data-rhtags="47" class="rh-hide">All pulse USB 3.0 camera models</td>
+		<td data-rhtags="47" class="rh-hide">None</td>
+		<td data-rhtags="47" class="rh-hide">Software</td>
+	</tr>
+</table>
+</div>
+<h2 class="sample-code"><a name="MiniTOCBookMark6"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre><code class="cpp">// Select the Frame Start trigger
+camera.TriggerSelector.SetValue(TriggerSelector_FrameStart);
+// Set the trigger source to Line 1
+camera.TriggerSource.SetValue(TriggerSource_Line1);</code></pre></div><div class="tab-2 tab-content"><pre><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Select the Frame Start trigger
+CEnumerationPtr(nodemap.GetNode("TriggerSelector"))-&gt;FromString("FrameStart");
+// Set the trigger source to Line 1
+CEnumerationPtr(nodemap.GetNode("TriggerSource"))-&gt;FromString("Line1");</code></pre></div><div class="tab-3 tab-content"><pre><code class="csharp" generated="true">// Select the Frame Start trigger
+camera.Parameters[PLCamera.TriggerSelector].SetValue(PLCamera.TriggerSelector.FrameStart);
+// Set the trigger source to Line 1
+camera.Parameters[PLCamera.TriggerSource].SetValue(PLCamera.TriggerSource.Line1);</code></pre></div><div class="tab-4 tab-content"><pre><code class="csharp" generated="true">// Select the Frame Start trigger
+Pylon.DeviceFeatureFromString(hdev, "TriggerSelector", "FrameStart");
+// Set the trigger source to Line 1
+Pylon.DeviceFeatureFromString(hdev, "TriggerSource", "Line1");</code></pre></div><div class="tab-5 tab-content"><pre><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+/* Select the Frame Start trigger */
+errRes = PylonDeviceFeatureFromString(hdev, "TriggerSelector", "FrameStart");
+CHECK(errRes);
+/* Set the trigger source to Line 1 */
+errRes = PylonDeviceFeatureFromString(hdev, "TriggerSource", "Line1");
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon Viewer 
+ </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

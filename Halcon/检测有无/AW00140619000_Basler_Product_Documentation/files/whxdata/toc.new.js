@@ -1,0 +1,4 @@
+(function() {
+var toc =  [{"type":"item","name":"Basler Product Documentation","url":"en/basler_product_documentation.htm"},{"type":"book","name":"Cameras and Camera Modules","key":"toc1","url":"en/cameras_and_camera_modules.htm"},{"type":"book","name":"Embedded Vision Kits","key":"toc14","url":"en/embedded_vision_kits.htm"},{"type":"book","name":"Accessories","key":"toc15","url":"en/accessories.htm"},{"type":"book","name":"Software","key":"toc19","url":"en/pylon_camera_software_suite.htm"},{"type":"item","name":"Other Documentation","url":"en/other_documentation.htm"},{"type":"item","name":"What's New?","url":"en/what_s_new_.htm"},{"type":"item","name":"History","url":"en/history.htm"},{"type":"item","name":"Contacting Basler","url":"en/contacting_basler.htm"},{"type":"remoteitem","name":"Basler Website","url":"http://www.baslerweb.com"}];
+window.rh.model.publish(rh.consts('KEY_TEMP_DATA'), toc, { sync:true });
+})();

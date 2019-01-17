@@ -1,0 +1,248 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Acquisition Mode</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_2";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Acquisition Mode<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Acquisition Mode</h1>
+<p class="teaser">The Acquisition Mode 
+ <a href="features.htm">camera feature</a> allows you to choose between 
+ single frame or continuous image acquisition.</p>
+<div class="info">
+	<ul>
+		<li>This feature is not accessible via the pylon Viewer feature 
+		 tree. Instead, the acquisition mode is set automatically when 
+		 you use the <span class="gui-text">Single Shot</span> and <span 
+		 class="gui-text">Continuous Shot</span> buttons in the <a href="overview_of_the_pylon_viewer.htm">toolbar 
+		 of the pylon Viewer</a>.</li>
+		<li>The pylon C++ API and the pylon .NET API provide configuration 
+		 event handlers that set the <span class="parameter-name">AcquisitionMode</span> 
+		 parameter automatically. Basler recommends using these event handlers.<br />
+		For more information, see the &quot;Grab&quot; code samples in 
+		 the <em>C++ Programmer's Guide and Reference Documentation</em> 
+		 and the <em>pylon .NET Programmer's Guide &amp; Reference Documentation</em>&#160;delivered 
+		 with the Basler pylon Camera Software Suite.</li>
+	</ul>
+</div>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot43879" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot43879', 'MTPOPUP43879');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP43879" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Specifying the Acquisition Mode</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Available Acquisition Modes</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark5" >Single Frame Acquisition Mode</a>
+</li>
+     <li><a href="#MiniTOCBookMark6" >Continuous Acquisition Mode</a>
+</li>
+    </ul></li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark7" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>Specifying the Acquisition Mode</h3>
+<p>To specify the acquisition mode, set the <span class="parameter-name">AcquisitionMode</span> 
+ parameter to one of the following values:</p>
+<ul>
+	<li><span class="parameter-name">SingleFrame</span>: 
+	 Enables the <a href="acquisition_mode.htm#Single_Frame_Acquisition_Mode">Single 
+	 Frame </a>acquisition mode.</li>
+	<li><span class="parameter-name">Continuous</span>: 
+	 Enables the <a href="acquisition_mode.htm#Continuous_Acquisition_Mode">Continuous</a> 
+	 acquisition mode.</li>
+</ul>
+<h3><a name="MiniTOCBookMark4"></a>Available Acquisition Modes</h3>
+<h4><a name="MiniTOCBookMark5"></a><a name="Single_Frame_Acquisition_Mode">Single Frame Acquisition Mode</a></h4>
+<p>In Single Frame acquisition mode, the camera will acquire exactly one 
+ image. </p>
+<p>After the <a href="acquisition_start_and_stop.htm">Acquisition Start 
+ command</a> has been executed, the camera waits for trigger signals. Trigger 
+ signals can either be generated internally by the camera (<a href="free_run_image_acquisition.htm">free 
+ run</a>) or applied externally (<a href="triggered_image_acquisition.htm">triggered 
+ image acquisition</a>). </p>
+<p class="info">To check whether the camera is waiting for trigger signals, 
+ monitor the camera's <a href="line_source.htm#Trigger_Wait">Trigger Wait</a> 
+ signals or use the <a href="acquisition_status.htm">Acquisition Status</a> 
+ feature.</p>
+<p>When a <a href="trigger_selector.htm#Frame_Start_Trigger">Frame Start 
+ trigger signal</a> has been received and an image has been acquired, the 
+ camera switches off image acquisition. To acquire another image, you must 
+ execute the Acquisition Start command again.</p>
+<h4><a name="MiniTOCBookMark6"></a><a name="Continuous_Acquisition_Mode">Continuous Acquisition Mode</a></h4>
+<p>In Continuous acquisition mode, the camera continuously acquires and 
+ transfers images until acquisition is switched off.</p>
+<p>After the <a href="acquisition_start_and_stop.htm">Acquisition Start 
+ command</a> has been executed, the camera waits for trigger signals. Trigger 
+ signals can either be generated internally by the camera (<a href="free_run_image_acquisition.htm">free 
+ run image acquisition</a>) or applied externally (<a href="triggered_image_acquisition.htm">triggered 
+ image acquisition</a>). The camera will continue acquiring images until 
+ an <a href="acquisition_start_and_stop.htm">Acquisition Stop command</a> 
+ is executed. </p>
+<h2 class="sample-code"><a name="MiniTOCBookMark7"></a><a name="Sample_Code">Sample Code</a></h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre><code class="cpp">// Configure single frame acquisition on the camera
+camera.AcquisitionMode.SetValue(AcquisitionMode_SingleFrame);
+// Switch on image acquisition
+camera.AcquisitionStart.Execute();
+// The camera waits for a trigger signal. 
+// When a Frame Start trigger signal has been received,
+// the camera executes an Acquisition Stop command internally.
+// Configure continuous image acquisition on the camera
+camera.AcquisitionMode.SetValue(AcquisitionMode_Continuous);
+// Switch on image acquisition
+camera.AcquisitionStart.Execute();
+// The camera waits for trigger signals.
+// (...)
+// Switch off image acquisition
+camera.AcquisitionStop.Execute();</code></pre></div><div class="tab-2 tab-content"><pre><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Configure single frame acquisition on the camera
+CEnumerationPtr(nodemap.GetNode("AcquisitionMode"))-&gt;FromString("SingleFrame");
+// Switch on image acquisition
+CCommandPtr(nodemap.GetNode("AcquisitionStart"))-&gt;Execute();
+// The camera waits for a trigger signal.
+// When a Frame Start trigger signal has been received,
+// the camera executes an Acquisition Stop command internally.
+// Configure continuous image acquisition on the camera
+CEnumerationPtr(nodemap.GetNode("AcquisitionMode"))-&gt;FromString("Continuous");
+// Switch on image acquisition
+CCommandPtr(nodemap.GetNode("AcquisitionStart"))-&gt;Execute();
+// The camera waits for trigger signals.
+// (...)
+// Switch off image acquisition
+CCommandPtr(nodemap.GetNode("AcquisitionStop"))-&gt;Execute();</code></pre></div><div class="tab-3 tab-content"><pre><code class="csharp" generated="true">// Configure single frame acquisition on the camera
+camera.Parameters[PLCamera.AcquisitionMode].SetValue(PLCamera.AcquisitionMode.SingleFrame);
+// Switch on image acquisition
+camera.Parameters[PLCamera.AcquisitionStart].Execute();
+// The camera waits for a trigger signal.
+// When a Frame Start trigger signal has been received,
+// the camera executes an Acquisition Stop command internally.
+// Configure continuous image acquisition on the camera
+camera.Parameters[PLCamera.AcquisitionMode].SetValue(PLCamera.AcquisitionMode.Continuous);
+// Switch on image acquisition
+camera.Parameters[PLCamera.AcquisitionStart].Execute();
+// The camera waits for trigger signals.
+// (...)
+// Switch off image acquisition
+camera.Parameters[PLCamera.AcquisitionStop].Execute();</code></pre></div><div class="tab-4 tab-content"><pre><code class="csharp" generated="true">// Configure single frame acquisition on the camera
+Pylon.DeviceFeatureFromString(hdev, "AcquisitionMode", "SingleFrame");
+// Switch on image acquisition
+Pylon.DeviceExecuteCommandFeature(hdev, "AcquisitionStart");
+// The camera waits for a trigger signal.
+// When a Frame Start trigger signal has been received,
+// the camera executes an Acquisition Stop command internally.
+// Configure continuous image acquisition on the camera
+Pylon.DeviceFeatureFromString(hdev, "AcquisitionMode", "Continuous");
+// Switch on image acquisition
+Pylon.DeviceExecuteCommandFeature(hdev, "AcquisitionStart");
+// The camera waits for trigger signals.
+// (...)
+// Switch off image acquisition
+Pylon.DeviceExecuteCommandFeature(hdev, "AcquisitionStop");</code></pre></div><div class="tab-5 tab-content"><pre><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+/* Configure single frame acquisition on the camera */
+errRes = PylonDeviceFeatureFromString(hdev, "AcquisitionMode", "SingleFrame");
+CHECK(errRes);
+/* Switch on image acquisition */
+errRes = PylonDeviceExecuteCommandFeature(hdev, "AcquisitionStart");
+CHECK(errRes);
+/* The camera waits for a trigger signal. */
+/* When a Frame Start trigger signal has been received, */
+/* the camera executes an Acquisition Stop command internally. */
+/* Configure continuous image acquisition on the camera */
+errRes = PylonDeviceFeatureFromString(hdev, "AcquisitionMode", "Continuous");
+CHECK(errRes);
+/* Switch on image acquisition */
+errRes = PylonDeviceExecuteCommandFeature(hdev, "AcquisitionStart");
+CHECK(errRes);
+/* The camera waits for trigger signals. */
+/* (...) */
+/* Switch off image acquisition */
+errRes = PylonDeviceExecuteCommandFeature(hdev, "AcquisitionStop");
+CHECK(errRes);</code></pre></div></div></div>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

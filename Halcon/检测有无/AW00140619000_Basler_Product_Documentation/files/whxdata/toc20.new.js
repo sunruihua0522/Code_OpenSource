@@ -1,0 +1,4 @@
+(function() {
+var toc =  [{"type":"book","name":"pylon Viewer","key":"toc21","url":"en/overview_of_the_pylon_viewer.htm"},{"type":"book","name":"pylon IP Configurator","key":"toc22","url":"en/overview_of_the_pylon_ip_configurator.htm"},{"type":"book","name":"pylon USB Configurator","key":"toc23","url":"en/overview_of_the_pylon_usb_configurator.htm"},{"type":"item","name":"Camera Emulation","url":"en/camera_emulation.htm"},{"type":"item","name":"Stream Grabber Parameters","url":"en/stream_grabber_parameters.htm"},{"type":"item","name":"Transport Layer Parameters","url":"en/transport_layer_parameters.htm"}];
+window.rh.model.publish(rh.consts('KEY_TEMP_DATA'), toc, { sync:true });
+})();

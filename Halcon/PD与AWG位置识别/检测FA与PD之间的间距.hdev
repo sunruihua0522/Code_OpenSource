@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="-851665340">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image (AwgToPdArraySideView, 'C:/Code/Halcon/PD与AWG位置识别/AWG to PD Array Side View.bmp')</l>
+<l>dev_close_window()</l>
+<l>dev_open_window_fit_image(AwgToPdArraySideView, 0, 0, -1, -1, WindowHandle)</l>
+<l>dev_display(AwgToPdArraySideView)</l>
+<l>draw_rectangle1(WindowHandle, Row1, Column1, Row2, Column2)</l>
+<l>gen_rectangle1(Rectangle, Row1, Column1, Row2, Column2)</l>
+<l>reduce_domain(AwgToPdArraySideView, Rectangle, ImageReduced)</l>
+<l>threshold (ImageReduced, Regions, 0, 99)</l>
+<l>gen_contour_region_xld(Regions, Contours, 'border')</l>
+<l>create_shape_model_xld(Contours, 'auto', -0.39, 0.79, 'auto', 'auto', 'ignore_local_polarity', 5, ModelID)</l>
+<l>find_shape_model(AwgToPdArraySideView, ModelID, -0.39, 0.78, 0.5, 1, 0.5, 'least_squares', 0, 0.9, Row, Column, Angle, Score)</l>
+<l>vector_angle_to_rigid(0, 0, 0, Row, Column, Angle, HomMat2D)</l>
+<l>set_shape_model_origin(ModelID, Row, Column)</l>
+<l>set_shape_model_metric(AwgToPdArraySideView, ModelID, HomMat2D, 'use_polarity')</l>
+<l>write_shape_model(ModelID, 'AWGModel.shm')</l>
+<l>clear_shape_model(ModelID)</l>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

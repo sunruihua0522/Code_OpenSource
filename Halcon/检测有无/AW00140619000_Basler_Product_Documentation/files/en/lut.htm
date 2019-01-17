@@ -1,0 +1,331 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>LUT</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_55";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  LUT<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>LUT</h1>
+<p class="teaser">The LUT 
+ <a href="features.htm">camera feature</a> allows you to replace the pixel 
+ values in your images by values defined by you.</p>
+<p>This is done by creating a user-defined lookup table (LUT).</p>
+<p>You can also use the <a href="lut_value_all.htm">LUT Value All</a> feature 
+ to replace all pixel values in a single operation.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot45847" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot45847', 'MTPOPUP45847');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP45847" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >How It Works</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Creating the LUT</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >Number of LUT Entries</a>
+</li>
+    <li><a href="#MiniTOCBookMark8" >Additional Parameters</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark9" >Specifics</a>
+</li>
+   <li><a href="#MiniTOCBookMark10" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>How It Works</h3>
+<p>LUT is short for &quot;lookup table&quot;, which is basically an indexed 
+ list of numbers. For Basler cameras, you can create a user-defined &quot;luminance 
+ lookup table&quot; to replace the pixel values, i.e., the luminance or 
+ gray values, in your images.</p>
+<p>In the lookup table you can define replacement values for individual 
+ pixel values. For example, you can replace a gray value of 4&#160;095 
+ (= maximum gray value for 12-bit <a href="pixel_format.htm">pixel formats</a>) 
+ by a gray value of 0 (= minimum gray value). This changes all completely 
+ white pixels in your images to completely black pixels.</p>
+<p>Setting up a user-defined LUT can be useful, e.g., if you want to optimize 
+ the luminance of your images. By defining the replacement values in advance 
+ and storing them in the camera you avoid time-consuming calculations by 
+ your application. Instead, the camera can simply look up the desired new 
+ value in the LUT based on the pixel’s initial value.</p>
+<p class="info">The value range of the user-defined LUT (0–1&#160;024 or 
+ 0–4&#160;096) is <strong>not</strong> dependent on the currently selected 
+ <a href="pixel_format.htm">pixel format</a>. It is dependent on the <a href="pixel_format.htm#Maximum_Pixel_Bit_Depth">maximum pixel bit 
+ depth</a> of the camera.<br />
+If your camera supports 12-bit pixel formats, but currently uses an 8-bit 
+ pixel format, you will still be able to enter pixel values between 0 and 
+ 4&#160;096. The camera uses these values for conversion. Then, it drops 
+ the 4 least significant bits of the converted values and transmits the 
+ 8 most significant bits. </p>
+<h3><a name="MiniTOCBookMark4"></a>Creating the LUT</h3>
+<ol>
+	<li>Set the <span class="parameter-name">LUTIndex</span> 
+	 parameter to the pixel value that you want to replace with a new value.</li>
+	<li>Set the <span class="parameter-name">LUTValue</span> 
+	 parameter to the new pixel value.</li>
+	<li>Repeat steps 1 and 2 for all pixel values that you want to replace.</li>
+	<li>Set the <span class="parameter-name">LUTEnable</span> 
+	 parameter to <span class="parameter-name">true</span>.</li>
+</ol>
+<p>Basler recommends using a programming loop (e.g., a for-loop) to iterate 
+ through the values. See the <a href="#Sample_Code">sample code</a> below. 
+ </p>
+<p class="info">If you want to replace all pixel values, Basler recommends 
+ using the <a href="lut_value_all.htm">LUT Value All</a> feature because 
+ it is quicker than replacing individual pixel values.</p>
+<h3><a name="MiniTOCBookMark5"></a>Number of LUT Entries</h3>
+<p>The number of entries available in the LUT varies by camera model. </p>
+<p>Depending on the <a href="#Specifics">number of LUT entries</a>, it 
+ is not always possible to store replacement values for all possible pixel 
+ values.</p>
+<h4><a name="MiniTOCBookMark6"></a><a name="LUT_with_512_Entries">LUT with 512 Entries</a></h4>
+<p>On <a href="#Specifics">most</a> Basler cameras, the user-defined LUT 
+ can store up to 512 entries. This size is not sufficient for storing the 
+ 1&#160;024 or 4&#160;096 replacement values. </p>
+<p>Therefore, the following limitations apply:</p>
+<ul>
+	<li>On cameras with a <a href="pixel_format.htm#Maximum_Pixel_Bit_Depth">maximum 
+	 pixel bit depth</a> of <strong>10 bit</strong>, you can only set the 
+	 <span class="parameter-name">LUTIndex</span> 
+	 parameter to multiples of two (0, 2, 4, 6, ..., 1022). This means 
+	 that only pixel values of 0, 2, 4, 6, and so on, can be replaced.</li>
+	<li>On cameras with a maximum pixel bit depth of <strong>12 bit</strong>, 
+	 you can only set the <span class="parameter-name">LUTIndex</span> 
+	 parameter to multiples of eight (0, 8, 16, 24, ..., 4088). This means 
+	 that only pixel values of 0, 8, 16, 24, and so on, can be replaced. 
+	 </li>
+</ul>
+<p>To determine the remaining pixel values, the camera performs a straight 
+ line interpolation.</p>
+<p><strong>Example:</strong> Assume that the camera has a maximum pixel 
+ bit depth of 12 bit. Also assume that you have created a LUT that converts 
+ a gray value of 24 to a gray value of 20 and a gray value of 32 to a value 
+ of 30. In this case, the camera determines the pixel values between 24 
+ and 32 as follows: </p>
+<table >
+	<col />
+	<col />
+	<col />
+	<col />
+	<tr>
+		<th><p>Original Pixel Value</p></th>
+		<th><p>Value Stored in LUT</p></th>
+		<th><p>Interpolated Value</p></th>
+		<th><p>New Pixel Value (Rounded)</p></th>
+	</tr>
+	<tr>
+		<td><p>24</p></td>
+		<td><p>20</p></td>
+		<td><p>20</p></td>
+		<td><p>20</p></td>
+	</tr>
+	<tr>
+		<td><p>25</p></td>
+		<td><p>-</p></td>
+		<td><p>21.25</p></td>
+		<td><p>21</p></td>
+	</tr>
+	<tr>
+		<td><p>26</p></td>
+		<td><p>-</p></td>
+		<td><p>22.5</p></td>
+		<td><p>22</p></td>
+	</tr>
+	<tr>
+		<td><p>27</p></td>
+		<td><p>-</p></td>
+		<td><p>23.75</p></td>
+		<td><p>23</p></td>
+	</tr>
+	<tr>
+		<td><p>28</p></td>
+		<td><p>-</p></td>
+		<td><p>25</p></td>
+		<td><p>25</p></td>
+	</tr>
+	<tr>
+		<td><p>29</p></td>
+		<td><p>-</p></td>
+		<td><p>26.25</p></td>
+		<td><p>26</p></td>
+	</tr>
+	<tr>
+		<td><p>30</p></td>
+		<td><p>-</p></td>
+		<td><p>27.5</p></td>
+		<td><p>27</p></td>
+	</tr>
+	<tr>
+		<td><p>31</p></td>
+		<td><p>-</p></td>
+		<td><p>28.75</p></td>
+		<td><p>28</p></td>
+	</tr>
+	<tr>
+		<td><p>32</p></td>
+		<td><p>30</p></td>
+		<td><p>30</p></td>
+		<td><p>30</p></td>
+	</tr>
+</table>
+<div class="info">
+	<p>Pixel values above 4088 are not interpolated. Instead, all pixel 
+	 values between 4&#160;088 and 4&#160;095 are replaced by the pixel 
+	 value entered at LUT index position 4&#160;088.</p>
+</div>
+<h4><a name="MiniTOCBookMark7"></a>LUT with 1&#160;024 or 4&#160;096 Entries</h4>
+<p>On <a href="#Specifics">some</a> Basler cameras, the user-defined LUT 
+ can store entries for all replacement values. Dependent on the <a href="pixel_format.htm#Maximum_Pixel_Bit_Depth">maximum 
+ pixel bit depth</a> of the camera, 1&#160;024 or 4&#160;096 entries are 
+ available.</p>
+<p>This means that the limitations described in the section above do not 
+ apply: You can set the <span class="parameter-name">LUTIndex</span> 
+ parameter in increments of 1, and no interpolation is performed.</p>
+<h3><a name="MiniTOCBookMark8"></a>Additional Parameters</h3>
+<p>The <span class="parameter-name">LUTSelector</span> 
+ parameter allows you to select a lookup table.</p>
+<p>Because there is only one user-defined lookup table available on Basler 
+ cameras, the parameter currently serves no function.</p>
+<h2 class="specifics"><a name="MiniTOCBookMark9"></a><a name="Specifics">Specifics</a></h2>
+<div>
+<table class="specifics-table">
+	<col />
+	<col />
+	<tr>
+		<th>&#160;Camera Model</th>
+		<th>Number of LUT Entries</th>
+	</tr>
+	<tr>
+		<td data-rhtags="193" class="rh-hide">All ace USB 3.0 camera models except MED models</td>
+		<td data-rhtags="193" class="rh-hide">512</td>
+	</tr>
+	<tr>
+		<td data-rhtags="194" class="rh-hide">All ace GigE camera models&#160;except MED models</td>
+		<td data-rhtags="194" class="rh-hide">512</td>
+	</tr>
+	<tr>
+		<td data-rhtags="195" class="rh-hide">All MED ace GigE camera models</td>
+		<td data-rhtags="195" class="rh-hide">1&#160;024</td>
+	</tr>
+	<tr>
+		<td data-rhtags="10" class="rh-hide">All MED ace USB 3.0 camera models</td>
+		<td data-rhtags="10" class="rh-hide">4&#160;096</td>
+	</tr>
+	<tr>
+		<td data-rhtags="44" class="rh-hide">All dart BCON for LVDS camera models</td>
+		<td data-rhtags="44" class="rh-hide">LUT feature not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="21" class="rh-hide">All dart BCON for MIPI camera models</td>
+		<td data-rhtags="21" class="rh-hide">LUT feature not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="42" class="rh-hide">All dart USB 3.0 camera models</td>
+		<td data-rhtags="42" class="rh-hide">LUT feature not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="47" class="rh-hide">All pulse USB 3.0 camera models</td>
+		<td data-rhtags="47" class="rh-hide">LUT feature not supported</td>
+	</tr>
+</table>
+</div>
+<h2 class="sample-code"><a name="MiniTOCBookMark10"></a><a name="Sample_Code">Sample Code</a></h2>
+<div>
+<pre>
+<code class="cpp">// Write a lookup table to the device.
+// The following lookup table causes an inversion of the pixel values
+// (bright -&gt; dark, dark -&gt; bright)
+// Only applies to cameras with a maximum pixel bit depth of 12 bit
+for (int i=0; i&lt;4096; i+=8)
+{
+&#160;&#160;&#160;camera.LUTIndex.SetValue(i);
+&#160;&#160;&#160;camera.LUTValue.SetValue(4095-i);
+}
+// Enable the LUT
+camera.LUTEnable.SetValue(true);</code></pre>
+</div>
+<p>This sample code is available in C++ language only.</p>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

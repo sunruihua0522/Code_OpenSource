@@ -1,0 +1,229 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="noindex, nofollow" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Hardware Installation (ace/dart/pulse USB 3.0)</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.3.0_2";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Installation" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"camera_installation.htm\">Installation<\/a>  &gt;  Hardware Installation (ace/dart/pulse USB 3.0)<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Hardware Installation (ace/dart/pulse USB 3.0)</h1>
+<p class="teaser">This topic tells you how to install a <a href="basler_ace_usb_3.0.htm">Basler 
+ ace USB 3.0</a>, <a href="basler_dart_usb_3.0.htm">dart USB 3.0</a>, or 
+ <a href="basler_pulse_usb_3.0.htm">pulse USB 3.0</a> camera.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot22700" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot22700', 'MTPOPUP22700');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP22700" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Prerequisites</a>
+</li>
+   <li><a href="#MiniTOCBookMark3" >General 
+ Considerations</a>
+</li>
+   <li><a href="#MiniTOCBookMark4" >Recommended 
+ USB 3.0 Host Controllers</a>
+</li>
+   <li><a href="#MiniTOCBookMark5" >Installing the Host Controller Driver</a>
+</li>
+   <li><a href="#MiniTOCBookMark6" >Installing the Camera</a>
+</li>
+   <li><a href="#MiniTOCBookMark7" >Next Steps</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Prerequisites</h2>
+<p>The pylon Camera Software Suite for Windows must be <a href="software_installation_(windows).htm">installed</a>.</p>
+<h2><a name="MiniTOCBookMark3"></a><a name="General_Considerations" id="General_Considerations">General 
+ Considerations</a></h2>
+<p>Make sure that the following items are available before starting the 
+ hardware installation:</p>
+<ul>
+	<li>A Basler ace, dart, or pulse USB 3.0 camera.</li>
+	<li>A computer with a USB 3.0 port. If your computer doesn't have one, 
+	 you can add a <a href="#Recommended_USB_3.0_Host_Controllers">suitable 
+	 USB 3.0 host controller card</a>.</li>
+	<li><div class="info">
+		<p><strong>USB 2.0 Compatibility</strong></p>
+		<ul>
+			<li><strong>ace <span>cameras:</span></strong> When connected 
+			 to a USB 2.0 port, Basler ace USB&#160;3.0 cameras will be 
+			 detected but <strong>can’t be used</strong>.</li>
+			<li><strong>dart <span>and</span> pulse <span>cameras:</span></strong> 
+			 Basler dart and pulse USB 3.0 cameras are USB 2.0 backward 
+			 compatible. However, camera performance is limited when connected 
+			 to a USB 2.0 port. For information about suitable USB 2.0 
+			 host controllers and about optimizing the USB&#160;2.0 data 
+			 transmission rate, see the <em><a href="https://www.baslerweb.com/en/support/downloads/document-downloads/usb-2-0-host-controllers-for-dart-and-pulse-cameras/">Recommended 
+			 USB 2.0 Host Controllers for Basler dart and pulse Cameras</a></em> 
+			 application note.</li>
+		</ul>
+	</div></li>
+	<li>As applicable, a C-mount or CS-mount lens for the camera.</li>
+	<li>If you already know what lens you will be using in your actual 
+	 application, use this lens during the camera installation and setup. 
+	 If not, Basler suggests using a zoom lens for the installation and 
+	 initial setup. <a href="contacting_basler.htm">Contact Basler technical 
+	 support</a> if you need assistance in determining the best lens for 
+	 your application.</li>
+	<li>A USB cable. <a href="contacting_basler.htm">Contact your Basler 
+	 sales representative</a> for ordering a suitable cable assembly.</li>
+</ul>
+<h2><a name="MiniTOCBookMark4"></a><a name="Recommended_USB_3.0_Host_Controllers" id="Recommended_USB_3.0_Host_Controllers">Recommended 
+ USB 3.0 Host Controllers</a></h2>
+<p>So far, Basler has found the following host controller chipsets to work 
+ well with Basler USB 3.0 cameras:</p>
+<ul>
+	<li>Renesas USB 3.0 host controller chipsets</li>
+	<li>FrescoLogic host controller chipsets</li>
+</ul>
+<p>Other USB 3.0 host controller chipsets are being evaluated on an on-going 
+ basis. <a href="contacting_basler.htm">Contact Basler technical support</a> 
+ for the latest information about other recommended chipsets.</p>
+<p class="info">For more information, see the <a href="https://www.baslerweb.com/en/support/downloads/document-downloads/maximum-bandwidth-measurements-of-usb-3-0-host-controllers/">USB 
+ 3.0 Host Controllers' Maximum Bandwidth Measurements</a> application note.</p>
+<h2><a name="MiniTOCBookMark5"></a>Installing the Host Controller Driver</h2>
+<p>To use your camera on a USB 3.0 port, an xHCI driver is required.</p>
+<ul>
+	<li>On <strong>Windows 8 and higher</strong>, a suitable xHCI driver 
+	 is preinstalled as part of the operating system. For better performance, 
+	 however, Basler recommends installing the xHCI driver of the host 
+	 controller manufacturer.</li>
+	<li>On <strong>Windows 7</strong>, you must install the xHCI driver 
+	 manually. You can download suitable drivers from the <a href="https://www.baslerweb.com/en/products/software/pylon-windows/">Basler 
+	 pylon Windows website</a> (scroll down to the &quot;Drivers for Recommended 
+	 USB 3.0 Host Controllers&quot; section).</li>
+</ul>
+<h2 class="subheading"><a name="MiniTOCBookMark6"></a>Installing the Camera</h2>
+<p class="subheading">ace USB 3.0 Camera Connectors</p>
+<p><img src="images/drawing_ace_usb_connectors.png" alt="ace USB 3.0 Connectors" title="ace USB 3.0 Connectors" /></p>
+<p class="subheading">dart USB 3.0 Camera Connectors</p>
+<p><img src="images/drawing_dart_usb_connectors.png" alt="dart USB 3.0 Connectors" title="dart USB 3.0 Connectors" /></p>
+<p class="subheading">pulse USB 3.0 Camera Connectors</p>
+<p><img src="images/drawing_pulse_connectors.png" alt="pulse USB 3.0 Connectors" title="pulse USB 3.0 Connectors" /></p>
+<p>To install the camera:</p>
+<ol>
+	<li><strong>ace <span>cameras:</span></strong> Remove the protective 
+	 cap from the lens mount.<br />
+	<strong>pulse <span>cameras:</span></strong> Remove the protective 
+	 seal from the lens mount.<br />
+	<strong>dart S-mount <span>and</span> CS-mount <span>cameras:</span></strong> 
+	 If you want to use the I/O connector, remove the protective seal from 
+	 the I/O connector.<br />
+	<strong>dart bare board <span>cameras:</span></strong> Remove the protective 
+	 seal from the sensor. If you want to use the I/O connector, also remove 
+	 the protective seal from the I/O connector.</li>
+	<li>Mount a lens on the camera.<br />
+	Be careful not to insert the lens any deeper than specified in the 
+	 <a href="maximum_allowed_lens_intrusion.htm">Maximum Allowed Lens 
+	 Intrusion</a> topic.</li>
+	<li><strong>ace and dart cameras:</strong> If you want to use any of 
+	 the camera’s I/O lines, carry out the following steps: 
+	<ol>
+		<li>Plug the 6-pin connector of the I/O cable into the I/O connector 
+		 of the camera.</li>
+		<li>Connect the other end of the I/O cable to the device that sends 
+		 and receives I/O signals.</li>
+	</ol></li>
+	<li>Connect the USB cable: 
+	<ol>
+		<li>Plug the USB 3.0 Micro-B connector of the USB cable into the 
+		 USB 3.0 connector of the camera.</li>
+		<li>Plug the other end of the USB cable into a USB port of your 
+		 computer.<br />
+		Basler strongly recommends connecting the camera to a USB 3.0 port. 
+		 USB 3.0 ports are either marked with a SuperSpeed logo or have 
+		 a blue insert.<br />
+		For information about USB 2.0 compatibility, see the <a href="hardware_installation_(ace_dart_pulse_usb_3.0).htm#General_Considerations">General 
+		 Considerations</a> section.</li>
+	</ol></li>
+</ol>
+<h2><a name="MiniTOCBookMark7"></a>Next Steps</h2>
+<ul>
+	<li>Use the <a href="overview_of_the_pylon_viewer.htm">pylon Viewer</a> 
+	 to check whether your camera has been detected, acquire images, display 
+	 images, and adjust parameter settings to improve image quality.</li>
+	<li>Use the <a href="overview_of_the_pylon_usb_configurator.htm">pylon 
+	 USB Configurator</a> to look up information about the USB devices 
+	 connected to your computer. You can also use it for troubleshooting.</li>
+</ul>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

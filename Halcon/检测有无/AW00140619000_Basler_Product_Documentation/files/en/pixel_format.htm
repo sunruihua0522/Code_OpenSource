@@ -1,0 +1,1808 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Pixel Format</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_60";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Pixel Format<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Pixel Format</h1>
+<p class="teaser">The Pixel Format 
+ <a href="features.htm">camera feature</a> allows you to choose the format 
+ of the image data transmitted by the camera.</p>
+<p>There are different pixel formats depending on the model of your camera 
+ and whether it is a color or a mono camera.</p>
+<div class="info">
+	<p>Detailed information about pixel formats can be found in the <a 
+	 href="http://www.emva.org/wp-content/uploads/GenICam_PFNC_2_1.pdf">GenICam 
+	 Pixel Format Naming Convention 2.1</a>.</p>
+</div>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot4265" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot4265', 'MTPOPUP4265');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP4265" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Prerequisites</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Choosing a Pixel Format</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >Determining the Pixel Format</a>
+</li>
+    <li><a href="#MiniTOCBookMark6" >Available Pixel Formats</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark7" >Mono Formats</a>
+</li>
+     <li><a href="#MiniTOCBookMark8" >Bayer Formats</a>
+</li>
+     <li><a href="#MiniTOCBookMark9" >YUV Formats</a>
+</li>
+     <li><a href="#MiniTOCBookMark10" >RGB and BGR Formats</a>
+</li>
+    </ul></li>
+    <li><a href="#MiniTOCBookMark11" >Maximum Pixel Bit Depth</a>
+</li>
+    <li><a href="#MiniTOCBookMark12" >Unpacked and Packed Pixel Formats</a>
+</li>
+    <li><a href="#MiniTOCBookMark13" >External Links</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark14" >Specifics</a>
+</li>
+   <li><a href="#MiniTOCBookMark15" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>Prerequisites</h3>
+<p>The camera must be idle, i.e., not capturing images. Otherwise, the 
+ <span class="parameter-name">PixelFormat</span> 
+ parameter is read-only.</p>
+<h3><a name="MiniTOCBookMark4"></a>Choosing a Pixel Format</h3>
+<p>To choose a pixel format, set the <span class="parameter-name">PixelFormat</span> 
+ parameter to one of the following values:</p>
+<ul>
+	<li><span class="parameter-name"><a href="pixel_format.htm#Mono_Formats">MonoXX</a></span> 
+	 (e.g., <span class="parameter-name">Mono10</span>, 
+	 <span class="parameter-name">Mono12p</span>) 
+	 (<a href="#Specifics">if available</a>)</li>
+	<li><span class="parameter-name"><a href="pixel_format.htm#Bayer_Formats">BayerXXYY</a></span> 
+	 (e.g., <span class="parameter-name">BayerBG10</span>, 
+	 <span class="parameter-name">BayerGR12</span>)&#160;(<a 
+	 href="#Specifics">if available</a>)</li>
+	<li><a href="pixel_format.htm#YUV_Formats"><span class="parameter-name">YCbCr422_8</span>, 
+	 <span class="parameter-name">YUV422Packed</span>, 
+	 <span class="parameter-name">YUV422_YUYV_Packed</span></a>, 
+	 <span class="parameter-name">YCbCr420_8</span>&#160;(<a 
+	 href="#Specifics">if available</a>)</li>
+	<li><a href="pixel_format.htm#RGB_and_BGR_Formats"><span class="parameter-name">RGB8</span>, 
+	 <span class="parameter-name">BGR8</span></a>&#160;(<a 
+	 href="#Specifics">if available</a>)</li>
+</ul>
+<h3><a name="MiniTOCBookMark5"></a>Determining the Pixel Format</h3>
+<p>To determine the pixel format currently used by the camera, read the 
+ value of the <span class="parameter-name">PixelFormat</span> 
+ parameter.</p>
+<h3><a name="MiniTOCBookMark6"></a>Available Pixel Formats</h3>
+<h4><a name="MiniTOCBookMark7"></a><a name="Mono_Formats">Mono Formats</a></h4>
+<p>If a <strong>monochrome</strong> camera uses one of the mono pixel formats, 
+ it outputs 8, 10, or 12 bits of data per pixel. </p>
+<p>If a <strong>color</strong> camera uses the Mono 8 pixel format, the 
+ values for each pixel are first converted to the YUV color model. The 
+ Y component of this model represents a brightness value and is equivalent 
+ to the value that would be derived from a pixel in a monochrome image. 
+ So in essence, when a color camera is set to Mono 8, it outputs an 8-bit 
+ monochrome image. This type of output is sometimes referred to as &quot;Y 
+ Mono 8&quot;.</p>
+<h4><a name="MiniTOCBookMark8"></a><a name="Bayer_Formats">Bayer Formats</a></h4>
+<p>If a color camera uses one of the Bayer pixel formats, it outputs 8, 
+ 10, or 12 bits of data per pixel. The pixel data is not processed or interpolated 
+ in any way. For each pixel covered with a red filter, you get 8, 10, or 
+ 12 bits of red data. For each pixel covered with a green filter, you get 
+ 8, 10, or 12 bits of green data. For each pixel covered with a blue filter, 
+ you get 8, 10, or 12 bits of blue data. This type of pixel data is sometimes 
+ referred to as &quot;raw&quot; output.</p>
+<h4><a name="MiniTOCBookMark9"></a><a name="YUV_Formats">YUV Formats</a></h4>
+<p>Color cameras can also output color images based on pixel data in YUV 
+ (or YCbCr) format.</p>
+<p>If a color camera uses this format, each pixel value in the captured 
+ image goes through a conversion process as it exits the sensor and passes 
+ through the camera. This process yields Y, U, and V color information 
+ for each pixel value.</p>
+<p class="info">The values for U and V normally range from -128 to +127. 
+ Because the camera transfers U values and V values with unsigned integers, 
+ 128 is added to each U value and V value before they are transferred from 
+ the camera. This way, values from 0 to 255 can be transferred.</p>
+<h4><a name="MiniTOCBookMark10"></a><a name="RGB_and_BGR_Formats">RGB and BGR Formats</a></h4>
+<p>If a color camera uses the RGB 8 or BGR 8 pixel format, the camera outputs 
+ 8 bit of red data, 8 bit of green data, and 8 bit of blue data for each 
+ pixel in the acquired frame. </p>
+<p>The pixel formats differ by the output sequences for the color data 
+ (red, green, blue or blue, green, red).</p>
+<h3><a name="MiniTOCBookMark11"></a><a name="Maximum_Pixel_Bit_Depth">Maximum Pixel Bit Depth</a></h3>
+<p>The maximum pixel bit depth is defined by the pixel format with the 
+ highest bit depth among the <a href="#Specifics">pixel formats available 
+ on your camera</a>.</p>
+<p><strong>Example:</strong> If the available pixel formats for your camera 
+ are Mono 8 and Mono 12, the maximum pixel bit depth of the camera is 12 
+ bit. </p>
+<h3><a name="MiniTOCBookMark12"></a>Unpacked and Packed Pixel Formats</h3>
+<p>When a camera uses an <strong>unpacked</strong> pixel format (e.g., 
+ Bayer 12), pixel data is always 8-bit aligned. Padding bits (zeros) are 
+ inserted as necessary to reach the next 8-bit boundary.</p>
+<p><strong>Example (simplified):</strong></p>
+<p>Assume that you have chosen a 12-bit unpacked pixel format. The camera 
+ outputs 16 bits per pixel: 12 bits of pixel data and 4 padding bits to 
+ reach the next 8-bit boundary.</p>
+<p><img src="images/drawing_pixel_formats_unpacked.png" alt="Unpacked Pixel Formats" title="Unpacked Pixel Formats" border="0" /></p>
+<p>When a camera uses a <strong>packed</strong> pixel format (e.g., Bayer 
+ 12p), pixel data is <strong>not</strong> aligned. This means that no padding 
+ bits are inserted and that one byte can contain data of multiple pixels.</p>
+<p><strong>Example (simplified):</strong></p>
+<p>Assume that you have chosen a 12-bit packed pixel format. The camera 
+ outputs 12 bits per pixel. As a consequence, data for two pixels is always 
+ spread over 3 bytes.</p>
+<p><img src="images/drawing_pixel_formats_packed.png" alt="Packed Pixel Formats" title="Packed Pixel Formats" border="0" /></p>
+<div class="info">
+	<p>The exact data alignment depends on the pixel format. You can find 
+	 detailed information in the <a href="http://www.emva.org/wp-content/uploads/GenICam_PFNC_2_1.pdf">GenICam 
+	 Pixel Format Naming Convention 2.1</a>.</p>
+</div>
+<h3><a name="MiniTOCBookMark13"></a>External Links</h3>
+<ul>
+	<li><a href="http://www.emva.org/wp-content/uploads/GenICam_PFNC_2_1.pdf">GenICam 
+	 Pixel Format Naming Convention 2.1</a> (European Machine Vision Association)</li>
+	<li><a href="https://en.wikipedia.org/wiki/Bayer_filter">Bayer filter</a> 
+	 (Wikipedia)</li>
+</ul>
+<h2 class="specifics"><a name="MiniTOCBookMark14"></a><a name="Specifics">Specifics</a></h2>
+<div>
+<table class="specifics-table">
+	<col />
+	<col />
+	<tr>
+		<th>Camera Model</th>
+		<th><p>Available Pixel Formats</p></th>
+	</tr>
+	<tr>
+		<td data-rhtags="50" class="rh-hide">acA640-90gm</td>
+		<td data-rhtags="50" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="51" class="rh-hide">acA640-90gc</td>
+		<td data-rhtags="51" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer BG 8</li>
+			<li>Bayer BG 12</li>
+			<li>Bayer BG 12 Packed</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="52" class="rh-hide">acA640-120gm</td>
+		<td data-rhtags="52" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="53" class="rh-hide">acA640-120gc</td>
+		<td data-rhtags="53" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer BG 8</li>
+			<li>Bayer BG 12</li>
+			<li>Bayer BG 12 Packed</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="54" class="rh-hide">acA640-121gm</td>
+		<td data-rhtags="54" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="55" class="rh-hide">acA640-300gm</td>
+		<td data-rhtags="55" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 10</li>
+			<li>Mono 10 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="56" class="rh-hide">acA640-300gc</td>
+		<td data-rhtags="56" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer BG 8<sup>a</sup></li>
+			<li>Bayer BG 10<sup>a</sup></li>
+			<li>Bayer BG 10 Packed<sup>a</sup></li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="57" class="rh-hide">acA720-290gm</td>
+		<td data-rhtags="57" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="58" class="rh-hide">acA720-290gc</td>
+		<td data-rhtags="58" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12 Packed<sup>a</sup></li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="59" class="rh-hide">acA750-30gm</td>
+		<td data-rhtags="59" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="45" class="rh-hide">acA750-30gc</td>
+		<td data-rhtags="45" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="60" class="rh-hide">acA780-75gm</td>
+		<td data-rhtags="60" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="61" class="rh-hide">acA780-75gc</td>
+		<td data-rhtags="61" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer BG 8</li>
+			<li>Bayer BG 12</li>
+			<li>Bayer BG 12 Packed</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="62" class="rh-hide">acA800-200gm</td>
+		<td data-rhtags="62" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 10</li>
+			<li>Mono 10 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="63" class="rh-hide">acA800-200gc</td>
+		<td data-rhtags="63" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer BG 8<sup>a</sup></li>
+			<li>Bayer BG 10<sup>a</sup></li>
+			<li>Bayer BG 10 Packed<sup>a</sup></li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="64" class="rh-hide">acA1280-60gm</td>
+		<td data-rhtags="64" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="65" class="rh-hide">acA1280-60gc</td>
+		<td data-rhtags="65" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer BG 8</li>
+			<li>Bayer BG 12<sup>b</sup></li>
+			<li>Bayer BG 12 Packed<sup>b</sup></li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="66" class="rh-hide">acA1300-22gm</td>
+		<td data-rhtags="66" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="67" class="rh-hide">acA1300-22gc</td>
+		<td data-rhtags="67" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer BG 8</li>
+			<li>Bayer BG 12</li>
+			<li>Bayer BG 12 Packed</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="68" class="rh-hide">acA1300-30gm</td>
+		<td data-rhtags="68" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="69" class="rh-hide">acA1300-30gc</td>
+		<td data-rhtags="69" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer BG 8</li>
+			<li>Bayer BG 12</li>
+			<li>Bayer BG 12 Packed</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="70" class="rh-hide">acA1300-60gm</td>
+		<td data-rhtags="70" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="71" class="rh-hide">acA1300-60gmNIR</td>
+		<td data-rhtags="71" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="72" class="rh-hide">acA1300-60gc</td>
+		<td data-rhtags="72" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8</li>
+			<li>Bayer RG 12<sup>b</sup></li>
+			<li>Bayer RG 12 Packed<sup>b</sup></li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="73" class="rh-hide">acA1300-75gm</td>
+		<td data-rhtags="73" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 10</li>
+			<li>Mono 10 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="74" class="rh-hide">acA1300-75gc</td>
+		<td data-rhtags="74" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer BG 8<sup>a</sup></li>
+			<li>Bayer BG 10<sup>a</sup></li>
+			<li>Bayer BG 10 Packed<sup>a</sup></li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="75" class="rh-hide">acA1440-73gm</td>
+		<td data-rhtags="75" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="76" class="rh-hide">acA1440-73gc</td>
+		<td data-rhtags="76" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12 Packed<sup>a</sup></li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="77" class="rh-hide">acA1600-20gm</td>
+		<td data-rhtags="77" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="78" class="rh-hide">acA1600-20gc</td>
+		<td data-rhtags="78" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer BG 8</li>
+			<li>Bayer BG 12</li>
+			<li>Bayer BG 12 Packed</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="79" class="rh-hide">acA1600-60gm</td>
+		<td data-rhtags="79" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="80" class="rh-hide">acA1600-60gc</td>
+		<td data-rhtags="80" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8</li>
+			<li>Bayer RG 12<sup>b</sup></li>
+			<li>Bayer RG 12 Packed<sup>b</sup></li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="81" class="rh-hide">acA1920-25gm</td>
+		<td data-rhtags="81" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="82" class="rh-hide">acA1920-25gc</td>
+		<td data-rhtags="82" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer BG 8</li>
+			<li>Bayer BG 12</li>
+			<li>Bayer BG 12 Packed</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="83" class="rh-hide">acA1920-40gm</td>
+		<td data-rhtags="83" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="84" class="rh-hide">acA1920-40gc</td>
+		<td data-rhtags="84" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12 Packed<sup>a</sup></li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="85" class="rh-hide">acA1920-48gm</td>
+		<td data-rhtags="85" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 10</li>
+			<li>Mono 10 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="86" class="rh-hide">acA1920-48gc</td>
+		<td data-rhtags="86" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer BG 8<sup>a</sup></li>
+			<li>Bayer BG 10<sup>a</sup></li>
+			<li>Bayer BG 10 Packed<sup>a</sup></li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="87" class="rh-hide">acA1920-50gm</td>
+		<td data-rhtags="87" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="88" class="rh-hide">acA1920-50gc</td>
+		<td data-rhtags="88" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12 Packed<sup>a</sup></li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="89" class="rh-hide">acA2000-50gm</td>
+		<td data-rhtags="89" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="90" class="rh-hide">acA2000-50gmNIR</td>
+		<td data-rhtags="90" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="91" class="rh-hide">acA2000-50gc</td>
+		<td data-rhtags="91" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer GR 8</li>
+			<li>Bayer GR 12</li>
+			<li>Bayer GR 12 Packed</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="92" class="rh-hide">acA2040-25gm</td>
+		<td data-rhtags="92" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="93" class="rh-hide">acA2040-25gmNIR</td>
+		<td data-rhtags="93" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="94" class="rh-hide">acA2040-25gc</td>
+		<td data-rhtags="94" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer GR 8</li>
+			<li>Bayer GR 12</li>
+			<li>Bayer GR 12 Packed</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="95" class="rh-hide">acA2040-35gm</td>
+		<td data-rhtags="95" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 10</li>
+			<li>Mono 10 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="96" class="rh-hide">acA2040-35gc</td>
+		<td data-rhtags="96" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12 Packed<sup>a</sup></li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="97" class="rh-hide">acA2440-20gm</td>
+		<td data-rhtags="97" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 10</li>
+			<li>Mono 10 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="98" class="rh-hide">acA2440-20gc</td>
+		<td data-rhtags="98" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12 Packed<sup>a</sup></li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="99" class="rh-hide">acA2500-14gm</td>
+		<td data-rhtags="99" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="100" class="rh-hide">acA2500-14gc</td>
+		<td data-rhtags="100" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer GB 8</li>
+			<li>Bayer GB 12</li>
+			<li>Bayer GB 12 Packed</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="101" class="rh-hide">acA2500-20gm</td>
+		<td data-rhtags="101" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 10</li>
+			<li>Mono 10 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="102" class="rh-hide">acA2500-20gc</td>
+		<td data-rhtags="102" class="rh-hide"><ul>
+			<li class="p"><p>Mono 8</p></li>
+			<li class="p"><p>Bayer BG 8<sup>a</sup></p></li>
+			<li class="p"><p>Bayer BG 10<sup>a</sup></p></li>
+			<li class="p"><p>Bayer BG 10 Packed<sup>a</sup></p></li>
+			<li class="p"><p>YUV 4:2:2 Packed</p></li>
+			<li class="p"><p>YUV 4:2:2 (YUYV) Packed</p></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="103" class="rh-hide">acA2500-20gmMED</td>
+		<td data-rhtags="103" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 10</li>
+			<li>Mono 10 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="104" class="rh-hide">acA2500-20gcMED</td>
+		<td data-rhtags="104" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer BG 8<sup>a</sup></li>
+			<li>Bayer BG 10<sup>a</sup></li>
+			<li>Bayer BG 10 Packed<sup>a</sup></li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="105" class="rh-hide">acA3088-16gm</td>
+		<td data-rhtags="105" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="106" class="rh-hide">acA3088-16gc</td>
+		<td data-rhtags="106" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12 Packed<sup>a</sup></li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="107" class="rh-hide">acA3800-10gm</td>
+		<td data-rhtags="107" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="108" class="rh-hide">acA3800-10gc</td>
+		<td data-rhtags="108" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer BG 8</li>
+			<li>Bayer BG 12</li>
+			<li>Bayer BG 12 Packed</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="109" class="rh-hide">acA4024-8gm</td>
+		<td data-rhtags="109" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="110" class="rh-hide">acA4024-8gc</td>
+		<td data-rhtags="110" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12 Packed<sup>a</sup></li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="111" class="rh-hide">acA4096-11gm</td>
+		<td data-rhtags="111" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="198" class="rh-hide">acA4096-11gc</td>
+		<td data-rhtags="198" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12 Packed<sup>a</sup></li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="113" class="rh-hide">acA4112-8gm</td>
+		<td data-rhtags="113" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="114" class="rh-hide">acA4112-8gc</td>
+		<td data-rhtags="114" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12 Packed<sup>a</sup></li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="115" class="rh-hide">acA4600-7gc</td>
+		<td data-rhtags="115" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer BG 8</li>
+			<li>Bayer BG 12</li>
+			<li>Bayer BG 12 Packed</li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="116" class="rh-hide">acA5472-5gm</td>
+		<td data-rhtags="116" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="117" class="rh-hide">acA5472-5gc</td>
+		<td data-rhtags="117" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12 Packed<sup>a</sup></li>
+			<li>YUV 4:2:2 Packed</li>
+			<li>YUV 4:2:2 (YUYV) Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="118" class="rh-hide">acA640-750um</td>
+		<td data-rhtags="118" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 10</li>
+			<li>Mono 10 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="119" class="rh-hide">acA640-750uc</td>
+		<td data-rhtags="119" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer BG 8<sup>a</sup></li>
+			<li>Bayer BG 10<sup>a</sup></li>
+			<li>Bayer BG 10&#160;Packed<sup>a</sup></li>
+			<li>RGB 8</li>
+			<li>BGR 8</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="120" class="rh-hide">acA640-90um</td>
+		<td data-rhtags="120" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="121" class="rh-hide">acA640-90uc</td>
+		<td data-rhtags="121" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer BG 8</li>
+			<li>Bayer BG 12</li>
+			<li>Bayer BG 12 Packed</li>
+			<li>RGB 8</li>
+			<li>BGR 8</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="122" class="rh-hide">acA640-120um</td>
+		<td data-rhtags="122" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="123" class="rh-hide">acA640-120uc</td>
+		<td data-rhtags="123" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer BG 8</li>
+			<li>Bayer BG 12</li>
+			<li>Bayer BG 12 Packed</li>
+			<li>RGB 8</li>
+			<li>BGR 8</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="124" class="rh-hide">acA720-520um</td>
+		<td data-rhtags="124" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="125" class="rh-hide">acA720-520uc</td>
+		<td data-rhtags="125" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12 Packed<sup>a</sup></li>
+			<li>RGB 8</li>
+			<li>BGR 8</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="126" class="rh-hide">acA800-510um</td>
+		<td data-rhtags="126" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 10</li>
+			<li>Mono 10 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="127" class="rh-hide">acA800-510uc</td>
+		<td data-rhtags="127" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer BG 8<sup>a</sup></li>
+			<li>Bayer BG 10<sup>a</sup></li>
+			<li>Bayer BG 10&#160;Packed<sup>a</sup></li>
+			<li>RGB 8</li>
+			<li>BGR 8</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="128" class="rh-hide">acA1300-200um</td>
+		<td data-rhtags="128" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 10</li>
+			<li>Mono 10 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="129" class="rh-hide">acA1300-200uc</td>
+		<td data-rhtags="129" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer BG 8<sup>a</sup></li>
+			<li>Bayer BG 10<sup>a</sup></li>
+			<li>Bayer BG 10&#160;Packed<sup>a</sup></li>
+			<li>RGB 8</li>
+			<li>BGR 8</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="130" class="rh-hide">acA1300-30um</td>
+		<td data-rhtags="130" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="131" class="rh-hide">acA1300-30uc</td>
+		<td data-rhtags="131" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer BG 8</li>
+			<li>Bayer BG 12</li>
+			<li>Bayer BG 12 Packed</li>
+			<li>RGB 8</li>
+			<li>BGR 8</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="132" class="rh-hide">acA1440-220um</td>
+		<td data-rhtags="132" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="133" class="rh-hide">acA1440-220uc</td>
+		<td data-rhtags="133" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12 Packed<sup>a</sup></li>
+			<li>RGB 8</li>
+			<li>BGR 8</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="134" class="rh-hide">acA1600-20um</td>
+		<td data-rhtags="134" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="135" class="rh-hide">acA1600-20uc</td>
+		<td data-rhtags="135" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer BG 8</li>
+			<li>Bayer BG 12</li>
+			<li>Bayer BG 12 Packed</li>
+			<li>RGB 8</li>
+			<li>BGR 8</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="136" class="rh-hide">acA1920-25um</td>
+		<td data-rhtags="136" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="137" class="rh-hide">acA1920-25uc</td>
+		<td data-rhtags="137" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer GB 8</li>
+			<li>Bayer GB 12</li>
+			<li>Bayer GB 12 Packed</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="138" class="rh-hide">acA1920-40um</td>
+		<td data-rhtags="138" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="139" class="rh-hide">acA1920-40uc</td>
+		<td data-rhtags="139" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12&#160;Packed<sup>a</sup></li>
+			<li>RGB 8</li>
+			<li>BGR 8</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="140" class="rh-hide">acA1920-40umMED</td>
+		<td data-rhtags="140" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="141" class="rh-hide">acA1920-40ucMED</td>
+		<td data-rhtags="141" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12&#160;Packed<sup>a</sup></li>
+			<li>RGB 8</li>
+			<li>BGR 8</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="142" class="rh-hide">acA1920-150um</td>
+		<td data-rhtags="142" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 10</li>
+			<li>Mono 10 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="143" class="rh-hide">acA1920-150uc</td>
+		<td data-rhtags="143" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer BG 8<sup>a</sup></li>
+			<li>Bayer BG 10<sup>a</sup></li>
+			<li>Bayer BG 10&#160;Packed<sup>a</sup></li>
+			<li>RGB 8</li>
+			<li>BGR 8</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="144" class="rh-hide">acA1920-155um</td>
+		<td data-rhtags="144" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="145" class="rh-hide">acA1920-155uc</td>
+		<td data-rhtags="145" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12&#160;Packed<sup>a</sup></li>
+			<li>RGB 8</li>
+			<li>BGR 8</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="146" class="rh-hide">acA1920-155umMED</td>
+		<td data-rhtags="146" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="147" class="rh-hide">acA1920-155ucMED</td>
+		<td data-rhtags="147" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12&#160;Packed<sup>a</sup></li>
+			<li>RGB 8</li>
+			<li>BGR 8</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="148" class="rh-hide">acA2040-90um</td>
+		<td data-rhtags="148" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="149" class="rh-hide">acA2040-90umNIR</td>
+		<td data-rhtags="149" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="150" class="rh-hide">acA2040-90uc</td>
+		<td data-rhtags="150" class="rh-hide"><ul>
+			<li>Bayer BG 8</li>
+			<li>Bayer BG 12</li>
+			<li>Bayer BG 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="151" class="rh-hide">acA2000-165um</td>
+		<td data-rhtags="151" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="152" class="rh-hide">acA2000-165umNIR</td>
+		<td data-rhtags="152" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="153" class="rh-hide">acA2000-165uc</td>
+		<td data-rhtags="153" class="rh-hide"><ul>
+			<li>Bayer BG 8</li>
+			<li>Bayer BG 12</li>
+			<li>Bayer BG 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="154" class="rh-hide">acA2040-55um</td>
+		<td data-rhtags="154" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="155" class="rh-hide">acA2040-55uc</td>
+		<td data-rhtags="155" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12&#160;Packed<sup>a</sup></li>
+			<li>RGB 8</li>
+			<li>BGR 8</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="156" class="rh-hide">acA2040-120um</td>
+		<td data-rhtags="156" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="157" class="rh-hide">acA2040-120uc</td>
+		<td data-rhtags="157" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12&#160;Packed<sup>a</sup></li>
+			<li>RGB 8</li>
+			<li>BGR 8</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="158" class="rh-hide">acA2440-35um</td>
+		<td data-rhtags="158" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="159" class="rh-hide">acA2440-35uc</td>
+		<td data-rhtags="159" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12&#160;Packed<sup>a</sup></li>
+			<li>RGB 8</li>
+			<li>BGR 8</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="160" class="rh-hide">acA2440-35umMED</td>
+		<td data-rhtags="160" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="161" class="rh-hide">acA2440-35ucMED</td>
+		<td data-rhtags="161" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12&#160;Packed<sup>a</sup></li>
+			<li>RGB 8</li>
+			<li>BGR 8</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="162" class="rh-hide">acA2440-75um</td>
+		<td data-rhtags="162" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="163" class="rh-hide">acA2440-75uc</td>
+		<td data-rhtags="163" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12&#160;Packed<sup>a</sup></li>
+			<li>RGB 8</li>
+			<li>BGR 8</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="164" class="rh-hide">acA2440-75umMED</td>
+		<td data-rhtags="164" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="165" class="rh-hide">acA2440-75ucMED</td>
+		<td data-rhtags="165" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12&#160;Packed<sup>a</sup></li>
+			<li>RGB 8</li>
+			<li>BGR 8</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="166" class="rh-hide">acA2500-14um</td>
+		<td data-rhtags="166" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="167" class="rh-hide">acA2500-14uc</td>
+		<td data-rhtags="167" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer GB 8</li>
+			<li>Bayer GB 12</li>
+			<li>Bayer GB 12 Packed</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="168" class="rh-hide">acA2500-60um</td>
+		<td data-rhtags="168" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 10</li>
+			<li>Mono 10 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="169" class="rh-hide">acA2500-60uc</td>
+		<td data-rhtags="169" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer BG 8<sup>a</sup></li>
+			<li>Bayer BG 10<sup>a</sup></li>
+			<li>Bayer BG 10&#160;Packed<sup>a</sup></li>
+			<li>RGB 8</li>
+			<li>BGR 8</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="170" class="rh-hide">acA3088-57um</td>
+		<td data-rhtags="170" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="171" class="rh-hide">acA3088-57uc</td>
+		<td data-rhtags="171" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12 Packed<sup>a</sup></li>
+			<li>RGB 8</li>
+			<li>BGR 8</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="172" class="rh-hide">acA3800-14um</td>
+		<td data-rhtags="172" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="173" class="rh-hide">acA3800-14uc</td>
+		<td data-rhtags="173" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer BG 8</li>
+			<li>Bayer BG 12</li>
+			<li>Bayer BG 12 Packed</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="174" class="rh-hide">acA4024-29um</td>
+		<td data-rhtags="174" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="175" class="rh-hide">acA4024-29uc</td>
+		<td data-rhtags="175" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12 Packed<sup>a</sup></li>
+			<li>RGB 8</li>
+			<li>BGR 8</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="176" class="rh-hide">acA4096-30um</td>
+		<td data-rhtags="176" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="177" class="rh-hide">acA4096-30uc</td>
+		<td data-rhtags="177" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12 Packed<sup>a</sup></li>
+			<li>RGB 8</li>
+			<li>BGR 8</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="178" class="rh-hide">acA4096-40um</td>
+		<td data-rhtags="178" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="179" class="rh-hide">acA4096-40uc</td>
+		<td data-rhtags="179" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12&#160;Packed<sup>a</sup></li>
+			<li>RGB 8</li>
+			<li>BGR 8</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="180" class="rh-hide">acA4112-20um</td>
+		<td data-rhtags="180" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="181" class="rh-hide">acA4112-20uc</td>
+		<td data-rhtags="181" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12&#160;Packed<sup>a</sup></li>
+			<li>RGB 8</li>
+			<li>BGR 8</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="182" class="rh-hide">acA4112-30um</td>
+		<td data-rhtags="182" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="183" class="rh-hide">acA4112-30uc</td>
+		<td data-rhtags="183" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12&#160;Packed<sup>a</sup></li>
+			<li>RGB 8</li>
+			<li>BGR 8</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="184" class="rh-hide">acA4600-10uc</td>
+		<td data-rhtags="184" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer BG 8</li>
+			<li>Bayer BG 12</li>
+			<li>Bayer BG 12 Packed</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="185" class="rh-hide">acA5472-17um</td>
+		<td data-rhtags="185" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Mono 12</li>
+			<li>Mono 12 Packed</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="186" class="rh-hide">acA5472-17uc</td>
+		<td data-rhtags="186" class="rh-hide"><ul>
+			<li>Mono 8</li>
+			<li>Bayer RG 8<sup>a</sup></li>
+			<li>Bayer RG 12<sup>a</sup></li>
+			<li>Bayer RG 12 Packed<sup>a</sup></li>
+			<li>RGB 8</li>
+			<li>BGR 8</li>
+			<li>YCbCr422_8</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="199" class="rh-hide">daA1280-54lm</td>
+		<td data-rhtags="199" class="rh-hide"><ul>
+			<li>Mono 8 </li>
+			<li>Mono 12</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="200" class="rh-hide">daA1280-54lc</td>
+		<td data-rhtags="200" class="rh-hide"><ul>
+			<li>Bayer 8 </li>
+			<li>Bayer 12 </li>
+			<li>RGB 8<sup>c</sup> </li>
+			<li>YCbCr422_8<sup>c</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="201" class="rh-hide">daA1600-60lm</td>
+		<td data-rhtags="201" class="rh-hide"><ul>
+			<li>Mono 8 </li>
+			<li>Mono 12<sup>b</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="202" class="rh-hide">daA1600-60lc</td>
+		<td data-rhtags="202" class="rh-hide"><ul>
+			<li>Bayer 8<sup>a</sup> </li>
+			<li>Bayer 12<sup>a b</sup> </li>
+			<li>RGB 8<sup>c</sup> </li>
+			<li>YCbCr422_8<sup>c</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="203" class="rh-hide">daA2500-14lm</td>
+		<td data-rhtags="203" class="rh-hide"><ul>
+			<li>Mono 8 </li>
+			<li>Mono 12</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="204" class="rh-hide">daA2500-14lc</td>
+		<td data-rhtags="204" class="rh-hide"><ul>
+			<li>Bayer 8<sup>a</sup> </li>
+			<li>Bayer 12<sup>a</sup> </li>
+			<li>RGB 8<sup>c</sup> </li>
+			<li>YCbCr422_8<sup>c</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="239" class="rh-hide">daA2500-60mc (SD820)</td>
+		<td data-rhtags="239" class="rh-hide">YCbCr420_8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="205" class="rh-hide">daA1280-54um</td>
+		<td data-rhtags="205" class="rh-hide"><ul>
+			<li>Mono 8 </li>
+			<li>Mono 12</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="206" class="rh-hide">daA1280-54uc</td>
+		<td data-rhtags="206" class="rh-hide"><ul>
+			<li>Bayer 8 </li>
+			<li>Bayer 12 </li>
+			<li>RGB 8<sup>c</sup> </li>
+			<li>YCbCr422_8<sup>c</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="207" class="rh-hide">daA1600-60um</td>
+		<td data-rhtags="207" class="rh-hide"><ul>
+			<li>Mono 8 </li>
+			<li>Mono 12<sup>b</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="208" class="rh-hide">daA1600-60uc</td>
+		<td data-rhtags="208" class="rh-hide"><ul>
+			<li>Bayer 8<sup>a</sup> </li>
+			<li>Bayer 12<sup>a b</sup> </li>
+			<li>RGB 8<sup>c</sup> </li>
+			<li>YCbCr422_8<sup>c</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="209" class="rh-hide">daA1920-15um</td>
+		<td data-rhtags="209" class="rh-hide"><ul>
+			<li>Mono 8 </li>
+			<li>Mono 12</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="210" class="rh-hide">daA1920-30um</td>
+		<td data-rhtags="210" class="rh-hide"><ul>
+			<li>Mono 8 </li>
+			<li>Mono 12</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="211" class="rh-hide">daA1920-30uc</td>
+		<td data-rhtags="211" class="rh-hide"><ul>
+			<li>Bayer 8<sup>a</sup> </li>
+			<li>Bayer 12<sup>a</sup> </li>
+			<li>RGB 8<sup>c</sup> </li>
+			<li>YCbCr422_8<sup>c</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="212" class="rh-hide">daA2500-14um</td>
+		<td data-rhtags="212" class="rh-hide"><ul>
+			<li>Mono 8 </li>
+			<li>Mono 12</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="213" class="rh-hide">daA2500-14uc</td>
+		<td data-rhtags="213" class="rh-hide"><ul>
+			<li>Bayer 8<sup>a</sup> </li>
+			<li>Bayer 12<sup>a</sup> </li>
+			<li>RGB 8<sup>c</sup> </li>
+			<li>YCbCr422_8<sup>c</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="214" class="rh-hide">puA1280-54um</td>
+		<td data-rhtags="214" class="rh-hide"><ul>
+			<li>Mono 8 </li>
+			<li>Mono 12</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="215" class="rh-hide">puA1280-54uc</td>
+		<td data-rhtags="215" class="rh-hide"><ul>
+			<li>Bayer 8 </li>
+			<li>Bayer 12 </li>
+			<li>RGB 8<sup>c</sup> </li>
+			<li>YCbCr422_8<sup>c</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="216" class="rh-hide">puA1600-60um</td>
+		<td data-rhtags="216" class="rh-hide"><ul>
+			<li>Mono 8 </li>
+			<li>Mono 12<sup>b</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="217" class="rh-hide">puA1600-60uc</td>
+		<td data-rhtags="217" class="rh-hide"><ul>
+			<li>Bayer 8<sup>a</sup> </li>
+			<li>Bayer 12<sup>a b</sup> </li>
+			<li>RGB 8<sup>c</sup> </li>
+			<li>YCbCr422_8<sup>c</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="218" class="rh-hide">puA1920-30um</td>
+		<td data-rhtags="218" class="rh-hide"><ul>
+			<li>Mono 8 </li>
+			<li>Mono 12</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="219" class="rh-hide">puA1920-30uc</td>
+		<td data-rhtags="219" class="rh-hide"><ul>
+			<li>Bayer 8<sup>a</sup> </li>
+			<li>Bayer 12<sup>a</sup> </li>
+			<li>RGB 8<sup>c</sup> </li>
+			<li>YCbCr422_8<sup>c</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="220" class="rh-hide">puA2500-14um</td>
+		<td data-rhtags="220" class="rh-hide"><ul>
+			<li>Mono 8 </li>
+			<li>Mono 12</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="221" class="rh-hide">puA2500-14uc</td>
+		<td data-rhtags="221" class="rh-hide"><ul>
+			<li>Bayer 8<sup>a</sup> </li>
+			<li>Bayer 12<sup>a</sup> </li>
+			<li>RGB 8<sup>c</sup> </li>
+			<li>YCbCr422_8<sup>c</sup></li>
+		</ul></td>
+	</tr>
+</table>
+<p class="table-footnote rh-hide" data-rhtags="252"><sup>a</sup>If you enable the <a href="reverse_x_and_reverse_y.htm#Effective_Bayer_Filter_Alignments__Color_Cameras_Only_">Reverse 
+ X or Reverse Y</a> feature, the actual Bayer color filter alignment changes.</p>
+<p class="table-footnote rh-hide" data-rhtags="253"><sup>b</sup>12-bit image data based on 10-bit 
+ sensor data.</p>
+<p class="table-footnote rh-hide" data-rhtags="254"><sup>c</sup>By default, YCbCr422 and RGB 8 
+ images are acquired in sRGB color space. You can use the <span class="parameter-name"><a href="gamma.htm#Additional_Parameters">BslColorSpaceMode</a></span> 
+ parameter to change the color space to RGB.</p>
+</div>
+<h2 class="sample-code"><a name="MiniTOCBookMark15"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre><code class="cpp">// Set the pixel format to Mono 8
+camera.PixelFormat.SetValue(PixelFormat_Mono8);</code></pre></div><div class="tab-2 tab-content"><pre><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Set the pixel format to Mono 8
+CEnumerationPtr(nodemap.GetNode("PixelFormat"))-&gt;FromString("Mono8");</code></pre></div><div class="tab-3 tab-content"><pre><code class="csharp" generated="true">// Set the pixel format to Mono 8
+camera.Parameters[PLCamera.PixelFormat].SetValue(PLCamera.PixelFormat.Mono8);</code></pre></div><div class="tab-4 tab-content"><pre><code class="csharp" generated="true">// Set the pixel format to Mono 8
+Pylon.DeviceFeatureFromString(hdev, "PixelFormat", "Mono8");</code></pre></div><div class="tab-5 tab-content"><pre><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+/* Set the pixel format to Mono 8 */
+errRes = PylonDeviceFeatureFromString(hdev, "PixelFormat", "Mono8");
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Auto Function Profile</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_7";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Auto Function Profile<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Auto Function Profile</h1>
+<p class="teaser">The Auto Function Profile 
+ <a href="features.htm">camera feature</a> allows you to specify how gain 
+ and exposure time are balanced when the camera is making automatic adjustments.</p>
+<div class="mini-toc">
+	<p align="left" style="font-weight: normal;font-style: normal;text-decoration: none;" >In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot21727" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot21727', 'MTPOPUP21727');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP21727" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Prerequisites</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Setting the Auto Function Profile</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >Available Auto Function Profiles</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark6" >Minimize Gain (= Gain Minimum)</a>
+</li>
+     <li><a href="#MiniTOCBookMark7" >Minimize Exposure Time (= Exposure 
+ Minimum)</a>
+</li>
+     <li><a href="#MiniTOCBookMark8" >Minimize Gain Quick (= Gain Minimum Quick)</a>
+</li>
+     <li><a href="#MiniTOCBookMark9" >Minimize Exposure Time Quick 
+ (= Exposure Minimum Quick)</a>
+</li>
+     <li><a href="#MiniTOCBookMark10" >Smart</a>
+</li>
+     <li><a href="#MiniTOCBookMark11" >Anti-Flicker 50 Hz / 60 Hz</a>
+</li>
+    </ul></li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark12" >Specifics</a>
+</li>
+   <li><a href="#MiniTOCBookMark13" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>Prerequisites</h3>
+<p>The <a href="gain_auto.htm">Gain Auto</a> auto function and the <a href="exposure_auto.htm">Exposure 
+ Auto </a>auto function must both be set to <span class="parameter-name">Continuous</span>.</p>
+<h3><a name="MiniTOCBookMark4"></a>Setting the Auto Function Profile</h3>
+<p>To set the auto function profile, set the <span class="parameter-name">AutoFunctionProfile</span> 
+ parameter to one of the following values:</p>
+<ul>
+	<li><a href="auto_function_profile.htm#Minimize_Gain"><span class="parameter-name rh-hide" data-rhtags="48">GainMinimum</span><span class="parameter-name rh-hide" data-rhtags="49">MinimizeGain</span></a></li>
+	<li><a href="auto_function_profile.htm#Minimize_Exposure_Time"><span class="parameter-name rh-hide" data-rhtags="48">ExposureMinimum</span><span class="parameter-name rh-hide" data-rhtags="49">MinimizeExposureTime</span></a></li>
+	<li><a href="#Minimize_Gain_Quick"><span class="parameter-name rh-hide" data-rhtags="48">GainMinimumQuick</span><span class="parameter-name rh-hide" data-rhtags="49">MinimizeGainQuick</span></a> 
+	 (<a href="#Specifics">if available</a>)</li>
+	<li><a href="#Minimize_Exposure_Time_Quick"><span class="parameter-name rh-hide" data-rhtags="48">ExposureMinimumQuick</span><span class="parameter-name rh-hide" data-rhtags="49">MinimizeExposureTimeQuick</span></a> 
+	 (<a href="#Specifics">if available</a>)</li>
+	<li><a href="auto_function_profile.htm#Smart"><span class="parameter-name">Smart</span></a> 
+	 (<a href="#Specifics">if available</a>)</li>
+	<li><a href="auto_function_profile.htm#Anti-Flicker_50_Hz___60_Hz"><span class="parameter-name">AntiFlicker50Hz</span></a>&#160;(<a 
+	 href="#Specifics">if available</a>)</li>
+	<li><a href="auto_function_profile.htm#Anti-Flicker_50_Hz___60_Hz"><span class="parameter-name">AntiFlicker60Hz</span></a>&#160;(<a 
+	 href="#Specifics">if available</a>)</li>
+</ul>
+<h3><a name="MiniTOCBookMark5"></a>Available Auto Function Profiles</h3>
+<h4><a name="MiniTOCBookMark6"></a><a name="Minimize_Gain">Minimize Gain (= Gain Minimum)</a></h4>
+<p>The gain is kept as low as possible during the automatic adjustment 
+ process. If the exposure time is at its upper limit and the <a href="exposure_auto.htm#Specifying_the_Target_Brightness_Value">target 
+ brightness value</a> has not been reached yet, the gain will be increased 
+ in order to reach the target.</p>
+<h4><a name="MiniTOCBookMark7"></a><a name="Minimize_Exposure_Time">Minimize Exposure Time (= Exposure 
+ Minimum)</a></h4>
+<p>The exposure time is kept as low as possible during the automatic adjustment 
+ process. If the gain is at its upper limit and the <a href="exposure_auto.htm#Specifying_the_Target_Brightness_Value">target 
+ brightness value</a> has not been reached yet, the exposure time will 
+ be increased in order to reach the target.</p>
+<h4><a name="MiniTOCBookMark8"></a><a name="Minimize_Gain_Quick">Minimize Gain Quick (= Gain Minimum Quick)</a></h4>
+<p>This profile works the same as the Minimize Gain profile. The difference 
+ is that it reacts more quickly in situations with extreme changes in brightness 
+ or where the image brightness changes rapidly. This situation occurs, 
+ for example, when microscope objective lenses are changed using the objective 
+ turret.</p>
+<h4><a name="MiniTOCBookMark9"></a><a name="Minimize_Exposure_Time_Quick">Minimize Exposure Time Quick 
+ (= Exposure Minimum Quick)</a></h4>
+<p>This profile works the same as the Minimize Exposure Time profile. The 
+ difference is that it reacts more quickly in situations with extreme changes 
+ in brightness or where the image brightness changes rapidly. This situation 
+ occurs, for example, when microscope objective lenses are changed using 
+ the objective turret.</p>
+<h4><a name="MiniTOCBookMark10"></a><a name="Smart">Smart</a></h4>
+<p>Gain is kept as low as possible and the frame rate will be kept as high 
+ as possible during automatic adjustments. </p>
+<p>This is a four-step process:</p>
+<ol>
+	<li>The camera adjusts the exposure time to achieve the <a href="exposure_auto.htm#Specifying_the_Target_Brightness_Value">target 
+	 brightness value</a>.</li>
+	<li>If the exposure time must be increased to achieve the target brightness 
+	 value, the camera increases the exposure time until a drop in the 
+	 frame rate is detected.</li>
+	<li>If a frame rate drop is detected, the camera stops increasing the 
+	 exposure time and increases the gain until the <a href="gain_auto.htm#Specifying_Lower_and_Upper_Limits"><span class="parameter-name rh-hide" data-rhtags="48">AutoGainRawUpperLimit</span><span class="parameter-name rh-hide" data-rhtags="49">AutoGainUpperLimit</span></a> 
+	 value is reached.</li>
+	<li>When the <a href="gain_auto.htm#Specifying_Lower_and_Upper_Limits"><span class="parameter-name rh-hide" data-rhtags="48">AutoGainRawUpperLimit</span><span class="parameter-name rh-hide" data-rhtags="49">AutoGainUpperLimit</span></a> 
+	 value has been reached, the camera stops increasing the gain and increases 
+	 the exposure time until the target brightness value is reached. Increasing 
+	 the exposure time results in a lower frame rate.</li>
+</ol>
+<h4><a name="MiniTOCBookMark11"></a><a name="Anti-Flicker_50_Hz___60_Hz">Anti-Flicker 50 Hz / 60 Hz</a></h4>
+<p>Gain and exposure time are optimized to reduce flickering. If the camera 
+ is operating in an environment where the lighting flickers at a 50-Hz 
+ or a 60-Hz rate, the flickering lights can cause significant changes in 
+ brightness from image to image. Enabling the anti-flicker profile may 
+ reduce the effect of the flickering in the captured images.</p>
+<p>Choose the frequency (50 Hz or 60 Hz) according your local power line 
+ frequency (e.g., North America: 60 Hz, Europe: 50 Hz).</p>
+<h2 class="specifics"><a name="MiniTOCBookMark12"></a><a name="Specifics">Specifics</a></h2>
+<div>
+<table class="specifics-table">
+	<col />
+	<col />
+	<tr>
+		<th>Camera Model</th>
+		<th><p>Available Auto Function Profiles</p></th>
+	</tr>
+	<tr>
+		<td data-rhtags="193" class="rh-hide">All ace USB 3.0 camera models</td>
+		<td data-rhtags="193" class="rh-hide"><ul>
+			<li>Minimize Gain</li>
+			<li>Minimize Exposure Time</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="194" class="rh-hide">All ace GigE camera models</td>
+		<td data-rhtags="194" class="rh-hide"><ul>
+			<li>Gain Minimum</li>
+			<li>Exposure Minimum</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="10" class="rh-hide">All MED ace USB 3.0 camera models</td>
+		<td data-rhtags="10" class="rh-hide"><ul>
+			<li>Minimize Gain</li>
+			<li>Minimize Exposure Time</li>
+			<li>Minimize Gain Quick</li>
+			<li>Minimize Exposure Time Quick</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="195" class="rh-hide">All MED ace GigE camera models</td>
+		<td data-rhtags="195" class="rh-hide"><ul>
+			<li>Gain Minimum</li>
+			<li>Exposure Minimum</li>
+			<li>Gain Minimum Quick</li>
+			<li>Exposure Minimum Quick</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="44" class="rh-hide">All dart BCON for LVDS camera models</td>
+		<td data-rhtags="44" class="rh-hide"><ul>
+			<li>Minimize Gain</li>
+			<li>Minimize Exposure Time</li>
+			<li>Smart</li>
+			<li>Anti-Flicker 50 Hz</li>
+			<li>Anti-Flicker 60 Hz</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="21" class="rh-hide">All dart BCON for MIPI cameras models</td>
+		<td data-rhtags="21" class="rh-hide">None, Auto Function 
+		 Profile feature not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="42" class="rh-hide">All dart USB 3.0 camera models</td>
+		<td data-rhtags="42" class="rh-hide"><ul>
+			<li>Minimize Gain</li>
+			<li>Minimize Exposure Time</li>
+			<li>Smart</li>
+			<li>Anti-Flicker 50 Hz</li>
+			<li>Anti-Flicker 60 Hz</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="47" class="rh-hide">All pulse USB 3.0 camera models</td>
+		<td data-rhtags="47" class="rh-hide"><ul>
+			<li>Minimize Gain</li>
+			<li>Minimize Exposure Time</li>
+			<li>Smart</li>
+			<li>Anti-Flicker 50 Hz</li>
+			<li>Anti-Flicker 60 Hz</li>
+		</ul></td>
+	</tr>
+</table>
+<p>&#160;</p>
+</div>
+<h2 class="sample-code"><a name="MiniTOCBookMark13"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre data-rhtags="48" class="rh-hide"><code class="cpp">// Set the auto function profile to Gain Minimum
+camera.AutoFunctionProfile.SetValue(AutoFunctionProfile_GainMinimum);
+// Set the auto function profile to Exposure Minimum
+camera.AutoFunctionProfile.SetValue(AutoFunctionProfile_ExposureMinimum);
+// Enable Gain and Exposure Auto auto functions and set the operating mode to Continuous
+camera.GainAuto.SetValue(GainAuto_Continuous);
+camera.ExposureAuto.SetValue(ExposureAuto_Continuous);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="cpp">// Set the auto function profile to Minimize Gain
+camera.AutoFunctionProfile.SetValue(AutoFunctionProfile_MinimizeGain);
+// Set the auto function profile to Minimize Exposure Time
+camera.AutoFunctionProfile.SetValue(AutoFunctionProfile_MinimizeExposureTime);
+// Enable Gain and Exposure Auto auto functions and set the operating mode to Continuous
+camera.GainAuto.SetValue(GainAuto_Continuous);
+camera.ExposureAuto.SetValue(ExposureAuto_Continuous);</code></pre></div><div class="tab-2 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Set the auto function profile to Gain Minimum
+CEnumerationPtr(nodemap.GetNode("AutoFunctionProfile"))-&gt;FromString("GainMinimum");
+// Set the auto function profile to Exposure Minimum
+CEnumerationPtr(nodemap.GetNode("AutoFunctionProfile"))-&gt;FromString("ExposureMinimum");
+// Enable Gain and Exposure Auto auto functions and set the operating mode to Continuous
+CEnumerationPtr(nodemap.GetNode("GainAuto"))-&gt;FromString("Continuous");
+CEnumerationPtr(nodemap.GetNode("ExposureAuto"))-&gt;FromString("Continuous");</code></pre><pre data-rhtags="49" class="rh-hide"><code class="cpp" generated="true">// Set the auto function profile to Minimize Gain
+CEnumerationPtr(nodemap.GetNode("AutoFunctionProfile"))-&gt;FromString("MinimizeGain");
+// Set the auto function profile to Minimize Exposure Time
+CEnumerationPtr(nodemap.GetNode("AutoFunctionProfile"))-&gt;FromString("MinimizeExposureTime");
+// Enable Gain and Exposure Auto auto functions and set the operating mode to Continuous
+CEnumerationPtr(nodemap.GetNode("GainAuto"))-&gt;FromString("Continuous");
+CEnumerationPtr(nodemap.GetNode("ExposureAuto"))-&gt;FromString("Continuous");</code></pre></div><div class="tab-3 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="csharp" generated="true">// Set the auto function profile to Gain Minimum
+camera.Parameters[PLCamera.AutoFunctionProfile].SetValue(PLCamera.AutoFunctionProfile.GainMinimum);
+// Set the auto function profile to Exposure Minimum
+camera.Parameters[PLCamera.AutoFunctionProfile].SetValue(PLCamera.AutoFunctionProfile.ExposureMinimum);
+// Enable Gain and Exposure Auto auto functions and set the operating mode to Continuous
+camera.Parameters[PLCamera.GainAuto].SetValue(PLCamera.GainAuto.Continuous);
+camera.Parameters[PLCamera.ExposureAuto].SetValue(PLCamera.ExposureAuto.Continuous);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="csharp" generated="true">// Set the auto function profile to Minimize Gain
+camera.Parameters[PLCamera.AutoFunctionProfile].SetValue(PLCamera.AutoFunctionProfile.MinimizeGain);
+// Set the auto function profile to Minimize Exposure Time
+camera.Parameters[PLCamera.AutoFunctionProfile].SetValue(PLCamera.AutoFunctionProfile.MinimizeExposureTime);
+// Enable Gain and Exposure Auto auto functions and set the operating mode to Continuous
+camera.Parameters[PLCamera.GainAuto].SetValue(PLCamera.GainAuto.Continuous);
+camera.Parameters[PLCamera.ExposureAuto].SetValue(PLCamera.ExposureAuto.Continuous);</code></pre></div><div class="tab-4 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="csharp" generated="true">// Set the auto function profile to Gain Minimum
+Pylon.DeviceFeatureFromString(hdev, "AutoFunctionProfile", "GainMinimum");
+// Set the auto function profile to Exposure Minimum
+Pylon.DeviceFeatureFromString(hdev, "AutoFunctionProfile", "ExposureMinimum");
+// Enable Gain and Exposure Auto auto functions and set the operating mode to Continuous
+Pylon.DeviceFeatureFromString(hdev, "GainAuto", "Continuous");
+Pylon.DeviceFeatureFromString(hdev, "ExposureAuto", "Continuous");</code></pre><pre data-rhtags="49" class="rh-hide"><code class="csharp" generated="true">// Set the auto function profile to Minimize Gain
+Pylon.DeviceFeatureFromString(hdev, "AutoFunctionProfile", "MinimizeGain");
+// Set the auto function profile to Minimize Exposure Time
+Pylon.DeviceFeatureFromString(hdev, "AutoFunctionProfile", "MinimizeExposureTime");
+// Enable Gain and Exposure Auto auto functions and set the operating mode to Continuous
+Pylon.DeviceFeatureFromString(hdev, "GainAuto", "Continuous");
+Pylon.DeviceFeatureFromString(hdev, "ExposureAuto", "Continuous");</code></pre></div><div class="tab-5 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+/* Set the auto function profile to Gain Minimum */
+errRes = PylonDeviceFeatureFromString(hdev, "AutoFunctionProfile", "GainMinimum");
+CHECK(errRes);
+/* Set the auto function profile to Exposure Minimum */
+errRes = PylonDeviceFeatureFromString(hdev, "AutoFunctionProfile", "ExposureMinimum");
+CHECK(errRes);
+/* Enable Gain and Exposure Auto auto functions and set the operating mode to Continuous */
+errRes = PylonDeviceFeatureFromString(hdev, "GainAuto", "Continuous");
+CHECK(errRes);
+errRes = PylonDeviceFeatureFromString(hdev, "ExposureAuto", "Continuous");
+CHECK(errRes);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="c" generated="true">/* Set the auto function profile to Minimize Gain */
+errRes = PylonDeviceFeatureFromString(hdev, "AutoFunctionProfile", "MinimizeGain");
+CHECK(errRes);
+/* Set the auto function profile to Minimize Exposure Time */
+errRes = PylonDeviceFeatureFromString(hdev, "AutoFunctionProfile", "MinimizeExposureTime");
+CHECK(errRes);
+/* Enable Gain and Exposure Auto auto functions and set the operating mode to Continuous */
+errRes = PylonDeviceFeatureFromString(hdev, "GainAuto", "Continuous");
+CHECK(errRes);
+errRes = PylonDeviceFeatureFromString(hdev, "ExposureAuto", "Continuous");
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

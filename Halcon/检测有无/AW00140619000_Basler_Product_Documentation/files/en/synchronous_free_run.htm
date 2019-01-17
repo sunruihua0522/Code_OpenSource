@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Synchronous Free Run</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_76";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Synchronous Free Run<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Synchronous Free Run</h1>
+<p class="teaser">The Synchronous Free Run 
+ <a href="features.htm">camera feature</a> allows you to capture 
+ images on multiple cameras at the same time and the same frame rate.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot37759" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot37759', 'MTPOPUP37759');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP37759" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >How It Works</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Using Synchronous Free Run</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark5" >General Use</a>
+</li>
+     <li><a href="#MiniTOCBookMark6" >Synchronous 
+ Free Run With Time-Aligned Intervals</a>
+</li>
+     <li><a href="#MiniTOCBookMark7" >Converting 
+ the 64-bit Timestamp to Start Time High and Start Time Low</a>
+</li>
+    </ul></li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark8" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>How It Works</h3>
+<p>If you are using multiple cameras in <a href="free_run_image_acquisition.htm">free 
+ run</a> mode, image acquisition is slightly asynchronous due to a variety 
+ of reasons, e.g., the camera's individual <a href="acquisition_timing_information.htm">timings 
+ and delays</a>.</p>
+<p><img src="images/drawing_synchronous_free_run_disabled.png" alt="Cameras Capturing at the Same Frame Rate, but Running Asynchronously" title="Cameras Capturing at the Same Frame Rate, but Running Asynchronously" /></p>
+<p>The Synchronous Free Run feature allows you to synchronize cameras in 
+ free run mode. As a result, &#160;the cameras will acquire images at the 
+ <strong>same time</strong> and at the <strong>same frame rate</strong>. 
+ </p>
+<p><img src="images/drawing_synchronous_free_run_enabled.png" alt="Cameras Capturing at the Same Time and at the Same Frame Rate" title="Cameras Capturing at the Same Time and at the Same Frame Rate" /></p>
+<p>Also, you can use the Synchronous Free Run feature to capture images 
+ with multiple cameras in precisely <strong><a href="#Synchronous_Free_Run_With_Time-Aligned_Intervals">time-aligned 
+ intervals</a></strong>, i.e., in a chronological sequence. For example, 
+ you can configure one camera to start image acquisition at a specific 
+ point in time. Then you configure another camera to start 100 milliseconds 
+ after the first camera and a third camera to start 200 milliseconds after 
+ the first camera:</p>
+<p><img src="images/drawing_synchronous_free_run_enabled_2.png" alt="Cameras Capturing in Time-Aligned Intervals" title="Cameras Capturing in Time-Aligned Intervals" /></p>
+<p>Also, you can configure the cameras to acquire images at the same time 
+ and the same frame rate, but with <strong>different exposure times</strong>:</p>
+<p><img src="images/drawing_synchronous_free_run_enabled_3.png" alt="Cameras Capturing with Different Exposure Times" title="Cameras Capturing with Different Exposure Times" /></p>
+<h3><a name="MiniTOCBookMark4"></a>Using Synchronous Free Run</h3>
+<h4><a name="MiniTOCBookMark5"></a>General Use</h4>
+<p>To synchronize multiple cameras:</p>
+<ol>
+	<li>Make sure that all cameras in your network are synchronized via 
+	 the <a href="precision_time_protocol.htm">Precision Time Protocol</a> 
+	 feature.</li>
+	<li>Open the connection to one of the cameras that you want to synchronize 
+	 using Synchronous Free Run.</li>
+	<li>Enable <a href="free_run_image_acquisition.htm">free run image 
+	 acquisition</a> on this camera.</li>
+	<li>Enter the desired frame rate for the <span class="parameter-name rh-hide" data-rhtags="48">SyncFreeRunTimerTriggerRate</span><span class="parameter-name rh-hide" data-rhtags="49">SyncFreeRunTimerTriggerRateAbs</span> 
+	 parameter. <br />
+	You must specify the same parameter value on all cameras. For example, 
+	 to synchronize the cameras at 10 frames per second, you must set the 
+	 parameter to 10 on all cameras.</li>
+	<li>Set the <span class="parameter-name">SyncFreeRunTimerStartTimeHigh</span> 
+	 and the <span class="parameter-name">SyncFreeRunTimerStartTimeLow</span> 
+	 parameters to 0.</li>
+	<li>Execute the <span class="parameter-name">SyncFreeRunTimerUpdate</span> 
+	 command.</li>
+	<li>Set the <span class="parameter-name">SyncFreeRunTimerEnable</span> 
+	 parameter to <span class="parameter-name">true</span>.</li>
+	<li>Repeat steps 2 to 7 for all cameras.</li>
+</ol>
+<h4><a name="MiniTOCBookMark6"></a><a name="Synchronous_Free_Run_With_Time-Aligned_Intervals">Synchronous 
+ Free Run With Time-Aligned Intervals</a></h4>
+<p>To synchronize multiple cameras with time-aligned intervals, i.e., in 
+ a chronological sequence:</p>
+<div class="info">
+	<p>The following steps must be performed using the pylon API.</p>
+</div>
+<ol>
+	<li>Make sure that all cameras in your network are synchronized via 
+	 the <a href="precision_time_protocol.htm">Precision Time Protocol</a> 
+	 feature.</li>
+	<li>Open the connection to the first camera in the chronological sequence.</li>
+	<li>Enable <a href="free_run_image_acquisition.htm">free run image 
+	 acquisition</a> on the camera.</li>
+	<li>Enter the&#160;desired frame rate for the <span class="parameter-name rh-hide" data-rhtags="48">SyncFreeRunTimerTriggerRate</span><span class="parameter-name rh-hide" data-rhtags="49">SyncFreeRunTimerTriggerRateAbs</span> 
+	 parameter. <br />
+	You must specify the same parameter value on all synchronized cameras. 
+	 For example, if you want the cameras to acquire 10 frames per second, 
+	 you must set the parameter to 10 on all cameras.</li>
+	<li>Determine the start time of the first camera:</li>
+	<ol>
+		<li>Execute the <span class="parameter-name rh-hide" data-rhtags="48">GevTimestampControlLatch</span><span class="parameter-name rh-hide" data-rhtags="49">TimestampLatch</span> 
+		 command on the first camera.<br />
+		A &quot;snapshot&quot; of the camera’s current timestamp value 
+		 is taken.</li>
+		<li>Get the value of the <span class="parameter-name rh-hide" data-rhtags="48">GevTimestampValue</span><span class="parameter-name rh-hide" data-rhtags="49">TimestampLatchValue</span> 
+		 parameter on the same camera.<br />
+		The value is specified in ticks. On Basler cameras with the <a href="precision_time_protocol.htm">Precision Time Protocol</a> 
+		 feature enabled, one tick equals one nanosecond.</li>
+		<li>Add a start delay in ticks (= nanoseconds) to the value determined 
+		 in step b.<br />
+		For example, to specify a start delay of 1 second, add 1 000&#160;000&#160;000 
+		 to the value determined in step b.<br />
+		The delay is required because the first camera must wait until 
+		 the other cameras have been configured properly:<br />
+		<img src="images/drawing_synchronous_free_run_enabled_4.png" alt="Synchronous Free Run Start Delay" title="Synchronous Free Run Start Delay" /></li>
+	</ol>
+	<li>Convert the value determined in step 5 to <a href="#Converting_the_64-bit_Timestamp_to_Start_Time_High_and_Start_Time_Low">start 
+	 time high and start time low values</a> and set the <span class="parameter-name">SyncFreeRunTimerStartTimeHigh</span> 
+	 and the <span class="parameter-name">SyncFreeRunTimerStartTimeLow</span> 
+	 parameters accordingly.</li>
+	<li>Execute the <span class="parameter-name">SyncFreeRunTimerUpdate</span> 
+	 command.</li>
+	<li>Set the <span class="parameter-name">SyncFreeRunTimerEnable</span> 
+	 parameter to <span class="parameter-name">true</span>.</li>
+	<li>Open the connection to the next camera in the chronological sequence.</li>
+	<li>Enable <a href="free_run_image_acquisition.htm">free run image 
+	 acquisition</a> on this camera.</li>
+	<li>Enter the desired frame rate for the <span class="parameter-name rh-hide" data-rhtags="48">SyncFreeRunTimerTriggerRate</span><span class="parameter-name rh-hide" data-rhtags="49">SyncFreeRunTimerTriggerRateAbs</span> 
+	 parameter. <br />
+	You must specify the same parameter value on all synchronized cameras. 
+	 For example, if you want the cameras to acquire 10 frames per second, 
+	 set the parameter to 10 on all cameras.</li>
+	<li>Add the desired interval (in nanoseconds) to the start time of 
+	 the first camera (determined in step 5).<br />
+	For example, if you want the camera to start image acquisition 100 
+	 milliseconds after the first camera, add 100 000 000 to the value 
+	 determined in step 5.</li>
+	<li>Convert the value determined in step 12 to <a href="#Converting_the_64-bit_Timestamp_to_Start_Time_High_and_Start_Time_Low">start 
+	 time high and start time low values</a> and configure the <span class="parameter-name">SyncFreeRunTimerStartTimeHigh</span> 
+	 and the <span class="parameter-name">SyncFreeRunTimerStartTimeLow</span> 
+	 parameters accordingly.</li>
+	<li>Execute the <span class="parameter-name">SyncFreeRunTimerUpdate</span> 
+	 command.</li>
+	<li>Set the <span class="parameter-name">SyncFreeRunTimerEnable</span> 
+	 parameter to <span class="parameter-name">true</span>.</li>
+	<li>Repeat steps 9 to 15 for all remaining cameras.</li>
+</ol>
+<h4><a name="MiniTOCBookMark7"></a><a name="Converting_the_64-bit_Timestamp_to_Start_Time_High_and_Start_Time_Low">Converting 
+ the 64-bit Timestamp to Start Time High and Start Time Low</a></h4>
+<p>The start time for the Synchronous Free Run feature must be specified 
+ as a 64-bit GigE Vision timestamp value (in nanoseconds), split in two 
+ 32-bit values.</p>
+<p>The high part of the 64-bit value must be transmitted using the <span class="parameter-name">SyncFreeRunTimerStartTimeHigh</span> 
+ parameter.</p>
+<p>The low part of the 64-bit value must be transmitted using the <span class="parameter-name">SyncFreeRunTimerStartTimeLow</span> 
+ parameter.</p>
+<p><strong>Example:</strong> Assume your network devices are coordinated 
+ to UTC and you want to configure Fri Dec 12 2025 11:00:00 UTC as the start 
+ time. This corresponds to a timestamp value of 1&#160;765&#160;537&#160;200&#160;000&#160;000&#160;000 
+ (decimal) or 0001 1000 1000 0000 0111 0010 1011 1010 1010 1011 1011 1100 
+ 1110 0000 0000 0000 (binary).</p>
+<p>The high and low parts of this value are as follows:</p>
+<p>&#160;<img src="images/drawing_synchronous_free_run_timestamp_value.png" alt="High and Low Parts of a Timestamp Value" title="High and Low Parts of a Timestamp Value" /></p>
+<p>Therefore, to configure a start time of Fri Dec 12 2025 11:00:00 UTC, 
+ you must set the <span class="parameter-name">SyncFreeRunTimerStartTimeHigh</span> 
+ parameter to 411&#160;071&#160;162 and the <span class="parameter-name">SyncFreeRunTimerStartTimeLow</span> 
+ parameter to 2&#160;881&#160;282&#160;048.</p>
+<h2 class="sample-code"><a name="MiniTOCBookMark8"></a>Sample Code</h2>
+<div>
+<pre>
+<code class="cpp">// Example: Configuring cameras for synchronous free run.
+// It is assumed that the &quot;cameras&quot; object is an 
+// instance of CBaslerGigEInstantCameraArray.
+for (size_t i = 0; i &gt; cameras.GetSize(); ++i)
+{
+&#160;&#160;&#160;&#160;// Open the camera connection
+&#160;&#160;&#160;&#160;cameras[i].Open();
+&#160;&#160;&#160;&#160;// Make sure the Frame Start trigger is set to Off to enable free run
+&#160;&#160;&#160;&#160;cameras[i].TriggerSelector.SetValue(TriggerSelector_FrameStart);
+&#160;&#160;&#160;&#160;cameras[i].TriggerMode.SetValue(TriggerMode_Off);
+&#160;&#160;&#160;&#160;// Let the free run start immediately without a specific start time
+&#160;&#160;&#160;&#160;camera.SyncFreeRunTimerStartTimeLow.SetValue(0);
+&#160;&#160;&#160;&#160;camera.SyncFreeRunTimerStartTimeHigh.SetValue(0);
+&#160;&#160;&#160;&#160;// Spcify a trigger rate of 30 frames per second
+&#160;&#160;&#160;&#160;cameras[i].SyncFreeRunTimerTriggerRateAbs.SetValue(30.0);
+&#160;&#160;&#160;&#160;// Apply the changes
+&#160;&#160;&#160;&#160;cameras[i].SyncFreeRunTimerUpdate.Execute();
+&#160;&#160;&#160;&#160;// Enable Synchronous Free Run
+&#160;&#160;&#160;&#160;cameras[i].SyncFreeRunTimerEnable.SetValue(true);
+}</code></pre>
+</div>
+<p>This sample code is available in C++ language only.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

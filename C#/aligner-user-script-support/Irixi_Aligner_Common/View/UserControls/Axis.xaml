@@ -1,0 +1,150 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:local="clr-namespace:Irixi_Aligner_Common.View.UserControls"
+    x:Class="Irixi_Aligner_Common.View.UserControls.Axis"
+    mc:Ignorable="d"
+    d:DesignHeight="35" 
+    d:DesignWidth="730" >
+    <!--IsEnabled="{Binding PhysicalAxisInst.IsHomed, Mode=OneWay}">-->
+    <UserControl.Resources>
+        <local:ConvertMoveModeToSolidColorBrush x:Key="ConvertMoveModeToSolidColorBrush"/>
+        <local:ConvertBoolToSolidColorBrush x:Key="ConvertBoolToSolidColorBrush"/>
+        <local:ConvertManualEnabledToCaption x:Key="ConvertManualEnabledToCaption"/>
+        <local:ConvertAbsModeToCaption x:Key="ConvertAbsModeToCaption"/>
+    </UserControl.Resources>
+    <Grid IsEnabled="{Binding PhysicalAxisInst.IsHomed}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock 
+            Text="{Binding AxisName}" 
+            VerticalAlignment="Center" 
+            HorizontalAlignment="Center"/>
+        <TextBlock 
+            x:Name="txtPosUnit"
+            Text="{Binding PhysicalAxisInst.UnitHelper.Unit, Mode=OneWay}"
+            Grid.Column="2"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center"/>
+        <TextBlock
+            Grid.Column="7" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center"
+            Text="{Binding Text, ElementName=txtPosUnit}" />
+        <TextBox 
+            x:Name="txtCurrentPosition" 
+            Text="{Binding PhysicalAxisInst.UnitHelper.RelPosition, Mode=OneWay}" 
+            Grid.Column="1" 
+            VerticalAlignment="Center" 
+            TextAlignment="Right" 
+            IsReadOnly="True" 
+            Margin="1,0,0,0" 
+            FontSize="16"/>
+        <TextBox 
+            x:Name="txtMoveSpeed" 
+            Grid.Column="4" 
+            VerticalAlignment="Center" 
+            TextAlignment="Center" 
+            MaxLength="3" 
+            Margin="1,0,0,0"
+            FontSize="16" 
+            Text="{Binding MoveArgs.Speed}"/>
+        <TextBox 
+            x:Name="txtDistance" 
+            Grid.Column="6" 
+            VerticalAlignment="Center"
+            TextAlignment="Center" 
+            MaxLength="10" 
+            Margin="1,0,0,0" 
+            FontSize="16" 
+            Text="{Binding MoveArgs.Distance}"/>
+        <Button 
+            x:Name="btnMoveCCW" 
+            Height="27"
+            Content="{Binding Config.CCWButtonCaption}" 
+            Grid.Column="8" 
+            Margin="1,0" 
+            FontWeight="Bold" 
+            VerticalAlignment="Center" 
+            Tag="CCW" 
+            Click="btnMove_Click" />
+        <Button 
+            x:Name="btnMoveCW" 
+            Content="{Binding Config.CWButtonCaption}" 
+            Grid.Column="9" 
+            Margin="1,0" 
+            Tag="CW" 
+            Click="btnMove_Click" 
+            FontWeight="Bold" 
+            VerticalAlignment="Center" 
+            Height="27"/>
+        <Button 
+            x:Name="tbtnAbsMode" 
+            Grid.Column="5"
+            Height="27" 
+            Margin="3,0"
+            VerticalAlignment="Center"
+            Content="{Binding MoveArgs.Mode}" 
+            Click="tbtnAbsMode_Click" 
+            Foreground="{Binding MoveArgs.Mode, Converter={StaticResource ConvertMoveModeToSolidColorBrush}, Mode=OneWay}"/>
+        <Button 
+            x:Name="tbtnManualEnable" 
+            Content="{Binding PhysicalAxisInst.IsManualEnabled, Converter={StaticResource ConvertManualEnabledToCaption}}" 
+            Grid.Column="3" 
+            Margin="3,0" 
+            HorizontalContentAlignment="Center" 
+            VerticalAlignment="Center" 
+            Height="27" 
+            Foreground="{Binding PhysicalAxisInst.IsManualEnabled, Converter={StaticResource ConvertBoolToSolidColorBrush}, Mode=OneWay}"/>
+        <ComboBox 
+            x:Name="cbxCruiseSpeed" 
+            Grid.Column="11" 
+            VerticalAlignment="Center"
+            Margin="1,0,0,0"
+            Height="27"
+            FontSize="12" 
+            IsEnabled="{Binding Config.AllowCruise}">
+            <ComboBox.Items>
+                <ComboBoxItem Content="Fast"/>
+                <ComboBoxItem Content="Mid" IsSelected="True"/>
+                <ComboBoxItem Content="Slow"/>
+            </ComboBox.Items>
+        </ComboBox>
+        <Button 
+            x:Name="btnCuriseCCW" 
+            IsEnabled="{Binding Config.AllowCruise}"
+            Content="{Binding Config.CCWButtonCaption}"
+            Grid.Column="12" 
+            Margin="1,0" 
+            Tag="CCW" 
+            FontWeight="Bold" 
+            VerticalAlignment="Center" 
+            Height="27" PreviewMouseDown="BtnCurise_MouseDown" PreviewMouseUp="BtnCurise_MouseUp"/>
+        <Button 
+            x:Name="btnCuriseCW" 
+            IsEnabled="{Binding Config.AllowCruise}"
+            Content="{Binding Config.CWButtonCaption}"
+            Grid.Column="13" 
+            Margin="1,0" 
+            Tag="CW" 
+            FontWeight="Bold" 
+            VerticalAlignment="Center" 
+            Height="27" PreviewMouseDown="BtnCurise_MouseDown" PreviewMouseUp="BtnCurise_MouseUp"/>
+    </Grid>
+</UserControl>

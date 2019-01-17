@@ -1,0 +1,337 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="noindex" />
+<meta http-equiv="Content-Language" content="en-US" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Tonal Range</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_82";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Tonal Range<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Tonal Range</h1>
+<p class="teaser">The Tonal Range 
+ <a href="features.htm">camera feature</a> allows you&#160;to manually 
+ adjust contrast or correct color shifts.</p>
+<p>To use this feature, you must be familiar with the concept of <a href="https://photography.tutsplus.com/articles/light-photography-exposure-and-tonal-range-considerations--photo-5685">tonal 
+ range</a> and <a href="https://en.wikipedia.org/wiki/Image_histogram">image 
+ histograms</a>.</p>
+<p>If you want to adjust the tonal range automatically, use the <a href="tonal_range_auto.htm">Tonal 
+ Range Auto</a> feature.</p>
+<p>If you want to adjust the contrast using linear or S-curve functions, 
+ use the <a href="brightness_and_contrast.htm">Brightness and Contrast</a> 
+ feature (if available).</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot35512" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot35512', 'MTPOPUP35512');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP35512" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Prerequisites</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Adjusting the Contrast</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >Correcting Color Shifts</a>
+</li>
+    <li><a href="#MiniTOCBookMark6" >How It Works</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark7" >Source and Target Values</a>
+</li>
+     <li><a href="#MiniTOCBookMark8" >Contrast Adjustment 
+ (Mono and Color Cameras)</a>
+</li>
+     <li><a href="#MiniTOCBookMark9" >Color Correction (Color 
+ Cameras Only)</a>
+</li>
+    </ul></li>
+    <li><a href="#MiniTOCBookMark10" >External Links</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark11" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>Prerequisites</h3>
+<p>Your camera must already produce good images, with only issues like 
+ <a href="tonal_range.htm#Adjusting_the_Contrast">low contrast</a> or <a href="tonal_range.htm#Correcting_Color_Shifts">shifted colors</a> 
+ remaining. Tonal range operations should only be performed on images that 
+ already have a good image quality.</p>
+<div class="info">
+	If you want to optimize the image quality, follow this sequence to 
+	 avoid side effects: 
+	<ol>
+		<li>Use the <a href="exposure_time.htm">Exposure Time</a>, <a href="black_level.htm">Black 
+		 Level</a>, and <a href="gain.htm">Gain</a> features for basic 
+		 image optimization. Make sure the image is not over saturated.</li>
+		<li>If you are using a color camera, adjust the white balance by 
+		 using the <a href="light_source_preset.htm">Light Source Preset</a>, 
+		 <a href="balance_white_auto.htm">Balance White Auto</a>, or <a href="balance_white.htm">Balance White</a> features.</li>
+		<li>Use the <a href="tonal_range_auto.htm">Tonal Range Auto</a> 
+		 and Tonal Range features to optimize the contrast or the colors 
+		 or both.</li>
+	</ol>
+</div>
+<h3><a name="MiniTOCBookMark4"></a><a name="Adjusting_the_Contrast">Adjusting the Contrast</a></h3>
+<p class="info">Basler recommends using the <a href="tonal_range_auto.htm">Tonal 
+ Range Auto</a> feature first. After that, you may fine-tune the contrast 
+ by following the instructions below.</p>
+<p>To manually adjust the contrast:</p>
+<ol>
+	<li>Set the <span class="parameter-name">TonalRangeEnable</span> 
+	 parameter to <span class="parameter-name">On</span>.</li>
+	<li>Set the&#160;<span class="parameter-name">TonalRangeSelector</span> 
+	 parameter to <span class="parameter-name">Sum</span>.</li>
+	<li>Set the <span class="parameter-name">TonalRangeSourceDark</span> 
+	 and <span class="parameter-name">TonalRangeTargetDark</span> 
+	 parameters to the <a href="#Source_and_Target_Values">dark source 
+	 and target values</a>.<br />
+	If the dark target value is <strong>lower</strong> than the dark source 
+	 value, contrast is increased.</li>
+	<li>Set the <span class="parameter-name">TonalRangeSourceBright</span> 
+	 and <span class="parameter-name">TonalRangeTargetBright</span> 
+	 parameters to the <a href="#Source_and_Target_Values">bright source 
+	 and target values</a>. <br />
+	If the bright target value is <strong>greater</strong> than the bright 
+	 source value, contrast is increased.</li>
+</ol>
+<h3><a name="MiniTOCBookMark5"></a><a name="Correcting_Color_Shifts">Correcting Color Shifts</a></h3>
+<p class="info">Basler recommends using the <a href="tonal_range_auto.htm">Tonal 
+ Range Auto</a> feature first. After that, you may fine-tune the color 
+ correction by following the instructions below.</p>
+<p>To manually correct color shifts:</p>
+<ol>
+	<li>Set the <span class="parameter-name">TonalRangeEnable</span> 
+	 parameter to <span class="parameter-name">On</span>.</li>
+	<li>Set the&#160;<span class="parameter-name">TonalRangeSelector</span> 
+	 parameter to <span class="parameter-name">Red</span>,&#160;<span class="parameter-name">Green</span>, 
+	 or <span class="parameter-name">Blue</span>, 
+	 depending on the color shift you want to correct.<br />
+	<strong>Example:</strong> If your images have a green cast, set the 
+	 parameter to <span class="parameter-name">Green</span>.</li>
+	<li>Set the&#160;<span class="parameter-name">TonalRangeSourceDark</span>, 
+	 <span class="parameter-name">TonalRangeTargetDark</span>, 
+	 <span class="parameter-name">TonalRangeSourceBright</span>, 
+	 and <span class="parameter-name">TonalRangeTargetBright</span> 
+	 parameters to <a href="tonal_range.htm#Source_and_Target_Values">source 
+	 and target values</a> that align the current histogram with the other 
+	 histograms.</li>
+</ol>
+<h3><a name="MiniTOCBookMark6"></a>How It Works</h3>
+<p>Tonal range operations are best understood by looking at a graphical 
+ representation of the tonal distribution in your images, i.e., an <a href="https://en.wikipedia.org/wiki/Image_histogram">image 
+ histogram</a>.</p>
+<p>The Basler pylon Viewer provides the <a href="histogram.htm">Histogram</a> 
+ pane, which can be very helpful when performing tonal range operations.</p>
+<p class="info">Depending on which other features are enabled on your camera, 
+ the <strong>Histogram</strong> pane in the pylon Viewer may <strong>not 
+ display the data that the Tonal Range feature actually uses</strong>. 
+ <br />
+For example, the <a href="gamma.htm">Gamma</a> feature is processed after 
+ tonal range operations. As a result, gamma correction is included in the 
+ histograms displayed in the pylon Viewer, but not in the data that the 
+ Tonal Range feature uses.</p>
+<h4><a name="MiniTOCBookMark7"></a><a name="Source_and_Target_Values">Source and Target Values</a></h4>
+<p>Both contrast and color adjustments are based on the same concept of 
+ mapping <strong>source</strong> values to <strong>target</strong> values.</p>
+<p>For illustration, think of the source values as &quot;anchors&quot; 
+ in the histogram, and the target values as the points where the anchors 
+ should be moved to.</p>
+<p><img src="images/drawing_tonal_range_histogram_1.png" alt="Source and Target Values Illustration" title="Source and Target Values Illustration" /></p>
+<p>When the source values are mapped to the target values, the entire histogram 
+ spreads or stretches accordingly:</p>
+<p><img src="videos/animation_histogram_tonal_range_mono.gif" alt="Histogram Stretching Animation" title="Histogram Stretching Animation" /></p>
+<p class="subheading">Dark/Bright Source and Target Values</p>
+<p>As illustrated above, two sets of source and target values must be defined 
+ to perform tonal range operations:</p>
+<ul>
+	<li><strong>Dark</strong><span> source and target values, located at 
+	 the </span><strong>lower</strong><span> end of the histogram. <br />
+	You specify these values using the </span><span class="parameter-name">TonalRangeSourceDark</span> 
+	 and <span class="parameter-name">TonalRangeTargetDark</span> 
+	 parameters. </li>
+	<li><strong>Bright </strong><span>source and target values, located 
+	 at the </span><strong>upper</strong><span> end of the histogram. <br />
+	You specify these values using the </span><span class="parameter-name">TonalRangeSourceBright</span> 
+	 and <span class="parameter-name">TonalRangeTargetBright</span> 
+	 parameters. </li>
+</ul>
+<p>All source and target values can range from 0 to the maximum pixel value 
+ (e.g., 4095 if a 12-bit <a href="pixel_format.htm">pixel format</a> is 
+ set). Because the degree of histogram stretching and spreading is limited, 
+ the parameter ranges may also be limited.</p>
+<h4><a name="MiniTOCBookMark8"></a><a name="Contrast_Adjustment__Mono_and_Color_Cameras_">Contrast Adjustment 
+ (Mono and Color Cameras)</a></h4>
+<p>On all cameras that support the Tonal Range feature, you can use the 
+ feature to adjust contrast.</p>
+<p>Low contrast images have a narrow tonal range:</p>
+<p><img src="images/drawing_tonal_range_histogram_2.png" alt="Narrow Tonal Range Example" title="Narrow Tonal Range Example" /></p>
+<p>The Tonal Range feature allows you to manually widen the tonal range 
+ and thus increase the contrast. </p>
+<p><img src="images/drawing_tonal_range_histogram_3.png" alt="Wide Tonal Range Example" title="Wide Tonal Range Example" /></p>
+<p>Widening the tonal range is done by mapping the <a href="tonal_range.htm#Source_and_Target_Values">dark 
+ source value</a> to a lower target value and the <a href="tonal_range.htm#Source_and_Target_Values">bright 
+ source value</a> to a higher target value. </p>
+<p>The area between both source values defines your mid-tones, i.e., the&#160;pixel 
+ values you consider essential for the image.</p>
+<p>To automate this process, use the <a href="tonal_range_auto.htm">Tonal 
+ Range Auto</a> feature.</p>
+<h4><a name="MiniTOCBookMark9"></a><a name="Color_Correction__Color_Cameras_Only_">Color Correction (Color 
+ Cameras Only)</a></h4>
+<p>On color cameras that support the Tonal Range feature, you can also 
+ use the feature to correct color shifts.</p>
+<p>If colors in your images are shifted, the three RGB (red, green, blue) 
+ histograms will appear unaligned. For example, if your images have a red 
+ cast, the red histogram will be displayed much further to the right than 
+ the green and blue histograms (see example below).</p>
+<p>The Tonal Range feature allows you to manually align the RGB histograms 
+ and thus reduce color shifts. </p>
+<p><img src="videos/animation_histogram_tonal_range_color.gif" alt="RGB Histogram Alignment Animation" title="RGB Histogram Alignment Animation" /></p>
+<p>You can align the RGB histograms by setting the <a href="tonal_range.htm#Source_and_Target_Values">source 
+ and target values</a> so that all histograms are stretched and moved to 
+ similar starting and end points. </p>
+<p>To automate this process, use the <a href="tonal_range_auto.htm">Tonal 
+ Range Auto</a> feature.</p>
+<h3><a name="MiniTOCBookMark10"></a>External Links</h3>
+<ul>
+	<li><a href="https://photography.tutsplus.com/articles/light-photography-exposure-and-tonal-range-considerations--photo-5685">Light 
+	 &amp; Photography: Exposure and Tonal Range Considerations (Tuts+)</a></li>
+	<li><a href="https://en.wikipedia.org/wiki/Image_histogram">Image histogram 
+	 (Wikipedia)</a></li>
+</ul>
+<h2 class="sample-code"><a name="MiniTOCBookMark11"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre><code class="cpp">// Enable tonal range adjustments
+camera.TonalRangeEnable.SetValue(TonalRangeEnable_On);
+// Specify that the summed RGB pixel values should be used for tonal range adjustments
+camera.TonalRangeSelector.SetValue(TonalRangeSelector_Sum);
+// Set the dark source and target values
+camera.TonalRangeSourceDark.SetValue(30);
+camera.TonalRangeTargetDark.SetValue(0);
+// Set the bright source and target values
+camera.TonalRangeSourceBright.SetValue(240);
+camera.TonalRangeTargetBright.SetValue(255);</code></pre></div><div class="tab-2 tab-content"><pre><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Enable tonal range adjustments
+CEnumerationPtr(nodemap.GetNode("TonalRangeEnable"))-&gt;FromString("On");
+// Specify that the summed RGB pixel values should be used for tonal range adjustments
+CEnumerationPtr(nodemap.GetNode("TonalRangeSelector"))-&gt;FromString("Sum");
+// Set the dark source and target values
+CIntegerPtr(nodemap.GetNode("TonalRangeSourceDark"))-&gt;SetValue(30);
+CIntegerPtr(nodemap.GetNode("TonalRangeTargetDark"))-&gt;SetValue(0);
+// Set the bright source and target values
+CIntegerPtr(nodemap.GetNode("TonalRangeSourceBright"))-&gt;SetValue(240);
+CIntegerPtr(nodemap.GetNode("TonalRangeTargetBright"))-&gt;SetValue(255);</code></pre></div><div class="tab-3 tab-content"><pre><code class="csharp" generated="true">// Enable tonal range adjustments
+camera.Parameters[PLCamera.TonalRangeEnable].SetValue(PLCamera.TonalRangeEnable.On);
+// Specify that the summed RGB pixel values should be used for tonal range adjustments
+camera.Parameters[PLCamera.TonalRangeSelector].SetValue(PLCamera.TonalRangeSelector.Sum);
+// Set the dark source and target values
+camera.Parameters[PLCamera.TonalRangeSourceDark].SetValue(30);
+camera.Parameters[PLCamera.TonalRangeTargetDark].SetValue(0);
+// Set the bright source and target values
+camera.Parameters[PLCamera.TonalRangeSourceBright].SetValue(240);
+camera.Parameters[PLCamera.TonalRangeTargetBright].SetValue(255);</code></pre></div><div class="tab-4 tab-content"><pre><code class="csharp" generated="true">// Enable tonal range adjustments
+Pylon.DeviceFeatureFromString(hdev, "TonalRangeEnable", "On");
+// Specify that the summed RGB pixel values should be used for tonal range adjustments
+Pylon.DeviceFeatureFromString(hdev, "TonalRangeSelector", "Sum");
+// Set the dark source and target values
+Pylon.DeviceSetIntegerFeature(hdev, "TonalRangeSourceDark", 30);
+Pylon.DeviceSetIntegerFeature(hdev, "TonalRangeTargetDark", 0);
+// Set the bright source and target values
+Pylon.DeviceSetIntegerFeature(hdev, "TonalRangeSourceBright", 240);
+Pylon.DeviceSetIntegerFeature(hdev, "TonalRangeTargetBright", 255);</code></pre></div><div class="tab-5 tab-content"><pre><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+/* Enable tonal range adjustments */
+errRes = PylonDeviceFeatureFromString(hdev, "TonalRangeEnable", "On");
+CHECK(errRes);
+/* Specify that the summed RGB pixel values should be used for tonal range adjustments */
+errRes = PylonDeviceFeatureFromString(hdev, "TonalRangeSelector", "Sum");
+CHECK(errRes);
+/* Set the dark source and target values */
+errRes = PylonDeviceSetIntegerFeature(hdev, "TonalRangeSourceDark", 30);
+CHECK(errRes);
+errRes = PylonDeviceSetIntegerFeature(hdev, "TonalRangeTargetDark", 0);
+CHECK(errRes);
+/* Set the bright source and target values */
+errRes = PylonDeviceSetIntegerFeature(hdev, "TonalRangeSourceBright", 240);
+CHECK(errRes);
+errRes = PylonDeviceSetIntegerFeature(hdev, "TonalRangeTargetBright", 255);
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer to easily set the parameters</a>.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

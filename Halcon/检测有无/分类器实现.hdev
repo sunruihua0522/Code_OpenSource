@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="838819377">
+<procedure name="main">
+<interface/>
+<body>
+<c></c>
+<l>for Index := 2 to 5 by 1</l>
+<l>    read_image (Image2, 'C:/Code/Halcon/检测有无/'+Index+'.jpg')</l>
+<l>    mean_image(Image2, ImageMean, 9, 9)</l>
+<l>    scale_image_max(ImageMean, ImageScaleMax)</l>
+<c>    </c>
+<l>    dev_close_window()</l>
+<l>    dev_open_window_fit_image(Image2, 0, 0, -1, -1, WindowHandle)</l>
+<c>    </c>
+<c>    </c>
+<l>    decompose3(ImageScaleMax, Image11, Image21, Image3)</l>
+<l>    trans_from_rgb (Image11, Image21, Image3, ImageResult1, ImageResult2, ImageResult3, 'hsv')</l>
+<c>    </c>
+<c>    </c>
+<c>    </c>
+<l>    threshold (ImageResult2, Regions, 77, 255)</l>
+<c>    </c>
+<l>    closing_circle(Regions, RegionOpening, 11)</l>
+<l>    connection(RegionOpening, ConnectedRegions)</l>
+<l>    area_center(ConnectedRegions, Area1, Row1, Column1)</l>
+<c>    </c>
+<l>    select_shape (ConnectedRegions, SelectedRegions, 'area', 'and', 10000.59, 157565)</l>
+<c>    </c>
+<l>    union1(SelectedRegions, RegionUnion)</l>
+<l>    shape_trans(RegionUnion, RegionTrans, 'circle')</l>
+<l>    dev_set_draw('margin')</l>
+<l>    dev_display(Image3)</l>
+<l>    dev_display(RegionTrans)</l>
+<c>    </c>
+<c>    *训练</c>
+<l>    TraningLabes:=['OK','OK','NG','NG']</l>
+<l>    TraningFontName:='TestOCR'</l>
+<l>    TraningFileName:=TraningFontName+'.trf'</l>
+<l>    reduce_domain(Image2, RegionTrans, ImageReduced)</l>
+<c>    </c>
+<l>*    delete_file (TraningFontName)</l>
+<l>*    shape_trans(SortedRegions, RegionTrans, 'rectangle1')</l>
+<c>  </c>
+<c>    </c>
+<l>    append_ocr_trainf(ImageReduced,Image2,TraningLabes[Index-2],TraningFileName)</l>
+<c></c>
+<l>endfor</l>
+<l>read_ocr_trainf_names(TraningFileName, CharacterNames, CharacterCount)</l>
+<l>create_ocr_class_mlp(10, 14, 'constant', 'default', CharacterNames, 80, 'none', 10, 42, OCRHandle)</l>
+<l>trainf_ocr_class_mlp(OCRHandle, TraningFileName, 200, 1, 0.01, Error, ErrorLog)</l>
+<l>write_ocr_class_mlp(OCRHandle, TraningFontName)</l>
+<l>clear_ocr_class_mlp(OCRHandle)</l>
+<c></c>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

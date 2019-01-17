@@ -1,0 +1,4 @@
+(function() {
+var toc =  [{"type":"book","name":"Basler ace GigE","key":"toc3","url":"en/basler_ace_gige.htm"},{"type":"book","name":"Basler ace USB 3.0","key":"toc4","url":"en/basler_ace_usb_3.0.htm"},{"type":"book","name":"Basler MED ace","key":"toc5","url":"en/basler_med_ace.htm"},{"type":"book","name":"Basler dart BCON for LVDS","key":"toc6","url":"en/basler_dart_bcon_for_lvds.htm"},{"type":"book","name":"Basler dart BCON for MIPI","key":"toc7","url":"en/basler_dart_bcon_for_mipi.htm"},{"type":"book","name":"Basler dart USB 3.0","key":"toc8","url":"en/basler_dart_usb_3.0.htm"},{"type":"book","name":"Basler pulse USB 3.0","key":"toc9","url":"en/basler_pulse_usb_3.0.htm"}];
+window.rh.model.publish(rh.consts('KEY_TEMP_DATA'), toc, { sync:true });
+})();

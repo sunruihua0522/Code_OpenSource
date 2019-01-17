@@ -1,0 +1,206 @@
+﻿<UserControl x:Class="Irixi_Aligner_Common.View.UserControls.Newport2832cControlPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+             xmlns:local="clr-namespace:Irixi_Aligner_Common.UserControls"
+             xmlns:ViewModel="clr-namespace:Irixi_Aligner_Common.ViewModel"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             mc:Ignorable="d" 
+             Height="220" Width="450">
+    <UserControl.Resources>
+
+        <!-- Converter Definition -->
+        <ViewModel:FormatNewport2832CMeasurementValue x:Key="Format2832CMeasValue"/>
+        <ViewModel:Newport2832CActiveChannelToBool x:Key="ActiveChannelToBool"/>
+
+        <Style TargetType="{x:Type dxe:ButtonEdit}">
+            <Setter Property="MaskType" Value="Numeric"/>
+            <Setter Property="AllowDefaultButton" Value="False"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid  IsEnabled="{Binding InstrInstance.IsInitialized}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <!-- Channel 1 -->
+        <dx:GroupFrame Header="Channel A">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <RadioButton Content="Active" HorizontalAlignment="Left" IsChecked="{Binding InstrInstance.ActivedChannel, Converter={StaticResource ActiveChannelToBool}, ConverterParameter=ChA, Mode=OneWay}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Checked">
+                            <i:InvokeCommandAction Command="{Binding SetActiveChannelToA}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </RadioButton>
+                <TextBox IsReadOnly="True" 
+                Grid.Row="1" 
+                VerticalContentAlignment="Center" 
+                HorizontalContentAlignment="Right" 
+                Margin="0" 
+                FontSize="24" 
+                FontFamily="Microsoft Sans Serif" 
+                FontWeight="Bold">
+                    <TextBox.Text>
+                        <MultiBinding Converter="{StaticResource Format2832CMeasValue}" Mode="OneWay">
+                            <Binding Path="InstrInstance.MetaProperty[0].MeasurementValue"/>
+                            <Binding Path="InstrInstance.MetaProperty[0].Unit" />
+                        </MultiBinding>
+                    </TextBox.Text>
+                </TextBox>
+                <StackPanel Grid.Row="1" Margin="5,0,0,0">
+                    <TextBlock Text="OL" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold" Visibility="{Binding InstrInstance.MetaProperty[0].IsOverRange, Converter={StaticResource BooleanToVisibility}}"/>
+                    <TextBlock Text="SA" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold" Visibility="{Binding InstrInstance.MetaProperty[0].IsSaturated, Converter={StaticResource BooleanToVisibility}}"/>
+                    <TextBlock Text="DATA ERR" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold" Visibility="{Binding InstrInstance.MetaProperty[0].IsDataError, Converter={StaticResource BooleanToVisibility}}"/>
+                </StackPanel>
+                <dx:GroupFrame Grid.Row="3" Header="Setting">
+                    <Grid>
+                        <Grid.Resources>
+                            <Style TargetType="ComboBox">
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                            </Style>
+                            <Style TargetType="{x:Type dxe:ButtonInfo}">
+                                <Setter Property="GlyphKind" Value="Refresh"/>
+                            </Style>
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Lambda(nm)"/>
+                        <dxe:ButtonEdit x:Name="txtLambdaA" Grid.Column="1" Text="{Binding InstrInstance.MetaProperty[0].Lambda, StringFormat=####, Mode=OneWay}">
+                            <dxe:ButtonInfo 
+                        Command="{Binding SetLambdaA}"
+                        CommandParameter="{Binding ElementName=txtLambdaA, Path=Text, Converter={StaticResource TextToInt}}"/>
+                        </dxe:ButtonEdit>
+                        <TextBlock Text="RangeA" Grid.Row="1"/>
+                        <ComboBox x:Name="cbxRangeA" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Ranges}" SelectedIndex="{Binding InstrInstance.MetaProperty[0].Range, Converter={StaticResource EnumToInt}, Mode=OneWay}">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction 
+                                        Command="{Binding SetRangeA}"   
+                                        CommandParameter="{Binding ElementName=cbxRangeA, Path=SelectedIndex}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </ComboBox>
+                        <TextBlock Text="Unit" Grid.Row="2"/>
+                        <ComboBox x:Name="cbxUnitA" Grid.Column="1" Grid.Row="2" ItemsSource="{Binding Units}" SelectedIndex="{Binding InstrInstance.MetaProperty[0].Unit, Converter={StaticResource EnumToInt}}">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction 
+                                        Command="{Binding SetUnitA}"   
+                                        CommandParameter="{Binding ElementName=cbxUnitA, Path=SelectedIndex}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </ComboBox>
+                    </Grid>
+                </dx:GroupFrame>
+            </Grid>
+        </dx:GroupFrame>
+        
+        <!-- Channel 2-->
+        <dx:GroupFrame Header="Channel B" Grid.Column="2">
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <RadioButton Content="Active" HorizontalAlignment="Left" IsChecked="{Binding InstrInstance.ActivedChannel, Converter={StaticResource ActiveChannelToBool}, ConverterParameter=ChB, Mode=OneWay}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Checked">
+                            <i:InvokeCommandAction Command="{Binding SetActiveChannelToB}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </RadioButton>
+                <TextBox IsReadOnly="True" 
+                Grid.Row="1" 
+                VerticalContentAlignment="Center" 
+                HorizontalContentAlignment="Right" 
+                Margin="0" 
+                FontSize="24" 
+                FontFamily="Microsoft Sans Serif" 
+                FontWeight="Bold">
+                    <TextBox.Text>
+                        <MultiBinding Converter="{StaticResource Format2832CMeasValue}" Mode="OneWay">
+                            <Binding Path="InstrInstance.MetaProperty[1].MeasurementValue"/>
+                            <Binding Path="InstrInstance.MetaProperty[1].Unit" />
+                        </MultiBinding>
+                    </TextBox.Text>
+                </TextBox>
+                <StackPanel Grid.Row="1" Margin="5,0,0,0">
+                    <TextBlock Text="OL" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold" Visibility="{Binding InstrInstance.MetaProperty[1].IsOverRange, Converter={StaticResource BooleanToVisibility}}"/>
+                    <TextBlock Text="SA" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold" Visibility="{Binding InstrInstance.MetaProperty[1].IsSaturated, Converter={StaticResource BooleanToVisibility}}"/>
+                    <TextBlock Text="DATA ERR" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="Red" FontWeight="Bold" Visibility="{Binding InstrInstance.MetaProperty[1].IsDataError, Converter={StaticResource BooleanToVisibility}}"/>
+                </StackPanel>
+                <dx:GroupFrame Grid.Row="3" Header="Setting">
+                    <Grid>
+                        <Grid.Resources>
+                            <Style TargetType="ComboBox">
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                            </Style>
+                            <Style TargetType="{x:Type dxe:ButtonInfo}">
+                                <Setter Property="GlyphKind" Value="Refresh"/>
+                            </Style>
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Lambda(nm)"/>
+                        <dxe:ButtonEdit x:Name="txtLambdaB" Grid.Column="1" Text="{Binding InstrInstance.MetaProperty[1].Lambda, StringFormat=####, Mode=OneWay}">
+                            <dxe:ButtonInfo 
+                        Command="{Binding SetLambdaB}"
+                        CommandParameter="{Binding ElementName=txtLambdaB, Path=Text, Converter={StaticResource TextToInt}}"/>
+                        </dxe:ButtonEdit>
+                        <TextBlock Text="Range" Grid.Row="1"/>
+                        <ComboBox x:Name="cbxRangeB" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Ranges}" SelectedIndex="{Binding InstrInstance.MetaProperty[1].Range, Converter={StaticResource EnumToInt}, Mode=OneWay}">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction 
+                                        Command="{Binding SetRangeB}"   
+                                        CommandParameter="{Binding ElementName=cbxRangeB, Path=SelectedIndex}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </ComboBox>
+                        <TextBlock Text="Unit" Grid.Row="2"/>
+                        <ComboBox x:Name="cbxUnitB" Grid.Column="1" Grid.Row="2" ItemsSource="{Binding Units}" SelectedIndex="{Binding InstrInstance.MetaProperty[1].Unit, Converter={StaticResource EnumToInt}}">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction 
+                                        Command="{Binding SetUnitB}"   
+                                        CommandParameter="{Binding ElementName=cbxUnitB, Path=SelectedIndex}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </ComboBox>
+                    </Grid>
+                </dx:GroupFrame>
+            </Grid>
+        </dx:GroupFrame>
+    </Grid>
+</UserControl>

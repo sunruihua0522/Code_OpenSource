@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="125359733">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image (Image1,'C:/Code/Halcon/ImageSaved/Tia1.jpg')</l>
+<l>dev_close_window()</l>
+<l>dev_open_window_fit_image(Image1, 0, 0, -1, -1, WindowHandle)</l>
+<l>dev_display(Image1)</l>
+<l>*draw_rectangle1(WindowHandle, Row1, Column1, Row2, Column2)</l>
+<l>draw_point_mod(WindowHandle, 100, 100, Row4, Column4)</l>
+<c></c>
+<c></c>
+<l>dev_set_draw('margin')</l>
+<l>gen_rectangle1(Rectangle, Row4-134, Column4-1349, Row4+62, Column4-379)</l>
+<l>reduce_domain(Image1, Rectangle, ImageReduced)</l>
+<l>threshold (ImageReduced, Regions, 0, 20)</l>
+<l>dev_set_draw('fill')</l>
+<l>connection(Regions, ConnectedRegions)</l>
+<l>select_shape (ConnectedRegions, SelectedRegions, 'area', 'and', 2201.39, 4500)</l>
+<l>select_shape (SelectedRegions, SelectedRegions1, 'height', 'and', 20, 79.94)</l>
+<l>sort_region(SelectedRegions1, SortedRegions, 'character', 'true', 'row')</l>
+<c></c>
+<c></c>
+<l>shape_trans(SelectedRegions1, RegionTrans, 'rectangle2')</l>
+<l>area_center(RegionTrans, Area, Row, Column)</l>
+<l>orientation_region(RegionTrans, Phi)</l>
+<l>smallest_rectangle2(RegionTrans, Row3, Column3, Phi1, Length1, Length2)</l>
+<l>PhiSum:=0</l>
+<l>for Index1 := 1 to |Phi1| by 1</l>
+<l>    if(Phi1[Index1-1]&lt;0)</l>
+<l>       Phi1[Index1-1]:=Phi1[Index1-1]+rad(90) </l>
+<l>    endif</l>
+<l>    PhiSum:=PhiSum+Phi1[Index1-1]</l>
+<l>endfor</l>
+<c></c>
+<l>tuple_mean(Length2, L2Mean)</l>
+<l>tuple_mean(Length1,L1Mean)</l>
+<l>PhiMean:=PhiSum/|Phi1|</l>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<l>dev_set_color('red')</l>
+<c></c>
+<l>dev_set_draw('margin')</l>
+<l>dev_display(Image1)</l>
+<l>*dev_display(RegionTrans)</l>
+<l>dev_set_color('green')</l>
+<l>*disp_cross(WindowHandle, Row, Column, 86,0)</l>
+<l>*disp_line(WindowHandle, Row[2], Column[2], Row[0], Column[0])</l>
+<c></c>
+<l>DeltaRow:=(Row[2]-Row[0])/4</l>
+<l>DeltaCol:=(Column[2]-Column[0])/4</l>
+<c></c>
+<l>NewRow:=Row[2]+DeltaRow</l>
+<l>NewCol:=Column[2]+DeltaCol</l>
+<l>for Index := 1 to 4 by 1</l>
+<l>    *dev_set_draw('fill')</l>
+<l>    *gen_rectangle2(Rectangle1, NewRow-2*(Index-1)*DeltaRow, NewCol-2*(Index-1)*DeltaCol, PhiMean, L1Mean, 700)</l>
+<l>    dev_set_draw('margin')</l>
+<l>    gen_rectangle2(Rectangle1, NewRow-2*(Index-1)*DeltaRow, NewCol-2*(Index-1)*DeltaCol, PhiMean, L1Mean-60, 1000)</l>
+<c>    </c>
+<l>endfor</l>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="897310782">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image (Image1, 'C:/Users/GPAP/Desktop/ImageSaved/1.jpg')</l>
+<l>get_image_size(Image1, Width, Height)</l>
+<l>dev_close_window()</l>
+<l>dev_open_window_fit_image(Image1, 0, 0, -1, -1, WindowHandle)</l>
+<l>dev_display(Image1)</l>
+<l>draw_rectangle2(WindowHandle, Row, Column, Phi, Length1, Length2)</l>
+<c></c>
+<l>Offset:=5</l>
+<l>for Index := 1 to 1 by 1</l>
+<l>    gen_measure_rectangle2(Row+Offset*Index, Column, Phi, Length1, Length2, Width, Height, 'nearest_neighbor', MeasureHandle)</l>
+<l>    measure_projection(Image1, MeasureHandle, GrayValues)</l>
+<l>    create_funct_1d_array(GrayValues, Function)</l>
+<l>    local_min_max_funct_1d(Function, 'strict_min_max', 'true', Min, Max)</l>
+<l>    get_y_value_funct_1d(Function, Max, 'constant', Y)</l>
+<c>    </c>
+<l>    disp_cross(WindowHandle, 355-Y, Max, 16, 0)</l>
+<l>    funct_1d_to_pairs(Function, XValues, YValues)</l>
+<l>    gen_region_points(Region, 255-YValues+20*Offset*Index, XValues)</l>
+<l>endfor</l>
+<l>close_measure(MeasureHandle)</l>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

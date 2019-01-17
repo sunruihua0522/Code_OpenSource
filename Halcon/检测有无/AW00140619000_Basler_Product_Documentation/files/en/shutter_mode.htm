@@ -1,0 +1,1610 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Shutter Mode</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_72";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Shutter Mode<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Shutter Mode</h1>
+<p class="teaser">The Shutter Mode 
+ <a href="features.htm">camera feature</a> allows you to determine or configure 
+ the operating mode of the camera's electronic shutter.</p>
+<p><span>The shutter mode refers to the way in which image data is captured 
+ and processed. </span>Which shutter modes are available depends on the 
+ design of the imaging sensor.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot32602" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot32602', 'MTPOPUP32602');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP32602" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Determining the Shutter Mode</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Configuring the Shutter Mode</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >Advantages and Disadvantages</a>
+</li>
+    <li><a href="#MiniTOCBookMark6" >Available Shutter Modes</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark7" >Global Shutter Mode</a>
+</li>
+     <li><a href="#MiniTOCBookMark8" >Rolling Shutter Mode</a>
+</li>
+     <li><a href="#MiniTOCBookMark9" >Global Reset Release Shutter 
+ Mode</a>
+</li>
+    </ul></li>
+    <li><a href="#MiniTOCBookMark10" >Additional Parameters</a>
+</li>
+    <li><a href="#MiniTOCBookMark11" >External Links</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark12" >Specifics</a>
+</li>
+   <li><a href="#MiniTOCBookMark13" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>Determining the Shutter Mode</h3>
+<p>To determine the current shutter mode, get the value of the <span class="parameter-name">ShutterMode</span> 
+ parameter. The parameter can take the following values: </p>
+<ul>
+	<li><span class="parameter-name">Global</span>: 
+	 The camera is operating in <a href="shutter_mode.htm#Global_Shutter_Mode">Global 
+	 shutter mode</a>.</li>
+	<li><span class="parameter-name">Rolling</span>: 
+	 The camera is operating in <a href="shutter_mode.htm#Rolling_Shutter_Mode">Rolling 
+	 shutter mode</a>.</li>
+	<li><span class="parameter-name">GlobalResetRelease</span>: 
+	 The camera is operating in <a href="shutter_mode.htm#Global_Reset_Release_Shutter_Mode">Global 
+	 Reset Release shutter mode</a>.</li>
+</ul>
+<h3><a name="MiniTOCBookMark4"></a>Configuring the Shutter Mode</h3>
+<p>If <strong>multiple</strong> shutter modes are <a href="#Specifics">available 
+ on your camera model</a>, you can choose the desired shutter mode.</p>
+<p>To do so, set the <span class="parameter-name">ShutterMode</span> 
+ parameter to one of the following values:</p>
+<ul>
+	<li><span class="parameter-name">Global</span>: 
+	 Enables the <a href="shutter_mode.htm#Global_Shutter_Mode">Global 
+	 shutter mode</a>.</li>
+	<li><span class="parameter-name">Rolling</span>: 
+	 Enables the <a href="shutter_mode.htm#Rolling_Shutter_Mode">Rolling 
+	 shutter mode</a>.</li>
+	<li><span class="parameter-name">GlobalResetRelease</span>: 
+	 Enables the <a href="shutter_mode.htm#Global_Reset_Release_Shutter_Mode">Global 
+	 Reset Release shutter mode</a>.</li>
+</ul>
+<h3><a name="MiniTOCBookMark5"></a><a name="Advantages_and_Disadvantages">Advantages and Disadvantages</a></h3>
+<table >
+	<tr>
+		<th><p>Shutter Mode</p></th>
+		<th><p>Advantage</p></th>
+		<th><p>Disadvantage</p></th>
+	</tr>
+	<tr class="highlight-first">
+		<td><a href="shutter_mode.htm#Global_Shutter_Mode">Global shutter 
+		 mode</a></td>
+		<td><p>Well suited for capturing fast-moving objects</p></td>
+		<td><p>Higher ambient noise</p></td>
+	</tr>
+	<tr class="highlight-first">
+		<td><a href="shutter_mode.htm#Rolling_Shutter_Mode">Rolling shutter 
+		 mode</a></td>
+		<td><p>Lower ambient noise</p></td>
+		<td><p>Image distortion can occur if very fast-moving objects are 
+		 captured.</p></td>
+	</tr>
+	<tr class="highlight-first">
+		<td><a href="shutter_mode.htm#Global_Reset_Release_Shutter_Mode">Global 
+		 Reset Release shutter mode</a></td>
+		<td><ul>
+			<li>Lower ambient noise</li>
+			<li>Well suited for capturing fast-moving objects</li>
+		</ul></td>
+		<td><p>Flash lighting must be used.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark6"></a>Available Shutter Modes</h3>
+<p>Depending on <a href="#Specifics">your camera model</a>, the following 
+ shutter modes are available:</p>
+<h4><a name="MiniTOCBookMark7"></a><a name="Global_Shutter_Mode">Global Shutter Mode</a></h4>
+<p>During every image acquisition in Global shutter mode, all of the sensor's 
+ pixels start exposing at the same time and also stop exposing at the same 
+ time. Immediately after the end of exposure, pixel data readout begins 
+ and proceeds row by row until all pixel data has been read. This is particularly 
+ useful if you want to capture fast moving objects or if the camera is 
+ moving rapidly while capturing images. </p>
+<p>Cameras that operate in the Global shutter mode can provide an <a href="line_source.htm#Exposure_Active">Exposure 
+ Active output signal</a>. The signal goes high when exposure begins and 
+ goes low when exposure ends.</p>
+<p>The sensor readout time is the sum of all row readout times. Therefore, 
+ the sensor readout time is influenced by the <a href="image_roi.htm">image 
+ ROI</a> height. You can determine the readout time by checking the value 
+ of the camera’s <a href="sensor_readout_time.htm"><span class="parameter-name rh-hide" data-rhtags="48">ReadoutTimeAbs</span><span class="parameter-name rh-hide" data-rhtags="49">SensorReadoutTime</span> 
+ parameter</a>.</p>
+<p>On some camera models, the <a href="sensor_readout_mode.htm">Sensor 
+ Readout Mode</a> feature is available. This feature allows you to reduce 
+ the sensor readout time.</p>
+<p><img src="images/drawing_shutter_mode_global.png" alt="Global Shutter Mode" title="Global Shutter Mode" /></p>
+<h4><a name="MiniTOCBookMark8"></a><a name="Rolling_Shutter_Mode">Rolling Shutter Mode</a></h4>
+<p>In Rolling shutter mode, the camera exposes the pixel rows one after 
+ the other, with a temporal offset (t<sub>Row</sub>) from one row to the 
+ next. With this method, the ambient noise is typically significantly lower 
+ than with the global shutter method.</p>
+<p>When frame start is triggered, the camera resets the first row and begins 
+ exposing it. For most cameras, this row is the first row of the <a href="image_roi.htm">image 
+ ROI</a>. For <a href="#Specifics">some cameras</a>, the first row exposed 
+ is always the first row of the sensor, regardless of the <a href="image_roi.htm">image 
+ ROI</a> settings. </p>
+<p>A short time later (= 1 x t<sub>Row</sub>), the camera resets the second 
+ row&#160;and begins exposing that row. After another short time (= 1 x 
+ t<sub>Row</sub>), the camera resets the third row and begins exposing 
+ that row. </p>
+<p>This continues until a last row of pixels is reached. For most cameras, 
+ this row is the last row of the <a href="image_roi.htm">image ROI</a>. 
+ For <a href="#Specifics">some cameras</a>, the last row exposed is always 
+ the last row of the sensor, regardless of the <a href="image_roi.htm">image 
+ ROI</a> settings.</p>
+<p>The length of t<sub>Row</sub> <a href="#Specifics">varies by camera 
+ model</a>. </p>
+<p><img src="images/drawing_shutter_mode_rolling.png" alt="Rolling Shutter Mode" title="Rolling Shutter Mode" /></p>
+<p>The pixel values for each row are read out at the end of the exposure 
+ time of each row. The exposure time is the same for all rows. Because 
+ the readout time for each row is also tRow, the temporal shift for the 
+ end of readout is identical to the temporal shift for the start of exposure.</p>
+<p>The sensor readout time is the sum of all row readout times: t<sub>Row 
+ </sub>x <a href="image_roi.htm">image ROI height</a>.</p>
+<p>Therefore, the sensor readout time also depends on the <a href="image_roi.htm">image 
+ ROI</a> height. To determine the readout time, check the value of the 
+ camera’s <a href="sensor_readout_time.htm"><span class="parameter-name rh-hide" data-rhtags="48">ReadoutTimeAbs</span><span class="parameter-name rh-hide" data-rhtags="49">SensorReadoutTime</span> 
+ parameter</a>.</p>
+<p class="subheading"><a name="Other_Factors_Influencing_the_Frame_Period">Other 
+ Factors Influencing the Frame Period</a></p>
+<p>Besides the exposure time and the sensor readout time, there are other 
+ factors influencing the frame period, e.g., the time needed to prepare 
+ the sensor for the next acquisition.</p>
+<p>These other factors vary by camera model and configuration. Therefore, 
+ Basler recommends calculating the frame period. To do so, check the value 
+ of the camera's <a href="resulting_frame_rate.htm"><span class="parameter-name rh-hide" data-rhtags="48">ResultingFrameRateAbs</span><span class="parameter-name rh-hide" data-rhtags="49">ResultingFrameRate</span></a> 
+ parameter value and take its reciprocal: </p>
+<p>1 / resulting frame rate</p>
+<p>This takes all influencing factors into account.</p>
+<p class="subheading">Possible Image Distortion (Rolling Shutter Effect)</p>
+<p>If the object or the camera is moving very fast during image capture 
+ in Rolling shutter mode, image distortion may occur. This is also known 
+ as the <a href="https://en.wikipedia.org/wiki/Rolling_shutter#/media/File:Rolling_shutter_SMIL.svg">rolling 
+ shutter effect</a>. </p>
+<p>This is due to the temporal shift between the start of exposure of the 
+ individual rows.</p>
+<p>To prevent the rolling shutter effect, Basler recommends the use of 
+ flash lighting. Most cameras can supply a <a href="line_source.htm#Flash_Window">Flash 
+ Window output signal</a> to facilitate the use of flash lighting.</p>
+<p class="subheading">Exposure Active Signal</p>
+<p>If your camera model provides an<a href="line_source.htm#Exposure_Active"> 
+ Exposure Active output signal</a> and the camera is configured for Rolling 
+ shutter mode, the Exposure Active signal goes high when the exposure time 
+ for line one begins and goes low when the exposure time for the last line 
+ ends. This means that the signal width is greater than the exposure time.</p>
+<h4><a name="MiniTOCBookMark9"></a><a name="Global_Reset_Release_Shutter_Mode">Global Reset Release Shutter 
+ Mode</a></h4>
+<p>The Global Reset Release (GRR) shutter mode is a variant of the <a href="shutter_mode.htm#Rolling_Shutter_Mode">Rolling 
+ shutter mode</a>. It combines the <a href="#Advantages_and_Disadvantages">advantages</a> 
+ of the Global and the Rolling shutter mode.</p>
+<p>In GRR shutter mode, all of the pixels in the sensor start exposing 
+ at the same time. However, at the end of exposure, there is a temporal 
+ offset (t<sub>Row</sub>) from one row to the next. </p>
+<p>The t<sub>Row </sub>values are the same as for the <a href="shutter_mode.htm#Rolling_Shutter_Mode">Rolling 
+ shutter mode</a> and&#160;<a href="#Specifics">vary by camera model</a>.</p>
+<p><img src="images/drawing_shutter_mode_global_reset_release.png" alt="Global Reset Release Shutter Mode" title="Global Reset Release Shutter Mode" /></p>
+<p>If the camera is operated in the GRR shutter mode, you <strong>must</strong> 
+ use flash lighting. Otherwise, the brightness in the acquired images will 
+ vary significantly from top to bottom due to the differences in the exposure 
+ times of the individual rows. Also, when you are capturing images of fast 
+ moving objects, images can be distorted due to the temporal shift caused 
+ by the different exposure end times of the individual rows.</p>
+<p>Most cameras can supply a <a href="line_source.htm#Flash_Window">Flash 
+ Window output signal</a> to facilitate the use of flash lighting.</p>
+<p class="subheading">Other Factors Influencing the Frame Period</p>
+<p>→ See <a href="shutter_mode.htm#Other_Factors_Influencing_the_Frame_Period">Other 
+ Factors Influencing the Frame Period</a> for Rolling shutter mode.</p>
+<h3><a name="MiniTOCBookMark10"></a>Additional Parameters</h3>
+<p>Depending on <a href="#Specifics">your camera model</a>, the <span class="parameter-name">GlobalResetReleaseModeEnable</span> 
+ parameter may also be available. </p>
+<ul>
+	<li>If you set the parameter to <span class="parameter-name">true</span>, 
+	 the camera sets the <span class="parameter-name">ShutterMode</span> 
+	 parameter to <span class="parameter-name">GlobalResetRelease</span> 
+	 and enables the <a href="shutter_mode.htm#Global_Reset_Release_Shutter_Mode">Global 
+	 Reset Release shutter mode</a>.</li>
+	<li>If you set the parameter to <span class="parameter-name">false</span>, 
+	 the camera sets the <span class="parameter-name">ShutterMode</span> 
+	 parameter to <span class="parameter-name rh-hide" data-rhtags="48">Rolling</span> 
+	 and enables the <a href="shutter_mode.htm#Rolling_Shutter_Mode">Rolling 
+	 shutter mode</a>.</li>
+</ul>
+<h3><a name="MiniTOCBookMark11"></a>External Links</h3>
+<ul>
+	<li><a href="https://www.baslerweb.com/en/support/downloads/document-downloads/global-shutter-rolling-shutter/">White 
+	 Paper: Global Shutter, Rolling Shutter - Functionality and Characteristics 
+	 of Two Exposure Methods (Basler)</a></li>
+	<li><a href="https://en.wikipedia.org/wiki/Rolling_shutter">Rolling 
+	 Shutter (Wikipedia)</a></li>
+	<li><a href="https://en.wikipedia.org/wiki/Rolling_shutter#/media/File:Rolling_shutter_SMIL.svg">Simulation 
+	 of the rolling shutter effect on a rotating propeller and a moving 
+	 car (Wikipedia)</a></li>
+</ul>
+<h2 class="specifics"><a name="MiniTOCBookMark12"></a><a name="Specifics">Specifics</a></h2>
+<div>
+<table class="specifics-table small-text">
+	<col />
+	<col />
+	<col />
+	<col />
+	<tr>
+		<th>Camera Model</th>
+		<th>Available Shutter Modes</th>
+		<th>Temporal Offset t<sub>Row</sub> [μs]</th>
+		<th>Additional Parameters</th>
+	</tr>
+	<tr>
+		<td data-rhtags="50" class="rh-hide">acA640-90gm</td>
+		<td data-rhtags="50" class="rh-hide">Global</td>
+		<td data-rhtags="50" class="rh-hide">-</td>
+		<td data-rhtags="50" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="51" class="rh-hide">acA640-90gc</td>
+		<td data-rhtags="51" class="rh-hide">Global</td>
+		<td data-rhtags="51" class="rh-hide">-</td>
+		<td data-rhtags="51" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="52" class="rh-hide">acA640-120gm</td>
+		<td data-rhtags="52" class="rh-hide">Global</td>
+		<td data-rhtags="52" class="rh-hide">-</td>
+		<td data-rhtags="52" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="53" class="rh-hide">acA640-120gc</td>
+		<td data-rhtags="53" class="rh-hide">Global</td>
+		<td data-rhtags="53" class="rh-hide">-</td>
+		<td data-rhtags="53" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="54" class="rh-hide">acA640-121gm</td>
+		<td data-rhtags="54" class="rh-hide">Global</td>
+		<td data-rhtags="54" class="rh-hide">-</td>
+		<td data-rhtags="54" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="55" class="rh-hide">acA640-300gm</td>
+		<td data-rhtags="55" class="rh-hide">Global</td>
+		<td data-rhtags="55" class="rh-hide">-</td>
+		<td data-rhtags="55" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="56" class="rh-hide">acA640-300gc</td>
+		<td data-rhtags="56" class="rh-hide">Global</td>
+		<td data-rhtags="56" class="rh-hide">-</td>
+		<td data-rhtags="56" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="57" class="rh-hide">acA720-290gm</td>
+		<td data-rhtags="57" class="rh-hide">Global</td>
+		<td data-rhtags="57" class="rh-hide">-</td>
+		<td data-rhtags="57" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="58" class="rh-hide">acA720-290gc</td>
+		<td data-rhtags="58" class="rh-hide">Global</td>
+		<td data-rhtags="58" class="rh-hide">-</td>
+		<td data-rhtags="58" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="59" class="rh-hide">acA750-30gm</td>
+		<td data-rhtags="59" class="rh-hide">Global</td>
+		<td data-rhtags="59" class="rh-hide">-</td>
+		<td data-rhtags="59" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="45" class="rh-hide">acA750-30gc</td>
+		<td data-rhtags="45" class="rh-hide">Global</td>
+		<td data-rhtags="45" class="rh-hide">-</td>
+		<td data-rhtags="45" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="60" class="rh-hide">acA780-75gm</td>
+		<td data-rhtags="60" class="rh-hide">Global</td>
+		<td data-rhtags="60" class="rh-hide">-</td>
+		<td data-rhtags="60" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="61" class="rh-hide">acA780-75gc</td>
+		<td data-rhtags="61" class="rh-hide">Global</td>
+		<td data-rhtags="61" class="rh-hide">-</td>
+		<td data-rhtags="61" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="62" class="rh-hide">acA800-200gm</td>
+		<td data-rhtags="62" class="rh-hide">Global</td>
+		<td data-rhtags="62" class="rh-hide">-</td>
+		<td data-rhtags="62" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="63" class="rh-hide">acA800-200gc</td>
+		<td data-rhtags="63" class="rh-hide">Global</td>
+		<td data-rhtags="63" class="rh-hide">-</td>
+		<td data-rhtags="63" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="64" class="rh-hide">acA1280-60gm</td>
+		<td data-rhtags="64" class="rh-hide">Rolling</td>
+		<td data-rhtags="64" class="rh-hide">14</td>
+		<td data-rhtags="64" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="65" class="rh-hide">acA1280-60gc</td>
+		<td data-rhtags="65" class="rh-hide">Rolling</td>
+		<td data-rhtags="65" class="rh-hide">14</td>
+		<td data-rhtags="65" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="66" class="rh-hide">acA1300-22gm</td>
+		<td data-rhtags="66" class="rh-hide">Global</td>
+		<td data-rhtags="66" class="rh-hide">-</td>
+		<td data-rhtags="66" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="67" class="rh-hide">acA1300-22gc</td>
+		<td data-rhtags="67" class="rh-hide">Global</td>
+		<td data-rhtags="67" class="rh-hide">-</td>
+		<td data-rhtags="67" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="68" class="rh-hide">acA1300-30gm</td>
+		<td data-rhtags="68" class="rh-hide">Global</td>
+		<td data-rhtags="68" class="rh-hide">-</td>
+		<td data-rhtags="68" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="69" class="rh-hide">acA1300-30gc</td>
+		<td data-rhtags="69" class="rh-hide">Global</td>
+		<td data-rhtags="69" class="rh-hide">-</td>
+		<td data-rhtags="69" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="70" class="rh-hide">acA1300-60gm</td>
+		<td data-rhtags="70" class="rh-hide"><ul>
+			<li>Global</li>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="70" class="rh-hide">14</td>
+		<td data-rhtags="70" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="71" class="rh-hide">acA1300-60gmNIR</td>
+		<td data-rhtags="71" class="rh-hide"><ul>
+			<li>Global</li>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="71" class="rh-hide">14</td>
+		<td data-rhtags="71" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="72" class="rh-hide">acA1300-60gc</td>
+		<td data-rhtags="72" class="rh-hide"><ul>
+			<li>Global</li>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="72" class="rh-hide">14</td>
+		<td data-rhtags="72" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="73" class="rh-hide">acA1300-75gm</td>
+		<td data-rhtags="73" class="rh-hide">Global</td>
+		<td data-rhtags="73" class="rh-hide">-</td>
+		<td data-rhtags="73" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="74" class="rh-hide">acA1300-75gc</td>
+		<td data-rhtags="74" class="rh-hide">Global</td>
+		<td data-rhtags="74" class="rh-hide">-</td>
+		<td data-rhtags="74" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="75" class="rh-hide">acA1440-73gm</td>
+		<td data-rhtags="75" class="rh-hide">Global</td>
+		<td data-rhtags="75" class="rh-hide">-</td>
+		<td data-rhtags="75" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="76" class="rh-hide">acA1440-73gc</td>
+		<td data-rhtags="76" class="rh-hide">Global</td>
+		<td data-rhtags="76" class="rh-hide">-</td>
+		<td data-rhtags="76" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="77" class="rh-hide">acA1600-20gm</td>
+		<td data-rhtags="77" class="rh-hide">Global</td>
+		<td data-rhtags="77" class="rh-hide">-</td>
+		<td data-rhtags="77" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="78" class="rh-hide">acA1600-20gc</td>
+		<td data-rhtags="78" class="rh-hide">Global</td>
+		<td data-rhtags="78" class="rh-hide">-</td>
+		<td data-rhtags="78" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="79" class="rh-hide">acA1600-60gm</td>
+		<td data-rhtags="79" class="rh-hide"><ul>
+			<li>Global</li>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="79" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 13</li>
+			<li>12-bit packed pixel formats: 17</li>
+			<li>12-bit pixel formats: 17</li>
+		</ul></td>
+		<td data-rhtags="79" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="80" class="rh-hide">acA1600-60gc</td>
+		<td data-rhtags="80" class="rh-hide"><ul>
+			<li>Global</li>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="80" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 13</li>
+			<li>12-bit packed pixel formats: 17</li>
+			<li>12-bit pixel formats: 17</li>
+		</ul></td>
+		<td data-rhtags="80" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="81" class="rh-hide">acA1920-25gm</td>
+		<td data-rhtags="81" class="rh-hide"><ul>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="81" class="rh-hide">35</td>
+		<td data-rhtags="81" class="rh-hide">GlobalResetReleaseModeEnable</td>
+	</tr>
+	<tr>
+		<td data-rhtags="82" class="rh-hide">acA1920-25gc</td>
+		<td data-rhtags="82" class="rh-hide"><ul>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="82" class="rh-hide">35</td>
+		<td data-rhtags="82" class="rh-hide">GlobalResetReleaseModeEnable</td>
+	</tr>
+	<tr>
+		<td data-rhtags="83" class="rh-hide">acA1920-40gm</td>
+		<td data-rhtags="83" class="rh-hide">Global</td>
+		<td data-rhtags="83" class="rh-hide">-</td>
+		<td data-rhtags="83" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="84" class="rh-hide">acA1920-40gc</td>
+		<td data-rhtags="84" class="rh-hide">Global</td>
+		<td data-rhtags="84" class="rh-hide">-</td>
+		<td data-rhtags="84" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="85" class="rh-hide">acA1920-48gm</td>
+		<td data-rhtags="85" class="rh-hide">Global</td>
+		<td data-rhtags="85" class="rh-hide">-</td>
+		<td data-rhtags="85" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="86" class="rh-hide">acA1920-48gc</td>
+		<td data-rhtags="86" class="rh-hide">Global</td>
+		<td data-rhtags="86" class="rh-hide">-</td>
+		<td data-rhtags="86" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="87" class="rh-hide">acA1920-50gm</td>
+		<td data-rhtags="87" class="rh-hide">Global</td>
+		<td data-rhtags="87" class="rh-hide">-</td>
+		<td data-rhtags="87" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="88" class="rh-hide">acA1920-50gc</td>
+		<td data-rhtags="88" class="rh-hide">Global</td>
+		<td data-rhtags="88" class="rh-hide">-</td>
+		<td data-rhtags="88" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="89" class="rh-hide">acA2000-50gm</td>
+		<td data-rhtags="89" class="rh-hide">Global</td>
+		<td data-rhtags="89" class="rh-hide">-</td>
+		<td data-rhtags="89" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="90" class="rh-hide">acA2000-50gmNIR</td>
+		<td data-rhtags="90" class="rh-hide">Global</td>
+		<td data-rhtags="90" class="rh-hide">-</td>
+		<td data-rhtags="90" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="91" class="rh-hide">acA2000-50gc</td>
+		<td data-rhtags="91" class="rh-hide">Global</td>
+		<td data-rhtags="91" class="rh-hide">-</td>
+		<td data-rhtags="91" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="92" class="rh-hide">acA2040-25gm</td>
+		<td data-rhtags="92" class="rh-hide">Global</td>
+		<td data-rhtags="92" class="rh-hide">-</td>
+		<td data-rhtags="92" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="93" class="rh-hide">acA2040-25gmNIR</td>
+		<td data-rhtags="93" class="rh-hide">Global</td>
+		<td data-rhtags="93" class="rh-hide">-</td>
+		<td data-rhtags="93" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="94" class="rh-hide">acA2040-25gc</td>
+		<td data-rhtags="94" class="rh-hide">Global</td>
+		<td data-rhtags="94" class="rh-hide">-</td>
+		<td data-rhtags="94" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="95" class="rh-hide">acA2040-35gm</td>
+		<td data-rhtags="95" class="rh-hide">Global</td>
+		<td data-rhtags="95" class="rh-hide">-</td>
+		<td data-rhtags="95" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="96" class="rh-hide">acA2040-35gc</td>
+		<td data-rhtags="96" class="rh-hide">Global</td>
+		<td data-rhtags="96" class="rh-hide">-</td>
+		<td data-rhtags="96" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="97" class="rh-hide">acA2440-20gm</td>
+		<td data-rhtags="97" class="rh-hide">Global</td>
+		<td data-rhtags="97" class="rh-hide">-</td>
+		<td data-rhtags="97" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="98" class="rh-hide">acA2440-20gc</td>
+		<td data-rhtags="98" class="rh-hide">Global</td>
+		<td data-rhtags="98" class="rh-hide">-</td>
+		<td data-rhtags="98" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="99" class="rh-hide">acA2500-14gm</td>
+		<td data-rhtags="99" class="rh-hide"><ul>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="99" class="rh-hide">35</td>
+		<td data-rhtags="99" class="rh-hide">GlobalResetReleaseModeEnable</td>
+	</tr>
+	<tr>
+		<td data-rhtags="100" class="rh-hide">acA2500-14gc</td>
+		<td data-rhtags="100" class="rh-hide"><ul>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="100" class="rh-hide">35</td>
+		<td data-rhtags="100" class="rh-hide">GlobalResetReleaseModeEnable</td>
+	</tr>
+	<tr>
+		<td data-rhtags="101" class="rh-hide">acA2500-20gm</td>
+		<td data-rhtags="101" class="rh-hide">Global</td>
+		<td data-rhtags="101" class="rh-hide">-</td>
+		<td data-rhtags="101" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="102" class="rh-hide">acA2500-20gc</td>
+		<td data-rhtags="102" class="rh-hide">Global</td>
+		<td data-rhtags="102" class="rh-hide">-</td>
+		<td data-rhtags="102" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="103" class="rh-hide">acA2500-20gmMED</td>
+		<td data-rhtags="103" class="rh-hide">Global</td>
+		<td data-rhtags="103" class="rh-hide">-</td>
+		<td data-rhtags="103" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="104" class="rh-hide">acA2500-20gcMED</td>
+		<td data-rhtags="104" class="rh-hide">Global</td>
+		<td data-rhtags="104" class="rh-hide">-</td>
+		<td data-rhtags="104" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="105" class="rh-hide">acA3088-16gm</td>
+		<td data-rhtags="105" class="rh-hide"><ul>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="105" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 25</li>
+			<li>12-bit packed pixel formats: 25</li>
+			<li>12-bit pixel formats: 25</li>
+		</ul></td>
+		<td data-rhtags="105" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="106" class="rh-hide">acA3088-16gc</td>
+		<td data-rhtags="106" class="rh-hide"><ul>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="106" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 25</li>
+			<li>12-bit packed pixel formats: 25</li>
+			<li>12-bit pixel formats: 25</li>
+		</ul></td>
+		<td data-rhtags="106" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="107" class="rh-hide">acA3800-10gm</td>
+		<td data-rhtags="107" class="rh-hide"><ul>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="107" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 31.6</li>
+			<li>12-bit packed pixel formats: 36.4</li>
+			<li>12-bit pixel formats: 39.6</li>
+		</ul></td>
+		<td data-rhtags="107" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="108" class="rh-hide">acA3800-10gc</td>
+		<td data-rhtags="108" class="rh-hide"><ul>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="108" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 31.6</li>
+			<li>12-bit packed pixel formats: 36.4</li>
+			<li>12-bit pixel formats: 39.6</li>
+		</ul></td>
+		<td data-rhtags="108" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="109" class="rh-hide">acA4024-8gm</td>
+		<td data-rhtags="109" class="rh-hide"><ul>
+			<li>Rolling<sup>a</sup></li>
+			<li>Global Reset Release<sup>a</sup></li>
+		</ul></td>
+		<td data-rhtags="109" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 35</li>
+			<li>12-bit packed pixel formats: 35</li>
+			<li>12-bit pixel formats: 35</li>
+		</ul></td>
+		<td data-rhtags="109" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="110" class="rh-hide">acA4024-8gc</td>
+		<td data-rhtags="110" class="rh-hide"><ul>
+			<li>Rolling<sup>a</sup></li>
+			<li>Global Reset Release<sup>a</sup></li>
+		</ul></td>
+		<td data-rhtags="110" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 35</li>
+			<li>12-bit packed pixel formats: 35</li>
+			<li>12-bit pixel formats: 35</li>
+		</ul></td>
+		<td data-rhtags="110" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="111" class="rh-hide">acA4096-11gm</td>
+		<td data-rhtags="111" class="rh-hide">Global</td>
+		<td data-rhtags="111" class="rh-hide">-</td>
+		<td data-rhtags="111" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="198" class="rh-hide">acA4096-11gc</td>
+		<td data-rhtags="198" class="rh-hide">Global</td>
+		<td data-rhtags="198" class="rh-hide">-</td>
+		<td data-rhtags="198" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="113" class="rh-hide">acA4112-8gm</td>
+		<td data-rhtags="113" class="rh-hide">Global</td>
+		<td data-rhtags="113" class="rh-hide">-</td>
+		<td data-rhtags="113" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="114" class="rh-hide">acA4112-8gc</td>
+		<td data-rhtags="114" class="rh-hide">Global</td>
+		<td data-rhtags="114" class="rh-hide">-</td>
+		<td data-rhtags="114" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="115" class="rh-hide">acA4600-7gc</td>
+		<td data-rhtags="115" class="rh-hide"><ul>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="115" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 39.4</li>
+			<li>12-bit packed pixel formats: 43.4</li>
+			<li>12-bit pixel formats: 47.4</li>
+		</ul></td>
+		<td data-rhtags="115" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="116" class="rh-hide">acA5472-5gm</td>
+		<td data-rhtags="116" class="rh-hide"><ul>
+			<li>Rolling<sup>a</sup></li>
+			<li>Global Reset Release<sup>a</sup></li>
+		</ul></td>
+		<td data-rhtags="116" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 tbd</li>
+			<li>12-bit packed pixel formats: tbd</li>
+			<li>12-bit pixel formats: tbd</li>
+		</ul></td>
+		<td data-rhtags="116" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="117" class="rh-hide">acA5472-5gc</td>
+		<td data-rhtags="117" class="rh-hide"><ul>
+			<li>Rolling<sup>a</sup></li>
+			<li>Global Reset Release<sup>a</sup></li>
+		</ul></td>
+		<td data-rhtags="117" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 tbd</li>
+			<li>12-bit packed pixel formats: tbd</li>
+			<li>12-bit pixel formats: tbd</li>
+		</ul></td>
+		<td data-rhtags="117" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="118" class="rh-hide">acA640-750um</td>
+		<td data-rhtags="118" class="rh-hide">Global</td>
+		<td data-rhtags="118" class="rh-hide">-</td>
+		<td data-rhtags="118" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="119" class="rh-hide">acA640-750uc</td>
+		<td data-rhtags="119" class="rh-hide">Global</td>
+		<td data-rhtags="119" class="rh-hide">-</td>
+		<td data-rhtags="119" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="120" class="rh-hide">acA640-90um</td>
+		<td data-rhtags="120" class="rh-hide">Global</td>
+		<td data-rhtags="120" class="rh-hide">-</td>
+		<td data-rhtags="120" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="121" class="rh-hide">acA640-90uc</td>
+		<td data-rhtags="121" class="rh-hide">Global</td>
+		<td data-rhtags="121" class="rh-hide">-</td>
+		<td data-rhtags="121" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="122" class="rh-hide">acA640-120um</td>
+		<td data-rhtags="122" class="rh-hide">Global</td>
+		<td data-rhtags="122" class="rh-hide">-</td>
+		<td data-rhtags="122" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="123" class="rh-hide">acA640-120uc</td>
+		<td data-rhtags="123" class="rh-hide">Global</td>
+		<td data-rhtags="123" class="rh-hide">-</td>
+		<td data-rhtags="123" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="124" class="rh-hide">acA720-520um</td>
+		<td data-rhtags="124" class="rh-hide">Global</td>
+		<td data-rhtags="124" class="rh-hide">-</td>
+		<td data-rhtags="124" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="125" class="rh-hide">acA720-520uc</td>
+		<td data-rhtags="125" class="rh-hide">Global</td>
+		<td data-rhtags="125" class="rh-hide">-</td>
+		<td data-rhtags="125" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="126" class="rh-hide">acA800-510um</td>
+		<td data-rhtags="126" class="rh-hide">Global</td>
+		<td data-rhtags="126" class="rh-hide">-</td>
+		<td data-rhtags="126" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="127" class="rh-hide">acA800-510uc</td>
+		<td data-rhtags="127" class="rh-hide">Global</td>
+		<td data-rhtags="127" class="rh-hide">-</td>
+		<td data-rhtags="127" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="128" class="rh-hide">acA1300-200um</td>
+		<td data-rhtags="128" class="rh-hide">Global</td>
+		<td data-rhtags="128" class="rh-hide">-</td>
+		<td data-rhtags="128" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="129" class="rh-hide">acA1300-200uc</td>
+		<td data-rhtags="129" class="rh-hide">Global</td>
+		<td data-rhtags="129" class="rh-hide">-</td>
+		<td data-rhtags="129" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="130" class="rh-hide">acA1300-30um</td>
+		<td data-rhtags="130" class="rh-hide">Global</td>
+		<td data-rhtags="130" class="rh-hide">-</td>
+		<td data-rhtags="130" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="131" class="rh-hide">acA1300-30uc</td>
+		<td data-rhtags="131" class="rh-hide">Global</td>
+		<td data-rhtags="131" class="rh-hide">-</td>
+		<td data-rhtags="131" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="132" class="rh-hide">acA1440-220um</td>
+		<td data-rhtags="132" class="rh-hide">Global</td>
+		<td data-rhtags="132" class="rh-hide">-</td>
+		<td data-rhtags="132" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="133" class="rh-hide">acA1440-220uc</td>
+		<td data-rhtags="133" class="rh-hide">Global</td>
+		<td data-rhtags="133" class="rh-hide">-</td>
+		<td data-rhtags="133" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="134" class="rh-hide">acA1600-20um</td>
+		<td data-rhtags="134" class="rh-hide">Global</td>
+		<td data-rhtags="134" class="rh-hide">-</td>
+		<td data-rhtags="134" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="135" class="rh-hide">acA1600-20uc</td>
+		<td data-rhtags="135" class="rh-hide">Global</td>
+		<td data-rhtags="135" class="rh-hide">-</td>
+		<td data-rhtags="135" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="136" class="rh-hide">acA1920-25um</td>
+		<td data-rhtags="136" class="rh-hide"><ul>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="136" class="rh-hide">35</td>
+		<td data-rhtags="136" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="137" class="rh-hide">acA1920-25uc</td>
+		<td data-rhtags="137" class="rh-hide"><ul>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="137" class="rh-hide">35</td>
+		<td data-rhtags="137" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="138" class="rh-hide">acA1920-40um</td>
+		<td data-rhtags="138" class="rh-hide">Global</td>
+		<td data-rhtags="138" class="rh-hide">-</td>
+		<td data-rhtags="138" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="139" class="rh-hide">acA1920-40uc</td>
+		<td data-rhtags="139" class="rh-hide">Global</td>
+		<td data-rhtags="139" class="rh-hide">-</td>
+		<td data-rhtags="139" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="140" class="rh-hide">acA1920-40umMED</td>
+		<td data-rhtags="140" class="rh-hide">Global</td>
+		<td data-rhtags="140" class="rh-hide">-</td>
+		<td data-rhtags="140" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="141" class="rh-hide">acA1920-40ucMED</td>
+		<td data-rhtags="141" class="rh-hide">Global</td>
+		<td data-rhtags="141" class="rh-hide">-</td>
+		<td data-rhtags="141" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="142" class="rh-hide">acA1920-150um</td>
+		<td data-rhtags="142" class="rh-hide">Global</td>
+		<td data-rhtags="142" class="rh-hide">-</td>
+		<td data-rhtags="142" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="143" class="rh-hide">acA1920-150uc</td>
+		<td data-rhtags="143" class="rh-hide">Global</td>
+		<td data-rhtags="143" class="rh-hide">-</td>
+		<td data-rhtags="143" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="144" class="rh-hide">acA1920-155um</td>
+		<td data-rhtags="144" class="rh-hide">Global</td>
+		<td data-rhtags="144" class="rh-hide">-</td>
+		<td data-rhtags="144" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="145" class="rh-hide">acA1920-155uc</td>
+		<td data-rhtags="145" class="rh-hide">Global</td>
+		<td data-rhtags="145" class="rh-hide">-</td>
+		<td data-rhtags="145" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="146" class="rh-hide">acA1920-155umMED</td>
+		<td data-rhtags="146" class="rh-hide">Global</td>
+		<td data-rhtags="146" class="rh-hide">-</td>
+		<td data-rhtags="146" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="147" class="rh-hide">acA1920-155ucMED</td>
+		<td data-rhtags="147" class="rh-hide">Global</td>
+		<td data-rhtags="147" class="rh-hide">-</td>
+		<td data-rhtags="147" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="148" class="rh-hide">acA2040-90um</td>
+		<td data-rhtags="148" class="rh-hide">Global</td>
+		<td data-rhtags="148" class="rh-hide">-</td>
+		<td data-rhtags="148" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="149" class="rh-hide">acA2040-90umNIR</td>
+		<td data-rhtags="149" class="rh-hide">Global</td>
+		<td data-rhtags="149" class="rh-hide">-</td>
+		<td data-rhtags="149" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="150" class="rh-hide">acA2040-90uc</td>
+		<td data-rhtags="150" class="rh-hide">Global</td>
+		<td data-rhtags="150" class="rh-hide">-</td>
+		<td data-rhtags="150" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="151" class="rh-hide">acA2000-165um</td>
+		<td data-rhtags="151" class="rh-hide">Global</td>
+		<td data-rhtags="151" class="rh-hide">-</td>
+		<td data-rhtags="151" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="152" class="rh-hide">acA2000-165umNIR</td>
+		<td data-rhtags="152" class="rh-hide">Global</td>
+		<td data-rhtags="152" class="rh-hide">-</td>
+		<td data-rhtags="152" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="153" class="rh-hide">acA2000-165uc</td>
+		<td data-rhtags="153" class="rh-hide">Global</td>
+		<td data-rhtags="153" class="rh-hide">-</td>
+		<td data-rhtags="153" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="154" class="rh-hide">acA2040-55um</td>
+		<td data-rhtags="154" class="rh-hide">Global</td>
+		<td data-rhtags="154" class="rh-hide">-</td>
+		<td data-rhtags="154" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="155" class="rh-hide">acA2040-55uc</td>
+		<td data-rhtags="155" class="rh-hide">Global</td>
+		<td data-rhtags="155" class="rh-hide">-</td>
+		<td data-rhtags="155" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="156" class="rh-hide">acA2040-120um</td>
+		<td data-rhtags="156" class="rh-hide">Global</td>
+		<td data-rhtags="156" class="rh-hide">-</td>
+		<td data-rhtags="156" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="157" class="rh-hide">acA2040-120uc</td>
+		<td data-rhtags="157" class="rh-hide">Global</td>
+		<td data-rhtags="157" class="rh-hide">-</td>
+		<td data-rhtags="157" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="158" class="rh-hide">acA2440-35um</td>
+		<td data-rhtags="158" class="rh-hide">Global</td>
+		<td data-rhtags="158" class="rh-hide">-</td>
+		<td data-rhtags="158" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="159" class="rh-hide">acA2440-35uc</td>
+		<td data-rhtags="159" class="rh-hide">Global</td>
+		<td data-rhtags="159" class="rh-hide">-</td>
+		<td data-rhtags="159" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="160" class="rh-hide">acA2440-35umMED</td>
+		<td data-rhtags="160" class="rh-hide">Global</td>
+		<td data-rhtags="160" class="rh-hide">-</td>
+		<td data-rhtags="160" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="161" class="rh-hide">acA2440-35ucMED</td>
+		<td data-rhtags="161" class="rh-hide">Global</td>
+		<td data-rhtags="161" class="rh-hide">-</td>
+		<td data-rhtags="161" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="162" class="rh-hide">acA2440-75um</td>
+		<td data-rhtags="162" class="rh-hide">Global</td>
+		<td data-rhtags="162" class="rh-hide">-</td>
+		<td data-rhtags="162" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="163" class="rh-hide">acA2440-75uc</td>
+		<td data-rhtags="163" class="rh-hide">Global</td>
+		<td data-rhtags="163" class="rh-hide">-</td>
+		<td data-rhtags="163" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="164" class="rh-hide">acA2440-75umMED</td>
+		<td data-rhtags="164" class="rh-hide">Global</td>
+		<td data-rhtags="164" class="rh-hide">-</td>
+		<td data-rhtags="164" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="165" class="rh-hide">acA2440-75ucMED</td>
+		<td data-rhtags="165" class="rh-hide">Global</td>
+		<td data-rhtags="165" class="rh-hide">-</td>
+		<td data-rhtags="165" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="166" class="rh-hide">acA2500-14um</td>
+		<td data-rhtags="166" class="rh-hide"><ul>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="166" class="rh-hide">35</td>
+		<td data-rhtags="166" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="167" class="rh-hide">acA2500-14uc</td>
+		<td data-rhtags="167" class="rh-hide"><ul>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="167" class="rh-hide">35</td>
+		<td data-rhtags="167" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="168" class="rh-hide">acA2500-60um</td>
+		<td data-rhtags="168" class="rh-hide">Global</td>
+		<td data-rhtags="168" class="rh-hide">-</td>
+		<td data-rhtags="168" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="169" class="rh-hide">acA2500-60uc</td>
+		<td data-rhtags="169" class="rh-hide">Global</td>
+		<td data-rhtags="169" class="rh-hide">-</td>
+		<td data-rhtags="169" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="170" class="rh-hide">acA3088-57um</td>
+		<td data-rhtags="170" class="rh-hide"><ul>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="170" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 8</li>
+			<li>12-bit packed pixel formats: 8</li>
+			<li>12-bit pixel formats: 8</li>
+		</ul></td>
+		<td data-rhtags="170" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="171" class="rh-hide">acA3088-57uc</td>
+		<td data-rhtags="171" class="rh-hide"><ul>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="171" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 8</li>
+			<li>12-bit packed pixel formats: 8</li>
+			<li>12-bit pixel formats: 8</li>
+		</ul></td>
+		<td data-rhtags="171" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="172" class="rh-hide">acA3800-14um</td>
+		<td data-rhtags="172" class="rh-hide"><ul>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="172" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 24.725</li>
+			<li>12-bit packed pixel formats: 28.475</li>
+			<li>12-bit pixel formats: 30.975</li>
+		</ul></td>
+		<td data-rhtags="172" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="173" class="rh-hide">acA3800-14uc</td>
+		<td data-rhtags="173" class="rh-hide"><ul>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="173" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 24.725</li>
+			<li>12-bit packed pixel formats: 28.475</li>
+			<li>12-bit pixel formats: 30.975</li>
+		</ul></td>
+		<td data-rhtags="173" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="174" class="rh-hide">acA4024-29um</td>
+		<td data-rhtags="174" class="rh-hide"><ul>
+			<li>Rolling<sup>a</sup></li>
+			<li>Global Reset Release<sup>a</sup></li>
+		</ul></td>
+		<td data-rhtags="174" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 10</li>
+			<li>12-bit packed pixel formats: 12</li>
+			<li>12-bit pixel formats: 12</li>
+		</ul></td>
+		<td data-rhtags="174" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="175" class="rh-hide">acA4024-29uc</td>
+		<td data-rhtags="175" class="rh-hide"><ul>
+			<li>Rolling<sup>a</sup></li>
+			<li>Global Reset Release<sup>a</sup></li>
+		</ul></td>
+		<td data-rhtags="175" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 10</li>
+			<li>12-bit packed pixel formats: 12</li>
+			<li>12-bit pixel formats: 12</li>
+		</ul></td>
+		<td data-rhtags="175" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="176" class="rh-hide">acA4096-30um</td>
+		<td data-rhtags="176" class="rh-hide">Global</td>
+		<td data-rhtags="176" class="rh-hide">-</td>
+		<td data-rhtags="176" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="177" class="rh-hide">acA4096-30uc</td>
+		<td data-rhtags="177" class="rh-hide">Global</td>
+		<td data-rhtags="177" class="rh-hide">-</td>
+		<td data-rhtags="177" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="178" class="rh-hide">acA4096-40um</td>
+		<td data-rhtags="178" class="rh-hide">Global</td>
+		<td data-rhtags="178" class="rh-hide">-</td>
+		<td data-rhtags="178" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="179" class="rh-hide">acA4096-40uc</td>
+		<td data-rhtags="179" class="rh-hide">Global</td>
+		<td data-rhtags="179" class="rh-hide">-</td>
+		<td data-rhtags="179" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="180" class="rh-hide">acA4112-20um</td>
+		<td data-rhtags="180" class="rh-hide">Global</td>
+		<td data-rhtags="180" class="rh-hide">-</td>
+		<td data-rhtags="180" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="181" class="rh-hide">acA4112-20uc</td>
+		<td data-rhtags="181" class="rh-hide">Global</td>
+		<td data-rhtags="181" class="rh-hide">-</td>
+		<td data-rhtags="181" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="182" class="rh-hide">acA4112-30um</td>
+		<td data-rhtags="182" class="rh-hide">Global</td>
+		<td data-rhtags="182" class="rh-hide">-</td>
+		<td data-rhtags="182" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="183" class="rh-hide">acA4112-30uc</td>
+		<td data-rhtags="183" class="rh-hide">Global</td>
+		<td data-rhtags="183" class="rh-hide">-</td>
+		<td data-rhtags="183" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="184" class="rh-hide">acA4600-10uc</td>
+		<td data-rhtags="184" class="rh-hide"><ul>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="184" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 30.75</li>
+			<li>12-bit packed pixel formats: 33.875</li>
+			<li>12-bit pixel formats: 37</li>
+		</ul></td>
+		<td data-rhtags="184" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="185" class="rh-hide">acA5472-17um</td>
+		<td data-rhtags="185" class="rh-hide"><ul>
+			<li>Rolling<sup>a</sup></li>
+			<li>Global Reset Release<sup>a</sup></li>
+		</ul></td>
+		<td data-rhtags="185" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 tbd</li>
+			<li>12-bit packed pixel formats: tbd</li>
+			<li>12-bit pixel formats: tbd</li>
+		</ul></td>
+		<td data-rhtags="185" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="186" class="rh-hide">acA5472-17uc</td>
+		<td data-rhtags="186" class="rh-hide"><ul>
+			<li>Rolling<sup>a</sup></li>
+			<li>Global Reset Release<sup>a</sup></li>
+		</ul></td>
+		<td data-rhtags="186" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 tbd</li>
+			<li>12-bit packed pixel formats: tbd</li>
+			<li>12-bit pixel formats: tbd</li>
+		</ul></td>
+		<td data-rhtags="186" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="199" class="rh-hide">daA1280-54lm</td>
+		<td data-rhtags="199" class="rh-hide">Global</td>
+		<td data-rhtags="199" class="rh-hide">N/A</td>
+		<td data-rhtags="199" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="200" class="rh-hide">daA1280-54lc</td>
+		<td data-rhtags="200" class="rh-hide">Global</td>
+		<td data-rhtags="200" class="rh-hide">N/A</td>
+		<td data-rhtags="200" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="201" class="rh-hide">daA1600-60lm</td>
+		<td data-rhtags="201" class="rh-hide">Global</td>
+		<td data-rhtags="201" class="rh-hide">N/A</td>
+		<td data-rhtags="201" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="202" class="rh-hide">daA1600-60lc</td>
+		<td data-rhtags="202" class="rh-hide">Global</td>
+		<td data-rhtags="202" class="rh-hide">N/A</td>
+		<td data-rhtags="202" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="203" class="rh-hide">daA2500-14lm</td>
+		<td data-rhtags="203" class="rh-hide"><ul>
+			<li><p>Rolling</p></li>
+			<li><p>Global Reset Release</p></li>
+		</ul></td>
+		<td data-rhtags="203" class="rh-hide">N/A</td>
+		<td data-rhtags="203" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="204" class="rh-hide">daA2500-14lc</td>
+		<td data-rhtags="204" class="rh-hide"><ul>
+			<li><p>Rolling</p></li>
+			<li><p>Global Reset Release</p></li>
+		</ul></td>
+		<td data-rhtags="204" class="rh-hide">N/A</td>
+		<td data-rhtags="204" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="239" class="rh-hide">daA2500-60mc (SD820)</td>
+		<td data-rhtags="239" class="rh-hide">Shutter Mode feature 
+		 not supported</td>
+		<td data-rhtags="239" class="rh-hide">Shutter Mode feature 
+		 not supported</td>
+		<td data-rhtags="239" class="rh-hide">Shutter Mode feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="205" class="rh-hide">daA1280-54um</td>
+		<td data-rhtags="205" class="rh-hide">Global</td>
+		<td data-rhtags="205" class="rh-hide">N/A</td>
+		<td data-rhtags="205" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="206" class="rh-hide">daA1280-54uc</td>
+		<td data-rhtags="206" class="rh-hide">Global</td>
+		<td data-rhtags="206" class="rh-hide">N/A</td>
+		<td data-rhtags="206" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="207" class="rh-hide">daA1600-60um</td>
+		<td data-rhtags="207" class="rh-hide">Global</td>
+		<td data-rhtags="207" class="rh-hide">N/A</td>
+		<td data-rhtags="207" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="208" class="rh-hide">daA1600-60uc</td>
+		<td data-rhtags="208" class="rh-hide">Global</td>
+		<td data-rhtags="208" class="rh-hide">N/A</td>
+		<td data-rhtags="208" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="209" class="rh-hide">daA1920-15um</td>
+		<td data-rhtags="209" class="rh-hide"><ul>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="209" class="rh-hide">N/A</td>
+		<td data-rhtags="209" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="210" class="rh-hide">daA1920-30um</td>
+		<td data-rhtags="210" class="rh-hide"><ul>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="210" class="rh-hide">N/A</td>
+		<td data-rhtags="210" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="211" class="rh-hide">daA1920-30uc</td>
+		<td data-rhtags="211" class="rh-hide"><ul>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="211" class="rh-hide">N/A</td>
+		<td data-rhtags="211" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="212" class="rh-hide">daA2500-14um</td>
+		<td data-rhtags="212" class="rh-hide"><ul>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="212" class="rh-hide">N/A</td>
+		<td data-rhtags="212" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="213" class="rh-hide">daA2500-14uc</td>
+		<td data-rhtags="213" class="rh-hide"><ul>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="213" class="rh-hide">N/A</td>
+		<td data-rhtags="213" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="214" class="rh-hide">puA1280-54um</td>
+		<td data-rhtags="214" class="rh-hide">Global</td>
+		<td data-rhtags="214" class="rh-hide">N/A</td>
+		<td data-rhtags="214" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="215" class="rh-hide">puA1280-54uc</td>
+		<td data-rhtags="215" class="rh-hide">Global</td>
+		<td data-rhtags="215" class="rh-hide">N/A</td>
+		<td data-rhtags="215" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="216" class="rh-hide">puA1600-60um</td>
+		<td data-rhtags="216" class="rh-hide">Global</td>
+		<td data-rhtags="216" class="rh-hide">N/A</td>
+		<td data-rhtags="216" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="217" class="rh-hide">puA1600-60uc</td>
+		<td data-rhtags="217" class="rh-hide">Global</td>
+		<td data-rhtags="217" class="rh-hide">N/A</td>
+		<td data-rhtags="217" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="218" class="rh-hide">puA1920-30um</td>
+		<td data-rhtags="218" class="rh-hide"><ul>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="218" class="rh-hide">N/A</td>
+		<td data-rhtags="218" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="219" class="rh-hide">puA1920-30uc</td>
+		<td data-rhtags="219" class="rh-hide"><ul>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="219" class="rh-hide">N/A</td>
+		<td data-rhtags="219" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="220" class="rh-hide">puA2500-14um</td>
+		<td data-rhtags="220" class="rh-hide"><ul>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="220" class="rh-hide">N/A</td>
+		<td data-rhtags="220" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="221" class="rh-hide">puA2500-14uc</td>
+		<td data-rhtags="221" class="rh-hide"><ul>
+			<li>Rolling</li>
+			<li>Global Reset Release</li>
+		</ul></td>
+		<td data-rhtags="221" class="rh-hide">N/A</td>
+		<td data-rhtags="221" class="rh-hide">None</td>
+	</tr>
+</table>
+<p class="table-footnote rh-hide" data-rhtags="259"><sup>a</sup>The first row exposed is always 
+ the first row of the sensor, regardless of the <a href="image_roi.htm" data-rhtags="259" class="rh-hide">image ROI</a> settings. This 
+ may result in an <a href="acquisition_timing_information.htm#Image_ROI_exposure_start_delay" data-rhtags="259" class="rh-hide">Image 
+ ROI exposure start delay</a>. Also, the last row exposed 
+ is always the last row of the sensor, regardless of the image ROI settings.</p>
+</div>
+<h2 class="sample-code"><a name="MiniTOCBookMark13"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre data-rhtags="2" class="rh-hide"><code class="cpp">// Determine the current shutter mode
+ShutterModeEnums shutterMode = camera.ShutterMode.GetValue();
+// Set the shutter mode to rolling
+camera.ShutterMode.SetValue(ShutterMode_Rolling);
+// Set the shutter mode to global reset release
+camera.ShutterMode.SetValue(ShutterMode_GlobalResetRelease);</code></pre><pre data-rhtags="8" class="rh-hide"><code class="cpp">// Determine the current sensor shutter mode
+SensorShutterModeEnums shutterMode = camera.SensorShutterMode.GetValue();
+// Set the sensor shutter mode to rolling
+camera.SensorShutterMode.SetValue(SensorShutterMode_Rolling);
+// Set the sensor shutter mode to global reset release
+camera.SensorShutterMode.SetValue(SensorShutterMode_GlobalResetRelease);</code></pre></div><div class="tab-2 tab-content"><pre data-rhtags="2" class="rh-hide"><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Determine the current shutter mode
+String_t shutterMode = CEnumerationPtr(nodemap.GetNode("ShutterMode"))-&gt;ToString();
+// Set the shutter mode to rolling
+CEnumerationPtr(nodemap.GetNode("ShutterMode"))-&gt;FromString("Rolling");
+// Set the shutter mode to global reset release
+CEnumerationPtr(nodemap.GetNode("ShutterMode"))-&gt;FromString("GlobalResetRelease");</code></pre><pre data-rhtags="8" class="rh-hide"><code class="cpp" generated="true">// Determine the current sensor shutter mode
+String_t shutterMode = CEnumerationPtr(nodemap.GetNode("SensorShutterMode"))-&gt;ToString();
+// Set the sensor shutter mode to rolling
+CEnumerationPtr(nodemap.GetNode("SensorShutterMode"))-&gt;FromString("Rolling");
+// Set the sensor shutter mode to global reset release
+CEnumerationPtr(nodemap.GetNode("SensorShutterMode"))-&gt;FromString("GlobalResetRelease");</code></pre></div><div class="tab-3 tab-content"><pre data-rhtags="2" class="rh-hide"><code class="csharp" generated="true">// Determine the current shutter mode
+string shutterMode = camera.Parameters[PLCamera.ShutterMode].GetValue();
+// Set the shutter mode to rolling
+camera.Parameters[PLCamera.ShutterMode].SetValue(PLCamera.ShutterMode.Rolling);
+// Set the shutter mode to global reset release
+camera.Parameters[PLCamera.ShutterMode].SetValue(PLCamera.ShutterMode.GlobalResetRelease);</code></pre><pre data-rhtags="8" class="rh-hide"><code class="csharp" generated="true">// Determine the current sensor shutter mode
+string shutterMode = camera.Parameters[PLCamera.SensorShutterMode].GetValue();
+// Set the sensor shutter mode to rolling
+camera.Parameters[PLCamera.SensorShutterMode].SetValue(PLCamera.SensorShutterMode.Rolling);
+// Set the sensor shutter mode to global reset release
+camera.Parameters[PLCamera.SensorShutterMode].SetValue(PLCamera.SensorShutterMode.GlobalResetRelease);</code></pre></div><div class="tab-4 tab-content"><pre data-rhtags="2" class="rh-hide"><code class="csharp" generated="true">// Determine the current shutter mode
+string shutterMode = Pylon.DeviceFeatureToString(hdev, "ShutterMode");
+// Set the shutter mode to rolling
+Pylon.DeviceFeatureFromString(hdev, "ShutterMode", "Rolling");
+// Set the shutter mode to global reset release
+Pylon.DeviceFeatureFromString(hdev, "ShutterMode", "GlobalResetRelease");</code></pre><pre data-rhtags="8" class="rh-hide"><code class="csharp" generated="true">// Determine the current sensor shutter mode
+string shutterMode = Pylon.DeviceFeatureToString(hdev, "SensorShutterMode");
+// Set the sensor shutter mode to rolling
+Pylon.DeviceFeatureFromString(hdev, "SensorShutterMode", "Rolling");
+// Set the sensor shutter mode to global reset release
+Pylon.DeviceFeatureFromString(hdev, "SensorShutterMode", "GlobalResetRelease");</code></pre></div><div class="tab-5 tab-content"><pre data-rhtags="2" class="rh-hide"><code class="c" generated="true">size_t len = 0;
+char shutterMode_str[64] = {0};
+/* Determine the current shutter mode */
+len = sizeof(shutterMode_str);
+errRes = PylonDeviceFeatureToString(hdev, "ShutterMode", shutterMode_str, &amp;len);
+CHECK(errRes);
+/* Set the shutter mode to rolling */
+errRes = PylonDeviceFeatureFromString(hdev, "ShutterMode", "Rolling");
+CHECK(errRes);
+/* Set the shutter mode to global reset release */
+errRes = PylonDeviceFeatureFromString(hdev, "ShutterMode", "GlobalResetRelease");
+CHECK(errRes);</code></pre><pre data-rhtags="8" class="rh-hide"><code class="c" generated="true">char shutterMode_str[64] = {0};
+/* Determine the current sensor shutter mode */
+len = sizeof(shutterMode_str);
+errRes = PylonDeviceFeatureToString(hdev, "SensorShutterMode", shutterMode_str, &amp;len);
+CHECK(errRes);
+/* Set the sensor shutter mode to rolling */
+errRes = PylonDeviceFeatureFromString(hdev, "SensorShutterMode", "Rolling");
+CHECK(errRes);
+/* Set the sensor shutter mode to global reset release */
+errRes = PylonDeviceFeatureFromString(hdev, "SensorShutterMode", "GlobalResetRelease");
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,534 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Auto Function ROI</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_8";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Auto Function ROI<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Auto Function ROI</h1>
+<p class="teaser">The Auto Function ROI 
+ <a href="features.htm">camera feature</a> allows you to specify the part 
+ of the sensor array with which you want to control the camera's <a href="auto_functions.htm">auto 
+ functions</a>.</p>
+<p>ROI is short for region of interest (formerly AOI = area of interest).</p>
+<p>You can create several auto function ROIs, each occupying different 
+ parts of the sensor array.</p>
+<p>The settings for the Auto Function ROI feature are independent of the 
+ settings for the <a href="image_roi.htm">Image ROI</a> feature.</p>
+<div class="mini-toc">
+	<p align="left" style="font-weight: normal;font-style: normal;text-decoration: none;" >In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot26413" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot26413', 'MTPOPUP26413');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP26413" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Changing Position and Size of an Auto Function ROI</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Assigning 
+ Auto Functions</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark5" >Exposure 
+ Auto and Gain Auto Assignments Work Together</a>
+</li>
+    </ul></li>
+    <li><a href="#MiniTOCBookMark6" >Guidelines</a>
+</li>
+    <li><a href="#MiniTOCBookMark7" >Overlap 
+ Between Auto Function ROI and Image ROI</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark8" >Specifics</a>
+</li>
+   <li><a href="#MiniTOCBookMark9" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>Changing Position and Size of an Auto Function ROI</h3>
+<p>By default, all auto function ROIs are set to the same size as the camera's 
+ <a href="image_roi.htm">image ROI</a>. You can change their positions 
+ and sizes to suit your needs.</p>
+<p>To change the position and size of an auto function ROI:</p>
+<ol>
+	<li>Set the <span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOISelector</span><span class="parameter-name rh-hide" data-rhtags="49">AutoFunctionROISelector</span> 
+	 parameter to one of the <a href="#Specifics">available auto function 
+	 ROIs</a>, e.g., <span class="parameter-name rh-hide" data-rhtags="48">AOI1</span><span class="parameter-name rh-hide" data-rhtags="49">ROI1</span>.</li>
+	<li>Enter values for the following parameters to specify the <strong>position</strong> 
+	 of the auto function ROI selected:</li>
+	<ul>
+		<li><span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOIOffsetX</span><span class="parameter-name rh-hide" data-rhtags="49">AutoFunctionROIOffsetX</span></li>
+		<li><span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOIOffsetY</span><span class="parameter-name rh-hide" data-rhtags="49">AutoFunctionROIOffsetY</span></li>
+	</ul>
+	<li>Enter values for the following parameters to specify the <strong>size</strong> 
+	 of the auto function ROI selected:</li>
+	<ul>
+		<li><span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOIWidth</span><span class="parameter-name rh-hide" data-rhtags="49">AutoFunctionROIWidth</span></li>
+		<li><span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOIHeight</span><span class="parameter-name rh-hide" data-rhtags="49">AutoFunctionROIHeight</span></li>
+	</ul>
+</ol>
+<p>The position of an auto function ROI is specified based on the lines 
+ and rows of the sensor array. </p>
+<p><strong>Example:</strong> Assume that you have selected auto function 
+ ROI 1 and specified the following settings:</p>
+<ul>
+	<li><span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOIOffsetX</span><span class="parameter-name rh-hide" data-rhtags="49">AutoFunctionROIOffsetX</span> 
+	 = 14</li>
+	<li><span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOIOffsetY</span><span class="parameter-name rh-hide" data-rhtags="49">AutoFunctionROIOffsetY</span> 
+	 = 7</li>
+	<li><span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOIWidth</span><span class="parameter-name rh-hide" data-rhtags="49">AutoFunctionROIWidth</span> 
+	 = 5</li>
+	<li><span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOIHeight</span><span class="parameter-name rh-hide" data-rhtags="49">AutoFunctionROIHeight</span> 
+	 = 6</li>
+</ul>
+<p>This creates the following auto function ROI 1:</p>
+<p><img src="images/drawing_af_aoi.png" alt="Auto Function ROI and Image ROI" title="Auto Function ROI and Image ROI" /></p>
+<p>Only the pixel data from the <a href="#Overlap_Between_Auto_Function_AOI_and_Image_AOI">area 
+ of overlap</a> between the auto function ROI and the <a href="image_roi.htm">image 
+ ROI</a> will be used by the auto function assigned to it.</p>
+<div class="info">
+	<ul>
+		<li>On color cameras, Basler recommends setting the parameters 
+		 for position and size to even values (multiples of 2). This matches 
+		 the auto function ROI to the color filter pattern of the sensor.</li>
+		<li>If the <a href="binning.htm">Binning</a> feature is enabled, 
+		 the auto function ROI settings refer to the binned lines and columns 
+		 and not to the physical lines in the sensor.</li>
+		<li><p>If the <a href="reverse_x_and_reverse_y.htm">Reverse 
+		 X</a> or <a href="reverse_x_and_reverse_y.htm">Reverse Y</a> feature 
+		 or both are enabled, the position of the auto function ROI relative 
+		 to the sensor remains the same. As a consequence, different regions 
+		 of the image will be controlled depending on whether or not Reverse 
+		 X, Reverse Y or both are enabled.</p></li>
+	</ul>
+</div>
+<h3><a name="MiniTOCBookMark4"></a><a name="Assigning_Auto_Functions" id="Assigning_Auto_Functions">Assigning 
+ Auto Functions</a></h3>
+<p>By default, each auto function ROI is assigned to a specific auto function. 
+ For example, the pixel data from auto function ROI 2 is used to control 
+ the <a href="balance_white_auto.htm">Balance White Auto</a> auto function. </p>
+<p>On <a href="#Specifics">some camera models</a>, the default assignments 
+ can be changed. To do so: </p>
+<ol>
+	<li>Set the <span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOISelector</span><span class="parameter-name rh-hide" data-rhtags="49">AutoFunctionROISelector</span> 
+	 parameter to one of the <a href="#Specifics">available auto function 
+	 ROIs</a>, e.g., <span class="parameter-name rh-hide" data-rhtags="48">AOI1</span><span class="parameter-name rh-hide" data-rhtags="49">ROI1</span>.</li>
+	<li>Assign the desired auto function(s) to the auto function ROI selected:</li>
+	<ul>
+		<li>If you want to assign <a href="balance_white_auto.htm">Balance 
+		 White Auto</a>, set the <span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOIUsageWhiteBalance</span><span class="parameter-name rh-hide" data-rhtags="49">AutoFunctionROIUseWhiteBalance</span> 
+		 parameter to <span class="parameter-name">true</span>.</li>
+		<li>If you want to assign&#160;<a href="exposure_auto.htm">Exposure 
+		 Auto</a> and <a href="gain_auto.htm">Gain Auto</a>, set the <span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOIUsageIntensity</span><span class="parameter-name rh-hide" data-rhtags="49">AutoFunctionROIUseBrightness</span> 
+		 parameter to <span class="parameter-name">true</span>. (Exposure 
+		 Auto and Gain Auto always <a href="#Exposure_Auto_and_Gain_Auto_Assignments_Work_Together">work 
+		 together</a>.)</li>
+		<li>If you want to assign <a href="tonal_range_auto.htm">Tonal 
+		 Range Auto</a>, set the <span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOIUsageTonalRange</span><span class="parameter-name rh-hide" data-rhtags="196">AutoFunctionROIUseTonalRange</span> 
+		 parameter to <span class="parameter-name">true</span>.</li>
+	</ul>
+</ol>
+<div class="info">
+	<ul>
+		<li>If you assign one auto function to multiple auto function ROIs, 
+		 the pixel data from all selected auto function ROIs will be used 
+		 for the auto function.</li>
+		<li>If you assign multiple auto functions to one auto function 
+		 ROI, the pixel data from the auto function ROI will be used for 
+		 all auto functions selected.</li>
+	</ul>
+</div>
+<h4><a name="MiniTOCBookMark5"></a><a name="Exposure_Auto_and_Gain_Auto_Assignments_Work_Together" id="Exposure_Auto_and_Gain_Auto_Assignments_Work_Together">Exposure 
+ Auto and Gain Auto Assignments Work Together</a></h4>
+<p>When making auto function ROI assignments, the <a href="gain_auto.htm">Gain 
+ Auto </a>auto function and the <a href="exposure_auto.htm">Exposure 
+ Auto </a>auto function always <strong>work 
+ together</strong>. They are considered as a single auto function named 
+ &quot;Intensity&quot; or &quot;Brightness&quot;, depending on <a href="#Specifics">your 
+ camera model</a>.</p>
+<p>This does not imply, however, that Gain Auto and Exposure Auto must 
+ always be enabled at the same time.</p>
+<h3><a name="MiniTOCBookMark6"></a>Guidelines</h3>
+<p>When you are setting an auto function ROI, you must follow these guidelines:</p>
+<table >
+	<col />
+	<col />
+	<tr>
+		<th>Guideline</th>
+		<th>Example</th>
+	</tr>
+	<tr>
+		<td><span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOIOffsetX</span><span class="parameter-name rh-hide" data-rhtags="49">AutoFunctionROIOffsetX</span> 
+		 + <span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOIWidth</span><span class="parameter-name rh-hide" data-rhtags="49">AutoFunctionROIWidth</span> 
+		 ≤ Width of camera sensor</td>
+		<td><p>Camera with a 1920 x 1080 pixel sensor:</p>
+		<p><span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOIOffsetX</span><span class="parameter-name rh-hide" data-rhtags="49">AutoFunctionROIOffsetX</span> 
+		 + <span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOIWidth</span><span class="parameter-name rh-hide" data-rhtags="49">AutoFunctionROIWidth</span> 
+		 ≤ 1920</p></td>
+	</tr>
+	<tr>
+		<td><span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOIOffsetY</span><span class="parameter-name rh-hide" data-rhtags="49">AutoFunctionROIOffsetY</span> 
+		 + <span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOIHeight</span><span class="parameter-name rh-hide" data-rhtags="49">AutoFunctionROIHeight</span> 
+		 &#160;≤ Height of camera sensor</td>
+		<td><p>Camera with a 1920 x 1080 pixel sensor:</p>
+		<p><span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOIOffsetY</span><span class="parameter-name rh-hide" data-rhtags="49">AutoFunctionROIOffsetY</span> 
+		 + <span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOIHeight</span><span class="parameter-name rh-hide" data-rhtags="49">AutoFunctionROIHeight</span> 
+		 ≤ 1080</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark7"></a><a name="Overlap_Between_Auto_Function_AOI_and_Image_AOI" id="Overlap_Between_Auto_Function_AOI_and_Image_AOI">Overlap 
+ Between Auto Function ROI and Image ROI</a></h3>
+<p>The size and position of an auto function ROI can be identical to the 
+ size and position of the <a href="image_roi.htm">image ROI</a>, but this 
+ is not a requirement. For an auto function to work, it is sufficient if 
+ both ROIs overlap each other partially.</p>
+<p>The overlap between auto function ROI and image ROI determines whether 
+ and to what extent the auto function will control the related image property. 
+ Only the pixel data from the areas of overlap will be used by the auto 
+ function to control the image property of the entire image.</p>
+<ul>
+	<li>If the <strong>auto function ROI is completely contained in the 
+	 image ROI</strong>, the pixel data from the auto function ROI will 
+	 be used to control the image property.<br />
+	<img src="images/drawing_af_aoi_with_full_effect.png" alt="Auto Function ROI Completely Included in Image ROI" title="Auto Function ROI Completely Included in Image ROI" /></li>
+	<li>If the <strong>image ROI is completely contained in the auto function 
+	 ROI</strong>, only the pixel data from the image ROI will be used 
+	 to control the image property.<br />
+	<img src="images/drawing_af_aoi_all_encompassing.png" alt="Image ROI Completely Included in Auto Function ROI" title="Image ROI Completely Included in Auto Function ROI" /></li>
+	<li>If the <strong>auto function ROI overlaps the image ROI only partially</strong>, 
+	 only the pixel data from the area of partial overlap will be used 
+	 to control the image property.<br />
+	<img src="images/drawing_af_aoi_with_partial_effect.png" alt="Auto Function ROI Partially Overlaps Image ROI" title="Auto Function ROI Partially Overlaps Image ROI" /></li>
+	<li>If the <strong>auto function ROI does not overlap the image ROI</strong>, 
+	 the related auto function will <strong>not work</strong>.<br />
+	<img src="images/drawing_af_aoi_with_no_effect.png" alt="Auto Function ROI Does Not Overlap Image ROI" title="Auto Function ROI Does Not Overlap Image ROI" /></li>
+</ul>
+<p class="info">Basler strongly recommends completely including the auto 
+ function ROI within the image ROI or choosing identical positions and 
+ sizes for auto function ROI and image ROI.</p>
+<h2 class="specifics"><a name="MiniTOCBookMark8"></a><a name="Specifics" id="Specifics">Specifics</a></h2>
+<div>
+<table class="specifics-table">
+	<col />
+	<col />
+	<col />
+	<col />
+	<tr>
+		<th>Camera Model</th>
+		<th>Auto Function ROIs</th>
+		<th>Default Assignments</th>
+		<th>Assignments Can Be Changed</th>
+	</tr>
+	<tr>
+		<td data-rhtags="194" class="rh-hide">All ace GigE camera models except MED models</td>
+		<td data-rhtags="194" class="rh-hide">AOI 1 
+		<p>AOI 2</p></td>
+		<td data-rhtags="194" class="rh-hide"><p data-rhtags="194" class="rh-hide">AOI 
+		 1: Intensity (<a href="gain_auto.htm" data-rhtags="194" class="rh-hide">Gain 
+		 Auto</a> + <a href="exposure_auto.htm" data-rhtags="194" class="rh-hide">Exposure Auto</a>)</p>
+		<p data-rhtags="194" class="rh-hide">AOI 2: White Balance 
+		 (<a href="balance_white_auto.htm" data-rhtags="194" class="rh-hide">Balance 
+		 White Auto</a>)</p></td>
+		<td data-rhtags="194" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="193" class="rh-hide">All ace USB 3.0 camera models except MED models</td>
+		<td data-rhtags="193" class="rh-hide">ROI 1 
+		<p>ROI 2</p></td>
+		<td data-rhtags="193" class="rh-hide"><p data-rhtags="193" class="rh-hide">ROI 
+		 1: Brightness (<a href="gain_auto.htm" data-rhtags="193" class="rh-hide">Gain 
+		 Auto</a> + <a href="exposure_auto.htm" data-rhtags="193" class="rh-hide">Exposure Auto</a>)</p>
+		<p data-rhtags="193" class="rh-hide">ROI 2: White Balance (<a href="balance_white_auto.htm" data-rhtags="193" class="rh-hide">Balance White Auto</a>)</p></td>
+		<td data-rhtags="193" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="195" class="rh-hide">All MED ace GigE camera models</td>
+		<td data-rhtags="195" class="rh-hide">AOI 1
+		<p>AOI 2</p></td>
+		<td data-rhtags="195" class="rh-hide"><p data-rhtags="195" class="rh-hide">AOI 
+		 1: Intensity (<a href="gain_auto.htm">Gain Auto</a> + <a href="exposure_auto.htm">Exposure 
+		 Auto</a>)</p>
+		<p data-rhtags="195" class="rh-hide">AOI 2: White Balance 
+		 (<a href="balance_white_auto.htm" data-rhtags="195" class="rh-hide">Balance 
+		 White Auto</a>), Tonal Range (<a href="tonal_range_auto.htm">Tonal 
+		 Range Auto</a>)</p></td>
+		<td data-rhtags="195" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="10" class="rh-hide">All MED ace USB 3.0 camera models</td>
+		<td data-rhtags="10" class="rh-hide">ROI 1
+		<p>ROI 2</p></td>
+		<td data-rhtags="10" class="rh-hide"><p data-rhtags="10" class="rh-hide">ROI 
+		 1: Brightness (<a href="gain_auto.htm">Gain Auto</a> + <a href="exposure_auto.htm">Exposure 
+		 Auto</a>)</p>
+		<p data-rhtags="10" class="rh-hide">ROI 2: White Balance 
+		 (<a href="balance_white_auto.htm" data-rhtags="10" class="rh-hide">Balance 
+		 White Auto</a>), Tonal Range (<a href="tonal_range_auto.htm" data-rhtags="10" class="rh-hide">Tonal Range Auto</a>)</p></td>
+		<td data-rhtags="10" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="44" class="rh-hide">All dart BCON for LVDS camera models</td>
+		<td data-rhtags="44" class="rh-hide">ROI 1 
+		<p>ROI 2</p></td>
+		<td data-rhtags="44" class="rh-hide"><p data-rhtags="44" class="rh-hide">ROI 
+		 1: Brightness (<a href="gain_auto.htm" data-rhtags="44" class="rh-hide">Gain 
+		 Auto</a> + <a href="exposure_auto.htm" data-rhtags="44" class="rh-hide">Exposure Auto</a>)</p>
+		<p data-rhtags="44" class="rh-hide">ROI 2: White Balance 
+		 (<a href="balance_white_auto.htm" data-rhtags="44" class="rh-hide">Balance 
+		 White Auto</a>)</p></td>
+		<td data-rhtags="44" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="21" class="rh-hide">All dart BCON for MIPI cameras models</td>
+		<td data-rhtags="21" class="rh-hide">None, Auto Function 
+		 ROI feature not supported</td>
+		<td data-rhtags="21" class="rh-hide">None, Auto Function 
+		 ROI feature not supported</td>
+		<td data-rhtags="21" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="42" class="rh-hide">All dart USB 3.0 camera models</td>
+		<td data-rhtags="42" class="rh-hide">ROI 1 
+		<p>ROI 2</p></td>
+		<td data-rhtags="42" class="rh-hide">ROI 1: Brightness 
+		 (<a href="gain_auto.htm">Gain Auto</a> + <a href="exposure_auto.htm">Exposure 
+		 Auto</a>)
+		<p>ROI 2: White Balance (<a href="balance_white_auto.htm">Balance 
+		 White Auto</a>)</p></td>
+		<td data-rhtags="42" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="47" class="rh-hide">All pulse USB 3.0 camera models</td>
+		<td data-rhtags="47" class="rh-hide">ROI 1 
+		<p>ROI 2</p></td>
+		<td data-rhtags="47" class="rh-hide">ROI 1: Brightness 
+		 (<a href="gain_auto.htm">Gain Auto</a> + <a href="exposure_auto.htm">Exposure 
+		 Auto</a>)
+		<p>ROI 2: White Balance (<a href="balance_white_auto.htm">Balance 
+		 White Auto</a>)</p></td>
+		<td data-rhtags="47" class="rh-hide">No</td>
+	</tr>
+</table>
+<p>&#160;</p>
+</div>
+<h2 class="sample-code"><a name="MiniTOCBookMark9"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre data-rhtags="48" class="rh-hide"><code class="cpp">// Select auto function AOI 1
+camera.AutoFunctionAOISelector.SetValue(AutoFunctionAOISelector_AOI1);
+// Specify position and size of the auto function ROI selected
+camera.AutoFunctionAOIOffsetX.SetValue(10);
+camera.AutoFunctionAOIOffsetY.SetValue(10);
+camera.AutoFunctionAOIWidth.SetValue(500);
+camera.AutoFunctionAOIHeight.SetValue(400);
+// Enable Balance White Auto for the auto function ROI selected
+camera.AutoFunctionAOIUsageWhiteBalance.SetValue(true);
+// Enable the 'Intensity' auto function (Gain Auto + Exposure Auto) 
+// for the auto function ROI selected
+// Note: On some camera models, you must use AutoFunctionROIUseIntensity instead
+camera.AutoFunctionAOIUsageIntensity.SetValue(true);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="cpp">// Select auto function ROI 1
+camera.AutoFunctionROISelector.SetValue(AutoFunctionROISelector_ROI1);
+// Specify position and size of the auto function ROI selected
+camera.AutoFunctionROIOffsetX.SetValue(10);
+camera.AutoFunctionROIOffsetY.SetValue(10);
+camera.AutoFunctionROIWidth.SetValue(500);
+camera.AutoFunctionROIHeight.SetValue(400);
+// Enable Balance White Auto for the auto function ROI selected
+camera.AutoFunctionROIUseWhiteBalance.SetValue(true);
+// Enable the 'Brightness' auto function (Gain Auto + Exposure Auto) 
+// for the auto function ROI selected
+// Note: On some camera models, you must use AutoFunctionROIUseIntensity instead
+camera.AutoFunctionROIUseBrightness.SetValue(true);</code></pre></div><div class="tab-2 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Select auto function AOI 1
+CEnumerationPtr(nodemap.GetNode("AutoFunctionAOISelector"))-&gt;FromString("AOI1");
+// Specify position and size of the auto function ROI selected
+CIntegerPtr(nodemap.GetNode("AutoFunctionAOIOffsetX"))-&gt;SetValue(10);
+CIntegerPtr(nodemap.GetNode("AutoFunctionAOIOffsetY"))-&gt;SetValue(10);
+CIntegerPtr(nodemap.GetNode("AutoFunctionAOIWidth"))-&gt;SetValue(500);
+CIntegerPtr(nodemap.GetNode("AutoFunctionAOIHeight"))-&gt;SetValue(400);
+// Enable Balance White Auto for the auto function ROI selected
+CBooleanPtr(nodemap.GetNode("AutoFunctionAOIUsageWhiteBalance"))-&gt;SetValue(true);
+// Enable the 'Intensity' auto function (Gain Auto + Exposure Auto)
+// for the auto function ROI selected
+// Note: On some camera models, you must use AutoFunctionROIUseIntensity instead
+CBooleanPtr(nodemap.GetNode("AutoFunctionAOIUsageIntensity"))-&gt;SetValue(true);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="cpp" generated="true">// Select auto function ROI 1
+CEnumerationPtr(nodemap.GetNode("AutoFunctionROISelector"))-&gt;FromString("ROI1");
+// Specify position and size of the auto function ROI selected
+CIntegerPtr(nodemap.GetNode("AutoFunctionROIOffsetX"))-&gt;SetValue(10);
+CIntegerPtr(nodemap.GetNode("AutoFunctionROIOffsetY"))-&gt;SetValue(10);
+CIntegerPtr(nodemap.GetNode("AutoFunctionROIWidth"))-&gt;SetValue(500);
+CIntegerPtr(nodemap.GetNode("AutoFunctionROIHeight"))-&gt;SetValue(400);
+// Enable Balance White Auto for the auto function ROI selected
+CBooleanPtr(nodemap.GetNode("AutoFunctionROIUseWhiteBalance"))-&gt;SetValue(true);
+// Enable the 'Brightness' auto function (Gain Auto + Exposure Auto)
+// for the auto function ROI selected
+// Note: On some camera models, you must use AutoFunctionROIUseIntensity instead
+CBooleanPtr(nodemap.GetNode("AutoFunctionROIUseBrightness"))-&gt;SetValue(true);</code></pre></div><div class="tab-3 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="csharp" generated="true">// Select auto function AOI 1
+camera.Parameters[PLCamera.AutoFunctionAOISelector].SetValue(PLCamera.AutoFunctionAOISelector.AOI1);
+// Specify position and size of the auto function ROI selected
+camera.Parameters[PLCamera.AutoFunctionAOIOffsetX].SetValue(10);
+camera.Parameters[PLCamera.AutoFunctionAOIOffsetY].SetValue(10);
+camera.Parameters[PLCamera.AutoFunctionAOIWidth].SetValue(500);
+camera.Parameters[PLCamera.AutoFunctionAOIHeight].SetValue(400);
+// Enable Balance White Auto for the auto function ROI selected
+camera.Parameters[PLCamera.AutoFunctionAOIUsageWhiteBalance].SetValue(true);
+// Enable the 'Intensity' auto function (Gain Auto + Exposure Auto)
+// for the auto function ROI selected
+// Note: On some camera models, you must use AutoFunctionROIUseIntensity instead
+camera.Parameters[PLCamera.AutoFunctionAOIUsageIntensity].SetValue(true);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="csharp" generated="true">// Select auto function ROI 1
+camera.Parameters[PLCamera.AutoFunctionROISelector].SetValue(PLCamera.AutoFunctionROISelector.ROI1);
+// Specify position and size of the auto function ROI selected
+camera.Parameters[PLCamera.AutoFunctionROIOffsetX].SetValue(10);
+camera.Parameters[PLCamera.AutoFunctionROIOffsetY].SetValue(10);
+camera.Parameters[PLCamera.AutoFunctionROIWidth].SetValue(500);
+camera.Parameters[PLCamera.AutoFunctionROIHeight].SetValue(400);
+// Enable Balance White Auto for the auto function ROI selected
+camera.Parameters[PLCamera.AutoFunctionROIUseWhiteBalance].SetValue(true);
+// Enable the 'Brightness' auto function (Gain Auto + Exposure Auto)
+// for the auto function ROI selected
+// Note: On some camera models, you must use AutoFunctionROIUseIntensity instead
+camera.Parameters[PLCamera.AutoFunctionROIUseBrightness].SetValue(true);</code></pre></div><div class="tab-4 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="csharp" generated="true">// Select auto function AOI 1
+Pylon.DeviceFeatureFromString(hdev, "AutoFunctionAOISelector", "AOI1");
+// Specify position and size of the auto function ROI selected
+Pylon.DeviceSetIntegerFeature(hdev, "AutoFunctionAOIOffsetX", 10);
+Pylon.DeviceSetIntegerFeature(hdev, "AutoFunctionAOIOffsetY", 10);
+Pylon.DeviceSetIntegerFeature(hdev, "AutoFunctionAOIWidth", 500);
+Pylon.DeviceSetIntegerFeature(hdev, "AutoFunctionAOIHeight", 400);
+// Enable Balance White Auto for the auto function ROI selected
+Pylon.DeviceSetBooleanFeature(hdev, "AutoFunctionAOIUsageWhiteBalance", true);
+// Enable the 'Intensity' auto function (Gain Auto + Exposure Auto)
+// for the auto function ROI selected
+// Note: On some camera models, you must use AutoFunctionROIUseIntensity instead
+Pylon.DeviceSetBooleanFeature(hdev, "AutoFunctionAOIUsageIntensity", true);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="csharp" generated="true">// Select auto function ROI 1
+Pylon.DeviceFeatureFromString(hdev, "AutoFunctionROISelector", "ROI1");
+// Specify position and size of the auto function ROI selected
+Pylon.DeviceSetIntegerFeature(hdev, "AutoFunctionROIOffsetX", 10);
+Pylon.DeviceSetIntegerFeature(hdev, "AutoFunctionROIOffsetY", 10);
+Pylon.DeviceSetIntegerFeature(hdev, "AutoFunctionROIWidth", 500);
+Pylon.DeviceSetIntegerFeature(hdev, "AutoFunctionROIHeight", 400);
+// Enable Balance White Auto for the auto function ROI selected
+Pylon.DeviceSetBooleanFeature(hdev, "AutoFunctionROIUseWhiteBalance", true);
+// Enable the 'Brightness' auto function (Gain Auto + Exposure Auto)
+// for the auto function ROI selected
+// Note: On some camera models, you must use AutoFunctionROIUseIntensity instead
+Pylon.DeviceSetBooleanFeature(hdev, "AutoFunctionROIUseBrightness", true);</code></pre></div><div class="tab-5 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+/* Select auto function AOI 1 */
+errRes = PylonDeviceFeatureFromString(hdev, "AutoFunctionAOISelector", "AOI1");
+CHECK(errRes);
+/* Specify position and size of the auto function ROI selected */
+errRes = PylonDeviceSetIntegerFeature(hdev, "AutoFunctionAOIOffsetX", 10);
+CHECK(errRes);
+errRes = PylonDeviceSetIntegerFeature(hdev, "AutoFunctionAOIOffsetY", 10);
+CHECK(errRes);
+errRes = PylonDeviceSetIntegerFeature(hdev, "AutoFunctionAOIWidth", 500);
+CHECK(errRes);
+errRes = PylonDeviceSetIntegerFeature(hdev, "AutoFunctionAOIHeight", 400);
+CHECK(errRes);
+/* Enable Balance White Auto for the auto function ROI selected */
+errRes = PylonDeviceSetBooleanFeature(hdev, "AutoFunctionAOIUsageWhiteBalance", 1);
+CHECK(errRes);
+/* Enable the 'Intensity' auto function (Gain Auto + Exposure Auto) */
+/* for the auto function ROI selected */
+/* Note: On some camera models, you must use AutoFunctionROIUseIntensity instead */
+errRes = PylonDeviceSetBooleanFeature(hdev, "AutoFunctionAOIUsageIntensity", 1);
+CHECK(errRes);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="c" generated="true">/* Select auto function ROI 1 */
+errRes = PylonDeviceFeatureFromString(hdev, "AutoFunctionROISelector", "ROI1");
+CHECK(errRes);
+/* Specify position and size of the auto function ROI selected */
+errRes = PylonDeviceSetIntegerFeature(hdev, "AutoFunctionROIOffsetX", 10);
+CHECK(errRes);
+errRes = PylonDeviceSetIntegerFeature(hdev, "AutoFunctionROIOffsetY", 10);
+CHECK(errRes);
+errRes = PylonDeviceSetIntegerFeature(hdev, "AutoFunctionROIWidth", 500);
+CHECK(errRes);
+errRes = PylonDeviceSetIntegerFeature(hdev, "AutoFunctionROIHeight", 400);
+CHECK(errRes);
+/* Enable Balance White Auto for the auto function ROI selected */
+errRes = PylonDeviceSetBooleanFeature(hdev, "AutoFunctionROIUseWhiteBalance", 1);
+CHECK(errRes);
+/* Enable the 'Brightness' auto function (Gain Auto + Exposure Auto) */
+/* for the auto function ROI selected */
+/* Note: On some camera models, you must use AutoFunctionROIUseIntensity instead */
+errRes = PylonDeviceSetBooleanFeature(hdev, "AutoFunctionROIUseBrightness", 1);
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

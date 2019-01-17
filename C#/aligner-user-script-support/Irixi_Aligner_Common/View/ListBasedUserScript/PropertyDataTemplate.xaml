@@ -1,0 +1,79 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+                    xmlns:dxprg="http://schemas.devexpress.com/winfx/2008/xaml/propertygrid"
+                    xmlns:local="clr-namespace:Irixi_Aligner_Common.View.ListBasedUserScript"
+                    xmlns:equip="clr-namespace:Irixi_Aligner_Common.Equipments.Equipments"
+                    xmlns:markupext="clr-namespace:Irixi_Aligner_Common.Extension.Markup">
+
+    <DataTemplate x:Key="Aligner">
+        <dxprg:PropertyDefinition Path="{Binding Name}" IsReadOnly="False" AllowExpanding="Never" >
+            <dxprg:PropertyDefinition.EditSettings>
+                <dxe:ComboBoxEditSettings
+                    AllowCollectionView="False"
+                    DisplayMember="Caption"
+                    DataContext="{Binding SelectedObject, RelativeSource={RelativeSource AncestorType=dxprg:PropertyGridControl}}"
+                    ItemsSource="{Binding Service.LogicalMotionComponentCollection, Mode=OneWay}" 
+                    IsTextEditable="False"/>
+            </dxprg:PropertyDefinition.EditSettings>
+        </dxprg:PropertyDefinition>
+    </DataTemplate>
+
+    <DataTemplate x:Key="Axis">
+        <dxprg:PropertyDefinition Path="{Binding Name}" IsReadOnly="False" >
+            <dxprg:PropertyDefinition.EditSettings>
+                <dxe:ComboBoxEditSettings 
+                    DataContext="{Binding SelectedObject, RelativeSource={RelativeSource AncestorType=dxprg:PropertyGridControl}}"
+                    ItemsSource="{Binding Service.LogicalAxisInAlignerCollection, Mode=OneWay}" 
+                    IsTextEditable="False"/>
+            </dxprg:PropertyDefinition.EditSettings>
+        </dxprg:PropertyDefinition>
+    </DataTemplate>
+
+    <DataTemplate x:Key="PositionPresetProfile">
+        <dxprg:PropertyDefinition Path="{Binding Name}" IsReadOnly="False" >
+            <dxprg:PropertyDefinition.EditSettings>
+                <dxe:ComboBoxEditSettings 
+                    DataContext="{Binding SelectedObject, RelativeSource={RelativeSource AncestorType=dxprg:PropertyGridControl}}"
+                    ItemsSource="{Binding ProfileManager.ProfileList, Mode=OneWay}" 
+                    IsTextEditable="False"/>
+            </dxprg:PropertyDefinition.EditSettings>
+        </dxprg:PropertyDefinition>
+    </DataTemplate>
+
+    <DataTemplate x:Key="PowerMeter">
+        <dxprg:PropertyDefinition Path="{Binding Name}" IsReadOnly="False" >
+            <dxprg:PropertyDefinition.EditSettings>
+                <dxe:ComboBoxEditSettings 
+                    DataContext="{Binding SelectedObject, RelativeSource={RelativeSource AncestorType=dxprg:PropertyGridControl}}"
+                    ItemsSource="{Binding Service.InternalPowerMeter, Mode=OneWay}" 
+                    DisplayMember="Config.Caption"
+                    IsTextEditable="False"/>
+            </dxprg:PropertyDefinition.EditSettings>
+        </dxprg:PropertyDefinition>
+    </DataTemplate>
+
+    <DataTemplate x:Key="PDFrontEndRange">
+        <dxprg:PropertyDefinition Path="{Binding Name}" IsReadOnly="False" >
+            <dxprg:PropertyDefinition.EditSettings>
+                <dxe:ComboBoxEditSettings 
+                    DataContext="{Binding SelectedObject, RelativeSource={RelativeSource AncestorType=dxprg:PropertyGridControl}}"
+                    ItemsSource="{Binding Source={markupext:EnumBindingSource {x:Type equip:PDFrontEndRange}}}" 
+                    DisplayMember="Description"
+                    IsTextEditable="False"/>
+            </dxprg:PropertyDefinition.EditSettings>
+        </dxprg:PropertyDefinition>
+    </DataTemplate>
+
+    <DataTemplate x:Key="BlindSearchPresetProfile">
+        <dxprg:PropertyDefinition Path="{Binding Name}" IsReadOnly="False" >
+            <dxprg:PropertyDefinition.EditSettings>
+                <dxe:ComboBoxEditSettings 
+                    DataContext="{Binding SelectedObject, RelativeSource={RelativeSource AncestorType=dxprg:PropertyGridControl}}"
+                    ItemsSource="{Binding ProfileList, Mode=OneWay}" 
+                    IsTextEditable="False"/>
+            </dxprg:PropertyDefinition.EditSettings>
+        </dxprg:PropertyDefinition>
+    </DataTemplate>
+
+</ResourceDictionary>

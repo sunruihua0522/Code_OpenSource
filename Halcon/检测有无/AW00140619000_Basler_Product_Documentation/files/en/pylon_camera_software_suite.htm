@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>pylon Camera Software Suite</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "4";
+</script>
+</head>
+
+<body>
+
+
+
+<h1>pylon Camera Software Suite</h1>
+<p class="teaser">The pylon Camera Software Suite offers a collection of 
+ drivers and tools for operating any Basler camera. Versions of the suite 
+ are available for Windows, macOS, and Linux.</p>
+<p>As it is based on GenICam technology, the pylon Camera Software Suite 
+ allows you to work with the latest camera models and features. </p>
+<p><img src="images/screen_pylon5_logo.png" alt="Basler pylon 5" title="Basler pylon 5" /></p>
+<h2>Configuration Tools</h2>
+<p>A set of configuration tools allows you to configure the camera's interface:</p>
+<ul>
+	<li><a href="overview_of_the_pylon_viewer.htm">pylon Viewer</a> (available 
+	 for Windows, Linux, and macOS)</li>
+	<li><a href="overview_of_the_pylon_ip_configurator.htm">pylon IP Configurator</a> 
+	 (available for Windows, Linux, and macOS)</li>
+	<li><a href="overview_of_the_pylon_usb_configurator.htm">pylon USB 
+	 Configurator</a> (available for Windows only)</li>
+</ul>
+<h2><a name="SDKs_and_APIs">SDKs and APIs</a></h2>
+<p>The pylon Camera Software Suite also includes three software development 
+ kits (SDKs):</p>
+<ul>
+	<li>pylon SDK for <strong>C++</strong> (Windows, Linux, and macOS)</li>
+	<li>pylon SDK for <strong>C</strong> (Windows and Linux)</li>
+	<li>pylon SDK for <strong>.NET</strong> languages, e.g., C# and VB.NET 
+	 (Windows only) </li>
+</ul>
+<p>Each SDK includes an application programming interface (API), a set 
+ of sample programs, and documentation:</p>
+<ul>
+	<li>You can access all of the camera’s parameters and control the camera’s 
+	 full functionality from within your application software by using 
+	 the matching pylon API (C++, C, or .NET).</li>
+	<li>Sample programs illustrate how to use the pylon API to parameterize 
+	 and operate the camera.</li>
+	<li>A <em>Programmer's Guide and Reference Documentation</em> is available 
+	 for each environment (C++, C, and .NET). The documentation gives an 
+	 introduction to the pylon API and provides information about all methods 
+	 and objects of the API.</li>
+</ul>
+<h2><a name="Drivers">Drivers</a></h2>
+<ul>
+	<li>The <strong>pylon USB3 Vision Driver</strong> is fully compliant 
+	 with the <a href="https://www.baslerweb.com/en/vision-campus/interfaces-and-standards/usb3/">USB3 
+	 Vision</a> standard. It enables Basler USB 3.0 cameras to use the 
+	 full speed and bandwidth of USB 3.0 for image transmission, while 
+	 reducing resource load and using off-the-shelf hardware components.</li>
+	<li>The <strong>pylon GigE Vision Filter Driver</strong> is a basic 
+	 <a href="https://www.baslerweb.com/en/vision-campus/interfaces-and-standards/gigabit-ethernet/">GigE 
+	 Vision</a> network driver that is compatible with all network adapters. 
+	 The advantage of the filter driver is its extensive compatibility. 
+	 This driver is available for Windows only.</li>
+	<li>The <strong>pylon GigE Vision Performance Driver</strong> is a 
+	 hardware-specific GigE Vision network driver. The performance driver 
+	 is only compatible with network adapters that use <a href="hardware_installation_(ace_gige).htm#Recommended_GigE_Network_Adapters">compatible 
+	 chipsets</a>. The advantage of the performance driver is that it significantly 
+	 lowers the CPU load needed to service the network traffic between 
+	 the computer and the camera(s). It also has a more robust packet resend 
+	 mechanism. This driver is available for Windows only.</li>
+	<li>The <strong>socket driver</strong> is not a real driver, but uses 
+	 the Socket API of the given operating system, e.g., Windows, Linux, 
+	 or macOS, to communicate with cameras instead. The advantage of the 
+	 socket driver is that it does not need any installation and is compatible 
+	 with all network adapters. When using the socket driver, Basler recommends 
+	 adjusting the network adapter settings (e.g. optimize the use of Jumbo 
+	 Frames, Receive Descriptors, and Interrupt Moderation Rate) as described 
+	 in the <a href="network_configuration_(ace_gige).htm">Network Configuration</a> 
+	 topic.</li>
+	<li>The <strong>pylon BCON I²C Driver Adapter</strong> can be used 
+	 to develop software for embedded systems. pylon provides the driver’s 
+	 source code as well as a compiled binary file. It can be used as-is, 
+	 but you can also write your own adapter by implementing the BCON Adapter 
+	 API. </li>
+	<li>The <strong>pylon Camera Link Configuration Driver</strong> gives 
+	 you access to all camera parameters of Basler's Camera Link cameras.</li>
+</ul>
+<h2>Installation (Windows)</h2>
+<p>→ See <a href="software_installation_(windows).htm">Software Installation 
+ (Windows)</a></p>
+<h2>Documentation</h2>
+<p>You can access the Basler Product Documentation directly from the suite's 
+ various tools.</p>
+<p>In the pylon Viewer, you can get context-sensitive help. If you need 
+ more information about a parameter or want to know more about your camera 
+ model, select the desired item in the <strong>Devices</strong> or the 
+ <strong>Features</strong> pane and open the documentation by pressing 
+ <strong>F1</strong> or right-clicking and selecting <strong>Get Help</strong>.</p>
+<h2>External Links</h2>
+<ul>
+	<li><a href="https://www.baslerweb.com/en/products/software/">Basler 
+	 Software (baslerweb.com)</a></li>
+	<li><a href="https://www.baslerweb.com/en/support/downloads/software-downloads#type=pylonsoftware">Basler 
+	 pylon Software Downloads (baslerweb.com)</a></li>
+	<li><a href="https://www.baslerweb.com/en/support/downloads/document-downloads/basler-pylon-5-camera-software-suite-brochure/">Basler 
+	 pylon 5 Camera Software Suite Brochure (baslerweb.com)</a></li>
+</ul>
+<div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

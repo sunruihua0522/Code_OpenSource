@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="589238330">
+<procedure name="main">
+<interface/>
+<body>
+<c></c>
+<l>read_image (Image2, 'C:/Users/Administrator/Desktop/test/2.png')</l>
+<l>dev_close_window()</l>
+<l>dev_open_window_fit_image(Image2, 0, 0, -1, -1, WindowHandle)</l>
+<l>dev_display(Image2)</l>
+<c></c>
+<l>fft_image(Image2, ImageFFT)</l>
+<c></c>
+<l>gen_rectangle1 (ROI, 167.418, 264.481, 227.486, 270.556)</l>
+<c></c>
+<l>paint_region(ROI, ImageFFT, ImageResult, 0, 'fill')</l>
+<l>fft_image_inv(ImageResult, ImageFFTInv)</l>
+<l>scale_image_max(ImageFFTInv, ImageScaleMax)</l>
+<l>threshold (ImageScaleMax, Regions, 11, 255)</l>
+<l>opening_circle(Regions, RegionOpening, 7)</l>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Free Run Image Acquisition</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.4.0_3";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > I/O Control" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"i_o_control.htm\">I/O Control<\/a>  &gt;  Free Run Image Acquisition<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1>Free Run Image Acquisition</h1>
+<p class="teaser">When the camera is configured for free run image acquisition, 
+ it will &#160;acquire images continuously without the need for triggering 
+ by the user.</p>
+<p>If you want to acquire images at a particular point in time, see <a href="triggered_image_acquisition.htm">triggered image acquisition</a>.</p>
+<h2>How It Works</h2>
+<p>In free run mode, the camera generates all required trigger signals 
+ internally. You don't need to apply trigger signals to the camera.</p>
+<p>If the camera's <a href="acquisition_mode.htm">acquisition mode</a> 
+ is set to <strong>Single Frame</strong>, the camera generates a single 
+ Frame Start trigger signal whenever it receives an <a href="acquisition_start_and_stop.htm">Acquisition 
+ Start command</a>.</p>
+<p>If the camera's <a href="acquisition_mode.htm">acquisition mode</a> 
+ is set to <strong>Continuous</strong>, the following applies:</p>
+<ul>
+	<li>The camera begins generating Frame Start trigger signals whenever 
+	 it receives an <a href="acquisition_start_and_stop.htm">Acquisition 
+	 Start command</a>. The camera continues to generate Frame Start trigger 
+	 signals until it receives an <a href="acquisition_start_and_stop.htm">Acquisition 
+	 Stop</a> command.</li>
+	<li><p>The rate at which Frame Start trigger signals are generated 
+	 can be set using the <a href="acquisition_frame_rate.htm">Acquisition 
+	 Frame Rate</a> feature.</p></li>
+</ul>
+<h2>Enabling Free Run Image Acquisition</h2>
+<p>On all Basler cameras, free run image acquisition is enabled by default.</p>
+<p data-rhtags="1" class="rh-hide">If 
+ you have changed your camera settings and want to re-enable free run, 
+ carry out the following steps:</p>
+<ol>
+	<li data-rhtags="1" class="rh-hide">Set 
+	 the <a href="acquisition_mode.htm" data-rhtags="1" class="rh-hide"><span class="parameter-name rh-hide" data-rhtags="1">AcquisitionMode</span> 
+	 parameter</a> to <span class="parameter-name">Continuous</span>.</li>
+	<li data-rhtags="1" class="rh-hide"><a href="trigger_selector.htm" data-rhtags="1" class="rh-hide">Select</a> one of the available 
+	 trigger types, e.g., <span class="parameter-name">FrameStart</span>.</li>
+	<li data-rhtags="1" class="rh-hide">Set 
+	 the <a href="trigger_mode.htm" data-rhtags="1" class="rh-hide">trigger mode</a> of the selected 
+	 trigger to <span class="parameter-name">Off</span>.</li>
+	<li data-rhtags="1" class="rh-hide"><span>Repeat 
+	 the steps above for all available trigger types.</span></li>
+</ol>
+<div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

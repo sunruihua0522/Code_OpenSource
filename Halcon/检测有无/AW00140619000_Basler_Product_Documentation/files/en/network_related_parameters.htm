@@ -1,0 +1,418 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Network Related Parameters</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.5_9";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  Network Related Parameters<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Network Related Parameters</h1>
+<p class="teaser">Network-related parameters allow you optimize the performance 
+ of Basler <a href="basler_ace_gige.htm">ace GigE cameras</a>.</p>
+<p>This topic describes the most important network-related parameters.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot13833" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot13833', 'MTPOPUP13833');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP13833" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Payload Size</a>
+</li>
+   <li><a href="#MiniTOCBookMark3" >Packet Size</a>
+</li>
+   <li><a href="#MiniTOCBookMark4" >Inter-Packet Delay</a>
+</li>
+   <li><a href="#MiniTOCBookMark5" >Frame Transmission Delay</a>
+</li>
+   <li><a href="#MiniTOCBookMark6" >Bandwidth Assigned</a>
+</li>
+   <li><a href="#MiniTOCBookMark7" >Bandwidth Reserve</a>
+</li>
+   <li><a href="#MiniTOCBookMark8" >Bandwidth Reserve Accumulation</a>
+</li>
+   <li><a href="#MiniTOCBookMark9" >Frame Jitter Max</a>
+</li>
+   <li><a href="#MiniTOCBookMark10" >Device Max Throughput</a>
+</li>
+   <li><a href="#MiniTOCBookMark11" >Device Current Throughput</a>
+</li>
+   <li><a href="#MiniTOCBookMark12" >Heartbeat Timeout</a>
+</li>
+   <li><a href="#MiniTOCBookMark13" >Stream Channel Selector</a>
+</li>
+   <li><a href="#MiniTOCBookMark14" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a><a name="Payload_Size">Payload Size</a></h2>
+<p>The value of the <span class="parameter-name">PayloadSize</span> 
+ parameter indicates the total size in bytes of the image data plus any 
+ chunk data transmitted. Packet headers are not included.</p>
+<p>This parameter is read-only.</p>
+<h2><a name="MiniTOCBookMark3"></a><a name="Packet_Size">Packet Size</a></h2>
+<p>The <span class="parameter-name">GevSCPSPacketSize</span> 
+ parameter specifies the maximum size of a data packet transmitted via 
+ Ethernet. The value is in bytes. </p>
+<p>The parameter should always be set to the maximum size that your network 
+ hardware can handle.</p>
+<p>By default, the packet size is set to 1&#160;500 bytes. This will be 
+ sufficient for most configurations. If required, you can increase the 
+ packet size to reduce Ethernet overhead load and improve network efficiency. 
+ Basler recommends increasing the packet size to a maximum of 9&#160;014 
+ bytes.</p>
+<p>The size of the leader and the trailer always remains the same, regardless 
+ of the packet size. You should bear in mind that the last data packet 
+ is, in most cases, smaller than the others.</p>
+<div class="info">
+	<ul>
+		<li>If you increase the packet size above 1&#160;500 bytes, you 
+		 must enable the so-called Jumbo Frames support on all network 
+		 devices involved including any switches.</li>
+		<li>Whenever you increase the packet size on the camera side, you 
+		 must also adjust the packet size of your network controller card. 
+		 Otherwise, streaming may fail due to blocked packets.</li>
+	</ul>
+</div>
+<h2><a name="MiniTOCBookMark4"></a><a name="Inter-Packet_Delay">Inter-Packet Delay</a></h2>
+<p>If your network hardware can’t handle the incoming packet rate, it is 
+ useful to increase the delay between packet transmissions. This may reduce 
+ the amount of dropped packets. Note that this also slows the data transmission. 
+ As a result, the camera's frame rate may decrease.</p>
+<p>The <span class="parameter-name">GevSCPD</span> 
+ parameter sets the inter-packet delay in ticks. By default, one tick equals 
+ 8 ns. With <a href="precision_time_protocol.htm">PTP</a> enabled, one 
+ tick equals 1 ns.</p>
+<p class="info">To check the tick frequency, check the <span class="parameter-name">GevTimestampTickFrequency</span> 
+ parameter value. This value indicates the number of clock ticks per second. 
+ </p>
+<h2><a name="MiniTOCBookMark5"></a><a name="Frame_Transmission_Delay">Frame Transmission Delay</a></h2>
+<p>The <span class="parameter-name">GevSCFTD</span> 
+ parameter sets a delay in ticks between when a camera would normally begin 
+ transmitting an acquired frame and when it actually begins transmission. 
+ By default, one tick equals 8 ns. With <a href="precision_time_protocol.htm">PTP</a> 
+ enabled, one tick equals 1 ns.</p>
+<p>In most cases, this parameter should be set to zero.</p>
+<p>However, if your network hardware can't handle spikes in network traffic 
+ (e.g., if you are triggering multiple cameras simultaneously), you can 
+ use the frame transmission delay parameter to stagger the start of image 
+ data transmissions from each camera.</p>
+<h2><a name="MiniTOCBookMark6"></a><a name="Bandwidth_Assigned">Bandwidth Assigned</a></h2>
+<p>The <span class="parameter-name">GevSCBWA</span> 
+ parameter indicates the bandwidth in bytes per second that can be used 
+ by the camera to transmit image and chunk data, to handle packet resends, 
+ and to control data transmission. The assigned bandwidth can be adjusted 
+ by changing the <a href="#Inter-Packet_Delay">inter-packet delay</a> and 
+ the <a href="#Frame_Transmission_Delay">frame transmission delay</a> settings.</p>
+<p>This parameter is read-only.</p>
+<h2><a name="MiniTOCBookMark7"></a><a name="Bandwidth_Reserve">Bandwidth Reserve</a></h2>
+<p>The <span class="parameter-name">GevSCBWR</span> 
+ parameter specifies which portion of the assigned bandwidth is reserved 
+ to handle packet resends and to control data transmission.</p>
+<p>The setting is expressed as a percentage of the <a href="#Bandwidth_Assigned">assigned 
+ bandwidth</a>. </p>
+<p><strong>Example:</strong> If a bandwidth of 30 MByte/s is assigned to 
+ the camera and the <span class="parameter-name">GevSCBWR</span> 
+ parameter is set to 5&#160;%, the bandwidth reserve will be 1.5 MByte/s.</p>
+<h2><a name="MiniTOCBookMark8"></a><a name="Bandwidth_Reserve_Accumulation">Bandwidth Reserve Accumulation</a></h2>
+<p>You can use the <span class="parameter-name">GevSCBWRA</span> 
+ parameter to handle situations when the network connection becomes unstable, 
+ e.g., because of a sudden EMI burst. In these situations, a larger number 
+ of packet resends may be needed to transmit an image. The bandwidth reserve 
+ accumulation is basically an extra pool of resends that the camera can 
+ use in unusual situations.</p>
+<p>The <span class="parameter-name">GevSCBWRA</span> 
+ parameter is a multiplier used to set the maximum number of resends that 
+ can be held in the &quot;accumulator pool&quot;.</p>
+<p><strong>Example:</strong> Assume that the current <a href="#Bandwidth_Reserve">bandwidth 
+ reserve</a> setting is large enough to allow up to 5 packet resends during 
+ a frame period. Also assume that the bandwidth reserve accumulation (<span class="parameter-name">GevSCBWRA</span> 
+ parameter) is set to 3. With these settings, the accumulator pool can 
+ hold a maximum of 5 x 3 = 15 resends. </p>
+<h2><a name="MiniTOCBookMark9"></a><a name="Frame_Jitter_Max">Frame Jitter Max</a></h2>
+<p>If the <a href="#Bandwidth_Reserve_Accumulation">bandwidth reserve accumulation</a> 
+ is set to a high value, the camera can experience a large burst of data 
+ resends during the transmission of a frame. This burst of resends will 
+ delay the start of the transmission of the next acquired frame. The <span class="parameter-name">GevSCFJM</span> 
+ parameter indicates the maximum time in ticks (one tick = 8 ns) that the 
+ next frame transmission could be delayed due to a burst of resends.</p>
+<p>This parameter is read-only.</p>
+<h2><a name="MiniTOCBookMark10"></a><a name="Device_Max_Throughput">Device Max Throughput</a></h2>
+<p>The <span class="parameter-name">GevSCDMT</span> 
+ parameter indicates the maximum amount of data (in bytes per second) that 
+ the camera is theoretically able to generate given its current settings 
+ and under ideal conditions without network restrictions. This parameter 
+ doesn't take into account whether the GigE network has the capacity to 
+ carry all of the data and does not consider any bandwidth required for 
+ resends. </p>
+<p>If you are using the <a href="acquisition_frame_rate.htm">Acquisition 
+ Frame Rate</a> parameter to control the camera’s frame rate, the camera 
+ uses that parameter value to calculate the <span class="parameter-name">GevSCDMT</span> 
+ parameter value. If you are using <a href="triggered_image_acquisition.htm#Software_Triggering">software 
+ triggering</a> or <a href="triggered_image_acquisition.htm#Hardware_Triggering">hardware 
+ triggering</a> to control the camera’s frame rate, the camera uses the 
+ maximum frame rate allowed with the current camera settings to calculate 
+ the <span class="parameter-name">GevSCDMT</span> 
+ parameter value.</p>
+<p>This parameter is read-only.</p>
+<h2><a name="MiniTOCBookMark11"></a><a name="Device_Current_Throughput">Device Current Throughput</a></h2>
+<p>The <span class="parameter-name">GevSCDCT</span> 
+ parameter indicates the actual bandwidth (in bytes per second) that the 
+ camera uses to transmit image data and chunk data given the current camera 
+ settings.</p>
+<p>If you are using the <a href="acquisition_frame_rate.htm">Acquisition 
+ Frame Rate</a> parameter to control the camera’s frame rate, the camera 
+ uses that parameter value to calculate the <span class="parameter-name">GevSCDCT</span> 
+ parameter value. If you are using <a href="triggered_image_acquisition.htm#Software_Triggering">software 
+ triggering</a> or <a href="triggered_image_acquisition.htm#Hardware_Triggering">hardware 
+ triggering</a> to control the camera’s frame rate, the camera uses the 
+ maximum frame rate allowed with the current camera settings to calculate 
+ the <span class="parameter-name">GevSCDCT</span> 
+ parameter value.</p>
+<p>This parameter is read-only.</p>
+<p class="info">The <span class="parameter-name">GevSCDCT</span> 
+ parameter indicates the bandwidth needed to transmit the actual image 
+ data and chunk data. The <span class="parameter-name">GevSCBWA</span> 
+ parameter (<a href="#Bandwidth_Assigned">bandwidth assigned</a>) indicates 
+ the bandwidth needed to transmit image data and chunk data plus the bandwidth 
+ reserved to handle packet resends and to control data transmission.</p>
+<h2><a name="MiniTOCBookMark12"></a><a name="Heartbeat_Timeout">Heartbeat Timeout</a></h2>
+<p>The GigE Vision standard requires implementation of a &quot;heartbeat&quot; 
+ routine to monitor the connection between the camera and the host computer. 
+ The <span class="parameter-name">GevHeartbeatTimeout</span> 
+ parameter sets the heartbeat timeout (in milliseconds). If a timeout occurs, 
+ the camera releases the network connection and enters a state that allows 
+ reconnection.</p>
+<p>By default, the heartbeat timeout is set to 3000 ms. Changing the value 
+ is not required for normal camera operation. However, if you are debugging 
+ an application and stop at a break point, a heartbeat timeout may occur 
+ and the connection to the camera may be lost. Therefore, you should increase 
+ the <span class="parameter-name">GevHeartbeatTimeout</span> 
+ parameter value while debugging. When debugging is complete, you should 
+ return the timeout to its normal setting.</p>
+<p>For more information, see the &quot;Advanced Topics&quot; topic, section 
+ &quot;Debugging pylon Applications Using GigE Cameras&quot;, in the <em>C++ 
+ Programmer's Guide and Reference Documentation</em> delivered with the 
+ Basler pylon Camera Software Suite. </p>
+<p class="info">The pylon API also provides a <span class="parameter-name">HeartbeatTimeout</span> 
+ parameter that sets the heartbeat timeout on transport layer side. The 
+ <span class="parameter-name">HeartbeatTimeout</span> 
+ and <span class="parameter-name">GevHeartbeatTimeout</span> 
+ parameters are automatically synchronized. When you change one parameter, 
+ the other one adapts, and vice versa.</p>
+<h2><a name="MiniTOCBookMark13"></a><a name="Stream_Channel_Selector">Stream Channel Selector</a></h2>
+<p>The GigE Vision standard specifies a mechanism for establishing several 
+ separate stream channels between the camera and the computer. With the 
+ <span class="parameter-name">GevStreamChannelSelector</span> 
+ parameter you can specify the stream channel that will be affected when 
+ other network related parameters are changed.</p>
+<p>Currently, the cameras support only one stream channel, i.e., stream 
+ channel 0. Therefore, the <span class="parameter-name">GevStreamChannelSelector</span> 
+ parameter is preset to <span class="parameter-name">StreamChannel0</span> 
+ and can't be changed.</p>
+<h2 class="sample-code"><a name="MiniTOCBookMark14"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre><code class="cpp">// Payload Size
+int64_t payloadSize = camera.PayloadSize.GetValue();
+// Packet Size
+camera.GevSCPSPacketSize.SetValue(1500);
+// Inter-Packet Delay
+camera.GevSCPD.SetValue(1000);
+// Frame transmission delay
+camera.GevSCFTD.SetValue(1000);
+// Bandwidth Assigned
+int64_t bandwidthAssigned = camera.GevSCBWA.GetValue();
+// Bandwidth Reserve
+camera.GevSCBWR.SetValue(10);
+// Bandwidth Reserve Accumulation
+camera.GevSCBWRA.SetValue(10);
+// Frame Jitter Max
+int64_t jitterMax = camera.GevSCFJM.GetValue();
+// Device Max Throughput
+int64_t maxThroughput = camera.GevSCDMT.GetValue();
+// Device Current Throughput
+int64_t currentThroughput = camera.GevSCDCT.GetValue();
+// Heartbeat Timeout
+camera.GevHeartbeatTimeout.SetValue(5000);</code></pre></div><div class="tab-2 tab-content"><pre><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Payload Size
+int64_t payloadSize = CIntegerPtr(nodemap.GetNode("PayloadSize"))-&gt;GetValue();
+// Packet Size
+CIntegerPtr(nodemap.GetNode("GevSCPSPacketSize"))-&gt;SetValue(1500);
+// Inter-Packet Delay
+CIntegerPtr(nodemap.GetNode("GevSCPD"))-&gt;SetValue(1000);
+// Frame transmission delay
+CIntegerPtr(nodemap.GetNode("GevSCFTD"))-&gt;SetValue(1000);
+// Bandwidth Assigned
+int64_t bandwidthAssigned = CIntegerPtr(nodemap.GetNode("GevSCBWA"))-&gt;GetValue();
+// Bandwidth Reserve
+CIntegerPtr(nodemap.GetNode("GevSCBWR"))-&gt;SetValue(10);
+// Bandwidth Reserve Accumulation
+CIntegerPtr(nodemap.GetNode("GevSCBWRA"))-&gt;SetValue(10);
+// Frame Jitter Max
+int64_t jitterMax = CIntegerPtr(nodemap.GetNode("GevSCFJM"))-&gt;GetValue();
+// Device Max Throughput
+int64_t maxThroughput = CIntegerPtr(nodemap.GetNode("GevSCDMT"))-&gt;GetValue();
+// Device Current Throughput
+int64_t currentThroughput = CIntegerPtr(nodemap.GetNode("GevSCDCT"))-&gt;GetValue();
+// Heartbeat Timeout
+CIntegerPtr(nodemap.GetNode("GevHeartbeatTimeout"))-&gt;SetValue(5000);</code></pre></div><div class="tab-3 tab-content"><pre><code class="csharp" generated="true">// Payload Size
+Int64 payloadSize = camera.Parameters[PLCamera.PayloadSize].GetValue();
+// Packet Size
+camera.Parameters[PLCamera.GevSCPSPacketSize].SetValue(1500);
+// Inter-Packet Delay
+camera.Parameters[PLCamera.GevSCPD].SetValue(1000);
+// Frame transmission delay
+camera.Parameters[PLCamera.GevSCFTD].SetValue(1000);
+// Bandwidth Assigned
+Int64 bandwidthAssigned = camera.Parameters[PLCamera.GevSCBWA].GetValue();
+// Bandwidth Reserve
+camera.Parameters[PLCamera.GevSCBWR].SetValue(10);
+// Bandwidth Reserve Accumulation
+camera.Parameters[PLCamera.GevSCBWRA].SetValue(10);
+// Frame Jitter Max
+Int64 jitterMax = camera.Parameters[PLCamera.GevSCFJM].GetValue();
+// Device Max Throughput
+Int64 maxThroughput = camera.Parameters[PLCamera.GevSCDMT].GetValue();
+// Device Current Throughput
+Int64 currentThroughput = camera.Parameters[PLCamera.GevSCDCT].GetValue();
+// Heartbeat Timeout
+camera.Parameters[PLCamera.GevHeartbeatTimeout].SetValue(5000);</code></pre></div><div class="tab-4 tab-content"><pre><code class="csharp" generated="true">// Payload Size
+Int64 payloadSize = Pylon.DeviceGetIntegerFeature(hdev, "PayloadSize");
+// Packet Size
+Pylon.DeviceSetIntegerFeature(hdev, "GevSCPSPacketSize", 1500);
+// Inter-Packet Delay
+Pylon.DeviceSetIntegerFeature(hdev, "GevSCPD", 1000);
+// Frame transmission delay
+Pylon.DeviceSetIntegerFeature(hdev, "GevSCFTD", 1000);
+// Bandwidth Assigned
+Int64 bandwidthAssigned = Pylon.DeviceGetIntegerFeature(hdev, "GevSCBWA");
+// Bandwidth Reserve
+Pylon.DeviceSetIntegerFeature(hdev, "GevSCBWR", 10);
+// Bandwidth Reserve Accumulation
+Pylon.DeviceSetIntegerFeature(hdev, "GevSCBWRA", 10);
+// Frame Jitter Max
+Int64 jitterMax = Pylon.DeviceGetIntegerFeature(hdev, "GevSCFJM");
+// Device Max Throughput
+Int64 maxThroughput = Pylon.DeviceGetIntegerFeature(hdev, "GevSCDMT");
+// Device Current Throughput
+Int64 currentThroughput = Pylon.DeviceGetIntegerFeature(hdev, "GevSCDCT");
+// Heartbeat Timeout
+Pylon.DeviceSetIntegerFeature(hdev, "GevHeartbeatTimeout", 5000);</code></pre></div><div class="tab-5 tab-content"><pre><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+int64_t payloadSize = 0;
+int64_t bandwidthAssigned = 0;
+int64_t jitterMax = 0;
+int64_t maxThroughput = 0;
+int64_t currentThroughput = 0;
+/* Payload Size */
+errRes = PylonDeviceGetIntegerFeature(hdev, "PayloadSize", &amp;payloadSize);
+CHECK(errRes);
+/* Packet Size */
+errRes = PylonDeviceSetIntegerFeature(hdev, "GevSCPSPacketSize", 1500);
+CHECK(errRes);
+/* Inter-Packet Delay */
+errRes = PylonDeviceSetIntegerFeature(hdev, "GevSCPD", 1000);
+CHECK(errRes);
+/* Frame transmission delay */
+errRes = PylonDeviceSetIntegerFeature(hdev, "GevSCFTD", 1000);
+CHECK(errRes);
+/* Bandwidth Assigned */
+errRes = PylonDeviceGetIntegerFeature(hdev, "GevSCBWA", &amp;bandwidthAssigned);
+CHECK(errRes);
+/* Bandwidth Reserve */
+errRes = PylonDeviceSetIntegerFeature(hdev, "GevSCBWR", 10);
+CHECK(errRes);
+/* Bandwidth Reserve Accumulation */
+errRes = PylonDeviceSetIntegerFeature(hdev, "GevSCBWRA", 10);
+CHECK(errRes);
+/* Frame Jitter Max */
+errRes = PylonDeviceGetIntegerFeature(hdev, "GevSCFJM", &amp;jitterMax);
+CHECK(errRes);
+/* Device Max Throughput */
+errRes = PylonDeviceGetIntegerFeature(hdev, "GevSCDMT", &amp;maxThroughput);
+CHECK(errRes);
+/* Device Current Throughput */
+errRes = PylonDeviceGetIntegerFeature(hdev, "GevSCDCT", &amp;currentThroughput);
+CHECK(errRes);
+/* Heartbeat Timeout */
+errRes = PylonDeviceSetIntegerFeature(hdev, "GevHeartbeatTimeout", 5000);
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer to easily set the parameters</a>.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

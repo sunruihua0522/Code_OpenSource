@@ -1,0 +1,790 @@
+﻿/*** Basler Product Documentation CSS ***/
+
+/* From https://google-webfonts-helper.herokuapp.com/ */
+/* roboto-regular - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'),
+       url('../fonts/roboto-v18-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/roboto-v18-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-italic - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Roboto Italic'), local('Roboto-Italic'),
+       url('../fonts/roboto-v18-latin-italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/roboto-v18-latin-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-500 - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Roboto Medium'), local('Roboto-Medium'),
+       url('../fonts/roboto-v18-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/roboto-v18-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-500italic - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 500;
+  src: local('Roboto Medium Italic'), local('Roboto-MediumItalic'),
+       url('../fonts/roboto-v18-latin-500italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/roboto-v18-latin-500italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-700 - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Bold'), local('Roboto-Bold'),
+       url('../fonts/roboto-v18-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/roboto-v18-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-700italic - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Roboto Bold Italic'), local('Roboto-BoldItalic'),
+       url('../fonts/roboto-v18-latin-700italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/roboto-v18-latin-700italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-mono-regular - latin */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Mono'), local('RobotoMono-Regular'),
+       url('../fonts/roboto-mono-v5-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/roboto-mono-v5-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-mono-500 - latin */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Roboto Mono Medium'), local('RobotoMono-Medium'),
+       url('../fonts/roboto-mono-v5-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/roboto-mono-v5-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/** General Styles **/
+
+html {
+    /* Prevent adjustments of font size after orientation changes in
+     IE on Windows Phone and in iOS */
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+    
+@media print {
+    body { 
+         /* Always print background images in Chrome */
+        -webkit-print-color-adjust: exact; 
+    }
+}
+
+body {
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 14px;  
+    margin: 20px 10px 10px 40px;
+    max-width: 550px;
+    color: #303030;
+}
+
+/** Heading Styles **/
+
+h1 {
+    margin-top: 20px;  
+}
+
+h1,
+h2,
+h3,
+h4,
+p.panel-heading,
+p.subheading {
+    font-family: Roboto, Arial, sans-serif;
+    font-weight: normal;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #002f5e;
+}
+
+h2 {
+    border-bottom: 1px solid #ededed;
+}
+
+h2.using, h2.specifics, h2.sample-code {
+    border: 1px solid #ccc;
+    padding: 9px 0 6px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    margin: 30px 0 20px 0;
+}
+
+h2.using {    
+    color: #fff;
+    background-color: #f99c32;
+    background-image: url('images/basler_using_feature.svg');
+}
+
+h2.specifics {
+    color: #fff;
+    background-color: #13477d;
+    background-image: url('images/basler_specifics.svg');
+}
+
+h2.sample-code {
+    color: #fff;
+    background-color: #008fd3;
+    background-image: url('images/basler_sample_code.svg');
+}
+
+h2.using > a,
+h2.specifics > a,
+h2.sample-code > a {
+    color: #fff;
+}
+
+
+/** Paragraph Styles **/
+
+p {
+    line-height: 140%;
+    margin: 8px 0;
+}
+
+p.teaser {
+    font-weight: bold;
+}
+
+p.indented-1 {
+    margin-left: 2.6em;
+}
+
+p.indented-2 {
+    margin-left: 4.7em;
+}
+
+p.nowrap {
+    white-space: nowrap;
+}
+
+p.text-left-align {
+    text-align: left;
+}
+
+p.text-center {
+    text-align: center;
+}
+
+p.text-right-align {
+    text-align: right;
+}
+
+p.table-footnote {
+    font-size: 90%;
+}
+
+p.subheading {
+    margin: 20px 0 10px 0;
+}
+ 
+/** Image Styles **/
+
+img.thumbnail {
+    width: 300px !important;
+    height: auto;
+}
+
+img.rh-expand-icon { 
+    width: inherit !important;
+    height: auto !important;
+    margin-left: -60% !important;
+    margin-top: 5% !important;
+    vertical-align: top;
+}
+ 
+/** List Styles **/
+
+ol,
+ul {
+    line-height: 140%;
+    margin-top: 5px; 
+    margin-bottom: 5px;
+}
+
+li {
+    padding-left: 0.4em;
+    margin: 4px 0;
+}  
+
+table ul,
+table ol { 
+    padding-left: 0;
+    margin-left: 1em;
+}
+
+ol ol, ul ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+ol ol li {
+    list-style-type: lower-alpha;
+}
+
+ul ul li {
+    list-style-type: disc;
+    margin-left: -0.7em;
+}
+
+/** Inline Character Styles **/
+
+span.code,
+span.command-line {
+    font-family: "Roboto Mono", Consolas, Courier, monospace;
+}
+
+span.parameter-name {
+    font-weight: bold;        
+}
+
+table span.parameter-name {
+    word-break: break-all;
+}
+
+span.gui-text {
+    font-weight: bold;    
+}
+
+span.camera-topic-link {
+    color: green;
+    text-decoration: underline;
+}
+
+span.tbd {
+    color: red;
+}
+
+/** Table Styles **/
+
+table {
+    width: 100%;
+    max-width: 550px;
+    word-wrap: break-word;
+    border: 1px solid #ccc;
+    text-align: left;
+    margin: 20px 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table th {
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    font-weight: bold;
+    background: #f0f0f0;
+}
+
+table tr {
+    background: #fcfcfc;
+}
+
+table td {
+    border-top: 1px solid #ccc;
+    border-bottom:1px solid #e0e0e0;
+    border-left: 1px solid #e0e0e0;
+    empty-cells:hide;
+    padding: 7px;
+}
+
+table td p {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+table tr:last-child td {
+    border-bottom: 0;
+}
+
+table.borderless-table {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: 0;
+    text-align: left;
+}
+
+table.borderless-table th {
+    border: 0;
+    font-weight: bold;
+    background: none;
+}
+
+table.borderless-table tr {
+    background: none;
+}
+
+table.borderless-table td {
+    vertical-align: top;
+    border: 0;
+    padding: 0;
+}
+
+table td.safety-symbol {
+    width: 15%;  
+    text-align: center;
+    vertical-align: middle;
+}
+
+table.small-text {
+    font-size: 80%;
+}
+
+/** Image Styles **/
+
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    border: 0;
+}
+
+/** Collapsible Panel Styles **/
+
+/* Generic Panel */
+
+.panel {
+    border: 1px solid #ccc;
+    margin: 30px 0 15px 0;
+    background: #f0f0f0; 
+}
+
+.panel .panel-head {
+    cursor: pointer;
+}
+
+.panel .panel-content { 
+    overflow: hidden;
+    padding: 12px;
+}
+
+.panel.collapsed .panel-content { 
+    display: none;
+}
+
+.panel .panel-heading {
+    margin: 0;
+    padding: 10px;    
+    display: block;
+    background: transparent url('images/basler_arrow_up.svg') no-repeat right center;
+}
+
+.panel.collapsed .panel-heading {
+    background: transparent url('images/basler_arrow_down.svg') no-repeat right center;
+}
+
+.panel h1:first-child,
+.panel h2:first-child,
+.panel h3:first-child,
+.panel h4:first-child,
+.panel .subheading:first-child  {
+    margin-top: 0;
+}
+
+/* Safety Panels */
+
+.panel.notice,
+.panel.caution,
+.panel.warning,
+.panel.danger {
+    margin: 10px 0;
+}
+
+.panel.notice .panel-content,
+.panel.caution .panel-content,
+.panel.warning .panel-content,
+.panel.danger .panel-content {
+    padding: 0 15px 10px 15px;
+}
+
+.panel.notice .safety-panel-heading,
+.panel.caution .safety-panel-heading,
+.panel.warning .safety-panel-heading,
+.panel.danger .safety-panel-heading {
+    font-size: 110%;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 5px 15px;    
+    margin: 0;
+}
+
+.panel.notice .safety-panel-heading {
+    color: white;
+    background-color: #006bab !important;
+    font-style: italic;
+}
+
+.panel.caution .safety-panel-heading {
+    color: black;
+    background: #ffdf00 !important;
+}
+
+.panel.warning .safety-panel-heading {
+    color: black;
+    background: #f29200 !important;
+}
+
+.panel.danger .safety-panel-heading {
+    color: white;
+    background-color: #e20025 !important;
+}
+
+.panel.caution .safety-panel-heading::before,
+.panel.warning .safety-panel-heading::before,
+.panel.danger .safety-panel-heading::before {
+    content: url('images/warning.png');
+    vertical-align: middle; 
+}
+
+.panel .panel-teaser {
+    font-weight: 500; 
+    padding: 2px 15px; 
+    background: transparent url('images/basler_arrow_up.svg') no-repeat 98% 50%;
+}
+
+.panel.collapsed .panel-teaser {
+    background: transparent url('images/basler_arrow_down.svg') no-repeat 98% 50%;
+}
+
+/** Hyperlink Styles **/
+
+a {
+    color: #2461a4;
+    text-decoration: none;
+}
+
+a.external {
+    background: transparent url('images/basler_external_link.png') no-repeat;
+    background-position: left center;
+    padding-left: 14px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Clear styles for RH bookmark targets (<a name="Bookmark_Name">) */
+a[name] {
+    color: inherit;
+}
+
+a[name]:hover {
+    text-decoration: none;
+}
+
+/** Info Box Styles **/
+
+.info {
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    padding: 15px 20px 15px 65px;
+    background-repeat: no-repeat;
+    background-position: 20px center;
+    background-color: #f9fdff; 
+    background-image: url('images/basler_information.svg');
+}
+
+.info p {
+    margin: 0 0 5px 0;
+}
+
+.info p:last-child {
+    margin: 0;
+}
+
+/** Other Styles **/
+
+/* Internal comment, only for display in RH */
+
+span.comment {
+    color: black;
+    background: yellow;
+}
+
+/* Mini TOC */
+div.mini-toc {
+    display: table;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    padding: 1px 15px 10px 0;    
+    background-color: #f0f0f0;
+}
+
+div.mini-toc>p:first-child {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+div.mini-toc ul {
+    margin-left: 10px;
+}
+
+/* Hide the "Hide/Show" link in mini TOC */
+span.MTText {
+    display: none;
+}
+
+hr {
+	height: 1px;
+	border: 0;
+	background-color: #e6e6e6;
+	margin-top: 20px;
+}
+
+/* Mobile-only definitions */
+@media screen and (max-width: 550px) {    
+    body {
+        margin: 20px 10px;
+    }
+    
+    table {
+        /* table-layout: fixed; */
+        font-size: 70%;
+    }
+    
+    td {
+        max-width:200px;
+    }
+}
+
+/* Google Analytics message styles */
+#gaDisabled {
+    padding: 3px;
+    color: #fff;
+    background-color: #f99c32;
+    display: none;
+}
+
+/* Code snippet container styles */
+
+div.tab-container{
+    width: 600px;
+}
+
+ul.tabs{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+ul.tabs li{
+    background: #ededed;
+    color: #222;
+    display: inline-block;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin: 0;
+    position: relative;
+    top: 1px;
+    border-top: 1px solid #d4d4d1;
+    border-right: 1px solid #d4d4d1;
+    border-left: 1px solid #d4d4d1;
+}
+
+ul.tabs li.current{
+    background: #fff;
+    color: #222;
+    border-bottom: 1px solid #fff;
+    z-index: 5;
+}
+
+.tab-content{
+    display: none;
+    background: #fff;
+    padding: 3px;
+    border: 1px solid #d4d4d1; 
+}
+
+.tab-content.current{
+    display: inherit;
+}
+
+/** highlight.js CSS (Visual Studio style) **/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: white;
+  color: black;
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-variable {
+  color: #008000;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-built_in,
+.hljs-name,
+.hljs-tag {
+  color: #00f;
+}
+
+.hljs-string,
+.hljs-title,
+.hljs-section,
+.hljs-attribute,
+.hljs-literal,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-addition {
+  color: #a31515;
+}
+
+.hljs-deletion,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-meta {
+  color: #2b91af;
+}
+
+.hljs-doctag {
+  color: #808080;
+}
+
+.hljs-attr {
+  color: #f00;
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link {
+  color: #00b0e8;
+}
+
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}/* Additional CSS directives that can't be placed in RoboHelp's main.css because of 
+improper automated CSS code cleaning, incorrect rendering of headings in Design View, etc. */
+
+h1 {
+    font-size: 220%; 
+}
+
+h2 {
+    font-size: 160%;
+}
+
+h3 {
+    font-size: 150%;
+}
+
+h4, p.panel-heading {
+    font-size: 120%;
+}   
+
+h5, p.subheading {
+    font-size: 110%;
+}
+
+b,strong {
+    font-weight: 700;
+}
+
+span.parameter-name {
+    background-color: #f5f5f5;
+}
+
+span.parameter-name, 
+span.gui-text, 
+p.teaser, 
+p.heading-before-instructions,
+div.mini-toc>p:first-child,
+table th {
+    font-weight: 500 !important;
+}
+
+pre code {
+    font-family: "Roboto Mono", Consolas, Courier, monospace;
+    font-size: 12px; /* Leave this as px. Em or % causes odd behaviour in Firefox. */
+    line-height: 20px;  
+}
+
+pre {
+    margin: 5px;
+    padding: 6px;
+    border: 1px solid #ccc;
+}
+
+ol,
+ul {
+    padding-left: 2.2em;
+}
+
+.info ol, 
+.info ul,
+.mini-toc ul {
+    padding-left: 1em;
+}
+
+a.showall {
+    font-size: 0.9em;
+    border: 1px solid #ccc;
+    padding: 6px;
+    background: #fcfcfc;
+    text-decoration: none;
+    color: #303030;
+    border-radius: 0.4em;
+}
+
+a.showall:hover {
+    background: #f0f0f0;
+}
+
+span.camera-topic-link {
+    color: inherit !important;
+    text-decoration: inherit !important;
+}
+
+
+/* Prevent sub and sup elements from affecting the line height in all browsers 
+   (taken from normalize.css) */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}

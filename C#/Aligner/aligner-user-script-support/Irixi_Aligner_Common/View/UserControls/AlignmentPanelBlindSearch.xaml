@@ -1,0 +1,159 @@
+﻿<UserControl x:Class="Irixi_Aligner_Common.UserControls.AlignmentPanelBlindSearch"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+             xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1000">
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="340" />
+            <RowDefinition />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <dx:GroupFrame Header="Alignment Settings">
+            <Grid>
+                <Grid.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                        <Setter Property="Margin" Value="0,0,0,0" />
+                    </Style>
+                    <Style TargetType="ComboBox">
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                        <Setter Property="HorizontalContentAlignment" Value="Left" />
+                        <Setter Property="Margin" Value="0,0,10,0" />
+                    </Style>
+                    <Style TargetType="dxe:TextEdit">
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                        <Setter Property="HorizontalContentAlignment" Value="Left" />
+                        <Setter Property="Margin" Value="0,0,10,0" />
+                    </Style>
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Motion Components" />
+                <ComboBox x:Name="cbxBSMotionController" ItemsSource="{Binding LogicalMotionComponentCollection}" SelectedItem="{Binding SpiralScanArgs.MotionComponent}" Grid.Row="1" />
+                <TextBlock Text="Feedback Instr." Grid.Column="1" />
+                <ComboBox x:Name="cbxBSInstrument" ItemsSource="{Binding ActiveInstrumentCollection}" SelectedItem="{Binding SpiralScanArgs.Instrument}" Grid.Row="1" Grid.Column="1" />
+                <TextBlock Text="Target" Grid.Row="2" />
+                <dxe:TextEdit x:Name="txtBSTarget" Grid.Row="3" Text="{Binding SpiralScanArgs.Target}" MaskSaveLiteral="False" MaskShowPlaceHolders="False" MaskType="Numeric" Mask="######.######" />
+                <TextBlock Text="Max Cycles" Grid.Row="2" Grid.Column="1" />
+                <dxe:TextEdit x:Name="txtBSMaxCycles" Grid.Row="3" Text="{Binding SpiralScanArgs.MaxCycles}" Grid.Column="1" MaskShowPlaceHolders="False" MaskSaveLiteral="False" MaskType="Numeric" Mask="##" />
+                <TextBlock Text="Gap" Grid.Row="4" />
+                <dxe:TextEdit x:Name="txtGap" Text="{Binding SpiralScanArgs.Gap}" Grid.Row="5" />
+                <TextBlock Text="Scan Range" Grid.Row="4" Grid.Column="1" />
+                <dxe:TextEdit x:Name="txtRange" Text="{Binding SpiralScanArgs.Range}" Grid.Row="5" Grid.Column="1" />
+                <TextBlock Text="Speed" Grid.Row="6" />
+                <dxe:TextEdit x:Name="txtSpeed" Text="{Binding SpiralScanArgs.MoveSpeed}" Grid.Row="7" />
+                <TextBlock Text="Axis 0 (Logical X)" Grid.Row="8" />
+                <ComboBox x:Name="cbxAxis0" Grid.Row="9" ItemsSource="{Binding SelectedItem, ElementName=cbxBSMotionController, Converter={StaticResource CvtLogicalAxisCollection}}" DisplayMemberPath="AxisName" SelectedItem="{Binding SpiralScanArgs.Axis0}" />
+                <TextBlock Text="Axis 1 (Logical Y)" Grid.Row="8" Grid.Column="1" />
+                <ComboBox x:Name="cbxAxis1" Grid.Row="9" Grid.Column="1" ItemsSource="{Binding SelectedItem, ElementName=cbxBSMotionController, Converter={StaticResource CvtLogicalAxisCollection}}" DisplayMemberPath="AxisName" SelectedItem="{Binding SpiralScanArgs.Axis1}" />
+            </Grid>
+        </dx:GroupFrame>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button Content="Start" Margin="8" Command="{Binding CommandDoBlindSearch, Mode=OneWay}" CommandParameter="{Binding SpiralScanArgs}" />
+            <Button Content="Stop" Grid.Column="1" Margin="8" Command="{Binding CommandStop}" />
+        </Grid>
+        <dxc:Chart3DControl x:Name="chartBlindSearch" Grid.Column="1" Grid.RowSpan="4" Margin="5" AggregateFunction="None" AspectRatio="{Binding SpiralScanArgs.AspectRatio}">
+            <dxc:Chart3DControl.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Name="cmResetView" Header="Reset View" Click="cmResetView_Click"/>
+                </ContextMenu>
+            </dxc:Chart3DControl.ContextMenu>
+            <dxc:Chart3DControl.ContentTransform>
+                <Transform3DGroup>
+                    <Transform3DCollection>
+                        <RotateTransform3D>
+                            <RotateTransform3D.Rotation>
+                                <AxisAngleRotation3D Angle="-40" Axis="0 1 0"/>
+                            </RotateTransform3D.Rotation>
+                        </RotateTransform3D>
+                        <RotateTransform3D>
+                            <RotateTransform3D.Rotation>
+                                <AxisAngleRotation3D Angle="20" Axis="1 0 0"/>
+                            </RotateTransform3D.Rotation>
+                        </RotateTransform3D>
+                    </Transform3DCollection>
+                </Transform3DGroup>
+            </dxc:Chart3DControl.ContentTransform>
+            <dxc:Chart3DControl.YAxis>
+                <dxc:YAxis3D>
+                    <dxc:YAxis3D.Title>
+                        <dxc:AxisTitle Content="Logical Y" />
+                    </dxc:YAxis3D.Title>
+                </dxc:YAxis3D>
+            </dxc:Chart3DControl.YAxis>
+            <dxc:Chart3DControl.XAxis>
+                <dxc:XAxis3D>
+                    <dxc:XAxis3D.Title>
+                        <dxc:AxisTitle Content="Logical X" />
+                    </dxc:XAxis3D.Title>
+                </dxc:XAxis3D>
+            </dxc:Chart3DControl.XAxis>
+            <dxc:Chart3DControl.Palette>
+                <dxc:SlipstreamPalette />
+            </dxc:Chart3DControl.Palette>
+            <dxc:Chart3DControl.Legends>
+                <dxc:Legend BorderThickness="0" HorizontalPosition="Right" VerticalPosition="Top" Background="{x:Null}" />
+            </dxc:Chart3DControl.Legends>
+            <dxc:Series3DStorage>
+                <dxc:Series3D DisplayName="Spiral Scan">
+                    <dxc:SeriesPoint3DDataSourceAdapter DataSource="{Binding SpiralScanArgs.ScanCurve}" XArgumentDataMember="X" YArgumentDataMember="Y" ValueDataMember="Z" />
+                    <dxc:Series3D.View>
+                        <dxc:SurfaceSeriesView VisualizationMode="Grid">
+                            <dxc:SurfaceSeriesView.FillStyle>
+                                <dxc:GradientFillStyle LegendTextPattern="{}{V:F6}">
+                                    <dxc:GradientFillStyle.ColorStops>
+                                        <dxc:ColorStop Color="#B42B01" Offset="100%" />
+                                        <dxc:ColorStop Color="#C74919" Offset="84%" />
+                                        <dxc:ColorStop Color="#E17B31" Offset="70%" />
+                                        <dxc:ColorStop Color="#FBA756" Offset="56%" />
+                                        <dxc:ColorStop Color="#FDCC8A" Offset="42%" />
+                                        <dxc:ColorStop Color="#B4E095" Offset="28%" />
+                                        <dxc:ColorStop Color="#7DCDA8" Offset="14%" />
+                                        <dxc:ColorStop Color="#69A8CC" Offset="0%" />
+                                    </dxc:GradientFillStyle.ColorStops>
+                                </dxc:GradientFillStyle>
+                            </dxc:SurfaceSeriesView.FillStyle>
+                        </dxc:SurfaceSeriesView>
+                    </dxc:Series3D.View>
+                </dxc:Series3D>
+            </dxc:Series3DStorage>
+            <dxc:Chart3DControl.ZAxis>
+                <dxc:ZAxis3D>
+                    <dxc:ZAxis3D.Title>
+                        <dxc:AxisTitle Content="Optical Power" />
+                    </dxc:ZAxis3D.Title>
+                </dxc:ZAxis3D>
+            </dxc:Chart3DControl.ZAxis>
+        </dxc:Chart3DControl>
+    </Grid>
+</UserControl>

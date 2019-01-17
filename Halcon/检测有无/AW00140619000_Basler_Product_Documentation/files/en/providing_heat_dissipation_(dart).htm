@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Providing Heat Dissipation (dart)</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.5_12";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  Providing Heat Dissipation (dart)<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Providing Heat Dissipation (dart)</h1>
+<p class="teaser">You must provide sufficient heat dissipation to keep 
+ the temperature of your Basler dart camera module within the specified 
+ range.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot28487" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot28487', 'MTPOPUP28487');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP28487" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >General Guidelines</a>
+</li>
+   <li><a href="#MiniTOCBookMark3" >Temperature 
+ Measurement Points</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark4" >dart USB 3.0</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark5" >Bare Board Models</a>
+</li>
+     <li><a href="#MiniTOCBookMark6" >S-Mount and CS-Mount Models</a>
+</li>
+    </ul></li>
+    <li><a href="#MiniTOCBookMark7" >dart BCON for LVDS</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark8" >Bare Board Models</a>
+</li>
+     <li><a href="#MiniTOCBookMark9" >S-Mount and CS-Mount Models</a>
+</li>
+    </ul></li>
+    <li><a href="#MiniTOCBookMark10" >dart BCON for MIPI</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark11" >Bare Board Models</a>
+</li>
+     <li><a href="#MiniTOCBookMark12" >S-Mount Models</a>
+</li>
+    </ul></li>
+   </ul></li>
+  </ul>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>General Guidelines</h2>
+<p>Since each installation is unique, Basler only provides the following 
+ general guidelines:</p>
+<ul>
+	<li>Mount a lens on the camera module.</li>
+	<li>Monitor the temperature of the camera module using the appropriate 
+	 <a href="#Temperature_Measurement_Points">temperature measurement 
+	 point</a>.</li>
+	<li>On all dart camera modules, there are four holes at the corners 
+	 of the board, designed for installing the module. You can also use 
+	 the holes to dissipate heat.</li>
+	<li>Depending on the dart variant, different components are used to 
+	 dissipate heat: 
+	<ul>
+		<li><strong>Bare board</strong> variants: The metallic borders 
+		 of the holes are designed to dissipate heat to connecting metallic 
+		 components.</li>
+		<li><strong>S-mount</strong> and <strong>CS-mount</strong> variants: 
+		 Rivets are placed in the four holes. These rivets can be used 
+		 to dissipate heat towards connected metallic components. How to 
+		 use the holes or rivets depends on your system design. In all 
+		 cases, make sure that the holes or rivets have good contact with 
+		 metallic components in your system. This way, the heat can dissipate 
+		 towards the metallic components.<br />
+		<img src="images/photo_dart_rivet.png" alt="dart Rivets" title="dart Rivets" border="0" /></li>
+	</ul></li>
+</ul>
+<p>Examples of how you can provide heat dissipation:</p>
+<ul>
+	<li>The use of a fan to provide air flow over the camera module is 
+	 an efficient method of heat dissipation.</li>
+	<li>The camera front is connected to a mounting plate. Heat dissipates 
+	 via the rivets, the camera front and the mounting plate.<br />
+	<img src="images/photo_dart_heat_sink_s-mount.jpg" alt="dart Heat Sink Example 1" title="dart Heat Sink Example 1" border="0" /></li>
+	<li>The camera rear is connected to a mounting plate. Heat dissipates 
+	 via the rivets and the mounting plate.<br />
+	<img src="images/photo_dart_heat_sink_cs-mount.png" alt="dart Heat Sink Example 2" title="dart Heat Sink Example 2" border="0" /></li>
+</ul>
+<h2><a name="MiniTOCBookMark3"></a><a name="Temperature_Measurement_Points" id="Temperature_Measurement_Points">Temperature 
+ Measurement Points</a></h2>
+<h3><a name="MiniTOCBookMark4"></a>dart USB 3.0</h3>
+<h4><a name="MiniTOCBookMark5"></a>Bare Board Models</h4>
+<p><img src="images/drawing_dart_usb_bare_board_temperature_measurement.png" alt="Temperature Measurement Point dart USB 3.0 Bare Board Models" title="Temperature Measurement Point dart USB 3.0 Bare Board Models" border="0" /></p>
+<h4><a name="MiniTOCBookMark6"></a>S-Mount and CS-Mount Models</h4>
+<p><img src="images/drawing_dart_usb_s_cs-mount_temperature_measurement.png" alt="Temperature Measurement Point dart USB 3.0 S-Mount and CS-Mount Models" title="Temperature Measurement Point dart USB 3.0 S-Mount and CS-Mount Models" border="0" /></p>
+<h3><a name="MiniTOCBookMark7"></a>dart BCON for LVDS</h3>
+<h4><a name="MiniTOCBookMark8"></a>Bare Board Models</h4>
+<p><img src="images/drawing_dart_bcon_lvds_bare_board_temperature_measurement.png" alt="Temperature Measurement Point dart BCON for LVDS Bare Board Models" title="Temperature Measurement Point dart BCON for LVDS Bare Board Models" border="0" /></p>
+<h4><a name="MiniTOCBookMark9"></a>S-Mount and CS-Mount Models</h4>
+<p><img src="images/drawing_dart_bcon_lvds_s_cs-mount_temperature_measurement.png" alt="Temperature Measurement Point dart BCON for LVDS S-Mount and CS-Mount Models" title="Temperature Measurement Point dart BCON for LVDS S-Mount and CS-Mount Models" border="0" /></p>
+<h3><a name="MiniTOCBookMark10"></a>dart BCON for MIPI</h3>
+<h4><a name="MiniTOCBookMark11"></a>Bare Board Models</h4>
+<p><img src="images/drawing_dart_bcon_mipi_bare_board_temperature_measurement.png" alt="Temperature Measurement Point dart BCON for MIPI Bare Board Models" title="Temperature Measurement Point dart BCON for MIPI Bare Board Models" border="0" /></p>
+<h4><a name="MiniTOCBookMark12"></a>S-Mount Models</h4>
+<p><img src="images/drawing_dart_bcon_mipi_s-mount_bare_board_temperature_measurement.png" alt="Temperature Measurement Point dart BCON for MIPI S-Mount Models" title="Temperature Measurement Point dart BCON for MIPI S-Mount Models" border="0" /></p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,1109 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Light Source Preset</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_44";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Light Source Preset<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Light Source Preset</h1>
+<p class="teaser">The Light Source Preset 
+ <a href="features.htm">camera feature</a> allows you to correct color 
+ shifts caused by certain light sources.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot4121" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot4121', 'MTPOPUP4121');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP4121" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Prerequisites</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Selecting a Light Source Preset</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >How It Works</a>
+</li>
+    <li><a href="#MiniTOCBookMark6" >External Links</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark7" >Specifics</a>
+</li>
+   <li><a href="#MiniTOCBookMark8" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>Prerequisites</h3>
+<p>The <a href="pixel_format.htm">pixel format</a> must be set to one of 
+ the <a href="#Specifics">supported pixel formats</a>.</p>
+<h3><a name="MiniTOCBookMark4"></a>Selecting a Light Source Preset</h3>
+<p>To select a light source preset, set the <span class="parameter-name rh-hide" data-rhtags="48">LightSourceSelector</span><span class="parameter-name rh-hide" data-rhtags="49">LightSourcePreset</span> 
+ parameter to one of the following values:</p>
+<ul>
+	<li><span class="parameter-name rh-hide" data-rhtags="48">Off</span><span class="parameter-name rh-hide" data-rhtags="49">Off</span>: 
+	 No light source preset is selected.</li>
+	<li><span class="parameter-name rh-hide" data-rhtags="48">Daylight</span><span class="parameter-name rh-hide" data-rhtags="49">Daylight5000K</span>: 
+	 The camera corrects color shifts caused by daylight lighting that 
+	 has a color temperature of about 5&#160;000 K. </li>
+	<li><span class="parameter-name rh-hide" data-rhtags="48">Daylight6500K</span><span class="parameter-name rh-hide" data-rhtags="49">Daylight6500K</span>: 
+	 The camera corrects color shifts caused by daylight lighting that 
+	 has a color temperature of about 6&#160;500 K.</li>
+	<li><span class="parameter-name rh-hide" data-rhtags="48">Tungsten</span><span class="parameter-name rh-hide" data-rhtags="49">Tungsten2800K</span>: 
+	 The camera corrects color shifts caused by tungsten lighting that 
+	 has a color temperature of about 2&#160;500 to 3&#160;000 K.</li>
+	<li><span class="parameter-name">MicroscopeLED4500K</span>: 
+	 <a href="#Specifics">If available</a>, the camera corrects color shifts 
+	 caused by microscope LED lighting that has a color temperature of 
+	 about 4&#160;500 K. </li>
+	<li><span class="parameter-name">MicroscopeLED5500K</span>: 
+	 <a href="#Specifics">If available</a>, the camera corrects color shifts 
+	 caused by microscope LED lighting that has a color temperature of 
+	 about 5&#160;500 K.</li>
+	<li><span class="parameter-name">MicroscopeLED6000K</span>: 
+	 <a href="#Specifics">If available</a>, the camera corrects color shifts 
+	 caused by microscope LED lighting that has a color temperature of 
+	 about 6&#160;000 K.</li>
+	<li><span class="parameter-name">Fluorescent4000K</span>: 
+	 <a href="#Specifics">If available</a>, the camera corrects color shifts 
+	 caused by fluorescent lighting that has a color temperature of about 
+	 4&#160;000 K.</li>
+</ul>
+<ul>
+	<li><span class="parameter-name">Custom</span>: 
+	 <a href="#Specifics">If available</a>, selecting this preset enables 
+	 the <a href="color_transformation.htm">Color Transformation</a> feature 
+	 which allows you to customize the light source settings. You should 
+	 only select this preset if you are thoroughly familiar with matrix 
+	 color transformations. The camera also adjusts the <a href="balance_white.htm">Balance 
+	 White</a> and <a href="color_adjustment.htm">Color Adjustment</a> 
+	 settings so that they have neutral values that do not change the appearance 
+	 of the colors.</li>
+</ul>
+<p>The default light source preset varies by <a href="#Specifics">camera 
+ model</a>.</p>
+<h3><a name="MiniTOCBookMark5"></a>How It Works</h3>
+<p>Depending on its specific color temperature, the light used for image 
+ acquisition can cause color shifts in the image. You can correct these 
+ color shifts by selecting the related light source preset.</p>
+<p>When you select a light source preset, the camera automatically adjusts 
+ the settings of the following color enhancement features:</p>
+<ul>
+	<li><a href="balance_white.htm">Balance White</a></li>
+	<li><a href="color_adjustment.htm">Color Adjustment</a></li>
+	<li><a href="color_transformation.htm">Color Transformation</a></li>
+</ul>
+<p>The settings will be optimized for the selected light source.</p>
+<h3 class="specifics"><a name="MiniTOCBookMark6"></a>External Links</h3>
+<ul>
+	<li><a href="https://en.wikipedia.org/wiki/Color_temperature">Color 
+	 temperature (Wikipedia)</a></li>
+</ul>
+<h2 class="specifics"><a name="MiniTOCBookMark7"></a><a name="Specifics" id="Specifics">Specifics</a></h2>
+<div>
+<table class="specifics-table">
+	<col />
+	<col />
+	<col />
+	<col />
+	<tr>
+		<th>Camera Model</th>
+		<th>Pixel Formats Supported</th>
+		<th>Default Light Source Preset</th>
+		<th>Available Light Source Presets</th>
+	</tr>
+	<tr>
+		<td data-rhtags="227" class="rh-hide">Mono cameras</td>
+		<td data-rhtags="227" class="rh-hide">Light Source Preset feature 
+		 not supported</td>
+		<td data-rhtags="227" class="rh-hide">Light Source Preset feature 
+		 not supported</td>
+		<td data-rhtags="227" class="rh-hide">Light Source Preset feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="51" class="rh-hide">acA640-90gc</td>
+		<td data-rhtags="51" class="rh-hide">All</td>
+		<td data-rhtags="51" class="rh-hide">Off</td>
+		<td data-rhtags="51" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten </li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="53" class="rh-hide">acA640-120gc</td>
+		<td data-rhtags="53" class="rh-hide">All</td>
+		<td data-rhtags="53" class="rh-hide">Off</td>
+		<td data-rhtags="53" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten </li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="56" class="rh-hide">acA640-300gc</td>
+		<td data-rhtags="56" class="rh-hide">All</td>
+		<td data-rhtags="56" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="56" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten </li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="58" class="rh-hide">acA720-290gc</td>
+		<td data-rhtags="58" class="rh-hide">All</td>
+		<td data-rhtags="58" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="58" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten </li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="45" class="rh-hide">acA750-30gc</td>
+		<td data-rhtags="45" class="rh-hide">All</td>
+		<td data-rhtags="45" class="rh-hide">Off</td>
+		<td data-rhtags="45" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 6500 K </li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="61" class="rh-hide">acA780-75gc</td>
+		<td data-rhtags="61" class="rh-hide">All</td>
+		<td data-rhtags="61" class="rh-hide">Off</td>
+		<td data-rhtags="61" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten </li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="63" class="rh-hide">acA800-200gc</td>
+		<td data-rhtags="63" class="rh-hide">All</td>
+		<td data-rhtags="63" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="63" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten </li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="65" class="rh-hide">acA1280-60gc</td>
+		<td data-rhtags="65" class="rh-hide">All</td>
+		<td data-rhtags="65" class="rh-hide">Off</td>
+		<td data-rhtags="65" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten </li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="67" class="rh-hide">acA1300-22gc</td>
+		<td data-rhtags="67" class="rh-hide">All</td>
+		<td data-rhtags="67" class="rh-hide">Off</td>
+		<td data-rhtags="67" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten </li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="69" class="rh-hide">acA1300-30gc</td>
+		<td data-rhtags="69" class="rh-hide">All</td>
+		<td data-rhtags="69" class="rh-hide">Off</td>
+		<td data-rhtags="69" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten </li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="72" class="rh-hide">acA1300-60gc</td>
+		<td data-rhtags="72" class="rh-hide">All</td>
+		<td data-rhtags="72" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="72" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten </li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="74" class="rh-hide">acA1300-75gc</td>
+		<td data-rhtags="74" class="rh-hide">All</td>
+		<td data-rhtags="74" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="74" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten </li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="76" class="rh-hide">acA1440-73gc</td>
+		<td data-rhtags="76" class="rh-hide">All</td>
+		<td data-rhtags="76" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="76" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten </li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="78" class="rh-hide">acA1600-20gc</td>
+		<td data-rhtags="78" class="rh-hide">All</td>
+		<td data-rhtags="78" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="78" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten </li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="80" class="rh-hide">acA1600-60gc</td>
+		<td data-rhtags="80" class="rh-hide">All</td>
+		<td data-rhtags="80" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="80" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten </li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="82" class="rh-hide">acA1920-25gc</td>
+		<td data-rhtags="82" class="rh-hide">All</td>
+		<td data-rhtags="82" class="rh-hide">Off</td>
+		<td data-rhtags="82" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten </li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="84" class="rh-hide">acA1920-40gc</td>
+		<td data-rhtags="84" class="rh-hide">All</td>
+		<td data-rhtags="84" class="rh-hide">Off</td>
+		<td data-rhtags="84" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten </li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="86" class="rh-hide">acA1920-48gc</td>
+		<td data-rhtags="86" class="rh-hide">All</td>
+		<td data-rhtags="86" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="86" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten </li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="88" class="rh-hide">acA1920-50gc</td>
+		<td data-rhtags="88" class="rh-hide">All</td>
+		<td data-rhtags="88" class="rh-hide">Off</td>
+		<td data-rhtags="88" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten </li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="91" class="rh-hide">acA2000-50gc</td>
+		<td data-rhtags="91" class="rh-hide">All</td>
+		<td data-rhtags="91" class="rh-hide">Off</td>
+		<td data-rhtags="91" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten </li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="94" class="rh-hide">acA2040-25gc</td>
+		<td data-rhtags="94" class="rh-hide">All</td>
+		<td data-rhtags="94" class="rh-hide">Off</td>
+		<td data-rhtags="94" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten </li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="96" class="rh-hide">acA2040-35gc</td>
+		<td data-rhtags="96" class="rh-hide">All</td>
+		<td data-rhtags="96" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="96" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten </li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="98" class="rh-hide">acA2440-20gc</td>
+		<td data-rhtags="98" class="rh-hide">All</td>
+		<td data-rhtags="98" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="98" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten </li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="100" class="rh-hide">acA2500-14gc</td>
+		<td data-rhtags="100" class="rh-hide">All</td>
+		<td data-rhtags="100" class="rh-hide">Off</td>
+		<td data-rhtags="100" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten </li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="102" class="rh-hide">acA2500-20gc</td>
+		<td data-rhtags="102" class="rh-hide">All</td>
+		<td data-rhtags="102" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="102" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten </li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="104" class="rh-hide">acA2500-20gcMED</td>
+		<td data-rhtags="104" class="rh-hide">All</td>
+		<td data-rhtags="104" class="rh-hide">Daylight 6500 
+		 K</td>
+		<td data-rhtags="104" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten </li>
+			<li>Microscope LED 4500 K</li>
+			<li>Microscope LED 5500 K</li>
+			<li>Microscope LED 6000 K</li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="106" class="rh-hide">acA3088-16gc</td>
+		<td data-rhtags="106" class="rh-hide">All</td>
+		<td data-rhtags="106" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="106" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten </li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="108" class="rh-hide">acA3800-10gc</td>
+		<td data-rhtags="108" class="rh-hide">All</td>
+		<td data-rhtags="108" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="108" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten </li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="110" class="rh-hide">acA4024-8gc</td>
+		<td data-rhtags="110" class="rh-hide">All</td>
+		<td data-rhtags="110" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="110" class="rh-hide"><ul>
+			<li>Off</li>
+			<li>Daylight 5000 K</li>
+			<li>Daylight 6500 K</li>
+			<li>Tungsten</li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="198" class="rh-hide">acA4096-11gc</td>
+		<td data-rhtags="198" class="rh-hide">All</td>
+		<td data-rhtags="198" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="198" class="rh-hide"><ul>
+			<li>Off</li>
+			<li>Daylight 5000 K</li>
+			<li>Daylight 6500 K</li>
+			<li>Tungsten</li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="114" class="rh-hide">acA4112-8gc</td>
+		<td data-rhtags="114" class="rh-hide">All</td>
+		<td data-rhtags="114" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="114" class="rh-hide"><ul>
+			<li>Off</li>
+			<li>Daylight 5000 K</li>
+			<li>Daylight 6500 K</li>
+			<li>Tungsten</li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="115" class="rh-hide">acA4600-7gc</td>
+		<td data-rhtags="115" class="rh-hide">All</td>
+		<td data-rhtags="115" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="115" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten </li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="117" class="rh-hide">acA5472-5gc</td>
+		<td data-rhtags="117" class="rh-hide">All</td>
+		<td data-rhtags="117" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="117" class="rh-hide"><ul>
+			<li>Off</li>
+			<li>Daylight 5000 K</li>
+			<li>Daylight 6500 K</li>
+			<li>Tungsten</li>
+			<li>Custom</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="119" class="rh-hide">acA640-750uc</td>
+		<td data-rhtags="119" class="rh-hide">All</td>
+		<td data-rhtags="119" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="119" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="121" class="rh-hide">acA640-90uc</td>
+		<td data-rhtags="121" class="rh-hide">All</td>
+		<td data-rhtags="121" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="121" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="123" class="rh-hide">acA640-120uc</td>
+		<td data-rhtags="123" class="rh-hide">All</td>
+		<td data-rhtags="123" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="123" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="125" class="rh-hide">acA720-520uc</td>
+		<td data-rhtags="125" class="rh-hide">All</td>
+		<td data-rhtags="125" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="125" class="rh-hide"><ul>
+			<li>Off</li>
+			<li>Daylight 5000 K</li>
+			<li>Daylight 6500 K</li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="127" class="rh-hide">acA800-510uc</td>
+		<td data-rhtags="127" class="rh-hide">All</td>
+		<td data-rhtags="127" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="127" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="129" class="rh-hide">acA1300-200uc</td>
+		<td data-rhtags="129" class="rh-hide">All</td>
+		<td data-rhtags="129" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="129" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="131" class="rh-hide">acA1300-30uc</td>
+		<td data-rhtags="131" class="rh-hide">All</td>
+		<td data-rhtags="131" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="131" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="133" class="rh-hide">acA1440-220uc</td>
+		<td data-rhtags="133" class="rh-hide">All</td>
+		<td data-rhtags="133" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="133" class="rh-hide"><ul>
+			<li>Off</li>
+			<li>Daylight 5000 K</li>
+			<li>Daylight 6500 K</li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="135" class="rh-hide">acA1600-20uc</td>
+		<td data-rhtags="135" class="rh-hide">All</td>
+		<td data-rhtags="135" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="135" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="137" class="rh-hide">acA1920-25uc</td>
+		<td data-rhtags="137" class="rh-hide">All</td>
+		<td data-rhtags="137" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="137" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="139" class="rh-hide">acA1920-40uc</td>
+		<td data-rhtags="139" class="rh-hide">All</td>
+		<td data-rhtags="139" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="139" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="141" class="rh-hide">acA1920-40ucMED</td>
+		<td data-rhtags="141" class="rh-hide">All</td>
+		<td data-rhtags="141" class="rh-hide">Daylight 6500 
+		 K</td>
+		<td data-rhtags="141" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten 2800 K</li>
+			<li>Microscope LED 4500 K</li>
+			<li>Microscope LED 5500 K</li>
+			<li>Microscope LED 6000 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="143" class="rh-hide">acA1920-150uc</td>
+		<td data-rhtags="143" class="rh-hide">All</td>
+		<td data-rhtags="143" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="143" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="145" class="rh-hide">acA1920-155uc</td>
+		<td data-rhtags="145" class="rh-hide">All</td>
+		<td data-rhtags="145" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="145" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="147" class="rh-hide">acA1920-155ucMED</td>
+		<td data-rhtags="147" class="rh-hide">All</td>
+		<td data-rhtags="147" class="rh-hide">Daylight 6500 
+		 K</td>
+		<td data-rhtags="147" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten 2800 K</li>
+			<li>Microscope LED 4500 K</li>
+			<li>Microscope LED 5500 K</li>
+			<li>Microscope LED 6000 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="150" class="rh-hide">acA2040-90uc</td>
+		<td data-rhtags="150" class="rh-hide">All</td>
+		<td data-rhtags="150" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="150" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="153" class="rh-hide">acA2000-165uc</td>
+		<td data-rhtags="153" class="rh-hide">All</td>
+		<td data-rhtags="153" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="153" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="155" class="rh-hide">acA2040-55uc</td>
+		<td data-rhtags="155" class="rh-hide">All</td>
+		<td data-rhtags="155" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="155" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="157" class="rh-hide">acA2040-120uc</td>
+		<td data-rhtags="157" class="rh-hide">All</td>
+		<td data-rhtags="157" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="157" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="159" class="rh-hide">acA2440-35uc</td>
+		<td data-rhtags="159" class="rh-hide">All</td>
+		<td data-rhtags="159" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="159" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="161" class="rh-hide">acA2440-35ucMED</td>
+		<td data-rhtags="161" class="rh-hide">All</td>
+		<td data-rhtags="161" class="rh-hide">Daylight 6500 
+		 K</td>
+		<td data-rhtags="161" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten 2800 K</li>
+			<li>Microscope LED 4500 K</li>
+			<li>Microscope LED 5500 K</li>
+			<li>Microscope LED 6000 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="163" class="rh-hide">acA2440-75uc</td>
+		<td data-rhtags="163" class="rh-hide">All</td>
+		<td data-rhtags="163" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="163" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="165" class="rh-hide">acA2440-75ucMED</td>
+		<td data-rhtags="165" class="rh-hide">All</td>
+		<td data-rhtags="165" class="rh-hide">Daylight 6500 
+		 K</td>
+		<td data-rhtags="165" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten 2800 K</li>
+			<li>Microscope LED 4500 K</li>
+			<li>Microscope LED 5500 K</li>
+			<li>Microscope LED 6000 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="167" class="rh-hide">acA2500-14uc</td>
+		<td data-rhtags="167" class="rh-hide">All</td>
+		<td data-rhtags="167" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="167" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="169" class="rh-hide">acA2500-60uc</td>
+		<td data-rhtags="169" class="rh-hide">All</td>
+		<td data-rhtags="169" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="169" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="171" class="rh-hide">acA3088-57uc</td>
+		<td data-rhtags="171" class="rh-hide">All</td>
+		<td data-rhtags="171" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="171" class="rh-hide"><ul>
+			<li>Off</li>
+			<li>Daylight 5000 K</li>
+			<li>Daylight 6500 K</li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="173" class="rh-hide">acA3800-14uc</td>
+		<td data-rhtags="173" class="rh-hide">All</td>
+		<td data-rhtags="173" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="173" class="rh-hide"><ul>
+			<li>Off </li>
+			<li>Daylight 5000 K </li>
+			<li>Daylight 6500 K </li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="175" class="rh-hide">acA4024-29uc</td>
+		<td data-rhtags="175" class="rh-hide">All</td>
+		<td data-rhtags="175" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="175" class="rh-hide"><ul>
+			<li>Off</li>
+			<li>Daylight 5000 K</li>
+			<li>Daylight 6500 K</li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="177" class="rh-hide">acA4096-30uc</td>
+		<td data-rhtags="177" class="rh-hide">All</td>
+		<td data-rhtags="177" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="177" class="rh-hide"><ul>
+			<li>Off</li>
+			<li>Daylight 5000 K</li>
+			<li>Daylight 6500 K</li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="179" class="rh-hide">acA4096-40uc</td>
+		<td data-rhtags="179" class="rh-hide">All</td>
+		<td data-rhtags="179" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="179" class="rh-hide"><ul>
+			<li>Off</li>
+			<li>Daylight 5000 K</li>
+			<li>Daylight 6500 K</li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="181" class="rh-hide">acA4112-20uc</td>
+		<td data-rhtags="181" class="rh-hide">All</td>
+		<td data-rhtags="181" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="181" class="rh-hide"><ul>
+			<li>Off</li>
+			<li>Daylight 5000 K</li>
+			<li>Daylight 6500 K</li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="183" class="rh-hide">acA4112-30uc</td>
+		<td data-rhtags="183" class="rh-hide">All</td>
+		<td data-rhtags="183" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="183" class="rh-hide"><ul>
+			<li>Off</li>
+			<li>Daylight 5000 K</li>
+			<li>Daylight 6500 K</li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="184" class="rh-hide">acA4600-10uc</td>
+		<td data-rhtags="184" class="rh-hide">All</td>
+		<td data-rhtags="184" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="184" class="rh-hide"><ul>
+			<li>Off</li>
+			<li>Daylight 5000 K</li>
+			<li>Daylight 6500 K</li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="186" class="rh-hide">acA5472-17uc</td>
+		<td data-rhtags="186" class="rh-hide">All</td>
+		<td data-rhtags="186" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="186" class="rh-hide"><ul>
+			<li>Off</li>
+			<li>Daylight 5000 K</li>
+			<li>Daylight 6500 K</li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="44" class="rh-hide">All dart BCON for LVDS camera models</td>
+		<td data-rhtags="44" class="rh-hide">YCbCr422 
+		<p>RGB 8</p></td>
+		<td data-rhtags="44" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="44" class="rh-hide"><ul>
+			<li>Off</li>
+			<li>Daylight 5000 K<sup>a</sup></li>
+			<li>Daylight 6500 K<sup>a</sup></li>
+			<li>Tungsten 2800 K<sup>a</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="21" class="rh-hide">All dart BCON for MIPI camera models</td>
+		<td data-rhtags="21" class="rh-hide">All</td>
+		<td data-rhtags="21" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="21" class="rh-hide"><ul>
+			<li>Daylight 5000 K</li>
+			<li>Daylight 6500 K</li>
+			<li>Fluorescent 4000 K</li>
+			<li>Tungsten 2800 K</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="42" class="rh-hide">All dart USB 3.0 camera models</td>
+		<td data-rhtags="42" class="rh-hide">YCbCr422 
+		<p>RGB 8</p></td>
+		<td data-rhtags="42" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="42" class="rh-hide"><ul>
+			<li>Off</li>
+			<li>Daylight 5000 K<sup>a</sup></li>
+			<li>Daylight 6500 K<sup>a</sup></li>
+			<li>Tungsten 2800 K<sup>a</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="47" class="rh-hide">All pulse USB 3.0 camera models</td>
+		<td data-rhtags="47" class="rh-hide">YCbCr422 
+		<p>RGB 8</p></td>
+		<td data-rhtags="47" class="rh-hide">Daylight 5000 K</td>
+		<td data-rhtags="47" class="rh-hide"><ul>
+			<li>Off</li>
+			<li>Daylight 5000 K<sup>a</sup></li>
+			<li>Daylight 6500 K<sup>a</sup></li>
+			<li>Tungsten 2800 K<sup>a</sup></li>
+		</ul></td>
+	</tr>
+</table>
+<p class="table-footnote rh-hide" data-rhtags="8"><sup data-rhtags="4" class="rh-hide">a</sup><span data-rhtags="4" class="rh-hide">If 
+ the </span><a href="balance_white_auto.htm" data-rhtags="4" class="rh-hide">Balance White Auto</a><span data-rhtags="4" class="rh-hide"> 
+ auto function is set to </span><span class="parameter-name rh-hide" data-rhtags="4">Off</span><span data-rhtags="4" class="rh-hide">, 
+ you must reset the white balance before changing the light source preset. 
+ To do so, set the </span><span class="parameter-name rh-hide" data-rhtags="4"><a href="balance_white.htm">BalanceRatio</a></span><span data-rhtags="4" class="rh-hide"> 
+ parameter value for all color channels (red, green, and blue) to 1.</span></p>
+<p class="table-footnote">&#160;</p>
+</div>
+<h2 class="sample-code"><a name="MiniTOCBookMark8"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre data-rhtags="48" class="rh-hide"><code class="cpp">// Disable light source presets (no correction)
+camera.LightSourceSelector.SetValue(LightSourceSelector_Off);
+// Set the light source preset for daylight (at about 5000K)
+camera.LightSourceSelector.SetValue(LightSourceSelector_Daylight);
+// Set the light source preset for tungsten lighting
+camera.LightSourceSelector.SetValue(LightSourceSelector_Tungsten);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="cpp">// Disable light source presets (no correction)
+camera.LightSourcePreset.SetValue(LightSourcePreset_Off);
+// Set the light source preset for daylight (at about 5000K)
+camera.LightSourcePreset.SetValue(LightSourcePreset_Daylight5000K);
+// Set the light source preset for tungsten lighting
+camera.LightSourcePreset.SetValue(LightSourcePreset_Tungsten2800K);</code></pre></div><div class="tab-2 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Disable light source presets (no correction)
+CEnumerationPtr(nodemap.GetNode("LightSourceSelector"))-&gt;FromString("Off");
+// Set the light source preset for daylight (at about 5000K)
+CEnumerationPtr(nodemap.GetNode("LightSourceSelector"))-&gt;FromString("Daylight");
+// Set the light source preset for tungsten lighting
+CEnumerationPtr(nodemap.GetNode("LightSourceSelector"))-&gt;FromString("Tungsten");</code></pre><pre data-rhtags="49" class="rh-hide"><code class="cpp" generated="true">// Disable light source presets (no correction)
+CEnumerationPtr(nodemap.GetNode("LightSourcePreset"))-&gt;FromString("Off");
+// Set the light source preset for daylight (at about 5000K)
+CEnumerationPtr(nodemap.GetNode("LightSourcePreset"))-&gt;FromString("Daylight5000K");
+// Set the light source preset for tungsten lighting
+CEnumerationPtr(nodemap.GetNode("LightSourcePreset"))-&gt;FromString("Tungsten2800K");</code></pre></div><div class="tab-3 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="csharp" generated="true">// Disable light source presets (no correction)
+camera.Parameters[PLCamera.LightSourceSelector].SetValue(PLCamera.LightSourceSelector.Off);
+// Set the light source preset for daylight (at about 5000K)
+camera.Parameters[PLCamera.LightSourceSelector].SetValue(PLCamera.LightSourceSelector.Daylight);
+// Set the light source preset for tungsten lighting
+camera.Parameters[PLCamera.LightSourceSelector].SetValue(PLCamera.LightSourceSelector.Tungsten);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="csharp" generated="true">// Disable light source presets (no correction)
+camera.Parameters[PLCamera.LightSourcePreset].SetValue(PLCamera.LightSourcePreset.Off);
+// Set the light source preset for daylight (at about 5000K)
+camera.Parameters[PLCamera.LightSourcePreset].SetValue(PLCamera.LightSourcePreset.Daylight5000K);
+// Set the light source preset for tungsten lighting
+camera.Parameters[PLCamera.LightSourcePreset].SetValue(PLCamera.LightSourcePreset.Tungsten2800K);</code></pre></div><div class="tab-4 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="csharp" generated="true">// Disable light source presets (no correction)
+Pylon.DeviceFeatureFromString(hdev, "LightSourceSelector", "Off");
+// Set the light source preset for daylight (at about 5000K)
+Pylon.DeviceFeatureFromString(hdev, "LightSourceSelector", "Daylight");
+// Set the light source preset for tungsten lighting
+Pylon.DeviceFeatureFromString(hdev, "LightSourceSelector", "Tungsten");</code></pre><pre data-rhtags="49" class="rh-hide"><code class="csharp" generated="true">// Disable light source presets (no correction)
+Pylon.DeviceFeatureFromString(hdev, "LightSourcePreset", "Off");
+// Set the light source preset for daylight (at about 5000K)
+Pylon.DeviceFeatureFromString(hdev, "LightSourcePreset", "Daylight5000K");
+// Set the light source preset for tungsten lighting
+Pylon.DeviceFeatureFromString(hdev, "LightSourcePreset", "Tungsten2800K");</code></pre></div><div class="tab-5 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+/* Disable light source presets (no correction) */
+errRes = PylonDeviceFeatureFromString(hdev, "LightSourceSelector", "Off");
+CHECK(errRes);
+/* Set the light source preset for daylight (at about 5000K) */
+errRes = PylonDeviceFeatureFromString(hdev, "LightSourceSelector", "Daylight");
+CHECK(errRes);
+/* Set the light source preset for tungsten lighting */
+errRes = PylonDeviceFeatureFromString(hdev, "LightSourceSelector", "Tungsten");
+CHECK(errRes);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="c" generated="true">/* Disable light source presets (no correction) */
+errRes = PylonDeviceFeatureFromString(hdev, "LightSourcePreset", "Off");
+CHECK(errRes);
+/* Set the light source preset for daylight (at about 5000K) */
+errRes = PylonDeviceFeatureFromString(hdev, "LightSourcePreset", "Daylight5000K");
+CHECK(errRes);
+/* Set the light source preset for tungsten lighting */
+errRes = PylonDeviceFeatureFromString(hdev, "LightSourcePreset", "Tungsten2800K");
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

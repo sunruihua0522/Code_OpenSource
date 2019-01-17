@@ -1,0 +1,378 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="noindex, nofollow" />
+<meta http-equiv="Content-Language" content="en-US" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Overview of the pylon Viewer</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "4.1.1";
+</script>
+ <meta name="topic-breadcrumbs" content="Software > pylon Camera Software Suite" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+if(gbBreadCrumb == 1)
+{
+	document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"pylon_camera_software_suite.htm\">Software<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"pylon_camera_software_suite.htm#bc-1\">pylon Camera Software Suite<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"overview_of_the_pylon_viewer.htm\">pylon Viewer<\/a>  &gt;  Overview of the pylon Viewer<\/p>");
+}
+else{
+	document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"pylon_camera_software_suite.htm\">Software<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"pylon_camera_software_suite.htm#bc-1\">pylon Camera Software Suite<\/a>  &gt;  pylon Viewer<\/p>");
+}
+
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Overview of the pylon Viewer</h1>
+<p class="teaser">The pylon Viewer is an application for viewing and changing 
+ most of the camera parameter settings using a graphical user interface.</p>
+<p>The pylon Viewer is part of the <a href="https://www.baslerweb.com/en/products/software/">Basler 
+ pylon Camera Software Suite</a>. It is available for Windows, Linux, and 
+ macOS.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot19276" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot19276', 'MTPOPUP19276');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP19276" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Main Window</a>
+</li>
+   <li><a href="#MiniTOCBookMark3" >Menus</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark4" >File Menu</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >View Menu</a>
+</li>
+    <li><a href="#MiniTOCBookMark6" >Camera Menu</a>
+</li>
+    <li><a href="#MiniTOCBookMark7" >Window Menu</a>
+</li>
+    <li><a href="#MiniTOCBookMark8" >Tools Menu</a>
+</li>
+    <li><a href="#MiniTOCBookMark9" >Help (?) Menu</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark10" >Toolbar Buttons</a>
+</li>
+   <li><a href="#MiniTOCBookMark11" >Panes</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark12" >Rearranging Panes</a>
+</li>
+    <li><a href="#MiniTOCBookMark13" >Devices Pane</a>
+</li>
+    <li><a href="#MiniTOCBookMark14" >Features Pane</a>
+</li>
+    <li><a href="#MiniTOCBookMark15" >Image Display Area</a>
+</li>
+    <li><a href="#MiniTOCBookMark16" >Feature Documentation Pane</a>
+</li>
+    <li><a href="#MiniTOCBookMark17" >Message Log Pane</a>
+</li>
+    <li><a href="#MiniTOCBookMark18" >Feature Properties Pane</a>
+</li>
+   </ul></li>
+  </ul>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a><a name="Main_Window">Main Window</a></h2>
+<p><img class="large-image" src="images\screen_pylon_viewer_th.png" title="pylon Viewer Main Window" alt="pylon Viewer Main Window" height="348" width="550" data-rhwidget="Basic" data-popupimage="images/screen_pylon_viewer.png" /></p>
+<h2><a name="MiniTOCBookMark3"></a>Menus</h2>
+<h3><a name="MiniTOCBookMark4"></a>File Menu</h3>
+<p>Use the <span class="gui-text">File</span> menu to exit the pylon Viewer 
+ and to save the current image.</p>
+<h3><a name="MiniTOCBookMark5"></a>View Menu</h3>
+<p>The <span class="gui-text">View</span> menu offers the following options:</p>
+<ul>
+	<li><span class="gui-text">Zoom In</span>: Use this option to zoom 
+	 into the image.</li>
+	<li><span class="gui-text">Zoom Out</span>: Use this option to zoom 
+	 out of the image.</li>
+	<li><span class="gui-text">Zoom to Fit</span>: Use this option to make 
+	 the image fit into the image display area.</li>
+	<li><span class="gui-text">Zoom 100%</span>: Use this option to restore 
+	 the image to its original size.</li>
+	<li><span class="gui-text">Full Screen</span>: Use this option to display 
+	 your image in full-screen mode.</li>
+	<li><span class="gui-text">Clear Message Log</span>: Use this option 
+	 to clear all messages from the <span class="gui-text">Message Log</span> 
+	 pane.</li>
+	<li><span class="gui-text">Show Crosshair</span>: Use this option to 
+	 show or hide a <a href="crosshair_and_grid.htm">crosshair</a> in the 
+	 image display area.</li>
+	<li><span class="gui-text">Show Grid</span>: Use this option to show 
+	 or hide a <a href="crosshair_and_grid.htm">grid</a> in the image display 
+	 area.</li>
+	<li><span class="gui-text">View Options</span>: Use this option to 
+	 modify the <a href="crosshair_and_grid.htm">crosshair and grid</a>.</li>
+</ul>
+<h3><a name="MiniTOCBookMark6"></a>Camera Menu</h3>
+<p>The <span class="gui-text">Camera</span> menu gives you options to operate 
+ the camera, to manipulate the camera's settings or to add a GigE camera 
+ that wasn't detected automatically:</p>
+<ul>
+	<li><span class="gui-text">Open</span>:<span> Use this option to <a href="opening_and_closing_a_camera.htm">open a camera</a>, i.e., to 
+	 make it available for use.</span></li>
+	<li><span class="gui-text">Close</span>: Use this option to <a href="opening_and_closing_a_camera.htm">close 
+	 a camera</a>.</li>
+	<li><span class="gui-text">Single Shot</span>: Use this option to capture 
+	 a single image.</li>
+	<li><span class="gui-text">Continuous Shot</span>: Use this option 
+	 to let the camera capture images continuously.</li>
+	<li><span class="gui-text">Stop</span>: Use this option to stop capturing 
+	 images or to stop a recording.</li>
+	<li><span class="gui-text">Pause</span>: Use this option to pause a 
+	 recording.</li>
+	<li><span class="gui-text">Record</span>: Use this option to record 
+	 a video. Before the recording starts, the <span class="gui-text">Options</span> 
+	 dialog opens where you can configure the <a href="recording.htm">recording 
+	 </a>options.</li>
+	<li><span class="gui-text">Automatic Image Adjustment</span>: Use this 
+	 option to enable <a href="automatic_image_adjustment.htm">automatic 
+	 image adjustment</a>.</li>
+</ul>
+<ul>
+	<li><span class="gui-text">Load Features</span>: Use this option to 
+	 load a <strong>.pfs</strong> file containing previously saved settings 
+	 of camera features. The extension &quot;.pfs&quot; stands for &quot;pylon 
+	 feature stream&quot;.</li>
+	<li><span class="gui-text"><a name="Save_Features">Save Features</a></span>: 
+	 Use this option to save the current settings of the camera features 
+	 in a <strong>.pfs</strong> file.</li>
+	<li><span class="gui-text">File Access</span>: Use this option to access 
+	 the file system of the camera, for example for uploading or downloading 
+	 user sets.</li>
+	<li><strong>Copy Camera Features</strong>: Use this option to copy 
+	 the current settings of all camera features to the clipboard. This 
+	 allows you to use them in a different context.</li>
+	<li><span class="gui-text">Add Remote GigE Camera</span>: Use this 
+	 option to add a GigE camera by entering its IP address. This is useful 
+	 if you want to add a camera that is not in your network and therefore 
+	 doesn't get detected automatically.</li>
+</ul>
+<h3><a name="MiniTOCBookMark7"></a>Window Menu</h3>
+<p>The <span class="gui-text">Window</span> menu allows you to select or 
+ deselect the <a href="#Panes">information panes</a> that you want to display, 
+ e.g., the <span class="gui-text">Devices</span> pane or the <span class="gui-text">Histogram</span> 
+ pane.</p>
+<h3><a name="MiniTOCBookMark8"></a>Tools Menu</h3>
+<p>The <span class="gui-text">Tools</span> menu gives you access to the 
+ <span class="gui-text">Bandwidth Manager</span> dialog (available on Windows 
+ and Linux only) as well as all installed pylon tools, e.g., pylon USB 
+ Configurator, pylon IP Configurator, pylon CL Configurator, or Color Calibrator 
+ (only available if you're using a <a href="basler_med_ace.htm">Basler 
+ MED ace camera</a>). It also gives you access to the <span class="gui-text">Options</span> 
+ dialog.</p>
+<ul>
+	<li><span class="gui-text">Options</span>: Opens the <span class="gui-text">Options</span> 
+	 dialog. This has the following sections:</li>
+	<ul>
+		<li><span class="gui-text">General</span>:</li>
+		<ul>
+			<li><span class="gui-text">User Level</span>: You can select 
+			 the desired <a href="setting_the_user_level.htm">user level</a>: 
+			 <span class="gui-text">Beginner</span>, <span class="gui-text">Expert</span>, 
+			 or <span class="gui-text">Guru</span>.</li>
+			<li><span class="gui-text">Application Options</span>: You 
+			 can select various options to customize the pylon Viewer. 
+			 Here, you can also select whether to use the online or the 
+			 offline version of the help.</li>
+		</ul>
+		<li><span class="gui-text">Recording</span>: You can select the 
+		 output type (video or still images) and the corresponding output 
+		 formats for the <a href="recording.htm">Recording </a>feature.</li>
+		<ul>
+			<li><span class="gui-text">Sampling</span>: You can choose 
+			 sampling rate and define when to stop recording.</li>
+		</ul>
+		<li><span class="gui-text">Language</span>: You can change the 
+		 language of the pylon Viewer, the pylon IP Configurator, and the 
+		 pylon USB Configurator. Available languages are Simplified Chinese, 
+		 English, Japanese, and Korean.</li>
+		<li><span class="gui-text">Camera Emulation</span>: You can specify 
+		 the number of <a href="camera_emulation.htm">camera emulation 
+		 devices</a> available in the pylon Viewer.</li>
+	</ul>
+</ul>
+<h3><a name="MiniTOCBookMark9"></a>Help (?) Menu</h3>
+<p>Use the <span class="gui-text">Help (?) </span>menu to submit feedback 
+ on the pylon application, contact Basler support, and view general information 
+ about the pylon Viewer. You can also access the Basler Product Documentation, 
+ the pylon Deployment Guide, and all the programmer's guides from here 
+ (if SDKs have been installed).</p>
+<h2><a name="MiniTOCBookMark10"></a>Toolbar Buttons</h2>
+<ul>
+	<li>Save Image <img src="images/icon_document-save.png" alt="Save Icon" title="Save Icon" />: Click to save 
+	 the current image.</li>
+	<li>Open Camera<img src="images/icon_connect.png" alt="Open Icon" title="Open Icon" /> : Click to <a href="opening_and_closing_a_camera.htm">open 
+	 the camera</a> currently selected.</li>
+	<li>Close Camera <img src="images/icon_disconnect.png" alt="Close Icon" title="Close Icon" />:Click to 
+	 <a href="opening_and_closing_a_camera.htm">close the camera</a> currently 
+	 selected.</li>
+	<li>Single Shot <img src="images/icon_media-playback-startpause.png" alt="Single Shot Icon" title="Single Shot Icon" />: Click to capture a single image.</li>
+	<li>Continuous Shot <img src="images/icon_media-playback-start.png" alt="Continuous Shot Icon" title="Continuous Shot Icon" />: Click to let the camera capture 
+	 images continuously.</li>
+	<li>Record <img src="images/icon_media-record.png" alt="Record Icon" title="Record Icon" />: &#160;(Available 
+	 in the Windows version of the pylon Viewer only.) Click to start a 
+	 recording. Before the recording starts, the <span class="gui-text">Recording 
+	 Options</span> dialog opens where you can configure the <a href="recording.htm">recording</a> 
+	 options.</li>
+	<li>Pause <img src="images/icon_media-playback-pause.png" alt="Pause Icon" title="Pause Icon" />: Click to pause the 
+	 <a href="recording.htm">recording</a>.</li>
+	<li>Stop <img src="images/icon_media-playback-stop.png" alt="Stop Icon" title="Stop Icon" />: Click to stop capturing 
+	 images or to stop a recording.</li>
+	<li>Zoom In <img src="images/icon_zoomin.png" alt="Zoom In Icon" title="Zoom In Icon" />: Click to zoom into the image.</li>
+	<li>Zoom Out <img src="images/icon_zoomout.png" alt="Zoom Out Icon" title="Zoom Out Icon" />: Click to 
+	 zoom out of the image.</li>
+	<li>Zoom to Fit <img src="images/icon_zoomfit.png" alt="Zoom to Fit Icon" title="Zoom to Fit Icon" />: Click 
+	 to make the image fit into the image display area.</li>
+	<li>Zoom 100% <img src="images/icon_zoom100.png" alt="Zoom 100% Icon" title="Zoom 100% Icon" />: Click to 
+	 restore the image to its original size.</li>
+	<li>Full screen <img src="images/icon_fullscreen.png" alt="Full Screen Icon" title="Full Screen Icon" />: Click to display your image in 
+	 full-screen mode.</li>
+	<li>Crosshair <img src="images/icon_crosshair.png" alt="Crosshair Icon" title="Crosshair Icon" /> : Click to 
+	 show or hide a <a href="crosshair_and_grid.htm">crosshair</a> in the 
+	 image display area.</li>
+	<li>Grid <img src="images/icon_grid.png" alt="Grid Icon" title="Grid Icon" />: Click to show or hide a <a href="crosshair_and_grid.htm">grid</a> 
+	 in the image display area.</li>
+	<li>Histogram <img src="images/icon_histogram.png" alt="Histogram Icon" title="Histogram Icon" />: Click to 
+	 open or close the <a href="histogram.htm">Histogram</a> pane.</li>
+	<li>Automatic Image Adjustment <img src="images/icon_autoimgadj.png" alt="Automatic Image Adjustment Icon" title="Automatic Image Adjustment Icon" />: Click to let the 
+	 camera <a href="automatic_image_adjustment.htm">automatically make 
+	 all settings</a> necessary to get a good image under current conditions.</li>
+</ul>
+<h2><a name="MiniTOCBookMark11"></a><a name="Panes">Panes</a></h2>
+<h3><a name="MiniTOCBookMark12"></a>Rearranging Panes</h3>
+<p>All panes in the <a href="#Main_Window">main window</a> have buttons 
+ for closing the pane and for undocking it from the pylon Viewer window. 
+ If a pane is undocked, you can move it around freely on your desktop. 
+ If you want to dock it again, follow these steps:</p>
+<ol>
+	<li>In the main window, drag the pane to the desired position in the 
+	 window until a dotted rectangle appears.</li>
+	<li>Drop the pane.</li>
+</ol>
+<p>This way you can fully customize the pylon Viewer window and rearrange 
+ panes as desired.</p>
+<h3><a name="MiniTOCBookMark13"></a>Devices Pane</h3>
+<p>The <span class="gui-text">Devices</span> pane displays a device tree 
+ in which all cameras that are connected to your computer are listed grouped 
+ by interface type. The interfaces shown vary depending on which options 
+ you have chosen during the installation of the pylon Camera Software Suite. 
+ As an example, a Basler ace USB 3.0 camera is shown in the <a href="#Main_Window">screenshot 
+ above</a>.</p>
+<p>If <a href="camera_emulation.htm">camera emulation</a> is enabled, camera 
+ emulation devices will also be shown here.</p>
+<p>In the pane, you can also select whether to auto-scan in regular intervals 
+ for recently connected devices. Alternatively, you can click the <span 
+	 class="gui-text">Refresh</span> button <img src="images/icon_refresh.png" alt="Refresh Icon" title="Refresh Icon" />&#160;to 
+ refresh the device tree manually.</p>
+<h3><a name="MiniTOCBookMark14"></a>Features Pane</h3>
+<p>The <span class="gui-text">Features</span> pane displays all features 
+ that are available on the camera that is selected in the <span class="gui-text">Devices</span> 
+ pane. It also contains the <span class="gui-text">User Level</span> drop-down 
+ list where you can <a href="setting_the_user_level.htm">select your level 
+ of expertise</a>. The available options are <span class="gui-text">Beginner</span>, 
+ <span class="gui-text">Expert</span>, and <span class="gui-text">Guru</span>. 
+ At the beginner level, the <span class="gui-text">Features</span> pane 
+ will only display the most basic camera settings. At the expert level, 
+ the <span class="gui-text">Features</span> pane will display the most 
+ commonly used camera settings. At the guru level, the <span class="gui-text">Features</span> 
+ pane will display all camera features, including the most advanced ones.</p>
+<p>In the <span class="gui-text">Features</span> pane, you can also select 
+ whether to automatically poll the camera in regular intervals. Alternatively, 
+ you can click the <span class="gui-text">Refresh</span> button <img src="images/icon_refresh.png" alt="Refresh Icon" title="Refresh Icon" />&#160;to 
+ refresh the features list manually.</p>
+<h3><a name="MiniTOCBookMark15"></a>Image Display Area</h3>
+<p>Images and videos taken by the camera are displayed here. At the bottom 
+ is a status bar that provides information about the image you're capturing 
+ or the video you're recording. When positioning your camera, you can display 
+ a <a href="crosshair_and_grid.htm">crosshair and grid</a> as visual aids.<br />
+Images can be displayed in full-screen mode by clicking the <img src="images/icon_fullscreen.png" title="Full-screen Button" alt="Full-screen Button" /> button in the toolbar. To move the full-screen image 
+ to a second screen, right-click in the image and choose <span class="gui-text">Screen 
+ #2</span> from the context menu. The image will then move to your second 
+ screen.</p>
+<h3><a name="MiniTOCBookMark16"></a>Feature Documentation Pane</h3>
+<p>The <span class="gui-text">Feature Documentation</span> pane displays 
+ information about the feature currently selected in the <span class="gui-text">Features</span> 
+ pane. In the <a href="#Main_Window">screenshot above</a>, the <span class="gui-text">Sensor 
+ Width</span> feature is selected. The feature descriptions are available 
+ in a variety of languages. Pick your language in the <span class="gui-text">Language</span> 
+ drop-down list. </p>
+<h3><a name="MiniTOCBookMark17"></a>Message Log Pane</h3>
+<p>The <span class="gui-text">Message Log</span> pane displays information 
+ about actions carried out with the pylon Viewer, e.g., opening and closing 
+ a camera or starting a recording. There are different message levels: 
+ Information, Warning, and Critical.</p>
+<h3><a name="MiniTOCBookMark18"></a>Feature Properties Pane</h3>
+<p>The <span class="gui-text">Feature Properties</span> pane displays the 
+ current settings of a feature that has been selected in the <span class="gui-text">Features</span> 
+ pane. </p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

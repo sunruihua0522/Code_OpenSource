@@ -1,0 +1,200 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Triggered Image Acquisition</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.4.0_4";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > I/O Control" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"i_o_control.htm\">I/O Control<\/a>  &gt;  Triggered Image Acquisition<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1>Triggered Image Acquisition</h1>
+<p class="teaser">If the camera is configured for triggered image acquisition, 
+ you can trigger image captures at particular points in time.</p>
+<p>Most modern imaging applications work with triggered image acquisition.</p>
+<p>If you want to acquire images continuously without having to trigger 
+ acquisitions, see <a href="free_run_image_acquisition.htm">free run image 
+ acquisition</a>.</p>
+<div class="info">
+	<p>Do not trigger the camera at a rate that exceeds one or both of 
+	 the following limiting factors:</p>
+	<ul>
+		<li>The <a href="resulting_frame_rate.htm">maximum allowed frame 
+		 rate</a> for the current camera settings. If you apply Frame Start 
+		 trigger signals to the camera when it is not ready to receive 
+		 them, the signals will be ignored.</li>
+		<li>The host computer’s capacity limits for data transfer, storage, 
+		 or both. If you try to acquire more images than the host computer 
+		 is able to process, frames may be dropped. For more information 
+		 about bandwidth optimization, see the <a href="network_configuration_(ace_gige).htm">Network 
+		 Configuration</a> topic<em>.</em></li>
+	</ul>
+	<p>To check whether the camera is ready to receive trigger signals, 
+	 monitor the camera's <a href="line_source.htm#Trigger_Wait">Trigger 
+	 Wait</a> signals or use the <a href="acquisition_status.htm">Acquisition 
+	 Status</a> feature.</p>
+</div>
+<h2><a name="Hardware_Triggering">Hardware Triggering</a></h2>
+<p><a href="#Specifics">If your camera supports hardware triggering</a>, 
+ an <strong>electrical signal</strong> applied to one of the camera's input 
+ lines can act as a trigger signal.</p>
+<p>To configure the camera for hardware triggering:</p>
+<ol>
+	<li>Select the <a href="trigger_selector.htm">trigger type</a> that 
+	 you want to configure, e.g., <span class="parameter-name">FrameStart</span>.</li>
+	<li>Set the <a href="trigger_mode.htm">trigger mode</a> of the selected 
+	 trigger to <span class="parameter-name">On</span>.</li>
+	<li>Set the <a href="trigger_source.htm">trigger source</a> to one 
+	 of the available <a href="trigger_source.htm#Setting_a_Hardware_Trigger_Source">hardware 
+	 trigger sources</a>.</li>
+	<li>If desired, use the <a href="trigger_activation.htm">Trigger Activation</a> 
+	 and the <a href="trigger_delay.htm">Trigger Delay</a> features to 
+	 further configure hardware triggering.</li>
+	<li>Repeat the steps above for all trigger types that you want to control 
+	 with an electrical signal.</li>
+</ol>
+<p>Now, you can trigger the camera by applying electrical signals to the 
+ selected input line.</p>
+<h2><a name="Software_Triggering">Software Triggering</a></h2>
+<p>When the camera is configured for software triggering, a <strong>software 
+ command</strong> acts as a trigger signal. The software command can be 
+ executed using the pylon API.</p>
+<p>On some camera models, multiple software commands are available to perform 
+ software triggering.</p>
+<p>To configure the camera for software triggering:</p>
+<ol>
+	<li>Select the <a href="trigger_selector.htm">trigger type</a> that 
+	 you want to configure, e.g., <span class="parameter-name">FrameStart</span>.</li>
+	<li>Set the <a href="trigger_mode.htm">trigger mode</a> of the selected 
+	 trigger to <span class="parameter-name">On</span>.</li>
+	<li>Set the <a href="trigger_source.htm">trigger source</a> to one 
+	 of the available <a href="trigger_source.htm#Setting_a_Software_Trigger_Source">software 
+	 trigger sources</a>.</li>
+	<li>Repeat the steps above for all trigger types that you want to control 
+	 with a software command.</li>
+</ol>
+<p>Now, you can trigger the camera by executing the appropriate software 
+ command, e.g., <a href="trigger_software.htm"><span class="parameter-name">TriggerSoftware</span></a>.</p>
+<h2>External links</h2>
+<ul>
+	<li><a href="http://www.vision-doctor.co.uk/camera-technology-basics/trigger-functions.html">Trigger 
+	 functions (Vision Doctor)</a></li>
+</ul>
+<h2 class="specifics"><a name="Specifics">Specifics</a></h2>
+<div>
+<table class="specifics-table">
+	<col />
+	<col />
+	<col />
+	<tr>
+		<th>Camera Model</th>
+		<th><p>Hardware Triggering Supported?</p></th>
+		<th><p>Software Triggering Supported?</p></th>
+	</tr>
+	<tr>
+		<td data-rhtags="33" class="rh-hide">All ace USB 3.0 camera models</td>
+		<td data-rhtags="33" class="rh-hide">Yes</td>
+		<td data-rhtags="33" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="18" class="rh-hide">All ace GigE camera models</td>
+		<td data-rhtags="18" class="rh-hide">Yes</td>
+		<td data-rhtags="18" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="44" class="rh-hide">All dart BCON for LVDS camera models</td>
+		<td data-rhtags="44" class="rh-hide">Yes</td>
+		<td data-rhtags="44" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="21" class="rh-hide">All dart BCON for LVDS camera models</td>
+		<td data-rhtags="21" class="rh-hide">tbd</td>
+		<td data-rhtags="21" class="rh-hide">tbd</td>
+	</tr>
+	<tr>
+		<td data-rhtags="42" class="rh-hide">All dart USB 3.0 camera models</td>
+		<td data-rhtags="42" class="rh-hide">Yes</td>
+		<td data-rhtags="42" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="47" class="rh-hide">All pulse USB 3.0 camera models</td>
+		<td data-rhtags="47" class="rh-hide">No</td>
+		<td data-rhtags="47" class="rh-hide">Yes</td>
+	</tr>
+</table>
+</div>
+<div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

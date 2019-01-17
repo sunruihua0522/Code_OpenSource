@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Acquisition Status</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_4";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Acquisition Status<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1>Acquisition Status</h1>
+<p class="teaser">The Acquisition Status 
+ <a href="features.htm">camera feature</a> allows you to determine whether 
+ the camera is waiting for trigger signals.</p>
+<p>This is useful if you want to optimize <a href="triggered_image_acquisition.htm">triggered 
+ image acquisition</a> and avoid overtriggering.</p>
+<p class="info">Basler strongly recommends using the Acquisition Status 
+ feature only when the camera is configured for <a href="triggered_image_acquisition.htm#Software_Triggering">software 
+ triggering</a>. When the camera is configured for <a href="triggered_image_acquisition.htm#Hardware_Triggering">hardware 
+ triggering</a>, Basler recommends monitoring the camera's <a href="line_source.htm#Trigger_Wait">Trigger 
+ Wait signals</a> instead.</p>
+<h2 class="using">Using the Feature</h2>
+<p>To determine if the camera is currently waiting for trigger signals:</p>
+<ol>
+	<li>Set the <span class="parameter-name">AcquisitionStatusSelector</span> 
+	 parameter to the desired <a href="trigger_selector.htm">trigger type</a>. 
+	 For example, if you want to determine if the camera is waiting for 
+	 <a href="trigger_selector.htm#Frame_Start_Trigger">Frame Start trigger 
+	 signals</a>, set the <span class="parameter-name">AcquisitionStatusSelector</span> 
+	 to <span class="parameter-name">FrameTriggerWait</span>. 
+	 </li>
+	<li>Get the value of the <span class="parameter-name">AcquisitionStatus</span> 
+	 parameter.</li>
+</ol>
+<p>If the <span class="parameter-name">AcquisitionStatus</span> 
+ parameter is <span class="parameter-name">true</span>, the camera is waiting 
+ for a trigger signal of the trigger type selected.</p>
+<p>If the <span class="parameter-name">AcquisitionStatus</span> 
+ parameter is <span class="parameter-name">false</span>, the camera is 
+ busy.</p>
+<h2 class="sample-code">Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre><code class="cpp">// Specify that you want to determine if the camera is waiting for Frame Start trigger signals
+camera.AcquisitionStatusSelector.SetValue(AcquisitionStatusSelector_FrameTriggerWait);
+// Get the acquisition status 
+bool isWaitingForFrameStart = camera.AcquisitionStatus.GetValue();
+if (isWaitingForFrameStart) { 
+// It is now safe to apply Frame Start trigger signals
+}</code></pre></div><div class="tab-2 tab-content"><pre><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Specify that you want to determine if the camera is waiting for Frame Start trigger signals
+CEnumerationPtr(nodemap.GetNode("AcquisitionStatusSelector"))-&gt;FromString("FrameTriggerWait");
+// Get the acquisition status
+bool isWaitingForFrameStart = CBooleanPtr(nodemap.GetNode("AcquisitionStatus"))-&gt;GetValue();
+if(isWaitingForFrameStart){    
+    // It is now safe to apply Frame Start trigger signals
+}</code></pre></div><div class="tab-3 tab-content"><pre><code class="csharp" generated="true">// Specify that you want to determine if the camera is waiting for Frame Start trigger signals
+camera.Parameters[PLCamera.AcquisitionStatusSelector].SetValue(PLCamera.AcquisitionStatusSelector.FrameTriggerWait);
+// Get the acquisition status
+bool isWaitingForFrameStart = camera.Parameters[PLCamera.AcquisitionStatus].GetValue();
+if(isWaitingForFrameStart){    
+    // It is now safe to apply Frame Start trigger signals
+}</code></pre></div><div class="tab-4 tab-content"><pre><code class="csharp" generated="true">// Specify that you want to determine if the camera is waiting for Frame Start trigger signals
+Pylon.DeviceFeatureFromString(hdev, "AcquisitionStatusSelector", "FrameTriggerWait");
+// Get the acquisition status
+bool isWaitingForFrameStart = Pylon.DeviceGetBooleanFeature(hdev, "AcquisitionStatus");
+if(isWaitingForFrameStart){    
+    // It is now safe to apply Frame Start trigger signals
+}</code></pre></div><div class="tab-5 tab-content"><pre><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+_Bool isWaitingForFrameStart = false;
+/* Specify that you want to determine if the camera is waiting for Frame Start trigger signals */
+errRes = PylonDeviceFeatureFromString(hdev, "AcquisitionStatusSelector", "FrameTriggerWait");
+CHECK(errRes);
+/* Get the acquisition status */
+errRes = PylonDeviceGetBooleanFeature(hdev, "AcquisitionStatus", &amp;isWaitingForFrameStart);
+CHECK(errRes);
+if(isWaitingForFrameStart){    
+    /* It is now safe to apply Frame Start trigger signals */
+}</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+<div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

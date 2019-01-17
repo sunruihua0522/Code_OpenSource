@@ -1,0 +1,787 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Color Adjustment</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_20";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Color Adjustment<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Color Adjustment</h1>
+<p class="teaser">The Color Adjustment 
+ <a href="features.htm">camera feature</a> allows you to adjust 
+ the hue and saturation of individual colors in your images. &#160;</p>
+<p>You can adjust hue and saturation separately for each primary and secondary 
+ color in the RGB color space (red, green, blue, yellow, cyan, and magenta).</p>
+<p>If you want to adjust the appearance of all colors in a single step, 
+ use the <a href="hue_and_saturation.htm">Hue and Saturation</a> feature 
+ (if available).</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot31518" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot31518', 'MTPOPUP31518');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP31518" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Why Use Color Adjustment</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Prerequisites</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >Setting the Color Adjustment Parameters</a>
+</li>
+    <li><a href="#MiniTOCBookMark6" >How it Works</a>
+</li>
+    <li><a href="#MiniTOCBookMark7" >Additional Parameters</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark8" >Specifics</a>
+</li>
+   <li><a href="#MiniTOCBookMark9" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>Why Use Color Adjustment</h3>
+<ul>
+	<li>Adjusting the <strong>hue</strong> shifts the colors of the image. 
+	 This can be useful, e.g., to correct minor, undesirable, color shifts 
+	 or to create false-color images.</li>
+	<li>Adjusting the <strong>saturation</strong> changes the colorfulness 
+	 (intensity) of the colors. Increasing the saturation can be useful 
+	 to make colors easier to distinguish.</li>
+</ul>
+<h3><a name="MiniTOCBookMark4"></a>Prerequisites</h3>
+<p>If the <span class="parameter-name">ColorAdjustmentEnable</span> 
+ parameter <a href="#Specifics">is available</a>, it must be set to <span 
+	 class="parameter-name">true</span>.</p>
+<h3><a name="MiniTOCBookMark5"></a>Setting the Color Adjustment Parameters</h3>
+<ol>
+	<li>Set the <span class="parameter-name">ColorAdjustmentSelector</span> 
+	 parameter to the desired color, e.g., <span class="parameter-name">Red</span>. 
+	 </li>
+	<li>Enter the desired value for the&#160;<span class="parameter-name">ColorAdjustmentHue</span> 
+	 parameter. The parameter's value range is -4.0 to 3.96875. When the 
+	 parameter is set to 0, the hue is not changed.</li>
+	<li>Enter the desired value for the <span class="parameter-name">ColorAdjustmentSaturation</span> 
+	 parameter. The parameter's value range is 0.0 to 1.99219. When the 
+	 parameter is set to 1, the saturation is not changed.</li>
+</ol>
+<h3><a name="MiniTOCBookMark6"></a>How it Works</h3>
+<p>The parameters of the Color Adjustment feature refer to the RGB color 
+ cube.</p>
+<p>For easier visualization, the color cube can be projected onto a plane, 
+ resulting in a color hexagon:</p>
+<p><img src="images/drawing_color_adjustment_rgb_cube.png" alt="RGB Color Cube Projected On a Plane" title="RGB Color Cube Projected On a Plane" /></p>
+<p>The primary colors (red, green, blue) and the secondary colors (yellow, 
+ cyan, magenta) are placed at the corners of this color hexagon.</p>
+<p>You can adjust hue and saturation for each of these colors. This affects 
+ all areas in the image where the adjusted color predominates. For example, 
+ adjusting red affects the colors in the image with a predominantly red 
+ component.</p>
+<p>The following diagram shows how changing hue and saturation of the color 
+ red affects the colors of your images:</p>
+<p><img src="images/drawing_color_adjustment_hue_saturation.png" alt="Hue and Saturation Adjustment In the Color Hexagon. Adjustments Are Indicated for Red as an Example" title="Hue and Saturation Adjustment In the Color Hexagon. Adjustments Are Indicated for Red as an Example" /></p>
+<p>The following effects become apparent:</p>
+<ul>
+	<li><strong>Decreasing the hue</strong> changes all red colors (i.e., 
+	 colors with a predominantly red component) towards yellow. </li>
+	<li><strong>Increasing the hue</strong> changes all red colors towards 
+	 magenta. </li>
+	<li><strong>Decreasing the saturation</strong> decreases the colorfulness 
+	 of all red colors. At minimum, all red colors will be replaced by 
+	 gray.</li>
+	<li><strong>Increasing the saturation</strong> increases the colorfulness 
+	 of all red colors. At maximum, all red colors are replaced by 100&#160;% 
+	 red.</li>
+</ul>
+<p class="info">When you adjust a color, the nearest neighboring colors 
+ in the color hexagon will also be affected to some degree. For example, 
+ when you adjust red, yellow and magenta will also be affected.</p>
+<h3><a name="MiniTOCBookMark7"></a>Additional Parameters</h3>
+<p>Depending on <a href="#Specifics">your camera model</a>, the following 
+ additional parameters are available:</p>
+<ul>
+	<li><span class="parameter-name">ColorAdjustmentEnable</span>: 
+	 Enables or disables the Color Adjustment feature.</li>
+	<li><span class="parameter-name">ColorAdjustmentReset</span> 
+	 command: Allows you to reset the color adjustment parameters to their 
+	 initial values. This is especially useful if your adjustments haven't 
+	 had the desired effect and you want to return quickly to the original 
+	 settings. </li>
+	<li><span class="parameter-name">ColorAdjustmentHueRaw</span>: 
+	 Allows you to enter integer values ranging from -128 to 127 for the 
+	 hue parameter. The integer range maps linearly to the floating point 
+	 range with -128 being equivalent to -4.0, 32 being equivalent to 1.0, 
+	 and 127 being equivalent to 3.96875.</li>
+	<li><span class="parameter-name">ColorAdjustmentSaturationRaw</span>: 
+	 Allows you to enter integer values ranging from 0 to 255 for the saturation 
+	 parameter. The integer range maps linearly to the floating point range 
+	 with 0 being equivalent to 0.0, 128 being equivalent to 1.0, and 255 
+	 being equivalent to 1.99219.</li>
+</ul>
+<h2 class="specifics"><a name="MiniTOCBookMark8"></a><a name="Specifics">Specifics</a></h2>
+<div>
+<table class="specifics-table">
+	<col />
+	<col />
+	<tr>
+		<th>Camera Model</th>
+		<th><p>Additional Parameters</p></th>
+	</tr>
+	<tr>
+		<td data-rhtags="227" class="rh-hide">Mono cameras</td>
+		<td data-rhtags="227" class="rh-hide">Color Adjustment feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="51" class="rh-hide">acA640-90gc</td>
+		<td data-rhtags="51" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable<sup>a</sup></li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="53" class="rh-hide">acA640-120gc</td>
+		<td data-rhtags="53" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable<sup>a</sup></li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="56" class="rh-hide">acA640-300gc</td>
+		<td data-rhtags="56" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable</li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="58" class="rh-hide">acA720-290gc</td>
+		<td data-rhtags="58" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable</li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="45" class="rh-hide">acA750-30gc</td>
+		<td data-rhtags="45" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable<sup>ab</sup></li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="61" class="rh-hide">acA780-75gc</td>
+		<td data-rhtags="61" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable<sup>a</sup></li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="63" class="rh-hide">acA800-200gc</td>
+		<td data-rhtags="63" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable</li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="65" class="rh-hide">acA1280-60gc</td>
+		<td data-rhtags="65" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable<sup>a</sup></li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="67" class="rh-hide">acA1300-22gc</td>
+		<td data-rhtags="67" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable<sup>a</sup></li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="69" class="rh-hide">acA1300-30gc</td>
+		<td data-rhtags="69" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable<sup>a</sup></li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="72" class="rh-hide">acA1300-60gc</td>
+		<td data-rhtags="72" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable<sup>a</sup></li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="74" class="rh-hide">acA1300-75gc</td>
+		<td data-rhtags="74" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable</li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="76" class="rh-hide">acA1440-73gc</td>
+		<td data-rhtags="76" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable</li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="78" class="rh-hide">acA1600-20gc</td>
+		<td data-rhtags="78" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable<sup>a</sup></li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="80" class="rh-hide">acA1600-60gc</td>
+		<td data-rhtags="80" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable<sup>a</sup></li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="82" class="rh-hide">acA1920-25gc</td>
+		<td data-rhtags="82" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable<sup>a</sup></li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="84" class="rh-hide">acA1920-40gc</td>
+		<td data-rhtags="84" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable</li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="86" class="rh-hide">acA1920-48gc</td>
+		<td data-rhtags="86" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable</li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="88" class="rh-hide">acA1920-50gc</td>
+		<td data-rhtags="88" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable</li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="91" class="rh-hide">acA2000-50gc</td>
+		<td data-rhtags="91" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable<sup>a</sup></li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="94" class="rh-hide">acA2040-25gc</td>
+		<td data-rhtags="94" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable<sup>a</sup></li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="96" class="rh-hide">acA2040-35gc</td>
+		<td data-rhtags="96" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable</li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="98" class="rh-hide">acA2440-20gc</td>
+		<td data-rhtags="98" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable</li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="100" class="rh-hide">acA2500-14gc</td>
+		<td data-rhtags="100" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable<sup>a</sup></li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="102" class="rh-hide">acA2500-20gc</td>
+		<td data-rhtags="102" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable</li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="104" class="rh-hide">acA2500-20gcMED</td>
+		<td data-rhtags="104" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable</li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="106" class="rh-hide">acA3088-16gc</td>
+		<td data-rhtags="106" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable</li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="108" class="rh-hide">acA3800-10gc</td>
+		<td data-rhtags="108" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable<sup>a</sup></li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="110" class="rh-hide">acA4024-8gc</td>
+		<td data-rhtags="110" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable</li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="198" class="rh-hide">acA4096-11gc</td>
+		<td data-rhtags="198" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable</li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="114" class="rh-hide">acA4112-8gc</td>
+		<td data-rhtags="114" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable</li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="115" class="rh-hide">acA4600-7gc</td>
+		<td data-rhtags="115" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable<sup>a</sup></li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="117" class="rh-hide">acA5472-5gc</td>
+		<td data-rhtags="117" class="rh-hide"><ul>
+			<li>ColorAdjustmentEnable</li>
+			<li>ColorAdjustmentReset</li>
+			<li>ColorAdjustmentHueRaw</li>
+			<li>ColorAdjustmentSaturationRaw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="119" class="rh-hide">acA640-750uc</td>
+		<td data-rhtags="119" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="121" class="rh-hide">acA640-90uc</td>
+		<td data-rhtags="121" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="123" class="rh-hide">acA640-120uc</td>
+		<td data-rhtags="123" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="125" class="rh-hide">acA720-520uc</td>
+		<td data-rhtags="125" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="127" class="rh-hide">acA800-510uc</td>
+		<td data-rhtags="127" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="129" class="rh-hide">acA1300-200uc</td>
+		<td data-rhtags="129" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="131" class="rh-hide">acA1300-30uc</td>
+		<td data-rhtags="131" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="133" class="rh-hide">acA1440-220uc</td>
+		<td data-rhtags="133" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="135" class="rh-hide">acA1600-20uc</td>
+		<td data-rhtags="135" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="137" class="rh-hide">acA1920-25uc</td>
+		<td data-rhtags="137" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="139" class="rh-hide">acA1920-40uc</td>
+		<td data-rhtags="139" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="141" class="rh-hide">acA1920-40ucMED</td>
+		<td data-rhtags="141" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="143" class="rh-hide">acA1920-150uc</td>
+		<td data-rhtags="143" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="145" class="rh-hide">acA1920-155uc</td>
+		<td data-rhtags="145" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="147" class="rh-hide">acA1920-155ucMED</td>
+		<td data-rhtags="147" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="150" class="rh-hide">acA2040-90uc</td>
+		<td data-rhtags="150" class="rh-hide">Color Adjustment 
+		 feature not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="153" class="rh-hide">acA2000-165uc</td>
+		<td data-rhtags="153" class="rh-hide">Color Adjustment 
+		 feature not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="155" class="rh-hide">acA2040-55uc</td>
+		<td data-rhtags="155" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="157" class="rh-hide">acA2040-120uc</td>
+		<td data-rhtags="157" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="159" class="rh-hide">acA2440-35uc</td>
+		<td data-rhtags="159" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="161" class="rh-hide">acA2440-35ucMED</td>
+		<td data-rhtags="161" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="163" class="rh-hide">acA2440-75uc</td>
+		<td data-rhtags="163" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="165" class="rh-hide">acA2440-75ucMED</td>
+		<td data-rhtags="165" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="167" class="rh-hide">acA2500-14uc</td>
+		<td data-rhtags="167" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="169" class="rh-hide">acA2500-60uc</td>
+		<td data-rhtags="169" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="171" class="rh-hide">acA3088-57uc</td>
+		<td data-rhtags="171" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="173" class="rh-hide">acA3800-14uc</td>
+		<td data-rhtags="173" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="175" class="rh-hide">acA4024-29uc</td>
+		<td data-rhtags="175" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="177" class="rh-hide">acA4096-30uc</td>
+		<td data-rhtags="177" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="179" class="rh-hide">acA4096-40uc</td>
+		<td data-rhtags="179" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="181" class="rh-hide">acA4112-20uc</td>
+		<td data-rhtags="181" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="183" class="rh-hide">acA4112-30uc</td>
+		<td data-rhtags="183" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="184" class="rh-hide">acA4600-10uc</td>
+		<td data-rhtags="184" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="186" class="rh-hide">acA5472-17uc</td>
+		<td data-rhtags="186" class="rh-hide">None</td>
+	</tr>
+	<tr>
+		<td data-rhtags="44" class="rh-hide">All dart BCON for LVDS camera models</td>
+		<td data-rhtags="44" class="rh-hide">Color Adjustment 
+		 feature not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="21" class="rh-hide">All dart BCON for MIPI cameras models</td>
+		<td data-rhtags="21" class="rh-hide">Color Adjustment feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="42" class="rh-hide">All dart USB 3.0 camera models</td>
+		<td data-rhtags="42" class="rh-hide">Color Adjustment 
+		 feature not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="47" class="rh-hide">All pulse USB 3.0 camera models</td>
+		<td data-rhtags="47" class="rh-hide">Color Adjustment 
+		 feature not supported</td>
+	</tr>
+</table>
+<p class="table-footnote rh-hide" data-rhtags="29"><sup>a</sup>If a Bayer <a href="pixel_format.htm">pixel 
+ format</a> is used, <a href="processed_raw_enable.htm">Processed Raw 
+ Enable</a> must be enabled. Otherwise, changes in the color adjustment 
+ parameters have no effect.</p>
+<p class="table-footnote rh-hide" data-rhtags="45"><sup>b</sup>Pixel 
+ values output from the sensor are first converted to YUV and then converted 
+ to the RBG color space.</p>
+</div>
+<h2 class="sample-code"><a name="MiniTOCBookMark9"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre data-rhtags="48" class="rh-hide"><code class="cpp">// Enable the Color Adjustment feature
+camera.ColorAdjustmentEnable.SetValue(true);
+// Select red as the color to adjust
+camera.ColorAdjustmentSelector.SetValue(ColorAdjustmentSelector_Red);
+// Enter a floating point value for the red hue
+camera.ColorAdjustmentHue.SetValue(-1.125);
+// Enter a floating point value for the red saturation
+camera.ColorAdjustmentSaturation.SetValue(1.375);
+// Select cyan as the color to adjust
+camera.ColorAdjustmentSelector.SetValue(ColorAdjustmentSelector_Cyan);
+// Enter an integer value for the cyan hue
+camera.ColorAdjustmentHueRaw.SetValue(-36);
+// Enter an integer value for the cyan saturation
+camera.ColorAdjustmentSaturationRaw.SetValue(176);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="cpp">// Select red as the color to adjust
+camera.ColorAdjustmentSelector.SetValue(ColorAdjustmentSelector_Red);
+// Enter an integer value for the red hue
+camera.ColorAdjustmentHue.SetValue(-1.125);
+// Enter an integer value for the red saturation
+camera.ColorAdjustmentSaturation.SetValue(1.375);</code></pre></div><div class="tab-2 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Enable the Color Adjustment feature
+CBooleanPtr(nodemap.GetNode("ColorAdjustmentEnable"))-&gt;SetValue(true);
+// Select red as the color to adjust
+CEnumerationPtr(nodemap.GetNode("ColorAdjustmentSelector"))-&gt;FromString("Red");
+// Enter a floating point value for the red hue
+CFloatPtr(nodemap.GetNode("ColorAdjustmentHue"))-&gt;SetValue(-1.125);
+// Enter a floating point value for the red saturation
+CFloatPtr(nodemap.GetNode("ColorAdjustmentSaturation"))-&gt;SetValue(1.375);
+// Select cyan as the color to adjust
+CEnumerationPtr(nodemap.GetNode("ColorAdjustmentSelector"))-&gt;FromString("Cyan");
+// Enter an integer value for the cyan hue
+CIntegerPtr(nodemap.GetNode("ColorAdjustmentHueRaw"))-&gt;SetValue(-36);
+// Enter an integer value for the cyan saturation
+CIntegerPtr(nodemap.GetNode("ColorAdjustmentSaturationRaw"))-&gt;SetValue(176);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="cpp" generated="true">// Select red as the color to adjust
+CEnumerationPtr(nodemap.GetNode("ColorAdjustmentSelector"))-&gt;FromString("Red");
+// Enter an integer value for the red hue
+CFloatPtr(nodemap.GetNode("ColorAdjustmentHue"))-&gt;SetValue(-1.125);
+// Enter an integer value for the red saturation
+CFloatPtr(nodemap.GetNode("ColorAdjustmentSaturation"))-&gt;SetValue(1.375);</code></pre></div><div class="tab-3 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="csharp" generated="true">// Enable the Color Adjustment feature
+camera.Parameters[PLCamera.ColorAdjustmentEnable].SetValue(true);
+// Select red as the color to adjust
+camera.Parameters[PLCamera.ColorAdjustmentSelector].SetValue(PLCamera.ColorAdjustmentSelector.Red);
+// Enter a floating point value for the red hue
+camera.Parameters[PLCamera.ColorAdjustmentHue].SetValue(-1.125);
+// Enter a floating point value for the red saturation
+camera.Parameters[PLCamera.ColorAdjustmentSaturation].SetValue(1.375);
+// Select cyan as the color to adjust
+camera.Parameters[PLCamera.ColorAdjustmentSelector].SetValue(PLCamera.ColorAdjustmentSelector.Cyan);
+// Enter an integer value for the cyan hue
+camera.Parameters[PLCamera.ColorAdjustmentHueRaw].SetValue(-36);
+// Enter an integer value for the cyan saturation
+camera.Parameters[PLCamera.ColorAdjustmentSaturationRaw].SetValue(176);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="csharp" generated="true">// Select red as the color to adjust
+camera.Parameters[PLCamera.ColorAdjustmentSelector].SetValue(PLCamera.ColorAdjustmentSelector.Red);
+// Enter an integer value for the red hue
+camera.Parameters[PLCamera.ColorAdjustmentHue].SetValue(-1.125);
+// Enter an integer value for the red saturation
+camera.Parameters[PLCamera.ColorAdjustmentSaturation].SetValue(1.375);</code></pre></div><div class="tab-4 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="csharp" generated="true">// Enable the Color Adjustment feature
+Pylon.DeviceSetBooleanFeature(hdev, "ColorAdjustmentEnable", true);
+// Select red as the color to adjust
+Pylon.DeviceFeatureFromString(hdev, "ColorAdjustmentSelector", "Red");
+// Enter a floating point value for the red hue
+Pylon.DeviceSetFloatFeature(hdev, "ColorAdjustmentHue", -1.125);
+// Enter a floating point value for the red saturation
+Pylon.DeviceSetFloatFeature(hdev, "ColorAdjustmentSaturation", 1.375);
+// Select cyan as the color to adjust
+Pylon.DeviceFeatureFromString(hdev, "ColorAdjustmentSelector", "Cyan");
+// Enter an integer value for the cyan hue
+Pylon.DeviceSetIntegerFeature(hdev, "ColorAdjustmentHueRaw", -36);
+// Enter an integer value for the cyan saturation
+Pylon.DeviceSetIntegerFeature(hdev, "ColorAdjustmentSaturationRaw", 176);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="csharp" generated="true">// Select red as the color to adjust
+Pylon.DeviceFeatureFromString(hdev, "ColorAdjustmentSelector", "Red");
+// Enter an integer value for the red hue
+Pylon.DeviceSetFloatFeature(hdev, "ColorAdjustmentHue", -1.125);
+// Enter an integer value for the red saturation
+Pylon.DeviceSetFloatFeature(hdev, "ColorAdjustmentSaturation", 1.375);</code></pre></div><div class="tab-5 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+/* Enable the Color Adjustment feature */
+errRes = PylonDeviceSetBooleanFeature(hdev, "ColorAdjustmentEnable", 1);
+CHECK(errRes);
+/* Select red as the color to adjust */
+errRes = PylonDeviceFeatureFromString(hdev, "ColorAdjustmentSelector", "Red");
+CHECK(errRes);
+/* Enter a floating point value for the red hue */
+errRes = PylonDeviceSetFloatFeature(hdev, "ColorAdjustmentHue", -1.125);
+CHECK(errRes);
+/* Enter a floating point value for the red saturation */
+errRes = PylonDeviceSetFloatFeature(hdev, "ColorAdjustmentSaturation", 1.375);
+CHECK(errRes);
+/* Select cyan as the color to adjust */
+errRes = PylonDeviceFeatureFromString(hdev, "ColorAdjustmentSelector", "Cyan");
+CHECK(errRes);
+/* Enter an integer value for the cyan hue */
+errRes = PylonDeviceSetIntegerFeature(hdev, "ColorAdjustmentHueRaw", -36);
+CHECK(errRes);
+/* Enter an integer value for the cyan saturation */
+errRes = PylonDeviceSetIntegerFeature(hdev, "ColorAdjustmentSaturationRaw", 176);
+CHECK(errRes);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="c" generated="true">/* Select red as the color to adjust */
+errRes = PylonDeviceFeatureFromString(hdev, "ColorAdjustmentSelector", "Red");
+CHECK(errRes);
+/* Enter an integer value for the red hue */
+errRes = PylonDeviceSetFloatFeature(hdev, "ColorAdjustmentHue", -1.125);
+CHECK(errRes);
+/* Enter an integer value for the red saturation */
+errRes = PylonDeviceSetFloatFeature(hdev, "ColorAdjustmentSaturation", 1.375);
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

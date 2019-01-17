@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Avoiding EMI and ESD Problems</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.5_2";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  Avoiding EMI and ESD Problems<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1>Avoiding EMI and ESD Problems</h1>
+<p class="teaser">This topic tells you how to avoid faulty camera behavior 
+ due to electromagnetic interference (EMI) and electrostatic discharge 
+ (ESD).</p>
+<h2>General Information</h2>
+<h3>Basler dart BCON for LVDS Cameras</h3>
+<p>The BCON for LVDS interface uses low voltage differential signaling 
+ (LVDS) to transmit image data from the camera to the image processing 
+ unit. LVDS is a differential signal transmission standard with two parallel 
+ traces for each signal. The voltage change on one trace is always the 
+ exact inverse of the other. Their electric fields cancel each other out, 
+ resulting in a reduced emission of electromagnetic radiation.</p>
+<p>Due to the close proximity of the parallel traces, electric fields can’t 
+ induce a significant differential voltage. This makes LVDS resistant against 
+ such interference. However, this does not apply to electromagnetic interference 
+ (EMI), unless the parallel traces are twisted, which is usually not the 
+ case for PCB traces and also not for flexible flat cables (FFCs).</p>
+<p>Therefore, dart BCON for LVDS cameras are prone to EMI and also electrostatic 
+ discharge (ESD). EMI and ESD can cause problems with your camera such 
+ as false triggering or can cause the camera to suddenly stop capturing 
+ images. EMI and ESD can also have a negative impact on the quality of 
+ the image data transmitted by the camera.</p>
+<h3>Other Basler Cameras</h3>
+<p>Basler&#160;cameras are frequently installed in industrial environments. 
+ These environments often include devices that generate electromagnetic 
+ interference (EMI) and may cause electrostatic discharge (ESD). This can 
+ lead to operational faults like false triggering or the unplanned stopping 
+ of image acquisition. EMI and ESD can also negatively affect the quality 
+ of the images transmitted out of the camera.</p>
+<h2>Guidelines</h2>
+<p>To avoid faulty camera behavior due to EMI and ESD, follow these general 
+ guidelines:</p>
+<ul>
+	<li>Install the camera as far as possible from devices generating sparks 
+	 or strong electromagnetic fields.</li>
+	<li>Keep the cable away from unshielded electric motors, transformers, 
+	 unshielded coils, and electrical devices that employ switching technology.</li>
+	<li>Always use high-quality shielded cables. The use of high-quality 
+	 cables is one of the best defenses against EMI and ESD.</li>
+	<li>Try to use camera cables that are only as long as necessary and 
+	 try to run the camera cables and power cables parallel to each other. 
+	 Avoid coiling camera cables. If the cables are too long, use a meandering 
+	 path rather then coiling the cables.</li>
+	<li>Attempt to connect all grounds to a single point, e.g., use a single 
+	 power outlet for the entire system and connect all grounds to the 
+	 single outlet. This helps to avoid large ground loops. (Large ground 
+	 loops can be a primary cause of EMI problems.)</li>
+	<li>Use a line filter on the main power supply.</li>
+	<li>Decrease the risk of electrostatic discharge by taking the following 
+	 measures:</li>
+	<ul>
+		<li>Use conductive materials at the point of installation (e.g., 
+		 floor, workplace).</li>
+		<li>Use suitable clothing (cotton) and shoes.</li>
+		<li>Control the humidity in your environment. Low humidity can 
+		 cause ESD problems.</li>
+	</ul>
+</ul>
+<p class="info">The Basler application note <a href="https://www.baslerweb.com/en/support/downloads/document-downloads/avoiding-emi-and-esd-in-camera-installations/">Avoiding 
+ EMI and ESD in Basler Camera Installations</a> provides more detailed 
+ information about avoiding EMI and ESD.</p>
+<div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

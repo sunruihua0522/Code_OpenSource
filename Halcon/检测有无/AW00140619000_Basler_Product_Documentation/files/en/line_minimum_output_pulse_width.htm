@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Line Minimum Output Pulse Width</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_48";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Line Minimum Output Pulse Width<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Line Minimum Output Pulse Width</h1>
+<p class="teaser">The Line Minimum Output Pulse Width <a href="features.htm">camera 
+ feature</a> allows you to increase the signal width (&quot;pulse width&quot;) 
+ of an output signal in order to achieve a minimum signal width.</p>
+<p>Increasing the camera output signal width can be necessary to suit certain 
+ receivers that may require a certain minimum signal width to be able to 
+ detect the signals.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot26560" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot26560', 'MTPOPUP26560');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP26560" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Specifying a Line Minimum Output Pulse Width</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >How It Works</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark5" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>Specifying a Line Minimum Output Pulse Width</h3>
+<ol>
+	<li>Set the <a href="line_selector.htm"><span class="parameter-name">LineSelector</span> 
+	 parameter</a> to the desired camera output line.</li>
+	<li>Enter a value for the <span class="parameter-name">LineMinimumOutputPulseWidth</span> 
+	 parameter.</li>
+</ol>
+<h3><a name="MiniTOCBookMark4"></a>How It Works</h3>
+<p>To ensure reliable detection of camera output signals, the Line Minimum 
+ Output Pulse Signal Width feature allows you to increase the output signal 
+ width to a minimum width. The minimum width is specified in microseconds, 
+ up to a maximum value of 100&#160;μs.</p>
+<ul>
+	<li>If the original signal width is narrower than the minimum signal 
+	 width specified, the signal width is increased to achieve the minimum 
+	 width.</li>
+	<li>If the original signal width is equal to or wider than the set 
+	 minimum signal width, the feature has no effect. </li>
+</ul>
+<h2 class="sample-code"><a name="MiniTOCBookMark5"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre><code class="cpp">// Select output line Line 2
+camera.LineSelector.SetValue(LineSelector_Line2);
+// Set the parameter value to 10.0 microseconds
+camera.LineMinimumOutputPulseWidth.SetValue(10.0);</code></pre></div><div class="tab-2 tab-content"><pre><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Select output line Line 2
+CEnumerationPtr(nodemap.GetNode("LineSelector"))-&gt;FromString("Line2");
+// Set the parameter value to 10.0 microseconds
+CFloatPtr(nodemap.GetNode("LineMinimumOutputPulseWidth"))-&gt;SetValue(10.0);</code></pre></div><div class="tab-3 tab-content"><pre><code class="csharp" generated="true">// Select output line Line 2
+camera.Parameters[PLCamera.LineSelector].SetValue(PLCamera.LineSelector.Line2);
+// Set the parameter value to 10.0 microseconds
+camera.Parameters[PLCamera.LineMinimumOutputPulseWidth].SetValue(10.0);</code></pre></div><div class="tab-4 tab-content"><pre><code class="csharp" generated="true">// Select output line Line 2
+Pylon.DeviceFeatureFromString(hdev, "LineSelector", "Line2");
+// Set the parameter value to 10.0 microseconds
+Pylon.DeviceSetFloatFeature(hdev, "LineMinimumOutputPulseWidth", 10.0);</code></pre></div><div class="tab-5 tab-content"><pre><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+/* Select output line Line 2 */
+errRes = PylonDeviceFeatureFromString(hdev, "LineSelector", "Line2");
+CHECK(errRes);
+/* Set the parameter value to 10.0 microseconds */
+errRes = PylonDeviceSetFloatFeature(hdev, "LineMinimumOutputPulseWidth", 10.0);
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon Viewer 
+ </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

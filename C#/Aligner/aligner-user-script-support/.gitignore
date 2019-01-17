@@ -1,0 +1,18 @@
+Irixi_Aligner_Common/bin/
+Irixi_Aligner_Common/obj/
+StepperControllerDebuger/bin/
+StepperControllerDebuger/obj/
+StepperControllerLib/obj/
+USBHIDDRIVER/bin/
+USBHIDDRIVER/obj/
+StepperControllerLib/bin/
+packages/
+Irixi_Aligner_Common/ExtDlls/
+log/
+IrixiAlignerTest/bin/
+IrixiAlignerTest/obj/
+*.licx
+
+.vs/
+
+Irixi_Aligner_Common/Configuration/motion_controller - Copy\.json

@@ -1,0 +1,374 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Action Commands</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_5";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Action Commands<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Action Commands</h1>
+<p class="teaser">The Action Commands 
+ <a href="features.htm">camera feature</a> allows you to execute actions 
+ on multiple cameras at roughly the same time by using a single broadcast 
+ protocol message.</p>
+<p>If you want to execute actions on multiple cameras at <strong>exactly</strong> 
+ the same time, use the <a href="scheduled_action_commands.htm">Scheduled 
+ Action Commands</a> feature instead.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot9607" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot9607', 'MTPOPUP9607');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP9607" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Why Use Action Commands</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >How it Works</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark5" >Action Device Key</a>
+</li>
+     <li><a href="#MiniTOCBookMark6" >Action Group Key</a>
+</li>
+     <li><a href="#MiniTOCBookMark7" >Action Group Mask</a>
+</li>
+     <li><a href="#MiniTOCBookMark8" >Broadcast Address</a>
+</li>
+     <li><a href="#MiniTOCBookMark9" >Example Setup</a>
+</li>
+    </ul></li>
+    <li><a href="#MiniTOCBookMark10" >Using Action Commands</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark11" >Configuring the Cameras</a>
+</li>
+     <li><a href="#MiniTOCBookMark12" >Issuing an Action Command</a>
+</li>
+    </ul></li>
+    <li><a href="#MiniTOCBookMark13" >Additional Parameters</a>
+</li>
+    <li><a href="#MiniTOCBookMark14" >External Links</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark15" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a><a name="Why_Use_Action_Commands">Why Use Action Commands</a></h3>
+<p>You can use action commands to perform the following tasks:</p>
+<ul>
+	<li>Synchronously acquire images with multiple cameras</li>
+	<li>Synchronously reset the <a href="data_chunks.htm#Frame_Counter_Chunk">frame 
+	 counter</a> on multiple cameras</li>
+</ul>
+<h3><a name="MiniTOCBookMark4"></a>How it Works</h3>
+<p>Action commands are broadcast protocol messages that you can send to 
+ multiple devices in a GigE network.</p>
+<p>Each action protocol message contains the following information:</p>
+<ul>
+	<li><a href="#Action_Device_Key">Action device key</a></li>
+	<li><a href="#Action_Group_Key">Action group key</a></li>
+	<li><a href="#Action_Group_Mask">Action group mask</a></li>
+	<li><a href="#Broadcast_Address">Broadcast address</a> (optional, default: 
+	 255.255.255.255)</li>
+</ul>
+<p>If the camera is within the specified network segment and if the protocol 
+ information matches the action command configuration in the camera, the 
+ camera executes the&#160;corresponding action.</p>
+<div class="info">
+	For more information about the action command parameters and their 
+	 implementation, refer to the following documents: 
+	<ul>
+		<li><a href="http://www.visiononline.org/vision-standards-details.cfm?id=168&amp;type=5">GigE 
+		 Vision Specification, version 2.0</a>, Section 14.3</li>
+		<li>&quot;Grab_UsingActionCommand&quot; code sample in the <em>C++ 
+		 Programmer's Guide and Reference Documentation</em> delivered 
+		 with the Basler pylon Camera Software Suite</li>
+	</ul>
+</div>
+<h4><a name="MiniTOCBookMark5"></a><a name="Action_Device_Key">Action Device Key</a></h4>
+<p>A 32-bit number of your choice used to authorize the execution of an 
+ action command on the camera. If the action device key on the camera and 
+ the action device key in the protocol message are identical, the camera 
+ executes the corresponding action. </p>
+<p>The device key is write-only; it can't be read out of the camera.</p>
+<h4><a name="MiniTOCBookMark6"></a><a name="Action_Group_Key">Action Group Key</a></h4>
+<p>A 32-bit number of your choice used to define a group of devices on 
+ which an action should be executed. Each camera can be assigned to one 
+ group only. If the action group key on the camera and the action group 
+ key in the protocol message are identical, the camera will execute the 
+ corresponding action.</p>
+<h4><a name="MiniTOCBookMark7"></a><a name="Action_Group_Mask">Action Group Mask</a></h4>
+<p>A 32-bit number of your choice used to filter out a sub-group of cameras 
+ belonging to a group of cameras. The cameras belonging to a sub-group 
+ execute an action at the same time.</p>
+<p>The filtering is done using a logical bitwise AND operation on the group 
+ mask number of the action command and the group mask number of a camera. 
+ If both binary numbers have at least one common bit set to 1 (i.e., the 
+ result of the AND operation is non-zero), the corresponding camera belongs 
+ to the sub-group.</p>
+<p><strong>Example:</strong> Assume that A group of six cameras is installed 
+ on an assembly line. To execute actions on specific sub-groups, the following 
+ group mask numbers have been assigned to the cameras (sample values):</p>
+<table cellspacing="0">
+	<col />
+	<col />
+	<col />
+	<thead>
+  <tr>
+		<th>Camera</th>
+		<th>Group Mask Number (Binary)</th>
+		<th>Group Mask Number (Hexadecimal)</th>
+	</tr>
+ </thead>
+	<tr>
+		<td>1</td>
+		<td>000001</td>
+		<td>0x1</td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td>000010</td>
+		<td>0x2</td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td>000100</td>
+		<td>0x4</td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>001000</td>
+		<td>0x8</td>
+	</tr>
+	<tr>
+		<td>5</td>
+		<td>010000</td>
+		<td>0x10</td>
+	</tr>
+	<tr>
+		<td>6</td>
+		<td>100000</td>
+		<td>0x20</td>
+	</tr>
+</table>
+<p>In this example, an action command with an action group mask of 000111 
+ (0x7) executes an action on cameras 1, 2, and 3.&#160;And an action command 
+ with an action group mask of 101100 (0x2C) executes an action on cameras 
+ 3, 4, and 6.</p>
+<h4><a name="MiniTOCBookMark8"></a><a name="Broadcast_Address">Broadcast Address</a></h4>
+<p>A string variable used to define where the action command will be broadcast 
+ to. When using the pylon API, the broadcast address must be in dot notation, 
+ e.g., &quot;255.255.255.255&quot; (all adapters), &quot;192.168.1.255&quot; 
+ (all devices in a single subnet 192.168.1.xxx), or &quot;192.168.1.38&quot; 
+ (a single device). </p>
+<p>This parameter is optional. If omitted, &quot;255.255.255.255&quot; 
+ will be used.</p>
+<h4><a name="MiniTOCBookMark9"></a>Example Setup</h4>
+<p>The following example setup will give you an idea of the basic concept 
+ of action commands.</p>
+<p>To analyze the movement of a horse, a group of cameras is installed 
+ parallel to a race track.</p>
+<p><img src="images/drawing_action_command_example.png" alt="Action Commands Example Setup" title="Action Commands Example Setup" /></p>
+<p>When the horse passes, four cameras (subgroup 1) synchronously execute 
+ an action (image acquisition in this example).</p>
+<p>As the horse advances, the next four cameras (subgroup 2) synchronously 
+ capture images. One after the other, the subgroups continue in this fashion 
+ until the horse has reached the end of the race track. The resulting images 
+ can be combined and analyzed in a subsequent step.</p>
+<p>In this sample use case, the following must be defined:</p>
+<ul>
+	<li>A unique device key to authorize the execution of the synchronous 
+	 image acquisition. The device key must be configured on each camera 
+	 and it must be the same as the device key for the action command protocol 
+	 message. To define the device key, use the <a href="#Action_Device_Key">action 
+	 device key</a>.</li>
+	<li>The group of cameras in a network segment that is addressed by 
+	 the action command (in this example: group 1). To define the groups, 
+	 use the <a href="#Action_Group_Key">action group key</a>.</li>
+	<li>The subgroups in the group of cameras that capture images synchronously 
+	 (in this example: subgroups 1, 2, and 3). To define the subgroups, 
+	 use the <a href="#Action_Group_Mask">action group mask</a>.</li>
+</ul>
+<h3><a name="MiniTOCBookMark10"></a>Using Action Commands</h3>
+<h4><a name="MiniTOCBookMark11"></a><a name="Configuring_the_Cameras">Configuring the Cameras</a></h4>
+<p>To configure the cameras so that they are able to receive action commands 
+ and perform one or more of the <a href="#Why_Use_Action_Commands">supported 
+ tasks</a>:</p>
+<p class="info">The same procedure applies if you want to configure <a href="scheduled_action_commands.htm">Scheduled Action Commands</a> 
+ on your cameras.</p>
+<ol>
+	<li>Make sure that the following requirements are met:</li>
+	<ul>
+		<li>All cameras on which you want to configure action commands 
+		 must be installed and configured in the same network segment.</li>
+		<li>The Action Commands feature is supported by all cameras and 
+		 by the Basler pylon API you are using to configure and send action 
+		 commands.</li>
+	</ul>
+	<li>Open the connection to one of the cameras that you want to control 
+	 using action commands.</li>
+	<li>If you want to use the Action Command feature to <strong>synchronously 
+	 acquire images</strong>:</li>
+	<ol>
+		<li>Set the <span class="parameter-name">TriggerSelector</span> 
+		 parameter to <span class="parameter-name">FrameStart</span>.</li>
+		<li>Set the <span class="parameter-name">TriggerMode</span> 
+		 parameter to <span class="parameter-name">On</span>.</li>
+		<li>Set the <span class="parameter-name">TriggerSource</span> 
+		 parameter to <span class="parameter-name">Action1</span>.</li>
+	</ol>
+	<li>If you want to use the Action Command feature to <strong>synchronously 
+	 reset the frame counter</strong>:</li>
+	<ul>
+		<li>Set the <span class="parameter-name">CounterResetSource</span> 
+		 parameter to <span class="parameter-name">Action1</span>.</li>
+	</ul>
+	<li>Configure the following action command-specific parameters:</li>
+	<ul>
+		<li><a href="#Action_Device_Key"><span class="parameter-name">ActionDeviceKey</span></a></li>
+		<li><a href="#Action_Group_Key"><span class="parameter-name">ActionGroupKey</span></a></li>
+		<li><a href="#Action_Group_Mask"><span class="parameter-name">ActionGroupMask</span></a></li>
+	</ul>
+	<li>Repeat steps 2 to 6 on all cameras.</li>
+</ol>
+<h4><a name="MiniTOCBookMark12"></a><a name="Issuing_an_Action_Command">Issuing an Action Command</a></h4>
+<p>To issue an action command, call the <span class="parameter-name">IssueActionCommand</span> 
+ method in your application. </p>
+<p><strong>Example:</strong><br />
+<img src="images/drawing_action_command_syntax.png" alt="IssueActionCommand Example" title="IssueActionCommand Example" /></p>
+<p class="info">For more information, see the <em>C++ Programmer's Guide 
+ and Reference Documentation</em> delivered with the Basler pylon Camera 
+ Software Suite.</p>
+<h3><a name="MiniTOCBookMark13"></a>Additional Parameters</h3>
+<ul>
+	<li><span class="parameter-name">ActionCommandCount</span>: 
+	 Determines how many different action commands can be assigned to the 
+	 device. Currently, this number is limited to 1 for all Basler cameras. 
+	 This means that you can't distinguish between assigned tasks (e.g., 
+	 &quot;trigger image acquisition on command 1, reset the frame counter 
+	 on command 2&quot;). Therefore, issuing an action command always executes 
+	 all assigned tasks at once.</li>
+	<li><span class="parameter-name">ActionSelector</span>: 
+	 Specifies the action command to be configured. Because the number 
+	 of action commands is limited to 1 (see above), this parameter is 
+	 preset to 1 and can't be changed.</li>
+</ul>
+<h3><a name="MiniTOCBookMark14"></a>External Links</h3>
+<ul>
+	<li><a href="https://en.wikipedia.org/wiki/Broadcast_address">Broadcast 
+	 Address (Wikipedia)</a></li>
+	<li><a href="http://www.remotemonitoringsystems.ca/broadcast.php">Broadcast 
+	 Address Calculator (EtherTek Circuits)</a></li>
+</ul>
+<h2 class="sample-code"><a name="MiniTOCBookMark15"></a>Sample Code</h2>
+<div>
+<pre>
+<code class="cpp">// Example: Configuring a group of cameras for synchronous image
+// acquisition. It is assumed that the &quot;cameras&quot; object is an 
+// instance of CBaslerGigEInstantCameraArray.
+//--- Start of camera setup ---
+for (size_t i = 0; i &gt; cameras.GetSize(); ++i)
+{
+&#160;&#160;&#160;&#160;// Open the camera connection
+&#160;&#160;&#160;&#160;cameras[i].Open();
+&#160;&#160;&#160;&#160;// Configure the trigger selector
+&#160;&#160;&#160;&#160;cameras[i].TriggerSelector.SetValue(TriggerSelector_FrameStart);
+&#160;&#160;&#160;&#160;// Select the mode for the selected trigger
+&#160;&#160;&#160;&#160;cameras[i].TriggerMode.SetValue(TriggerMode_On);
+&#160;&#160;&#160;&#160;// Configure the source for the selected trigger
+&#160;&#160;&#160;&#160;cameras[i].TriggerSource.SetValue(TriggerSource_Action1);
+&#160;&#160;&#160;&#160;// Specify the action device key
+&#160;&#160;&#160;&#160;cameras[i].ActionDeviceKey.SetValue(4711);
+&#160;&#160;&#160;&#160;// In this example, all cameras will be in the same group
+&#160;&#160;&#160;&#160;cameras[i].ActionGroupKey.SetValue(1);
+&#160;&#160;&#160;&#160;// Specify the action group mask
+&#160;&#160;&#160;&#160;// In this example, all cameras will respond to any mask
+&#160;&#160;&#160;&#160;// other than 0
+&#160;&#160;&#160;&#160;cameras[i].ActionGroupMask.SetValue(0xffffffff);
+}
+//--- End of camera setup ---
+// Send an action command to the cameras
+GigeTL-&gt;IssueActionCommand(4711, 1, 0xffffffff, &quot;192.168.1.255&quot;);</code></pre>
+</div>
+<p>This sample code is available in C++ language only.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,605 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="noindex" />
+<meta http-equiv="Content-Language" content="en-US" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>BCON for LVDS Control Protocol</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.5.0_1";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > BCON Interfaces" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"bcon_interfaces.htm\">BCON Interfaces<\/a>  &gt;  BCON for LVDS Control Protocol<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>BCON for LVDS Control Protocol</h1>
+<p class="teaser">This topic provides information about the low level protocol 
+ used to communicate with a Basler BCON for LVDS camera module.</p>
+<p>This topic is aimed at experienced hardware and software engineers proficient 
+ in electronics, software development, and embedded system design. The 
+ topic assumes that users have significant experience in programming with 
+ the <a href="http://www.emva.org/standards-technology/genicam">GenICam 
+ generic programming interface</a> and are familiar with the <a href="http://www.emva.org/wp-content/uploads/GenICam_GenCP_1.2.pdf">GenCP 
+ 1.2 specification</a>.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot42123" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot42123', 'MTPOPUP42123');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP42123" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >General Information</a>
+</li>
+   <li><a href="#MiniTOCBookMark3" >Basler BCON for LVDS Control Protocol</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark4" >GenCP Prefix</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >GenCP Postfix</a>
+</li>
+    <li><a href="#MiniTOCBookMark6" >GenCP Command IDs</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark7" >Sample I²C Transaction</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark8" >GenCP Command</a>
+</li>
+    <li><a href="#MiniTOCBookMark9" >GenCP Acknowledge</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark10" >Considerations When Reading Data from the Device</a>
+</li>
+   <li><a href="#MiniTOCBookMark11" >Bootstrap Register Map (BRM)</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark12" >Technology Agnostic Bootstrap Register Map (ABRM)</a>
+</li>
+    <li><a href="#MiniTOCBookMark13" >Technology Specific Bootstrap Register Map (SBRM)</a>
+</li>
+   </ul></li>
+  </ul>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>General Information</h2>
+<p>Basler BCON for LVDS camera modules are configured via a standard I²C 
+ interface. The camera modules are GenICam devices and use GenCP (Generic 
+ Control Protocol), version 1.2, as their low level protocol.</p>
+<p class="info">All information given in this topic is based on the <a 
+	 href="http://www.emva.org/wp-content/uploads/GenICam_GenCP_1.2.pdf">GenCP 
+ 1.2 specification</a>.</p>
+<h2><a name="MiniTOCBookMark3"></a>Basler BCON for LVDS Control Protocol</h2>
+<h3><a name="MiniTOCBookMark4"></a>GenCP Prefix</h3>
+<p>To communicate with a Basler BCON for LVDS camera module, you must use 
+ the following prefix:</p>
+<table >
+	<col />
+	<col />
+	<col />
+	<thead>
+  <tr>
+		<th>Width (Bytes)</th>
+		<th>Offset (Bytes)</th>
+		<th>Description</th>
+	</tr>
+ </thead>
+	<tr>
+		<td><p>4</p></td>
+		<td>0</td>
+		<td>0x434C5356<br />
+		Contains the ASCII string “VSLC”, short for Versatile Serial Link 
+		 Control (with “V” in the LSB).</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark5"></a>GenCP Postfix</h3>
+<p>Each GenCP command and each GenCP acknowledge uses a CRC-16 code as 
+ postfix. </p>
+<p>To communicate with a Basler BCON for LVDS camera module, you must use 
+ the following postfix:</p>
+<table >
+	<col />
+	<col />
+	<col />
+	<thead>
+  <tr>
+		<th>Width (Bytes)</th>
+		<th>Offset (Bytes)</th>
+		<th>Description</th>
+	</tr>
+ </thead>
+	<tr>
+		<td><p>2</p></td>
+		<td>0</td>
+		<td><p>CRC-16 code</p>
+		<p>Contains the CRC-16 with LSB first. Includes the prefix, CCD 
+		 and SCD data. <br />
+		The generator polynom used is 0x8005.</p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark6"></a>GenCP Command IDs</h3>
+<p>Basler BCON for LVDS camera modules support the following command IDs:</p>
+<ul>
+	<li>READMEM_CMD</li>
+	<li>READMEM_ACK</li>
+	<li>WRITEMEM_CMD</li>
+	<li>WRITEMEM_ACK</li>
+	<li>PENDING_ACK</li>
+</ul>
+<p>Basler BCON for LVDS camera modules do not support the following command 
+ IDs:</p>
+<ul>
+	<li>EVENT_CMD</li>
+	<li>EVENT_ACK</li>
+</ul>
+<h2><a name="MiniTOCBookMark7"></a>Sample I²C Transaction</h2>
+<p>The following pseudo data structure describes the I²C data stream initiated 
+ from the I²C master.</p>
+<h3><a name="MiniTOCBookMark8"></a>GenCP Command</h3>
+<p>The pseudo data structure of a GenCP Command (without start, stop, and 
+ ACK bits) is as follows:</p>
+<table >
+	<tr>
+		<td bgcolor="#C6CCD0">I²C Address (write)</td>
+		<td bgcolor="#5DC4EC">Prefix (“VSLC”)</td>
+		<td bgcolor="#008FD3">Payload (GenCP CMD)</td>
+		<td bgcolor="#BCE3F6">Postfix (CRC16)</td>
+	</tr>
+</table>
+<p class="subheading">Example</p>
+<p>The following image shows an I²C dump of a valid I²C write request.</p>
+<p>As an example, the GenCP READMEM_CMD command for the Maximum Device 
+ Response Time register is used.</p>
+<p><img class="large-image" src="images\image_bcon_lvds_gencp_command_th.png" alt="Dump of a Valid IC2 Write Request" title="Dump of a Valid IC2 Write Request" height="105" width="550" data-rhwidget="Basic" data-popupimage="images/image_bcon_lvds_gencp_command.png" /></p>
+<h3><a name="MiniTOCBookMark9"></a>GenCP Acknowledge</h3>
+<p>The pseudo data structure of a GenCP Acknowledge (without start, stop, 
+ and ACK bits) is as follows:</p>
+<table >
+	<tr>
+		<td bgcolor="#C6CCD0">I²C Address (read)</td>
+		<td bgcolor="#5DC4EC">Prefix (“VSLC”)</td>
+		<td bgcolor="#008FD3">Payload (GenCP ACK)</td>
+		<td bgcolor="#BCE3F6">Postfix (CRC16)</td>
+	</tr>
+</table>
+<p class="subheading">Example</p>
+<p>The following image shows an I²C dump of a valid I²C read request.</p>
+<p>As an example, the GenCP READMEM_ACK command for the Maximum Device 
+ Response Time register is used.</p>
+<p><img class="large-image" src="images\image_bcon_lvds_gencp_acknowledge_th.png" alt="Dump of a Valid IC2 Read Request" title="Dump of a Valid IC2 Read Request" height="106" width="550" data-rhwidget="Basic" data-popupimage="images/image_bcon_lvds_gencp_acknowledge.png" /></p>
+<h2><a name="MiniTOCBookMark10"></a>Considerations When Reading Data from the Device</h2>
+<ul>
+	<li>Before issuing a read command, the I²C master must send a valid 
+	 GenCP command. Otherwise, the device will return a 0xFF value for 
+	 each requested byte.</li>
+	<li>If the I²C master requests more data than the device is able to 
+	 return, the following occurs:</li>
+	<ol>
+		<li>The device returns the data that the device is able to return.</li>
+		<li>The device returns a 0xFF value for each further byte until 
+		 the read request is finished.</li>
+	</ol>
+</ul>
+<h2><a name="MiniTOCBookMark11"></a>Bootstrap Register Map (BRM)</h2>
+<p>According to the GenCP standard, the total BRM is divided into two parts:</p>
+<ul>
+	<li>The Technology Agnostic Bootstrap Register Map (<strong>ABRM</strong>)</li>
+	<li>The Technology Specific Bootstrap Register Map (<strong>SBRM</strong>).</li>
+</ul>
+<p>The next sections describe both register maps.</p>
+<h3><a name="MiniTOCBookMark12"></a>Technology Agnostic Bootstrap Register Map (ABRM)</h3>
+<p>The Technology Agnostic Bootstrap Register Map (ABRM) uses the first 
+ 64 kB of the register space.</p>
+<div class="info">
+	<p>The ABRM shown below is <strong>exactly 
+	 the same</strong> as the ABRM described in the GenCP 1.2 specification, 
+	 with the following exceptions:</p>
+	<ul>
+		<li>The Heartbeat Timeout register is not used.</li>
+		<li>The Message Channel ID register is not used.</li>
+		<li>The Access Privilege register is not used.</li>
+	</ul>
+	<p>Accessing these registers will return a GENCP_INVALID_ADDRESS status 
+	 code.</p>
+	<p>For more information, refer to Chapter 5 in the <a href="http://www.emva.org/wp-content/uploads/GenICam_GenCP_1.2.pdf">GenCP 
+	 1.2 specification</a>.</p>
+</div>
+<p class="subheading">Table definitions</p>
+<ul>
+	<li><strong>Width</strong>: Size of the register 
+	 in bytes</li>
+	<li><strong>Offset</strong>: Address of the 
+	 register in the device’s BRM</li>
+	<li><strong>Support</strong>: M = Mandatory 
+	 / R = Recommended / CM = Conditional Mandatory (depending on the capability 
+	 bits)</li>
+	<li><strong>Access</strong>: R = Read-only, 
+	 W = Write-only, RW = Read/Write</li>
+	<li><strong>Description</strong>: Name and short 
+	 description</li>
+</ul>
+<table >
+	<thead>
+  <tr>
+		<th>Width<br />
+		(Bytes)</th>
+		<th>Offset<br />
+		(Bytes)</th>
+		<th><p>Support</p></th>
+		<th><p>Access</p></th>
+		<th><p>Description</p></th>
+	</tr>
+ </thead>
+	<tr>
+		<td>4</td>
+		<td>0x00000</td>
+		<td>M</td>
+		<td>R</td>
+		<td><p><strong>GenCP Version</strong></p>
+		<p>Complying GenCP specification version.</p></td>
+	</tr>
+	<tr>
+		<td>64</td>
+		<td>0x00004</td>
+		<td>M</td>
+		<td>R</td>
+		<td><p><strong>Manufacturer Name</strong></p>
+		<p>String containing the self-describing name of the manufacturer.</p></td>
+	</tr>
+	<tr>
+		<td>64</td>
+		<td>0x00044</td>
+		<td>M</td>
+		<td>R</td>
+		<td><p><strong>Model Name</strong></p>
+		<p>String containing the self-describing name of the device model.</p></td>
+	</tr>
+	<tr>
+		<td>64</td>
+		<td>0x00084</td>
+		<td>CM</td>
+		<td>R</td>
+		<td><p><strong>Family Name</strong></p>
+		<p>String containing the name of the family of this device.</p></td>
+	</tr>
+	<tr>
+		<td>64</td>
+		<td>0x000C4</td>
+		<td>M</td>
+		<td>R</td>
+		<td><p><strong>Device Version</strong></p>
+		<p>String containing the version of this device.</p></td>
+	</tr>
+	<tr>
+		<td>64</td>
+		<td>0x00104</td>
+		<td>M</td>
+		<td>R</td>
+		<td><p><strong>Manufacturer Info</strong></p>
+		<p>String containing additional manufacturer information.</p></td>
+	</tr>
+	<tr>
+		<td>64</td>
+		<td>0x00144</td>
+		<td>M</td>
+		<td>R</td>
+		<td><p><strong>Serial Number</strong></p>
+		<p>String containing the serial number of the device.</p></td>
+	</tr>
+	<tr>
+		<td>64</td>
+		<td>0x00184</td>
+		<td>CM</td>
+		<td>RW</td>
+		<td><p><strong>User Defined Name</strong></p>
+		<p>String containing the user defined name of the device.</p></td>
+	</tr>
+	<tr>
+		<td>8</td>
+		<td>0x001C4</td>
+		<td>M</td>
+		<td>R</td>
+		<td><p><strong>Device Capability</strong></p>
+		<p>Bit field describing the device’s capabilities. <br />
+		<a href="#Device_Capability">See note below.</a></p></td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>0x001CC</td>
+		<td>M</td>
+		<td>R</td>
+		<td><p><strong>Maximum Device Response Time</strong></p>
+		<p>Maximum response time in ms.</p></td>
+	</tr>
+	<tr>
+		<td>8</td>
+		<td>0x001D0</td>
+		<td>M</td>
+		<td>R</td>
+		<td><p><strong>Manifest Table Address</strong></p>
+		<p>Pointer to the Manifest Table.</p></td>
+	</tr>
+	<tr>
+		<td>8</td>
+		<td>0x001D8</td>
+		<td>CM</td>
+		<td>R</td>
+		<td><p><strong>SBRM Address</strong></p>
+		<p>Pointer to the Technology Specific Bootstrap Register Map.</p></td>
+	</tr>
+	<tr>
+		<td>8</td>
+		<td>0x001E0</td>
+		<td>CM</td>
+		<td>RW</td>
+		<td><p><strong>Device Configuration</strong></p>
+		<p>Bit field describing the device’s configuration.</p></td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>0x001E8</td>
+		<td>CM</td>
+		<td>RW</td>
+		<td><p><strong>Heartbeat Timeout</strong></p>
+		<p>Heartbeat Timeout in ms.</p>
+		<p>Not used by the Basler BCON for LVDS interface.</p></td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>0x001EC</td>
+		<td>CM</td>
+		<td>RW</td>
+		<td><p><strong>Message Channel ID</strong></p>
+		<p>channel_id used for the message channel.</p>
+		<p>Not used by the Basler BCON for LVDS interface.</p></td>
+	</tr>
+	<tr>
+		<td>8</td>
+		<td>0x001F0</td>
+		<td>CM</td>
+		<td>R</td>
+		<td><p><strong>Timestamp</strong></p>
+		<p>Last latched device time in ns.</p></td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>0x001F8</td>
+		<td>CM</td>
+		<td>W</td>
+		<td><p><strong>Timestamp Latch</strong></p></td>
+	</tr>
+	<tr>
+		<td>8</td>
+		<td>0x001FC</td>
+		<td>CM</td>
+		<td>R</td>
+		<td><p><strong>Timestamp Increment</strong></p></td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>0x00204</td>
+		<td>CM</td>
+		<td>RW</td>
+		<td><p><strong>Access Privilege</strong></p>
+		<p>Not used by the Basler BCON for LVDS interface.</p></td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>0x00208</td>
+		<td>-</td>
+		<td>-</td>
+		<td><p><strong>Reserved</strong></p>
+		<p>Deprecated Protocol Endianness, do not reuse.</p></td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>0x0020C</td>
+		<td>CM</td>
+		<td>R</td>
+		<td><p><strong>Implementation Endianness</strong></p>
+		<p>Endianness of device implementation registers.</p></td>
+	</tr>
+	<tr>
+		<td>65008</td>
+		<td>0x00210</td>
+		<td>M</td>
+		<td>none</td>
+		<td><p><strong>Reserved Register Space</strong></p></td>
+	</tr>
+</table>
+<p class="subheading"><a name="Device_Capability">Device Capability</a></p>
+<p>The Device Capability register is set to 0xE09. As specified in the 
+ <a href="http://www.emva.org/wp-content/uploads/GenICam_GenCP_1.2.pdf">GenCP 
+ 1.2 specification</a>, this value indicates the following:</p>
+<ul>
+	<li><strong>Access Privilege Available</strong>: 
+	 Unavailable (not used by the Basler BCON for LVDS standard)</li>
+	<li><strong>Timestamp Supported</strong>: Available 
+	 (required by the Basler BCON for LVDS standard)</li>
+	<li><strong>String Encoding</strong>: 0x0 ASCII 
+	 (required by the Basler BCON for LVDS standard)</li>
+	<li><strong>SBRM Supported</strong>: Available 
+	 (required by the Basler BCON for LVDS standard)</li>
+	<li><strong>Written Length Field Supported</strong>: 
+	 Available (required by the Basler BCON for LVDS standard)</li>
+</ul>
+<h3><a name="MiniTOCBookMark13"></a>Technology Specific Bootstrap Register Map (SBRM)</h3>
+<p>The SBRM <strong>must</strong> start on a free 
+ manufacturer-specific address space after address 0xFFFF.</p>
+<p class="subheading">Table definitions</p>
+<ul>
+	<li><strong>Width</strong>: Size of the register 
+	 in bytes</li>
+	<li><strong>Offset</strong>: Address of the 
+	 register in the device’s BRM</li>
+	<li><strong>Support</strong>: M = Mandatory 
+	 / R = Recommended / CM = Conditional Mandatory (depending on the capability 
+	 bits)</li>
+	<li><strong>Access</strong>: R = Read-only, 
+	 W = Write-only, RW = Read/Write</li>
+	<li><strong>Description</strong>: Name and short 
+	 description</li>
+</ul>
+<table >
+	<thead>
+  <tr>
+		<th>Width<br />
+		(Bytes)</th>
+		<th>Offset<br />
+		(Bytes)</th>
+		<th><p>Support</p></th>
+		<th><p>Access</p></th>
+		<th><p>Description</p></th>
+	</tr>
+ </thead>
+	<tr>
+		<td>4</td>
+		<td>SBRM</td>
+		<td>M</td>
+		<td>R</td>
+		<td><p><strong>GenCP Version</strong></p>
+		<p>Complying GenCP specification version.</p></td>
+	</tr>
+	<tr>
+		<td>16</td>
+		<td><p>SBRM + 0x04</p></td>
+		<td>M</td>
+		<td>none</td>
+		<td><p><strong>Reserved Register Space</strong></p></td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td><p>SBRM + 0x14</p></td>
+		<td>M</td>
+		<td>R</td>
+		<td><p><strong>Maximum Command Transfer Length</strong></p>
+		<p>The maximum supported command transfer length of the device.</p></td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>SBRM + 0x18</td>
+		<td>M</td>
+		<td>R</td>
+		<td><p><strong>Maximum Acknowledge Transfer 
+		 Length</strong></p>
+		<p>The maximum supported acknowledge transfer length of the device.</p></td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>SBRM + 0x1C</td>
+		<td>M</td>
+		<td>RW</td>
+		<td><p><strong>Prepare Access</strong></p>
+		<p>Writing any value to this register will re-initialize the camera 
+		 module. If the camera module is currently acquiring images, image 
+		 acquisition and data transmission will be stopped.</p></td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>SBRM + 0x20</td>
+		<td>M</td>
+		<td>R</td>
+		<td><p><strong>Clock Frequency</strong></p>
+		<p>The Basler BCON for LVDS clock frequency in Hertz. The value 
+		 can range from 12000000 (12 MHz) to 84000000 (84 MHz).</p></td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>SBRM + 0x24</td>
+		<td>M</td>
+		<td>R</td>
+		<td><p><strong>Pixels Per Clock Cycle</strong></p>
+		<p>The number of pixels transmitted per clock cycle via the Basler 
+		 BCON for LVDS interface.</p></td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>SBRM + 0x28</td>
+		<td>M</td>
+		<td>R</td>
+		<td><p><strong>Width</strong></p>
+		<p>The current width of the region of interest in pixels.</p></td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>SBRM + 0x2C</td>
+		<td>M</td>
+		<td>R</td>
+		<td><p><strong>Height</strong></p>
+		<p>The current height of the region of interest in pixels.</p></td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>SBRM + 0x30</td>
+		<td>M</td>
+		<td>R</td>
+		<td><p><strong>Pixel Format</strong></p>
+		<p>The current SFNC pixel format.</p></td>
+	</tr>
+</table>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

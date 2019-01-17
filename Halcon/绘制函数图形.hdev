@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="331686853">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image (Image1, 'C:/Users/Administrator/Desktop/ImageSaved/1.bmp')</l>
+<l>dev_close_window()</l>
+<l>dev_open_window_fit_image(Image1, 0, 0, -1, -1, WindowHandle)</l>
+<l>dev_display(Image1)</l>
+<l>get_domain(Image1, Domain)</l>
+<l>gray_projections(Domain, Image1, 'simple', HorProjection, VertProjection)</l>
+<l>create_funct_1d_array(VertProjection, Function)</l>
+<l>get_image_size(Image1, Width, Height)</l>
+<c></c>
+<l>gen_region_histo(Region, VertProjection, Height/2, Width/2, 1)</l>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

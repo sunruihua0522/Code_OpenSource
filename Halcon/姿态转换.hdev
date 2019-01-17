@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="980081808">
+<procedure name="main">
+<interface/>
+<body>
+<l>create_pose(0.1, 0.2, 0.3, 40, 60, 90, 'Rp+T', 'gba', 'point', Pose)</l>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

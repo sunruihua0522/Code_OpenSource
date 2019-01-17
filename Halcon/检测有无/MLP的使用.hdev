@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="659633724">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Code/Halcon/检测有无/图片1/'+1+'.jpg')</l>
+<l>dev_close_window()</l>
+<l>dev_open_window_fit_image(Image, 0, 0, -1, -1, WindowHandle)</l>
+<c></c>
+<l>dev_display(Image)</l>
+<c></c>
+<c></c>
+<l>read_class_mlp('mlp.gmc', MLPHandle)</l>
+<l>read_class_mlp('mlp_2.gmc', MLPHandle1)</l>
+<l>for Index := 2 to 13 by 1</l>
+<l>    if(Index&lt;4)</l>
+<l>        Tail:='.jpg'</l>
+<l>    else</l>
+<l>        Tail:='.bmp'</l>
+<l>    endif</l>
+<c>    </c>
+<l>read_image(Image,'C:/Code/Halcon/检测有无/图片1/'+Index+Tail)</l>
+<c></c>
+<c></c>
+<c></c>
+<l>decompose3(Image, Image1, Image2, Image3)</l>
+<l>trans_from_rgb(Image1, Image2, Image3, ImageResult1, ImageResult2, ImageResult3, 'hsv')</l>
+<l>dev_display(Image3)</l>
+<c></c>
+<c></c>
+<l>classify_image_class_mlp (Image, ClassRegionsNotRejected, MLPHandle, 0.5)</l>
+<c></c>
+<l>select_obj(ClassRegionsNotRejected, ObjectSelected, 1)</l>
+<c></c>
+<l>connection(ObjectSelected, ConnectedRegions)</l>
+<c></c>
+<l>select_shape (ConnectedRegions, SelectedRegions, 'area', 'and', 6000.2, 159205)</l>
+<l>union1(SelectedRegions, RegionUnion)</l>
+<c></c>
+<l>opening_circle(RegionUnion, RegionOpening, 3.5)</l>
+<c></c>
+<l>shape_trans(RegionOpening, RegionTrans, 'convex')</l>
+<l>dev_set_draw('margin')</l>
+<l>dev_clear_window()</l>
+<l>dev_display(Image)</l>
+<c>   </c>
+<l>dev_display(RegionTrans)</l>
+<c></c>
+<l>dev_set_draw('fill')</l>
+<l>reduce_domain(Image, RegionTrans, ImageReduced)</l>
+<l>classify_image_class_mlp (ImageReduced, ClassRegionsNotRejected, MLPHandle1, 0.5)</l>
+<c></c>
+<l>select_obj(ClassRegionsNotRejected, ObjectSelected1, 3)</l>
+<c></c>
+<l>opening_circle(ObjectSelected1, RegionOpening1, 3.5)</l>
+<c></c>
+<l>fill_up(RegionOpening1, RegionFillUp)</l>
+<c></c>
+<l>smallest_rectangle2(RegionFillUp, Row1, Column1, Phi, Length1, Length2)</l>
+<l>gen_rectangle2(Rectangle, Row1, Column1, Phi, Length1, Length2)</l>
+<c></c>
+<c></c>
+<l>area_center(RegionFillUp, Area, Row, Column)</l>
+<c></c>
+<l>dev_clear_window()</l>
+<c></c>
+<l>dev_display(Image)</l>
+<l>dev_display(RegionFillUp)</l>
+<c></c>
+<l>if(Length1&lt;150 and Length2&lt;150 and Length1&gt;50 and Length2&gt;50)</l>
+<l>    disp_message(WindowHandle, 'OK', 'image', 0, 0, 'green', 'true')</l>
+<l>else</l>
+<l>     disp_message(WindowHandle, 'NG', 'image', 0, 0, 'red', 'true')</l>
+<l>endif</l>
+<c></c>
+<l>stop()</l>
+<l>endfor</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Color Creation on the acA750-30gc</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.5_5";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  Color Creation on the acA750-30gc<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1>Color Creation on the acA750-30gc</h1>
+<p class="teaser">The acA750-30gc camera is equipped with a CMYG color 
+ separation filter. Therefore, color creation differs from other camera 
+ models.</p>
+<h2>Color Data Creation</h2>
+<p>The sensor used in the acA750-30gc camera model is equipped with a complementary 
+ plus green color separation filter. The colors in the filter are cyan, 
+ magenta, yellow, and green (CMYG). Each individual pixel is covered by 
+ a portion of the filter that allows light of only one color to strike 
+ the pixel. The filter has a pattern as shown below:</p>
+<p><img src="images/drawing_color_creation_aca750-30_cmyg.png" alt="CMYG Filter Pattern" title="CMYG Filter Pattern" /></p>
+<p>Due to the architecture of the sensor used in the acA750-30gc camera 
+ models, there is only one vertical shift register for every two physical 
+ pixels in the sensor. This leads to a &quot;field&quot; readout scheme 
+ for the sensor. There are two fields that can be read out of the sensor: 
+ <a href="field_output_mode.htm">&quot;Field 0&quot; and &quot;Field 1&quot;</a>.</p>
+<p>As shown below, when the camera acquires <strong>field 0</strong>, it 
+ obtains the following color combinations:</p>
+<ul>
+	<li>Green + Cyan (G+C)</li>
+	<li>Magenta + Cyan (M+C)</li>
+	<li>Magenta + Yellow (M+Y)</li>
+	<li>Green + Yellow (G+Y)</li>
+</ul>
+<p><img src="images/drawing_color_creation_aca750-30_field0.png" alt="Color Combinations for Field 0" title="Color Combinations for Field 0" /></p>
+<p>When the camera acquires <strong>field 1</strong>, it obtains the <strong>same</strong> 
+ set of color combinations (M+C, G+C, G+Y, M+Y):</p>
+<p><img src="images/drawing_color_creation_aca750-30_field1.png" alt="Color Combinations for Field 1" title="Color Combinations for Field 1" /></p>
+<p>The pattern of the colors in the complementary filter was designed specifically 
+ to achieve this. This means that the color information can be manipulated 
+ in an identical fashion regardless of whether the camera is working with 
+ pixel values from field 0 or from field 1.</p>
+<h2>Color Data Transmission</h2>
+<p>Transmitting the combined color data consists of the following steps:</p>
+<ol>
+	<li>The camera converts the CMYG sensor colors into a YUV color signal.</li>
+	<li>The camera performs a matrix color transformation of the YUV color 
+	 information to obtain the complete RGB color information for each 
+	 binned pixel.</li>
+	<li>If the <a href="balance_white.htm">Balance White</a> feature is 
+	 used, the camera performs white balancing on the RGB information for 
+	 each binned pixel.</li>
+	<li>If the <a href="color_adjustment.htm">Color Adjustment</a> feature 
+	 is used, the camera adjusts the RGB color information for each binned 
+	 pixel.</li>
+	<li>If the <a href="gamma.htm">Gamma</a> feature is used, the camera 
+	 performs gamma correction on the RGB information for each binned pixel. 
+	 </li>
+	<li>The camera performs a final transformation of the RGB color information 
+	 to convert it to YUV information.</li>
+	<li>The camera transmits the binned pixel values in a YUV format.</li>
+</ol>
+<div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="727076960">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image (Image1, 'C:/Users/GPAP/Desktop/1.jpg')</l>
+<l>dev_close_window()</l>
+<l>dev_open_window_fit_image(Image1, 0, 0, -1, -1, WindowHandle)</l>
+<l>dev_display(Image1)</l>
+<l>*draw_rectangle2(WindowHandle, Row, Column, Phi, Length1, Length2)</l>
+<l>dev_set_draw('margin')</l>
+<l>read_region(Rectangle, 'region.reg')</l>
+<l>*gen_rectangle2(Rectangle, Row, Column, Phi, Length1, Length2)</l>
+<l>write_region(Rectangle, 'region.reg')</l>
+<l>read_region(Region, 'region.reg')</l>
+<l>reduce_domain(Image1, Rectangle, ImageReduced)</l>
+<l>create_local_deformable_model(ImageReduced, 'auto', -0.39, 0.79, 'auto', 1, 1, 'auto', 1, 1, 'auto', 'none', 'use_polarity', 'auto', 'auto', [], [], ModelID)</l>
+<l>find_local_deformable_model(Image1, ImageRectified, VectorField, DeformedContours, ModelID, rad(-20), rad(20), 0.9, 1.1, 0.9, 1.1, 0.5, 1, 1, 0, 0.9, [], [], [], Score, Row1, Column1)</l>
+<l>disp_cross(WindowHandle, Row, Column, 6, Phi)</l>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

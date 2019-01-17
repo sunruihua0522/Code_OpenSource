@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="977000581">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image (Image10, 'C:/Code/Halcon/ImageSaved/10.jpg')</l>
+<l>scale_image_range(Image10, ImageScaled, 30, 70)</l>
+<l>dev_close_window()</l>
+<l>dev_open_window_fit_image(Image10, 0, 0, -1, -1, WindowHandle)</l>
+<l>dev_display(Image10)</l>
+<l>draw_rectangle1(WindowHandle, Row1, Column1, Row2, Column2)</l>
+<l>gen_rectangle1(Rectangle, Row1, Column1, Row2, Column2)</l>
+<l>gen_rectangle1(Rectangle1, Row1+2, Column1+2, Row2-2, Column2-2)</l>
+<l>reduce_domain(ImageScaled, Rectangle, ImageReduced)</l>
+<l>threshold (ImageReduced, Regions, 90, 255)</l>
+<l>gen_contour_region_xld(Regions, Contours, 'border')</l>
+<l>clip_contours_xld(Contours, ClippedContours, Row1+2, Column1+2, Row2-2, Column2-2)</l>
+<c></c>
+<c></c>
+<l>create_shape_model_xld(ClippedContours, 'auto', 0, 6.28, 'auto', 'auto', 'ignore_local_polarity', 5, ModelID)</l>
+<l>write_shape_model(ModelID,'C:/Code/Halcon/ImageSaved/1.shm')</l>
+<l>find_shape_model(Image10, ModelID, 0, 6.28, 0.5, 1, 0.5, 'least_squares', 0, 0.9, Row, Column, Angle, Score)</l>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

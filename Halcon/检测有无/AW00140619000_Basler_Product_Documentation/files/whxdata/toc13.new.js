@@ -1,0 +1,4 @@
+(function() {
+var toc =  [{"type":"item","data-rhtags":"44","name":"BCON for LVDS Control Protocol","url":"en/bcon_for_lvds_control_protocol.htm"},{"type":"item","data-rhtags":"44","name":"BCON for LVDS Hardware Design Guide","url":"en/bcon_for_lvds_hardware_design_guide.htm"},{"type":"item","data-rhtags":"44","name":"BCON for LVDS Interface Description","url":"en/bcon_for_lvds_interface_description.htm"},{"type":"item","data-rhtags":"21","name":"BCON for MIPI Hardware Design Guide","url":"en/bcon_for_mipi_hardware_design_guide.htm"}];
+window.rh.model.publish(rh.consts('KEY_TEMP_DATA'), toc, { sync:true });
+})();

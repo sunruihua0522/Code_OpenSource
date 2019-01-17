@@ -1,0 +1,1 @@
+gXMLBuffer ="<?xml version=\"1.0\" encoding=\"utf-8\" ?><data  src=\"toc15.js\"  name=\"Lenses\" url=\"en/lenses.htm\"><item name=\"C-Mount Lenses\" url=\"en/c-mount_lenses.htm\" /><item name=\"CS-Mount Lenses\" url=\"en/cs-mount_lenses.htm\" /><item name=\"S-Mount Lenses\" url=\"en/s-mount_lenses.htm\" /><item name=\"Lens Accessories\" url=\"en/lens_accessories.htm\" /></data>";

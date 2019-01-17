@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Assigning an IP Address to a Camera</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+ <meta http-equiv="Content-Language" content="en-US" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "4.1.2.0_3";
+</script>
+ <meta name="topic-breadcrumbs" content="Software > pylon Camera Software Suite > pylon IP Configurator" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"pylon_camera_software_suite.htm\">Software<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"pylon_camera_software_suite.htm#bc-1\">pylon Camera Software Suite<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"overview_of_the_pylon_ip_configurator.htm\">pylon IP Configurator<\/a>  &gt;  Assigning an IP Address to a Camera<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Assigning an IP Address to a Camera</h1>
+<p class="teaser">You can use the <a href="overview_of_the_pylon_ip_configurator.htm">pylon 
+ IP Configurator</a> to change the current method for assigning an IP address 
+ to a camera. </p>
+<p>These changes will stay in place even when the camera is powered off 
+ and back on again.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot11593" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot11593', 'MTPOPUP11593');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP11593" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >IP Configuration Options</a>
+</li>
+   <li><a href="#MiniTOCBookMark3" >Assigning an IP Address via a DHCP Server</a>
+</li>
+   <li><a href="#MiniTOCBookMark4" >Assigning an IP Address via Auto IP (LLA)</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>IP Configuration Options</h2>
+<p><img src="images/screen_pylon_ip_config_ip_address.png" alt="IP Configuration Options" title="IP Configuration Options" /></p>
+<p>There are the following options:</p>
+<ul>
+	<li><span class="gui-text">Static IP:</span> Static IP means that you 
+	 assign an IP address to the camera that will stay in place even when 
+	 the camera is powered off and back on again. You may also have to 
+	 specify a subnet mask and a gateway. Make sure that the camera is 
+	 in the same subnet as the adapter and that the camera has a unique 
+	 IP address. 
+	<div class="info">
+		<strong>pylon for Linux:</strong> If you assign a static IP address 
+		 to the camera that is not in the same subnet as the network adapter, 
+		 the camera may become unreachable. This is due to security restrictions 
+		 in newer Linux operating systems. To prevent this, set the <a 
+		 href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/Documentation/networking/ip-sysctl.txt?h=v4.15#n1124"><span 
+		 class="code">rp_filter</span> (reverse path filter)</a> to&#160;2 
+		 (&quot;loose mode&quot;) on the camera's network interface.
+		<br />To permanently enable loose mode reverse path 
+		 filtering, edit /etc/sysctl.conf. 
+		<ul>
+			<li>To do this for <strong>all</strong> network interfaces, 
+			 add the following entry to /etc/sysctl.conf: <br />
+			<span class="code">net.ipv4.conf.all.rp_filter=2</span></li>
+			<li>To do this for a <strong>specific</strong> network interface, 
+			 add the following entry to /etc/sysctl.conf: <br />
+			<span class="code">net.ipv4.conf.</span><em>[interface]</em><span 
+			 class="code">.rp_filter=2</span><br />
+			<strong>Example:</strong> <span class="code">net.ipv4.conf.eth0.rp_filter=2</span></li>
+		</ul>
+	</div></li>
+	<li><span class="gui-text">DHCP:</span> DHCP means that a DHCP server 
+	 assigns an IP address to the camera.</li>
+	<li><span class="gui-text">Auto IP (LLA):</span> Auto IP (Link Local 
+	 Address) means that the camera uses automatic IP address assignment 
+	 and assigns itself an IP address.</li>
+</ul>
+<p>When you configure a camera to use either a temporary or a static IP 
+ address, there are some things to keep in mind:</p>
+<ul>
+	<li>For a camera to communicate properly, it must be in the same subnet 
+	 as the adapter to which it is connected. </li>
+	<li>The camera must have an IP address that is unique within the network.</li>
+	<li>The recommended range for static IP addresses is from 172.16.0.1 
+	 to 172.32.255.254 and from 192.168.0.1 to 192.168.255.254. These address 
+	 ranges have been reserved for private use according to IP standards.</li>
+	<li>If your PC has multiple network adapters, each adapter must be 
+	 in a different subnet.</li>
+</ul>
+<p>For more information about the different IP configuration options, see 
+ the <a href="network_configuration_(ace_gige).htm">Network Configuration</a> 
+ topic.</p>
+<h2><a name="MiniTOCBookMark3"></a>Assigning an IP Address via a DHCP Server</h2>
+<p>You can change the method for assigning an IP address to DHCP. This 
+ means that a DHCP server assigns the IP address to the camera.</p>
+<p>To change the IP configuration of the camera to DHCP address assignment:</p>
+<ol>
+	<li>In the top pane of the IP Configurator, select the camera whose 
+	 IP configuration you want to change.</li>
+	<li>In the lower left pane of the IP Configurator, select <span class="gui-text">DHCP</span>.<br />
+	<img src="images/screen_pylon_ip_config_ip_address_dhcp.png" alt="DHCP Option" title="DHCP Option" /></li>
+	<li>Click the <span class="gui-text">Save</span> button. 
+	<ol start="1">
+		<li>If you have a newer camera, the IP Configurator will save your 
+		 changes. This takes a few seconds. When the IP Configurator has 
+		 finished saving, the information in the top pane and the lower 
+		 central area will have been updated automatically.</li>
+		<li>If you have an older camera and the settings made in step 2 
+		 are not compatible with the IP address configuration of the port 
+		 or network adapter to which the camera is connected, the <span 
+		 class="gui-text">Assign Temporary IP Address (Force IP)</span> 
+		 dialog opens. To complete this dialog, go to <a href="assigning_a_temporary_ip_address_to_a_camera.htm#Assigning_a_Temporary_IP_Address_to_Older_Cameras">Assigning 
+		 a Temporary IP Address to Older Cameras</a> and follow those steps. 
+		 Once you have completed that procedure, the settings you have 
+		 made here will be applied.</li>
+	</ol></li>
+</ol>
+<p>If no DHCP server is present or if there is a problem preventing the 
+ DHCP server from assigning an IP address to the camera, automatic IP address 
+ assignment will be used as a fallback.</p>
+<h2><a name="MiniTOCBookMark4"></a>Assigning an IP Address via Auto IP (LLA)</h2>
+<p>You can change the method for assigning an IP address to Auto IP (Link 
+ Local Address). This means that the camera uses automatic IP address assignment 
+ and assigns itself an IP address.</p>
+<p>To change the IP configuration of the camera to Auto IP (LLA):</p>
+<ol>
+	<li>In the top pane of the IP Configurator, select the camera whose 
+	 IP configuration you want to change.</li>
+	<li>In the lower left pane of the IP Configurator, select <span class="gui-text">Auto 
+	 IP (LLA)</span>.<br />
+	<img src="images/screen_pylon_ip_config_ip_address_auto_ip.png" alt="Auto IP (LLA) Option" title="Auto IP (LLA) Option" /></li>
+	<li>Click the <span class="gui-text">Save</span> button. 
+	<ol start="1">
+		<li>If you have a newer camera, the IP Configurator will save your 
+		 changes. This takes a few seconds. When the IP Configurator has 
+		 finished saving, the information in the top pane and the lower 
+		 central area will have been updated automatically.</li>
+		<li>If you have an older camera and the settings made in step 2 
+		 are not compatible with the IP address configuration of the port 
+		 or network adapter to which the camera is connected, the <span 
+		 class="gui-text">Assign Temporary IP Address (Force IP)</span> 
+		 dialog opens. To complete this dialog, go to <a href="assigning_a_temporary_ip_address_to_a_camera.htm#Assigning_a_Temporary_IP_Address_to_Older_Cameras">Assigning 
+		 a Temporary IP Address to Older Cameras</a> and follow those steps. 
+		 Once you have completed that procedure, the settings you have 
+		 made here will be applied.</li>
+	</ol></li>
+</ol>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

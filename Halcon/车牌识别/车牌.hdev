@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="274203165">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image (Image, '1.jpg') </l>
+<l>get_image_size(Image, Width, Height) </l>
+<l>decompose3(Image, Image1, Image2, Image3) </l>
+<c></c>
+<l>threshold (Image2, Regions1, 83, 255)</l>
+<l>fill_up(Regions1, RegionFillUp)</l>
+<l>opening_circle(RegionFillUp, RegionOpening, 3.5)</l>
+<l>connection(RegionOpening, ConnectedRegions1)</l>
+<l>select_shape (ConnectedRegions1, SelectedRegions1, 'area', 'and', 604.73, 31768.3)</l>
+<l>rectangularity(SelectedRegions1, Rectangularity)</l>
+<l>tuple_sort_index(Rectangularity, Indices)</l>
+<l>Num:=|Indices|</l>
+<l>select_obj(SelectedRegions1, ObjectSelected, Indices[Num-1]+1)</l>
+<l>reduce_domain(Image2, ObjectSelected, ImageReduced)</l>
+<c></c>
+<l>smallest_rectangle2(ObjectSelected, Row, Column, Phi, Length1, Length2)</l>
+<l>area_center(ObjectSelected, Area, Row1, Column1)</l>
+<l>hom_mat2d_identity(HomMat2DIdentity)</l>
+<l>hom_mat2d_rotate(HomMat2DIdentity, -Phi, Column1, Row1, HomMat2DRotate)</l>
+<c></c>
+<c></c>
+<c></c>
+<l>stop()</l>
+<l>threshold (Image2, Regions, 128, 255) </l>
+<c></c>
+<l>connection(Regions, ConnectedRegions) </l>
+<l>select_shape (ConnectedRegions, SelectedRegions, ['area','height'], 'and', [63.22,19.97], [343.19,160]) </l>
+<l>sort_region(SelectedRegions,SortedRegions,'upper_left','true','column') </l>
+<l>affine_trans_region(SortedRegions, RegionAffineTrans, HomMat2DRotate, 'false')</l>
+<c></c>
+<l>union1(RegionAffineTrans, RegionUnion) </l>
+<l>difference(Image2,RegionUnion,RegionDifference) </l>
+<l>paint_region(RegionDifference,Image2,ImageResult,255, 'fill') </l>
+<l>paint_region(RegionUnion,ImageResult, ImageResult1, 0, 'fill') </l>
+<l>read_ocr_class_mlp('Industrial_0-9A-Z.omc',OCRHandle) </l>
+<l>do_ocr_multi_class_mlp(RegionAffineTrans,ImageResult1,OCRHandle, Class, Confidence)</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="noindex" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="search-keywords" content="wifi" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Using Basler GigE Cameras in a Wireless LAN</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.3.0_7";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Installation" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"camera_installation.htm\">Installation<\/a>  &gt;  Using Basler GigE Cameras in a Wireless LAN<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Using Basler GigE Cameras in a Wireless LAN</h1>
+<p class="teaser">This topics tells you how to operate a Basler GigE camera 
+ in a wireless local area network (WLAN).</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot23210" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot23210', 'MTPOPUP23210');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP23210" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Prerequisites</a>
+</li>
+   <li><a href="#MiniTOCBookMark3" >Configuring the Camera</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark4" >Initial Settings</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >Optimizing Settings</a>
+</li>
+   </ul></li>
+  </ul>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Prerequisites</h2>
+<ul>
+	<li>The pylon Camera Software Suite must be installed (<a href="software_installation_(windows).htm">Windows</a> 
+	 or <a href="software_installation_(linux).htm">Linux</a>).</li>
+	<li>Your computer must be connected to the WLAN. </li>
+	<li>The camera must be installed and configured as described in the 
+	 <a href="hardware_installation_(ace_gige).htm">Hardware Installation 
+	 (ace GigE)</a> topic.</li>
+</ul>
+<h2><a name="MiniTOCBookMark3"></a>Configuring the Camera</h2>
+<h3><a name="MiniTOCBookMark4"></a><a name="Initial_Settings">Initial Settings</a></h3>
+<p>If you want to operate a Basler camera in a WLAN, you may have to change 
+ the network-related parameters of the camera.</p>
+<p>This is because the bandwidth available in a WLAN may be limited, and 
+ the default camera settings may not be sufficient to establish a stable 
+ network connection. </p>
+<p>To configure the camera to operate in a WLAN:</p>
+<ol>
+	<li>Open the <a href="overview_of_the_pylon_viewer.htm">pylon Viewer</a>.</li>
+	<li>Set the <span class="parameter-name">GevSCPSPacketSize</span> 
+	 parameter (i.e., the <a href="network_related_parameters.htm#Packet_Size">packet 
+	 size</a>) to 1500.<br />
+	<strong>Tip</strong>: Use the <a href="search_feature.htm">search 
+	 feature</a> in the pylon Viewer to quickly find a parameter setting.</li>
+	<li>Set the <span class="parameter-name">PixelFormat</span> 
+	 parameter (i.e., the <a href="pixel_format.htm">pixel format</a>) 
+	 to an 8-bit pixel format, e.g., Mono 8.</li>
+	<li>Set the <span class="parameter-name">GevSCPD</span> 
+	 parameter (i.e., the <a href="network_related_parameters.htm#Inter-Packet_Delay">inter-packet 
+	 delay</a>) to a high value. <br />
+	This decreases the <a href="network_related_parameters.htm#Device_Current_Throughput">current 
+	 device throughput</a> (<span class="parameter-name">GevSCDCT</span> 
+	 parameter). <br />
+	The minimum inter-packet delay and the maximum current device throughput 
+	 depend on the quality of the WLAN connection. A higher connection 
+	 quality will allow a lower inter-packet delay. </li>
+	<li>Start continuous image acquisition.</li>
+	<li>If the resulting WLAN connection is unstable, return to step 4 
+	 and increase the inter-packet delay further.</li>
+</ol>
+<h3><a name="MiniTOCBookMark5"></a>Optimizing Settings</h3>
+<p>After the WLAN connection has been <a href="#Initial_Settings">established</a>, 
+ you can optimize the parameter settings for most efficient use of the 
+ available bandwidth.</p>
+<p>To optimize the parameter settings:</p>
+<ol>
+	<li>Open the <a href="overview_of_the_pylon_viewer.htm">pylon Viewer</a>.</li>
+	<li>Start continuous image acquisition.</li>
+	<li>Check the <span class="parameter-name">Statistic_Failed_Buffer_Count</span> 
+	 and the <span class="parameter-name">Statistic_Failed_Packet_Count</span> 
+	 parameters.<br />
+	<strong>Tip</strong>: Use the <a href="search_feature.htm">search 
+	 feature</a> in the pylon Viewer to quickly find a parameter setting.<br />
+	The <a href="stream_grabber_parameters.htm#Failed_Buffer_Count">failed 
+	 buffer count</a> indicates the number of incompletely grabbed buffers. 
+	 The <a href="stream_grabber_parameters.htm#Failed_Packet_Count">failed 
+	 packet count</a> indicates the number of packets that have been reported 
+	 as &quot;failed&quot; by the camera.</li>
+	<li>Decrease the <span class="parameter-name">GevSCPD</span> 
+	 parameter (i.e., the <a href="network_related_parameters.htm#Inter-Packet_Delay">inter-packet 
+	 delay</a>) to a value just before the failed packet count or the failed 
+	 buffer count start increasing.</li>
+	<li>Make a note of the current value of the <span class="parameter-name">DeviceLinkCurrentThroughput</span> 
+	 parameter.<br />
+	This helps you to find the optimum inter-packet delay again when the 
+	 payload size changes. See note below. </li>
+</ol>
+<div class="info">
+	<p>Any parameter settings you make will only deliver good results for 
+	 the current payload size, i.e., the current amount of data per image 
+	 and the current frame rate.</p>
+	<p>The payload size depends on various factors, e.g., the size of the 
+	 <a href="image_roi.htm">image ROI</a> and the <a href="pixel_format.htm">pixel 
+	 format</a>.</p>
+	<p>If the payload size changes, you must readjust the inter-packet 
+	 delay until the <span class="parameter-name">DeviceLinkCurrentThroughput</span> 
+	 parameter value is the same as the one noted in step 5.</p>
+</div>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

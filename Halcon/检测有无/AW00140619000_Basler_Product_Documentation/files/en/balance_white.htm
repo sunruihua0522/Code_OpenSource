@@ -1,0 +1,229 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Balance White</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_10";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Balance White<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Balance White</h1>
+<p class="teaser">The Balance White 
+ <a href="features.htm">camera feature</a> allows you to manually correct 
+ color shifts so that white objects appear white in images acquired.</p>
+<p>For this purpose, a digital gain correction can be applied per color 
+ channel (red, green, blue).</p>
+<p>To automatically correct color shifts, use the <a href="balance_white_auto.htm">Balance 
+ White Auto</a> feature.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot60542" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot60542', 'MTPOPUP60542');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP60542" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Why Perform White Balance Correction</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Prerequisites</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >Performing White Balance Correction</a>
+</li>
+    <li><a href="#MiniTOCBookMark6" >External Links</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark7" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>Why Perform White Balance Correction</h3>
+<p>Images acquired by your camera may have a color cast, i.e., a tint of 
+ a particular color. The reason for this is that different sources of light 
+ have different color temperatures. Fluorescent lighting adds a bluish 
+ cast to images whereas tungsten incandescent light adds a yellowish cast.</p>
+<p>The white balance feature allows you to correct these color shifts by 
+ adjusting the intensity of the colors red, green, and blue. As a result, 
+ white objects appear white in the acquired images.</p>
+<h3><a name="MiniTOCBookMark4"></a>Prerequisites</h3>
+<ul>
+	<li>The <a href="balance_white_auto.htm">Balance White Auto auto function</a> 
+	 must be set to <span class="parameter-name">Off</span>.</li>
+	<li>For best results, set the <a href="black_level.htm">black level</a> 
+	 to 0 (zero) before you perform white balancing. </li>
+</ul>
+<h3><a name="MiniTOCBookMark5"></a>Performing White Balance Correction</h3>
+<ol>
+	<li>Set the <span class="parameter-name">BalanceRatioSelector</span> 
+	 to one of the available color channels (<span class="parameter-name">Red</span>, 
+	 <span class="parameter-name">Green</span>, 
+	 or <span class="parameter-name">Blue</span>).</li>
+	<li>Adjust the <span class="parameter-name rh-hide" data-rhtags="48">BalanceRatioAbs</span><span class="parameter-name rh-hide" data-rhtags="49">BalanceRatio</span> 
+	 parameter value for the selected color channel.</li>
+	<ul>
+		<li><strong>Balance ratio = 1:</strong> &#160;The intensity of 
+		 the color remains <strong>unchanged</strong>.</li>
+		<li><strong>Balance ratio &gt; 1:</strong> The intensity of the 
+		 color is <strong>increased</strong> relative to the other two 
+		 colors.</li>
+		<li><strong>Balance ratio &lt; 1:</strong> The intensity of the 
+		 color is <strong>decreased </strong>relative to the other two 
+		 colors. (This is only possible if your camera model supports balance 
+		 ratio values lower than 1.)</li>
+	</ul>
+	The increase or decrease in intensity is proportional. For example, 
+	 if the balance ratio for a color is set to 1.2, the intensity of that 
+	 color is increased by 20&#160;%. 
+	<li>Repeat the above steps for all available color channels.</li>
+</ol>
+<div class="info">
+	<ul>
+		<li>Specifying a balance ratio lower than 1 also decreases the 
+		 maximum intensity that the color can achieve. Unless you want 
+		 to correct a strong predominance of one color, specifying a balance 
+		 ratio of less than 1 is not recommended.</li>
+		<li>Some color enhancement features, e.g., <a href="light_source_preset.htm">Light 
+		 Source Preset</a> or <a href="color_transformation.htm">Color 
+		 Transformation</a>, also have an effect on the white balance settings. 
+		 If necessary, you can manually re-adjust the white balance after 
+		 having used these features.</li>
+	</ul>
+</div>
+<h3 class="specifics"><a name="MiniTOCBookMark6"></a>External Links</h3>
+<ul>
+	<li><a href="https://en.wikipedia.org/wiki/Color_balance">Color balance 
+	 (Wikipedia)</a></li>
+	<li><a href="https://www.photoxels.com/understanding-white-balance/">Understanding 
+	 White Balance (Photoxels)</a> </li>
+</ul>
+<h2 class="sample-code"><a name="MiniTOCBookMark7"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre><code class="cpp">// Set the red intensity to 108.789%
+camera.BalanceRatioSelector.SetValue(BalanceRatioSelector_Red);
+camera.BalanceRatioAbs.SetValue(1.08789);
+// Set the green intensity to 100%
+camera.BalanceRatioSelector.SetValue(BalanceRatioSelector_Green);
+camera.BalanceRatioAbs.SetValue(1);
+// Set the blue intensity to 219.678%
+camera.BalanceRatioSelector.SetValue(BalanceRatioSelector_Blue);
+camera.BalanceRatioAbs.SetValue(2.19678);</code></pre></div><div class="tab-2 tab-content"><pre><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Set the red intensity to 108.789%
+CEnumerationPtr(nodemap.GetNode("BalanceRatioSelector"))-&gt;FromString("Red");
+CFloatPtr(nodemap.GetNode("BalanceRatioAbs"))-&gt;SetValue(1.08789);
+// Set the green intensity to 100%
+CEnumerationPtr(nodemap.GetNode("BalanceRatioSelector"))-&gt;FromString("Green");
+CIntegerPtr(nodemap.GetNode("BalanceRatioAbs"))-&gt;SetValue(1);
+// Set the blue intensity to 219.678%
+CEnumerationPtr(nodemap.GetNode("BalanceRatioSelector"))-&gt;FromString("Blue");
+CFloatPtr(nodemap.GetNode("BalanceRatioAbs"))-&gt;SetValue(2.19678);</code></pre></div><div class="tab-3 tab-content"><pre><code class="csharp" generated="true">// Set the red intensity to 108.789%
+camera.Parameters[PLCamera.BalanceRatioSelector].SetValue(PLCamera.BalanceRatioSelector.Red);
+camera.Parameters[PLCamera.BalanceRatioAbs].SetValue(1.08789);
+// Set the green intensity to 100%
+camera.Parameters[PLCamera.BalanceRatioSelector].SetValue(PLCamera.BalanceRatioSelector.Green);
+camera.Parameters[PLCamera.BalanceRatioAbs].SetValue(1);
+// Set the blue intensity to 219.678%
+camera.Parameters[PLCamera.BalanceRatioSelector].SetValue(PLCamera.BalanceRatioSelector.Blue);
+camera.Parameters[PLCamera.BalanceRatioAbs].SetValue(2.19678);</code></pre></div><div class="tab-4 tab-content"><pre><code class="csharp" generated="true">// Set the red intensity to 108.789%
+Pylon.DeviceFeatureFromString(hdev, "BalanceRatioSelector", "Red");
+Pylon.DeviceSetFloatFeature(hdev, "BalanceRatioAbs", 1.08789);
+// Set the green intensity to 100%
+Pylon.DeviceFeatureFromString(hdev, "BalanceRatioSelector", "Green");
+Pylon.DeviceSetIntegerFeature(hdev, "BalanceRatioAbs", 1);
+// Set the blue intensity to 219.678%
+Pylon.DeviceFeatureFromString(hdev, "BalanceRatioSelector", "Blue");
+Pylon.DeviceSetFloatFeature(hdev, "BalanceRatioAbs", 2.19678);</code></pre></div><div class="tab-5 tab-content"><pre><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+/* Set the red intensity to 108.789% */
+errRes = PylonDeviceFeatureFromString(hdev, "BalanceRatioSelector", "Red");
+CHECK(errRes);
+errRes = PylonDeviceSetFloatFeature(hdev, "BalanceRatioAbs", 1.08789);
+CHECK(errRes);
+/* Set the green intensity to 100% */
+errRes = PylonDeviceFeatureFromString(hdev, "BalanceRatioSelector", "Green");
+CHECK(errRes);
+errRes = PylonDeviceSetIntegerFeature(hdev, "BalanceRatioAbs", 1);
+CHECK(errRes);
+/* Set the blue intensity to 219.678% */
+errRes = PylonDeviceFeatureFromString(hdev, "BalanceRatioSelector", "Blue");
+CHECK(errRes);
+errRes = PylonDeviceSetFloatFeature(hdev, "BalanceRatioAbs", 2.19678);
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

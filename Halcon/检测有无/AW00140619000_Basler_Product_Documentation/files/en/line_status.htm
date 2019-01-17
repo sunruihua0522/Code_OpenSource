@@ -1,0 +1,355 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Line Status</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_53";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Line Status<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Line Status</h1>
+<p class="teaser">The Line Status 
+ <a href="features.htm">camera feature</a> allows you to determine 
+ the status of an I/O line (high or low).</p>
+<p>To determine the status of all I/O lines in a single operation, use 
+ the <a href="line_status_all.htm">Line Status All</a> feature.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot19047" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot19047', 'MTPOPUP19047');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP19047" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Determining the Status of an I/O Line</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Line Status and I/O Status</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark5" >GPIO Line Configured as Input</a>
+</li>
+     <li><a href="#MiniTOCBookMark6" >GPIO Line Configured as Output</a>
+</li>
+     <li><a href="#MiniTOCBookMark7" >Opto-Coupled Input Line</a>
+</li>
+     <li><a href="#MiniTOCBookMark8" >Opto-Coupled Output Line</a>
+</li>
+    </ul></li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark9" >Specifics</a>
+</li>
+   <li><a href="#MiniTOCBookMark10" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>Determining the Status of an I/O Line</h3>
+<p>To determine the status of an I/O line:</p>
+<ol>
+	<li>Set the <a href="line_selector.htm"><span class="parameter-name">LineSelector</span> 
+	 </a>parameter to the desired I/O line.</li>
+	<li>Get the value of the <span class="parameter-name">LineStatus</span> 
+	 parameter. <br />
+	The parameter is read-only.</li>
+</ol>
+<p>A value of <span class="parameter-name">false</span> (0) means that 
+ the line's status was low at the time of polling. A value of <span class="parameter-name">true</span> 
+ (1) means the line's status was high at the time of polling.</p>
+<p class="info">If the <a href="line_inverter.htm">Line Inverter</a> feature 
+ is enabled, the camera inverts the <span class="parameter-name">LineStatus</span> 
+ parameter value. A <span class="parameter-name">true</span> parameter 
+ value changes to <span class="parameter-name">false</span>, and vice versa.</p>
+<h3><a name="MiniTOCBookMark4"></a><a name="Line_Status_and_I_O_Status">Line Status and I/O Status</a></h3>
+<h4><a name="MiniTOCBookMark5"></a>GPIO Line Configured as Input</h4>
+<p>If your camera has a <a href="general_purpose_i_o_(gpio)_lines.htm">GPIO 
+ line</a> and that line is <a href="line_mode.htm">configured as input</a>, 
+ the relation between its input status and the <span class="parameter-name">LineStatus</span> 
+ parameter is as follows:</p>
+<table >
+	<thead>
+  <tr>
+		<th>Input Status</th>
+		<th>LineStatus Parameter Value</th>
+	</tr>
+ </thead>
+	<tr>
+		<td>Input open (not connected)</td>
+		<td>True</td>
+	</tr>
+	<tr>
+		<td>Voltage level low</td>
+		<td>False</td>
+	</tr>
+	<tr>
+		<td>Voltage level high</td>
+		<td>True</td>
+	</tr>
+</table>
+<p>This means that the <a href="line_logic.htm">line logic</a> is positive.</p>
+<h4><a name="MiniTOCBookMark6"></a>GPIO Line Configured as Output</h4>
+<p>If your camera has a <a href="general_purpose_i_o_(gpio)_lines.htm">GPIO 
+ line</a> and that line is <a href="line_mode.htm">configured as output</a>, 
+ the relation between its output status and the <span class="parameter-name">LineStatus</span> 
+ parameter <a href="#Specifics">depends on your camera model</a>.</p>
+<h4><a name="MiniTOCBookMark7"></a>Opto-Coupled Input Line</h4>
+<p>If your camera has an <a href="opto-coupled_i_o_lines.htm">opto-coupled 
+ input line</a>, the relation between its input status and the <span class="parameter-name">LineStatus</span> 
+ parameter is as follows:</p>
+<table >
+	<thead>
+  <tr>
+		<th>Input Status</th>
+		<th>LineStatus Parameter Value</th>
+	</tr>
+ </thead>
+	<tr>
+		<td>Input open (not connected)</td>
+		<td>False</td>
+	</tr>
+	<tr>
+		<td>Voltage level low</td>
+		<td>False</td>
+	</tr>
+	<tr>
+		<td>Voltage level high</td>
+		<td>True</td>
+	</tr>
+</table>
+<p>This means that the <a href="line_logic.htm">line logic</a> is positive.</p>
+<h4><a name="MiniTOCBookMark8"></a>Opto-Coupled Output Line</h4>
+<p>If your camera has an <a href="opto-coupled_i_o_lines.htm">opto-coupled 
+ output line</a>, the relation between its output status and the <span class="parameter-name">LineStatus</span> 
+ parameter is as follows:</p>
+<table >
+	<thead>
+  <tr>
+		<th>Output Status</th>
+		<th>LineStatus Parameter Value</th>
+		<th>Electrical Status</th>
+	</tr>
+ </thead>
+	<tr>
+		<td>0 (e.g.,&#160;<a href="user_output_value.htm">User Output Value</a> 
+		 set to <span class="parameter-name">false</span> or <a href="line_source.htm#Flash_Window">Flash 
+		 Window</a> signal low)</td>
+		<td>True</td>
+		<td>Voltage level high<sup>a</sup></td>
+	</tr>
+	<tr>
+		<td>1 (e.g., User Output Value set to <span class="parameter-name">true</span> 
+		 or Flash Window signal high)</td>
+		<td>False</td>
+		<td>Voltage level low</td>
+	</tr>
+</table>
+<p class="table-footnote"><sup>a</sup>An external pull-up resistor must 
+ be installed. Otherwise, the voltage level will be undefined.</p>
+<p>This means that the <a href="line_logic.htm">line logic</a> is negative.</p>
+<h2 class="specifics"><a name="MiniTOCBookMark9"></a><a name="Specifics">Specifics</a></h2>
+<div>
+<p>For information about the line status on GPIO lines configured for <strong>input</strong> 
+ and on <strong>opto-coupled</strong> I/O lines, see the tables above.</p>
+<p>For information about the line status on GPIO lines configured for <strong>output</strong>, 
+ see the following table:</p>
+<table class="specifics-table">
+	<tr>
+		<th>&#160;</th>
+		<th colspan="3">GPIO Lines Configured for Output</th>
+		
+	</tr>
+	<tr>
+		<th>Camera Model</th>
+		<th>Output Status</th>
+		<th>LineStatus Parameter Value</th>
+		<th>Electrical Status</th>
+	</tr>
+	<tr>
+		<td rowspan="2" data-rhtags="18" class="rh-hide">All ace GigE camera models</td>
+		<td data-rhtags="18" class="rh-hide">0 (e.g. 
+		 &#160;<a href="user_output_value.htm" data-rhtags="18" class="rh-hide">User Output Value</a> 
+		 set to <span class="parameter-name">false</span> or <a href="line_source.htm#Flash_Window" data-rhtags="18" class="rh-hide">Flash Window</a> 
+		 signal low)</td>
+		<td data-rhtags="18" class="rh-hide">True</td>
+		<td data-rhtags="18" class="rh-hide">Voltage 
+		 level high<sup>a</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="18" class="rh-hide">1 (e.g. User Output Value set to <span class="parameter-name">true</span> 
+		 or Flash Window signal high)</td>
+		<td data-rhtags="18" class="rh-hide">False</td>
+		<td data-rhtags="18" class="rh-hide">Voltage 
+		 level low</td>
+	</tr>
+	<tr>
+		<td rowspan="2" data-rhtags="33" class="rh-hide">All ace USB 3.0 camera models</td>
+		<td data-rhtags="33" class="rh-hide">0 (e.g. 
+		 &#160;<a href="user_output_value.htm" data-rhtags="33" class="rh-hide">User 
+		 Output Value</a> set to <span class="parameter-name">false</span> 
+		 or <a href="line_source.htm#Flash_Window" data-rhtags="33" class="rh-hide">Flash 
+		 Window</a> signal low)</td>
+		<td data-rhtags="33" class="rh-hide">True</td>
+		<td data-rhtags="33" class="rh-hide">Voltage 
+		 level high<sup>a</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="33" class="rh-hide">1 (e.g. User Output Value set to <span class="parameter-name">true</span> 
+		 or Flash Window signal high)</td>
+		<td data-rhtags="33" class="rh-hide">False</td>
+		<td data-rhtags="33" class="rh-hide">Voltage 
+		 level low</td>
+	</tr>
+	<tr>
+		<td rowspan="2" data-rhtags="44" class="rh-hide">All dart BCON for LVDS camera models</td>
+		<td data-rhtags="44" class="rh-hide">0 (e.g. &#160;<a href="user_output_value.htm" data-rhtags="44" class="rh-hide">User Output Value</a> 
+		 set to <span class="parameter-name">false</span> or <a href="line_source.htm#Flash_Window" data-rhtags="44" class="rh-hide">Flash Window</a> 
+		 signal low)</td>
+		<td data-rhtags="44" class="rh-hide">False</td>
+		<td data-rhtags="44" class="rh-hide">Voltage level low<sup>b</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="44" class="rh-hide">1 (e.g. User Output Value set to <span class="parameter-name">true</span> 
+		 or Flash Window signal high)</td>
+		<td data-rhtags="44" class="rh-hide">True</td>
+		<td data-rhtags="44" class="rh-hide">Voltage level high</td>
+	</tr>
+	<tr>
+		<td data-rhtags="21" class="rh-hide">All dart BCON for MIPI camera models</td>
+		<td data-rhtags="21" class="rh-hide">Line Status feature 
+		 not supported</td>
+		<td data-rhtags="21" class="rh-hide">Line Status feature 
+		 not supported</td>
+		<td data-rhtags="21" class="rh-hide">Line Status feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td rowspan="2" data-rhtags="42" class="rh-hide">All dart USB 3.0 camera models</td>
+		<td data-rhtags="42" class="rh-hide">0 (e.g. &#160;<a href="user_output_value.htm" data-rhtags="42" class="rh-hide">User Output Value</a> 
+		 set to <span class="parameter-name">false</span> or <a href="line_source.htm#Flash_Window" data-rhtags="42" class="rh-hide">Flash Window</a> 
+		 signal low)</td>
+		<td data-rhtags="42" class="rh-hide">False</td>
+		<td data-rhtags="42" class="rh-hide">Voltage level low<sup>b</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="42" class="rh-hide">1 (e.g. User Output Value set to <span class="parameter-name">true</span> 
+		 or Flash Window signal high)</td>
+		<td data-rhtags="42" class="rh-hide">True</td>
+		<td data-rhtags="42" class="rh-hide">Voltage level high</td>
+	</tr>
+	<tr>
+		<td data-rhtags="47" class="rh-hide">All pulse USB 3.0 camera models</td>
+		<td colspan="3" data-rhtags="47" class="rh-hide">Line Status 
+		 feature not supported</td>
+		
+	</tr>
+</table>
+<p class="table-footnote rh-hide" data-rhtags="2"><sup>a</sup>This means that the <a href="line_logic.htm">line 
+ logic</a> is negative.</p>
+<p class="table-footnote rh-hide" data-rhtags="245"><sup>b</sup>This 
+ means that the line logic is positive. However, the <span class="parameter-name rh-hide" data-rhtags="245">LineLogic</span> parameter is 
+ not available for this camera model.</p>
+<p class="table-footnote">&#160;</p>
+</div>
+<h2 class="sample-code"><a name="MiniTOCBookMark10"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre><code class="cpp">// Select a line
+camera.LineSelector.SetValue(LineSelector_Line1);
+// Get the status of the line
+bool status = camera.LineStatus.GetValue();</code></pre></div><div class="tab-2 tab-content"><pre><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Select a line
+CEnumerationPtr(nodemap.GetNode("LineSelector"))-&gt;FromString("Line1");
+// Get the status of the line
+bool status = CBooleanPtr(nodemap.GetNode("LineStatus"))-&gt;GetValue();</code></pre></div><div class="tab-3 tab-content"><pre><code class="csharp" generated="true">// Select a line
+camera.Parameters[PLCamera.LineSelector].SetValue(PLCamera.LineSelector.Line1);
+// Get the status of the line
+bool status = camera.Parameters[PLCamera.LineStatus].GetValue();</code></pre></div><div class="tab-4 tab-content"><pre><code class="csharp" generated="true">// Select a line
+Pylon.DeviceFeatureFromString(hdev, "LineSelector", "Line1");
+// Get the status of the line
+bool status = Pylon.DeviceGetBooleanFeature(hdev, "LineStatus");</code></pre></div><div class="tab-5 tab-content"><pre><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+_Bool status = false;
+/* Select a line */
+errRes = PylonDeviceFeatureFromString(hdev, "LineSelector", "Line1");
+CHECK(errRes);
+/* Get the status of the line */
+errRes = PylonDeviceGetBooleanFeature(hdev, "LineStatus", &amp;status);
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

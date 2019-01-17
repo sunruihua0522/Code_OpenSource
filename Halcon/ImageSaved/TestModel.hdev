@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="519934468">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image (Image9, 'C:/Users/GPAP/Desktop/9.jpg')</l>
+<l>read_shape_model('C:/Users/GPAP/Desktop/1.shm',ModelID)</l>
+<l>scale_image_range(Image9, ImageScaled, 30, 70)</l>
+<c></c>
+<c></c>
+<l>find_shape_model(Image9, ModelID, -0.39, 0.78, 0.5, 1, 0.5, 'least_squares', 0, 0.9, Row, Column, Angle, Score)</l>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

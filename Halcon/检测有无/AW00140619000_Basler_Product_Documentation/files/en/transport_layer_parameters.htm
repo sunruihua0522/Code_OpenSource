@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="noindex" />
+<meta http-equiv="Content-Language" content="en-US" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Transport Layer Parameters</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "4.1.3_3";
+</script>
+ <meta name="topic-breadcrumbs" content="Software > pylon Camera Software Suite" />
+</head>
+
+<body>
+
+
+
+<h1><a name="MiniTOCBookMark1"></a>Transport Layer Parameters</h1>
+<p class="teaser">In the <a href="pylon_camera_software_suite.htm#SDKs_and_APIs">pylon 
+ API</a>, the term &quot;transport layer&quot; is used to refer to physical 
+ interfaces such as GigE or Camera Link. </p>
+<p>The pylon API provides access to four transport layers: </p>
+<ul>
+	<li><strong>PylonGigE</strong> for Gigabit Ethernet cameras using the 
+	 GigE Vision protocol </li>
+	<li><strong>Pylon1394</strong> for IIDC 1394-compliant cameras (not 
+	 available on Linux or macOS platforms) </li>
+	<li><strong>PylonUsb</strong> for USB3 Vision-compliant cameras</li>
+	<li><strong>PylonCLSer</strong> for Camera Link cameras using the CL 
+	 serial interface (limited to camera configuration only; not available 
+	 on Linux and macOS platforms)</li>
+</ul>
+<p>This topic describes the parameters related to transport layers.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot49169" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot49169', 'MTPOPUP49169');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP49169" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >General Parameters</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Command Duplication Enable</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Heartbeat Timeout</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >Maximum Retry Count Read</a>
+</li>
+    <li><a href="#MiniTOCBookMark6" >Maximum Retry Count Write</a>
+</li>
+    <li><a href="#MiniTOCBookMark7" >Migration Mode Enable</a>
+</li>
+    <li><a href="#MiniTOCBookMark8" >Read Timeout</a>
+</li>
+    <li><a href="#MiniTOCBookMark9" >Write Timeout</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark10" >Statistics Parameters</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark11" >Last Error Status</a>
+</li>
+    <li><a href="#MiniTOCBookMark12" >Last Error Status Text</a>
+</li>
+    <li><a href="#MiniTOCBookMark13" >Read Operations Failed Count</a>
+</li>
+    <li><a href="#MiniTOCBookMark14" >Read Pipe Reset Count</a>
+</li>
+    <li><a href="#MiniTOCBookMark15" >Read Write Timeout Count</a>
+</li>
+    <li><a href="#MiniTOCBookMark16" >Write Operations Failed Count</a>
+</li>
+    <li><a href="#MiniTOCBookMark17" >Write Pipe Reset Count</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark18" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>General Parameters</h2>
+<h3><a name="MiniTOCBookMark3"></a><a name="Command_Duplication_Enable">Command Duplication Enable</a></h3>
+<p>Use the <span class="parameter-name">CommandDuplicationEnable</span> 
+ parameter to enable sending all commands and receiving all acknowledges 
+ twice. This option should only be enabled in case of network problems.</p>
+<h3><a name="MiniTOCBookMark4"></a><a name="Heartbeat_Timeout">Heartbeat Timeout</a></h3>
+<p>The <span class="parameter-name">HeartbeatTimeout</span> 
+ parameter specifies the <a href="network_related_parameters.htm">heartbeat 
+ timeout</a> on the host side. </p>
+<p>This parameter is the equivalent of the <a href="network_related_parameters.htm"><span class="parameter-name">GevHeartbeatTimeout</span></a> 
+ parameter, which sets the heartbeat timeout on the camera side.</p>
+<p>The <span class="parameter-name">HeartbeatTimeout</span> 
+ and <span class="parameter-name">GevHeartbeatTimeout</span> 
+ parameters are synchronized automatically. If you change one parameter, 
+ the other one changes accordingly.</p>
+<h3><a name="MiniTOCBookMark5"></a><a name="Max_Retry_Count_Read">Maximum Retry Count Read</a></h3>
+<p>Use the <span class="parameter-name">MaxRetryCountRead</span> 
+ parameter to specify the maximum number of retries for read operations 
+ after a read operation has timed out.</p>
+<h3><a name="MiniTOCBookMark6"></a><a name="Max_Retry_Count_Write">Maximum Retry Count Write</a></h3>
+<p>Use the <span class="parameter-name">MaxRetryCountWrite</span> 
+ parameter to specify the maximum number of retries for write operations 
+ after a read operation has timed out.</p>
+<h3><a name="MiniTOCBookMark7"></a><a name="Migration_Mode_Enable">Migration Mode Enable</a></h3>
+<p>Use the <span class="parameter-name">MigrationModeEnable</span> 
+ parameter to enable mapping of certain SFNC 1.x node names to SFNC 2.x 
+ node names. This allows you to write code for camera devices that are 
+ compatible with different SFNC (Standard Features Naming Convention) versions.</p>
+<p>For more information, see the <em>C++ Programmer's Guide and Reference 
+ Documentation</em> delivered with the Basler pylon Camera Software Suite 
+ (&quot;Advanced Topics&quot; -&gt; &quot;Migrating Existing Code for Using 
+ USB Camera Devices&quot;).</p>
+<h3><a name="MiniTOCBookMark8"></a><a name="Read_Timeout">Read Timeout</a></h3>
+<p>Use the <span class="parameter-name">ReadTimeout</span> 
+ parameter to specify the read access timeout value in milliseconds.</p>
+<p>Adjusting the value can be helpful if the execution of GigE Vision Control 
+ Protocol commands takes longer than expected.</p>
+<h3><a name="MiniTOCBookMark9"></a><a name="Write_Timeout">Write Timeout</a></h3>
+<p>Use the <span class="parameter-name">WriteTimeout</span> 
+ parameter to specify the write access timeout value in milliseconds.</p>
+<p>Adjusting the value can be helpful if the execution of GigE Vision Control 
+ Protocol commands takes longer than expected.</p>
+<h2><a name="MiniTOCBookMark10"></a>Statistics Parameters</h2>
+<h3><a name="MiniTOCBookMark11"></a><a name="Last_Error_Status">Last Error Status</a></h3>
+<p>The <span class="parameter-name">Statistic_Last_Error_Status</span> 
+ parameter indicates the last error status for a read or write operation.</p>
+<h3><a name="MiniTOCBookMark12"></a><a name="Last_Error_Status_Text">Last Error Status Text</a></h3>
+<p>The <span class="parameter-name">Statistic_Last_Error_Status_Text</span> 
+ parameter indicates the status code of the last failed buffer.</p>
+<h3><a name="MiniTOCBookMark13"></a><a name="Read_Operations_Failed_Count">Read Operations Failed Count</a></h3>
+<p>The <span class="parameter-name">Statistic_Read_Operations_Failed_Count</span> 
+ parameter counts the number of failed read operations.</p>
+<h3><a name="MiniTOCBookMark14"></a><a name="Read_Pipe_Reset_Count">Read Pipe Reset Count</a></h3>
+<p>The <span class="parameter-name">Statistic_Read_Pipe_Reset_Count</span> 
+ parameter counts the number of read pipe resets.</p>
+<h3><a name="MiniTOCBookMark15"></a><a name="Read_Write_Timeout_Count">Read Write Timeout Count</a></h3>
+<p>The <span class="parameter-name">StatisticReadWriteTimeoutCount</span> 
+ parameter counts the number of timeouts during read and write operations 
+ when waiting for a response from the device.</p>
+<h3><a name="MiniTOCBookMark16"></a><a name="Write_Operations_Failed_Count">Write Operations Failed Count</a></h3>
+<p>The <span class="parameter-name">Statistic_Write_Operations_Failed_Count</span> 
+ parameter counts the number of failed write operations.</p>
+<h3><a name="MiniTOCBookMark17"></a><a name="Write_Pipe_Reset_Count">Write Pipe Reset Count</a></h3>
+<p>The <span class="parameter-name">Statistic_Write_Pipe_Reset_Count</span> 
+ parameter counts the number of write pipe resets.</p>
+<h2 class="sample-code"><a name="MiniTOCBookMark18"></a>Sample Code</h2>
+<div>
+<div class="container">
+	<ul class="tabs">
+		<li class="tab-link current" data-tab="tab-1">C++ (Native)</li>
+		<li class="tab-link" data-tab="tab-2">C#</li>
+	</ul>
+	<div class="tab-1 tab-content current">
+		<pre>
+<code class="cpp">/* General Parameters */
+// Command Duplication Enable
+camera.GetTLParams().CommandDuplicationEnable.SetValue(true);
+// Heartbeat Timeout
+camera.GetTLParams().HeartbeatTimeout.SetValue(3000);
+// Maximum Retry Count Read
+camera.GetTLParams().MaxRetryCountRead.SetValue(2);
+// Maximum Retry Count Write
+camera.GetTLParams().MaxRetryCountWrite.SetValue(2);
+// Migration Mode Enable
+camera.GetTLParams().MigrationModeEnable.SetValue(true);
+// Read Timeout
+camera.GetTLParams().ReadTimeout.SetValue(500);
+// Write Timeout
+camera.GetTLParams().WriteTimeout.SetValue(500);
+/* Statistics Parameters */
+// Last Error Status
+int64_t lastErrorStatus = camera.GetTLParams().Statistic_Last_Error_Status.GetValue();
+// Last Error Status Text
+GenICam::gcstring lastErrorStatusText = camera.GetTLParams().Statistic_Last_Error_Status_Text.GetValue();
+// Read Operations Failed Count
+int64_t readOperationsFailedCount = camera.GetTLParams().Statistic_Read_Operations_Failed_Count.GetValue();
+// Read Pipe Reset Count
+int64_t readPipeResetCount = camera.GetTLParams().Statistic_Read_Pipe_Reset_Count.GetValue();
+// Read Write Timeout Count
+int64_t writePipeResetCount = camera.GetTLParams().StatisticReadWriteTimeoutCount.GetValue();
+// Write Operations Failed Count
+int64_t writeOperationsFailedCount = camera.GetTLParams().Statistic_Write_Operations_Failed_Count.GetValue();
+// Write Pipe Reset Count
+int64_t writePipeResetCount = camera.GetTLParams().Statistic_Write_Pipe_Reset_Count.GetValue();</code></pre>
+	</div>
+	<div class="tab-2 tab-content">
+		<pre>
+<code class="csharp" generated="true">/* General Parameters */
+// Command Duplication Enable
+camera.Parameters[PLTransportLayer.CommandDuplicationEnable].SetValue(true);
+// Heartbeat Timeout
+camera.Parameters[PLTransportLayer.HeartbeatTimeout].SetValue(3000);
+// Maximum Retry Count Read
+camera.Parameters[PLTransportLayer.MaxRetryCountRead].SetValue(2);
+// Maximum Retry Count Write
+camera.Parameters[PLTransportLayer.MaxRetryCountWrite].SetValue(2);
+// Migration Mode Enable
+camera.Parameters[PLTransportLayer.MigrationModeEnable].SetValue(true);
+// Read Timeout
+camera.Parameters[PLTransportLayer.ReadTimeout].SetValue(500);
+// Write Timeout
+camera.Parameters[PLTransportLayer.WriteTimeout].SetValue(500);
+/* Statistics Parameters */
+// Last Error Status
+Int64 lastErrorStatus = camera.Parameters[PLTransportLayer.Statistic_Last_Error_Status].GetValue();
+// Last Error Status Text
+string lastErrorStatusText = camera.Parameters[PLTransportLayer.Statistic_Last_Error_Status_Text].GetValue();
+// Read Operations Failed Count
+Int64 readOperationsFailedCount = camera.Parameters[PLTransportLayer.Statistic_Read_Operations_Failed_Count].GetValue();
+// Read Pipe Reset Count
+Int64 readPipeResetCount = camera.Parameters[PLTransportLayer.Statistic_Read_Pipe_Reset_Count].GetValue();
+// Read Write Timeout Count
+Int64 writePipeResetCount = camera.Parameters[PLTransportLayer.StatisticReadWriteTimeoutCount].GetValue();
+// Write Operations Failed Count
+Int64 writeOperationsFailedCount = camera.Parameters[PLTransportLayer.Statistic_Write_Operations_Failed_Count].GetValue();
+// Write Pipe Reset Count
+Int64 writePipeResetCount = camera.Parameters[PLTransportLayer.Statistic_Write_Pipe_Reset_Count].GetValue();</code></pre>
+	</div>
+</div>
+</div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer to easily set the parameters</a>.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

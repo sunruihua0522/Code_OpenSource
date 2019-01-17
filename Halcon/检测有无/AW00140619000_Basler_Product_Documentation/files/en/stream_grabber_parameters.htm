@@ -1,0 +1,920 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="noindex" />
+<meta http-equiv="Content-Language" content="en-US" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Stream Grabber Parameters</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "4.1.3_2";
+</script>
+ <meta name="topic-breadcrumbs" content="Software > pylon Camera Software Suite" />
+</head>
+
+<body>
+
+
+
+<h1><a name="MiniTOCBookMark1"></a>Stream Grabber Parameters</h1>
+<p class="teaser">In the <a href="pylon_camera_software_suite.htm#SDKs_and_APIs">pylon 
+ API</a>, a stream grabber manages the process of retrieving, buffering, 
+ and transferring image data.</p>
+<p>This topic describes the parameters related to the stream grabber.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot3602" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot3602', 'MTPOPUP3602');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP3602" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >General Parameters</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Access Mode</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Auto Packet Size</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >Maximum Buffer Size</a>
+</li>
+    <li><a href="#MiniTOCBookMark6" >Maximum Number of Buffers</a>
+</li>
+    <li><a href="#MiniTOCBookMark7" >Maximum Transfer Size</a>
+</li>
+    <li><a href="#MiniTOCBookMark8" >Num Max Queued URBs</a>
+</li>
+    <li><a href="#MiniTOCBookMark9" >Receive Thread Priority 
+ Override</a>
+</li>
+    <li><a href="#MiniTOCBookMark10" >Receive Thread Priority</a>
+</li>
+    <li><a href="#MiniTOCBookMark11" >Socket Buffer Size</a>
+</li>
+    <li><a href="#MiniTOCBookMark12" >Status</a>
+</li>
+    <li><a href="#MiniTOCBookMark13" >Transfer Loop Thread Priority</a>
+</li>
+    <li><a href="#MiniTOCBookMark14" >Type of GigE Vision Driver</a>
+</li>
+    <li><a href="#MiniTOCBookMark15" >Type: Socket Driver Available</a>
+</li>
+    <li><a href="#MiniTOCBookMark16" >Type: Windows Filter 
+ Driver Available</a>
+</li>
+    <li><a href="#MiniTOCBookMark17" >Type: Windows 
+ Intel Performance Driver Available</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark18" >Packet Resend Mechanism Parameters</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark19" >Enable Resends</a>
+</li>
+    <li><a href="#MiniTOCBookMark20" >Packet Resend Mechanism 
+ (Filter Driver)</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark21" >Packet Timeout</a>
+</li>
+     <li><a href="#MiniTOCBookMark22" >Frame Retention</a>
+</li>
+    </ul></li>
+    <li><a href="#MiniTOCBookMark23" >Packet Resend 
+ Mechanism (Performance Driver)</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark24" >Receive Window Size</a>
+</li>
+     <li><a href="#MiniTOCBookMark25" >Resend Request Threshold</a>
+</li>
+     <li><a href="#MiniTOCBookMark26" >Resend Request Batching</a>
+</li>
+     <li><a href="#MiniTOCBookMark27" >Maximum Number of Resend 
+ Requests</a>
+</li>
+     <li><a href="#MiniTOCBookMark28" >Resend Timeout</a>
+</li>
+     <li><a href="#MiniTOCBookMark29" >Resend Request Response Timeout</a>
+</li>
+    </ul></li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark30" >Stream Destination Parameters</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark31" >Transmission Type</a>
+</li>
+    <li><a href="#MiniTOCBookMark32" >Destination Address</a>
+</li>
+    <li><a href="#MiniTOCBookMark33" >Destination Port</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark34" >Statistics Parameters</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark35" >Buffer Underrun Count</a>
+</li>
+    <li><a href="#MiniTOCBookMark36" >Failed Buffer Count</a>
+</li>
+    <li><a href="#MiniTOCBookMark37" >Failed Packet Count</a>
+</li>
+    <li><a href="#MiniTOCBookMark38" >Last Block ID</a>
+</li>
+    <li><a href="#MiniTOCBookMark39" >Last Failed Buffer Status</a>
+</li>
+    <li><a href="#MiniTOCBookMark40" >Last Failed Buffer Status 
+ Text</a>
+</li>
+    <li><a href="#MiniTOCBookMark41" >Missed Frame Count</a>
+</li>
+    <li><a href="#MiniTOCBookMark42" >Resend Packet Count</a>
+</li>
+    <li><a href="#MiniTOCBookMark43" >Resend Request Count</a>
+</li>
+    <li><a href="#MiniTOCBookMark44" >Resynchronization Count</a>
+</li>
+    <li><a href="#MiniTOCBookMark45" >Total Buffer Count</a>
+</li>
+    <li><a href="#MiniTOCBookMark46" >Total Packet Count</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark47" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>General Parameters</h2>
+<h3><a name="MiniTOCBookMark3"></a><a name="Access_Mode">Access Mode</a></h3>
+<p>The <span class="parameter-name">AccessMode</span> 
+ parameter indicates the mode of access the current application has to 
+ the device:</p>
+<ul>
+	<li><span class="parameter-name">Control</span>: 
+	 The application has control access to the device. Other applications 
+	 are still able to <a href="#Controlling_and_Monitoring_Applications">monitor</a> 
+	 the device and can request to take over control or gain exclusive 
+	 access to the device.</li>
+	<li><span class="parameter-name">Exclusive</span>: 
+	 The application has exclusive access to the device. No other application 
+	 can <a href="#Controlling_and_Monitoring_Applications">control or 
+	 monitor</a> the device.</li>
+	<li><span class="parameter-name">Monitor</span>: 
+	 The application has <a href="#Controlling_and_Monitoring_Applications">monitoring</a>, 
+	 i.e., read-only, access to the device.</li>
+	<li><span class="parameter-name">NotInitialized</span>: 
+	 Access to the device hasn't been initialized.</li>
+</ul>
+<p>This parameter is read-only.</p>
+<h3><a name="MiniTOCBookMark4"></a><a name="Auto_Packet_Size">Auto Packet Size</a></h3>
+<p>Use the <span class="parameter-name">AutoPacketSize</span> 
+ parameter to optimize the size of the data packets transferred via Ethernet.</p>
+<p>When the parameter is set to <span class="parameter-name">true</span>, 
+ the camera automatically negotiates the packet size to find the largest 
+ possible packet size.</p>
+<p>To retrieve the current packet size, get the value of the <a href="network_related_parameters.htm#Packet_Size"><span class="parameter-name">GevSCPSPacketSize</span></a> 
+ parameter.</p>
+<p>Using large packets reduces the overhead for transferring images. The 
+ maximum packet size depends on the network hardware and its configuration.</p>
+<h3><a name="MiniTOCBookMark5"></a><a name="Maximum_Buffer_Size">Maximum Buffer Size</a></h3>
+<p>Use the <span class="parameter-name">MaxBufferSize</span> 
+ parameter to specify the maximum size (in bytes) of a buffer used for 
+ grabbing images. </p>
+<p>A grab application must set this parameter before grabbing starts.</p>
+<h3><a name="MiniTOCBookMark6"></a><a name="Maximum_Number_of_Buffers">Maximum Number of Buffers</a></h3>
+<p>Use the <span class="parameter-name">MaxNumBuffer</span> 
+ parameter to specify the maximum number of buffers that can be used simultaneously 
+ for grabbing images.</p>
+<h3><a name="MiniTOCBookMark7"></a><a name="Max_Transfer_Size">Maximum Transfer Size</a></h3>
+<p>Use the <span class="parameter-name">MaxTransferSize</span> 
+ parameter to specify the maximum USB data transfer size in bytes. The 
+ default value is appropriate for most applications. Increase the value 
+ to lower the CPU load.</p>
+<p>USB host adapter drivers may require decreasing the value if the application 
+ fails to receive the image stream. The maximum value depends on the operating 
+ system.</p>
+<h3><a name="MiniTOCBookMark8"></a><a name="Num_Max_Queued_Urbs">Num Max Queued URBs</a></h3>
+<p>Use the <span class="parameter-name">NumMaxQueuedUrbs</span> 
+ parameter to specify the maximum number of USB request blocks (URBs) to 
+ be enqueued simultaneously. </p>
+<p>Increasing this value may improve stability and reduce jitter, but requires 
+ more resources on the host computer.</p>
+<p>Decreasing this value can be helpful if you get error messages related 
+ to insufficient system memory, e.g., &quot;Failed to probe and lock buffer=0xe2010130&quot; 
+ or &quot;Failed to submit transfer status=0xe2100001&quot;.</p>
+<h3><a name="MiniTOCBookMark9"></a><a name="Receive_Thread_Priority_Override">Receive Thread Priority 
+ Override</a></h3>
+<p>Use the <span class="parameter-name">ReceiveThreadPriorityOverride</span> 
+ parameter to enable assigning a custom priority to the thread which receives 
+ incoming stream packets. Only available if the <a href="#Type">socket 
+ driver</a> is used. </p>
+<p>To assign the priority, use the <a href="#Receive_Thread_Priority"><span class="parameter-name">ReceiveThreadPriority</span></a> 
+ parameter.</p>
+<h3><a name="MiniTOCBookMark10"></a><a name="Receive_Thread_Priority">Receive Thread Priority</a></h3>
+<p>Use the <span class="parameter-name">ReceiveThreadPriority</span> 
+ parameter to set the thread priority of the receive thread. Only available 
+ if the <a href="#Type">socket driver</a> is used. </p>
+<p>To assign the priority, the <a href="#Receive_Thread_Priority_Override"><span class="parameter-name">ReceiveThreadPriorityOverride</span></a> 
+ parameter must be set to <span class="parameter-name">true</span>.</p>
+<h3><a name="MiniTOCBookMark11"></a><a name="Socket_Buffer_Size">Socket Buffer Size</a></h3>
+<p>Use the <span class="parameter-name">SocketBufferSize</span> 
+ parameter to set the socket buffer size in kilobytes. Only available if 
+ the <a href="#Type">socket driver</a> is used.</p>
+<h3><a name="MiniTOCBookMark12"></a><a name="Status">Status</a></h3>
+<p>The <span class="parameter-name">Status</span> 
+ parameter indicates the current status of the stream grabber:</p>
+<ul>
+	<li><span class="parameter-name">Closed</span>: 
+	 The stream grabber is closed.</li>
+	<li><span class="parameter-name">Locked</span>: 
+	 The stream grabber is locked.</li>
+	<li><span class="parameter-name">NotInitialized</span>: 
+	 The stream grabber is not initialized.</li>
+	<li><span class="parameter-name">Open</span>: 
+	 The stream grabber is open.</li>
+</ul>
+<p>This parameter is read-only.</p>
+<h3><a name="MiniTOCBookMark13"></a><a name="Transfer_Loop_Thread_Priority">Transfer Loop Thread Priority</a></h3>
+<p>Use the <span class="parameter-name">TransferLoopThreadPriority</span> 
+ parameter to specify the priority of the threads that handle USB requests 
+ from the stream interface.</p>
+<p>In pylon, there are two threads belonging to the USB transport layer, 
+ one for the image URBs (USB request blocks) and one for the event URBs. 
+ The transport layer enqueues the URBs to the xHCI driver and polls the 
+ bus for delivered URBs.</p>
+<p>You can control the priority of both threads via the <span class="parameter-name">TransferLoopThreadPriority</span> 
+ parameter.</p>
+<p>On Windows, by default, the parameter is set to the following value:</p>
+<ul>
+	<li><strong>25</strong> if the host application is run <strong>with</strong> 
+	 administrator privileges.</li>
+	<li><strong>15 or lower</strong> if the host application is run <strong>without</strong> 
+	 administrator privileges.</li>
+</ul>
+<p>On Linux and macOS, the default parameter value and the parameter value 
+ range may differ.</p>
+<p>The transfer loop priority should always be higher than the grab engine 
+ thread priority (<span class="parameter-name">InternalGrabEngineThreadPriority</span> 
+ parameter) and the grab loop thread priority (<span class="parameter-name">GrabLoopThreadPriority</span> 
+ parameter). </p>
+<p>For more information, see the <em>C++ Programmer's Guide and Reference 
+ Documentation</em> delivered with the Basler pylon Camera Software Suite 
+ (&quot;Advanced Topics&quot; -&gt; &quot;Application Settings for High 
+ Performance&quot;.</p>
+<h3><a name="MiniTOCBookMark14"></a><a name="Type">Type of GigE Vision Driver</a></h3>
+<p>Use the <span class="parameter-name">Type</span> 
+ parameter to set the host application's GigE Vision driver type: </p>
+<ul>
+	<li><span class="parameter-name">WindowsFilterDriver</span>: 
+	 The host application uses the <strong>pylon GigE Vision Filter Driver</strong>. 
+	 This is a basic <a href="https://www.baslerweb.com/en/vision-campus/interfaces-and-standards/gigabit-ethernet/">GigE 
+	 Vision</a> network driver that is compatible with all network adapters. 
+	 The advantage of the filter driver is its extensive compatibility. 
+	 This driver is available for Windows only.</li>
+	<li><span class="parameter-name">WindowsPerformanceDriver</span>: 
+	 The host application uses the <strong>pylon GigE Vision Performance 
+	 Driver</strong>. This is a hardware-specific GigE Vision network driver. 
+	 The performance driver is only compatible with network adapters that 
+	 use <a href="hardware_installation_(ace_gige).htm#Recommended_GigE_Network_Adapters">compatible 
+	 chipsets</a>. The advantage of the performance driver is that it significantly 
+	 lowers the CPU load needed to service the network traffic between 
+	 the computer and the camera(s). It also has a more robust <a href="#Packet_Resend_Mechanism">packet 
+	 resend mechanism</a>. This driver is available for Windows only.</li>
+	<li><span class="parameter-name">SocketDriver</span>: 
+	 The host application uses the <strong>socket driver</strong>. This 
+	 is not a real driver. Instead, it uses the socket API of the respective 
+	 operating system, e.g., Windows, Linux, or macOS, to communicate with 
+	 cameras instead. The advantage of the socket driver is that it does 
+	 not need any installation and is compatible with all network adapters. 
+	 When using the socket driver, Basler recommends adjusting the network 
+	 adapter settings (e.g., optimize the use of jumbo frames, receive 
+	 descriptors, and interrupt moderation rate) as described in the <a href="network_configuration_(ace_gige).htm">Network Configuration</a> 
+	 topic.</li>
+	<li><span class="parameter-name">NoDriverAvailable</span>: 
+	 No suitable driver is installed. The driver type can't be set.</li>
+</ul>
+<h3><a name="MiniTOCBookMark15"></a><a name="Type:_Socket_Driver_Available">Type: Socket Driver Available</a></h3>
+<p>The <span class="parameter-name">TypeIsSocketDriverAvailable</span> 
+ parameter indicates whether the <a href="#Type">socket driver</a> is currently 
+ available (1) or not available (0).</p>
+<h3><a name="MiniTOCBookMark16"></a><a name="Type:_Windows_Filter_Driver_Available">Type: Windows Filter 
+ Driver Available</a></h3>
+<p>The <span class="parameter-name">TypeIsWindowsFilterDriverAvailable</span> 
+ parameter indicates whether the <a href="#Type">pylon GigE Vision Filter 
+ Driver</a> is currently&#160;available (1) or not available (0).</p>
+<h3><a name="MiniTOCBookMark17"></a><a name="Type:_Windows_Intel_Performance_Driver_Available">Type: Windows 
+ Intel Performance Driver Available</a></h3>
+<p>The <span class="parameter-name">TypeIsWindowsIntelPerformanceDriverAvailable</span> 
+ parameter indicates whether the <a href="#Type">pylon GigE Vision Performance 
+ Driver</a> is currently&#160;available (1) or not available (0).</p>
+<h2><a name="MiniTOCBookMark18"></a><a name="Packet_Resend_Mechanism">Packet Resend Mechanism Parameters</a></h2>
+<p>The packet resend mechanism (GigE Vision only) optimizes the network 
+ performance by detecting and resending missing data packets.</p>
+<p>In GigE Vision data transmission, each packet has a header consisting 
+ of an ascending 24-bit packet ID. This allows the receiving end to detect 
+ if a packet is missing.</p>
+<p>You have to weigh the disadvantages and advantages for your special 
+ application to decide whether to enable or disable the mechanism:</p>
+<ul>
+	<li>If <strong>enabled</strong>, the packet resend mechanism can cause 
+	 delays because the driver waits for missing packets.</li>
+	<li>If <strong>disabled</strong>, packets can get lost which results 
+	 in image data loss.</li>
+</ul>
+<p>The pylon GigE Vision Filter Driver and the Performance Driver use different 
+ packet resend mechanisms.</p>
+<h3><a name="MiniTOCBookMark19"></a><a name="Enable_Resend">Enable Resends</a></h3>
+<p>Use the <span class="parameter-name">EnableResend</span> 
+ parameter to enable the packet resend mechanism. </p>
+<ul>
+	<li>If the parameter is set to <span class="parameter-name">true</span> 
+	 and the <span class="parameter-name">Type</span> 
+	 parameter is set to <span class="parameter-name">WindowsFilterDriver</span>, 
+	 &#160;the <a href="#Packet_Resend_Mechanism__Filter_Driver">packet 
+	 resend mechanism of the Filter Driver</a> is enabled.</li>
+	<li>If the parameter is set to <span class="parameter-name">true</span> 
+	 and the <span class="parameter-name">Type</span> 
+	 parameter is set to <span class="parameter-name">WindowsPerformanceDriver</span>, 
+	 &#160;the <a href="#Packet_Resend_Mechanism__Performance_Driver">packet 
+	 resend mechanism of the Performance Driver</a> is enabled.</li>
+	<li>If the parameter is set to <span class="parameter-name">false</span>, 
+	 the packet resend mechanism is disabled.</li>
+</ul>
+<h3><a name="MiniTOCBookMark20"></a><a name="Packet_Resend_Mechanism__Filter_Driver">Packet Resend Mechanism 
+ (Filter Driver)</a></h3>
+<p>The pylon GigE Vision Filter Driver has a simple packet resend mechanism. 
+ </p>
+<p>If the driver detects that packets are missing, it waits for a specified 
+ period of time. If the packets don't arrive within the time specified, 
+ the driver sends one resend request.</p>
+<h4><a name="MiniTOCBookMark21"></a><a name="Packet_Timeout">Packet Timeout</a></h4>
+<p>Use the <span class="parameter-name">PacketTimeout</span> 
+ parameter to specify how long (in milliseconds) the filter driver waits 
+ for the next expected packet before it initiates a resend request.</p>
+<p>Make sure that the parameter is set to a longer time interval than the 
+ <a href="network_related_parameters.htm#Inter-Packet_Delay">inter-packet 
+ delay</a>.</p>
+<h4><a name="MiniTOCBookMark22"></a><a name="Frame_Retention">Frame Retention</a></h4>
+<p>Use the <span class="parameter-name">FrameRetention</span> 
+ parameter to specify the maximum time in milliseconds to receive all packets 
+ of a frame. The timer starts when the first packet has been received. 
+ If the transmission is not completed within the time specified, the corresponding 
+ frame is delivered with the status &quot;Failed&quot;.</p>
+<h3><a name="MiniTOCBookMark23"></a><a name="Packet_Resend_Mechanism__Performance_Driver">Packet Resend 
+ Mechanism (Performance Driver)</a></h3>
+<p>The pylon GigE Vision Performance Driver has a more advanced packet 
+ resend mechanism. </p>
+<p>It allows more fine-tuning. Also, the driver can send consecutive resend 
+ requests until a <a href="#Maximum_Number_of_Resend_Requests">maximum 
+ number of requests</a> has been reached.</p>
+<h4><a name="MiniTOCBookMark24"></a><a name="Receive_Window_Size">Receive Window Size</a></h4>
+<p>Use the <span class="parameter-name">ReceiveWindowSize</span> 
+ parameter to specify the size (in frames) of the &quot;receive window&quot; 
+ in which the stream grabber looks for missing packets.</p>
+<p><strong>Example:</strong> Assume the receive window size is set to 15. 
+ This means that the stream grabber looks for missing packets within the 
+ last 15 acquired frames. </p>
+<p><img src="images/drawing_resend_request_receive_window.png" alt="Resend Request Receive Window" title="Resend Request Receive Window" /></p>
+<p>The maximum value of the <span class="parameter-name">ReceiveWindowSize</span> 
+ parameter is 16. If the parameter is set to 0, the packet resend mechanism 
+ is disabled.</p>
+<h4><a name="MiniTOCBookMark25"></a><a name="Resend_Request_Threshold">Resend Request Threshold</a></h4>
+<p>Use the <span class="parameter-name">ResendRequestThreshold</span> 
+ parameter to set the threshold after which resend requests are initiated.</p>
+<p>The parameter value is set in percent of the <a href="#Receive_Window_Size">receive 
+ window size</a>.</p>
+<p><strong>Example:</strong> Assume the receive window size is set to 15, 
+ and the resend request threshold is set to 33 %. This means that the threshold 
+ is set after 15 * 0.3333 = 5 frames.</p>
+<p><img src="images/drawing_resend_request_threshold.png" title="Resend Request Threshold Example 1" alt="Resend Request Threshold Example 1" /></p>
+<p>In the example above, frames 99 and 100 are already within the receive 
+ window. The stream grabber detects missing packets in these frames. However, 
+ the stream grabber does not yet send a resend request. </p>
+<p>Rather, the grabber waits until frame 99 has passed the threshold:</p>
+<p><img src="images/drawing_resend_request_threshold_2.png" alt="Resend Request Threshold Example 2" title="Resend Request Threshold Example 2" /></p>
+<p>Now, the grabber sends resend requests for missing packets in frames 
+ 99 and 100.</p>
+<h4><a name="MiniTOCBookMark26"></a><a name="Resend_Request_Batching">Resend Request Batching</a></h4>
+<p>Use the <span class="parameter-name">ResendRequestBatching</span> 
+ parameter to specify the amount of resend requests to be batched, i.e., 
+ sent together.</p>
+<p>The parameter value is set in percent of the amount of frames between 
+ the <a href="#Resend_Request_Threshold">resend request threshold</a> and 
+ the start of the <a href="#Receive_Window_Size">receive window</a>.</p>
+<p><strong>Example:</strong> Assume the receive window size is set to 15, 
+ the resend request threshold is set to 33 %, and the resend request batching 
+ is set to 80 %. This means that the batching is set to 15 * 0.33 * 0.8 
+ = 4 frames.</p>
+<p><img src="images/drawing_resend_request_batching_threshold.png" alt="Resend Request Batching Example" title="Resend Request Batching Example" /></p>
+<p>In the example above, frame 99 has just passed the resend request threshold. 
+ The stream grabber looks for missing packets in the frames between the 
+ two thresholds and groups them. </p>
+<p>Now, the stream grabber sends a single resend request for all missing 
+ packets in frames 99, 100, 101, and 102.</p>
+<h4><a name="MiniTOCBookMark27"></a><a name="Maximum_Number_of_Resend_Requests">Maximum Number of Resend 
+ Requests</a></h4>
+<p>Use the <span class="parameter-name">MaximumNumberResendRequests</span> 
+ parameter to specify the maximum number of <a href="#Packet_Resend_Mechanism__Performance_Driver">resend 
+ requests</a> per missing packet.</p>
+<h4><a name="MiniTOCBookMark28"></a><a name="Resend_Timeout">Resend Timeout</a></h4>
+<p>Use the <span class="parameter-name">ResendTimeout</span> 
+ parameter to specify how long (in milliseconds) the stream grabber waits 
+ between detecting a missing packet and sending a <a href="#Packet_Resend_Mechanism__Performance_Driver">resend 
+ request</a>. </p>
+<h4><a name="MiniTOCBookMark29"></a><a name="Resend_Request_Response_Timeout">Resend Request Response Timeout</a></h4>
+<p>Use the <span class="parameter-name">ResendRequestResponseTimeout</span> 
+ parameter to specify how long (in milliseconds) the stream grabber waits 
+ between sending a <a href="#Packet_Resend_Mechanism__Performance_Driver">resend 
+ request</a> and considering the request as lost.</p>
+<p>If a request is considered lost and the <a href="#Maximum_Number_of_Resend_Requests">maximum 
+ number of resend requests</a> hasn't been reached yet, the grabber sends 
+ another request. </p>
+<p>If a request is considered lost and the maximum number of resend requests 
+ has been reached, the packet is considered lost.</p>
+<h2><a name="MiniTOCBookMark30"></a>Stream Destination Parameters</h2>
+<p>The following parameters (GigE Vision only) allow you to configure where 
+ the stream grabber should send the grabbed data to.</p>
+<p>The stream grabber can send the stream data to one specific device or 
+ to multiple devices in the network.</p>
+<h3><a name="MiniTOCBookMark31"></a><a name="Transmission_Type">Transmission Type</a></h3>
+<p>Use the <span class="parameter-name">TransmissionType</span> 
+ parameter to define how stream data is transferred within the network. 
+ You can set the parameter to the following values:</p>
+<ul>
+	<li><span class="parameter-name">Unicast</span> 
+	 (default): The stream data is sent to a <strong>single</strong> device 
+	 in the local network, usually the camera's GigE network adapter (see 
+	 <a href="#Destination_Address">Destination Address</a>). Other devices 
+	 can't receive the stream data.<br />
+	<img src="images/drawing_transmissiontype_unicast.png" alt="Unicast Routing Scheme" title="Unicast Routing Scheme" /></li>
+	<li><span class="parameter-name">LimitedBroadcast</span>: 
+	 The stream data is sent to <strong>all</strong> devices in the local 
+	 network (255.255.255.255),&#160;even if they are not interested in 
+	 receiving stream data. In large local networks, this uses a large 
+	 amount of network bandwidth. To use this transmission type, you must 
+	 set up the <a href="#Controlling_and_Monitoring_Applications">controlling 
+	 and monitoring applications</a>.<br />
+	<img src="images/drawing_transmissiontype_broadcast.png" alt="Broadcast Routing Scheme" title="Broadcast Routing Scheme" /> </li>
+	<li><span class="parameter-name">SubnetDirectedBroadcasting</span>: 
+	 The stream data is sent to <strong>all</strong> devices in the same 
+	 <strong>subnet</strong> as the camera,&#160;even if they are not interested 
+	 in receiving stream data. If the subnet is small, this may save network 
+	 bandwidth. Because devices outside the subnet can't receive the stream 
+	 data, this transmission type can be useful, e.g., for security purposes. 
+	 <br />
+	<img src="images/drawing_transmissiontype_broadcast_subnet.png" alt="Subnet Directed Broadcast Routing Scheme" title="Subnet Directed Broadcast Routing Scheme" /> 
+	 <br />
+	For subnet-directed broadcasting, the stream grabber uses a subnet 
+	 broadcast address. The subnet broadcast address is obtained by performing 
+	 a bitwise OR between the camera's IP address and the bit complement 
+	 of the camera's subnet mask (see <a href="#Destination_Address">Destination 
+	 Address</a>). To use this transmission type, you must set up the <a 
+	 href="#Controlling_and_Monitoring_Applications">controlling and monitoring 
+	 applications</a>. 
+	<div class="info">
+		<ul>
+			<li>To set the camera's IP address and subnet mask, use the 
+			 <a href="overview_of_the_pylon_ip_configurator.htm">pylon 
+			 IP Configurator</a>. </li>
+			<li>For more information about IP addresses, subnet masks, 
+			 and subnet broadcast addresses, visit the <a href="https://subnet-calculator.samuraj-cz.com/subdom/subnet-calculator/index.php">Online 
+			 IP Subnet Calculator</a> website.</li>
+		</ul>
+	</div></li>
+	<li><span class="parameter-name">Multicast</span>: 
+	 The stream data is sent to <strong>selected</strong> devices in the 
+	 local network.&#160;This saves network bandwidth because data is only 
+	 sent to those devices that are interested in receiving the data. Also, 
+	 you can specify precisely which devices you want to send the data 
+	 to.<br />
+	<img src="images/drawing_transmissiontype_multicast.png" alt="Multicast Routing Scheme" title="Multicast Routing Scheme" /><br />
+	To use multicast, the <a href="#Destination_Address">stream destination 
+	 address</a> must be set to a multicast group address (224.0.0.0 to 
+	 239.255.255.255). Also, you must set up the <a href="#Controlling_and_Monitoring_Applications">controlling 
+	 and monitoring applications</a>. Then, the pylon API automatically 
+	 takes care of creating and managing a multicast group that other devices 
+	 can join. </li>
+	<li><span class="parameter-name">UseCameraConfig</span>: 
+	 The stream transmission configuration is read from the camera. Use 
+	 this option only if you want to set up a <a href="#Controlling_and_Monitoring_Applications">monitoring 
+	 application</a>.</li>
+</ul>
+<p class="subheading"><a name="Controlling_and_Monitoring_Applications">Controlling 
+ and Monitoring Applications</a></p>
+<p>When using limited broadcast, subnet-directed broadcast, or multicast, 
+ you usually want to send the image data stream from one camera to multiple 
+ destinations. </p>
+<p>To achieve this, you must set up exactly one controlling application 
+ and one or more monitoring applications.</p>
+<ul>
+	<li>The <strong>controlling</strong> application starts and stops image 
+	 acquisition. It can also change the camera configuration.</li>
+	<li>The <strong>monitoring</strong> applications receive the stream 
+	 data. Monitoring applications open the camera in read-only mode. This 
+	 means that they can't start and stop image acquisition or change the 
+	 camera configuration.</li>
+</ul>
+<p>For testing purposes, you can use the pylon Viewer as the controlling 
+ application and the &quot;pylon Viewer Multicast Monitor&quot; as the 
+ monitoring application. </p>
+<p>To start the pylon Viewer Multicast Monitor:</p>
+<ul>
+	<li><strong>Windows<span>:</span></strong> Click the <span class="gui-text">pylon 
+	 Viewer Multicast Monitor</span> icon in the start menu.</li>
+	<li><strong>Linux<span>:</span></strong> At the command line, type 
+	 <span class="command-line">/opt/pylon5/bin/PylonViewerApp -m</span></li>
+	<li><strong>macOS<span>:</span></strong> At the command line, type 
+	 <span class="command-line">./Applications/pylon Viewer.app/Contents/MacOS/pylon 
+	 Viewer -m</span></li>
+</ul>
+<div class="info">
+	<p>For more information about setting up controlling and monitoring 
+	 applications, see the C++ Programmer's Guide and Reference Documentation 
+	 delivered with the Basler pylon Camera Software Suite (&quot;Advanced 
+	 Topics&quot; -&gt; &quot;GigE Multicast/Broadcast&quot;).</p>
+</div>
+<h3><a name="MiniTOCBookMark32"></a><a name="Destination_Address">Destination Address</a></h3>
+<p>The <span class="parameter-name">DestinationAddr</span> 
+ parameter indicates the IP address to which the stream grabber sends all 
+ stream data.</p>
+<p>The value and the access mode of the parameter depend on the <span class="parameter-name">TransmissionType</span> 
+ parameter value:</p>
+<table cellspacing="0">
+	<col style="width: 33.333%;" />
+	<col style="width: 33.333%;" />
+	<col style="width: 33.333%;" />
+	<tr>
+		<th><span class="parameter-name">TransmissionType</span> 
+		 Parameter value</th>
+		<th><span class="parameter-name">DestinationAddr</span> 
+		 Parameter Value</th>
+		<th><span class="parameter-name">DestinationAddr</span> 
+		 Access Mode</th>
+	</tr>
+	<tr>
+		<td><span class="parameter-name">Unicast</span></td>
+		<td>IP address of the camera's GigE network adapter</td>
+		<td>Read-only</td>
+	</tr>
+	<tr>
+		<td><span class="parameter-name">LimitedBroadcast</span></td>
+		<td>255.255.255.255</td>
+		<td><p>Read-only</p></td>
+	</tr>
+	<tr>
+		<td><span class="parameter-name">SubnetDirectedBroadcasting</span></td>
+		<td>(Camera's IP address) OR NOT (camera's subnet mask)</td>
+		<td>Read-only</td>
+	</tr>
+	<tr>
+		<td><span class="parameter-name">Multicast</span></td>
+		<td>Default: 239.0.0.1<br />
+		Allowed range: 224.0.0.0 to 239.255.255.255<sup>a</sup></td>
+		<td>Read/Write</td>
+	</tr>
+</table>
+<p class="table-footnote"><sup>a </sup>Some addresses in this range are 
+ reserved. If you are unsure, use an address between 239.255.0.0 and 239.255.255.255. 
+ This range is assigned by RFC 2365 as a locally administered address space.</p>
+<h3><a name="MiniTOCBookMark33"></a><a name="Destination_Port">Destination Port</a></h3>
+<p>The <span class="parameter-name">DestinationPort</span> 
+ parameter indicates the port where the stream grabber will send all stream 
+ data to.</p>
+<p>If the parameter is set to 0, pylon automatically selects an unused 
+ port.</p>
+<p>For more information,&#160;see the C++ Programmer's Guide and Reference 
+ Documentation delivered with the Basler pylon Camera Software Suite (&quot;Advanced 
+ Topics&quot; -&gt; &quot;Selecting a Destination Port&quot;).</p>
+<h2><a name="MiniTOCBookMark34"></a>Statistics Parameters</h2>
+<p>The pylon API provides statistics parameters that allow you to check 
+ whether your camera is set up correctly, your hardware components are 
+ appropriate, and your system performs well.</p>
+<p>At camera startup, all statistics parameters are set to 0. While continuously 
+ grabbing images, the parameters are continuously updated to provide information 
+ about, e.g., lost images or buffers that were grabbed incompletely.</p>
+<h3><a name="MiniTOCBookMark35"></a><a name="Buffer_Underrun_Count">Buffer Underrun Count</a></h3>
+<p>The <span class="parameter-name">Statistic_Buffer_Underrun_Count</span> 
+ parameter counts the number of frames lost because there were no buffers 
+ in the queue. </p>
+<p>The parameter value increases whenever an image is received, but there 
+ are no queued, free buffers in the driver input queue and therefore the 
+ frame is lost.</p>
+<h3><a name="MiniTOCBookMark36"></a><a name="Failed_Buffer_Count">Failed Buffer Count</a></h3>
+<p>The <span class="parameter-name">Statistic_Failed_Buffer_Count</span> 
+ parameter counts the number of buffers that returned with status &quot;failed&quot;, 
+ i.e., buffers that were grabbed incompletely. </p>
+<p>The error code for incompletely grabbed buffers is 0xE1000014 on GigE 
+ cameras and 0xE2000212 on USB 3.0 cameras.</p>
+<h3><a name="MiniTOCBookMark37"></a><a name="Failed_Packet_Count">Failed Packet Count</a></h3>
+<p>The <span class="parameter-name">Statistic_Failed_Packet_Count</span> 
+ parameter counts packets that were successfully received by the stream 
+ grabber, but have been reported as &quot;failed&quot; by the camera.</p>
+<p>The most common reason for packets being reported as &quot;failed&quot; 
+ is that a <a href="#Packet_Resend_Mechanism">packet resend request</a> 
+ couldn't be satisfied by the camera. This occurs, e.g., if the requested 
+ data has already been overwritten by new image data inside the camera's 
+ memory.</p>
+<p>The Failed Packet Count does <strong>not</strong> count packets that 
+ are considered lost because all <a href="#Packet_Resend_Mechanism">resend 
+ requests</a> have failed. In this case, the <a href="#Failed_Buffer_Count">Failed 
+ Buffer Count</a> will be increased, but not the Failed Packet Count.</p>
+<h3><a name="MiniTOCBookMark38"></a><a name="Last_Block_ID">Last Block ID</a></h3>
+<p>The <span class="parameter-name">Statistic_Last_Block_Id</span> 
+ parameter indicates the last grabbed block ID.</p>
+<h3><a name="MiniTOCBookMark39"></a><a name="Last_Failed_Buffer_Status">Last Failed Buffer Status</a></h3>
+<p>The <span class="parameter-name">Statistic_Last_Failed_Buffer_Status</span> 
+ parameter indicates the status code of the last failed buffer.</p>
+<h3><a name="MiniTOCBookMark40"></a><a name="Last_Failed_Buffer_Status_Text">Last Failed Buffer Status 
+ Text</a></h3>
+<p>The <span class="parameter-name">Statistic_Last_Failed_Buffer_Status_Text</span> 
+ parameter indicates the last error status of a read or write operation.</p>
+<h3><a name="MiniTOCBookMark41"></a><a name="Missed_Frame_Count">Missed Frame Count</a></h3>
+<p>The <span class="parameter-name">Statistic_Missed_Frame_Count</span> 
+ parameter counts the number of frames that were acquired but skipped because 
+ the camera's internal frame buffer was already full. Basler USB&#160;3.0 
+ cameras are equipped with a frame buffer of 56 MB.</p>
+<p>A high Missed Frame Count indicates that the xHCI host controller doesn't 
+ support the bandwidth of the camera, i.e., the host controller does not 
+ retrieve the acquired images on time. This causes the camera to buffer 
+ images in its internal frame buffer. When the internal frame buffer is 
+ full, the camera will start skipping newly acquired sensor data. For more 
+ information, see the USB&#160;3.0 specification (Bulk Transaction type).</p>
+<h3><a name="MiniTOCBookMark42"></a><a name="Resend_Packet_Count">Resend Packet Count</a></h3>
+<p>The <span class="parameter-name">Statistic_Resend_Packet_Count</span> 
+ parameter counts the number of packets requested by resend requests. </p>
+<div class="info">
+	<ul>
+		<li>If you are using the Filter Driver and the driver hasn't received 
+		 the &quot;leader&quot; of a frame, i.e., the packet indicating 
+		 the beginning of a frame, it will disregard the complete frame. 
+		 No resend requests will be sent and no statistics parameters will 
+		 be increased. This means that if the &quot;leader&quot; packet 
+		 is lost, the complete frame will be lost without notice. Basler 
+		 recommends checking the <a href="data_chunks.htm#Frame_Counter_Chunk">Frame 
+		 Counter chunk</a> to detect lost frames.</li>
+		<li>If you are using the Performance Driver, the driver detects 
+		 missing &quot;leader&quot; packets, sends resend requests, and 
+		 adjusts the statistics parameters accordingly.</li>
+	</ul>
+</div>
+<h3><a name="MiniTOCBookMark43"></a><a name="Resend_Request_Count">Resend Request Count</a></h3>
+<p>The <span class="parameter-name">Statistic_Resend_Request_Count</span> 
+ parameter counts the number of <a href="#Packet_Resend_Mechanism">packet 
+ resend requests</a> sent.</p>
+<p class="info">Depending on the &#160;<a href="#Type">driver type</a> 
+ and the stream grabber settings, the stream grabber may send multiple 
+ requests for one missing packet, or it may send one request for multiple 
+ packets. Therefore, the Resend Request Count and the <a href="#Resend_Packet_Count">Resend 
+ Packet Count</a> will most likely be different.</p>
+<h3><a name="MiniTOCBookMark44"></a><a name="Resynchronization_Count">Resynchronization Count</a></h3>
+<p>The <span class="parameter-name">Statistic_Resynchronization_Count</span> 
+ parameter counts the number of stream resynchronizations.</p>
+<p>If the host gets out of sync within the streaming process, it initiates 
+ a resynchronization, and the camera's internal buffer is flushed.</p>
+<p>A host may get out of sync if it requests stream packets with a specific 
+ sequence of IDs, but the device delivers packets with a different sequence. 
+ This may occur when the connection between the camera and the host is 
+ faulty. A host being out of sync results in massive image loss.</p>
+<p>A host resynchronization is considered the most serious error case in 
+ the USB&#160;3.0 and USB3 Vision specification.</p>
+<h3><a name="MiniTOCBookMark45"></a><a name="Total_Buffer_Count">Total Buffer Count</a></h3>
+<p>The <span class="parameter-name">Statistic_Total_Buffer_Count</span> 
+ parameter counts the number of buffers that returned with &quot;success&quot; 
+ or &quot;failed&quot; status, i.e., all successfully or incompletely grabbed&#160;buffers.</p>
+<p>The error code for incompletely grabbed buffers is 0xE1000014 on GigE 
+ cameras and 0xE2000212 on USB 3.0 cameras.</p>
+<h3><a name="MiniTOCBookMark46"></a><a name="Total_Packet_Count">Total Packet Count</a></h3>
+<p>The <span class="parameter-name">Statistic_Total_Packet_Count</span> 
+ parameter counts all packets received, including packets that have been 
+ reported as &quot;failed&quot;, i.e., including the <a href="#Failed_Packet_Count">Failed 
+ Packet Count</a>.</p>
+<h2 class="sample-code"><a name="MiniTOCBookMark47"></a>Sample Code</h2>
+<div>
+<div class="container">
+	<ul class="tabs">
+		<li class="tab-link current" data-tab="tab-1">C++ (Native)</li>
+		<li class="tab-link" data-tab="tab-2">C#</li>
+	</ul>
+	<div class="tab-1 tab-content current">
+		<pre>
+<code class="cpp">/* General Parameters */
+// Access Mode
+AccessModeEnums accessMode = camera.GetStreamGrabberParams().AccessMode.GetValue();
+// Auto Packet Size
+camera.GetStreamGrabberParams().AutoPacketSize.SetValue(true);
+// Maximum Buffer Size
+camera.GetStreamGrabberParams().MaxBufferSize.SetValue(131072);
+// Maximum Number of Buffers
+camera.GetStreamGrabberParams().MaxNumBuffer.SetValue(16);
+// Maximum Transfer Size
+camera.GetStreamGrabberParams().MaxTransferSize.SetValue(1048568);
+// Num Max Queued Urbs
+camera.GetStreamGrabberParams().NumMaxQueuedUrbs.SetValue(64);
+// Receive Thread Priority Override
+camera.GetStreamGrabberParams().ReceiveThreadPriorityOverride.SetValue(true);
+// Receive Thread Priority
+camera.GetStreamGrabberParams().ReceiveThreadPriority.SetValue(15);
+// Socket Buffer Size (socket driver only)
+camera.GetStreamGrabberParams().SocketBufferSize.SetValue(2048);
+// Status
+StatusEnums streamGrabberStatus = camera.GetStreamGrabberParams().Status.GetValue();
+// Transfer Loop Thread Priority
+camera.GetStreamGrabberParams().TransferLoopThreadPriority.SetValue(15);
+// Type of GigE Vision Filter Driver
+camera.GetStreamGrabberParams().Type.SetValue(Type_WindowsIntelPerformanceDriver);
+// Type: Socket Driver Available
+int64_t i = camera.GetStreamGrabberParams().TypeIsWindowsIntelPerformanceDriverAvailable.GetValue();
+// Type: Windows Filter Driver Available
+int64_t i = camera.GetStreamGrabberParams().TypeIsWindowsFilterDriverAvailable.GetValue();
+// Type: Windows Intel Performance Driver Available
+int64_t i = camera.GetStreamGrabberParams().TypeIsSocketDriverAvailable.GetValue();
+/* Packet Resend Mechanism Parameters */
+// Enable Resends
+camera.GetStreamGrabberParams().EnableResend.SetValue(true);
+// Packet Timeout (Filter Driver only)
+camera.GetStreamGrabberParams().PacketTimeout.SetValue(40);
+// Frame Retention (Filter Driver only)
+camera.GetStreamGrabberParams().FrameRetention.SetValue(200);
+// Receive Window Size (Performance Driver only)
+camera.GetStreamGrabberParams().ReceiveWindowSize.SetValue(16);
+// Resend Request Threshold (Performance Driver only)
+camera.GetStreamGrabberParams().ResendRequestThreshold.SetValue(5);
+// Resend Request Batching (Performance Driver only)
+camera.GetStreamGrabberParams().ResendRequestBatching.SetValue(10);
+// Maximum Number of Resend Requests (Performance Driver only)
+camera.GetStreamGrabberParams().MaximumNumberResendRequests.SetValue(25);
+// Resend Timeout (Performance Driver only)
+camera.GetStreamGrabberParams().ResendTimeout.SetValue(2);
+// Resend Request Response Timeout (Performance Driver only)
+camera.GetStreamGrabberParams().ResendRequestResponseTimeout.SetValue(2);
+/* Stream Destination Parameters */
+// Transmission Type
+camera.GetStreamGrabberParams().TransmissionType.SetValue(TransmissionType_Unicast);
+// Destination Address
+GenICam::gcstring destinationAddr = camera.GetStreamGrabberParams().DestinationAddr.GetValue();
+// Destination Port
+camera.GetStreamGrabberParams().DestinationPort.SetValue(0);
+/* Statistics Parameters */
+// Buffer Underrun Count
+int64_t bufferUnderrunCount = camera.GetStreamGrabberParams().Statistic_Buffer_Underrun_Count.GetValue();
+// Failed Buffer Count
+int64_t failedBufferCount = camera.GetStreamGrabberParams().Statistic_Failed_Buffer_Count.GetValue();
+// Failed Packet Count
+int64_t failedPacketCount = camera.GetStreamGrabberParams().Statistic_Failed_Packet_Count.GetValue();
+// Last Block ID
+int64_t lastBlockId = camera.GetStreamGrabberParams().Statistic_Last_Block_Id.GetValue();
+// Last Failed Buffer Status
+Int64_t lastFailedBufferStatus = camera.GetStreamGrabberParams().Statistic_Last_Failed_Buffer_Status.GetValue();
+// Last Failed Buffer Status Text
+GenICam::gcstring lastFailedBufferStatusText = camera.GetStreamGrabberParams().Statistic_Last_Failed_Buffer_Status_Text.GetValue();
+// Missed Frame Count
+int64_t missedFrameCount = camera.GetStreamGrabberParams().Statistic_Missed_Frame_Count.GetValue();
+// Resend Request Count
+int64_t resendRequestCount = camera.GetStreamGrabberParams().Statistic_Resend_Request_Count.GetValue();
+// Resend Packet Count
+int64_t resendPacketCount = camera.GetStreamGrabberParams().Statistic_Resend_Packet_Count.GetValue();
+// Resynchronization Count
+int64_t resynchronizationCount = camera.GetStreamGrabberParams().Statistic_Resynchronization_Count.GetValue();
+// Total Buffer Count
+int64_t totalBufferCount = camera.GetStreamGrabberParams().Statistic_Total_Buffer_Count.GetValue();
+// Total Packet Count
+int64_t totalPacketCount = camera.GetStreamGrabberParams().Statistic_Total_Packet_Count.GetValue();</code></pre>
+	</div>
+	<div class="tab-2 tab-content">
+		<pre>
+<code class="csharp" generated="true">/* General Parameters */
+// Access Mode
+string accessMode = camera.Parameters[PLStream.AccessMode].GetValue();
+// Auto Packet Size
+camera.Parameters[PLStream.AutoPacketSize].SetValue(true);
+// Maximum Buffer Size
+camera.Parameters[PLStream.MaxBufferSize].SetValue(131072);
+// Maximum Number of Buffers
+camera.Parameters[PLStream.MaxNumBuffer].SetValue(16);
+// Maximum Transfer Size
+camera.Parameters[PLStream.MaxTransferSize].SetValue(1048568);
+// Num Max Queued Urbs
+camera.Parameters[PLStream.NumMaxQueuedUrbs].SetValue(64);
+// Receive Thread Priority Override
+camera.Parameters[PLStream.ReceiveThreadPriorityOverride].SetValue(true);
+// Receive Thread Priority
+camera.Parameters[PLStream.ReceiveThreadPriority].SetValue(15);
+// Socket Buffer Size (socket driver only)
+camera.Parameters[PLStream.SocketBufferSize].SetValue(2048);
+// Status
+string streamGrabberStatus = camera.Parameters[PLStream.Status].GetValue();
+// Transfer Loop Thread Priority
+camera.Parameters[PLStream.TransferLoopThreadPriority].SetValue(15);
+// Type of GigE Vision Filter Driver
+camera.Parameters[PLStream.Type].SetValue(PLStream.Type.WindowsIntelPerformanceDriver);
+// Type: Socket Driver Available
+Int64 performanceDriverAvailable = camera.Parameters[PLStream.TypeIsWindowsIntelPerformanceDriverAvailable].GetValue();
+// Type: Windows Filter Driver Available
+Int64 filterDriverAvailable = camera.Parameters[PLStream.TypeIsWindowsFilterDriverAvailable].GetValue();
+// Type: Windows Intel Performance Driver Available
+Int64 socketDriverAvailable = camera.Parameters[PLStream.TypeIsSocketDriverAvailable].GetValue();
+/* Packet Resend Mechanism Parameters */
+// Enable Resends
+camera.Parameters[PLStream.EnableResend].SetValue(true);
+// Packet Timeout (Filter Driver only)
+camera.Parameters[PLStream.PacketTimeout].SetValue(40);
+// Frame Retention (Filter Driver only)
+camera.Parameters[PLStream.FrameRetention].SetValue(200);
+// Receive Window Size (Performance Driver only)
+camera.Parameters[PLStream.ReceiveWindowSize].SetValue(16);
+// Resend Request Threshold (Performance Driver only)
+camera.Parameters[PLStream.ResendRequestThreshold].SetValue(5);
+// Resend Request Batching (Performance Driver only)
+camera.Parameters[PLStream.ResendRequestBatching].SetValue(10);
+// Maximum Number of Resend Requests (Performance Driver only)
+camera.Parameters[PLStream.MaximumNumberResendRequests].SetValue(25);
+// Resend Timeout (Performance Driver only)
+camera.Parameters[PLStream.ResendTimeout].SetValue(2);
+// Resend Request Response Timeout (Performance Driver only)
+camera.Parameters[PLStream.ResendRequestResponseTimeout].SetValue(2);
+/* Stream Destination Parameters */
+// Transmission Type
+camera.Parameters[PLStream.TransmissionType].SetValue(PLStream.TransmissionType.Unicast);
+// Destination Address
+string destinationAddr = camera.Parameters[PLStream.DestinationAddr].GetValue();
+// Destination Port
+camera.Parameters[PLStream.DestinationPort].SetValue(0);
+/* Statistics Parameters */
+// Buffer Underrun Count
+Int64 bufferUnderrunCount = camera.Parameters[PLStream.Statistic_Buffer_Underrun_Count].GetValue();
+// Failed Buffer Count
+Int64 failedBufferCount = camera.Parameters[PLStream.Statistic_Total_Buffer_Count].GetValue();
+// Failed Packet Count
+Int64 failedPacketCount = camera.Parameters[PLStream.Statistic_Failed_Packet_Count].GetValue();
+// Last Block ID
+Int64 lastBlockId = camera.Parameters[PLStream.Statistic_Last_Block_Id].GetValue();
+// Last Failed Buffer Status
+Int64 lastFailedBufferStatus = camera.Parameters[PLStream.Statistic_Last_Failed_Buffer_Status].GetValue();
+// Last Failed Buffer Status Text
+string lastFailedBufferStatusText = camera.Parameters[PLStream.Statistic_Last_Failed_Buffer_Status_Text].GetValue();
+// Missed Frame Count
+Int64 missedFrameCount = camera.Parameters[PLStream.Statistic_Missed_Frame_Count].GetValue();
+// Resend Packet Count
+Int64 resendPacketCount = camera.Parameters[PLStream.Statistic_Resend_Packet_Count].GetValue();
+// Resend Request Count
+Int64 resendRequestCount = camera.Parameters[PLStream.Statistic_Resend_Request_Count].GetValue();
+// Resynchronization Count
+Int64 resynchronizationCount = camera.Parameters[PLStream.Statistic_Resynchronization_Count].GetValue();
+// Total Buffer Count
+Int64 totalBufferCount = camera.Parameters[PLStream.Statistic_Total_Buffer_Count].GetValue();
+// Total Packet Count
+Int64 totalPacketCount = camera.Parameters[PLStream.Statistic_Total_Packet_Count].GetValue();</code></pre>
+	</div>
+</div>
+</div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer to easily set the parameters</a>.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

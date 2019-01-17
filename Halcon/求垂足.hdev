@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="44582770">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image (Image11515282Cam0, 'C:/项目/李博定位台需求/AssemblyBench/JPT TosaTest/bin/Debug/ImageSaved/ImageSaved/11月5日 15时28分2秒_Cam0.jpg')</l>
+<l>dev_close_window()</l>
+<l>dev_open_window_fit_image(Image11515282Cam0, 0, 0, -1, -1, WindowHandle)</l>
+<l>dev_display(Image11515282Cam0)</l>
+<l>row:=456</l>
+<l>col:=789</l>
+<c></c>
+<l>row1:=1000</l>
+<l>col1:=1450</l>
+<l>projection_pl(200,200,row,col,row1,col1,RowProj, ColProj)</l>
+<l>disp_cross(WindowHandle, 200, 200, 26, 0)</l>
+<l>disp_line(WindowHandle, row, col, row1, col1)</l>
+<l>disp_cross(WindowHandle, RowProj, ColProj, 26, 0)</l>
+<l>disp_line(WindowHandle, 200, 200, RowProj, ColProj)</l>
+<l>tuple_real(col1-col,Real)</l>
+<l>tuple_real(row1-row, Real1)</l>
+<l>k:=(Real)/(Real1)</l>
+<l>b:=col1-k*row1</l>
+<c></c>
+<l>disp_cross(WindowHandle, 234, k*234+b, 56, 0)</l>
+<c></c>
+<c>*根据点画垂线</c>
+<l>k1:=-1/k</l>
+<l>b1:=234*k+b-(-1/k)*234</l>
+<c></c>
+<c></c>
+<c></c>
+<l>x:=234</l>
+<l>y:=234*k1+b1</l>
+<c></c>
+<l>x0:=567</l>
+<l>y0:=567*k1+b1</l>
+<l>disp_cross(WindowHandle,x0,y0,56,0)</l>
+<l>disp_line(WindowHandle, x,y , x0, y0)</l>
+<c></c>
+<c>*画指定长度的垂线</c>
+<l>GetVerticalFromDistance (x, y, row, col, row1, col1, 60, 'row', -1, TargetRow, TargetCol, k2, b2, kIn, bIn)</l>
+<c></c>
+<l>dev_set_color('blue')</l>
+<l>disp_cross(WindowHandle, TargetRow, TargetCol, 56, 0)</l>
+<c></c>
+<l>GetVerticalFromDistance (x, y, row, col, row1, col1, 60, 'row', 1, TargetRow, TargetCol, k2, b2, kIn, bIn)</l>
+<c></c>
+<l>dev_set_color('blue')</l>
+<l>disp_cross(WindowHandle, TargetRow, TargetCol, 56, 0)</l>
+<c></c>
+<l>GetParallelLineFromDistance (row, col, row1, col1,350,'row', -1, LineOutRow, LineOutCol, LineOutRow1, LineOutCol1, k3, b3)</l>
+<c></c>
+<l>disp_line(WindowHandle, LineOutRow, LineOutCol, LineOutRow1, LineOutCol1)</l>
+<l>disp_cross(WindowHandle, LineOutRow, LineOutCol, 106, 0)</l>
+<l>disp_cross(WindowHandle, LineOutRow1, LineOutCol1, 106, 0)</l>
+<c></c>
+<l>tuple_sqrt((LineOutRow-row)*(LineOutRow-row)+(LineOutCol-col)*(LineOutCol-col),Sqrt)</l>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+<procedure name="GetVerticalFromDistance">
+<interface>
+<ic>
+<par name="FootRow"/>
+<par name="FootCol"/>
+<par name="LineRowStart"/>
+<par name="LineColStart"/>
+<par name="LineRowEnd"/>
+<par name="LineColEnd"/>
+<par name="Distance"/>
+<par name="Direction"/>
+<par name="Polarity"/>
+</ic>
+<oc>
+<par name="TargetRow"/>
+<par name="TargetCol"/>
+<par name="k"/>
+<par name="b"/>
+<par name="kIn"/>
+<par name="bIn"/>
+</oc>
+</interface>
+<body>
+<l>tuple_real(LineColEnd-LineColStart,RealDeltaCol)</l>
+<l>tuple_real(LineRowEnd-LineRowStart,RealDeltaRow)</l>
+<c></c>
+<l>kIn:=(RealDeltaCol)/(RealDeltaRow)</l>
+<l>bIn:=FootCol-kIn*FootRow</l>
+<c></c>
+<l>k:=-1/kIn</l>
+<l>b:=FootRow*kIn+bIn-k*FootRow</l>
+<c></c>
+<c>*找出目标点</c>
+<l>tuple_sqrt((Distance*Distance)/(k*k+1), Sqrt)</l>
+<l>row1:=Sqrt+FootRow</l>
+<l>col1:=k*row1+b</l>
+<c></c>
+<l>row2:=-Sqrt+FootRow</l>
+<l>col2:=k*row2+b</l>
+<c></c>
+<l>if(Direction='row')</l>
+<l>    if(Polarity&gt;=0)        </l>
+<l>        TargetRow:=row1</l>
+<l>        TargetCol:=col1</l>
+<l>    else</l>
+<l>        TargetRow:=row2</l>
+<l>        TargetCol:=col2</l>
+<l>    endif</l>
+<l>endif</l>
+<c></c>
+<l>if(Direction='col')</l>
+<l>    if(Polarity&gt;=0)</l>
+<l>        if(col1&gt;=FootCol)</l>
+<l>            TargetCo1:=col1</l>
+<l>            TargetRow:=row1</l>
+<l>        else</l>
+<l>            TargetCo1:=col2</l>
+<l>            TargetRow:=row1</l>
+<l>        endif</l>
+<l>    else</l>
+<l>         if(col1&gt;=FootCol)</l>
+<l>            TargetCo1:=col2</l>
+<l>            TargetRow:=row2</l>
+<l>        else</l>
+<l>            TargetCo1:=col1</l>
+<l>            TargetRow:=row1</l>
+<l>        endif</l>
+<l>    endif</l>
+<l>endif</l>
+<c></c>
+<l>return ()</l>
+</body>
+<docu id="GetVerticalFromDistance">
+<parameters>
+<parameter id="Direction"/>
+<parameter id="Distance"/>
+<parameter id="FootCol"/>
+<parameter id="FootRow"/>
+<parameter id="LineColEnd"/>
+<parameter id="LineColStart"/>
+<parameter id="LineRowEnd"/>
+<parameter id="LineRowStart"/>
+<parameter id="Polarity"/>
+<parameter id="TargetCol"/>
+<parameter id="TargetRow"/>
+<parameter id="b"/>
+<parameter id="bIn"/>
+<parameter id="k"/>
+<parameter id="kIn"/>
+</parameters>
+</docu>
+</procedure>
+<procedure name="GetParallelLineFromDistance">
+<interface>
+<ic>
+<par name="LineInRow"/>
+<par name="LineInCol"/>
+<par name="LineInRow1"/>
+<par name="LineInCol1"/>
+<par name="Distance"/>
+<par name="Direction"/>
+<par name="Polarity"/>
+</ic>
+<oc>
+<par name="LineOutRow"/>
+<par name="LineOutCol"/>
+<par name="LineOutRow1"/>
+<par name="LineOutCol1"/>
+<par name="k"/>
+<par name="b"/>
+</oc>
+</interface>
+<body>
+<l>tuple_real(LineInCol1-LineInCol,RealDeltaCol)</l>
+<l>tuple_real(LineInRow1-LineInRow,RealDeltaRow)</l>
+<c></c>
+<l>kIn:=(RealDeltaCol)/(RealDeltaRow)</l>
+<l>bIn:=LineInCol-kIn*LineInRow</l>
+<l>k:=kIn</l>
+<l>b:=bIn</l>
+<c></c>
+<c></c>
+<l>k1:=-1/kIn</l>
+<l>b1:=LineInRow*kIn+bIn-k1*LineInRow</l>
+<c></c>
+<l>k2:=k1</l>
+<l>b2:=LineInRow1*kIn+bIn-k2*LineInRow1</l>
+<c></c>
+<c>*找出目标点</c>
+<l>tuple_sqrt((Distance*Distance)/(k1*k1+1),Sqrt1)</l>
+<l>tuple_sqrt((Distance*Distance)/(k2*k2+1),Sqrt2)</l>
+<c></c>
+<c></c>
+<l>row1:=Sqrt1+LineInRow</l>
+<l>col1:=k1*row1+b1</l>
+<l>rowTemp1:=Sqrt2+LineInRow1</l>
+<l>colTemp1:=k2*rowTemp1+b2</l>
+<c></c>
+<c></c>
+<c>*另一条平行线</c>
+<l>row2:=-Sqrt1+LineInRow</l>
+<l>col2:=k1*row2+b1</l>
+<l>rowTemp2:=-Sqrt2+LineInRow1</l>
+<l>colTemp2:=k2*rowTemp2+b2</l>
+<c></c>
+<c></c>
+<c></c>
+<l>if(Direction='row')</l>
+<l>    if(Polarity&gt;=0)        </l>
+<l>        LineOutRow:=row1</l>
+<l>        LineOutCol:=col1</l>
+<l>        LineOutRow1:=rowTemp1</l>
+<l>        LineOutCol1:=colTemp1</l>
+<c></c>
+<l>    else</l>
+<l>        LineOutRow:=row2</l>
+<l>        LineOutCol:=col2</l>
+<l>        LineOutRow1:=rowTemp2</l>
+<l>        LineOutCol1:=colTemp2</l>
+<l>    endif</l>
+<l>endif</l>
+<c></c>
+<l>if(Direction='col')</l>
+<l>    if(Polarity&gt;=0)</l>
+<l>        if(col1&gt;=LineInCol)</l>
+<l>            LineOutCol:=col1</l>
+<l>            LineOutRow:=row1</l>
+<l>            LineOutRow1:=rowTemp1</l>
+<l>            LineOutCol1:=colTemp1</l>
+<l>        else</l>
+<l>            LineOutCol:=col2</l>
+<l>            LineOutRow:=row2</l>
+<l>            LineOutRow1:=rowTemp2</l>
+<l>            LineOutCol1:=colTemp2</l>
+<l>        endif</l>
+<l>    else</l>
+<l>         if(col1&gt;=LineInCol)</l>
+<l>            LineOutCol:=col2</l>
+<l>            LineOutRow:=row2</l>
+<l>            LineOutRow1:=rowTemp2</l>
+<l>            LineOutCol1:=colTemp2</l>
+<l>        else</l>
+<l>            LineOutCol:=col1</l>
+<l>            LineOutRow:=row1</l>
+<l>            LineOutRow1:=rowTemp1</l>
+<l>            LineOutCol1:=colTemp1</l>
+<l>        endif</l>
+<l>    endif</l>
+<l>endif</l>
+<c></c>
+<c></c>
+<c></c>
+<l>return ()</l>
+</body>
+<docu id="GetParallelLineFromDistance">
+<parameters>
+<parameter id="Direction"/>
+<parameter id="Distance"/>
+<parameter id="LineInCol"/>
+<parameter id="LineInCol1"/>
+<parameter id="LineInRow"/>
+<parameter id="LineInRow1"/>
+<parameter id="LineOutCol"/>
+<parameter id="LineOutCol1"/>
+<parameter id="LineOutRow"/>
+<parameter id="LineOutRow1"/>
+<parameter id="Polarity"/>
+<parameter id="b"/>
+<parameter id="k"/>
+</parameters>
+</docu>
+</procedure>
+</hdevelop>

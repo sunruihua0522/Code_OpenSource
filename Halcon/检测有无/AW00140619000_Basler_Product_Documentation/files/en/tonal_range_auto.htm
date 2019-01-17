@@ -1,0 +1,399 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="noindex" />
+<meta http-equiv="Content-Language" content="en-US" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Tonal Range Auto</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_83";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Tonal Range Auto<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Tonal Range Auto</h1>
+<p class="teaser">The Tonal Range Auto 
+ <a href="features.htm">camera feature</a> allows you&#160;to adjust contrast 
+ or color shifts or both in a single step. </p>
+<p>This feature is especially useful if you are using your camera on a 
+ light microscope.</p>
+<p>If you want to adjust contrast or color shifts manually, use the <a href="tonal_range.htm">Tonal Range</a> feature.</p>
+<p>If you want to adjust the contrast using linear or S-curve functions, 
+ use the <a href="brightness_and_contrast.htm">Brightness and Contrast</a> 
+ feature (if available).</p>
+<p>You can define multiple &#160;<a href="http://review.basler.corp/en/auto_function_roi.htm">Auto 
+ Function ROIs</a> which allows you to use pixel data from different parts 
+ of your image.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot23778" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot23778', 'MTPOPUP23778');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP23778" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Prerequisites</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Using Tonal Range Auto</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark5" >Using Tonal Range Auto with Default Settings</a>
+</li>
+     <li><a href="#MiniTOCBookMark6" >Using Tonal Range Auto with Custom Settings</a>
+</li>
+    </ul></li>
+    <li><a href="#MiniTOCBookMark7" >How It Works</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark8" >Source and Target Values</a>
+</li>
+     <li><a href="#MiniTOCBookMark9" >Threshold Values</a>
+</li>
+    </ul></li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark10" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>Prerequisites</h3>
+<ul>
+	<li>Your camera must already produce good images, with only issues 
+	 like <a href="tonal_range.htm#Adjusting_the_Contrast">low contrast</a> 
+	 or <a href="tonal_range.htm#Correcting_Color_Shifts">shifted colors</a> 
+	 remaining. Tonal range operations should only be performed on images 
+	 that already have a good image quality.</li>
+</ul>
+<div class="info">
+	If you want to optimize the image quality, follow this sequence to 
+	 avoid side effects: 
+	<ol>
+		<li>Use the <a href="exposure_time.htm">Exposure Time</a>, <a href="black_level.htm">Black 
+		 Level</a>, and <a href="gain.htm">Gain</a> features for basic 
+		 image optimization. Make sure the image is not over saturated.</li>
+		<li>If you are using a color camera, adjust the white balance by 
+		 using the <a href="light_source_preset.htm">Light Source Preset</a>, 
+		 <a href="balance_white_auto.htm">Balance White Auto</a>, or <a href="balance_white.htm">Balance White</a> features.</li>
+		<li>Use the Tonal Range Auto and <a href="tonal_range.htm">Tonal 
+		 Range</a> features to optimize the contrast or the colors or both.</li>
+	</ol>
+</div>
+<ul>
+	<li>At least one <a href="auto_function_roi.htm">auto function ROI</a> 
+	 must be <a href="auto_function_roi.htm#Assigning_Auto_Functions">assigned</a> 
+	 to the Tonal Range Auto auto function. <br />
+	By default, an auto function ROI is already assigned.</li>
+	<li>The assigned auto function ROI must <a href="auto_function_roi.htm#Overlap_Between_Auto_Function_AOI_and_Image_AOI">overlap 
+	 the image ROI</a>, either partially or completely.<br />
+	By default, the auto function ROI and the image ROI are identical and 
+	 therefore overlap completely.</li>
+</ul>
+<h3><a name="MiniTOCBookMark4"></a>Using Tonal Range Auto</h3>
+<h4><a name="MiniTOCBookMark5"></a>Using Tonal Range Auto with Default Settings</h4>
+<p>The parameters of the auto function are preset to values that deliver 
+ good results in most scenarios.</p>
+<p>To adjust the contrast or color or both using the default settings:</p>
+<ol>
+	<li>If you are using a color camera: 
+	<ol>
+		<li>If you want to adjust contrast and color in a single step, 
+		 set the <span class="parameter-name">AutoTonalRangeModeSelector</span> 
+		 parameter to <span class="parameter-name">ColorAndContrast</span>.</li>
+		<li>If you only want to adjust the contrast, set the <span class="parameter-name">AutoTonalRangeModeSelector</span> 
+		 parameter to <span class="parameter-name">Contrast</span>.</li>
+		<li>If you only want to correct color shifts, set the <span class="parameter-name">AutoTonalRangeModeSelector</span> 
+		 parameter to <span class="parameter-name">Color</span>.</li>
+	</ol>
+	<span>(If you are using a mono camera, only contrast adjustment is 
+	 available. The <span class="parameter-name">AutoTonalRangeModeSelector</span> 
+	 parameter is preset to <span class="parameter-name">Contrast</span> 
+	 and can't be changed.)</span></li>
+	<li>Set the <span class="parameter-name">TonalRangeAuto</span> 
+	 parameter to <span><span class="parameter-name">Once</span>.</span> 
+	 <br />
+	With the next image acquisition, the camera adjusts contrast or color 
+	 or both using the default settings. When the adjustment is complete, 
+	 &#160;the camera sets the auto function to <span class="parameter-name">Off</span> 
+	 and applies the adjustment to all subsequent images.</li>
+	<li>If you want to fine-tune the adjustments, use the <a href="tonal_range.htm">Tonal 
+	 Range</a> feature.</li>
+</ol>
+<h4><a name="MiniTOCBookMark6"></a>Using Tonal Range Auto with Custom Settings</h4>
+<p>To adjust the contrast or color or both using custom settings:</p>
+<ol>
+	<li>If you are using a color camera: 
+	<ol>
+		<li>If you want to adjust contrast and color in a single step, 
+		 set the <span class="parameter-name">AutoTonalRangeModeSelector</span> 
+		 parameter to <span class="parameter-name">ColorAndContrast</span>.</li>
+		<li>If you only want to adjust the contrast, set the <span class="parameter-name">AutoTonalRangeModeSelector</span> 
+		 parameter to <span class="parameter-name">Contrast</span>.</li>
+		<li>If you only want to correct color shifts, set the <span class="parameter-name">AutoTonalRangeModeSelector</span> 
+		 parameter to <span class="parameter-name">Color</span>.</li>
+	</ol>
+	<span>(If you are using a mono camera, only contrast adjustment is 
+	 available. The <span class="parameter-name">AutoTonalRangeModeSelector</span> 
+	 parameter is preset to <span class="parameter-name">Contrast</span> 
+	 and can't be changed.)</span></li>
+	<li>Set the <span class="parameter-name">AutoTonalRangeAdjustmentSelector</span> 
+	 parameter to one of the following values:</li>
+	<ul>
+		<li><span class="parameter-name">BrightAndDark</span> 
+		 (default): Automatic adjustments are applied to dark and bright 
+		 parts of your images.</li>
+		<li><span class="parameter-name">Dark</span>: 
+		 Automatic adjustments are applied to dark parts of your images 
+		 only.</li>
+		<li><span class="parameter-name">Bright</span>: 
+		 Automatic adjustments are applied to bright parts of your images 
+		 only.</li>
+	</ul>
+	<li>Specify the dark <a href="tonal_range_auto.htm#Threshold_Values">threshold 
+	 value</a> using the <span class="parameter-name">AutoTonalRangeThresholdDark</span> 
+	 parameter.</li>
+	<li>Specify the bright <a href="tonal_range_auto.htm#Threshold_Values">threshold 
+	 value</a> using the <span class="parameter-name">AutoTonalRangeThresholdBright</span> 
+	 parameter.</li>
+	<li>If the <span class="parameter-name">AutoTonalRangeModeSelector</span> 
+	 parameter is set to <span class="parameter-name">ColorAndContrast</span> 
+	 or <span class="parameter-name">Contrast</span>: 
+	 </li>
+	<ol>
+		<li>Set the <span class="parameter-name">AutoTonalRangeTargetDark</span> 
+		 parameter to the dark <a href="tonal_range_auto.htm#Source_and_Target_Values">target 
+		 value</a>.</li>
+		<li>Set the <span class="parameter-name">AutoTonalRangeTargetBright</span> 
+		 parameter to the bright <a href="tonal_range_auto.htm#Source_and_Target_Values">target 
+		 value</a>.</li>
+	</ol>
+	<li>Set the <span class="parameter-name">TonalRangeAuto</span> 
+	 parameter to <span><span class="parameter-name">Once</span>.</span> 
+	 <br />
+	With the next image acquisition, the camera adjusts contrast or color 
+	 or both using the default settings. When the adjustment is complete, 
+	 &#160;the camera sets the auto function to <span class="parameter-name">Off</span> 
+	 and applies the adjustment to all subsequent simages.</li>
+	<li>If you want to fine-tune the adjustments, use the <a href="tonal_range.htm">Tonal 
+	 Range</a> feature.</li>
+</ol>
+<h3><a name="MiniTOCBookMark7"></a>How It Works</h3>
+<p>Tonal range operations are best understood by looking at a graphical 
+ representation of the tonal distribution in your images, i.e., an <a href="https://en.wikipedia.org/wiki/Image_histogram">image 
+ histogram</a>.</p>
+<p>The Basler pylon Viewer provides the <a href="histogram.htm">Histogram</a> 
+ pane, which can be very helpful when performing tonal range operations.</p>
+<p class="info">Depending on which other features are enabled on your camera, 
+ the <span class="gui-text">Histogram</span> pane in the pylon Viewer may 
+ <strong>not display the data that the auto function actually uses</strong>. 
+ <br />
+For example, the <a href="gamma.htm">Gamma</a> feature is processed after 
+ tonal range operations. As a result, gamma correction is included in the 
+ histograms displayed in sthe pylon Viewer, but not in the data that the 
+ auto function uses.</p>
+<h4><a name="MiniTOCBookMark8"></a><a name="Source_and_Target_Values">Source and Target Values</a></h4>
+<p>The Tonal Range Auto feature is based on the same concept as the <a href="tonal_range.htm">Tonal Range</a> feature: the <a href="tonal_range.htm#Source_and_Target_Values">mapping 
+ <strong>source</strong> values to <strong>target</strong> values</a>.</p>
+<p>What's different is how the camera determines the source and target 
+ values:</p>
+<ul>
+	<li>The camera determines the dark and bright <strong>source</strong> 
+	 values by calculating the <a href="tonal_range_auto.htm#Threshold_Values">threshold 
+	 values</a>. </li>
+	<li>The camera determines the dark and bright <strong>target</strong> 
+	 values as follows:</li>
+	<ul>
+		<li>For contrast adjustments, the camera reads the value of the 
+		 <span class="parameter-name">AutoTonalRangeTargetDark</span> 
+		 and <span class="parameter-name">AutoTonalRangeTargetBright</span> 
+		 parameters.</li>
+		<li>For color adjustments, the camera automatically determines 
+		 target values that will properly<a href="tonal_range.htm#Color_Correction__Color_Cameras_Only_"> 
+		 align the RGB histograms</a>.</li>
+	</ul>
+</ul>
+<p>Once the camera has determined the source and target values, the camera 
+ performs contrast and color adjustments exactly as described in the <a href="tonal_range.htm">Tonal Range</a> topic.</p>
+<h4><a name="MiniTOCBookMark9"></a><a name="Threshold_Values">Threshold Values</a></h4>
+<p>During automatic tonal range adjustments, the source values are calculated 
+ automatically based on threshold values. </p>
+<p>You must specify the threshold values using the <span class="parameter-name">AutoTonalRangeThresholdDark</span> 
+ and <span class="parameter-name">AutoTonalRangeThresholdBright</span> 
+ parameters. The parameters are expressed as percentages of all pixels 
+ in your image.</p>
+<p class="info">In this section, it is assumed that the assigned <a href="auto_function_roi.htm">auto 
+ function ROI</a> and the <a href="image_roi.htm">image ROI</a> are identical, 
+ which is the default setting. If you changed your auto function ROI settings, 
+ the percentages refer to the pixels in the <a href="auto_function_roi.htm#Overlap_Between_Auto_Function_AOI_and_Image_AOI">areas 
+ of overlap</a> between the assigned auto function ROI and the image ROI.</p>
+<p>From the percentages, the camera calculates the following:</p>
+<ul>
+	<li>The <strong>dark </strong><span>threshold value</span>, which is 
+	 the value in the histogram where the specified amount of pixels have 
+	 a pixel value <strong>lower than or equal to</strong> the threshold 
+	 value.</li>
+	<li>The <strong>bright </strong><span>threshold value</span>, which 
+	 is the value in the histogram where the specified amount of pixels 
+	 have a pixel value <strong>greater than or equal</strong> to the threshold 
+	 value.</li>
+</ul>
+<p>The area between both thresholds defines your mid-tones, i.e., the&#160;pixel 
+ values you consider essential for the image.</p>
+<p><strong>Example:</strong> Assume you set the <span class="parameter-name">AutoTonalRangeThresholdDark</span> 
+ parameter to 0.3 and the <span class="parameter-name">AutoTonalRangeThresholdBright</span> 
+ parameter to 0.4. The camera detects that 0.3 % of the pixels in your 
+ image have a pixel value lower than or equal to 52, and 0.4&#160;% of 
+ the pixels in your image have a pixel value greater than or equal to 204. 
+ Therefore, the dark threshold value is 52, and the bright threshold value 
+ is 204.</p>
+<p><img src="images/drawing_tonal_range_histogram_4.png" alt="Dark and Bright Threshold Illustration" title="Dark and Bright Threshold Illustration" /></p>
+<h2 class="sample-code"><a name="MiniTOCBookMark10"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre><code class="cpp">// Enable contrast adjustments only
+camera.AutoTonalRangeModeSelector.SetValue(AutoTonalRangeModeSelector_Contrast);
+// Specify that both ends of the tonal range should be adjusted automatically
+camera.AutoTonalRangeAdjustmentSelector.SetValue(AutoTonalRangeAdjustmentSelector_BrightAndDark);
+// Set the percentage of pixels that is used to calculate the dark threshold
+camera.AutoTonalRangeThresholdDark.SetValue(0.3);
+// Set the percentage of pixels that is used to calculate the bright threshold
+camera.AutoTonalRangeThresholdBright.SetValue(0.4);
+// Set the dark target value
+camera.AutoTonalRangeTargetDark.SetValue(0);
+// Set the bright target value
+camera.AutoTonalRangeTargetBright.SetValue(255);
+// Enable the Tonal Range Auto auto function
+camera.TonalRangeAuto.SetValue(TonalRangeAuto_Once);</code></pre></div><div class="tab-2 tab-content"><pre><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Enable contrast adjustments only
+CEnumerationPtr(nodemap.GetNode("AutoTonalRangeModeSelector"))-&gt;FromString("Contrast");
+// Specify that both ends of the tonal range should be adjusted automatically
+CEnumerationPtr(nodemap.GetNode("AutoTonalRangeAdjustmentSelector"))-&gt;FromString("BrightAndDark");
+// Set the percentage of pixels that is used to calculate the dark threshold
+CFloatPtr(nodemap.GetNode("AutoTonalRangeThresholdDark"))-&gt;SetValue(0.3);
+// Set the percentage of pixels that is used to calculate the bright threshold
+CFloatPtr(nodemap.GetNode("AutoTonalRangeThresholdBright"))-&gt;SetValue(0.4);
+// Set the dark target value
+CIntegerPtr(nodemap.GetNode("AutoTonalRangeTargetDark"))-&gt;SetValue(0);
+// Set the bright target value
+CIntegerPtr(nodemap.GetNode("AutoTonalRangeTargetBright"))-&gt;SetValue(255);
+// Enable the Tonal Range Auto auto function
+CEnumerationPtr(nodemap.GetNode("TonalRangeAuto"))-&gt;FromString("Once");</code></pre></div><div class="tab-3 tab-content"><pre><code class="csharp" generated="true">// Enable contrast adjustments only
+camera.Parameters[PLCamera.AutoTonalRangeModeSelector].SetValue(PLCamera.AutoTonalRangeModeSelector.Contrast);
+// Specify that both ends of the tonal range should be adjusted automatically
+camera.Parameters[PLCamera.AutoTonalRangeAdjustmentSelector].SetValue(PLCamera.AutoTonalRangeAdjustmentSelector.BrightAndDark);
+// Set the percentage of pixels that is used to calculate the dark threshold
+camera.Parameters[PLCamera.AutoTonalRangeThresholdDark].SetValue(0.3);
+// Set the percentage of pixels that is used to calculate the bright threshold
+camera.Parameters[PLCamera.AutoTonalRangeThresholdBright].SetValue(0.4);
+// Set the dark target value
+camera.Parameters[PLCamera.AutoTonalRangeTargetDark].SetValue(0);
+// Set the bright target value
+camera.Parameters[PLCamera.AutoTonalRangeTargetBright].SetValue(255);
+// Enable the Tonal Range Auto auto function
+camera.Parameters[PLCamera.TonalRangeAuto].SetValue(PLCamera.TonalRangeAuto.Once);</code></pre></div><div class="tab-4 tab-content"><pre><code class="csharp" generated="true">// Enable contrast adjustments only
+Pylon.DeviceFeatureFromString(hdev, "AutoTonalRangeModeSelector", "Contrast");
+// Specify that both ends of the tonal range should be adjusted automatically
+Pylon.DeviceFeatureFromString(hdev, "AutoTonalRangeAdjustmentSelector", "BrightAndDark");
+// Set the percentage of pixels that is used to calculate the dark threshold
+Pylon.DeviceSetFloatFeature(hdev, "AutoTonalRangeThresholdDark", 0.3);
+// Set the percentage of pixels that is used to calculate the bright threshold
+Pylon.DeviceSetFloatFeature(hdev, "AutoTonalRangeThresholdBright", 0.4);
+// Set the dark target value
+Pylon.DeviceSetIntegerFeature(hdev, "AutoTonalRangeTargetDark", 0);
+// Set the bright target value
+Pylon.DeviceSetIntegerFeature(hdev, "AutoTonalRangeTargetBright", 255);
+// Enable the Tonal Range Auto auto function
+Pylon.DeviceFeatureFromString(hdev, "TonalRangeAuto", "Once");</code></pre></div><div class="tab-5 tab-content"><pre><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+/* Enable contrast adjustments only */
+errRes = PylonDeviceFeatureFromString(hdev, "AutoTonalRangeModeSelector", "Contrast");
+CHECK(errRes);
+/* Specify that both ends of the tonal range should be adjusted automatically */
+errRes = PylonDeviceFeatureFromString(hdev, "AutoTonalRangeAdjustmentSelector", "BrightAndDark");
+CHECK(errRes);
+/* Set the percentage of pixels that is used to calculate the dark threshold */
+errRes = PylonDeviceSetFloatFeature(hdev, "AutoTonalRangeThresholdDark", 0.3);
+CHECK(errRes);
+/* Set the percentage of pixels that is used to calculate the bright threshold */
+errRes = PylonDeviceSetFloatFeature(hdev, "AutoTonalRangeThresholdBright", 0.4);
+CHECK(errRes);
+/* Set the dark target value */
+errRes = PylonDeviceSetIntegerFeature(hdev, "AutoTonalRangeTargetDark", 0);
+CHECK(errRes);
+/* Set the bright target value */
+errRes = PylonDeviceSetIntegerFeature(hdev, "AutoTonalRangeTargetBright", 255);
+CHECK(errRes);
+/* Enable the Tonal Range Auto auto function */
+errRes = PylonDeviceFeatureFromString(hdev, "TonalRangeAuto", "Once");
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer to easily set the parameters</a>.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

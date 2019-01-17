@@ -1,0 +1,228 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="noindex, nofollow" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Hardware Installation (ace GigE)</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.3.0_1";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Installation" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"camera_installation.htm\">Installation<\/a>  &gt;  Hardware Installation (ace GigE)<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Hardware Installation (ace GigE)</h1>
+<p class="teaser">This topic tells you how to install a <a href="basler_ace_gige.htm">Basler 
+ ace GigE camera</a>.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot17962" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot17962', 'MTPOPUP17962');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP17962" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Prerequisites</a>
+</li>
+   <li><a href="#MiniTOCBookMark3" >General Considerations</a>
+</li>
+   <li><a href="#MiniTOCBookMark4" >Recommended 
+ GigE Network Adapters</a>
+</li>
+   <li><a href="#MiniTOCBookMark5" >Installing the Camera</a>
+</li>
+   <li><a href="#MiniTOCBookMark6" >Next Steps</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Prerequisites</h2>
+<p>The pylon Camera Software Suite for Windows must be <a href="software_installation_(windows).htm">installed</a>.</p>
+<h2><a name="MiniTOCBookMark3"></a>General Considerations</h2>
+<p>Make sure that the following items are available before starting the 
+ hardware installation:</p>
+<ul>
+	<li>A Basler ace GigE camera.</li>
+	<li>A computer with a <a href="#Recommended_GigE_Network_Adapters">suitable 
+	 GigE network adapter</a>.</li>
+	<li>As applicable, a power supply or a PoE power injector.<br />
+	Make sure that the power supply meets all of the requirements listed 
+	 in the topic about your camera model.<br />
+	If you want to use &#160;PoE and your computer is not PoE-capable, 
+	 use a PoE injector. Alternatively, you can make your computer PoE-capable 
+	 by using a network card with added PoE capabilities, for example <a 
+	 href="https://www.baslerweb.com/en/support/downloads/document-downloads/gige-card-pcie-adlink-gie74-with-poe-4-ports-data-sheet/">this 
+	 one</a>.</li>
+	<li>As applicable, a C-mount or CS-mount lens for the camera.<br />
+	If you already know what lens you will be using in your actual application, 
+	 use this lens during the camera installation and setup. If not, Basler 
+	 suggests using a zoom lens for the installation and initial setup. 
+	 <a href="contacting_basler.htm">Contact Basler technical support</a> 
+	 if you need assistance in determining the best lens for your application.</li>
+	<li>A standard Ethernet cable. Basler recommends using Cat6 or Cat7 
+	 S/STP &#160;cables. If you're using a PoE injector, you need 2 Ethernet 
+	 cables.<br />
+	Suitable cables are available via the <a href="https://www.baslerweb.com/en/products/vision-components/cable#interface=GigE">Basler 
+	 website</a>.</li>
+</ul>
+<h2><a name="MiniTOCBookMark4"></a><a name="Recommended_GigE_Network_Adapters" id="Recommended_GigE_Network_Adapters">Recommended 
+ GigE Network Adapters</a></h2>
+<p>The following GigE network adapters are recommended for use with Basler 
+ GigE cameras:</p>
+<ul>
+	<li>Intel Pro 1000 series</li>
+	<li>Intel i210 series</li>
+	<li>Intel i340 series</li>
+	<li>Intel i350 series</li>
+</ul>
+<p>These adapters generally work well with the Basler performance driver. 
+ However, because the Intel Pro 1000 series has changed over the years, 
+ it is possible that the Basler performance driver does not support your 
+ particular Intel Pro 1000 adapter.</p>
+<p>Contact Basler technical support for recommendations of currently available 
+ Pro 1000 adapters and for information about compatible chipsets.</p>
+<p class="subheading">Network Adapters and Network Drivers</p>
+<p>Although Basler recommends the adapters listed above, the cameras will 
+ work with any Fast Ethernet (100 Mbit/s) or Gigabit Ethernet (1000 Mbit/s) 
+ compatible network adapter card.</p>
+<ul>
+	<li>If the adapter <strong>is not</strong> <span>a recommended network 
+	 adapter or if you use the camera with a Linux or macOS computer</span>, 
+	 the camera uses the <a href="pylon_camera_software_suite.htm#Drivers">pylon 
+	 GigE Vision filter driver or the socket driver</a>.</li>
+	<li>If the adapter <strong>is</strong> a recommended network adapter 
+	 and you use the camera with a Windows computer, the camera can use 
+	 the <a href="pylon_camera_software_suite.htm#Drivers">pylon GigE Vision 
+	 performance driver</a>.&#160;The advantage of the performance driver 
+	 is that it significantly lowers the CPU load needed to service the 
+	 network traffic between the computer and the camera(s). It also has 
+	 a more robust packet resend mechanism.</li>
+</ul>
+<h2><a name="MiniTOCBookMark5"></a>Installing the Camera</h2>
+<p>This procedure assumes that want to establish a <a href="network_configuration_(ace_gige).htm#Recommended_Network_Architectures">peer-to-peer 
+ connection</a> between your ace GigE camera and a computer.</p>
+<p><img src="images/drawing_ace_gige_connectors.png" alt="ace GigE Connectors" title="ace GigE Connectors" /></p>
+<p>To install the camera:</p>
+<ol>
+	<li>Remove the protective cap from the lens mount.</li>
+	<li>Mount a C-mount or CS-mount lens onto your camera.<br />
+	Be careful not to insert the lens any deeper than specified in the 
+	 <a href="maximum_allowed_lens_intrusion.htm">Maximum Allowed Lens 
+	 Intrusion</a> topic.</li>
+	<li>Connect the camera to the computer and power. 
+	<ul>
+		<li><strong>If you are using Power over Ethernet (PoE) with a PoE-capable 
+		 computer</strong> <span>(recommended option)</span> 
+		<ol>
+			<li>Plug one end of the Ethernet cable into the Ethernet connector 
+			 of the camera and plug the other end of the cable into the 
+			 PoE-capable GigE network adapter port of your computer.</li>
+		</ol></li>
+		<li><strong>If you are using Power over Ethernet (PoE) with a PoE 
+		 injector</strong> 
+		<ol>
+			<li>Plug one end of an Ethernet cable into the &quot;In&quot; 
+			 (or similar) port of the power injector and plug the other 
+			 end of the cable into the GigE network adapter port of your 
+			 computer.</li>
+			<li>Plug one end of an Ethernet cable into the “Out” (or similar) 
+			 port of the PoE injector and plug the other end of the cable 
+			 into the Ethernet connector of the camera.</li>
+			<li>Use the power cord that shipped with your power injector 
+			 to connect the injector to an AC outlet.</li>
+		</ol></li>
+		<li><strong>If you are using a power supply</strong> 
+		<ol>
+			<li>Plug one end of an Ethernet cable into the network adapter 
+			 port in your computer and plug the other end of the cable 
+			 into the Ethernet connector of the camera.</li>
+			<li>Plug the 6-pin connector of the cable from your power supply 
+			 into the 6-pin connector of the camera.</li>
+			<li>Switch on the power supply.</li>
+		</ol></li>
+	</ul>
+	The camera starts up and will go through several initialization steps 
+	 including IP&#160;address assignment. This takes some time.</li>
+</ol>
+<p class="info">If your system is configured to show network connection 
+ icons in the Windows system tray, you may see a yellow exclamation point 
+ on the icon. You may also see a message about limited connectivity. You 
+ can ignore the icon and the message as they don't affect the camera.</p>
+<h2><a name="MiniTOCBookMark6"></a>Next Steps</h2>
+<ul>
+	<li>Use the <a href="overview_of_the_pylon_viewer.htm">pylon Viewer</a> 
+	 to check whether your camera has been detected, acquire images, display 
+	 images, and adjust parameter settings to improve image quality.</li>
+	<li>In most cases, you must <a href="network_configuration_(ace_gige).htm">configure 
+	 your network</a> before you can use the camera.</li>
+</ul>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

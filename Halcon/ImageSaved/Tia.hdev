@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="176280181">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image (Image1, 'C:/Users/GPAP/Desktop/1.jpg')</l>
+<l>dev_close_window()</l>
+<l>dev_open_window_fit_image(Image1, 0, 0, -1, -1, WindowHandle)</l>
+<l>dev_display(Image1)</l>
+<l>draw_rectangle2_mod(WindowHandle, 100, 110,100 ,100 ,100 , Row, Column, Phi, Length1, Length2)</l>
+<l>dev_set_draw('margin')</l>
+<l>gen_rectangle2(Rectangle, Row, Column, Phi, Length1, Length2)</l>
+<l>reduce_domain(Image1, Rectangle, ImageReduced)</l>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<l>threshold (ImageScaled, Regions, 0, 49)</l>
+<l>opening_circle(Regions, RegionOpening1, 5)</l>
+<l>connection(RegionOpening1, ConnectedRegions)</l>
+<l>select_shape (ConnectedRegions, SelectedRegions, 'area', 'and', 231.21, 450)</l>
+<l>smallest_rectangle2(SelectedRegions, Row1, Column1, Phi1, Length11, Length21)</l>
+<l>shape_trans(SelectedRegions, RegionTrans, 'rectangle2')</l>
+<c></c>
+<l>dev_clear_window()</l>
+<l>dev_display(Image1)</l>
+<l>dev_display(RegionTrans)</l>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

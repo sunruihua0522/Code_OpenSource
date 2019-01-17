@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Bandwidth Manager</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "4.1.1.0_6";
+</script>
+ <meta name="topic-breadcrumbs" content="Software > pylon Camera Software Suite > pylon Viewer" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"pylon_camera_software_suite.htm\">Software<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"pylon_camera_software_suite.htm#bc-1\">pylon Camera Software Suite<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"overview_of_the_pylon_viewer.htm\">pylon Viewer<\/a>  &gt;  Bandwidth Manager<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Bandwidth Manager</h1>
+<p class="teaser">The Bandwidth Manager of the <a href="overview_of_the_pylon_viewer.htm">pylon 
+ Viewer</a> lets you analyze your system in order to achieve optimum performance 
+ when working with more than one camera.</p>
+<p>The Bandwidth Manager is available in the Windows and Linux version 
+ of the pylon Viewer only.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot24487" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot24487', 'MTPOPUP24487');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP24487" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Overview of the Bandwidth Manager</a>
+</li>
+   <li><a href="#MiniTOCBookMark3" >Optimizing Bandwidth Consumption</a>
+</li>
+  </ul>
+ </div>
+</div>
+<p>When connecting more than one camera to a single PC, performance can 
+ become an issue as the cameras compete against each other for the available 
+ bandwidth. To avoid such conflicts, use the Bandwidth Manager. It shows 
+ you the following information at a glance:</p>
+<ul>
+	<li>USB 3.0 host controller and GigE network adapters installed on 
+	 your system and the cameras connected to them</li>
+	<li>Total bandwidth available (approximately) per USB 3.0 host controller</li>
+	<li>Amount of data sent by the camera and received by the PC</li>
+	<li>Frames per second (fps) sent by the camera and received by the 
+	 PC</li>
+	<li>Total number of images taken</li>
+	<li>Number of transmission errors, i.e., incomplete and skipped images</li>
+</ul>
+<p>Based on this information, you can use the Bandwidth Manager to optimize 
+ the bandwidth consumption of the cameras connected.</p>
+<h2><a name="MiniTOCBookMark2"></a>Overview of the Bandwidth Manager</h2>
+<p>The <span class="gui-text">Bandwidth Manager</span> dialog lists all 
+ USB 3.0 host controllers and GigE network adapters in your PC as well 
+ as the cameras connected to each of them. It allows you to allocate a 
+ share of the total bandwidth available on the USB 3.0 host controller 
+ or network adapter to each camera. This way, you can allocate only so 
+ much bandwidth to a camera as it actually needs, thus freeing up resources 
+ for other devices.</p>
+<p>For USB 3.0 cameras, the <span class="gui-text">Bandwidth (MB/s)</span> 
+ column also lists how much bandwidth is available on the USB 3.0 host 
+ controller to which the cameras are connected. This is an approximate 
+ value of the maximum bandwidth available.</p>
+<p>For GigE cameras, there is an <span class="gui-text">Optimize</span> 
+ button for each network adapter. You can click this button to optimize 
+ the bandwidth of all selected cameras on this network adapter. You have 
+ to select at least one camera for the button to become active. If you 
+ have GigE cameras connected to your PC and open the Bandwidth Manager 
+ for the first time, a dialog opens that allows you to optimize all GigE 
+ cameras in a single step.<br />
+The optimization involves adjusting the <span class="gui-text">Packet Size</span> 
+ and <span class="gui-text">Inter-Packet Delay</span> settings. If more 
+ than one camera is connected to a network adapter, e.g., via a switch, 
+ the available bandwidth is shared across all selected cameras.</p>
+<p>Clicking the <span class="gui-text">Configure Camera</span> button <img src="images/icon_configure_camera.png" alt="Configure Camera icon" title="Configure Camera icon" /> 
+ opens the <span class="gui-text">Features</span> tree of the pylon Viewer 
+ where you can change camera settings.</p>
+<p><strong>Example:</strong></p>
+<p>The following screenshot shows two cameras. The acA2500-14uc, by design, 
+ achieves a frame rate of 14 frames per second. For this, a bandwidth of 
+ approximately 70 MB/s is sufficient. However, an acA640-120gc can deliver 
+ up to 120 frames per second and would therefore consume more bandwidth.</p>
+<p>This is a simplified analogy. In practice, other camera settings influence 
+ the bandwidth consumption as well, e.g., size of the AOI, pixel format 
+ etc.</p>
+<p><img src="images/screen_bandwidth_manager.png" alt="Bandwidth Manager screenshot" title="Bandwidth Manager screenshot" /></p>
+<h2><a name="MiniTOCBookMark3"></a>Optimizing Bandwidth Consumption</h2>
+<p>To optimize the performance of your system you start by analyzing the 
+ current situation. Once you have an overview, you can try to fine-tune 
+ the bandwidth consumption. You can change the bandwidth allocated to each 
+ camera on the fly, making it really easy to find the perfect balance between 
+ several devices.</p>
+<p><strong>To optimize bandwidth consumption:</strong></p>
+<ol>
+	<li>Stop continuous image acquisition as well as any recordings on 
+	 the cameras you want to analyze.</li>
+	<li>Open the Bandwidth Manager.</li>
+	<li>Select the cameras whose bandwidth you want to analyze.</li>
+	<li>Click <span class="gui-text">Start Analysis</span>.</li>
+</ol>
+<p class="indented-1">The columns to the right of the camera get populated 
+ with data. In the <span class="gui-text">Images</span> column, you can 
+ see the total number of images taken. If there are any images that haven't 
+ been transmitted completely or have been skipped entirely, they are listed 
+ in the <span class="gui-text">Errors</span> column.</p>
+<p class="indented-1">While the analysis is running, you can change the 
+ bandwidth available to a certain camera by using the spin box or the slider 
+ next to it. You will immediately see the effect of your changes in the 
+ data displayed.</p>
+<p class="info">The bandwidth value is the upper limit available to a camera, 
+ which it can't exceed. Therefore, if the camera is not utilizing the full 
+ amount of bandwidth, changing the bandwidth will have no visible effects. 
+ Only if you lower it so much that the camera can't achieve its frame rate 
+ anymore, will you see how the values for <span class="gui-text">Payload 
+ Received (MB/s)</span> drop. Note that the payload value is usually lower 
+ than the available bandwidth because any overhead sent at the same time 
+ is not included.</p>
+<ol start="5">
+	<li>Once you are happy with the results, click <span class="gui-text">Stop 
+	 Analysis</span>.</li>
+</ol>
+<p class="indented-1">The Bandwidth Manager dialog will display the current 
+ bandwidth for the selected camera. You can take a note of it for use in 
+ other applications.</p>
+<p class="indented-1">Instead of stopping the analysis manually, you can 
+ select the <span class="gui-text">Stop analysis after</span> option and 
+ specify a period of time after which the analysis is stopped automatically. 
+ This is useful if you want to gather data over a longer period of time.</p>
+<p class="info">In the <span class="gui-text">Bandwidth Manager</span> 
+ dialog, the bandwidth is given in MB/s for improved readability. On USB 
+ 3.0 cameras, this value corresponds to the <span class="gui-text">Device 
+ Link Throughput Limit</span> value in the <span class="gui-text">Device 
+ Control</span> category which is given in B/s. For GigE cameras, this 
+ value corresponds to the <span class="gui-text">Device Current Throughput</span> 
+ value in the <span class="gui-text">Device Transport Layer</span> category 
+ which is also given in B/s.</p>
+<ol start="6">
+	<li>Optional: Save the current camera settings to a user set if you 
+	 want to preserve them. Otherwise, if you disconnect the cameras, you 
+	 will have to repeat the bandwidth configuration.</li>
+</ol>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

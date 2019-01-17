@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="370154091">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image (Image11515282Cam0, 'C:/项目/李博定位台需求/AssemblyBench/JPT TosaTest/bin/Debug/ImageSaved/ImageSaved/11月5日 15时28分2秒_Cam0.jpg')</l>
+<l>dev_close_window()</l>
+<l>dev_open_window_fit_image(Image11515282Cam0, 0, 0, -1, -1, WindowHandle)</l>
+<l>dev_display(Image11515282Cam0)</l>
+<l>threshold (Image11515282Cam0, Regions, 110, 255)</l>
+<l>smallest_rectangle2(Regions, Row, Column, Phi, Length1, Length2)</l>
+<l>disp_cross(WindowHandle, Row, Column, 106, Phi)</l>
+<l>fill_up(Regions, RegionFillUp)</l>
+<c></c>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

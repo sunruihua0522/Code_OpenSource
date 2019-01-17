@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="877423353">
+<procedure name="main">
+<interface/>
+<body>
+<c></c>
+<l>read_shape_model( 'ClosedXLDModel.shm',ModelID)</l>
+<l>for Index := 20 to 22 by 1</l>
+<l>read_image (Image2, 'C:/Users/Administrator/Desktop/ImageSaved/'+Index+'.jpg')</l>
+<c></c>
+<c></c>
+<l>dev_close_window()</l>
+<l>dev_open_window_fit_image(Image2, 0, 0, -1, -1, WindowHandle)</l>
+<l>dev_display(Image2)</l>
+<c></c>
+<l>find_shape_model(Image2, ModelID, 0, 6.28, 0.5, 1, 0.5, 'least_squares', 0, 0.9, Row1, Column1, Angle, Score)</l>
+<c></c>
+<c></c>
+<l>get_shape_model_contours(ModelContours, ModelID, 1)</l>
+<l>get_shape_model_origin(ModelID, Row, Column)</l>
+<l>vector_angle_to_rigid(0, 0, 0, Row1, Column1, Angle, HomMat2D)</l>
+<c></c>
+<l>affine_trans_contour_xld(ModelContours, ContoursAffinTrans, HomMat2D)</l>
+<c></c>
+<c></c>
+<c></c>
+<l>vector_angle_to_rigid(Row, Column, 0, Row1, Column1, Angle, HomMat2D1)</l>
+<l>affine_trans_point_2d(HomMat2D1, Column1, Row1, Qx, Qy)</l>
+<c></c>
+<c></c>
+<c></c>
+<l>disp_cross(WindowHandle, Row1-Row, Column1-Column, 80, Angle)</l>
+<c></c>
+<c></c>
+<c></c>
+<l>stop()</l>
+<l>endfor</l>
+<l>clear_shape_model(ModelID)</l>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

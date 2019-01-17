@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Automatic Image Adjustment</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "4.1.1.0_8";
+</script>
+ <meta name="topic-breadcrumbs" content="Software > pylon Camera Software Suite > pylon Viewer" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"pylon_camera_software_suite.htm\">Software<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"pylon_camera_software_suite.htm#bc-1\">pylon Camera Software Suite<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"overview_of_the_pylon_viewer.htm\">pylon Viewer<\/a>  &gt;  Automatic Image Adjustment<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Automatic Image Adjustment</h1>
+<p class="teaser">The <span class="gui-text">Automatic Image Adjustment 
+ </span>feature of the <a href="overview_of_the_pylon_viewer.htm">pylon 
+ Viewer</a> allows the camera to automatically make all settings necessary 
+ to get a good image under current conditions. </p>
+<p>Automatic image adjustment is useful if you need to quickly set up the 
+ camera for a particular imaging situation. </p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot47235" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot47235', 'MTPOPUP47235');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP47235" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using Automatic Image Adjustment</a>
+</li>
+   <li><a href="#MiniTOCBookMark3" >Affected Camera Parameters</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Using Automatic Image Adjustment</h2>
+<p>To enable automatic image adjustment, click the <span class="gui-text">Automatic 
+ Image Adjustment</span> button.</p>
+<p>The camera will analyze the current conditions and then choose appropriate 
+ values for all relevant parameters accordingly. </p>
+<div class="info">
+	<ul>
+		<li>This feature is available on Basler ace GigE, ace USB 3.0, 
+		 dart USB 3.0, and pulse USB 3.0 cameras. </li>
+		<li>This is one-time operation. When the automatic image adjustment 
+		 is complete, the parameter values are going to stay like that 
+		 until you either manually change them or you click the <span class="gui-text">Automatic 
+		 Image Adjustment</span> button again.</li>
+	</ul>
+</div>
+<h2><a name="MiniTOCBookMark3"></a>Affected Camera Parameters</h2>
+<p>Below is a list of the camera parameters that can be affected by using 
+ this feature, assuming these parameters are available on your camera model.</p>
+<p>Be aware of this if you have manually set specific parameter values 
+ already, as these will be lost if you click <span class="gui-text">Automatic 
+ Image Adjustment</span>.</p>
+<ul>
+	<li><a href="pixel_format.htm"><span class="parameter-name">PixelFormat</span></a></li>
+	<li><a href="processed_raw_enable.htm"><span class="parameter-name">ProcessedRawEnable</span></a></li>
+	<li><a href="gamma.htm"><span class="parameter-name">GammaSelector</span></a></li>
+	<li><a href="gamma.htm"><span class="parameter-name">GammaEnable</span></a></li>
+	<li><a href="gamma.htm"><span class="parameter-name">Gamma</span></a></li>
+	<li><a href="gain.htm"><span class="parameter-name">GainSelector</span></a></li>
+	<li><a href="gain.htm"><span class="parameter-name">GainAuto</span></a></li>
+	<li><a href="exposure_auto.htm"><span class="parameter-name">ExposureAuto</span></a></li>
+	<li><a href="balance_white_auto.htm"><span class="parameter-name">BalanceWhiteAuto</span></a></li>
+	<li><a href="auto_function_profile.htm"><span class="parameter-name">AutoFunctionProfile</span></a></li>
+	<li><a href="gain_auto.htm"><span class="parameter-name rh-hide" data-rhtags="48">AutoTargetValue</span><span class="parameter-name rh-hide" data-rhtags="49">AutoTargetBrightness</span></a></li>
+	<li><a href="gain_auto.htm"><span class="parameter-name rh-hide" data-rhtags="48">AutoGainRawLowerLimit</span><span class="parameter-name rh-hide" data-rhtags="49">AutoGainLowerLimit</span></a></li>
+	<li><a href="gain_auto.htm"><span class="parameter-name rh-hide" data-rhtags="48">AutoGainRawUpperLimit</span><span class="parameter-name rh-hide" data-rhtags="49">AutoGainUpperLimit</span></a></li>
+	<li><a href="exposure_auto.htm"><span class="parameter-name rh-hide" data-rhtags="48">AutoExposureTimeAbsLowerLimit</span><span class="parameter-name rh-hide" data-rhtags="49">AutoExposureTimeLowerLimit</span></a></li>
+	<li><a href="exposure_auto.htm"><span class="parameter-name rh-hide" data-rhtags="48">AutoExposureTimeAbsUpperLimit</span><span class="parameter-name rh-hide" data-rhtags="49">AutoExposureTimeUpperLimit</span></a></li>
+	<li><a href="auto_function_roi.htm"><span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOISelector</span><span class="parameter-name rh-hide" data-rhtags="49">AutoFunctionROISelector</span></a></li>
+	<li><a href="auto_function_roi.htm"><span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOIOffsetX</span><span class="parameter-name rh-hide" data-rhtags="49">AutoFunctionROIOffsetX</span></a></li>
+	<li><a href="auto_function_roi.htm"><span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOIOffsetY</span><span class="parameter-name rh-hide" data-rhtags="49">AutoFunctionROIOffsetY</span></a></li>
+	<li><a href="auto_function_roi.htm"><span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOIHeight</span><span class="parameter-name rh-hide" data-rhtags="49">AutoFunctionROIHeight</span></a></li>
+	<li><a href="auto_function_roi.htm"><span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOIWidth</span><span class="parameter-name rh-hide" data-rhtags="49">AutoFunctionROIWidth</span></a></li>
+	<li><a href="auto_function_roi.htm"><span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOIUsageIntensity</span><span class="parameter-name rh-hide" data-rhtags="49">AutoFunctionROIUseBrightness</span></a></li>
+	<li><a href="auto_function_roi.htm"><span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOIUsageWhiteBalance</span><span class="parameter-name rh-hide" data-rhtags="49">AutoFunctionROIUseWhiteBalance</span></a></li>
+	<li><a href="light_source_preset.htm"><span class="parameter-name rh-hide" data-rhtags="48">LightSourceSelector</span><span class="parameter-name rh-hide" data-rhtags="49">LightSourcePreset</span></a></li>
+</ul>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Gamma</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_37";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Gamma<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Gamma</h1>
+<p class="teaser">The Gamma 
+ <a href="features.htm">camera feature</a> allows you to optimize the brightness 
+ of acquired images for display on a monitor.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot30505" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot30505', 'MTPOPUP30505');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP30505" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Prerequisites</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >How It Works</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >Enabling Gamma Correction</a>
+</li>
+    <li><a href="#MiniTOCBookMark6" >Additional Parameters</a>
+</li>
+    <li><a href="#MiniTOCBookMark7" >External Links</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark8" >Specifics</a>
+</li>
+   <li><a href="#MiniTOCBookMark9" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>Prerequisites</h3>
+<ul>
+	<li>For best results, set the <a href="black_level.htm">black level</a> 
+	 to 0 (zero) before you adjust gamma.</li>
+	<li>If the <span class="parameter-name">GammaEnable</span> 
+	 parameter <a href="#Specifics">is available</a>, it must be set to 
+	 <span class="parameter-name">true</span>.</li>
+</ul>
+<h3 class="specifics"><a name="MiniTOCBookMark4"></a>How It Works</h3>
+<p>The camera applies a gamma correction value (γ) to the brightness value 
+ of each pixel according to the following formula (red pixel value (R) 
+ of a color camera shown as an example):</p>
+<p><img src="images/formula_gamma.png" alt="Gamma Correction Formula (Red Pixels)" title="Gamma Correction Formula (Red Pixels)" /></p>
+<p>The maximum pixel value (R<sub>max</sub>) equals, e.g., 255 for 8-bit 
+ <a href="pixel_format.htm">pixel formats</a> or 1&#160;023 for 10-bit 
+ pixel formats.</p>
+<h3><a name="MiniTOCBookMark5"></a>Enabling Gamma Correction</h3>
+<p>To enable gamma correction, use the <span class="parameter-name">Gamma</span> 
+ parameter. The parameter's value range is 0 to ≈4.</p>
+<ul>
+	<li><strong>Gamma = 1:</strong> The overall brightness remains <strong>unchanged</strong>.</li>
+	<li><strong>Gamma &lt; 1:</strong> The overall brightness <strong>increases</strong>.</li>
+	<li><strong>Gamma &gt; 1:</strong> The overall brightness <strong>decreases</strong>.</li>
+</ul>
+<p>In all cases, black pixels (brightness = 0) and white pixels (brightness 
+ =&#160;maximum) will <strong>not</strong> be adjusted.</p>
+<p class="info">If you enable gamma correction and the <a href="pixel_format.htm">pixel 
+ format</a> is set to a 12-bit pixel format, some image information will 
+ be lost. Pixel data output will still be 12-bit, but the pixel values 
+ will be interpolated during the gamma correction process. Basler does 
+ not recommend using the Gamma feature with 12-bit pixel formats.</p>
+<h3><a name="MiniTOCBookMark6"></a><a name="Additional_Parameters">Additional Parameters</a></h3>
+<p>Depending on <a href="#Specifics">your camera model</a>, the following 
+ additional parameters are available:</p>
+<ul>
+	<li><span class="parameter-name">GammaEnable</span>: 
+	 Enables or disables gamma correction.</li>
+	<li><span class="parameter-name">GammaSelector</span>: 
+	 Allows you to select one of the following gamma correction modes:</li>
+	<ul>
+		<li><span class="parameter-name">User</span>: 
+		 The gamma correction value can be set as desired. (Default.) </li>
+		<li><span class="parameter-name">sRGB</span>: 
+		 The camera automatically sets a gamma correction value of approximately 
+		 0.4. This value is optimized for image display on sRGB monitors.</li>
+	</ul>
+	<li><span class="parameter-name">BslColorSpaceMode</span>: 
+	 Allows you to select one of the following gamma correction modes:</li>
+	<ul>
+		<li><span class="parameter-name">sRGB</span>: 
+		 The image brightness is optimized for display on an sRGB monitor. 
+		 An additional gamma correction value of approximately 0.4 is applied. 
+		 (Default.) <br />
+		The sRGB gamma correction value is applied separately and will 
+		 not be included in the <span class="parameter-name">Gamma</span> 
+		 parameter value. <strong>Example:</strong> You have set the color 
+		 space mode to sRGB and the Gamma parameter value to 1.2. First, 
+		 an automatic correction value of approximately 0.4 is applied 
+		 to the pixel values. After that, a gamma correction value of 1.2 
+		 is applied to the resulting pixel values.</li>
+		<li><span class="parameter-name">RGB</span>: 
+		 No additional gamma correction value is applied.</li>
+	</ul>
+</ul>
+<h3 class="specifics"><a name="MiniTOCBookMark7"></a>External Links</h3>
+<ul>
+	<li><a href="https://en.wikipedia.org/wiki/Gamma_correction">Gamma 
+	 correction (Wikipedia)</a></li>
+	<li><a href="http://www.poynton.com/notes/colour_and_gamma/GammaFAQ.html">Gamma 
+	 FAQ - Frequently Asked Questions about Gamma (poynton.com)</a></li>
+</ul>
+<h2 class="specifics"><a name="MiniTOCBookMark8"></a><a name="Specifics">Specifics</a></h2>
+<div>
+<table class="specifics-table">
+	<col />
+	<col />
+	<tr>
+		<th>Camera Model</th>
+		<th><p>Additional Parameters</p></th>
+	</tr>
+	<tr>
+		<td data-rhtags="18" class="rh-hide">All ace GigE camera models</td>
+		<td data-rhtags="18" class="rh-hide"><ul>
+			<li>GammaEnable</li>
+			<li>GammaSelector</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="33" class="rh-hide">All ace USB 3.0 camera models</td>
+		<td data-rhtags="33" class="rh-hide">None<sup>a 
+		 b</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="44" class="rh-hide">All dart BCON for LVDS camera models</td>
+		<td data-rhtags="44" class="rh-hide">BslColorSpaceMode<sup>a 
+		 c</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="21" class="rh-hide">All dart BCON for MIPI camera models</td>
+		<td data-rhtags="21" class="rh-hide">Gamma feature not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="42" class="rh-hide">All dart USB 3.0 camera models</td>
+		<td data-rhtags="42" class="rh-hide">BslColorSpaceMode<sup>a 
+		 c</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="47" class="rh-hide">All pulse USB 3.0 camera models</td>
+		<td data-rhtags="47" class="rh-hide">BslColorSpaceMode<sup>a 
+		 c</sup></td>
+	</tr>
+</table>
+<p class="table-footnote rh-hide" data-rhtags="236"><sup>a</sup>To disable gamma correction, set 
+ the gamma correction value to 1.</p>
+<p class="table-footnote rh-hide" data-rhtags="33"><sup>b</sup>When 
+ a <a href="light_source_preset.htm">light source preset</a> is used, 
+ an additional gamma correction value of approximately 0.4 is applied (sRGB 
+ gamma correction). This value is applied separately and will not be included 
+ in the <span class="parameter-name">Gamma</span> parameter value. <strong>Example:</strong> 
+ You have set the light source preset to Tungsten and the <span class="parameter-name">Gamma</span> 
+ parameter value to 1.2. First, an automatic correction value of approximately 
+ 0.4 is applied to the pixel values. After that, a gamma correction value 
+ of 1.2 is applied to the resulting pixel values.</p>
+<p class="table-footnote rh-hide" data-rhtags="4"><sup>c</sup>Only 
+ available if the <a href="pixel_format.htm" data-rhtags="4" class="rh-hide">pixel format</a> is set 
+ to YCbCr422 or RGB8. </p>
+</div>
+<h2 class="sample-code"><a name="MiniTOCBookMark9"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre data-rhtags="48" class="rh-hide"><code class="cpp">// Enable the Gamma feature
+camera.GammaEnable.SetValue(true);
+// Set the gamma type to User
+camera.GammaSelector.SetValue(GammaSelector_User);
+// Set the Gamma value to 1.2
+camera.Gamma.SetValue(1.2);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="cpp">// Set the Gamma value to 1.2
+camera.Gamma.SetValue(1.2);</code></pre></div><div class="tab-2 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Enable the Gamma feature
+CBooleanPtr(nodemap.GetNode("GammaEnable"))-&gt;SetValue(true);
+// Set the gamma type to User
+CEnumerationPtr(nodemap.GetNode("GammaSelector"))-&gt;FromString("User");
+// Set the Gamma value to 1.2
+CFloatPtr(nodemap.GetNode("Gamma"))-&gt;SetValue(1.2);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="cpp" generated="true">// Set the Gamma value to 1.2
+CFloatPtr(nodemap.GetNode("Gamma"))-&gt;SetValue(1.2);</code></pre></div><div class="tab-3 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="csharp" generated="true">// Enable the Gamma feature
+camera.Parameters[PLCamera.GammaEnable].SetValue(true);
+// Set the gamma type to User
+camera.Parameters[PLCamera.GammaSelector].SetValue(PLCamera.GammaSelector.User);
+// Set the Gamma value to 1.2
+camera.Parameters[PLCamera.Gamma].SetValue(1.2);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="csharp" generated="true">// Set the Gamma value to 1.2
+camera.Parameters[PLCamera.Gamma].SetValue(1.2);</code></pre></div><div class="tab-4 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="csharp" generated="true">// Enable the Gamma feature
+Pylon.DeviceSetBooleanFeature(hdev, "GammaEnable", true);
+// Set the gamma type to User
+Pylon.DeviceFeatureFromString(hdev, "GammaSelector", "User");
+// Set the Gamma value to 1.2
+Pylon.DeviceSetFloatFeature(hdev, "Gamma", 1.2);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="csharp" generated="true">// Set the Gamma value to 1.2
+Pylon.DeviceSetFloatFeature(hdev, "Gamma", 1.2);</code></pre></div><div class="tab-5 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+/* Enable the Gamma feature */
+errRes = PylonDeviceSetBooleanFeature(hdev, "GammaEnable", 1);
+CHECK(errRes);
+/* Set the gamma type to User */
+errRes = PylonDeviceFeatureFromString(hdev, "GammaSelector", "User");
+CHECK(errRes);
+/* Set the Gamma value to 1.2 */
+errRes = PylonDeviceSetFloatFeature(hdev, "Gamma", 1.2);
+CHECK(errRes);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="c" generated="true">/* Set the Gamma value to 1.2 */
+errRes = PylonDeviceSetFloatFeature(hdev, "Gamma", 1.2);
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

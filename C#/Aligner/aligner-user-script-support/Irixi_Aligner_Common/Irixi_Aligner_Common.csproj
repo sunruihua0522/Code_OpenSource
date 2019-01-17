@@ -1,0 +1,617 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AA5F84D6-1E8E-416C-913D-CF898983E49E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Irixi_Aligner_Common</RootNamespace>
+    <AssemblyName>Irixi_Aligner_Common</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;FAKE_ME</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>AlignerLogo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.3\lib\net45\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v17.2.Core, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v17.2, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Images.v17.2, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v17.2, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v17.2.Core, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v17.2.Core, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v17.2.Core, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v17.2.Export, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v17.2.Core, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Charts.v17.2, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.CodeView.v17.2, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v17.2, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Docking.v17.2, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Gauges.v17.2, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Grid.v17.2, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Grid.v17.2.Core, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Layout.v17.2.Core, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.NavBar.v17.2, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Printing.v17.2, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.PropertyGrid.v17.2, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Ribbon.v17.2, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Themes.DXStyle.v17.2, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2007Blue.v17.2, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2007Silver.v17.2, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2010Blue.v17.2, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2010Silver.v17.2, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2016Colorful.v17.2, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2016White.v17.2, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Seven.v17.2, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.VS2010.v17.2, Version=17.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.4.1.0, Culture=neutral, PublicKeyToken=669f0b5e8f868abf, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net45\GalaSoft.MvvmLight.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.9.0, Culture=neutral, PublicKeyToken=b32731d11ce58905">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ExtDlls\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Numerics, Version=4.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathNet.Numerics.4.4.0\lib\net40\MathNet.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Zaber, Version=2.1.2.2285, Culture=neutral, PublicKeyToken=65af8649611d1afa, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ExtDlls\Zaber.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Alignment\Fast-nD\Fast1DArgs.cs" />
+    <Compile Include="Alignment\Fast-nD\Fast1DArgsProfile.cs" />
+    <Compile Include="Alignment\Fast-nD\FastND.cs" />
+    <Compile Include="Alignment\Fast-nD\FastNDArgs.cs" />
+    <Compile Include="Alignment\Fast-nD\FastNDArgsProfile.cs" />
+    <Compile Include="Alignment\FastRotatingScan\FastRotatingScan.cs" />
+    <Compile Include="Alignment\FastRotatingScan\FastRotatingScanArgs.cs" />
+    <Compile Include="Alignment\FastRotatingScan\FastRotatingScanArgsProfile.cs" />
+    <Compile Include="Alignment\Profile-nD\Profile1DArgsProfile.cs" />
+    <Compile Include="Alignment\Profile-nD\ProfileNDArgsProfile.cs" />
+    <Compile Include="Alignment\Base\AlignmentProfileBase.cs" />
+    <Compile Include="Alignment\AlignmentProfileManager.cs" />
+    <Compile Include="Alignment\Base\ScanCurve.cs" />
+    <Compile Include="Alignment\Base\ScanCurve3D.cs" />
+    <Compile Include="Alignment\Base\ScanCurveBase.cs" />
+    <Compile Include="Alignment\Base\ScanCurveGroup.cs" />
+    <Compile Include="Alignment\CentralAlign\CentralAlign.cs" />
+    <Compile Include="Alignment\CentralAlign\CentralAlignArgs.cs" />
+    <Compile Include="Alignment\CentralAlign\CentralAlignArgsProfile.cs" />
+    <Compile Include="Alignment\FastCentralAlign\FastCentralAlign.cs" />
+    <Compile Include="Alignment\FastCentralAlign\FastCentralAlignArgs.cs" />
+    <Compile Include="Alignment\FastCentralAlign\FastCentralAlignArgsProfile.cs" />
+    <Compile Include="Alignment\SpiralScan\SpiralScanArgsProfile.cs" />
+    <Compile Include="Classes\Base\AxisCruiseArgs.cs" />
+    <Compile Include="Classes\Base\NotifyPropertyChangedBase.cs" />
+    <Compile Include="Classes\Base\ObservableRangeCollection.cs" />
+    <Compile Include="Classes\Base\PauseTokenSource.cs" />
+    <Compile Include="Classes\Converters\BooleanToErrorColor.cs" />
+    <Compile Include="Classes\Converters\UserScriptExecStatusToIcon.cs" />
+    <Compile Include="Classes\CustomizedException\UserScriptValidateException.cs" />
+    <Compile Include="Classes\Extension\Markup\EnumBindingSourceExtension.cs" />
+    <Compile Include="Configuration\Equipments\ConfigurationContactSensor.cs" />
+    <Compile Include="Configuration\Equipments\ConfigurationInternalPowerMeter.cs" />
+    <Compile Include="Configuration\Equipments\ConfigurationPDFrontEnd.cs" />
+    <Compile Include="Equipments\Instruments\ContactSensor.cs" />
+    <Compile Include="Equipments\Instruments\InternalPowerMeter.cs" />
+    <Compile Include="Equipments\Equipments\PDFrontEnd.cs" />
+    <Compile Include="Interfaces\IAlignmentArgsProfile.cs" />
+    <Compile Include="Alignment\RotatingProfile\RotatingScanArgs.cs" />
+    <Compile Include="Alignment\RotatingProfile\RotatingScan.cs" />
+    <Compile Include="Alignment\Profile-nD\Profile1DArgs.cs" />
+    <Compile Include="Alignment\Base\AlignmentBase.cs" />
+    <Compile Include="Alignment\Profile-nD\ProfileND.cs" />
+    <Compile Include="Alignment\Profile-nD\ProfileNDArgs.cs" />
+    <Compile Include="Alignment\Base\AlignmentArgsBase.cs" />
+    <Compile Include="Alignment\RotatingProfile\RotatingScanArgsProfile.cs" />
+    <Compile Include="Alignment\SnakeRouteScan\SnakeRouteScan.cs" />
+    <Compile Include="Alignment\SnakeRouteScan\SnakeRouteScanArgs.cs" />
+    <Compile Include="Alignment\SnakeRouteScan\SnakeRouteScanArgsProfile.cs" />
+    <Compile Include="Alignment\SpiralScan\SpiralScan.cs" />
+    <Compile Include="Alignment\SpiralScan\SpiralScanArgs.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\Base\HashIgnoreAttribute.cs" />
+    <Compile Include="Classes\Base\HashGenerator.cs" />
+    <Compile Include="Classes\Base\MassMoveArgs.cs" />
+    <Compile Include="Classes\Base\ObservableCollectionThreadSafe.cs" />
+    <Compile Include="Classes\Base\Property.cs" />
+    <Compile Include="DialogService\DialogService.cs" />
+    <Compile Include="DialogService\DialogViewBase.cs" />
+    <Compile Include="DialogService\DialogWindow.xaml.cs">
+      <DependentUpon>DialogWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogService\HomeConfirmDialog\HomeConfirmDialogView.xaml.cs">
+      <DependentUpon>HomeConfirmDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogService\HomeConfirmDialog\HomeConfirmDialogViewModel.cs" />
+    <Compile Include="DialogService\InputDialog\InputDialogView.xaml.cs">
+      <DependentUpon>InputDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogService\InputDialog\InputDialogViewModel.cs" />
+    <Compile Include="Equipments\Base\EquipmentCollection.cs" />
+    <Compile Include="Equipments\Equipments\MotionControllers\Base\PositionPresetManager.cs" />
+    <Compile Include="Equipments\Equipments\MotionControllers\Base\RealworldUnitManager.cs" />
+    <Compile Include="Classes\Converters\BooleanToVisibility.cs" />
+    <Compile Include="Classes\Converters\LogicalComponentToAxisCollection.cs" />
+    <Compile Include="Classes\Converters\EnumToInt.cs" />
+    <Compile Include="Classes\Converters\TextToInt.cs" />
+    <Compile Include="Classes\Converters\TextToDouble.cs" />
+    <Compile Include="Classes\Converters\VisibilityToBoolean.cs" />
+    <Compile Include="Classes\Converters\EnumToBoolean.cs" />
+    <Compile Include="Classes\Converters\OutputStateToBoolean.cs" />
+    <Compile Include="Equipments\Equipments\MotionControllers\M12\IrixiM12.cs" />
+    <Compile Include="Equipments\Equipments\MotionControllers\M12\IrixiM12Axis.cs" />
+    <Compile Include="Equipments\Instruments\Keithliey2400ProgressReportArgs.cs" />
+    <Compile Include="Equipments\Instruments\Newport2832CMetaProperty.cs" />
+    <Compile Include="Interfaces\IAlignmentArgs.cs" />
+    <Compile Include="Interfaces\IAlignmentHandler.cs" />
+    <Compile Include="Interfaces\IHashable.cs" />
+    <Compile Include="Interfaces\IScanCurve.cs" />
+    <Compile Include="UserScript\Implementation\UserScriptBlindSearch.cs" />
+    <Compile Include="UserScript\Implementation\UserScriptStop.cs" />
+    <Compile Include="UserScript\Implementation\UserScriptSwitchIPMRange.cs" />
+    <Compile Include="UserScript\IUserScript.cs" />
+    <Compile Include="UserScript\UserScriptBase.cs" />
+    <Compile Include="UserScript\UserScriptManager.cs" />
+    <Compile Include="UserScript\Implementation\UserScriptMove.cs" />
+    <Compile Include="UserScript\Implementation\UserScriptMoveToPresetPosition.cs" />
+    <Compile Include="ViewModel\ListBasedUserScript\ViewListBasedUserScriptEdit.cs" />
+    <Compile Include="ViewModel\ViewContactSensor.cs" />
+    <Compile Include="ViewModel\ViewCylinderController.cs" />
+    <Compile Include="ViewModel\ViewInternalPowerMeter.cs" />
+    <Compile Include="ViewModel\ViewSystemService.cs" />
+    <Compile Include="View\ListBasedUserScript\ListBasedUserScriptEditor.xaml.cs">
+      <DependentUpon>ListBasedUserScriptEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ListBasedUserScript\PropertyDefinitionTemplateSelector.cs" />
+    <Compile Include="View\UserControls\Alignment\AlignmentPanel.xaml.cs">
+      <DependentUpon>AlignmentPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Alignment\ChartTypeSelector.cs" />
+    <Compile Include="View\UserControls\Alignment\PropertyDefinitionTemplateSelector.cs" />
+    <Compile Include="Configuration\Equipments\ConfigurationNewport2832C.cs" />
+    <Compile Include="View\UserControls\ContactSensor.xaml.cs">
+      <DependentUpon>ContactSensor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\CylinderControlPanel.xaml.cs">
+      <DependentUpon>CylinderControlPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\InternalPowerMeter.xaml.cs">
+      <DependentUpon>InternalPowerMeter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\PresetPositionPanel.xaml.cs">
+      <DependentUpon>PresetPositionPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Equipments\Base\InstrumentBase.cs" />
+    <Compile Include="Configuration\Base\ConfigurationBase.cs" />
+    <Compile Include="Configuration\Equipments\ConfigurationCylinder.cs" />
+    <Compile Include="Configuration\Equipments\ConfigurationKeithley2400.cs" />
+    <Compile Include="Configuration\Layout\Layout.cs" />
+    <Compile Include="Configuration\Layout\LayoutManager.cs" />
+    <Compile Include="Configuration\Profiles\MotorizedStagesProfileManager.cs" />
+    <Compile Include="Equipments\Equipments\CylinderController.cs" />
+    <Compile Include="Equipments\Base\EquipmentBase.cs" />
+    <Compile Include="Equipments\Instruments\Keithley2400.cs" />
+    <Compile Include="Equipments\Instruments\Newport2832C.cs" />
+    <Compile Include="Interfaces\IEquipment.cs" />
+    <Compile Include="Interfaces\IInstrument.cs" />
+    <Compile Include="Interfaces\IStoppable.cs" />
+    <Compile Include="Equipments\Equipments\MotionControllers\Base\AxisBase.cs" />
+    <Compile Include="Equipments\Equipments\MotionControllers\Base\LogicalMotionComponent.cs" />
+    <Compile Include="Equipments\Equipments\MotionControllers\Base\LogicalAxis.cs" />
+    <Compile Include="Equipments\Equipments\MotionControllers\Base\MotionControllerBase.cs" />
+    <Compile Include="Classes\Base\AxisMoveArgs.cs" />
+    <Compile Include="Classes\Converters\MessageTypeToColor.cs" />
+    <Compile Include="Classes\Converters\MessageTypeToImage.cs" />
+    <Compile Include="Classes\Converters\JogPositionModeToText.cs" />
+    <Compile Include="Classes\Converters\JogPositionModeToBoolean.cs" />
+    <Compile Include="Classes\Converters\SystemStatusToStartButtonEnable.cs" />
+    <Compile Include="Classes\Converters\SystemStatusToStopButtonEnable.cs" />
+    <Compile Include="Classes\ListBosBehavior.cs" />
+    <Compile Include="Classes\MessageSystem\LogHelper.cs" />
+    <Compile Include="Equipments\Equipments\MotionControllers\Irixi\IrixiAxis.cs" />
+    <Compile Include="Equipments\Equipments\MotionControllers\Irixi\IrixiEE0017.cs" />
+    <Compile Include="Equipments\Equipments\MotionControllers\LuminosP6A\LuminosAxis.cs" />
+    <Compile Include="Equipments\Equipments\MotionControllers\LuminosP6A\LuminosP6A.cs" />
+    <Compile Include="Classes\SystemService.cs" />
+    <Compile Include="Classes\MessageSystem\MessageHelper.cs" />
+    <Compile Include="Configuration\Common\ConfigManager.cs" />
+    <Compile Include="Configuration\Common\ConfigurationSystemSetting.cs" />
+    <Compile Include="Configuration\MotionController\ConfigLogicalAxis.cs" />
+    <Compile Include="Configuration\MotionController\ConfigLogicalMotionComponent.cs" />
+    <Compile Include="Configuration\MotionController\ConfigPhysicalAxis.cs" />
+    <Compile Include="Configuration\MotionController\ConfigPhysicalMotionController.cs" />
+    <Compile Include="Splash.xaml.cs">
+      <DependentUpon>Splash.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StaticVariables.cs" />
+    <Compile Include="View\UserControls\AxisForMassMove.xaml.cs">
+      <DependentUpon>AxisForMassMove.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Keithley2400ControlPanel.xaml.cs">
+      <DependentUpon>Keithley2400ControlPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\MotionComponentPanel.xaml.cs">
+      <DependentUpon>MotionComponentPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Newport2832cControlPanel.xaml.cs">
+      <DependentUpon>Newport2832cControlPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\TestPurposeOnly.xaml.cs">
+      <DependentUpon>TestPurposeOnly.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Alignment\ViewRotatingProfile.cs" />
+    <Compile Include="ViewModel\Alignment\ViewProfileND.cs" />
+    <Compile Include="ViewModel\Alignment\ViewFastRotatingScan.cs" />
+    <Compile Include="ViewModel\Alignment\ViewFastND.cs" />
+    <Compile Include="ViewModel\Alignment\ViewCentralAlign.cs" />
+    <Compile Include="ViewModel\Alignment\ViewFastCentralAlign.cs" />
+    <Compile Include="ViewModel\Alignment\ViewSnakeRouteScan.cs" />
+    <Compile Include="ViewModel\Alignment\ViewSpiralScan.cs" />
+    <Compile Include="ViewModel\Base\ViewBaseAlignment.cs" />
+    <Compile Include="ViewModel\ViewKeithley2400.cs" />
+    <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="ViewModel\ViewNewport2832c.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\EnumDefination.cs" />
+    <Compile Include="Interfaces\IAxis.cs" />
+    <Compile Include="Interfaces\IMotionController.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Axis.xaml.cs">
+      <DependentUpon>Axis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Configuration\system_setting.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Configuration\profile_motorized_stages.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="DialogService\DialogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogService\HomeConfirmDialog\HomeConfirmDialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogService\InputDialog\InputDialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ControlThemes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\IconsCollection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Splash.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ListBasedUserScript\ListBasedUserScriptEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ListBasedUserScript\PropertyDataTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Alignment\TmplFastCentralAlign.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\UserControls\Alignment\TmplFastND.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\UserControls\Alignment\TmplProfileND.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\UserControls\Alignment\AlignmentPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Alignment\BaseTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Alignment\TmplCentralAlign.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\UserControls\Alignment\TmplFastRotatingScan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\UserControls\Alignment\TmplRotatingProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Alignment\TmplSnakeRouteScan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Alignment\TmplSpiralScan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\UserControls\Axis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\AxisForMassMove.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\ContactSensor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\CylinderControlPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\InternalPowerMeter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Keithley2400ControlPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\MotionComponentPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Newport2832cControlPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\PresetPositionPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\TestPurposeOnly.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Icons\Group.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Icons\Item.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Icons\right.png" />
+    <Resource Include="Resources\Images\Icons\warning_32x32.png" />
+    <Resource Include="Resources\Images\Icons\wrong.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\irixi-m12-library-develop\M12\M12.csproj">
+      <Project>{0d53d43a-73de-4ab8-9549-e9c06675928f}</Project>
+      <Name>M12</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StepperControllerLib\IrixiStepperControllerHelper.csproj">
+      <Project>{7d9a7b1a-e2e1-4d53-8986-3a4de679551c}</Project>
+      <Name>IrixiStepperControllerHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Icons\arrawright01_512x512.png" />
+    <Resource Include="Resources\Images\Icons\arraw_right_96x96.png" />
+    <Resource Include="Resources\Images\Icons\home_32x32.png" />
+    <Resource Include="Resources\Images\Icons\list_32x32.png" />
+    <Resource Include="Resources\Images\Icons\alignmentnd_32x32.png" />
+    <Resource Include="Resources\Images\Icons\alignmentnd_512x512.png" />
+    <Resource Include="Resources\Images\Icons\centralalign_32x32.png" />
+    <Resource Include="Resources\Images\Icons\centralalign_512x512.png" />
+    <Resource Include="Resources\Images\Icons\snake_32x32.png" />
+    <Resource Include="Resources\Images\Icons\snake_512x512.png" />
+    <Resource Include="Resources\Images\Icons\spiral_32x32.png" />
+    <Resource Include="Resources\Images\Icons\rotating_32x32.png" />
+    <Resource Include="Resources\Images\Icons\rotating_512x512.png" />
+    <Resource Include="Resources\Images\splash_background.png" />
+    <Resource Include="Resources\Images\Icons\play_256x256.png" />
+    <Resource Include="Resources\Images\Icons\stop_256x256.png" />
+    <Resource Include="Resources\Images\Icons\spiral_512x512.png" />
+    <Resource Include="Resources\Images\Icons\lamp_off_64x64.png" />
+    <Resource Include="Resources\Images\Icons\lamp_on_64x64.png" />
+    <Resource Include="AlignerLogo.ico" />
+    <Content Include="Resources\ExtDlls\IronPython.dll" />
+    <Content Include="Resources\ExtDlls\IronPython.Modules.dll" />
+    <Content Include="Resources\ExtDlls\IronPython.SQLite.dll" />
+    <Content Include="Resources\ExtDlls\IronPython.Wpf.dll" />
+    <Content Include="Resources\ExtDlls\log4net.dll" />
+    <Content Include="Resources\ExtDlls\Microsoft.Dynamic.dll" />
+    <Content Include="Resources\ExtDlls\Microsoft.Scripting.AspNet.dll" />
+    <Content Include="Resources\ExtDlls\Microsoft.Scripting.dll" />
+    <Content Include="Resources\ExtDlls\Microsoft.Scripting.Metadata.dll" />
+    <Content Include="Resources\ExtDlls\Zaber.dll" />
+    <Content Include="Resources\ExtDlls\Zaber.Units.dll" />
+    <Resource Include="Resources\Images\Icons\show_view.png" />
+    <Resource Include="Resources\Images\Icons\Irixi_Logo_128x128.png" />
+    <Resource Include="Resources\Images\Icons\Irixi_Logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

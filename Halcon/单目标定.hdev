@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="1005265598">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image (Image1, 'C:/Users/Administrator/Desktop/test/15.bmp')</l>
+<l>dev_close_window()</l>
+<l>dev_open_window_fit_image(Image1, 0, 0, -1, -1, WindowHandle)</l>
+<l>dev_display(Image1)</l>
+<c></c>
+<l>scale_image_range(Image1, ImageScaled, 160, 200)</l>
+<c></c>
+<l>DescrFile:='C:/Users/Administrator/Desktop/test/caltab.descr'</l>
+<l>get_image_size(Image1, Width, Height)</l>
+<l>StartPara:=[0.006,0,1.67e-6,1.67e-6,Width/2,Height/2,Width,Height]</l>
+<c></c>
+<l>caltab_points(DescrFile, X, Y, Z)</l>
+<c></c>
+<l>NStartPose:=[]</l>
+<l>NRow:=[]</l>
+<l>NCol:=[]</l>
+<l>NIndex:=[]</l>
+<c></c>
+<l>ImageNumber:=20</l>
+<l>for Index := 1 to ImageNumber by 1</l>
+<l>    read_image (Image1, 'C:/Users/Administrator/Desktop/test/'+Index+'.bmp')</l>
+<l>    mean_image(Image1, ImageMean, 3, 3)</l>
+<l>    scale_image_range(ImageMean, ImageScaled, 160, 220)</l>
+<l>    write_image(ImageScaled, 'tiff', 0, 'C:/Users/Administrator/Desktop/test/Copy'+Index+'.bmp')</l>
+<l>    find_caltab(ImageScaled, Caltab,DescrFile , 3, 200, 5)</l>
+<l>    dev_set_color('green')</l>
+<l>    dev_set_draw('margin')</l>
+<l>    dev_display(Caltab)</l>
+<l>    try</l>
+<l>        find_marks_and_pose(Image1, Caltab, DescrFile, StartPara, 200, 10, 10, 0.4, 10, 120, RCoord, CCoord, StartPose)</l>
+<l>        dev_set_color('red')</l>
+<l>        disp_cross(WindowHandle, RCoord, CCoord, 16, 0) </l>
+<l>        NStartPose:=[NStartPose,StartPose]</l>
+<l>        NRow:=[NRow,RCoord]</l>
+<l>        NCol:=[NCol,CCoord]</l>
+<l>        NIndex:=[NIndex,Index]</l>
+<l>    catch(ex)      </l>
+<l>    endtry</l>
+<l>endfor</l>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<l>camera_calibration(X,Y,Z,NRow,NCol,StartPara,NStartPose,'all',FinalCamPara,FinalPose,Errors)</l>
+<l>change_radial_distortion_cam_par('adaptive', FinalCamPara, 0, CamParamOut)</l>
+<l>gen_radial_distortion_map(Map, FinalCamPara, CamParamOut, 'bilinear')</l>
+<c></c>
+<c></c>
+<l>for Index2 := 1 to |NIndex| by 1</l>
+<l>     dev_set_color('red')</l>
+<l>    IndexOffset:=24</l>
+<l>    read_image (Image1, 'C:/Users/Administrator/Desktop/test/'+NIndex[Index2-1]+'.bmp')</l>
+<l>    pose:=FinalPose[7*(Index2-1):7*Index2-1]</l>
+<l>    disp_3d_coord_system(WindowHandle, FinalCamPara,pose , 0.05)</l>
+<l>    ImageRow:= NRow[49*(Index2-1)+IndexOffset]</l>
+<l>    ImageCol:=NCol[49*(Index2-1)+IndexOffset]</l>
+<l>    disp_cross(WindowHandle, ImageRow, ImageCol, 46, 0)</l>
+<c>    </c>
+<l>    image_points_to_world_plane(FinalCamPara, pose,ImageRow, ImageCol, 'm', X1, Y1)</l>
+<l>    disp_message(WindowHandle, '('+X1+'，'+Y1+')', 'image', ImageRow, ImageCol, 'black', 'false')</l>
+<c>    </c>
+<c>    *标定得到的是标定板相对于相机的姿态</c>
+<l>    pose_to_hom_mat3d(pose, Cam_H_Cal)</l>
+<l>    hom_mat3d_invert(Cam_H_Cal, Cal_H_Cam)</l>
+<l>    affine_trans_point_3d(Cal_H_Cam, X1, Y1, 0, Qx, Qy, Qz)</l>
+<c></c>
+<c>    *显示当前标定板的姿态</c>
+<l>    disp_caltab(WindowHandle, DescrFile, FinalCamPara, pose, 1)</l>
+<l>    dev_set_color('green')</l>
+<l>    disp_cross(WindowHandle, Height/2, Width/2, 306, 0)</l>
+<l>    disp_message(WindowHandle,'('+Qx*100+','+Qy*100+','+ Qz*100+')', 'window', 0, 0, 'black', 'true')</l>
+<c></c>
+<l>    stop()</l>
+<l>endfor</l>
+<l>for Index1 := 1 to ImageNumber by 1</l>
+<c>    </c>
+<l>     read_image (Image1, 'C:/Users/Administrator/Desktop/test/'+Index1+'.bmp')</l>
+<l>     dev_display(Image1)</l>
+<l>     stop()</l>
+<l>     map_image(Image1, Map, ImageMapped)</l>
+<l>     dev_display(ImageMapped) </l>
+<l>     stop()</l>
+<l>endfor</l>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

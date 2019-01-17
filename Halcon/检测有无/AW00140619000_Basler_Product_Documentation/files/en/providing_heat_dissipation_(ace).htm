@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Providing Heat Dissipation (ace)</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.5_11";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  Providing Heat Dissipation (ace)<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1>Providing Heat Dissipation (ace)</h1>
+<p class="teaser">You must provide sufficient heat dissipation to keep 
+ the temperature of your Basler <a href="basler_ace_gige.htm">ace GigE</a> 
+ or <a href="basler_ace_usb_3.0.htm">ace USB 3.0</a> camera within the 
+ specified range.</p>
+<h2>General Guidelines</h2>
+<p>Since each installation is unique, Basler only provides the following 
+ general guidelines:</p>
+<ul>
+	<li>Mount a lens on the camera.</li>
+	<li>Monitor the temperature of the camera using the camera-specific 
+	 <a href="#Temperature_Measurement_Point__ace_Cameras_">temperature 
+	 measurement point</a>.</li>
+	<li>Provide sufficient heat dissipation. Appropriate measures include 
+	 the following:</li>
+	<li><ul>
+		<li>mounting the camera on a substantial, thermally conductive 
+		 component</li>
+		<li>using a fan to provide an air flow over the camera.</li>
+	</ul></li>
+	<li>If the <a href="camera_operation_mode.htm">CameraOperationMode</a> 
+	 feature is available on your camera and if operation at a lower frame 
+	 rate is acceptable set the camera to <span class="parameter-name">LongExposure</span> 
+	 to reduce the temperature.</li>
+	<li>Some cameras provide the <a href="temperature_state.htm">Temperature 
+	 State</a> feature. This feature lets you monitor the temperature of 
+	 the device via the pylon API.</li>
+</ul>
+<div class="info">
+	<ul>
+		<li>The camera will gradually become warmer during the first hour 
+		 of operation. After one hour, the housing temperature should have 
+		 stabilized and should no longer increase.</li>
+		<li>To ensure good image quality, Basler recommends not to operate 
+		 the camera at elevated temperatures.</li>
+		<li>For cameras with cameras with Sony IMX and ON Semiconductor 
+		 PYTHON sensors, the following application note is available: <a 
+		 href="https://www.baslerweb.com/en/support/downloads/document-downloads/monitoring-the-housing-temperature-of-basler-ace-cameras/">How 
+		 to monitor the housing temperature of Basler ace cameras</a></li>
+	</ul>
+</div>
+<h2><a name="Temperature_Measurement_Point__ace_Cameras_" id="Temperature_Measurement_Point__ace_Cameras_">Temperature 
+ Measurement Point (ace Cameras)</a></h2>
+<p><img src="images/drawing_ace_temperature_measurement.png" alt="Housing Temperature Measurement Point for ace Cameras" title="Housing Temperature Measurement Point for ace Cameras" /></p>
+<div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

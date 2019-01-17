@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="135517986">
+<procedure name="main">
+<interface/>
+<body>
+<l>dev_update_pc ('off')</l>
+<l>dev_update_window ('off')</l>
+<l>dev_update_var ('off')</l>
+<l>dev_set_draw ('margin')</l>
+<l>read_image (ModelImage, 'modules/modules_model')</l>
+<l>get_image_size (ModelImage, Width, Height)</l>
+<l>dev_close_window()</l>
+<l>dev_open_window_fit_image(ModelImage, 0, 0, -1, -1, WindowHandle)</l>
+<l>dev_display(ModelImage)</l>
+<l>gen_rectangle2 (ModelRegions, 169.5, 387.5, rad(180), 25, 12.9578)</l>
+<l>gen_rectangle2 (Rect1, 159.5, 481.5, rad(0), 22, 10)</l>
+<l>concat_obj(ModelRegions, Rect1, ModelRegions)</l>
+<l>gen_rectangle2 (Rect2, 193.5, 470.5, rad(-90), 24, 14)</l>
+<l>concat_obj(ModelRegions, Rect2, ModelRegions)</l>
+<l>create_component_model(ModelImage, ModelRegions, 20, 20, rad(25), 0, rad(360), 40, 40, 'auto', 'auto', 0.5, 'auto', 'auto', 'auto', 'use_polarity', 'false', ComponentModelID, RootRanking)</l>
+<c></c>
+<l>open_framegrabber ('File', 1, 1, 0, 0, 0, 0, 'default', -1, 'default', -1, 'default', 'modules/modules', 'default', -1, 1, FGHandle)</l>
+<l>while(true)</l>
+<l>    grab_image(Image, FGHandle)</l>
+<l>    find_component_model(Image, ComponentModelID, RootRanking,0, rad(360), 0.5, 1, 0.5, 'stop_search', 'prune_branch', 'none', 0.5, 'least_squares', 0, 0.9, ModelStart, ModelEnd, Score, RowComp, ColumnComp, AngleComp, ScoreComp, ModelComp)</l>
+<l>    gen_empty_obj(EmptyObject)</l>
+<l>    for Index := 0 to |RowComp|-1 by 1</l>
+<l>        get_found_component_model(FoundComponents, ComponentModelID, ModelComp, ModelComp, RowComp, ColumnComp, AngleComp, ScoreComp, ModelComp, Index, 'false', RowCompInst, ColumnCompInst, AngleCompInst, ScoreCompInst)</l>
+<l>        concat_obj(FoundComponents, EmptyObject, EmptyObject)</l>
+<l>    endfor</l>
+<l>    dev_display(Image)</l>
+<l>    dev_display(EmptyObject)</l>
+<c>   </c>
+<l>    stop()</l>
+<l>endwhile</l>
+<l>clear_component_model(ComponentModelID)</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="169070588">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image (AwgToPdArraySideView, 'C:/Code/Halcon/PD与AWG位置识别/AWG to PD Array Side View.bmp')</l>
+<l>dev_close_window()</l>
+<l>dev_open_window_fit_image(AwgToPdArraySideView, 0, 0, 1000,1400, WindowHandle)</l>
+<l>dev_set_part(187, 620, 518, 990)</l>
+<l>dev_display(AwgToPdArraySideView)</l>
+<l>points_harris_binomial(AwgToPdArraySideView, 5, 15, 0.08, 8000, 'on', Row, Column)</l>
+<l>disp_cross(WindowHandle, Row, Column, 6, 0)</l>
+<c></c>
+<l>return()</l>
+<l>read_region(Region, 'region.reg')</l>
+<l>reduce_domain(AwgToPdArraySideView, Region, ImageReduced)</l>
+<l>edges_color_sub_pix(ImageReduced, Edges, 'canny', 1, 10, 40)</l>
+<l>segment_contours_xld(Edges, ContoursSplit, 'lines_circles', 5, 4, 2)</l>
+<l>fit_line_contour_xld(ContoursSplit, 'tukey', -1, 0, 5, 2, RowBegin, ColBegin, RowEnd, ColEnd, Nr, Nc, Dist)</l>
+<c></c>
+<l>dev_clear_window()</l>
+<l>dev_display(AwgToPdArraySideView)</l>
+<c></c>
+<l>dev_set_color('green')</l>
+<l>disp_cross(WindowHandle, RowBegin[5], ColBegin[5], 50,0)</l>
+<l>disp_cross(WindowHandle, RowEnd[5], ColEnd[5], 50,0)</l>
+<l>disp_message(WindowHandle, '('+RowBegin[5]+','+ColBegin[5]+')', 'image', RowBegin[5]-100, ColBegin[5]-350, 'red', 'true')</l>
+<l>disp_message(WindowHandle, '('+RowEnd[5]+','+ColEnd[5]+')', 'image', RowEnd[5]-100, ColEnd[5], 'red', 'true')</l>
+<l>disp_cross(WindowHandle, RowBegin[2], ColBegin[2], 50,0)</l>
+<l>disp_cross(WindowHandle, RowEnd[2], ColEnd[2], 50,0)</l>
+<l>disp_message(WindowHandle, '('+RowBegin[2]+','+ColBegin[2]+')', 'image', RowBegin[2]+50, ColBegin[2]-350, 'red', 'true')</l>
+<l>disp_message(WindowHandle, '('+RowEnd[2]+','+ColEnd[2]+')', 'image', RowEnd[2]+50, ColEnd[2]+50, 'red', 'true')</l>
+<l>dev_set_color('red')</l>
+<l>disp_line(WindowHandle, RowBegin[5], ColBegin[5], RowEnd[5], ColEnd[5])</l>
+<l>disp_line(WindowHandle, RowBegin[2], ColBegin[2], RowEnd[2], ColEnd[2])</l>
+<c></c>
+<c></c>
+<l>distance_pl(RowBegin[2], ColBegin[2], RowBegin[5], ColBegin[5], RowEnd[5], ColEnd[5], Distance)</l>
+<l>distance_pl(RowEnd[2], ColEnd[2], RowBegin[5], ColBegin[5], RowEnd[5], ColEnd[5], Distance1)</l>
+<c></c>
+<l>angle_ll(RowBegin[5], ColBegin[5], RowEnd[5], ColEnd[5], RowBegin[2], ColBegin[2], RowEnd[2], ColEnd[2], Angle)</l>
+<c></c>
+<l>set_tposition(WindowHandle, 0, 0)</l>
+<l>set_display_font(WindowHandle, 20, 'mono', 'true', 'false')</l>
+<c></c>
+<l>write_string(WindowHandle, 'FA与AWG夹角：'+(Angle*180)/3.1415926+'度')</l>
+<l>set_tposition(WindowHandle, 60, 0)</l>
+<l>write_string(WindowHandle, 'FA与AWG平均间距：'+(Distance+Distance1)/2)</l>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

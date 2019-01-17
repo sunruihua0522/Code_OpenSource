@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="205469852">
+<procedure name="main">
+<interface/>
+<body>
+<l>dev_close_window()</l>
+<l>read_image (Image2, 'C:/Users/Administrator/Desktop/ImageSaved/3.jpg')</l>
+<l>dev_open_window_fit_image(Image2, 0, 0, -1, -1, WindowHandle)</l>
+<l>dev_display(Image2)</l>
+<l>draw_rectangle1(WindowHandle, Row1, Column1, Row2, Column2)</l>
+<c></c>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

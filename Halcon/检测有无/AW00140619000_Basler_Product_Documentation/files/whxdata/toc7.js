@@ -1,0 +1,1 @@
+gXMLBuffer ="<?xml version=\"1.0\" encoding=\"utf-8\" ?><data  src=\"toc2.js\"  name=\"Basler dart BCON for MIPI\" url=\"en/basler_dart_bcon_for_mipi.htm\"><item name=\"daA2500-60mc\" url=\"en/daa2500-60mc.htm\" /></data>";

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="-576843384">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image (Image928957C310b39045d4302, '1.bmp')</l>
+<l>get_image_size (Image928957C310b39045d4302, Width, Height)</l>
+<l>for Index := 0 to 170 by 10</l>
+<c>    * 旋转图像</c>
+<l>    rotate_image (Image928957C310b39045d4302, ImageRotate, Index, 'bilinear')</l>
+<l>    emphasize (ImageRotate, ImageEmphasize, 15, 15, 5)</l>
+<l>    fft_generic (ImageEmphasize, ImageFFT, 'to_freq', -1, 'sqrt', 'dc_center', 'complex')</l>
+<l>    gen_gauss_filter (ImageGauss, 0.5, 0.5, 0, 'none', 'dc_center', Width, Height)</l>
+<l>    gen_gauss_filter (ImageGauss1, 3, 3, 0, 'none', 'dc_center', Width, Height)</l>
+<c>    </c>
+<l>    sub_image (ImageGauss1, ImageGauss, ImageSub, 1, 0)</l>
+<l>    convol_fft (ImageFFT, ImageSub, ImageConvol)</l>
+<l>    fft_generic (ImageConvol, ImageFFT1, 'from_freq', -1, 'sqrt', 'dc_center', 'real')</l>
+<l>    convert_image_type (ImageFFT1, ImageConverted, 'byte')</l>
+<l>    sub_image (ImageEmphasize, ImageConverted, ImageSub1, 1, 128)</l>
+<l>    invert_image (ImageSub1, ImageInvert)</l>
+<c>    * 圆环区域</c>
+<l>    threshold (ImageRotate, Region1, 50, 128)</l>
+<l>    fill_up_shape (Region1, RegionFillUp, 'area', 1, 500)</l>
+<l>    erosion_circle (RegionFillUp, RegionErosion, 30.5)</l>
+<c>    * 搜索暗划痕</c>
+<l>    mean_image (ImageInvert, ImageMean, 3, 51)</l>
+<l>    mean_image (ImageMean, ImageMean1, 31, 51)</l>
+<l>    dyn_threshold (ImageMean, ImageMean1, RegionDynThresh, 6, 'dark')</l>
+<l>    intersection (RegionErosion, RegionDynThresh, RegionIntersection)</l>
+<l>    connection (RegionIntersection, ConnectedRegions)</l>
+<l>    select_shape (ConnectedRegions, SelectedRegions, 'area', 'and', 300, 99999)</l>
+<l>    union1 (SelectedRegions, RegionUnion)</l>
+<l>    dilation_circle (RegionUnion, RegionDilation, 6.5)</l>
+<l>    connection (RegionDilation, ConnectedRegions1)</l>
+<l>    select_shape (ConnectedRegions1, SelectedRegions1, 'area', 'and', 3000, 99999)</l>
+<l>    paint_region (SelectedRegions1, ImageRotate, ImageResult, 255, 'fill')</l>
+<l>    rotate_image (ImageResult, ImageRotate1, -Index, 'bilinear')</l>
+<l>    threshold (ImageRotate1, Regions, 240, 255)</l>
+<c>    </c>
+<c>    *region_features (SelectedRegions1, 'area', Value)</c>
+<l>    if (Value&gt;3000)</l>
+<l>        break</l>
+<l>    endif</l>
+<l>endfor</l>
+<l>dev_display (Image928957C310b39045d4302)</l>
+<l>dev_display (Regions)</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

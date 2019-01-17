@@ -1,0 +1,808 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="noindex" />
+<meta http-equiv="Content-Language" content="en-US" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>daA2500-14lm</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.1.4.0_6";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Models > Basler dart BCON for LVDS" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm#bc-1\">Models<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"basler_dart_bcon_for_lvds.htm\">Basler dart BCON for LVDS<\/a>  &gt;  daA2500-14lm<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>daA2500-14lm</h1>
+<p class="teaser">The daA2500-14lm 
+ <a href="basler_dart_bcon_for_lvds.htm">Basler dart BCON for LVDS camera 
+ module</a> with an ON Semiconductor MT9P031 mono CMOS sensor delivers 
+ 14 frames per second at 5 MP resolution.</p>
+<p><img src="images/image_dart_bcon_lvds.jpg" alt="Basler dart BCON for LVDS Camera Modules" title="Basler dart BCON for LVDS Camera Modules" /></p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot28425" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot28425', 'MTPOPUP28425');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP28425" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Variants</a>
+</li>
+   <li><a href="#MiniTOCBookMark3" >Specifications</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark4" >General Specifications</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >Spectral Response</a>
+</li>
+    <li><a href="#MiniTOCBookMark6" >Mechanical Specifications</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark7" >Dimensions and Mounting Points</a>
+</li>
+     <li><a href="#MiniTOCBookMark8" >Maximum Allowed Lens Intrusion</a>
+</li>
+     <li><a href="#MiniTOCBookMark9" >Stress Test Results</a>
+</li>
+    </ul></li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark10" >Requirements</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark11" >Environmental Requirements</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark12" >Temperature and Humidity</a>
+</li>
+     <li><a href="#MiniTOCBookMark13" >Heat Dissipation</a>
+</li>
+    </ul></li>
+    <li><a href="#MiniTOCBookMark14" >Electrical Requirements</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark15" >Absolute Maximum Ratings</a>
+</li>
+     <li><a href="#MiniTOCBookMark16" >Input Voltages</a>
+</li>
+     <li><a href="#MiniTOCBookMark17" >Output Voltages</a>
+</li>
+     <li><a href="#MiniTOCBookMark18" >Timing Characteristics</a>
+</li>
+    </ul></li>
+    <li><a href="#MiniTOCBookMark19" >Cable Requirements</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark20" >Physical Interface</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark21" >Connectors and Status LED</a>
+</li>
+    <li><a href="#MiniTOCBookMark22" >FFC Connector</a>
+</li>
+    <li><a href="#MiniTOCBookMark23" >FFC Connector Pin Numbering and Assignments</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark24" >Precautions</a>
+</li>
+   <li><a href="#MiniTOCBookMark25" >Installation</a>
+</li>
+   <li><a href="#MiniTOCBookMark26" >Features</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Variants</h2>
+<p>The daA2500-14lm 
+ is available in the following variants:</p>
+<ul>
+	<li><strong>Bare board:</strong> Consists of a circuit board only.</li>
+	<li><strong>S-mount:</strong> Consists of a circuit board and a camera 
+	 front. S-mount lenses can be mounted in the lens mount on the camera 
+	 front.</li>
+	<li><strong>CS-mount:</strong> Consists of a circuit board and a camera 
+	 front. CS-mount lenses can be mounted in the lens mount on the camera 
+	 front.</li>
+</ul>
+<p class="info">Basler dart S-mount color cameras are not equipped with 
+ an IR cut filter. If you want to operate a Basler dart S-mount color camera 
+ with an IR cut filter, you must attach a lens with an integrated IR cut 
+ filter to the camera.</p>
+<h2><a name="MiniTOCBookMark3"></a>Specifications</h2>
+<h3><a name="MiniTOCBookMark4"></a>General Specifications</h3>
+<table >
+	<tr>
+		<th>Specification</th>
+		<th>daA2500-14lm</th>
+	</tr>
+	<tr>
+		<td><p>Resolution<br />
+		(H x V Pixels)</p></td>
+		<td>2592 x 1944</td>
+	</tr>
+	<tr>
+		<td><p>Sensor Type</p></td>
+		<td><p>ON Semiconductor MT9P031</p>
+		<p>Progressive scan CMOS</p>
+		<p>Rolling shutter</p></td>
+	</tr>
+	<tr>
+		<td><p>Optical Size</p></td>
+		<td>1/2.5&quot;</td>
+	</tr>
+	<tr>
+		<td><p>Effective Sensor Diagonal</p></td>
+		<td>7.13 mm</td>
+	</tr>
+	<tr>
+		<td><p>Pixel Size (H x V)</p></td>
+		<td>2.2 μm x 2.2 μm</td>
+	</tr>
+	<tr>
+		<td><p>Frame Rate <br />
+		(at Default Settings)</p></td>
+		<td>14 fps</td>
+	</tr>
+	<tr>
+		<td><p>Mono / Color</p></td>
+		<td><p>Mono</p></td>
+	</tr>
+	<tr>
+		<td><p>Pixel Formats</p></td>
+		<td><p>See <a href="pixel_format.htm">Pixel Format</a>.</p></td>
+	</tr>
+	<tr>
+		<td><p>Synchronization</p></td>
+		<td><p>Via hardware trigger</p>
+		<p>Via software trigger</p>
+		<p>Via free run</p></td>
+	</tr>
+	<tr>
+		<td><p>Exposure Time Control</p></td>
+		<td><p>Programmable via the camera API</p></td>
+	</tr>
+	<tr>
+		<td rowspan="2"><p>Camera Power Requirements</p></td>
+		<td><p>Nominal 5 VDC supplied via the camera module’s 28-pin FFC 
+		 connector</p></td>
+	</tr>
+	<tr>
+		<td><p>≈1.3 W (typical) @ 5 VDC</p></td>
+	</tr>
+	<tr>
+		<td><p>I/O Lines</p></td>
+		<td><p>1 input line (CC0) and 2 output lines (two bits on data 
+		 lane X0)</p></td>
+	</tr>
+	<tr>
+		<td><p>Lens Mount</p></td>
+		<td><p>S-mount, CS-mount, without mount (bare board)</p></td>
+	</tr>
+	<tr>
+		<td><p>Size (L x W x H)</p></td>
+		<td><p>Bare board model: <br />
+		4.8 mm x 27 mm x 27 mm</p>
+		<p>S-mount model: <br />
+		17.5 mm x 29 mm x 29 mm</p>
+		<p>CS-mount model: <br />
+		16.9 mm x 29 mm x 29 mm</p></td>
+	</tr>
+	<tr>
+		<td><p>Weight</p></td>
+		<td><p>S-mount and CS-mount models: &lt;15 g</p>
+		<p>Bare board model: &lt;5 g</p></td>
+	</tr>
+	<tr>
+		<td><p>Conformity</p></td>
+		<td><p>CE (includes RoHS), UL Listed, GenICam 2.4 (including PFNC&#160;1.1 
+		 and SFNC 2.1)</p>
+		<p>The EU Declaration of Conformity is available on the <a href="http://www.baslerweb.com">Basler 
+		 website</a>.</p></td>
+	</tr>
+	<tr>
+		<td><p>Software</p></td>
+		<td><p><a href="https://www.baslerweb.com/en/products/software/">Basler 
+		 pylon Camera Software Suite</a> (version 5.0.4 or higher)</p>
+		<p>Available for Windows, Linux x86, Linux ARM, and macOS</p></td>
+	</tr>
+	<tr>
+		<td><p>Accessories</p></td>
+		<td><p><a href="https://www.baslerweb.com/en/products/vision-components/cable#model=daa250014lm">Cables 
+		 for your camera model</a></p>
+		<p><a href="https://www.baslerweb.com/en/products/vision-components/lenses#model=daa250014lm">Lenses 
+		 for your camera model</a></p>
+		<p><a href="https://www.baslerweb.com/en/products/vision-components/additional-accessories#model=daa250014lm">Additional 
+		 accessories for your camera model</a></p></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark5"></a>Spectral Response</h3>
+<p><img src="images/drawing_response_mt9p031_mono.png" alt="ON Semiconductor MT9P031 Spectral Response" title="ON Semiconductor MT9P031 Spectral Response" /></p>
+<p>The spectral response curve excludes lens characteristics and light 
+ source characteristics.</p>
+<div>
+<h3><a name="MiniTOCBookMark6"></a>Mechanical Specifications</h3>
+<h4><a name="MiniTOCBookMark7"></a>Dimensions and Mounting Points</h4>
+<p class="subheading">Bare Board Variant</p>
+<p><img src="images\drawing_dart_bcon_lvds_bare_board_dimensions_th.png" alt="Mechanical Dimensions (in mm) for Bare Board Camera Models" title="Mechanical Dimensions (in mm) for Bare Board Camera Models" class="large-image" height="206" width="550" data-rhwidget="Basic" data-popupimage="images/drawing_dart_bcon_lvds_bare_board_dimensions.png" /></p>
+<p class="subheading">S-Mount Variant</p>
+<p><img src="images\drawing_dart_bcon_lvds_s-mount_dimensions_th.png" alt="Mechanical Dimensions (in mm) for S-Mount Camera Models" title="Mechanical Dimensions (in mm) for S-Mount Camera Models" class="large-image" height="187" width="550" data-rhwidget="Basic" data-popupimage="images/drawing_dart_bcon_lvds_s-mount_dimensions.png" /></p>
+<p class="subheading">CS-Mount Variant</p>
+<p class="subheading"><img src="images\drawing_dart_bcon_lvds_cs-mount_dimensions_th.png" alt="Mechanical Dimensions (in mm) for CS-Mount Camera Models" title="Mechanical Dimensions (in mm) for CS-Mount Camera Models" class="large-image" height="185" width="550" data-rhwidget="Basic" data-popupimage="images/drawing_dart_bcon_lvds_cs-mount_dimensions.png" /></p>
+<h4><a name="MiniTOCBookMark8"></a>Maximum Allowed Lens Intrusion</h4>
+<p>→ See <a href="maximum_allowed_lens_intrusion.htm">Maximum Allowed 
+ Lens Intrusion</a>.</p>
+<h4><a name="MiniTOCBookMark9"></a>Stress Test Results</h4>
+<p>→ See <a href="stress_test_results.htm">Stress Test Results</a>.</p>
+</div>
+<div>
+<h2><a name="MiniTOCBookMark10"></a>Requirements</h2>
+<h3><a name="MiniTOCBookMark11"></a><a name="Environmental_Requirements">Environmental Requirements</a></h3>
+<h4><a name="MiniTOCBookMark12"></a>Temperature and Humidity</h4>
+<table >
+	<col />
+	<col />
+	<col />
+	<tr>
+		<th>&#160;</th>
+		<th>Bare Board Variant</th>
+		<th>S-Mount and CS-Mount Variant</th>
+	</tr>
+	<tr>
+		<td>Device temperature during <strong>operation</strong></td>
+		<td>0–75 °C (32–167 °F)<sup>a</sup></td>
+		<td>0–50 °C (32–122 °F)<sup>b</sup></td>
+	</tr>
+	<tr>
+		<td>Device temperature during <strong>storage</strong></td>
+		<td>-20–80 °C (-4–176 °F)</td>
+		<td>-20–80 °C (-4–176 °F)</td>
+	</tr>
+	<tr>
+		<td>Humidity</td>
+		<td>20–80 %, relative, non-condensing</td>
+		<td>20–80 %, relative, non-condensing</td>
+	</tr>
+	<tr>
+		<td>Ambient temperature according to UL&#160;60950-1</td>
+		<td>max. 50 °C (122 °F)</td>
+		<td>max. 50 °C (122 °F)</td>
+	</tr>
+	<tr class="highlight">
+		<td colspan="3">UL&#160;60950-1 test conditions: no lens attached; 
+		 no heat dissipation measures; ambient temperature kept at 50 °C 
+		 (122 °F).</td>
+		
+	</tr>
+</table>
+<p class="table-footnote"><sup>a</sup>Temperature measured at the <a href="providing_heat_dissipation_(dart).htm#Temperature_Measurement_Points">temperature 
+ measurement point</a>, i.e., at the hottest point on the board. This point 
+ is significantly hotter than the other parts on the board.</p>
+<p class="table-footnote"><sup>b</sup>Temperature measured at the <a href="providing_heat_dissipation_(dart).htm#Temperature_Measurement_Points">temperature 
+ measurement point</a>, i.e., at the camera front.</p>
+<h4><a name="MiniTOCBookMark13"></a>Heat Dissipation</h4>
+<p>→ See <a href="providing_heat_dissipation_(dart).htm">Providing Heat 
+ Dissipation (dart)</a>.</p>
+<h3><a name="MiniTOCBookMark14"></a><a name="Electrical_Requirements">Electrical Requirements</a></h3>
+<div class="panel danger">
+	<div class="panel-head">
+		<p class="safety-panel-heading">Danger</p>
+		<p class="panel-teaser">Electric Shock Hazard</p>
+	</div>
+	<div class="panel-content">
+		<table class="borderless-table">
+			<tr>
+				<td class="safety-symbol"><img src="images/icon_shock.png" alt="Electric Shock Hazard" title="Electric Shock Hazard" border="0" /> </td>
+				<td>Unapproved power supplies may cause electric shock. 
+				 Serious injury or death may occur. 
+				<ul>
+					<li>You must use power supplies that meet the Safety 
+					 Extra Low Voltage (SELV) and Limited Power Source 
+					 (LPS) requirements.</li>
+					<li>If you use a powered hub or powered switch, they 
+					 must meet the SELV and LPS requirements.</li>
+				</ul></td>
+			</tr>
+		</table>
+	</div>
+</div>
+<div class="panel warning">
+	<div class="panel-head">
+		<p class="safety-panel-heading">Warning</p>
+		<p class="panel-teaser">Fire Hazard</p>
+	</div>
+	<div class="panel-content">
+		<table class="borderless-table">
+			<tr>
+				<td class="safety-symbol"><img src="images/icon_fire.png" alt="Fire Hazard" title="Fire Hazard" border="0" /> </td>
+				<td>Unapproved power supplies may cause fire and burns. 
+				 
+				<ul>
+					<li>You must use power supplies that meet the Limited 
+					 Power Source (LPS) requirements.</li>
+					<li>If you use a powered hub or powered switch, they 
+					 must meet the LPS requirements.</li>
+				</ul></td>
+			</tr>
+		</table>
+	</div>
+</div>
+<div class="panel notice">
+	<div class="panel-head">
+		<p class="safety-panel-heading">Notice</p>
+		<p class="panel-teaser">Voltage outside of the specified range 
+		 can damage the camera module.</p>
+	</div>
+	<div class="panel-content">
+		<p>You must supply camera and I/O power within the safe operating 
+		 voltage ranges specified below.</p>
+	</div>
+</div>
+<h4><a name="MiniTOCBookMark15"></a>Absolute Maximum Ratings</h4>
+<table >
+	<tr>
+		<th>Pin Name</th>
+		<th>Absolute Minimum</th>
+		<th>Absolute Maximum</th>
+	</tr>
+	<tr>
+		<td>VCC</td>
+		<td rowspan="3">-0.3 VDC</td>
+		<td>6.5 VDC</td>
+	</tr>
+	<tr>
+		<td>CC0+<br />
+		CC0-</td>
+		<td>4.2 VDC</td>
+	</tr>
+	<tr>
+		<td>I2C_SCL<br />
+		I2C_SDA<br />
+		I2C_ID</td>
+		<td>3.6 VDC</td>
+	</tr>
+</table>
+<h4><a name="MiniTOCBookMark16"></a>Input Voltages</h4>
+<table >
+	<tr>
+		<th>Pin Name</th>
+		<th>Voltage Type</th>
+		<th>Minimum</th>
+		<th>Nominal (Recommended)</th>
+		<th>Maximum</th>
+	</tr>
+	<tr>
+		<td>VCC</td>
+		<td>&#160;</td>
+		<td>4.5&#160;VDC</td>
+		<td>5.0&#160;VDC</td>
+		<td>5.5&#160;VDC</td>
+	</tr>
+	<tr>
+		<td rowspan="2">CC0+<br />
+		CC0-</td>
+		<td>Common mode voltage</td>
+		<td>0.2&#160;VDC</td>
+		<td>-</td>
+		<td>1.8&#160;VDC</td>
+	</tr>
+	<tr>
+		<td>Differential voltage</td>
+		<td>0.1&#160;VDC</td>
+		<td>-</td>
+		<td>-</td>
+	</tr>
+	<tr>
+		<td rowspan="2">I2C_SCL<br />
+		I2C_SDA<br />
+		I2C_ID</td>
+		<td>Input low voltage</td>
+		<td>0.0&#160;VDC</td>
+		<td>0.0&#160;VDC</td>
+		<td>1.0&#160;VDC</td>
+	</tr>
+	<tr>
+		<td>Input high voltage</td>
+		<td>2.4&#160;VDC</td>
+		<td>3.3&#160;VDC</td>
+		<td>3.5&#160;VDC</td>
+	</tr>
+</table>
+<h4><a name="MiniTOCBookMark17"></a>Output Voltages</h4>
+<table >
+	<tr>
+		<th>Pin Name</th>
+		<th>Voltage Type</th>
+		<th>Minimum</th>
+		<th>Nominal (Recommended)</th>
+		<th>Maximum</th>
+	</tr>
+	<tr>
+		<td rowspan="2">X1-, X1+<br />
+		X2-, X2+<br />
+		X3-, X3+ 
+		<p>X4-, X4+</p>
+		<p>XCLK-, XCLK+</p></td>
+		<td>Common mode voltage</td>
+		<td>1.125&#160;VDC</td>
+		<td>1.25&#160;VDC</td>
+		<td>1.375&#160;VDC</td>
+	</tr>
+	<tr>
+		<td>Differential voltage</td>
+		<td>0.247&#160;VDC</td>
+		<td>-</td>
+		<td>0.6&#160;VDC</td>
+	</tr>
+</table>
+<h4><a name="MiniTOCBookMark18"></a>Timing Characteristics</h4>
+<table >
+	<tr>
+		<th>Pin</th>
+		<th>Minimum</th>
+		<th>Maximum</th>
+		<th>Notes</th>
+	</tr>
+	<tr>
+		<td>XCLK</td>
+		<td>12 MHz</td>
+		<td>84 MHz</td>
+		<td>Selectable via control interface. 
+		<p>Settable in increments of 8.</p></td>
+	</tr>
+	<tr>
+		<td>X0–X3</td>
+		<td>84 MBaud</td>
+		<td>588 MBaud</td>
+		<td>Selectable via control interface.</td>
+	</tr>
+	<tr>
+		<td>I2C_SCL</td>
+		<td>0 kHz</td>
+		<td>400 kHz</td>
+		<td>In the <a href="http://www.nxp.com/documents/user_manual/UM10204.pdf">I²C-bus 
+		 Specification and User Manual</a>, this mode is called &quot;fast-mode&quot; 
+		 with 400 kbit/s.</td>
+	</tr>
+</table>
+<p>For more information about the I/O lines, see the <a href="i_o_control.htm">I/O 
+ Control</a> section.</p>
+<h3><a name="MiniTOCBookMark19"></a>Cable Requirements</h3>
+<p>→ &#160;See <a href="bcon_for_lvds_hardware_design_guide.htm">BCON 
+ for LVDS Hardware Design Guide</a>.</p>
+<h2><a name="MiniTOCBookMark20"></a>Physical Interface</h2>
+<h3><a name="MiniTOCBookMark21"></a>Connectors and Status LED</h3>
+<p><img src="images/drawing_dart_bcon_lvds_connectors.png" alt="Camera Connectors and LED Indicator" title="Camera Connectors and LED Indicator" border="0" /></p>
+<table >
+	<tr>
+		<td>FFC Connector</td>
+		<td>28-pin flat flex cable (FFC) connector. Provides connections 
+		 for LVDS image transfer, input and output signals, and power supply. 
+		 Standardized I²C lines are integrated, which are used for camera 
+		 configuration via the Basler pylon Camera Software Suite.</td>
+	</tr>
+	<tr>
+		<td>Status LED</td>
+		<td>Indicates operation: 
+		<ul>
+			<li>LED is blinking slowly: Device is being configured.</li>
+			<li>LED is lit permanently: Device is configured and operative.</li>
+			<li>LED is blinking rapidly: Internal error.</li>
+		</ul>
+		The LED can be turned off permanently by setting the <a href="device_information_parameters.htm"><span class="parameter-name">DeviceIndicatorMode</span></a> 
+		 parameter to <span class="parameter-name">Inactive</span>.</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark22"></a>FFC Connector</h3>
+<p>The 28-pin connector on the camera is a flexible flat cable (FFC) connector 
+ by Hirose Electric Co. It is specifically designed for shielded and impedance-controlled 
+ flexible flat cables. However, standard flexible flat cables without a 
+ ground layer can also be inserted. They will make good electrical contact, 
+ but you may notice a high rate of bit errors. For more information, see 
+ the <a href="bcon_for_lvds_hardware_design_guide.htm">BCON for LVDS 
+ Hardware Design Guide</a>.</p>
+<p>The connector order code is Hirose FH41-28S-0.5SH(05).</p>
+<h3><a name="MiniTOCBookMark23"></a>FFC Connector Pin Numbering and Assignments</h3>
+<p class="subheading">Pin 1 Position</p>
+<p>As shown below, pin 1 of the FFC connector is indicated by an arrow, 
+ and pin 28 is indicated by the number 28.</p>
+<p><img src="images/drawing_dart_bcon_lvds_connector_pins.png" alt="FFC Connector Pin Positions" title="FFC Connector Pin Positions" border="0" /></p>
+<p class="subheading">Pin Numbering and Assignments</p>
+<table >
+	<col />
+	<col />
+	<col />
+	<col />
+	<col />
+	<tr>
+		<th>Pin # <br />
+		(Camera Side)</th>
+		<th>Pin Name</th>
+		<th>Pin #<br />
+		(System Side)</th>
+		<th>Function</th>
+		<th>Notes</th>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>GND</td>
+		<td>28</td>
+		<td>Power Supply</td>
+		<td>All GND pins, including the five shield GND contacts on the 
+		 opposite side of the connector, must be connected to a common 
+		 GND plane. Avoid long PCB traces, prefer direct vias.</td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td>VCC</td>
+		<td>27</td>
+		<td>Power Supply</td>
+		<td rowspan="3">Single camera supply voltage, 5 VDC nominal. Connect 
+		 all pins.</td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td>VCC</td>
+		<td>26</td>
+		<td>Power Supply</td>
+		
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>VCC</td>
+		<td>25</td>
+		<td>Power Supply</td>
+		
+	</tr>
+	<tr>
+		<td>5</td>
+		<td>GND</td>
+		<td>24</td>
+		<td>Power Supply</td>
+		<td>See note for pin 1 (camera side).</td>
+	</tr>
+	<tr>
+		<td>6</td>
+		<td>I2C_ID</td>
+		<td>23</td>
+		<td>Configuration Interface</td>
+		<td>I²C interface address selector. Connect to GND for an I²C slave 
+		 address of 0x3C. Connect to 3.3 VDC for an I²C slave address of 
+		 0x3D.</td>
+	</tr>
+	<tr>
+		<td>7</td>
+		<td>I2C_SDA</td>
+		<td>22</td>
+		<td>Configuration Interface</td>
+		<td>I²C interface data line. A pull-up resistor to 3.3 VDC is required. 
+		 Refer to the <a href="http://www.nxp.com/documents/user_manual/UM10204.pdf">I²C-bus 
+		 Specification and User Manual</a> for the appropriate resistor 
+		 value. Note that FFCs can have a significant line capacitance.</td>
+	</tr>
+	<tr>
+		<td>8</td>
+		<td>GND</td>
+		<td>21</td>
+		<td>Power Supply</td>
+		<td>See note for pin 1 (camera side).</td>
+	</tr>
+	<tr>
+		<td>9</td>
+		<td>I2C_SCL</td>
+		<td>20</td>
+		<td>Configuration Interface</td>
+		<td>I²C interface clock line. A pull-up resistor to 3.3 VDC is 
+		 required. Refer to the <a href="http://www.nxp.com/documents/user_manual/UM10204.pdf">I²C-bus 
+		 Specification and User Manual</a> for the appropriate resistor 
+		 value. Note that FFCs can have a significant line capacitance.</td>
+	</tr>
+	<tr>
+		<td>10</td>
+		<td>GND</td>
+		<td>19</td>
+		<td>Power Supply</td>
+		<td>See note for pin 1 (camera side).</td>
+	</tr>
+	<tr>
+		<td>11</td>
+		<td>CC0-</td>
+		<td>18</td>
+		<td rowspan="2">Trigger and General Purpose Input</td>
+		<td rowspan="2">LVDS input to the camera, mainly as external trigger. 
+		 No termination resistor is required at the system side.<br />
+		In the pylon API, the input line is designated as Line 3.</td>
+	</tr>
+	<tr>
+		<td>12</td>
+		<td>CC0+</td>
+		<td>17</td>
+		
+	</tr>
+	<tr>
+		<td>13</td>
+		<td>GND</td>
+		<td>16</td>
+		<td>Power Supply</td>
+		<td>See note for pin 1 (camera side).</td>
+	</tr>
+	<tr>
+		<td>14</td>
+		<td>X3-</td>
+		<td>15</td>
+		<td rowspan="2">Serial Data Output</td>
+		<td rowspan="2">LVDS output data lane 3. Use differential routing. 
+		 A 100 ohm termination resistor is required across the differential 
+		 pair.</td>
+	</tr>
+	<tr>
+		<td>15</td>
+		<td>X3+</td>
+		<td>14</td>
+		
+	</tr>
+	<tr>
+		<td>16</td>
+		<td>GND</td>
+		<td>13</td>
+		<td>Power Supply</td>
+		<td>See note for pin 1 (camera side).</td>
+	</tr>
+	<tr>
+		<td>17</td>
+		<td>XCLK-</td>
+		<td>12</td>
+		<td rowspan="2">Serial Data Output</td>
+		<td rowspan="2">LVDS clock output. Use differential routing. A 
+		 100 ohm termination resistor is required across the differential 
+		 pair.</td>
+	</tr>
+	<tr>
+		<td>18</td>
+		<td>XCLK+</td>
+		<td>11</td>
+		
+	</tr>
+	<tr>
+		<td>19</td>
+		<td>GND</td>
+		<td>10</td>
+		<td>Power Supply</td>
+		<td>See note for pin 1 (camera side).</td>
+	</tr>
+	<tr>
+		<td>20</td>
+		<td>X2-</td>
+		<td>9</td>
+		<td rowspan="2">Serial Data Output</td>
+		<td rowspan="2">LVDS output data lane 2. Use differential routing. 
+		 A 100 ohm termination resistor is required across the differential 
+		 pair.</td>
+	</tr>
+	<tr>
+		<td>21</td>
+		<td>X2+</td>
+		<td>8</td>
+		
+	</tr>
+	<tr>
+		<td>22</td>
+		<td>GND</td>
+		<td>7</td>
+		<td>Power Supply</td>
+		<td>See note for pin 1 (camera side).</td>
+	</tr>
+	<tr>
+		<td>23</td>
+		<td>X1-</td>
+		<td>6</td>
+		<td rowspan="2">Serial Data Output</td>
+		<td rowspan="2">LVDS output data lane 1. Use differential routing. 
+		 A 100 ohm termination resistor is required across the differential 
+		 pair.</td>
+	</tr>
+	<tr>
+		<td>24</td>
+		<td>X1+</td>
+		<td>5</td>
+		
+	</tr>
+	<tr>
+		<td>25</td>
+		<td>GND</td>
+		<td>4</td>
+		<td>Power Supply</td>
+		<td>See note for pin 1 (camera side).</td>
+	</tr>
+	<tr>
+		<td>26</td>
+		<td>X0-</td>
+		<td>3</td>
+		<td rowspan="2">Serial Data Output</td>
+		<td rowspan="2">LVDS output data lane 0. Use differential routing. 
+		 A 100 ohm termination resistor is required across the differential 
+		 pair.</td>
+	</tr>
+	<tr>
+		<td>27</td>
+		<td>X0+</td>
+		<td>2</td>
+		
+	</tr>
+	<tr>
+		<td>28</td>
+		<td>GND</td>
+		<td>1</td>
+		<td>Power Supply</td>
+		<td>See note for pin 1 (camera side).</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark24"></a>Precautions</h2>
+<p>→ &#160;See <a href="safety_instructions_(dart).htm">Safety Instructions 
+ (dart)</a>.</p>
+<h2><a name="MiniTOCBookMark25"></a>Installation</h2>
+<p>→ &#160;See <a href="camera_installation.htm">Camera Installation</a>.</p>
+<h2><a name="MiniTOCBookMark26"></a>Features</h2>
+<p>→ &#160;See the <a href="features.htm">camera features section</a>.</p>
+</div>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

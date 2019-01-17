@@ -1,0 +1,4 @@
+(function() {
+var toc =  [{"type":"item","data-rhtags":"2","name":"Circuit Diagrams (ace)","url":"en/circuit_diagrams_(ace).htm"},{"type":"item","data-rhtags":"42","name":"Circuit Diagrams (dart USB 3.0)","url":"en/circuit_diagrams_(dart_usb_3.0).htm"},{"type":"item","name":"Free Run Image Acquisition","url":"en/free_run_image_acquisition.htm"},{"type":"item","data-rhtags":"1","name":"Triggered Image Acquisition","url":"en/triggered_image_acquisition.htm"},{"type":"item","data-rhtags":"43","name":"General Purpose I/O (GPIO) Lines","url":"en/general_purpose_i_o_(gpio)_lines.htm"},{"type":"item","data-rhtags":"2","name":"Opto-Coupled I/O Lines","url":"en/opto-coupled_i_o_lines.htm"},{"type":"item","data-rhtags":"2","name":"I/O Timing Characteristics (ace)","url":"en/i_o_timing_characteristics_(ace).htm"}];
+window.rh.model.publish(rh.consts('KEY_TEMP_DATA'), toc, { sync:true });
+})();

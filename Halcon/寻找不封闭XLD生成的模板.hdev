@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="585228176">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image (Image1, 'C:/Code/Halcon/ImageSaved/1.jpg')</l>
+<l>dev_close_window()</l>
+<l>dev_open_window_fit_image(Image1, 0, 0, -1, -1, WindowHandle)</l>
+<l>dev_display(Image1)</l>
+<l>read_shape_model('C:/Code/Halcon/ImageSaved/1.shm',ModelID)</l>
+<l>get_shape_model_contours(ModelContours, ModelID, 1)</l>
+<c></c>
+<l>for Index := 2 to 14 by 1</l>
+<l>    read_image(Image, 'C:/Code/Halcon/ImageSaved/'+Index+'.jpg')</l>
+<l>    scale_image_range(Image, ImageScaled, 10, 100)</l>
+<l>    find_shape_model(Image, ModelID, 0, 6.28, 0.5, 1, 0, 'least_squares', 0, 0.9, Row, Column, Angle, Score)</l>
+<l>    find_shape_model(ImageScaled, ModelID, 0, 6.28, 0.5, 1, 0.1, 'least_squares', 0, 0.9, Row, Column, Angle, Score1)</l>
+<l>    if(|Score|&gt;0)</l>
+<l>        vector_angle_to_rigid(0, 0, 0, Row, Column, Angle, HomMat2D)</l>
+<l>        affine_trans_contour_xld(ModelContours, ContoursAffinTrans, HomMat2D)</l>
+<l>        dev_set_color('red')</l>
+<l>        dev_display(Image)</l>
+<l>        dev_display(ContoursAffinTrans)</l>
+<l>        disp_message(WindowHandle, Score, 'window', 0, 0, 'black', 'true')</l>
+<l>        disp_message(WindowHandle, Score1, 'window', 20, 0, 'black', 'true')</l>
+<l>    endif</l>
+<l>     stop()</l>
+<l>endfor</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

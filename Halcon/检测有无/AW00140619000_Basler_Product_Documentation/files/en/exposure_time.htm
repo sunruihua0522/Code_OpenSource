@@ -1,0 +1,1583 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Exposure Time</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_33";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Exposure Time<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Exposure Time</h1>
+<p class="teaser">The Exposure Time 
+ <a href="features.htm">camera feature</a> specifies how long the image 
+ sensor is exposed to light during image acquisition.</p>
+<p>To automatically set the exposure time, use the <a href="exposure_auto.htm">Exposure 
+ Auto</a> feature.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot42394" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot42394', 'MTPOPUP42394');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP42394" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Prerequisites</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Setting the Exposure Time</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >Determining the Exposure Time</a>
+</li>
+    <li><a href="#MiniTOCBookMark6" >Exposure Time Mode</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark7" >Specifics</a>
+</li>
+   <li><a href="#MiniTOCBookMark8" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a><a name="Prerequisites">Prerequisites</a></h3>
+<ul>
+	<li>If the camera is configured for <a href="triggered_image_acquisition.htm#Hardware_Triggering">hardware 
+	 triggering</a>, the <a href="exposure_mode.htm"><span class="parameter-name">ExposureMode</span></a> 
+	 parameter must be set to <a href="exposure_mode.htm#Timed_Exposure_Mode"><span class="parameter-name">Timed</span></a>. 
+	 Otherwise, the <span class="parameter-name rh-hide" data-rhtags="48">ExposureTimeAbs</span><span class="parameter-name rh-hide" data-rhtags="49">ExposureTime</span> 
+	 parameter is not available.</li>
+	<li>The <a href="exposure_auto.htm">Exposure Auto </a>auto function 
+	 must be set to <span class="parameter-name">Off</span>. 
+	 Otherwise, setting the exposure time has no effect.</li>
+</ul>
+<h3><a name="MiniTOCBookMark4"></a>Setting the Exposure Time</h3>
+<p>To set the exposure time in microseconds, use the <span class="parameter-name rh-hide" data-rhtags="48">ExposureTimeAbs</span><span class="parameter-name rh-hide" data-rhtags="49">ExposureTime</span> 
+ parameter.</p>
+<p>The minimum exposure time, the maximum exposure time, and the increments 
+ in which the parameter can be changed vary by <a href="#Specifics">camera 
+ model</a>. </p>
+<h3><a name="MiniTOCBookMark5"></a>Determining the Exposure Time</h3>
+<p>To determine the current exposure time in microseconds, get the value 
+ of the <span class="parameter-name rh-hide" data-rhtags="48">ExposureTimeAbs</span><span class="parameter-name rh-hide" data-rhtags="49">ExposureTime</span> 
+ parameter.</p>
+<p>This can be useful, for example, if the <a href="exposure_auto.htm">Exposure 
+ Auto </a>auto function is enabled and you want to retrieve the automatically 
+ adjusted exposure time.</p>
+<h3><a name="MiniTOCBookMark6"></a><a name="Exposure_Time_Mode">Exposure Time Mode</a></h3>
+<p>Depending on <a href="#Specifics">your camera model</a>, the <span class="parameter-name">ExposureTimeMode</span> 
+ parameter is available. It allows you to choose between the Standard and 
+ the Ultra Short exposure time mode. Using the Ultra Short exposure time 
+ mode lowers the value range of the <span class="parameter-name rh-hide" data-rhtags="48">ExposureTimeAbs</span><span class="parameter-name rh-hide" data-rhtags="49">ExposureTime</span> 
+ parameter. It allows you to set very short exposure times.</p>
+<div class="info">
+	<ul>
+		<li>The <span class="parameter-name">ExposureTimeMode</span> 
+		 parameter can only be used if the <a href="#Prerequisites">prerequisites</a> 
+		 listed above are met.</li>
+		<li>Depending on the exposure time mode, the <a href="acquisition_timing_information.htm#Exposure_Start_Delay">exposure 
+		 start delay</a> changes.</li>
+		<li>If the Ultra Short exposure time mode is enabled, the <a href="sequencer.htm">Sequencer</a> 
+		 feature is not available. </li>
+	</ul>
+</div>
+<p>You can set the <span class="parameter-name">ExposureTimeMode</span> 
+ parameter to one of the following values:</p>
+<ul>
+	<li><span class="parameter-name">Standard</span>: 
+	 Enables the Standard exposure time mode. This is the default setting. 
+	 When you enable this mode, the exposure time is set to the minimum 
+	 value available in this exposure time mode.</li>
+	<li><span class="parameter-name">UltraShort</span>: 
+	 Allows you to set an ultra short exposure time within the value range 
+	 available. When you enable this mode, the exposure time is set to 
+	 the maximum value available in this exposure time mode.</li>
+</ul>
+<h2 class="specifics"><a name="MiniTOCBookMark7"></a><a name="Specifics" id="Specifics">Specifics</a></h2>
+<div>
+<p class="info">On some camera models, you can use the <a href="remove_parameter_limits.htm">Remove 
+ Parameter Limits</a> feature to increase the exposure time parameter limits.</p>
+<table class="specifics-table">
+	<col />
+	<col />
+	<col />
+	<col />
+	<col />
+	<tr>
+		<th>Camera Model</th>
+		<th><p>Minimum Exposure Time [μs]</p></th>
+		<th><p>Maximum Exposure Time [μs]</p></th>
+		<th><p>Increment [μs]</p></th>
+		<th><p><span class="parameter-name">ExposureTimeMode</span> Parameter 
+		 Available</p></th>
+	</tr>
+	<tr>
+		<td data-rhtags="50" class="rh-hide">acA640-90gm</td>
+		<td data-rhtags="50" class="rh-hide">17</td>
+		<td data-rhtags="50" class="rh-hide">1000000</td>
+		<td data-rhtags="50" class="rh-hide">1</td>
+		<td data-rhtags="50" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="51" class="rh-hide">acA640-90gc</td>
+		<td data-rhtags="51" class="rh-hide">17</td>
+		<td data-rhtags="51" class="rh-hide">1000000</td>
+		<td data-rhtags="51" class="rh-hide">1</td>
+		<td data-rhtags="51" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="52" class="rh-hide">acA640-120gm</td>
+		<td data-rhtags="52" class="rh-hide">4</td>
+		<td data-rhtags="52" class="rh-hide">1000000</td>
+		<td data-rhtags="52" class="rh-hide">1</td>
+		<td data-rhtags="52" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="53" class="rh-hide">acA640-120gc</td>
+		<td data-rhtags="53" class="rh-hide">4</td>
+		<td data-rhtags="53" class="rh-hide">1000000</td>
+		<td data-rhtags="53" class="rh-hide">1</td>
+		<td data-rhtags="53" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="54" class="rh-hide">acA640-121gm</td>
+		<td data-rhtags="54" class="rh-hide"><ul>
+			<li>Standard exposure time mode: 22 / 23<sup>b</sup></li>
+			<li>Ultra Short exposure time mode: 1</li>
+		</ul></td>
+		<td data-rhtags="54" class="rh-hide"><ul>
+			<li>Standard exposure time mode: 10000000</li>
+			<li>Ultra Short exposure time mode: 13</li>
+		</ul></td>
+		<td data-rhtags="54" class="rh-hide">1</td>
+		<td data-rhtags="54" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="55" class="rh-hide">acA640-300gm</td>
+		<td data-rhtags="55" class="rh-hide">80</td>
+		<td data-rhtags="55" class="rh-hide">10000000</td>
+		<td data-rhtags="55" class="rh-hide">1</td>
+		<td data-rhtags="55" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="56" class="rh-hide">acA640-300gc</td>
+		<td data-rhtags="56" class="rh-hide">80</td>
+		<td data-rhtags="56" class="rh-hide">10000000</td>
+		<td data-rhtags="56" class="rh-hide">1</td>
+		<td data-rhtags="56" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="57" class="rh-hide">acA720-290gm</td>
+		<td data-rhtags="57" class="rh-hide"><ul>
+			<li>Standard exposure time mode: 22 / 20<sup>b</sup></li>
+			<li>Ultra Short exposure time mode: 1</li>
+		</ul></td>
+		<td data-rhtags="57" class="rh-hide"><ul>
+			<li>Standard exposure time mode: 10000000</li>
+			<li>Ultra Short exposure time mode: 13</li>
+		</ul></td>
+		<td data-rhtags="57" class="rh-hide">1</td>
+		<td data-rhtags="57" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="58" class="rh-hide">acA720-290gc</td>
+		<td data-rhtags="58" class="rh-hide"><ul>
+			<li>Standard exposure time mode: 22 / 20<sup>b</sup></li>
+			<li>Ultra Short exposure time mode: 1</li>
+		</ul></td>
+		<td data-rhtags="58" class="rh-hide"><ul>
+			<li>Standard exposure time mode: 10000000</li>
+			<li>Ultra Short exposure time mode: 13</li>
+		</ul></td>
+		<td data-rhtags="58" class="rh-hide">1</td>
+		<td data-rhtags="58" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="59" class="rh-hide">acA750-30gm</td>
+		<td data-rhtags="59" class="rh-hide">30</td>
+		<td data-rhtags="59" class="rh-hide">10000000</td>
+		<td data-rhtags="59" class="rh-hide">1</td>
+		<td data-rhtags="59" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="45" class="rh-hide">acA750-30gc</td>
+		<td data-rhtags="45" class="rh-hide">30</td>
+		<td data-rhtags="45" class="rh-hide">10000000</td>
+		<td data-rhtags="45" class="rh-hide">1</td>
+		<td data-rhtags="45" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="60" class="rh-hide">acA780-75gm</td>
+		<td data-rhtags="60" class="rh-hide">20</td>
+		<td data-rhtags="60" class="rh-hide">10000000</td>
+		<td data-rhtags="60" class="rh-hide">1</td>
+		<td data-rhtags="60" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="61" class="rh-hide">acA780-75gc</td>
+		<td data-rhtags="61" class="rh-hide">20</td>
+		<td data-rhtags="61" class="rh-hide">10000000</td>
+		<td data-rhtags="61" class="rh-hide">1</td>
+		<td data-rhtags="61" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="62" class="rh-hide">acA800-200gm</td>
+		<td data-rhtags="62" class="rh-hide">80</td>
+		<td data-rhtags="62" class="rh-hide">10000000</td>
+		<td data-rhtags="62" class="rh-hide">1</td>
+		<td data-rhtags="62" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="63" class="rh-hide">acA800-200gc</td>
+		<td data-rhtags="63" class="rh-hide">80</td>
+		<td data-rhtags="63" class="rh-hide">10000000</td>
+		<td data-rhtags="63" class="rh-hide">1</td>
+		<td data-rhtags="63" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="64" class="rh-hide">acA1280-60gm</td>
+		<td data-rhtags="64" class="rh-hide">15</td>
+		<td data-rhtags="64" class="rh-hide">896000</td>
+		<td data-rhtags="64" class="rh-hide">1</td>
+		<td data-rhtags="64" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="65" class="rh-hide">acA1280-60gc</td>
+		<td data-rhtags="65" class="rh-hide">15</td>
+		<td data-rhtags="65" class="rh-hide">896000</td>
+		<td data-rhtags="65" class="rh-hide">1</td>
+		<td data-rhtags="65" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="66" class="rh-hide">acA1300-22gm</td>
+		<td data-rhtags="66" class="rh-hide">16</td>
+		<td data-rhtags="66" class="rh-hide">10000000</td>
+		<td data-rhtags="66" class="rh-hide">1</td>
+		<td data-rhtags="66" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="67" class="rh-hide">acA1300-22gc</td>
+		<td data-rhtags="67" class="rh-hide">16</td>
+		<td data-rhtags="67" class="rh-hide">10000000</td>
+		<td data-rhtags="67" class="rh-hide">1</td>
+		<td data-rhtags="67" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="68" class="rh-hide">acA1300-30gm</td>
+		<td data-rhtags="68" class="rh-hide">16</td>
+		<td data-rhtags="68" class="rh-hide">10000000</td>
+		<td data-rhtags="68" class="rh-hide">1</td>
+		<td data-rhtags="68" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="69" class="rh-hide">acA1300-30gc</td>
+		<td data-rhtags="69" class="rh-hide">16</td>
+		<td data-rhtags="69" class="rh-hide">10000000</td>
+		<td data-rhtags="69" class="rh-hide">1</td>
+		<td data-rhtags="69" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="70" class="rh-hide">acA1300-60gm</td>
+		<td data-rhtags="70" class="rh-hide">10 / 15<sup>a</sup></td>
+		<td data-rhtags="70" class="rh-hide">916000 / 896000<sup>a</sup></td>
+		<td data-rhtags="70" class="rh-hide">1</td>
+		<td data-rhtags="70" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="72" class="rh-hide">acA1300-60gc</td>
+		<td data-rhtags="72" class="rh-hide">10 / 15<sup>a</sup></td>
+		<td data-rhtags="72" class="rh-hide">916000 / 896000<sup>a</sup></td>
+		<td data-rhtags="72" class="rh-hide">1</td>
+		<td data-rhtags="72" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="71" class="rh-hide">acA1300-60gmNIR</td>
+		<td data-rhtags="71" class="rh-hide">10 / 15<sup>a</sup></td>
+		<td data-rhtags="71" class="rh-hide">916000 / 896000<sup>a</sup></td>
+		<td data-rhtags="71" class="rh-hide">1</td>
+		<td data-rhtags="71" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="73" class="rh-hide">acA1300-75gm</td>
+		<td data-rhtags="73" class="rh-hide">80</td>
+		<td data-rhtags="73" class="rh-hide">1000000</td>
+		<td data-rhtags="73" class="rh-hide">1</td>
+		<td data-rhtags="73" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="74" class="rh-hide">acA1300-75gc</td>
+		<td data-rhtags="74" class="rh-hide">80</td>
+		<td data-rhtags="74" class="rh-hide">1000000</td>
+		<td data-rhtags="74" class="rh-hide">1</td>
+		<td data-rhtags="74" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="75" class="rh-hide">acA1440-73gm</td>
+		<td data-rhtags="75" class="rh-hide"><ul>
+			<li>Standard exposure time mode: 22 / 23<sup>b</sup></li>
+			<li>Ultra Short exposure time mode: 1</li>
+		</ul></td>
+		<td data-rhtags="75" class="rh-hide"><ul>
+			<li>Standard exposure time mode: 10000000</li>
+			<li>Ultra Short exposure time mode: 13</li>
+		</ul></td>
+		<td data-rhtags="75" class="rh-hide">1</td>
+		<td data-rhtags="75" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="76" class="rh-hide">acA1440-73gc</td>
+		<td data-rhtags="76" class="rh-hide"><ul>
+			<li>Standard exposure time mode: 22 / 23<sup>b</sup></li>
+			<li>Ultra Short exposure time mode: 1</li>
+		</ul></td>
+		<td data-rhtags="76" class="rh-hide"><ul>
+			<li>Standard exposure time mode: 10000000</li>
+			<li>Ultra Short exposure time mode: 13</li>
+		</ul></td>
+		<td data-rhtags="76" class="rh-hide">1</td>
+		<td data-rhtags="76" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="77" class="rh-hide">acA1600-20gm</td>
+		<td data-rhtags="77" class="rh-hide">25</td>
+		<td data-rhtags="77" class="rh-hide">1000000</td>
+		<td data-rhtags="77" class="rh-hide">1</td>
+		<td data-rhtags="77" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="78" class="rh-hide">acA1600-20gc</td>
+		<td data-rhtags="78" class="rh-hide">25</td>
+		<td data-rhtags="78" class="rh-hide">1000000</td>
+		<td data-rhtags="78" class="rh-hide">1</td>
+		<td data-rhtags="78" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="79" class="rh-hide">acA1600-60gm</td>
+		<td data-rhtags="79" class="rh-hide">10 / 35<sup>a</sup></td>
+		<td data-rhtags="79" class="rh-hide">840000</td>
+		<td data-rhtags="79" class="rh-hide">1</td>
+		<td data-rhtags="79" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="80" class="rh-hide">acA1600-60gc</td>
+		<td data-rhtags="80" class="rh-hide">10 / 35<sup>a</sup></td>
+		<td data-rhtags="80" class="rh-hide">840000</td>
+		<td data-rhtags="80" class="rh-hide">1</td>
+		<td data-rhtags="80" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="81" class="rh-hide">acA1920-25gm</td>
+		<td data-rhtags="81" class="rh-hide">35</td>
+		<td data-rhtags="81" class="rh-hide">9999990</td>
+		<td data-rhtags="81" class="rh-hide">35</td>
+		<td data-rhtags="81" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="82" class="rh-hide">acA1920-25gc</td>
+		<td data-rhtags="82" class="rh-hide">35</td>
+		<td data-rhtags="82" class="rh-hide">9999990</td>
+		<td data-rhtags="82" class="rh-hide">35</td>
+		<td data-rhtags="82" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="83" class="rh-hide">acA1920-40gm</td>
+		<td data-rhtags="83" class="rh-hide">34 / 40<sup>b</sup></td>
+		<td data-rhtags="83" class="rh-hide">10000000</td>
+		<td data-rhtags="83" class="rh-hide">1</td>
+		<td data-rhtags="83" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="84" class="rh-hide">acA1920-40gc</td>
+		<td data-rhtags="84" class="rh-hide">34 / 40<sup>b</sup></td>
+		<td data-rhtags="84" class="rh-hide">10000000</td>
+		<td data-rhtags="84" class="rh-hide">1</td>
+		<td data-rhtags="84" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="85" class="rh-hide">acA1920-48gm</td>
+		<td data-rhtags="85" class="rh-hide">137</td>
+		<td data-rhtags="85" class="rh-hide">1000000</td>
+		<td data-rhtags="85" class="rh-hide">1</td>
+		<td data-rhtags="85" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="86" class="rh-hide">acA1920-48gc</td>
+		<td data-rhtags="86" class="rh-hide">137</td>
+		<td data-rhtags="86" class="rh-hide">1000000</td>
+		<td data-rhtags="86" class="rh-hide">1</td>
+		<td data-rhtags="86" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="87" class="rh-hide">acA1920-50gm</td>
+		<td data-rhtags="87" class="rh-hide">24 / 27<sup>b</sup></td>
+		<td data-rhtags="87" class="rh-hide">10000000</td>
+		<td data-rhtags="87" class="rh-hide">1</td>
+		<td data-rhtags="87" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="88" class="rh-hide">acA1920-50gc</td>
+		<td data-rhtags="88" class="rh-hide">24 / 27<sup>b</sup></td>
+		<td data-rhtags="88" class="rh-hide">10000000</td>
+		<td data-rhtags="88" class="rh-hide">1</td>
+		<td data-rhtags="88" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="89" class="rh-hide">acA2000-50gm</td>
+		<td data-rhtags="89" class="rh-hide">24</td>
+		<td data-rhtags="89" class="rh-hide">10000000</td>
+		<td data-rhtags="89" class="rh-hide">1</td>
+		<td data-rhtags="89" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="91" class="rh-hide">acA2000-50gc</td>
+		<td data-rhtags="91" class="rh-hide">24</td>
+		<td data-rhtags="91" class="rh-hide">10000000</td>
+		<td data-rhtags="91" class="rh-hide">1</td>
+		<td data-rhtags="91" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="90" class="rh-hide">acA2000-50gmNIR</td>
+		<td data-rhtags="90" class="rh-hide">24</td>
+		<td data-rhtags="90" class="rh-hide">10000000</td>
+		<td data-rhtags="90" class="rh-hide">1</td>
+		<td data-rhtags="90" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="92" class="rh-hide">acA2040-25gm</td>
+		<td data-rhtags="92" class="rh-hide">24</td>
+		<td data-rhtags="92" class="rh-hide">10000000</td>
+		<td data-rhtags="92" class="rh-hide">1</td>
+		<td data-rhtags="92" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="94" class="rh-hide">acA2040-25gc</td>
+		<td data-rhtags="94" class="rh-hide">24</td>
+		<td data-rhtags="94" class="rh-hide">10000000</td>
+		<td data-rhtags="94" class="rh-hide">1</td>
+		<td data-rhtags="94" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="93" class="rh-hide">acA2040-25gmNIR</td>
+		<td data-rhtags="93" class="rh-hide">24</td>
+		<td data-rhtags="93" class="rh-hide">10000000</td>
+		<td data-rhtags="93" class="rh-hide">1</td>
+		<td data-rhtags="93" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="95" class="rh-hide">acA2040-35gm</td>
+		<td data-rhtags="95" class="rh-hide">26</td>
+		<td data-rhtags="95" class="rh-hide">10000000</td>
+		<td data-rhtags="95" class="rh-hide">1</td>
+		<td data-rhtags="95" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="96" class="rh-hide">acA2040-35gc</td>
+		<td data-rhtags="96" class="rh-hide">26</td>
+		<td data-rhtags="96" class="rh-hide">10000000</td>
+		<td data-rhtags="96" class="rh-hide">1</td>
+		<td data-rhtags="96" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="97" class="rh-hide">acA2440-20gm</td>
+		<td data-rhtags="97" class="rh-hide">28</td>
+		<td data-rhtags="97" class="rh-hide">10000000</td>
+		<td data-rhtags="97" class="rh-hide">1</td>
+		<td data-rhtags="97" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="98" class="rh-hide">acA2440-20gc</td>
+		<td data-rhtags="98" class="rh-hide">28</td>
+		<td data-rhtags="98" class="rh-hide">10000000</td>
+		<td data-rhtags="98" class="rh-hide">1</td>
+		<td data-rhtags="98" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="99" class="rh-hide">acA2500-14gm</td>
+		<td data-rhtags="99" class="rh-hide">35</td>
+		<td data-rhtags="99" class="rh-hide">9999990</td>
+		<td data-rhtags="99" class="rh-hide">35</td>
+		<td data-rhtags="99" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="100" class="rh-hide">acA2500-14gc</td>
+		<td data-rhtags="100" class="rh-hide">35</td>
+		<td data-rhtags="100" class="rh-hide">9999990</td>
+		<td data-rhtags="100" class="rh-hide">35</td>
+		<td data-rhtags="100" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="101" class="rh-hide">acA2500-20gm</td>
+		<td data-rhtags="101" class="rh-hide">137</td>
+		<td data-rhtags="101" class="rh-hide">1000000</td>
+		<td data-rhtags="101" class="rh-hide">1</td>
+		<td data-rhtags="101" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="102" class="rh-hide">acA2500-20gc</td>
+		<td data-rhtags="102" class="rh-hide">137</td>
+		<td data-rhtags="102" class="rh-hide">1000000</td>
+		<td data-rhtags="102" class="rh-hide">1</td>
+		<td data-rhtags="102" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="103" class="rh-hide">acA2500-20gmMED</td>
+		<td data-rhtags="103" class="rh-hide">137</td>
+		<td data-rhtags="103" class="rh-hide">1000000</td>
+		<td data-rhtags="103" class="rh-hide">1</td>
+		<td data-rhtags="103" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="104" class="rh-hide">acA2500-20gcMED</td>
+		<td data-rhtags="104" class="rh-hide">137</td>
+		<td data-rhtags="104" class="rh-hide">1000000</td>
+		<td data-rhtags="104" class="rh-hide">1</td>
+		<td data-rhtags="104" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="105" class="rh-hide">acA3088-16gm</td>
+		<td data-rhtags="105" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm">shutter mode</a>: 
+			 25</li>
+			<li>Global Reset Release shutter mode: 625</li>
+		</ul></td>
+		<td data-rhtags="105" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm">shutter mode</a>: 
+			 10000000</li>
+			<li>Global Reset Release shutter mode: 1000000</li>
+		</ul></td>
+		<td data-rhtags="105" class="rh-hide">25</td>
+		<td data-rhtags="105" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="106" class="rh-hide">acA3088-16gc</td>
+		<td data-rhtags="106" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm">shutter mode</a>: 
+			 25</li>
+			<li>Global Reset Release shutter mode: 625</li>
+		</ul></td>
+		<td data-rhtags="106" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm">shutter mode</a>: 
+			 10000000</li>
+			<li>Global Reset Release shutter mode: 1000000</li>
+		</ul></td>
+		<td data-rhtags="106" class="rh-hide">25</td>
+		<td data-rhtags="106" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="107" class="rh-hide">acA3800-10gm</td>
+		<td data-rhtags="107" class="rh-hide">35</td>
+		<td data-rhtags="107" class="rh-hide">1600000</td>
+		<td data-rhtags="107" class="rh-hide">35</td>
+		<td data-rhtags="107" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="108" class="rh-hide">acA3800-10gc</td>
+		<td data-rhtags="108" class="rh-hide">35</td>
+		<td data-rhtags="108" class="rh-hide">1600000</td>
+		<td data-rhtags="108" class="rh-hide">35</td>
+		<td data-rhtags="108" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="109" class="rh-hide">acA4024-8gm</td>
+		<td data-rhtags="109" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm">shutter mode</a>: 
+			 35 </li>
+			<li>Global Reset Release shutter mode: 1260</li>
+		</ul></td>
+		<td data-rhtags="109" class="rh-hide">10000000</td>
+		<td data-rhtags="109" class="rh-hide">35</td>
+		<td data-rhtags="109" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="110" class="rh-hide">acA4024-8gc</td>
+		<td data-rhtags="110" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm">shutter mode</a>: 
+			 35 </li>
+			<li>Global Reset Release shutter mode: 1260</li>
+		</ul></td>
+		<td data-rhtags="110" class="rh-hide">10000000</td>
+		<td data-rhtags="110" class="rh-hide">35</td>
+		<td data-rhtags="110" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="111" class="rh-hide">acA4096-11gm</td>
+		<td data-rhtags="111" class="rh-hide">38</td>
+		<td data-rhtags="111" class="rh-hide">10000000</td>
+		<td data-rhtags="111" class="rh-hide">1</td>
+		<td data-rhtags="111" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="198" class="rh-hide">acA4096-11gc</td>
+		<td data-rhtags="198" class="rh-hide">38</td>
+		<td data-rhtags="198" class="rh-hide">10000000</td>
+		<td data-rhtags="198" class="rh-hide">1</td>
+		<td data-rhtags="198" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="113" class="rh-hide">acA4112-8gm</td>
+		<td data-rhtags="113" class="rh-hide">38</td>
+		<td data-rhtags="113" class="rh-hide">10000000</td>
+		<td data-rhtags="113" class="rh-hide">1</td>
+		<td data-rhtags="113" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="114" class="rh-hide">acA4112-8gc</td>
+		<td data-rhtags="114" class="rh-hide">38</td>
+		<td data-rhtags="114" class="rh-hide">10000000</td>
+		<td data-rhtags="114" class="rh-hide">1</td>
+		<td data-rhtags="114" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="115" class="rh-hide">acA4600-7gc</td>
+		<td data-rhtags="115" class="rh-hide">35</td>
+		<td data-rhtags="115" class="rh-hide">1460000</td>
+		<td data-rhtags="115" class="rh-hide">35</td>
+		<td data-rhtags="115" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="116" class="rh-hide">acA5472-5gm</td>
+		<td data-rhtags="116" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm" data-rhtags="116" class="rh-hide">shutter 
+			 mode</a>: 49 / 55<sup>b</sup></li>
+			<li>Global Reset Release shutter mode: 1764 / 1980<sup>b</sup></li>
+		</ul></td>
+		<td data-rhtags="116" class="rh-hide">10000018</td>
+		<td data-rhtags="116" class="rh-hide">49</td>
+		<td data-rhtags="116" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="117" class="rh-hide">acA5472-5gc</td>
+		<td data-rhtags="117" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm" data-rhtags="117" class="rh-hide">shutter 
+			 mode</a>: 49 / 55<sup>b</sup></li>
+			<li>Global Reset Release shutter mode: 1764 / 1980<sup>b</sup></li>
+		</ul></td>
+		<td data-rhtags="117" class="rh-hide">10000018</td>
+		<td data-rhtags="117" class="rh-hide">49</td>
+		<td data-rhtags="117" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="118" class="rh-hide">acA640-750um</td>
+		<td data-rhtags="118" class="rh-hide">59</td>
+		<td data-rhtags="118" class="rh-hide">1000000</td>
+		<td data-rhtags="118" class="rh-hide">1</td>
+		<td data-rhtags="118" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="119" class="rh-hide">acA640-750uc</td>
+		<td data-rhtags="119" class="rh-hide">59</td>
+		<td data-rhtags="119" class="rh-hide">1000000</td>
+		<td data-rhtags="119" class="rh-hide">1</td>
+		<td data-rhtags="119" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="120" class="rh-hide">acA640-90um </td>
+		<td data-rhtags="120" class="rh-hide">17</td>
+		<td data-rhtags="120" class="rh-hide">10000000</td>
+		<td data-rhtags="120" class="rh-hide">1</td>
+		<td data-rhtags="120" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="121" class="rh-hide">acA640-90uc</td>
+		<td data-rhtags="121" class="rh-hide">17</td>
+		<td data-rhtags="121" class="rh-hide">10000000</td>
+		<td data-rhtags="121" class="rh-hide">1</td>
+		<td data-rhtags="121" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="122" class="rh-hide">acA640-120um</td>
+		<td data-rhtags="122" class="rh-hide">4</td>
+		<td data-rhtags="122" class="rh-hide">10000000</td>
+		<td data-rhtags="122" class="rh-hide">1</td>
+		<td data-rhtags="122" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="123" class="rh-hide">acA640-120uc</td>
+		<td data-rhtags="123" class="rh-hide">4</td>
+		<td data-rhtags="123" class="rh-hide">10000000</td>
+		<td data-rhtags="123" class="rh-hide">1</td>
+		<td data-rhtags="123" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="124" class="rh-hide">acA720-520um</td>
+		<td data-rhtags="124" class="rh-hide"><ul>
+			<li>Standard exposure time mode: 30 / 24<sup>b</sup></li>
+			<li>Ultra Short exposure time mode: 1</li>
+		</ul></td>
+		<td data-rhtags="124" class="rh-hide"><ul>
+			<li>Standard exposure time mode: 10000000</li>
+			<li>Ultra Short exposure time mode: 13</li>
+		</ul></td>
+		<td data-rhtags="124" class="rh-hide">1</td>
+		<td data-rhtags="124" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="125" class="rh-hide">acA720-520uc</td>
+		<td data-rhtags="125" class="rh-hide"><ul>
+			<li>Standard exposure time mode: 30 / 24<sup>b</sup></li>
+			<li>Ultra Short exposure time mode: 1</li>
+		</ul></td>
+		<td data-rhtags="125" class="rh-hide"><ul>
+			<li>Standard exposure time mode: 10000000</li>
+			<li>Ultra Short exposure time mode: 13</li>
+		</ul></td>
+		<td data-rhtags="125" class="rh-hide">1</td>
+		<td data-rhtags="125" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="126" class="rh-hide">acA800-510um</td>
+		<td data-rhtags="126" class="rh-hide">59</td>
+		<td data-rhtags="126" class="rh-hide">1000000</td>
+		<td data-rhtags="126" class="rh-hide">1</td>
+		<td data-rhtags="126" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="127" class="rh-hide">acA800-510uc</td>
+		<td data-rhtags="127" class="rh-hide">59</td>
+		<td data-rhtags="127" class="rh-hide">1000000</td>
+		<td data-rhtags="127" class="rh-hide">1</td>
+		<td data-rhtags="127" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="128" class="rh-hide">acA1300-200um</td>
+		<td data-rhtags="128" class="rh-hide">59</td>
+		<td data-rhtags="128" class="rh-hide">1000000</td>
+		<td data-rhtags="128" class="rh-hide">1</td>
+		<td data-rhtags="128" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="129" class="rh-hide">acA1300-200uc</td>
+		<td data-rhtags="129" class="rh-hide">59</td>
+		<td data-rhtags="129" class="rh-hide">1000000</td>
+		<td data-rhtags="129" class="rh-hide">1</td>
+		<td data-rhtags="129" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="130" class="rh-hide">acA1300-30um </td>
+		<td data-rhtags="130" class="rh-hide">16</td>
+		<td data-rhtags="130" class="rh-hide">10000000</td>
+		<td data-rhtags="130" class="rh-hide">1</td>
+		<td data-rhtags="130" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="131" class="rh-hide">acA1300-30uc</td>
+		<td data-rhtags="131" class="rh-hide">16</td>
+		<td data-rhtags="131" class="rh-hide">10000000</td>
+		<td data-rhtags="131" class="rh-hide">1</td>
+		<td data-rhtags="131" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="132" class="rh-hide">acA1440-220um</td>
+		<td data-rhtags="132" class="rh-hide"><ul>
+			<li>Standard exposure time mode: 21 / 20<sup>b</sup></li>
+			<li>Ultra Short exposure time mode: 1</li>
+		</ul></td>
+		<td data-rhtags="132" class="rh-hide"><ul>
+			<li>Standard exposure time mode: 10000000</li>
+			<li>Ultra Short exposure time mode: 13</li>
+		</ul></td>
+		<td data-rhtags="132" class="rh-hide">1</td>
+		<td data-rhtags="132" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="133" class="rh-hide">acA1440-220uc</td>
+		<td data-rhtags="133" class="rh-hide"><ul>
+			<li>Standard exposure time mode: 21 / 20<sup>b</sup></li>
+			<li>Ultra Short exposure time mode: 1</li>
+		</ul></td>
+		<td data-rhtags="133" class="rh-hide"><ul>
+			<li>Standard exposure time mode: 10000000</li>
+			<li>Ultra Short exposure time mode: 13</li>
+		</ul></td>
+		<td data-rhtags="133" class="rh-hide">1</td>
+		<td data-rhtags="133" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="134" class="rh-hide">acA1600-20um</td>
+		<td data-rhtags="134" class="rh-hide">25</td>
+		<td data-rhtags="134" class="rh-hide">10000000</td>
+		<td data-rhtags="134" class="rh-hide">1</td>
+		<td data-rhtags="134" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="135" class="rh-hide">acA1600-20uc</td>
+		<td data-rhtags="135" class="rh-hide">25</td>
+		<td data-rhtags="135" class="rh-hide">10000000</td>
+		<td data-rhtags="135" class="rh-hide">1</td>
+		<td data-rhtags="135" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="136" class="rh-hide">acA1920-25um</td>
+		<td data-rhtags="136" class="rh-hide">35</td>
+		<td data-rhtags="136" class="rh-hide">9999990</td>
+		<td data-rhtags="136" class="rh-hide">35</td>
+		<td data-rhtags="136" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="137" class="rh-hide">acA1920-25uc</td>
+		<td data-rhtags="137" class="rh-hide">35</td>
+		<td data-rhtags="137" class="rh-hide">9999990</td>
+		<td data-rhtags="137" class="rh-hide">35</td>
+		<td data-rhtags="137" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="138" class="rh-hide">acA1920-40um</td>
+		<td data-rhtags="138" class="rh-hide">34 / 40<sup>b</sup></td>
+		<td data-rhtags="138" class="rh-hide">10000000</td>
+		<td data-rhtags="138" class="rh-hide">1</td>
+		<td data-rhtags="138" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="139" class="rh-hide">acA1920-40uc</td>
+		<td data-rhtags="139" class="rh-hide">34 / 40<sup>b</sup></td>
+		<td data-rhtags="139" class="rh-hide">10000000</td>
+		<td data-rhtags="139" class="rh-hide">1</td>
+		<td data-rhtags="139" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="140" class="rh-hide">acA1920-40umMED</td>
+		<td data-rhtags="140" class="rh-hide">34 / 40<sup>b</sup></td>
+		<td data-rhtags="140" class="rh-hide">10000000</td>
+		<td data-rhtags="140" class="rh-hide">1</td>
+		<td data-rhtags="140" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="141" class="rh-hide">acA1920-40ucMED</td>
+		<td data-rhtags="141" class="rh-hide">34 / 40<sup>b</sup></td>
+		<td data-rhtags="141" class="rh-hide">10000000</td>
+		<td data-rhtags="141" class="rh-hide">1</td>
+		<td data-rhtags="141" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="142" class="rh-hide">acA1920-150um</td>
+		<td data-rhtags="142" class="rh-hide">105</td>
+		<td data-rhtags="142" class="rh-hide">1000000</td>
+		<td data-rhtags="142" class="rh-hide">1</td>
+		<td data-rhtags="142" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="143" class="rh-hide">acA1920-150uc</td>
+		<td data-rhtags="143" class="rh-hide">105</td>
+		<td data-rhtags="143" class="rh-hide">1000000</td>
+		<td data-rhtags="143" class="rh-hide">1</td>
+		<td data-rhtags="143" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="144" class="rh-hide">acA1920-155um</td>
+		<td data-rhtags="144" class="rh-hide">20 / 21<sup>b</sup></td>
+		<td data-rhtags="144" class="rh-hide">10000000</td>
+		<td data-rhtags="144" class="rh-hide">1</td>
+		<td data-rhtags="144" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="145" class="rh-hide">acA1920-155uc</td>
+		<td data-rhtags="145" class="rh-hide">20 / 21<sup>b</sup></td>
+		<td data-rhtags="145" class="rh-hide">10000000</td>
+		<td data-rhtags="145" class="rh-hide">1</td>
+		<td data-rhtags="145" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="146" class="rh-hide">acA1920-155umMED</td>
+		<td data-rhtags="146" class="rh-hide">20 / 21<sup>b</sup></td>
+		<td data-rhtags="146" class="rh-hide">10000000</td>
+		<td data-rhtags="146" class="rh-hide">1</td>
+		<td data-rhtags="146" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="147" class="rh-hide">acA1920-155ucMED</td>
+		<td data-rhtags="147" class="rh-hide">20 / 21<sup>b</sup></td>
+		<td data-rhtags="147" class="rh-hide">10000000</td>
+		<td data-rhtags="147" class="rh-hide">1</td>
+		<td data-rhtags="147" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="148" class="rh-hide">acA2040-90um</td>
+		<td data-rhtags="148" class="rh-hide">28<sup>c</sup></td>
+		<td data-rhtags="148" class="rh-hide">10000000</td>
+		<td data-rhtags="148" class="rh-hide">1</td>
+		<td data-rhtags="148" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="150" class="rh-hide">acA2040-90uc</td>
+		<td data-rhtags="150" class="rh-hide">28<sup>c</sup></td>
+		<td data-rhtags="150" class="rh-hide">10000000</td>
+		<td data-rhtags="150" class="rh-hide">1</td>
+		<td data-rhtags="150" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="149" class="rh-hide">acA2040-90umNIR</td>
+		<td data-rhtags="149" class="rh-hide">28<sup>c</sup></td>
+		<td data-rhtags="149" class="rh-hide">10000000</td>
+		<td data-rhtags="149" class="rh-hide">1</td>
+		<td data-rhtags="149" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="151" class="rh-hide">acA2000-165um</td>
+		<td data-rhtags="151" class="rh-hide">28<sup>c</sup></td>
+		<td data-rhtags="151" class="rh-hide">10000000</td>
+		<td data-rhtags="151" class="rh-hide">1</td>
+		<td data-rhtags="151" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="153" class="rh-hide">acA2000-165uc</td>
+		<td data-rhtags="153" class="rh-hide">28<sup>c</sup></td>
+		<td data-rhtags="153" class="rh-hide">10000000</td>
+		<td data-rhtags="153" class="rh-hide">1</td>
+		<td data-rhtags="153" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="152" class="rh-hide">acA2000-165umNIR</td>
+		<td data-rhtags="152" class="rh-hide">28<sup>c</sup></td>
+		<td data-rhtags="152" class="rh-hide">10000000</td>
+		<td data-rhtags="152" class="rh-hide">1</td>
+		<td data-rhtags="152" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="154" class="rh-hide">acA2040-55um</td>
+		<td data-rhtags="154" class="rh-hide">27</td>
+		<td data-rhtags="154" class="rh-hide">10000000</td>
+		<td data-rhtags="154" class="rh-hide">1</td>
+		<td data-rhtags="154" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="155" class="rh-hide">acA2040-55uc</td>
+		<td data-rhtags="155" class="rh-hide">27</td>
+		<td data-rhtags="155" class="rh-hide">10000000</td>
+		<td data-rhtags="155" class="rh-hide">1</td>
+		<td data-rhtags="155" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="156" class="rh-hide">acA2040-120um</td>
+		<td data-rhtags="156" class="rh-hide">20 / 21<sup>b</sup></td>
+		<td data-rhtags="156" class="rh-hide">10000000</td>
+		<td data-rhtags="156" class="rh-hide">1</td>
+		<td data-rhtags="156" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="157" class="rh-hide">acA2040-120uc</td>
+		<td data-rhtags="157" class="rh-hide">20 / 21<sup>b</sup></td>
+		<td data-rhtags="157" class="rh-hide">10000000</td>
+		<td data-rhtags="157" class="rh-hide">1</td>
+		<td data-rhtags="157" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="158" class="rh-hide">acA2440-35um</td>
+		<td data-rhtags="158" class="rh-hide">29</td>
+		<td data-rhtags="158" class="rh-hide">10000000</td>
+		<td data-rhtags="158" class="rh-hide">1</td>
+		<td data-rhtags="158" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="159" class="rh-hide">acA2440-35uc</td>
+		<td data-rhtags="159" class="rh-hide">29</td>
+		<td data-rhtags="159" class="rh-hide">10000000</td>
+		<td data-rhtags="159" class="rh-hide">1</td>
+		<td data-rhtags="159" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="160" class="rh-hide">acA2440-35umMED</td>
+		<td data-rhtags="160" class="rh-hide">29</td>
+		<td data-rhtags="160" class="rh-hide">10000000</td>
+		<td data-rhtags="160" class="rh-hide">1</td>
+		<td data-rhtags="160" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="161" class="rh-hide">acA2440-35ucMED</td>
+		<td data-rhtags="161" class="rh-hide">29</td>
+		<td data-rhtags="161" class="rh-hide">10000000</td>
+		<td data-rhtags="161" class="rh-hide">1</td>
+		<td data-rhtags="161" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="162" class="rh-hide">acA2440-75um</td>
+		<td data-rhtags="162" class="rh-hide">21 / 22<sup>b</sup></td>
+		<td data-rhtags="162" class="rh-hide">10000000</td>
+		<td data-rhtags="162" class="rh-hide">1</td>
+		<td data-rhtags="162" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="163" class="rh-hide">acA2440-75uc</td>
+		<td data-rhtags="163" class="rh-hide">21 / 22<sup>b</sup></td>
+		<td data-rhtags="163" class="rh-hide">10000000</td>
+		<td data-rhtags="163" class="rh-hide">1</td>
+		<td data-rhtags="163" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="164" class="rh-hide">acA2440-75umMED</td>
+		<td data-rhtags="164" class="rh-hide">21 / 22<sup>b</sup></td>
+		<td data-rhtags="164" class="rh-hide">10000000</td>
+		<td data-rhtags="164" class="rh-hide">1</td>
+		<td data-rhtags="164" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="165" class="rh-hide">acA2440-75ucMED</td>
+		<td data-rhtags="165" class="rh-hide">21 / 22<sup>b</sup></td>
+		<td data-rhtags="165" class="rh-hide">10000000</td>
+		<td data-rhtags="165" class="rh-hide">1</td>
+		<td data-rhtags="165" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="166" class="rh-hide">acA2500-14um</td>
+		<td data-rhtags="166" class="rh-hide">35</td>
+		<td data-rhtags="166" class="rh-hide">9999990</td>
+		<td data-rhtags="166" class="rh-hide">35</td>
+		<td data-rhtags="166" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="167" class="rh-hide">acA2500-14uc</td>
+		<td data-rhtags="167" class="rh-hide">35</td>
+		<td data-rhtags="167" class="rh-hide">9999990</td>
+		<td data-rhtags="167" class="rh-hide">35</td>
+		<td data-rhtags="167" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="168" class="rh-hide">acA2500-60um</td>
+		<td data-rhtags="168" class="rh-hide">81</td>
+		<td data-rhtags="168" class="rh-hide">1000000</td>
+		<td data-rhtags="168" class="rh-hide">1</td>
+		<td data-rhtags="168" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="169" class="rh-hide">acA2500-60uc</td>
+		<td data-rhtags="169" class="rh-hide">81</td>
+		<td data-rhtags="169" class="rh-hide">1000000</td>
+		<td data-rhtags="169" class="rh-hide">1</td>
+		<td data-rhtags="169" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="170" class="rh-hide">acA3088-57um</td>
+		<td data-rhtags="170" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm" data-rhtags="170" class="rh-hide">shutter 
+			 mode</a>: 8</li>
+			<li>Global Reset Release shutter mode: 200</li>
+		</ul></td>
+		<td data-rhtags="170" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm" data-rhtags="170" class="rh-hide">shutter 
+			 mode</a>: 10000000 </li>
+			<li>Global Reset Release shutter mode: 1000000</li>
+		</ul></td>
+		<td data-rhtags="170" class="rh-hide">8</td>
+		<td data-rhtags="170" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="171" class="rh-hide">acA3088-57uc</td>
+		<td data-rhtags="171" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm" data-rhtags="171" class="rh-hide">shutter 
+			 mode</a>: 8</li>
+			<li>Global Reset Release shutter mode: 200</li>
+		</ul></td>
+		<td data-rhtags="171" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm" data-rhtags="171" class="rh-hide">shutter 
+			 mode</a>: 10000000 </li>
+			<li>Global Reset Release shutter mode: 1000000</li>
+		</ul></td>
+		<td data-rhtags="171" class="rh-hide">8</td>
+		<td data-rhtags="171" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="172" class="rh-hide">acA3800-14um</td>
+		<td data-rhtags="172" class="rh-hide">35</td>
+		<td data-rhtags="172" class="rh-hide">1600000</td>
+		<td data-rhtags="172" class="rh-hide">35</td>
+		<td data-rhtags="172" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="173" class="rh-hide">acA3800-14uc</td>
+		<td data-rhtags="173" class="rh-hide">35</td>
+		<td data-rhtags="173" class="rh-hide">1600000</td>
+		<td data-rhtags="173" class="rh-hide">35</td>
+		<td data-rhtags="173" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="174" class="rh-hide">acA4024-29um</td>
+		<td data-rhtags="174" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm" data-rhtags="174" class="rh-hide">shutter 
+			 mode</a>: 10 / 12<sup>b</sup> </li>
+			<li>Global Reset Release shutter mode: 360 / 432<sup>b</sup> 
+			 </li>
+		</ul></td>
+		<td data-rhtags="174" class="rh-hide">10000000</td>
+		<td data-rhtags="174" class="rh-hide">10 / 12<sup>b</sup></td>
+		<td data-rhtags="174" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="175" class="rh-hide">acA4024-29uc</td>
+		<td data-rhtags="175" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm" data-rhtags="175" class="rh-hide">shutter 
+			 mode</a>: 10 / 12<sup>b</sup> </li>
+			<li>Global Reset Release shutter mode: 360 / 432<sup>b</sup></li>
+		</ul></td>
+		<td data-rhtags="175" class="rh-hide">10000000</td>
+		<td data-rhtags="175" class="rh-hide">10 / 12<sup>b</sup></td>
+		<td data-rhtags="175" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="176" class="rh-hide">acA4096-30um</td>
+		<td data-rhtags="176" class="rh-hide">30</td>
+		<td data-rhtags="176" class="rh-hide">10000000</td>
+		<td data-rhtags="176" class="rh-hide">1</td>
+		<td data-rhtags="176" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="177" class="rh-hide">acA4096-30uc</td>
+		<td data-rhtags="177" class="rh-hide">30</td>
+		<td data-rhtags="177" class="rh-hide">10000000</td>
+		<td data-rhtags="177" class="rh-hide">1</td>
+		<td data-rhtags="177" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="178" class="rh-hide">acA4096-40um</td>
+		<td data-rhtags="178" class="rh-hide">26 / 27<sup>b</sup></td>
+		<td data-rhtags="178" class="rh-hide">10000000</td>
+		<td data-rhtags="178" class="rh-hide">1</td>
+		<td data-rhtags="178" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="179" class="rh-hide">acA4096-40uc</td>
+		<td data-rhtags="179" class="rh-hide">26 / 27<sup>b</sup></td>
+		<td data-rhtags="179" class="rh-hide">10000000</td>
+		<td data-rhtags="179" class="rh-hide">1</td>
+		<td data-rhtags="179" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="180" class="rh-hide">acA4112-20um</td>
+		<td data-rhtags="180" class="rh-hide">30</td>
+		<td data-rhtags="180" class="rh-hide">10000000</td>
+		<td data-rhtags="180" class="rh-hide">1</td>
+		<td data-rhtags="180" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="181" class="rh-hide">acA4112-20uc</td>
+		<td data-rhtags="181" class="rh-hide">30</td>
+		<td data-rhtags="181" class="rh-hide">10000000</td>
+		<td data-rhtags="181" class="rh-hide">1</td>
+		<td data-rhtags="181" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="182" class="rh-hide">acA4112-30um</td>
+		<td data-rhtags="182" class="rh-hide">26 / 27<sup>b</sup></td>
+		<td data-rhtags="182" class="rh-hide">10000000</td>
+		<td data-rhtags="182" class="rh-hide">1</td>
+		<td data-rhtags="182" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="183" class="rh-hide">acA4112-30uc</td>
+		<td data-rhtags="183" class="rh-hide">26 / 27<sup>b</sup></td>
+		<td data-rhtags="183" class="rh-hide">10000000</td>
+		<td data-rhtags="183" class="rh-hide">1</td>
+		<td data-rhtags="183" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="184" class="rh-hide">acA4600-10uc</td>
+		<td data-rhtags="184" class="rh-hide">35</td>
+		<td data-rhtags="184" class="rh-hide">1460000</td>
+		<td data-rhtags="184" class="rh-hide">35</td>
+		<td data-rhtags="184" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="185" class="rh-hide">acA5472-17um</td>
+		<td data-rhtags="185" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm" data-rhtags="185" class="rh-hide">shutter 
+			 mode</a>: 13 / 16<sup>b</sup> </li>
+			<li>Global Reset Release shutter mode: 468 / 576<sup>b</sup></li>
+		</ul></td>
+		<td data-rhtags="185" class="rh-hide">10000003 / 10000000<sup>b</sup></td>
+		<td data-rhtags="185" class="rh-hide">13 / 16<sup>b</sup></td>
+		<td data-rhtags="185" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="186" class="rh-hide">acA5472-17uc</td>
+		<td data-rhtags="186" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm" data-rhtags="186" class="rh-hide">shutter 
+			 mode</a>: 13 / 16<sup>b</sup> </li>
+			<li>Global Reset Release shutter mode: 468 / 576<sup>b</sup></li>
+		</ul></td>
+		<td data-rhtags="186" class="rh-hide">10000003 / 10000000<sup>b</sup></td>
+		<td data-rhtags="186" class="rh-hide">13 / 16<sup>b</sup></td>
+		<td data-rhtags="186" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="199" class="rh-hide">daA1280-54lm</td>
+		<td data-rhtags="199" class="rh-hide">10<sup>d</sup></td>
+		<td data-rhtags="199" class="rh-hide">1000000</td>
+		<td data-rhtags="199" class="rh-hide">1</td>
+		<td data-rhtags="199" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="200" class="rh-hide">daA1280-54lc</td>
+		<td data-rhtags="200" class="rh-hide">10<sup>d</sup></td>
+		<td data-rhtags="200" class="rh-hide">1000000</td>
+		<td data-rhtags="200" class="rh-hide">1</td>
+		<td data-rhtags="200" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="201" class="rh-hide">daA1600-60lm</td>
+		<td data-rhtags="201" class="rh-hide">10<sup>d</sup></td>
+		<td data-rhtags="201" class="rh-hide">850000</td>
+		<td data-rhtags="201" class="rh-hide">1</td>
+		<td data-rhtags="201" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="202" class="rh-hide">daA1600-60lc</td>
+		<td data-rhtags="202" class="rh-hide">10<sup>d</sup></td>
+		<td data-rhtags="202" class="rh-hide">850000</td>
+		<td data-rhtags="202" class="rh-hide">1</td>
+		<td data-rhtags="202" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="203" class="rh-hide">daA2500-14lm</td>
+		<td data-rhtags="203" class="rh-hide">10<sup>d</sup></td>
+		<td data-rhtags="203" class="rh-hide">1000000</td>
+		<td data-rhtags="203" class="rh-hide">1</td>
+		<td data-rhtags="203" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="204" class="rh-hide">daA2500-14lc</td>
+		<td data-rhtags="204" class="rh-hide">10<sup>d</sup></td>
+		<td data-rhtags="204" class="rh-hide">1000000</td>
+		<td data-rhtags="204" class="rh-hide">1</td>
+		<td data-rhtags="204" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="239" class="rh-hide">daA2500-60mc (SD820)</td>
+		<td data-rhtags="239" class="rh-hide">15</td>
+		<td data-rhtags="239" class="rh-hide">480000000</td>
+		<td data-rhtags="239" class="rh-hide">1</td>
+		<td data-rhtags="239" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="205" class="rh-hide">daA1280-54um</td>
+		<td data-rhtags="205" class="rh-hide">10<sup>d</sup></td>
+		<td data-rhtags="205" class="rh-hide">1000000</td>
+		<td data-rhtags="205" class="rh-hide">1</td>
+		<td data-rhtags="205" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="206" class="rh-hide">daA1280-54uc</td>
+		<td data-rhtags="206" class="rh-hide">10<sup>d</sup></td>
+		<td data-rhtags="206" class="rh-hide">1000000</td>
+		<td data-rhtags="206" class="rh-hide">1</td>
+		<td data-rhtags="206" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="207" class="rh-hide">daA1600-60um</td>
+		<td data-rhtags="207" class="rh-hide">10<sup>d</sup></td>
+		<td data-rhtags="207" class="rh-hide">850000</td>
+		<td data-rhtags="207" class="rh-hide">1</td>
+		<td data-rhtags="207" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="208" class="rh-hide">daA1600-60uc</td>
+		<td data-rhtags="208" class="rh-hide">10<sup>d</sup></td>
+		<td data-rhtags="208" class="rh-hide">850000</td>
+		<td data-rhtags="208" class="rh-hide">1</td>
+		<td data-rhtags="208" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="209" class="rh-hide">daA1920-15um</td>
+		<td data-rhtags="209" class="rh-hide">10<sup>d</sup></td>
+		<td data-rhtags="209" class="rh-hide">1000000</td>
+		<td data-rhtags="209" class="rh-hide">1</td>
+		<td data-rhtags="209" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="210" class="rh-hide">daA1920-30um</td>
+		<td data-rhtags="210" class="rh-hide">10<sup>d</sup></td>
+		<td data-rhtags="210" class="rh-hide">1000000</td>
+		<td data-rhtags="210" class="rh-hide">1</td>
+		<td data-rhtags="210" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="211" class="rh-hide">daA1920-30uc</td>
+		<td data-rhtags="211" class="rh-hide">10<sup>d</sup></td>
+		<td data-rhtags="211" class="rh-hide">1000000</td>
+		<td data-rhtags="211" class="rh-hide">1</td>
+		<td data-rhtags="211" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="212" class="rh-hide">daA2500-14um</td>
+		<td data-rhtags="212" class="rh-hide">10<sup>d</sup></td>
+		<td data-rhtags="212" class="rh-hide">1000000</td>
+		<td data-rhtags="212" class="rh-hide">1</td>
+		<td data-rhtags="212" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="213" class="rh-hide">daA2500-14uc</td>
+		<td data-rhtags="213" class="rh-hide">10<sup>d</sup></td>
+		<td data-rhtags="213" class="rh-hide">1000000</td>
+		<td data-rhtags="213" class="rh-hide">1</td>
+		<td data-rhtags="213" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="214" class="rh-hide">puA1280-54um</td>
+		<td data-rhtags="214" class="rh-hide">10<sup>d</sup></td>
+		<td data-rhtags="214" class="rh-hide">1000000</td>
+		<td data-rhtags="214" class="rh-hide">1</td>
+		<td data-rhtags="214" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="215" class="rh-hide">puA1280-54uc</td>
+		<td data-rhtags="215" class="rh-hide">10<sup>d</sup></td>
+		<td data-rhtags="215" class="rh-hide">1000000</td>
+		<td data-rhtags="215" class="rh-hide">1</td>
+		<td data-rhtags="215" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="216" class="rh-hide">puA1600-60um</td>
+		<td data-rhtags="216" class="rh-hide">10<sup>d</sup></td>
+		<td data-rhtags="216" class="rh-hide">850000</td>
+		<td data-rhtags="216" class="rh-hide">1</td>
+		<td data-rhtags="216" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="217" class="rh-hide">puA1600-60uc</td>
+		<td data-rhtags="217" class="rh-hide">10<sup>d</sup></td>
+		<td data-rhtags="217" class="rh-hide">850000</td>
+		<td data-rhtags="217" class="rh-hide">1</td>
+		<td data-rhtags="217" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="218" class="rh-hide">puA1920-30um</td>
+		<td data-rhtags="218" class="rh-hide">10<sup>d</sup></td>
+		<td data-rhtags="218" class="rh-hide">1000000</td>
+		<td data-rhtags="218" class="rh-hide">1</td>
+		<td data-rhtags="218" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="219" class="rh-hide">puA1920-30uc</td>
+		<td data-rhtags="219" class="rh-hide">10<sup>d</sup></td>
+		<td data-rhtags="219" class="rh-hide">1000000</td>
+		<td data-rhtags="219" class="rh-hide">1</td>
+		<td data-rhtags="219" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="220" class="rh-hide">puA2500-14um</td>
+		<td data-rhtags="220" class="rh-hide">10<sup>d</sup></td>
+		<td data-rhtags="220" class="rh-hide">1000000</td>
+		<td data-rhtags="220" class="rh-hide">1</td>
+		<td data-rhtags="220" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="221" class="rh-hide">puA2500-14uc</td>
+		<td data-rhtags="221" class="rh-hide">10<sup>d</sup></td>
+		<td data-rhtags="221" class="rh-hide">1000000</td>
+		<td data-rhtags="221" class="rh-hide">1</td>
+		<td data-rhtags="221" class="rh-hide">No</td>
+	</tr>
+</table>
+<p class="table-footnote rh-hide" data-rhtags="240"><sup>a</sup>Global <a href="shutter_mode.htm">shutter 
+ mode</a> / Rolling shutter mode</p>
+<p class="table-footnote rh-hide" data-rhtags="241"><sup>b</sup>8-bit <a href="pixel_format.htm" data-rhtags="241" class="rh-hide">pixel format</a> / 12-bit 
+ pixel format</p>
+<p class="table-footnote rh-hide" data-rhtags="189"><sup>c</sup>Valid when the <a href="pixel_format.htm">pixel 
+ format</a> is set to a 12-bit format.&#160;For 8-bit formats, the value 
+ depends on the USB 3.0 bandwidth available. See table below.</p>
+<p class="table-footnote rh-hide" data-rhtags="4"><sup>d</sup>Depending 
+ on the camera’s sensor and frame rate, the effective exposure time may 
+ vary from the exposure time set. The variation is normally in the range 
+ of microseconds, but if a very low exposure time is set, this should be 
+ taken into account.</p>
+<table data-rhtags="189" class="rh-hide">
+	<col />
+	<col />
+	<tr>
+		<th><p>Available USB Bandwidth (Device Link Throughput)</p></th>
+		<th><p>Minimum Exposure Time</p></th>
+	</tr>
+	<tr>
+		<td>≤ 108.000</td>
+		<td>42</td>
+	</tr>
+	<tr>
+		<td>108.001-140.000</td>
+		<td>32</td>
+	</tr>
+	<tr>
+		<td>140.001-160.020</td>
+		<td>28</td>
+	</tr>
+	<tr>
+		<td>140.001-160.020</td>
+		<td>25</td>
+	</tr>
+	<tr>
+		<td>180.001-192.112</td>
+		<td>24</td>
+	</tr>
+	<tr>
+		<td>192.113-216.000</td>
+		<td>42</td>
+	</tr>
+	<tr>
+		<td>216.001-280.000</td>
+		<td>32</td>
+	</tr>
+	<tr>
+		<td>280.001-320.040</td>
+		<td>28</td>
+	</tr>
+	<tr>
+		<td>320.041-360.000</td>
+		<td>25</td>
+	</tr>
+	<tr>
+		<td>360.001-384.224</td>
+		<td>24</td>
+	</tr>
+	<tr>
+		<td colspan="2"><img src="images/drawing_minimum_exposure_time.png" alt="Minimum Exposure Time Depending on Device Link Throughput" title="Minimum Exposure Time Depending on Device Link Throughput" border="0" /></td>
+		
+	</tr>
+</table>
+</div>
+<h2 class="sample-code"><a name="MiniTOCBookMark8"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre data-rhtags="48" class="rh-hide"><code class="cpp">// Determine the current exposure time
+double d = camera.ExposureTimeAbs.GetValue();
+// Set the exposure time mode to Standard
+// Note: Available on selected camera models only
+camera.ExposureTimeMode.SetValue(ExposureTimeMode_Standard);
+// Set the exposure time to 3500 microseconds
+camera.ExposureTimeAbs.SetValue(3500.0);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="cpp">// Determine the current exposure time
+double d = camera.ExposureTime.GetValue();
+// Set the exposure time mode to Standard
+// Note: Available on selected camera models only
+camera.ExposureTimeMode.SetValue(ExposureTimeMode_Standard);
+// Set the exposure time to 3500 microseconds
+camera.ExposureTimeAbs.SetValue(3500.0);</code></pre></div><div class="tab-2 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Determine the current exposure time
+double d = CFloatPtr(nodemap.GetNode("ExposureTimeAbs"))-&gt;GetValue();
+// Set the exposure time mode to Standard
+// Note: Available on selected camera models only
+CEnumerationPtr(nodemap.GetNode("ExposureTimeMode"))-&gt;FromString("Standard");
+// Set the exposure time to 3500 microseconds
+CFloatPtr(nodemap.GetNode("ExposureTimeAbs"))-&gt;SetValue(3500.0);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="cpp" generated="true">// Determine the current exposure time
+double d = CFloatPtr(nodemap.GetNode("ExposureTime"))-&gt;GetValue();
+// Set the exposure time mode to Standard
+// Note: Available on selected camera models only
+CEnumerationPtr(nodemap.GetNode("ExposureTimeMode"))-&gt;FromString("Standard");
+// Set the exposure time to 3500 microseconds
+CFloatPtr(nodemap.GetNode("ExposureTimeAbs"))-&gt;SetValue(3500.0);</code></pre></div><div class="tab-3 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="csharp" generated="true">// Determine the current exposure time
+double d = camera.Parameters[PLCamera.ExposureTimeAbs].GetValue();
+// Set the exposure time mode to Standard
+// Note: Available on selected camera models only
+camera.Parameters[PLCamera.ExposureTimeMode].SetValue(PLCamera.ExposureTimeMode.Standard);
+// Set the exposure time to 3500 microseconds
+camera.Parameters[PLCamera.ExposureTimeAbs].SetValue(3500.0);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="csharp" generated="true">// Determine the current exposure time
+double d = camera.Parameters[PLCamera.ExposureTime].GetValue();
+// Set the exposure time mode to Standard
+// Note: Available on selected camera models only
+camera.Parameters[PLCamera.ExposureTimeMode].SetValue(PLCamera.ExposureTimeMode.Standard);
+// Set the exposure time to 3500 microseconds
+camera.Parameters[PLCamera.ExposureTimeAbs].SetValue(3500.0);</code></pre></div><div class="tab-4 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="csharp" generated="true">// Determine the current exposure time
+double d = Pylon.DeviceGetFloatFeature(hdev, "ExposureTimeAbs");
+// Set the exposure time mode to Standard
+// Note: Available on selected camera models only
+Pylon.DeviceFeatureFromString(hdev, "ExposureTimeMode", "Standard");
+// Set the exposure time to 3500 microseconds
+Pylon.DeviceSetFloatFeature(hdev, "ExposureTimeAbs", 3500.0);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="csharp" generated="true">// Determine the current exposure time
+double d = Pylon.DeviceGetFloatFeature(hdev, "ExposureTime");
+// Set the exposure time mode to Standard
+// Note: Available on selected camera models only
+Pylon.DeviceFeatureFromString(hdev, "ExposureTimeMode", "Standard");
+// Set the exposure time to 3500 microseconds
+Pylon.DeviceSetFloatFeature(hdev, "ExposureTimeAbs", 3500.0);</code></pre></div><div class="tab-5 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+double d = 0;
+/* Determine the current exposure time */
+errRes = PylonDeviceGetFloatFeature(hdev, "ExposureTimeAbs", &amp;d);
+CHECK(errRes);
+/* Set the exposure time mode to Standard */
+/* Note: Available on selected camera models only */
+errRes = PylonDeviceFeatureFromString(hdev, "ExposureTimeMode", "Standard");
+CHECK(errRes);
+/* Set the exposure time to 3500 microseconds */
+errRes = PylonDeviceSetFloatFeature(hdev, "ExposureTimeAbs", 3500.0);
+CHECK(errRes);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="c" generated="true">double d = 0;
+/* Determine the current exposure time */
+errRes = PylonDeviceGetFloatFeature(hdev, "ExposureTime", &amp;d);
+CHECK(errRes);
+/* Set the exposure time mode to Standard */
+/* Note: Available on selected camera models only */
+errRes = PylonDeviceFeatureFromString(hdev, "ExposureTimeMode", "Standard");
+CHECK(errRes);
+/* Set the exposure time to 3500 microseconds */
+errRes = PylonDeviceSetFloatFeature(hdev, "ExposureTimeAbs", 3500.0);
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Pattern Removal Auto</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_58";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Pattern Removal Auto<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Pattern Removal Auto</h1>
+<p class="teaser">The Pattern Removal Auto 
+ <a href="features.htm">camera feature</a> suppresses the formation of 
+ a checker pattern on monochrome images.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot63869" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot63869', 'MTPOPUP63869');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP63869" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Why Use Pattern Removal Auto</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Characteristics</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >Enabling and Using Pattern Removal Auto</a>
+</li>
+    <li><a href="#MiniTOCBookMark6" >Saving 
+ the Correction Values</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark7" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>Why Use Pattern Removal Auto</h3>
+<p>Images output by some cameras may display artifacts resembling a superimposed 
+ checker pattern. This is due to the specific sensor design. Any 2&#160;x&#160;2 
+ pixels in the sensor array respond identically to light only if its incidence 
+ is perpendicular to the sensor’s surface. If the light arrives at an oblique 
+ angle, they will respond slightly differently. This causes the checker 
+ pattern in the image.</p>
+<p>You can suppress the checker pattern by ensuring that appropriate correction 
+ coefficients are applied to the original pixel values. Correction coefficients 
+ are automatically applied at each image acquisition.</p>
+<p>Pattern Removal Auto allows you to ensure that the values of the correction 
+ coefficients are appropriate for each image acquisition. The values are 
+ only effective under the specific imaging conditions that were present 
+ when Pattern Removal Auto was used.</p>
+<h3><a name="MiniTOCBookMark4"></a>Characteristics</h3>
+<p>The Pattern Removal Auto auto function differs in some respects from 
+ other auto functions:</p>
+<ul>
+	<li>You don't have to specify an <a href="auto_function_roi.htm">auto 
+	 function ROI</a>.</li>
+	<li>You don't have to specify a target value. Instead, the auto function 
+	 generates correction coefficient values that will remove the checker 
+	 pattern as far as possible.</li>
+	<li>Only the <span class="parameter-name">Once</span> 
+	 operating mode is available.</li>
+</ul>
+<h3><a name="MiniTOCBookMark5"></a>Enabling and Using Pattern Removal Auto</h3>
+<p>To use the Pattern Removal Auto auto function:</p>
+<ol>
+	<li>Set the <a href="image_roi.htm">image ROI</a> to its maximum size.</li>
+	<li>If possible, establish homogeneous illumination.</li>
+	<li>Disable all camera features that could interfere with the generation 
+	 of correction values, e.g., <a href="gain_auto.htm">Gain Auto</a>, 
+	 <a href="exposure_auto.htm">Exposure Auto</a>, or <a href="sequencer.htm">Sequencer</a>.</li>
+	<li>Adjust the camera settings (e.g., <a href="exposure_time.htm">Exposure 
+	 Time</a>, <a href="black_level.htm">Black Level</a>, and <a href="digital_shift.htm">Digital 
+	 Shift</a>) as desired. For best results, the gray values should be 
+	 homogenous across the image.</li>
+	<li>Set the <span class="parameter-name">PatternRemovalAuto</span> 
+	 parameter to <span class="parameter-name">Once</span>.</li>
+	<li>Acquire <strong>three images</strong>. Make sure that the target 
+	 scene doesn't change between acquisitions.<br />
+	The camera generates and applies optimum correction values for the 
+	 current imaging conditions. This occurs instantaneously and has no 
+	 effect on the camera’s frame rate. After the third acquisition, the 
+	 <span class="parameter-name">PatternRemovalAuto</span> 
+	 parameter is automatically set to <span class="parameter-name">Off</span>.</li>
+	<li>If necessary, restore the original size of the <a href="image_roi.htm">image 
+	 ROI</a>.</li>
+</ol>
+<p>The generated correction values apply until one of the following events 
+ occurs:</p>
+<ul>
+	<li><span class="parameter-name">PatternRemovalAuto</span> 
+	 is set to <span class="parameter-name">Once</span>.</li>
+	<li>The camera is disconnected from power. (To avoid losing the correction 
+	 values, <a href="#Saving_the_Correction_Values">save</a> the correction 
+	 values.)</li>
+	<li>A <a href="user_sets.htm">user set</a> with different correction 
+	 values is loaded.</li>
+</ul>
+<p class="subheading">Repeating the Pattern Removal Auto Process</p>
+<p>When one of the relevant imaging conditions changes, you should repeat 
+ the Pattern Removal Auto process. This ensures that the checker pattern 
+ is still removed reliably under the changed conditions and that pixel 
+ values are not changed unnecessarily.</p>
+<p>Among the relevant imaging conditions are the following:</p>
+<ul>
+	<li><strong>Optical system:</strong> Change of lens, &#160;aperture, 
+	 or focus.</li>
+	<li><strong>Illumination:</strong> Change of illumination type, arrangement 
+	 of light sources, or brightness.</li>
+	<li><strong>Feature settings:</strong> The checker pattern can be influenced 
+	 by the settings of several camera features, in particular <a href="exposure_time.htm">Exposure 
+	 Time</a>, <a href="binning.htm">Binning</a>, <a href="image_roi.htm">image 
+	 ROI</a>, <a href="black_level.htm">Black Level</a>, and <a href="digital_shift.htm">Digital 
+	 Shift</a>.</li>
+</ul>
+<h3><a name="MiniTOCBookMark6"></a><a name="Saving_the_Correction_Values" id="Saving_the_Correction_Values">Saving 
+ the Correction Values</a></h3>
+<p>Correction values generated by the Pattern Removal Auto auto function 
+ <strong>are lost</strong> if the camera is disconnected from power.</p>
+<p>However, you can save the correction values in a <a href="user_sets.htm">user 
+ set</a>. You can load this user set whenever you want to use the correction 
+ values again.</p>
+<p>When loading correction values, make sure that the imaging conditions 
+ are identical to those when the correction values were generated.</p>
+<h2 class="sample-code"><a name="MiniTOCBookMark7"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre><code class="cpp">// Set the operating mode of the Pattern Removal Auto auto function to Once
+camera.PatternRemovalAuto.SetValue(PatternRemovalAuto_Once);
+// Acquire three images
+// ...
+// (Implement your own image grabbing routine here. 
+// For example, the InstantCamera class provides the StartGrabbing() method.)
+// ...
+// Save the correction values in User Set 1
+camera.UserSetSelector.SetValue(UserSetSelector_UserSet1);
+camera.UserSetSave.Execute();</code></pre></div><div class="tab-2 tab-content"><pre><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Set the operating mode of the Pattern Removal Auto auto function to Once
+CEnumerationPtr(nodemap.GetNode("PatternRemovalAuto"))-&gt;FromString("Once");
+// Acquire three images
+// ...
+// (Implement your own image grabbing routine here.
+// For example, the InstantCamera class provides the StartGrabbing() method.)
+// ...
+// Save the correction values in User Set 1
+CEnumerationPtr(nodemap.GetNode("UserSetSelector"))-&gt;FromString("UserSet1");
+CCommandPtr(nodemap.GetNode("UserSetSave"))-&gt;Execute();</code></pre></div><div class="tab-3 tab-content"><pre><code class="csharp" generated="true">// Set the operating mode of the Pattern Removal Auto auto function to Once
+camera.Parameters[PLCamera.PatternRemovalAuto].SetValue(PLCamera.PatternRemovalAuto.Once);
+// Acquire three images
+// ...
+// (Implement your own image grabbing routine here.
+// For example, the InstantCamera class provides the StartGrabbing() method.)
+// ...
+// Save the correction values in User Set 1
+camera.Parameters[PLCamera.UserSetSelector].SetValue(PLCamera.UserSetSelector.UserSet1);
+camera.Parameters[PLCamera.UserSetSave].Execute();</code></pre></div><div class="tab-4 tab-content"><pre><code class="csharp" generated="true">// Set the operating mode of the Pattern Removal Auto auto function to Once
+Pylon.DeviceFeatureFromString(hdev, "PatternRemovalAuto", "Once");
+// Acquire three images
+// ...
+// (Implement your own image grabbing routine here.
+// For example, the InstantCamera class provides the StartGrabbing() method.)
+// ...
+// Save the correction values in User Set 1
+Pylon.DeviceFeatureFromString(hdev, "UserSetSelector", "UserSet1");
+Pylon.DeviceExecuteCommandFeature(hdev, "UserSetSave");</code></pre></div><div class="tab-5 tab-content"><pre><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+/* Set the operating mode of the Pattern Removal Auto auto function to Once */
+errRes = PylonDeviceFeatureFromString(hdev, "PatternRemovalAuto", "Once");
+CHECK(errRes);
+/* Acquire three images */
+/* ... */
+/* (Implement your own image grabbing routine here. */
+/* For example, the InstantCamera class provides the StartGrabbing() method.) */
+/* ... */
+/* Save the correction values in User Set 1 */
+errRes = PylonDeviceFeatureFromString(hdev, "UserSetSelector", "UserSet1");
+CHECK(errRes);
+errRes = PylonDeviceExecuteCommandFeature(hdev, "UserSetSave");
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

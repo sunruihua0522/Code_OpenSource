@@ -1,0 +1,249 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Optimizing Image Quality</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "4.1.1.0_4";
+</script>
+ <meta name="topic-breadcrumbs" content="Software > pylon Camera Software Suite > pylon Viewer" />
+</head>
+
+<body>
+
+
+
+
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"pylon_camera_software_suite.htm\">Software<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"pylon_camera_software_suite.htm#bc-1\">pylon Camera Software Suite<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"overview_of_the_pylon_viewer.htm\">pylon Viewer<\/a>  &gt;  Optimizing Image Quality<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Optimizing Image Quality</h1>
+<p class="teaser">The best image quality depends on the requirements of 
+ your application. However, adjusting some settings using the <a href="overview_of_the_pylon_viewer.htm">pylon 
+ Viewer</a> can help you to achieve good results quickly.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot33358" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot33358', 'MTPOPUP33358');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP33358" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Focus</a>
+</li>
+   <li><a href="#MiniTOCBookMark3" >Depth of Focus</a>
+</li>
+   <li><a href="#MiniTOCBookMark4" >Brightness</a>
+</li>
+   <li><a href="#MiniTOCBookMark5" >Exposure Time</a>
+</li>
+   <li><a href="#MiniTOCBookMark6" >Gain</a>
+</li>
+   <li><a href="#MiniTOCBookMark7" >Contrast</a>
+</li>
+   <li><a href="#MiniTOCBookMark8" >White Balance</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Focus</h2>
+<p>To get a focused image, consider the following:</p>
+<ul>
+	<li>The lens must be screwed into the lens mount as far as it will 
+	 go.</li>
+	<li>The glass surfaces of the lens must be clean.</li>
+	<li>The object to be imaged must be within the range of focus of the 
+	 lens.</li>
+</ul>
+<h2><a name="MiniTOCBookMark3"></a><a name="Depth_of_Focus">Depth of Focus</a></h2>
+<p>If your objects are located at different distances from the camera, 
+ you must consider depth of focus. The depth of focus must be sufficiently 
+ deep to allow all objects to appear focused.</p>
+<ul>
+	<li>Closing the lens aperture (turning the aperture ring to higher 
+	 f-numbers) increases the depth of focus and vice versa.</li>
+	<li>Closing the aperture decreases the amount of light reaching the 
+	 camera’s sensor and therefore results in a darker image. </li>
+</ul>
+<h2><a name="MiniTOCBookMark4"></a>Brightness</h2>
+<p>The following factors determine the brightness of an image:</p>
+<p class="subheading">Illumination</p>
+<ul>
+	<li>Basler recommends the use of bright illumination if possible, but 
+	 to avoid excessive intensity. This will prevent you from having to 
+	 operate the camera using extreme camera settings.</li>
+	<li><span>In images acquired from CCD sensors, excessive brightness 
+	 will cause artifacts such as smear (white stripes in the image) and 
+	 blooming (local over-saturation that destroys contrast). You can decrease 
+	 the proneness to smear and blooming by choosing a diffuse and less 
+	 intense illumination.</span></li>
+	<li>If illumination of sufficient brightness is not available, you 
+	 can select a lens that is optimized for light utilization.</li>
+</ul>
+<p class="subheading">Lens Aperture</p>
+<ul>
+	<li>Opening the lens aperture allows more light to reach the camera’s 
+	 sensor and therefore increases the brightness of the image.</li>
+	<li>Opening the lens aperture also increases the effects of optical 
+	 aberrations. This causes image distortions and the intensity of light 
+	 decreases towards the edges of the sensor (vignetting). In addition, 
+	 the depth of focus decreases. </li>
+</ul>
+<p class="subheading">Exposure Time</p>
+<ul>
+	<li>You can increase the brightness of the image by increasing the 
+	 camera’s <a href="exposure_time.htm">Exposure Time</a> setting. This 
+	 increases the amount of photons collected for pixel readout.</li>
+	<li>Increasing the exposure time setting may decrease the camera's 
+	 frame rate. If you are acquiring images of moving objects, increasing 
+	 the exposure time setting may increase motion blur.</li>
+</ul>
+<p class="subheading">Gain</p>
+<ul>
+	<li>Increasing the camera's <a href="gain.htm">Gain</a> setting will 
+	 also increase image brightness. </li>
+	<li>Unless your application requires extreme contrast, you should make 
+	 sure that detail remains visible in the brightest portions of the 
+	 image. </li>
+	<li>Image noise is increased by increasing gain.</li>
+</ul>
+<p class="subheading">Black Level</p>
+<ul>
+	<li>You can change the brightness of the image by changing the camera’s 
+	 <a href="black_level.htm">Black Level</a> setting. </li>
+	<li>Normally, you should increase the black level setting only as far 
+	 as is necessary to make detail visible in the darkest portions of 
+	 an image.</li>
+</ul>
+<h2><a name="MiniTOCBookMark5"></a>Exposure Time</h2>
+<p>The exposure time setting determines the time interval during which 
+ the sensor is exposed to light.</p>
+<p>Choose an exposure time setting that takes account of whether you want 
+ to acquire images of still or moving objects:</p>
+<ul>
+	<li>If the object is <strong>not moving</strong>, you can choose a 
+	 high exposure time setting. High exposure time settings may reduce 
+	 the camera’s maximum allowed acquisition frame rate and may cause 
+	 artifacts to appear in the image.&#160;</li>
+	<li>If the object is <strong>moving</strong>, choose a low exposure 
+	 time setting to prevent motion blur. As a general rule, choose a short 
+	 enough exposure time to make sure that the image of the object does 
+	 not move by more than one pixel during exposure.</li>
+</ul>
+<h2><a name="MiniTOCBookMark6"></a>Gain</h2>
+<p>Gain amplifies each pixel readout by a certain factor. Accordingly, 
+ signal and noise are both amplified.</p>
+<ul>
+	<li><span>&#160;Increasing gain will increase the image contrast.</span></li>
+	<li><span>&#160;Increasing gain will increase the image brightness.</span> 
+	 <span class="FM_Bold">U</span><span>nless your application requires 
+	 extreme contrast, make sure that detail remains visible in the brightest 
+	 portions of the image when increasing gain.</span></li>
+</ul>
+<h2><a name="MiniTOCBookMark7"></a>Contrast</h2>
+<p>Strong contrast in an image is obtained when objects of different brightnesses 
+ are represented by strongly different gray values. For most applications, 
+ optimum contrast is achieved when the image displays a wide range of gray 
+ values with fine detail remaining visible even in the darkest and brightest 
+ parts of an image. Some applications, however, may require extreme contrast.</p>
+<ul>
+	<li>You can increase the contrast in the image by increasing the camera’s 
+	 gain setting. Gain amplifies the pixel readout.</li>
+	<li>High black level settings will prevent high contrast. Basler recommends 
+	 not to exceed a black level setting of 64 (at greater than 8 bit output).</li>
+	<li>In images acquired from CCD sensors, contrast can be destroyed 
+	 by local over-saturation (blooming) if the image brightness is too 
+	 high. You can decrease the proneness for smear and blooming by choosing 
+	 a diffuse and less intense illumination.</li>
+	<li>Closing the lens aperture not only decreases image brightness but 
+	 also increases contrast towards the edges of an image.</li>
+	<li><span>If you must use insufficient illumination resulting in dark 
+	 images, you may notice the blurring influence of noise. If you operate 
+	 the camera near the top end of its specified temperature range, the 
+	 effects may be particularly noticeable. You can increase contrast 
+	 by lowering the operating temperature of the camera.<br />
+	</span> <span class="FM_Bold">Note that it</span><strong>&#160;</strong><span>is 
+	 not possible to improve the signal-to-noise ratio by increasing gain. 
+	 Increasing the gain will increase both signal and noise in equal proportions.</span></li>
+</ul>
+<h2><a name="MiniTOCBookMark8"></a>White Balance</h2>
+<ul>
+	<li>If you are using a color camera, the object that you use when adjusting 
+	 the white balance should be a uniform gray and should fill the camera’s 
+	 entire field of view. Your white balance will be correct when images 
+	 of this object show a uniform gray.</li>
+	<li>Changing the black level setting will also change the white balance. 
+	 Basler therefore recommends that you check the white balance after 
+	 setting the black level.</li>
+	<li>Make sure the image is neither underexposed nor overexposed when 
+	 checking the white balance.</li>
+</ul>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

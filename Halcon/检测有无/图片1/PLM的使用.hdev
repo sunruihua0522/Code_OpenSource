@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="533712418">
+<procedure name="main">
+<interface/>
+<body>
+<l>list_image_files('C:/Code/Halcon/检测有无/图片1', 'default', [], ImageFiles)</l>
+<l>tuple_regexp_select (ImageFiles, ['\\.(bmp|jpg)$','ignore_case'], ImageFiles)</l>
+<c></c>
+<l>for Index := 0 to |ImageFiles|-1 by 1</l>
+<c>   </c>
+<l>read_image(Image,ImageFiles[Index])</l>
+<l>dev_close_window()</l>
+<l>dev_open_window_fit_image(Image, 0, 0, -1, -1, WindowHandle)</l>
+<c></c>
+<l>dev_display(Image)</l>
+<c></c>
+<c></c>
+<l>read_class_mlp('mlp_1.gmc', MLPHandle)</l>
+<l>read_class_mlp('mlp_3.gmc', MLPHandle1)</l>
+<c></c>
+<c></c>
+<c></c>
+<l>set_tposition(WindowHandle, 10, 10)</l>
+<l>set_display_font(WindowHandle, 50, 'mono', 'true', 'false')</l>
+<c></c>
+<l>    decompose3(Image, Image1, Image2, Image3)</l>
+<l>    trans_from_rgb(Image1, Image2, Image3, ImageResult1, ImageResult2, ImageResult3, 'hsv')</l>
+<l>    dev_display(Image3)</l>
+<l>    dev_set_colored(12)</l>
+<c>    </c>
+<l>    classify_image_class_mlp (Image, ClassRegionsNotRejected, MLPHandle, 0.3)</l>
+<c>    </c>
+<l>    select_obj(ClassRegionsNotRejected, ObjectSelected, 1)</l>
+<l>    opening_circle(ObjectSelected, RegionOpening2, 5)</l>
+<c>    </c>
+<c>    </c>
+<l>    connection(RegionOpening2, ConnectedRegions)</l>
+<l>    *area_center(ConnectedRegions, Area1, Row3, Column3)</l>
+<c>    </c>
+<l>    select_shape (ConnectedRegions, SelectedRegions, 'area', 'and', 6000.2, 309205)</l>
+<l>    union1(SelectedRegions, RegionUnion)</l>
+<c>    </c>
+<l>    opening_circle(RegionUnion, RegionOpening, 3.5)</l>
+<c>    </c>
+<l>    shape_trans(RegionOpening, RegionTrans, 'circle')</l>
+<l>    dev_set_draw('fill')</l>
+<l>    dev_clear_window()</l>
+<l>    dev_display(Image)</l>
+<c>       </c>
+<l>    dev_display(RegionTrans)</l>
+<c>    </c>
+<l>    dev_set_draw('fill')</l>
+<l>    reduce_domain(Image, RegionTrans, ImageReduced)</l>
+<l>    area_center(RegionTrans, Area2, CircleRow, CircleCol)</l>
+<c>    </c>
+<l>    classify_image_class_mlp (ImageReduced, ClassRegionsNotRejected, MLPHandle1, 0.3)</l>
+<l>    dev_set_colored(12)</l>
+<l>    dev_display(ClassRegionsNotRejected)</l>
+<l>    select_obj(ClassRegionsNotRejected, ObjectSelected1, 4)</l>
+<c>    </c>
+<l>    opening_circle(ObjectSelected1, RegionOpening1, 3.5)</l>
+<c>    </c>
+<l>    fill_up(RegionOpening1, RegionFillUp)</l>
+<c>    </c>
+<l>    *closing_circle(RegionFillUp, RegionClosing, 10)</l>
+<c>    </c>
+<l>    connection(RegionFillUp, ConnectedRegions1)</l>
+<l>    count_obj(ConnectedRegions1, Number)</l>
+<c>    </c>
+<c>    *找除靠近中心的圆</c>
+<l>    gen_empty_obj(EmptyObject)</l>
+<c>    </c>
+<l>    R:=200</l>
+<l>    for Index1 := 1 to Number by 1</l>
+<l>         select_obj(ConnectedRegions1, ObjectSelected2, Index1)</l>
+<l>         area_center(ObjectSelected2, Area3, Row2, Column2)</l>
+<c>         </c>
+<l>        if(Row2&gt;CircleRow-R and Row2&lt;CircleRow+R and Column2&gt;CircleCol-R and Column2&lt;CircleCol+R)</l>
+<l>            dilation_circle(ObjectSelected2, RegionDilation, 10)</l>
+<l>            concat_obj(RegionDilation, EmptyObject, EmptyObject)</l>
+<l>        endif</l>
+<l>    endfor</l>
+<c>    </c>
+<l>    union1(EmptyObject, RegionUnion1)</l>
+<c>    </c>
+<l>    connection(RegionUnion1, ConnectedRegions2)</l>
+<c>    </c>
+<l>    select_shape_std(ConnectedRegions2, SelectedRegions1, 'max_area', 70)</l>
+<c>    </c>
+<l>    smallest_rectangle2(SelectedRegions1, Row1, Column1, Phi, Length1, Length2)</l>
+<l>    gen_rectangle2(Rectangle, Row1, Column1, Phi, Length1, Length2)</l>
+<c>    </c>
+<c>    </c>
+<l>    area_center(RegionFillUp, Area, Row, Column)</l>
+<l>    dev_set_draw('margin')</l>
+<l>    dev_clear_window()</l>
+<c>    </c>
+<l>    dev_display(Image)</l>
+<c>    </c>
+<c>    </c>
+<l>    if(Length1&lt;200 and Length2&lt;200 and Length1&gt;50 and Length2&gt;50)</l>
+<l>        dev_set_color('green')</l>
+<l>        dev_display(Rectangle)</l>
+<l>        write_string(WindowHandle, 'OK')</l>
+<l>        *set_framegrabber_param (AcqHandle, 'UserOutputValue', 0)</l>
+<l>    else</l>
+<l>        dev_set_color('red')</l>
+<l>         write_string(WindowHandle, 'NG')</l>
+<l>         *set_framegrabber_param (AcqHandle, 'UserOutputValue', 1)</l>
+<l>    endif</l>
+<l>    stop()</l>
+<l>endfor</l>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

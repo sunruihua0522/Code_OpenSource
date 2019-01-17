@@ -1,0 +1,1221 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Exposure Mode</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_34";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Exposure Mode<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Exposure Mode</h1>
+<p class="teaser">The Exposure Mode 
+ <a href="features.htm">camera feature</a> allows you to choose 
+ a method for determining the length of exposure when the camera is configured 
+ for <a href="triggered_image_acquisition.htm#Hardware_Triggering">hardware 
+ triggering</a>.</p>
+<p>The resulting camera behavior also depends on the <a href="trigger_activation.htm">Trigger 
+ Activation</a> setting.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot37145" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot37145', 'MTPOPUP37145');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP37145" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Setting the Exposure Mode</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Available Exposure Modes</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark5" >Timed Exposure Mode</a>
+</li>
+     <li><a href="#MiniTOCBookMark6" >Trigger Width Exposure Mode</a>
+</li>
+    </ul></li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark7" >Specifics</a>
+</li>
+   <li><a href="#MiniTOCBookMark8" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>Setting the Exposure Mode</h3>
+<p>To set the exposure mode:</p>
+<ol>
+	<li>Set the <a href="trigger_selector.htm"><span class="parameter-name">TriggerSelector</span></a> 
+	 parameter to <span class="parameter-name">FrameStart</span>.</li>
+	<li>Set the <a href="trigger_mode.htm"><span class="parameter-name">TriggerMode</span></a> 
+	 parameter to <span class="parameter-name">On</span>.</li>
+	<li>Set the <a href="trigger_source.htm"><span class="parameter-name">TriggerSource</span></a> 
+	 parameter to one of the available <a href="trigger_source.htm#Setting_a_Hardware_Trigger_Source">hardware 
+	 trigger sources</a>, e.g., <span class="parameter-name">Line1</span>.</li>
+	<li>Set the <span class="parameter-name">ExposureMode</span> 
+	 parameter to one of the following values:</li>
+	<ol>
+		<li><a href="exposure_mode.htm#Timed_Exposure_Mode"><span class="parameter-name">Timed</span></a></li>
+		<li><a href="exposure_mode.htm#Trigger_Width_Exposure_Mode"><span class="parameter-name">TriggerWidth</span></a> 
+		 (<a href="#Specifics">if available</a>)</li>
+	</ol>
+</ol>
+<h3><a name="MiniTOCBookMark4"></a>Available Exposure Modes</h3>
+<h4><a name="MiniTOCBookMark5"></a><a name="Timed_Exposure_Mode">Timed Exposure Mode</a></h4>
+<p>Timed exposure mode is available on all camera models.</p>
+<p>In this mode, the length of exposure is determined by the value of the 
+ camera’s <a href="exposure_time.htm">Exposure Time</a> setting.</p>
+<p>If the camera is configured for <a href="triggered_image_acquisition.htm#Software_Triggering"><strong>software</strong> 
+ triggering</a>, exposure starts when the software trigger signal is received 
+ and continues until the <a href="exposure_time.htm">exposure time</a> 
+ has expired.</p>
+<p>If the camera is configured for <a href="triggered_image_acquisition.htm#Hardware_Triggering"><strong>hardware</strong> 
+ triggering</a>, the following applies:</p>
+<ul>
+	<li>If <a href="trigger_activation.htm#Setting_the_Trigger_Activation_Mode">rising 
+	 edge triggering</a> is enabled, exposure starts when the trigger signal 
+	 rises and continues until the <a href="exposure_time.htm">exposure 
+	 time</a> has expired.<br />
+	<img src="images/drawing_exposure_mode_timed_rising_edge.png" alt="Timed Exposure with Rising Edge Triggering" title="Timed Exposure with Rising Edge Triggering" /></li>
+</ul>
+<ul>
+	<li>If <a href="trigger_activation.htm#Setting_the_Trigger_Activation_Mode">falling 
+	 edge triggering</a> is enabled, exposure starts when the trigger signal 
+	 falls and continues until the <a href="exposure_time.htm">exposure 
+	 time</a> has expired.<br />
+	<img src="images/drawing_exposure_mode_timed_falling_edge.png" alt="Timed Exposure with Falling Edge Triggering" title="Timed Exposure with Falling Edge Triggering" /></li>
+</ul>
+<p class="subheading">Avoiding Overtriggering in Timed Exposure Mode</p>
+<p>If the Timed exposure mode is enabled, do not attempt to trigger a new 
+ exposure start while the previous exposure is still in progress. Otherwise, 
+ the trigger signal will be ignored, and a<a href="event_notification.htm"> 
+ Frame Start Overtrigger event</a> will be generated. </p>
+<p>This scenario is illustrated below for rising edge triggering.</p>
+<p><img src="images/drawing_exposure_mode_timed_overtriggering.png" alt="Overtriggering with Timed Exposure" title="Overtriggering with Timed Exposure" /></p>
+<h4><a name="MiniTOCBookMark6"></a><a name="Trigger_Width_Exposure_Mode">Trigger Width Exposure Mode</a></h4>
+<p>Trigger Width exposure mode is available on <a href="#Specifics">some 
+ camera models</a>. </p>
+<p>In this mode,&#160;the length of exposure is determined by the width 
+ of the <a href="triggered_image_acquisition.htm#Hardware_Triggering">hardware 
+ trigger</a> signal. This is useful if you intend to vary the length of 
+ exposure for each captured frame. </p>
+<p>If the camera is configured for <a href="trigger_activation.htm#Setting_the_Trigger_Activation_Mode">rising 
+ edge triggering</a>, exposure starts when the trigger signal rises and 
+ continues until the trigger signal falls:</p>
+<p><img src="images/drawing_exposure_mode_trig_width_rising_edge.png" alt="Trigger Width Exposure with Rising Edge Triggering" title="Trigger Width Exposure with Rising Edge Triggering" /></p>
+<p>If the camera is configured for <a href="trigger_activation.htm#Setting_the_Trigger_Activation_Mode">falling 
+ edge triggering</a>, exposure starts when the trigger signal falls and 
+ continues until the trigger signal rises:</p>
+<p><img src="images/drawing_exposure_mode_trig_width_falling_edge.png" alt="Trigger Width Exposure with Falling Edge Triggering" title="Trigger Width Exposure with Falling Edge Triggering" /></p>
+<p class="subheading"><a name="Exposure_Time_Offset">Exposure Time Offset</a></p>
+<p>On <a href="#Specifics">some camera models</a>, when using the Trigger 
+ Width exposure mode, the exposure is slightly longer than the width of 
+ the trigger signal. This is because an <a href="#Specifics">exposure time 
+ offset</a> is added automatically to the time determined by the width 
+ of the trigger signal. </p>
+<p>To achieve the desired exposure time in Trigger Width exposure mode, 
+ you must compensate for the exposure time offset. To do so:</p>
+<ol>
+	<li>Subtract the exposure time offset from the desired exposure time. 
+	 </li>
+	<li>Use the resulting time as the high or low time for the trigger 
+	 signal.</li>
+</ol>
+<p><strong>Example:</strong> To achieve an exposure time of 3000 µs and 
+ the exposure time offset is 64 µs, use 3000 - 64 = 2936 µs as the high 
+ or low time for the trigger signal.</p>
+<p class="subheading">Avoiding Overtriggering in Trigger Width Exposure 
+ Mode</p>
+<p>If the Trigger Width exposure mode is enabled, do not send trigger signals 
+ at too high a rate. Otherwise, trigger signals will be ignored, and <a href="event_notification.htm">Frame Start Overtrigger events</a> will 
+ be generated.</p>
+<p>You can avoid overtriggering in Trigger Width exposure mode by doing 
+ the following:</p>
+<ul>
+	<li>Monitor the camera’s <a href="line_source.htm#Trigger_Wait">Frame 
+	 Trigger Wait signal</a> and only apply a Frame Start trigger signal 
+	 when the Frame Trigger Wait signal is high.</li>
+	<li>If the&#160;<a href="exposure_overlap_time_max.htm">Exposure Overlap 
+	 Time Max</a> parameter is available, set it to the smallest exposure 
+	 time you intend to use.</li>
+</ul>
+<h2 class="specifics"><a name="MiniTOCBookMark7"></a><a name="Specifics">Specifics</a></h2>
+<div>
+<table class="specifics-table">
+	<col />
+	<col />
+	<col />
+	<tr>
+		<th>Camera Model</th>
+		<th><p>Available Exposure Modes</p></th>
+		<th><p>Exposure Time Offset [µs]</p></th>
+	</tr>
+	<tr>
+		<td data-rhtags="50" class="rh-hide">acA640-90gm</td>
+		<td data-rhtags="50" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="50" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="51" class="rh-hide">acA640-90gc</td>
+		<td data-rhtags="51" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="51" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="52" class="rh-hide">acA640-120gm</td>
+		<td data-rhtags="52" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="52" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="53" class="rh-hide">acA640-120gc</td>
+		<td data-rhtags="53" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="53" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="54" class="rh-hide">acA640-121gm</td>
+		<td data-rhtags="54" class="rh-hide">Timed
+		<p>Trigger Width</p></td>
+		<td data-rhtags="54" class="rh-hide">13</td>
+	</tr>
+	<tr>
+		<td data-rhtags="55" class="rh-hide">acA640-300gm</td>
+		<td data-rhtags="55" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="55" class="rh-hide">64</td>
+	</tr>
+	<tr>
+		<td data-rhtags="56" class="rh-hide">acA640-300gc</td>
+		<td data-rhtags="56" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="56" class="rh-hide">64</td>
+	</tr>
+	<tr>
+		<td data-rhtags="57" class="rh-hide">acA720-290gm</td>
+		<td data-rhtags="57" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="57" class="rh-hide">14</td>
+	</tr>
+	<tr>
+		<td data-rhtags="58" class="rh-hide">acA720-290gc</td>
+		<td data-rhtags="58" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="58" class="rh-hide">14</td>
+	</tr>
+	<tr>
+		<td data-rhtags="59" class="rh-hide">acA750-30gm</td>
+		<td data-rhtags="59" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="59" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="45" class="rh-hide">acA750-30gc</td>
+		<td data-rhtags="45" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="45" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="60" class="rh-hide">acA780-75gm</td>
+		<td data-rhtags="60" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="60" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="61" class="rh-hide">acA780-75gc</td>
+		<td data-rhtags="61" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="61" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="62" class="rh-hide">acA800-200gm</td>
+		<td data-rhtags="62" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="62" class="rh-hide">64</td>
+	</tr>
+	<tr>
+		<td data-rhtags="63" class="rh-hide">acA800-200gc</td>
+		<td data-rhtags="63" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="63" class="rh-hide">64</td>
+	</tr>
+	<tr>
+		<td data-rhtags="64" class="rh-hide">acA1280-60gm</td>
+		<td data-rhtags="64" class="rh-hide">Timed</td>
+		<td data-rhtags="64" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="65" class="rh-hide">acA1280-60gc</td>
+		<td data-rhtags="65" class="rh-hide">Timed</td>
+		<td data-rhtags="65" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="66" class="rh-hide">acA1300-22gm</td>
+		<td data-rhtags="66" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="66" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="67" class="rh-hide">acA1300-22gc</td>
+		<td data-rhtags="67" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="67" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="68" class="rh-hide">acA1300-30gm</td>
+		<td data-rhtags="68" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="68" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="69" class="rh-hide">acA1300-30gc</td>
+		<td data-rhtags="69" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="69" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="70" class="rh-hide">acA1300-60gm</td>
+		<td data-rhtags="70" class="rh-hide">Timed</td>
+		<td data-rhtags="70" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="72" class="rh-hide">acA1300-60gc</td>
+		<td data-rhtags="72" class="rh-hide">Timed</td>
+		<td data-rhtags="72" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="71" class="rh-hide">acA1300-60gmNIR</td>
+		<td data-rhtags="71" class="rh-hide">Timed</td>
+		<td data-rhtags="71" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="73" class="rh-hide">acA1300-75gm</td>
+		<td data-rhtags="73" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="73" class="rh-hide">64</td>
+	</tr>
+	<tr>
+		<td data-rhtags="74" class="rh-hide">acA1300-75gc</td>
+		<td data-rhtags="74" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="74" class="rh-hide">64</td>
+	</tr>
+	<tr>
+		<td data-rhtags="75" class="rh-hide">acA1440-73gm</td>
+		<td data-rhtags="75" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="75" class="rh-hide">13</td>
+	</tr>
+	<tr>
+		<td data-rhtags="76" class="rh-hide">acA1440-73gc</td>
+		<td data-rhtags="76" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="76" class="rh-hide">13</td>
+	</tr>
+	<tr>
+		<td data-rhtags="77" class="rh-hide">acA1600-20gm</td>
+		<td data-rhtags="77" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="77" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="78" class="rh-hide">acA1600-20gc</td>
+		<td data-rhtags="78" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="78" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="79" class="rh-hide">acA1600-60gm</td>
+		<td data-rhtags="79" class="rh-hide">Timed</td>
+		<td data-rhtags="79" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="80" class="rh-hide">acA1600-60gc</td>
+		<td data-rhtags="80" class="rh-hide">Timed</td>
+		<td data-rhtags="80" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="81" class="rh-hide">acA1920-25gm</td>
+		<td data-rhtags="81" class="rh-hide">Timed</td>
+		<td data-rhtags="81" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="82" class="rh-hide">acA1920-25gc</td>
+		<td data-rhtags="82" class="rh-hide">Timed</td>
+		<td data-rhtags="82" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="83" class="rh-hide">acA1920-40gm</td>
+		<td data-rhtags="83" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="83" class="rh-hide">14</td>
+	</tr>
+	<tr>
+		<td data-rhtags="84" class="rh-hide">acA1920-40gc</td>
+		<td data-rhtags="84" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="84" class="rh-hide">14</td>
+	</tr>
+	<tr>
+		<td data-rhtags="85" class="rh-hide">acA1920-48gm</td>
+		<td data-rhtags="85" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="85" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="86" class="rh-hide">acA1920-48gc</td>
+		<td data-rhtags="86" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="86" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="87" class="rh-hide">acA1920-50gm</td>
+		<td data-rhtags="87" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="87" class="rh-hide">14</td>
+	</tr>
+	<tr>
+		<td data-rhtags="88" class="rh-hide">acA1920-50gc</td>
+		<td data-rhtags="88" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="88" class="rh-hide">14</td>
+	</tr>
+	<tr>
+		<td data-rhtags="89" class="rh-hide">acA2000-50gm</td>
+		<td data-rhtags="89" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="89" class="rh-hide">37</td>
+	</tr>
+	<tr>
+		<td data-rhtags="91" class="rh-hide">acA2000-50gc</td>
+		<td data-rhtags="91" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="91" class="rh-hide">37</td>
+	</tr>
+	<tr>
+		<td data-rhtags="90" class="rh-hide">acA2000-50gmNIR</td>
+		<td data-rhtags="90" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="90" class="rh-hide">37</td>
+	</tr>
+	<tr>
+		<td data-rhtags="92" class="rh-hide">acA2040-25gm</td>
+		<td data-rhtags="92" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="92" class="rh-hide">37</td>
+	</tr>
+	<tr>
+		<td data-rhtags="94" class="rh-hide">acA2040-25gc</td>
+		<td data-rhtags="94" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="94" class="rh-hide">37</td>
+	</tr>
+	<tr>
+		<td data-rhtags="93" class="rh-hide">acA2040-25gmNIR</td>
+		<td data-rhtags="93" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="93" class="rh-hide">37</td>
+	</tr>
+	<tr>
+		<td data-rhtags="95" class="rh-hide">acA2040-35gm</td>
+		<td data-rhtags="95" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="95" class="rh-hide">14</td>
+	</tr>
+	<tr>
+		<td data-rhtags="96" class="rh-hide">acA2040-35gc</td>
+		<td data-rhtags="96" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="96" class="rh-hide">14</td>
+	</tr>
+	<tr>
+		<td data-rhtags="97" class="rh-hide">acA2440-20gm</td>
+		<td data-rhtags="97" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="97" class="rh-hide">14</td>
+	</tr>
+	<tr>
+		<td data-rhtags="98" class="rh-hide">acA2440-20gc</td>
+		<td data-rhtags="98" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="98" class="rh-hide">14</td>
+	</tr>
+	<tr>
+		<td data-rhtags="99" class="rh-hide">acA2500-14gm</td>
+		<td data-rhtags="99" class="rh-hide">Timed</td>
+		<td data-rhtags="99" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="100" class="rh-hide">acA2500-14gc</td>
+		<td data-rhtags="100" class="rh-hide">Timed</td>
+		<td data-rhtags="100" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="101" class="rh-hide">acA2500-20gm</td>
+		<td data-rhtags="101" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="101" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="102" class="rh-hide">acA2500-20gc</td>
+		<td data-rhtags="102" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="102" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="103" class="rh-hide">acA2500-20gmMED</td>
+		<td data-rhtags="103" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="103" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="104" class="rh-hide">acA2500-20gcMED</td>
+		<td data-rhtags="104" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="104" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="105" class="rh-hide">acA3088-16gm</td>
+		<td data-rhtags="105" class="rh-hide">Timed</td>
+		<td data-rhtags="105" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="106" class="rh-hide">acA3088-16gc</td>
+		<td data-rhtags="106" class="rh-hide">Timed</td>
+		<td data-rhtags="106" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="107" class="rh-hide">acA3800-10gm</td>
+		<td data-rhtags="107" class="rh-hide">Timed</td>
+		<td data-rhtags="107" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="108" class="rh-hide">acA3800-10gc</td>
+		<td data-rhtags="108" class="rh-hide">Timed</td>
+		<td data-rhtags="108" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="109" class="rh-hide">acA4024-8gm</td>
+		<td data-rhtags="109" class="rh-hide">Timed</td>
+		<td data-rhtags="109" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="110" class="rh-hide">acA4024-8gc</td>
+		<td data-rhtags="110" class="rh-hide">Timed</td>
+		<td data-rhtags="110" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="111" class="rh-hide">acA4096-11gm</td>
+		<td data-rhtags="111" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="111" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="198" class="rh-hide">acA4096-11gc</td>
+		<td data-rhtags="198" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="198" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="113" class="rh-hide">acA4112-8gm</td>
+		<td data-rhtags="113" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="113" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="114" class="rh-hide">acA4112-8gc</td>
+		<td data-rhtags="114" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="114" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="115" class="rh-hide">acA4600-7gc</td>
+		<td data-rhtags="115" class="rh-hide">Timed</td>
+		<td data-rhtags="115" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="116" class="rh-hide">acA5472-5gm</td>
+		<td data-rhtags="116" class="rh-hide">Timed</td>
+		<td data-rhtags="116" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="117" class="rh-hide">acA5472-5gc</td>
+		<td data-rhtags="117" class="rh-hide">Timed</td>
+		<td data-rhtags="117" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="118" class="rh-hide">acA640-750um</td>
+		<td data-rhtags="118" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="118" class="rh-hide">32</td>
+	</tr>
+	<tr>
+		<td data-rhtags="119" class="rh-hide">acA640-750uc</td>
+		<td data-rhtags="119" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="119" class="rh-hide">32</td>
+	</tr>
+	<tr>
+		<td data-rhtags="120" class="rh-hide">acA640-90um </td>
+		<td data-rhtags="120" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="120" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="121" class="rh-hide">acA640-90uc</td>
+		<td data-rhtags="121" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="121" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="122" class="rh-hide">acA640-120um</td>
+		<td data-rhtags="122" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="122" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="123" class="rh-hide">acA640-120uc</td>
+		<td data-rhtags="123" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="123" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="124" class="rh-hide">acA720-520um</td>
+		<td data-rhtags="124" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="124" class="rh-hide">14</td>
+	</tr>
+	<tr>
+		<td data-rhtags="125" class="rh-hide">acA720-520uc</td>
+		<td data-rhtags="125" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="125" class="rh-hide">14</td>
+	</tr>
+	<tr>
+		<td data-rhtags="126" class="rh-hide">acA800-510um</td>
+		<td data-rhtags="126" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="126" class="rh-hide">32</td>
+	</tr>
+	<tr>
+		<td data-rhtags="127" class="rh-hide">acA800-510uc</td>
+		<td data-rhtags="127" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="127" class="rh-hide">32</td>
+	</tr>
+	<tr>
+		<td data-rhtags="128" class="rh-hide">acA1300-200um</td>
+		<td data-rhtags="128" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="128" class="rh-hide">32</td>
+	</tr>
+	<tr>
+		<td data-rhtags="129" class="rh-hide">acA1300-200uc</td>
+		<td data-rhtags="129" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="129" class="rh-hide">32</td>
+	</tr>
+	<tr>
+		<td data-rhtags="130" class="rh-hide">acA1300-30um </td>
+		<td data-rhtags="130" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="130" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="131" class="rh-hide">acA1300-30uc</td>
+		<td data-rhtags="131" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="131" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="132" class="rh-hide">acA1440-220um</td>
+		<td data-rhtags="132" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="132" class="rh-hide">13</td>
+	</tr>
+	<tr>
+		<td data-rhtags="133" class="rh-hide">acA1440-220uc</td>
+		<td data-rhtags="133" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="133" class="rh-hide">13</td>
+	</tr>
+	<tr>
+		<td data-rhtags="134" class="rh-hide">acA1600-20um</td>
+		<td data-rhtags="134" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="134" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="135" class="rh-hide">acA1600-20uc</td>
+		<td data-rhtags="135" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="135" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="136" class="rh-hide">acA1920-25um</td>
+		<td data-rhtags="136" class="rh-hide">Timed</td>
+		<td data-rhtags="136" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="137" class="rh-hide">acA1920-25uc</td>
+		<td data-rhtags="137" class="rh-hide">Timed</td>
+		<td data-rhtags="137" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="138" class="rh-hide">acA1920-40um</td>
+		<td data-rhtags="138" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="138" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="139" class="rh-hide">acA1920-40uc</td>
+		<td data-rhtags="139" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="139" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="140" class="rh-hide">acA1920-40umMED</td>
+		<td data-rhtags="140" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="140" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="141" class="rh-hide">acA1920-40ucMED</td>
+		<td data-rhtags="141" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="141" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="142" class="rh-hide">acA1920-150um</td>
+		<td data-rhtags="142" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="142" class="rh-hide">65 / 56.5<sup>a</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="143" class="rh-hide">acA1920-150uc</td>
+		<td data-rhtags="143" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="143" class="rh-hide">65 / 56.5<sup>a</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="144" class="rh-hide">acA1920-155um</td>
+		<td data-rhtags="144" class="rh-hide">Timed</td>
+		<td data-rhtags="144" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="145" class="rh-hide">acA1920-155uc</td>
+		<td data-rhtags="145" class="rh-hide">Timed</td>
+		<td data-rhtags="145" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="146" class="rh-hide">acA1920-155umMED</td>
+		<td data-rhtags="146" class="rh-hide">Timed</td>
+		<td data-rhtags="146" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="147" class="rh-hide">acA1920-155ucMED</td>
+		<td data-rhtags="147" class="rh-hide">Timed</td>
+		<td data-rhtags="147" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="148" class="rh-hide">acA2040-90um</td>
+		<td data-rhtags="148" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="148" class="rh-hide">28<sup>b</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="150" class="rh-hide">acA2040-90uc</td>
+		<td data-rhtags="150" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="150" class="rh-hide">28<sup>b</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="149" class="rh-hide">acA2040-90umNIR</td>
+		<td data-rhtags="149" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="149" class="rh-hide">28<sup>b</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="151" class="rh-hide">acA2000-165um</td>
+		<td data-rhtags="151" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="151" class="rh-hide">28<sup>b</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="153" class="rh-hide">acA2000-165uc</td>
+		<td data-rhtags="153" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="153" class="rh-hide">28<sup>b</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="152" class="rh-hide">acA2000-165umNIR</td>
+		<td data-rhtags="152" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="152" class="rh-hide">28<sup>b</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="154" class="rh-hide">acA2040-55um</td>
+		<td data-rhtags="154" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="154" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="155" class="rh-hide">acA2040-55uc</td>
+		<td data-rhtags="155" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="155" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="156" class="rh-hide">acA2040-120um</td>
+		<td data-rhtags="156" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="156" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="157" class="rh-hide">acA2040-120uc</td>
+		<td data-rhtags="157" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="157" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="158" class="rh-hide">acA2440-35um</td>
+		<td data-rhtags="158" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="158" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="159" class="rh-hide">acA2440-35uc</td>
+		<td data-rhtags="159" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="159" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="160" class="rh-hide">acA2440-35umMED</td>
+		<td data-rhtags="160" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="160" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="161" class="rh-hide">acA2440-35ucMED</td>
+		<td data-rhtags="161" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="161" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="162" class="rh-hide">acA2440-75um</td>
+		<td data-rhtags="162" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="162" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="163" class="rh-hide">acA2440-75uc</td>
+		<td data-rhtags="163" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="163" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="164" class="rh-hide">acA2440-75umMED</td>
+		<td data-rhtags="164" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="164" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="165" class="rh-hide">acA2440-75ucMED</td>
+		<td data-rhtags="165" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="165" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="166" class="rh-hide">acA2500-14um</td>
+		<td data-rhtags="166" class="rh-hide">Timed</td>
+		<td data-rhtags="166" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="167" class="rh-hide">acA2500-14uc</td>
+		<td data-rhtags="167" class="rh-hide">Timed</td>
+		<td data-rhtags="167" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="168" class="rh-hide">acA2500-60um</td>
+		<td data-rhtags="168" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="168" class="rh-hide">37 / 56.5<sup>a</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="169" class="rh-hide">acA2500-60uc</td>
+		<td data-rhtags="169" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="169" class="rh-hide">37 / 56.5<sup>a</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="170" class="rh-hide">acA3088-57um</td>
+		<td data-rhtags="170" class="rh-hide">Timed</td>
+		<td data-rhtags="170" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="171" class="rh-hide">acA3088-57uc</td>
+		<td data-rhtags="171" class="rh-hide">Timed</td>
+		<td data-rhtags="171" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="172" class="rh-hide">acA3800-14um</td>
+		<td data-rhtags="172" class="rh-hide">Timed</td>
+		<td data-rhtags="172" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="173" class="rh-hide">acA3800-14uc</td>
+		<td data-rhtags="173" class="rh-hide">Timed</td>
+		<td data-rhtags="173" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="174" class="rh-hide">acA4024-29um</td>
+		<td data-rhtags="174" class="rh-hide">Timed</td>
+		<td data-rhtags="174" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="175" class="rh-hide">acA4024-29uc</td>
+		<td data-rhtags="175" class="rh-hide">Timed</td>
+		<td data-rhtags="175" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="176" class="rh-hide">acA4096-30um</td>
+		<td data-rhtags="176" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="176" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="177" class="rh-hide">acA4096-30uc</td>
+		<td data-rhtags="177" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="177" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="178" class="rh-hide">acA4096-40um</td>
+		<td data-rhtags="178" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="178" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="179" class="rh-hide">acA4096-40uc</td>
+		<td data-rhtags="179" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="179" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="180" class="rh-hide">acA4112-20um</td>
+		<td data-rhtags="180" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="180" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="181" class="rh-hide">acA4112-20uc</td>
+		<td data-rhtags="181" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="181" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="182" class="rh-hide">acA4112-30um</td>
+		<td data-rhtags="182" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="182" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="183" class="rh-hide">acA4112-30uc</td>
+		<td data-rhtags="183" class="rh-hide">Timed 
+		<p>Trigger Width</p></td>
+		<td data-rhtags="183" class="rh-hide">15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="184" class="rh-hide">acA4600-10uc</td>
+		<td data-rhtags="184" class="rh-hide">Timed</td>
+		<td data-rhtags="184" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="185" class="rh-hide">acA5472-17um</td>
+		<td data-rhtags="185" class="rh-hide">Timed</td>
+		<td data-rhtags="185" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="186" class="rh-hide">acA5472-17uc</td>
+		<td data-rhtags="186" class="rh-hide">Timed</td>
+		<td data-rhtags="186" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="199" class="rh-hide">daA1280-54lm</td>
+		<td data-rhtags="199" class="rh-hide">Timed</td>
+		<td data-rhtags="199" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="200" class="rh-hide">daA1280-54lc</td>
+		<td data-rhtags="200" class="rh-hide">Timed</td>
+		<td data-rhtags="200" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="201" class="rh-hide">daA1600-60lm</td>
+		<td data-rhtags="201" class="rh-hide">Timed</td>
+		<td data-rhtags="201" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="202" class="rh-hide">daA1600-60lc</td>
+		<td data-rhtags="202" class="rh-hide">Timed</td>
+		<td data-rhtags="202" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="203" class="rh-hide">daA2500-14lm</td>
+		<td data-rhtags="203" class="rh-hide">Timed 
+		<p>Trigger Width<sup>c</sup></p></td>
+		<td data-rhtags="203" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="204" class="rh-hide">daA2500-14lc</td>
+		<td data-rhtags="204" class="rh-hide">Timed 
+		<p>Trigger Width<sup>c</sup></p></td>
+		<td data-rhtags="204" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="205" class="rh-hide">daA1280-54um</td>
+		<td data-rhtags="205" class="rh-hide">Timed</td>
+		<td data-rhtags="205" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="206" class="rh-hide">daA1280-54uc</td>
+		<td data-rhtags="206" class="rh-hide">Timed</td>
+		<td data-rhtags="206" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="207" class="rh-hide">daA1600-60um</td>
+		<td data-rhtags="207" class="rh-hide">Timed</td>
+		<td data-rhtags="207" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="208" class="rh-hide">daA1600-60uc</td>
+		<td data-rhtags="208" class="rh-hide">Timed</td>
+		<td data-rhtags="208" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="209" class="rh-hide">daA1920-15um</td>
+		<td data-rhtags="209" class="rh-hide">Timed 
+		<p>Trigger Width<sup>c</sup></p></td>
+		<td data-rhtags="209" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="210" class="rh-hide">daA1920-30um</td>
+		<td data-rhtags="210" class="rh-hide">Timed 
+		<p>Trigger Width<sup>c</sup></p></td>
+		<td data-rhtags="210" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="211" class="rh-hide">daA1920-30uc</td>
+		<td data-rhtags="211" class="rh-hide">Timed 
+		<p>Trigger Width<sup>c</sup></p></td>
+		<td data-rhtags="211" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="212" class="rh-hide">daA2500-14um</td>
+		<td data-rhtags="212" class="rh-hide">Timed 
+		<p>Trigger Width<sup>c</sup></p></td>
+		<td data-rhtags="212" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="213" class="rh-hide">daA2500-14uc</td>
+		<td data-rhtags="213" class="rh-hide">Timed 
+		<p>Trigger Width<sup>c</sup></p></td>
+		<td data-rhtags="213" class="rh-hide">Not specified</td>
+	</tr>
+	<tr>
+		<td data-rhtags="21" class="rh-hide">All dart BCON for MIPI camera models</td>
+		<td data-rhtags="21" class="rh-hide">Exposure Mode feature 
+		 not supported</td>
+		<td data-rhtags="21" class="rh-hide">Exposure Mode feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="47" class="rh-hide">All pulse USB 3.0 camera models</td>
+		<td data-rhtags="47" class="rh-hide">Timed</td>
+		<td data-rhtags="47" class="rh-hide">Not specified</td>
+	</tr>
+</table>
+<p class="table-footnote rh-hide" data-rhtags="237"><sup>a</sup>8-bit <a href="pixel_format.htm">pixel 
+ format</a> / 10-bit pixel format</p>
+<p class="table-footnote rh-hide" data-rhtags="189"><sup>b</sup>Valid when the <a href="pixel_format.htm">pixel 
+ format</a> is set to a 12-bit format. For 8-bit formats, the values depend 
+ on the available USB 3.0 bandwidth. See table below.</p>
+<p class="table-footnote rh-hide" data-rhtags="238"><sup>c</sup>Do not attempt to trigger a new 
+ exposure start while the previous frame acquisition is still in progress. 
+ Otherwise, the trigger signal will be partly ignored, and the exposure 
+ time for the new frame will be shorter than the trigger signal. This situation 
+ is illustrated below for rising edge triggering.<br />
+<img src="images/drawing_dart_usb_exposure_mode_overtrigger.png" alt="Overtriggering with Trigger Width Exposure" title="Overtriggering with Trigger Width Exposure" border="0" /></p>
+<table data-rhtags="189" class="rh-hide">
+	<col />
+	<col />
+	<tr>
+		<th><p>Available USB Bandwidth (Device Link Throughput)</p></th>
+		<th><p>Exposure Time Offset</p></th>
+	</tr>
+	<tr>
+		<td>≤ 108.000</td>
+		<td>42</td>
+	</tr>
+	<tr>
+		<td>108.001-140.000</td>
+		<td>32</td>
+	</tr>
+	<tr>
+		<td>140.001-160.020</td>
+		<td>28</td>
+	</tr>
+	<tr>
+		<td>140.001-160.020</td>
+		<td>25</td>
+	</tr>
+	<tr>
+		<td>180.001-192.112</td>
+		<td>24</td>
+	</tr>
+	<tr>
+		<td>192.113-216.000</td>
+		<td>42</td>
+	</tr>
+	<tr>
+		<td>216.001-280.000</td>
+		<td>32</td>
+	</tr>
+	<tr>
+		<td>280.001-320.040</td>
+		<td>28</td>
+	</tr>
+	<tr>
+		<td>320.041-360.000</td>
+		<td>25</td>
+	</tr>
+	<tr>
+		<td>≥ 360.001</td>
+		<td>24</td>
+	</tr>
+	<tr>
+		<td colspan="2"><img src="images/drawing_exposure_time_offset.png" alt="Exposure Time Offset Depending on Device Link Throughput" title="Exposure Time Offset Depending on Device Link Throughput" border="0" /></td>
+		
+	</tr>
+</table>
+</div>
+<h2 class="sample-code"><a name="MiniTOCBookMark8"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre><code class="cpp">// Select and enable the Frame Start trigger
+camera.TriggerSelector.SetValue(TriggerSelector_FrameStart);
+camera.TriggerMode.SetValue(TriggerMode_On);
+// Set the trigger source to Line 1
+camera.TriggerSource.SetValue(TriggerSource_Line1);
+// Enable Timed exposure mode
+camera.ExposureMode.SetValue(ExposureMode_Timed);</code></pre></div><div class="tab-2 tab-content"><pre><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Select and enable the Frame Start trigger
+CEnumerationPtr(nodemap.GetNode("TriggerSelector"))-&gt;FromString("FrameStart");
+CEnumerationPtr(nodemap.GetNode("TriggerMode"))-&gt;FromString("On");
+// Set the trigger source to Line 1
+CEnumerationPtr(nodemap.GetNode("TriggerSource"))-&gt;FromString("Line1");
+// Enable Timed exposure mode
+CEnumerationPtr(nodemap.GetNode("ExposureMode"))-&gt;FromString("Timed");</code></pre></div><div class="tab-3 tab-content"><pre><code class="csharp" generated="true">// Select and enable the Frame Start trigger
+camera.Parameters[PLCamera.TriggerSelector].SetValue(PLCamera.TriggerSelector.FrameStart);
+camera.Parameters[PLCamera.TriggerMode].SetValue(PLCamera.TriggerMode.On);
+// Set the trigger source to Line 1
+camera.Parameters[PLCamera.TriggerSource].SetValue(PLCamera.TriggerSource.Line1);
+// Enable Timed exposure mode
+camera.Parameters[PLCamera.ExposureMode].SetValue(PLCamera.ExposureMode.Timed);</code></pre></div><div class="tab-4 tab-content"><pre><code class="csharp" generated="true">// Select and enable the Frame Start trigger
+Pylon.DeviceFeatureFromString(hdev, "TriggerSelector", "FrameStart");
+Pylon.DeviceFeatureFromString(hdev, "TriggerMode", "On");
+// Set the trigger source to Line 1
+Pylon.DeviceFeatureFromString(hdev, "TriggerSource", "Line1");
+// Enable Timed exposure mode
+Pylon.DeviceFeatureFromString(hdev, "ExposureMode", "Timed");</code></pre></div><div class="tab-5 tab-content"><pre><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+/* Select and enable the Frame Start trigger */
+errRes = PylonDeviceFeatureFromString(hdev, "TriggerSelector", "FrameStart");
+CHECK(errRes);
+errRes = PylonDeviceFeatureFromString(hdev, "TriggerMode", "On");
+CHECK(errRes);
+/* Set the trigger source to Line 1 */
+errRes = PylonDeviceFeatureFromString(hdev, "TriggerSource", "Line1");
+CHECK(errRes);
+/* Enable Timed exposure mode */
+errRes = PylonDeviceFeatureFromString(hdev, "ExposureMode", "Timed");
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

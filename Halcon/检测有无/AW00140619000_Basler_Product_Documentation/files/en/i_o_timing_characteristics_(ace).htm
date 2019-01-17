@@ -1,0 +1,290 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>I/O Timing Characteristics (ace)</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.4.0_7";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > I/O Control" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"i_o_control.htm\">I/O Control<\/a>  &gt;  I/O Timing Characteristics (ace)<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>I/O Timing Characteristics (ace)</h1>
+<p class="teaser">This topic provides information about the camera's propagation 
+ delays (&quot;response times&quot;) when operated via I/O lines.</p>
+<p>The propagation delay is the length of &#160;time between the change 
+ of the analog I/O signal and the change of the camera's internal status 
+ – or vice versa.</p>
+<p>Knowing the propagation delays is useful if you want to configure I/O 
+ control with a precision in the microsecond range.</p>
+<p>All examples in this section assume that the <a href="line_inverter.htm">Line 
+ Inverter</a> feature is disabled.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot21723" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot21723', 'MTPOPUP21723');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP21723" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Characteristics</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Propagation Delays on Input Lines</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Propagation Delays on Output Lines</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark5" >Factors Influencing the Propagation Delays of I/O Lines</a>
+</li>
+   <li><a href="#MiniTOCBookMark6" >Recommendations</a>
+</li>
+   <li><a href="#MiniTOCBookMark7" >Propagation Delays Measured on ace USB 3.0 Cameras</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark8" >Input Lines</a>
+</li>
+    <li><a href="#MiniTOCBookMark9" >Output Lines</a>
+</li>
+   </ul></li>
+  </ul>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Characteristics</h2>
+<ul>
+	<li>Propagation delays of <a href="opto-coupled_i_o_lines.htm">opto-coupled 
+	 I/O lines</a> are generally longer than those of <a href="general_purpose_i_o_(gpio)_lines.htm">GPIO 
+	 lines</a>.</li>
+	<li>For opto-coupled input lines, the propagation delay for low-to-high 
+	 signal &#160;transitions (rising edges) is shorter than for high-to-low 
+	 signal &#160;transitions (falling edges). For GPIO lines, the opposite 
+	 applies.</li>
+	<li>For output lines, the propagation delay for high-to-low signal 
+	 transitions is always shorter.</li>
+</ul>
+<h3><a name="MiniTOCBookMark3"></a>Propagation Delays on Input Lines</h3>
+<p><img src="images/drawing_temporal_performance_input_lines.png" alt="Input Line Propagation Delays" title="Input Line Propagation Delays" /></p>
+<h3><a name="MiniTOCBookMark4"></a>Propagation Delays on Output Lines</h3>
+<p><img src="images/drawing_temporal_performance_output_lines.png" alt="Output Line Propagation Delays" title="Output Line Propagation Delays" /></p>
+<h2><a name="MiniTOCBookMark5"></a>Factors Influencing the Propagation Delays of I/O Lines</h2>
+<table >
+	<col style="width: 40%;" />
+	<col style="width: 15%;" />
+	<col style="width: 15%;" />
+	<col style="width: 15%;" />
+	<col style="width: 15%;" />
+	<thead>
+  <tr>
+		<th>Factor</th>
+		<th><p class="text-center">Opto-coupled Input Line</p></th>
+		<th><p class="text-center">GPIO Input Line</p></th>
+		<th><p class="text-center">Opto-coupled Output Line</p></th>
+		<th><p class="text-center">GPIO Output Line</p></th>
+	</tr>
+ </thead>
+	<tr>
+		<td>Operating temperature</td>
+		<td><p class="text-center">●</p></td>
+		<td><p class="text-center">○</p></td>
+		<td><p class="text-center">●</p></td>
+		<td><p class="text-center">○</p></td>
+	</tr>
+	<tr>
+		<td>Production spread of electronic components<sup>a</sup></td>
+		<td><p class="text-center">●</p></td>
+		<td><p class="text-center">○</p></td>
+		<td><p class="text-center">●</p></td>
+		<td><p class="text-center">○</p></td>
+	</tr>
+	<tr>
+		<td>Aging</td>
+		<td><p class="text-center">●</p></td>
+		<td><p class="text-center">&#160;</p></td>
+		<td><p class="text-center">●</p></td>
+		<td><p class="text-center">&#160;</p></td>
+	</tr>
+	<tr>
+		<td>External I/O supply voltage</td>
+		<td><p class="text-center">●</p></td>
+		<td><p class="text-center">&#160;</p></td>
+		<td><p class="text-center">●</p></td>
+		<td><p class="text-center">○</p></td>
+	</tr>
+	<tr>
+		<td>Load resistance</td>
+		<td><p class="text-center">&#160;</p></td>
+		<td><p class="text-center">&#160;</p></td>
+		<td><p class="text-center">●</p></td>
+		<td><p class="text-center">○</p></td>
+	</tr>
+	<tr>
+		<td>Load current</td>
+		<td><p class="text-center">&#160;</p></td>
+		<td><p class="text-center">&#160;</p></td>
+		<td><p class="text-center">●</p></td>
+		<td><p class="text-center">○</p></td>
+	</tr>
+	<tr>
+		<td colspan="5">● = major influence, ○ = minor influence 
+		<p>&#160;</p>
+		<sup style="vertical-align: super;">a</sup> Production spread can 
+		 result in different propagation delays even in cameras from the 
+		 same batch that are operated under identical conditions.</td>
+		
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark6"></a>Recommendations</h2>
+<ul>
+	<li>As a general rule, use the fast edge of a signal to achieve the 
+	 fastest response times. The propagation delays for a fast edge will 
+	 rarely exceed 15 μs for an opto-coupled I/O line, and rarely 1 μs 
+	 for a GPIO line.</li>
+	<li>To minimize fast edge propagation delays, increase the load resistance.</li>
+	<li>To minimize slow edge propagation delays:</li>
+	<li><ul>
+		<li>Use an I/O supply &#160;voltage between 3.3 VDC and 5 VDC.</li>
+		<li>Decrease the load resistance to achieve a load current between 
+		 30 mA and 40 mA.</li>
+	</ul></li>
+	<li>Use GPIO lines as their propagation delays are generally shorter.</li>
+	<li>Applying current to the input and output lines makes optocouplers 
+	 age faster. Keep the times when current flows to a minimum to preserve 
+	 stable propagation delays.</li>
+	<li>The signal edge-to-edge displacement (jitter) resulting from the 
+	 use of I/O lines is negligible. However, the jitter may be increased 
+	 by your trigger signal. To avoid jitter, keep the flanks of your trigger 
+	 signals steep, and thereby short (preferably &lt; 500 ns). The camera’s 
+	 inherent jitter is less than 100 ns, peak to peak.</li>
+</ul>
+<h2><a name="MiniTOCBookMark7"></a>Propagation Delays Measured on ace USB 3.0 Cameras</h2>
+<p>The propagation delays measured are based on 2000 ace USB 3.0 cameras 
+ from the same production batch.</p>
+<div class="info">
+	The values in the following tables are only valid under the following 
+	 operating conditions: 
+	<ul>
+		<li>Housing temperature: 25&#160;°C</li>
+		<li>Load resistance: 170&#160;Ω</li>
+		<li>I/O supply voltage: 5&#160;VDC</li>
+	</ul>
+	Don't base assumptions about propagation delays under different operating 
+	 conditions on these values.
+</div>
+<h3><a name="MiniTOCBookMark8"></a>Input Lines</h3>
+<table>
+	<col style="width: 33.333%;" />
+	<col style="width: 33.333%;" />
+	<col style="width: 33.333%;" />
+	<thead>
+  <tr>
+		<th>&#160;</th>
+		<th>Fast Edge</th>
+		<th><p>Slow Edge</p></th>
+	</tr>
+ </thead>
+	<tr>
+		<td>Opto-coupled input line</td>
+		<td>4.5–7.5 μs (= rising edge)</td>
+		<td>&#160;19–28 μs (= falling edge)</td>
+	</tr>
+	<tr>
+		<td>GPIO input line</td>
+		<td>&lt;0.5 μs (= falling edge)</td>
+		<td>&lt;1 μs (= rising edge)</td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark9"></a><a name="Output_Lines" id="Output_Lines"></a>Output Lines</h3>
+<table>
+	<col style="width: 33.333%;" />
+	<col style="width: 33.333%;" />
+	<col style="width: 33.333%;" />
+	<thead>
+  <tr>
+		<th>&#160;</th>
+		<th>Fast Edge</th>
+		<th><p>Slow Edge</p></th>
+	</tr>
+ </thead>
+	<tr>
+		<td>Opto-coupled output line</td>
+		<td>3–6 μs (= falling edge)</td>
+		<td>&#160;27–38 μs (= rising edge)</td>
+	</tr>
+	<tr>
+		<td>GPIO output line</td>
+		<td>&lt;0.5 μs (= falling edge)</td>
+		<td>&lt;2.5 μs (= rising edge)</td>
+	</tr>
+</table>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

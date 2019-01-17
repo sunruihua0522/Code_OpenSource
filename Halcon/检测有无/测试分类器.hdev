@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="383578870">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_ocr_class_mlp('TestOCR.omc', OCRHandle)</l>
+<c></c>
+<c></c>
+<l>for Index := 1 to 8 by 1</l>
+<l>     read_image (Image2, 'C:/Code/Halcon/检测有无/'+Index+'.jpg')</l>
+<l>        mean_image(Image2, ImageMean, 9, 9)</l>
+<l>        scale_image_max(ImageMean, ImageScaleMax)</l>
+<c>        </c>
+<l>        dev_close_window()</l>
+<l>        dev_open_window_fit_image(Image2, 0, 0, -1, -1, WindowHandle)</l>
+<c>        </c>
+<c>        </c>
+<l>        decompose3(ImageScaleMax, Image11, Image21, Image3)</l>
+<l>        trans_from_rgb (Image11, Image21, Image3, ImageResult1, ImageResult2, ImageResult3, 'hsv')</l>
+<c>        </c>
+<c>        </c>
+<c>        </c>
+<l>        threshold (ImageResult2, Regions, 77, 255)</l>
+<c>        </c>
+<l>        closing_circle(Regions, RegionOpening, 11)</l>
+<l>        connection(RegionOpening, ConnectedRegions)</l>
+<l>        area_center(ConnectedRegions, Area1, Row1, Column1)</l>
+<c>        </c>
+<l>        select_shape (ConnectedRegions, SelectedRegions, 'area', 'and', 10000.59, 157565)</l>
+<c>        </c>
+<l>        union1(SelectedRegions, RegionUnion)</l>
+<l>        shape_trans(RegionUnion, RegionTrans, 'circle')</l>
+<l>        dev_set_draw('margin')</l>
+<l>        dev_display(Image3)</l>
+<l>        dev_display(RegionTrans)</l>
+<c>        </c>
+<c>        *训练</c>
+<l>        TraningLabes:=['NG','OK','OK','NG']</l>
+<l>        TraningFontName:='TestOCR'</l>
+<l>        TraningFileName:=TraningFontName+'.trf'</l>
+<l>        reduce_domain(Image2, RegionTrans, ImageReduced)</l>
+<c>    </c>
+<c>    </c>
+<c>    </c>
+<c>    </c>
+<l>        do_ocr_single_class_mlp(ImageReduced, Image2, OCRHandle, 1, Class, Confidence)</l>
+<l>        disp_message(WindowHandle, Class, 'window', 0, 0, 'black', 'true')</l>
+<l>        stop()</l>
+<l>        *disp_message(WindowHandle, Class+'------Confidence:'+Confidence, 'window', 0+Index1*20-20, 0, 'black', 'true')</l>
+<l>*          write_image(ImageReduced1, 'png', 0, Index1+'.png')</l>
+<l>endfor</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

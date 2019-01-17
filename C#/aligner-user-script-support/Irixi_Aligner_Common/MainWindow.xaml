@@ -1,0 +1,508 @@
+﻿<dxr:DXRibbonWindow xmlns:UserControls1="clr-namespace:Irixi_Aligner_Common.View.UserControls"  xmlns:ListBasedUserScript="clr-namespace:Irixi_Aligner_Common.View.ListBasedUserScript"  mc:Ignorable="d" d:DesignHeight="1200" d:DesignWidth="1929" 
+                    SnapsToDevicePixels="True" 
+                    UseLayoutRounding="True" 
+                    Loaded="DXRibbonWindow_Loaded" 
+                    WindowState="Maximized" 
+                    Closing="DXRibbonWindow_Closing" 
+                    Icon="AlignerLogo.ico" 
+                    x:Class="Irixi_Aligner_Common.MainWindow" 
+                    Title="Irixi Alignment System for 2x25G/10x10G Tx/Rx" 
+                    xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon" 
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" 
+                    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+                    xmlns:dxd="http://schemas.devexpress.com/winfx/2008/xaml/docking" 
+                    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                    xmlns:local="clr-namespace:Irixi_Aligner_Common" 
+                    xmlns:Converters="clr-namespace:Irixi_Aligner_Common.Classes.Converters" 
+                    xmlns:AlignmentPanelView="clr-namespace:Irixi_Aligner_Common.View.UserControls.AlignmentView"
+                    xmlns:UserControls="clr-namespace:Irixi_Aligner_Common.View.UserControls">       
+    <dxr:DXRibbonWindow.Resources>
+
+        <Converters:VisibilityToBoolean x:Key="VisibilityToBoolean" />
+        <Converters:SystemStatusToStartButtonEnable x:Key="SystemStatusToStartButtonEnable" />
+    
+    </dxr:DXRibbonWindow.Resources>
+    <DockPanel DataContext="{Binding Source={StaticResource Locator}}">
+        <dxr:RibbonControl x:Name="ribbonControl1" DockPanel.Dock="Top" AllowCustomization="False" ToolbarShowCustomizationButton="False" RibbonStyle="Office2010">
+            <dxr:RibbonControl.ApplicationMenu>
+                <dxr:ApplicationMenu RightPaneWidth="280" ShowRightPane="True">
+                    <dxr:ApplicationMenu.RightPane>
+                        <Button Content="Right Pane" />
+                    </dxr:ApplicationMenu.RightPane>
+                    <dxr:ApplicationMenu.BottomPane>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="OK button" />
+                        </StackPanel>
+                    </dxr:ApplicationMenu.BottomPane>
+                </dxr:ApplicationMenu>
+            </dxr:RibbonControl.ApplicationMenu>
+            <dxr:RibbonDefaultPageCategory>
+                <dxr:RibbonPage x:Name="rpHome" Caption="Home">
+                    <dxr:RibbonPageGroup Caption="Actions">
+                        <dxb:BarButtonItem 
+                            Content="Home" 
+                            RibbonStyle="Large"
+                            LargeGlyph="{StaticResource IconHome_32x32}" 
+                            Command="{Binding ServiceView.CommandHomeAllAxes}" 
+                            IsEnabled="{Binding ServiceView.Service.State, Converter={StaticResource SystemStatusToStartButtonEnable}}" />
+                        <dxb:BarButtonItem 
+                            x:Name="btnStart" 
+                            Content="Start" 
+                            RibbonStyle="Large"
+                            Glyph="{StaticResource IconPlay_256x256}" 
+                            LargeGlyph="{StaticResource IconPlay_256x256}" 
+                            IsEnabled="{Binding ServiceView.Service.State, Converter={StaticResource SystemStatusToStartButtonEnable}}" />
+                        <dxb:BarButtonItem 
+                            x:Name="btnStop"
+                            Content="Stop" 
+                            RibbonStyle="Large"
+                            Glyph="{StaticResource IconStop_256x256}" 
+                            LargeGlyph="{StaticResource IconStop_256x256}" 
+                            IsEnabled="{Binding ServiceView.Service.State, Converter={StaticResource SystemStatusToStopButtonEnable}}" 
+                            Command="{Binding ServiceView.CommandStop}"/>
+                    </dxr:RibbonPageGroup>
+                    <dxr:RibbonPageGroup Caption="Tools">
+                        <dxb:BarButtonItem 
+                            x:Name="btnOpenPositionPresetPanel" 
+                            Content="Position Preset" 
+                            RibbonStyle="Large"
+                            LargeGlyph="{StaticResource IconList_32x32}"
+                            ItemClick="btnOpenPositionPresetPanel_ItemClick" />
+                    </dxr:RibbonPageGroup>
+                    <dxr:RibbonPageGroup Caption="Fast Alignment">
+                        <dxb:BarButtonItem 
+                            x:Name="btnBlindSearch" 
+                            Content="Blind Search" 
+                            LargeGlyph="{StaticResource IconSpiral_32x32}" 
+                            Glyph="{StaticResource IconSpiral_512x512}" 
+                            ItemClick="btnBlindSearch_ItemClick" />
+                        <dxb:BarButtonItem 
+                            x:Name="btnSnakeScan" 
+                            Content="Blind Search 2" 
+                            LargeGlyph="{StaticResource IconSnake_32x32}" 
+                            Glyph="{StaticResource IconSnake_512x512}" 
+                            ItemClick="btnSnakeScan_ItemClick" />
+                        <dxb:BarButtonItem 
+                            x:Name="btnFastND" 
+                            Content="Fast-nD Scan" 
+                            LargeGlyph="{StaticResource IconAlignmentnD_32x32}" 
+                            Glyph="{StaticResource IconAlignmentnD_512x512}" 
+                            ItemClick="BtnFastND_ItemClick" />
+                        <dxb:BarButtonItem 
+                            x:Name="btnFastCentralAlign" 
+                            Content="Fast Central Align" 
+                            LargeGlyph="{StaticResource IconCentralAlign_32x32}" 
+                            Glyph="{StaticResource IconCentralAlign_512x512}" 
+                            ItemClick="BtnFastCentralAlign_ItemClick" />
+                    </dxr:RibbonPageGroup>
+                    <dxr:RibbonPageGroup Caption="Alignment">
+                        <dxb:BarButtonItem 
+                            x:Name="btnProfileND" 
+                            Content="Profile-nD Scan" 
+                            LargeGlyph="{StaticResource IconAlignmentnD_32x32}" 
+                            Glyph="{StaticResource IconAlignmentnD_512x512}" 
+                            ItemClick="BtnProfileND_ItemClick"/>
+                        <dxb:BarButtonItem 
+                            x:Name="btnCentralAlign" 
+                            Content="Central Align" 
+                            LargeGlyph="{StaticResource IconCentralAlign_32x32}" 
+                            Glyph="{StaticResource IconCentralAlign_512x512}" 
+                            ItemClick="btnCentralAlign_ItemClick"/>
+                        <dxb:BarButtonItem 
+                            x:Name="btnRotatingProfile" 
+                            Content="Rotating Profile" 
+                            LargeGlyph="{StaticResource IconRotating_32x32}" 
+                            Glyph="{StaticResource IconRotating_512x512}" 
+                            ItemClick="btnRotatingProfile_ItemClick" />
+                    </dxr:RibbonPageGroup>
+                </dxr:RibbonPage>
+                <dxr:RibbonPage x:Name="rpgView" Caption="View">
+                    <dxr:RibbonPageGroup x:Name="rpgView_MotionComponent" Caption="Motion Control">
+
+                    </dxr:RibbonPageGroup>
+                    <dxr:RibbonPageGroup 
+                        x:Name="rpgView_Equipments" 
+                        Caption="Tools">
+                        <dxb:BarCheckItem 
+                            Content="Utilities" 
+                            Glyph="{dx:DXImageOffice2013 Image=Palette_16x16.png}" 
+                            LargeGlyph="{dx:DXImageOffice2013 Image=Palette_32x32.png}" 
+                            RibbonStyle="Default" 
+                            IsChecked="{Binding Visibility, ElementName=panelUtilities, Mode=TwoWay, Converter={StaticResource VisibilityToBoolean}}" />
+                        <dxb:BarCheckItem 
+                            Content="User Script Editor" 
+                            Glyph="{dx:DXImageOffice2013 Image=Palette_16x16.png}" 
+                            LargeGlyph="{dx:DXImageOffice2013 Image=Palette_32x32.png}" 
+                            RibbonStyle="Default" 
+                            IsChecked="{Binding Visibility, ElementName=panelUserScriptEditor, Mode=TwoWay, Converter={StaticResource VisibilityToBoolean}}" />
+                    </dxr:RibbonPageGroup>
+                </dxr:RibbonPage>
+            </dxr:RibbonDefaultPageCategory>
+        </dxr:RibbonControl>
+        <dxr:RibbonStatusBarControl DockPanel.Dock="Bottom">
+            <dxr:RibbonStatusBarControl.LeftItems>
+                <dxb:BarStaticItem Content="{Binding ServiceView.Service.SysVersion}"/>
+            </dxr:RibbonStatusBarControl.LeftItems>
+        </dxr:RibbonStatusBarControl>
+
+        <dxd:DockLayoutManager 
+            x:Name="dockLayoutManager" 
+            ClosingBehavior="HideToClosedPanelsCollection" 
+            FloatingMode="Desktop" 
+            dx:DXSerializer.StoreLayoutMode="UI" 
+            dxd:RestoreLayoutOptions.RemoveOldPanels="False" 
+            dxd:RestoreLayoutOptions.AddNewLayoutControlItems="False" 
+            DockItemClosing="dockLayoutManager_DockItemClosing" 
+            ItemIsVisibleChanged="dockLayoutManager_ItemIsVisibleChanged">
+            <dxd:LayoutGroup 
+                x:Name="rootLayout" 
+                Orientation="Vertical">
+                <dxd:LayoutGroup 
+                    x:Name="mainWorkspace" 
+                    Orientation="Horizontal" 
+                    AllowSplitters="False" 
+                    ItemHeight="4*">
+                    <dxd:DocumentGroup 
+                        x:Name="MotionComponentPanelHost" 
+                        MDIStyle="MDI">
+                        
+                        <!-- Fast-ND Panel -->
+                        <dxd:DocumentPanel x:Name="panelFastND" 
+                                           DataContext="{Binding FastNDView}" 
+                                           Caption="{Binding Handler, Mode=OneTime}" 
+                                           MDISize="1000,600"
+                                           AllowFloat="False" 
+                                           AllowSizing="True" 
+                                           AllowRename="False"
+                                           AllowDock="False" 
+                                           AllowMaximize="true" 
+                                           AllowDockToDocumentGroup="False" 
+                                           Visibility="Hidden">
+                            <AlignmentPanelView:AlignmentPanel 
+                                DataContext="{Binding}" 
+                                PropertiesEditTamplatePath="View/UserControls/Alignment/TmplFastND.xaml" />
+                        </dxd:DocumentPanel>
+                        
+                        <!-- Profile-ND Panel -->
+                        <dxd:DocumentPanel x:Name="panelProfileND" 
+                                           DataContext="{Binding ProfileNDView}"
+                                           Caption="{Binding Handler, Mode=OneTime}" 
+                                           MDISize="1000,600"
+                                           AllowFloat="False" 
+                                           AllowSizing="True" 
+                                           AllowRename="False"
+                                           AllowDock="False" 
+                                           AllowMaximize="true" 
+                                           AllowDockToDocumentGroup="False" 
+                                           Visibility="Hidden">
+                            <AlignmentPanelView:AlignmentPanel 
+                                DataContext="{Binding}" 
+                                PropertiesEditTamplatePath="View/UserControls/Alignment/TmplProfileND.xaml" />
+                        </dxd:DocumentPanel>
+                        
+                        <!-- Blind Search Panel -->
+                        <dxd:DocumentPanel x:Name="panelBlindSearch" 
+                                           DataContext="{Binding BlindSearchView}"
+                                           Caption="{Binding Handler, Mode=OneTime}" 
+                                           MDISize="1000,600" 
+                                           AllowFloat="False" 
+                                           AllowSizing="True" 
+                                           AllowRename="False" 
+                                           AllowDock="False" 
+                                           AllowMaximize="true" 
+                                           AllowDockToDocumentGroup="False"
+                                           Visibility="Hidden">
+                            <AlignmentPanelView:AlignmentPanel 
+                                DataContext="{Binding}" 
+                                PropertiesEditTamplatePath="View/UserControls/Alignment/TmplSpiralScan.xaml" />
+                        </dxd:DocumentPanel>
+
+                        <!-- Blind Search 2 Panel -->
+                        <dxd:DocumentPanel x:Name="panelSnakeRouteScan" 
+                                           DataContext="{Binding SnakeRouteScanView}" 
+                                           Caption="{Binding Handler, Mode=OneTime}" 
+                                           MDISize="1000,600" 
+                                           AllowFloat="False" 
+                                           AllowSizing="True" 
+                                           AllowRename="False" 
+                                           AllowDock="False" 
+                                           AllowMaximize="true" 
+                                           AllowDockToDocumentGroup="False"
+                                           Visibility="Hidden">
+                            <AlignmentPanelView:AlignmentPanel 
+                                DataContext="{Binding}" 
+                                PropertiesEditTamplatePath="View/UserControls/Alignment/TmplSnakeRouteScan.xaml" />
+                        </dxd:DocumentPanel>
+
+                        <!-- Rotating Profile Panel -->
+                        <dxd:DocumentPanel x:Name="panelRotatingProfile" 
+                                           DataContext="{Binding RotatingProfileView}" 
+                                           Caption="{Binding Handler, Mode=OneTime}" 
+                                           MDISize="1000,600" 
+                                           AllowFloat="False" 
+                                           AllowSizing="True" 
+                                           AllowRename="False" 
+                                           AllowDock="False" 
+                                           AllowMaximize="true" 
+                                           AllowDockToDocumentGroup="False"
+                                           Visibility="Hidden">
+                            <AlignmentPanelView:AlignmentPanel 
+                                DataContext="{Binding}" 
+                                PropertiesEditTamplatePath="View/UserControls/Alignment/TmplRotatingProfile.xaml" />
+                        </dxd:DocumentPanel>
+
+                        <!-- Fast Rotating Scan Panel -->
+                        <dxd:DocumentPanel x:Name="panelFastRotatingScan" 
+                                           DataContext="{Binding FastRotatingScanView}" 
+                                           Caption="{Binding Handler, Mode=OneTime}" 
+                                           MDISize="1000,600" 
+                                           AllowFloat="False" 
+                                           AllowSizing="True" 
+                                           AllowRename="False" 
+                                           AllowDock="False" 
+                                           AllowMaximize="true" 
+                                           AllowDockToDocumentGroup="False"
+                                           Visibility="Hidden">
+                            <AlignmentPanelView:AlignmentPanel 
+                                DataContext="{Binding}" 
+                                PropertiesEditTamplatePath="View/UserControls/Alignment/TmplFastRotatingScan.xaml" />
+                        </dxd:DocumentPanel>
+
+                        <!-- Fast Central Align Panel -->
+                        <dxd:DocumentPanel x:Name="panelFastCentralAlign" 
+                                           DataContext="{Binding FastCentralAlignView}" 
+                                           Caption="{Binding Handler, Mode=OneTime}" 
+                                           MDISize="1000,600" 
+                                           AllowFloat="False" 
+                                           AllowSizing="True" 
+                                           AllowRename="False" 
+                                           AllowDock="False" 
+                                           AllowMaximize="true" 
+                                           AllowDockToDocumentGroup="False"
+                                           Visibility="Hidden">
+                            <AlignmentPanelView:AlignmentPanel 
+                                DataContext="{Binding}" 
+                                PropertiesEditTamplatePath="View/UserControls/Alignment/TmplFastCentralAlign.xaml"/>
+                        </dxd:DocumentPanel>
+                        
+                        <!-- Central Align Panel -->
+                        <dxd:DocumentPanel x:Name="panelCentralAlign" 
+                                           DataContext="{Binding CentralAlignView}" 
+                                           Caption="{Binding Handler, Mode=OneTime}" 
+                                           MDISize="1000,600" 
+                                           AllowFloat="False" 
+                                           AllowSizing="True" 
+                                           AllowRename="False" 
+                                           AllowDock="False" 
+                                           AllowMaximize="true" 
+                                           AllowDockToDocumentGroup="False"
+                                           Visibility="Hidden">
+                            <AlignmentPanelView:AlignmentPanel 
+                                DataContext="{Binding}" 
+                                PropertiesEditTamplatePath="View/UserControls/Alignment/TmplCentralAlign.xaml" />
+                        </dxd:DocumentPanel>
+
+                        <!-- The position preset panel -->
+                        <dxd:DocumentPanel 
+                            x:Name="panelPositionPreset" 
+                            Caption="Position Preset" 
+                            MDISize="650,450"
+                            MinHeight="450"
+                            MaxHeight="700"
+                            MinWidth="650"
+                            MaxWidth="650"
+                            ShowMaximizeButton="False" 
+                            AllowFloat="False" 
+                            AllowRename="False" 
+                            AllowDock="False" 
+                            AllowMaximize="False" 
+                            AllowContextMenu="False"
+                            AllowDockToDocumentGroup="False"
+                            Visibility="Hidden">
+                            <Grid>
+                                <Grid.Resources>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                    </Style>
+                                    <Style TargetType="ComboBox">
+                                        <Setter Property="Grid.Column" Value="1"/>
+                                        <Setter Property="IsEditable" Value="False"/>
+                                        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                    </Style>
+                                </Grid.Resources>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="230" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="100"/>
+                                    <RowDefinition Height="30"/>
+                                </Grid.RowDefinitions>
+                                <!-- Settings panel -->
+                                <GroupBox Header="Settings">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="80"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="30"/>
+                                            <RowDefinition Height="30"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Text="Component"/>
+                                        <TextBlock Grid.Row="1" Text="Preset"/>
+                                        <!-- Logical Motion Controller selector -->
+                                        <ComboBox 
+                                            IsEditable="False"
+                                            ItemsSource="{Binding ServiceView.Service.LogicalMotionComponentCollection}" 
+                                            SelectedItem="{Binding ServiceView.Service.PositionPresetProfileManager.SelectedMotionComponent, Mode=OneWayToSource}"
+                                            DisplayMemberPath="Caption"/>
+                                        <!-- Profile selector -->
+                                        <ComboBox 
+                                            IsEditable="False"
+                                            Grid.Row="1" 
+                                            ItemsSource="{Binding ServiceView.Service.PositionPresetProfileManager.ProfileList, Mode=OneWay}"
+                                            SelectedItem="{Binding ServiceView.Service.PositionPresetProfileManager.SelectedProfile, Mode=TwoWay}"/>
+                                    </Grid>
+                                </GroupBox>
+                                <!-- Buttons -->
+                                <Grid Grid.Row="1" Margin="0,10,0,0">
+                                    <Grid Grid.Row="3" Grid.ColumnSpan="2">
+                                        <Grid.Resources>
+                                            <Style TargetType="Button">
+                                                <Setter Property="Margin" Value="5"/>
+                                            </Style>
+                                        </Grid.Resources>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <!-- button to reload the current position -->
+                                        <Button 
+                                            Content="Reload" 
+                                            Command="{Binding ServiceView.Service.PositionPresetProfileManager.ReloadCurrentPositions}"/>
+                                        <!-- button to save the current position -->
+                                        <Button 
+                                            Grid.Column="1"
+                                            Content="Save" 
+                                            Command="{Binding ServiceView.Service.PositionPresetProfileManager.Save}"/>
+                                        <!-- button to start to move -->
+                                        <Button
+                                            Grid.Row="1"
+                                            Content="Start"
+                                            Command="{Binding ServiceView.CommandMassMove}"
+                                            CommandParameter="{Binding ServiceView.Service.PositionPresetProfileManager.MoveArgsCollection}" />
+                                        <!-- button to stop -->
+                                        <Button
+                                            Grid.Column="1"
+                                            Grid.Row="1"
+                                            Content="Stop"
+                                            Command="{Binding ServiceView.CommandStop}" />
+                                    </Grid>
+                                </Grid>
+                                <!-- Arguments display panels -->
+                                <GroupBox Grid.RowSpan="2" Grid.Column="1" Header="Arguments" Margin="10,0,0,0">
+                                    <UserControls:PresetPositionPanel 
+                                    Grid.Column="1" 
+                                    DataContext="{Binding ServiceView.Service.PositionPresetProfileManager.MoveArgsCollection, Mode=OneWay}"/>
+                                </GroupBox>
+                                <!-- Status bar -->
+                                <StackPanel 
+                                    Margin="0,5,0,0"
+                                    Grid.Row="2" 
+                                    Grid.ColumnSpan="2" 
+                                    Orientation="Horizontal" 
+                                    Background="{StaticResource Color_IrixiYellow}">
+                                    <StackPanel.Resources>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="VerticalAlignment" Value="Center"/>
+                                            <Setter Property="Foreground" Value="White"/>
+                                            <Setter Property="Margin" Value="5,0,0,0"/>
+                                        </Style>
+                                    </StackPanel.Resources>
+                                    <TextBlock Text="{Binding ServiceView.Service.PositionPresetProfileManager.MoveArgsCollection.LogicalMotionComponent}"/>
+                                    <TextBlock Text="|"/>
+                                    <TextBlock Text="{Binding ServiceView.Service.PositionPresetProfileManager.SelectedProfile, Mode=OneWay}"/>
+                                </StackPanel>
+                            </Grid>
+                        </dxd:DocumentPanel>
+
+                        <!-- User script editor panel -->
+                        <dxd:DocumentPanel
+                            x:Name="panelUserScriptEditor"
+                            Caption="User Script Editor" 
+                            MDISize="1024,600"
+                            MinHeight="450"
+                            MinWidth="650"
+                            AllowFloat="False" 
+                            AllowRename="False" 
+                            AllowDock="False" 
+                            AllowContextMenu="False"
+                            AllowDockToDocumentGroup="False"
+                            Visibility="Visible">
+                            <Grid>
+                                <ListBasedUserScript:ListBasedUserScriptEditor DataContext="{Binding UserScriptEditView}"/>
+                            </Grid>
+                        </dxd:DocumentPanel>
+
+                        <!-- Utilities panel -->
+                        <dxd:DocumentPanel
+                            x:Name="panelUtilities"
+                            Caption="Utilities" 
+                            MDISize="650,450"
+                            ShowMaximizeButton="False" 
+                            AllowFloat="False" 
+                            AllowRename="False" 
+                            AllowDock="False" 
+                            AllowMaximize="False" 
+                            AllowContextMenu="False"
+                            AllowDockToDocumentGroup="False"
+                            Visibility="Visible">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="80"/>
+                                    <RowDefinition Height="150"/>
+                                    <RowDefinition Height="80"/>
+                                    <RowDefinition Height="1*"/>
+                                </Grid.RowDefinitions>
+                                <dx:GroupFrame Grid.Row="0" Header="Cylinder Control">
+                                    <UserControls1:CylinderControlPanel DataContext="{Binding CylinderControlView}"/>
+                                </dx:GroupFrame>
+                                <dx:GroupFrame Grid.Row="1" Header="Contact Sensor">
+                                    <UserControls1:ContactSensor DataContext="{Binding CSSView}"/>
+                                </dx:GroupFrame>
+                                <dx:GroupFrame Grid.Row="2" Header="PD Array">
+                                    <UserControls:InternalPowerMeter DataContext="{Binding InternalPowerMeterView}"/>
+                                </dx:GroupFrame>
+                            </Grid>
+                        </dxd:DocumentPanel>
+                    </dxd:DocumentGroup>
+                </dxd:LayoutGroup>
+                <dxd:TabbedGroup x:Name="bottomInfoPanelsHost">
+                    <dxd:LayoutPanel x:Name="LogPanel" Caption="Log">
+                        <Grid>
+                            <dxe:ListBoxEdit 
+                                local:ListBoxBehavior.ScrollOnNewItem="True" 
+                                IsSynchronizedWithCurrentItem="True" 
+                                ItemTemplate="{Binding Source={StaticResource MessageItemTemplate}}" 
+                                ShowBorder="False" 
+                                ItemsSource="{Binding ServiceView.Service.MessageCollection}" />
+                        </Grid>
+                    </dxd:LayoutPanel>
+                </dxd:TabbedGroup>
+            </dxd:LayoutGroup>
+        </dxd:DockLayoutManager>
+    </DockPanel>
+</dxr:DXRibbonWindow>

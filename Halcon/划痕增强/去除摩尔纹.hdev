@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="109945471">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image (Image1, '1.png') </l>
+<l>rgb1_to_gray(Image1, Image) </l>
+<l>get_image_size (Image, Width, Height) </l>
+<l>optimize_fft_speed (Width, Height, 'standard') </l>
+<l>fft_generic (Image, ImageFFT, 'to_freq', -1, 'sqrt', 'dc_center', 'complex') </l>
+<l>power_real (ImageFFT, PowerSpectrum) </l>
+<l>binomial_filter (PowerSpectrum, ImageSmooth, 9, 9) </l>
+<l>threshold (ImageSmooth, Region, 128, 100000) </l>
+<l>connection (Region, ConnectedRegions) </l>
+<l>select_shape (ConnectedRegions, SelectedRegions, 'area', 'and', 5, 200)</l>
+<l>dilation_circle (SelectedRegions, RegionDilation, 3.5)</l>
+<l>paint_region (RegionDilation, ImageFFT, ImageFFTFiltered, 0, 'fill')</l>
+<l>fft_generic (ImageFFTFiltered, ImageFiltered, 'from_freq', 1, 'sqrt', 'dc_center', 'byte')</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

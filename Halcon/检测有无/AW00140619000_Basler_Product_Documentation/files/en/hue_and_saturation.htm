@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Hue and Saturation</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_42";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Hue and Saturation<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Hue and Saturation</h1>
+<p class="teaser">The Hue and Saturation 
+ <a href="features.htm">camera feature</a> allows you to adjust 
+ the appearance of all colors in your images in a single step.</p>
+<p>If you want to adjust the appearance of individual colors in your images, 
+ use the <a href="color_adjustment.htm">Color Adjustment</a> feature (if 
+ available).</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot22603" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot22603', 'MTPOPUP22603');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP22603" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Prerequisites</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Adjusting the Hue</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >Adjusting the Saturation</a>
+</li>
+    <li><a href="#MiniTOCBookMark6" >Additional Parameters</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark7" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>Prerequisites</h3>
+<p>On <a href="basler_dart_usb_3.0.htm">dart USB 3.0</a> and <a href="basler_pulse_usb_3.0.htm">pulse 
+ USB 3.0</a> cameras, the pixel format must be set to <span class="parameter-name">YCbCr422_8</span> 
+ or <span class="parameter-name">RGB8</span>.</p>
+<h3><a name="MiniTOCBookMark4"></a>Adjusting the Hue</h3>
+<p>Adjusting the hue shifts the colors of the image. This can be useful, 
+ e.g., to correct color shifts or to create false-color images.</p>
+<p>To adjust the hue, enter a value for the <span class="parameter-name">BslHue</span> 
+ parameter. The parameter's value range is -180° to 180°.</p>
+<p>The parameter value refers to a rotation of the RGB color cube. By default, 
+ the parameter is set to 0° (no color shift).</p>
+<h3><a name="MiniTOCBookMark5"></a>Adjusting the Saturation</h3>
+<p>Adjusting the saturation changes the colorfulness (intensity) of the 
+ colors. A higher saturation, for example, makes colors easier to distinguish.</p>
+<p>To adjust the saturation, enter a value for the <span class="parameter-name">BslSaturation</span> 
+ parameter. By default, the parameter is set to 1 (normal saturation). 
+ </p>
+<p>Lower parameter values result in more muted colors that are closer to 
+ gray. Higher parameter values result in more vivid, vibrant colors.</p>
+<h3><a name="MiniTOCBookMark6"></a>Additional Parameters</h3>
+<p>If available, the <span class="parameter-name">BslHueRaw</span> 
+ and <span class="parameter-name">BslSaturationRaw</span> 
+ parameters allow you to enter integer values instead of float values for 
+ the hue and saturation parameters. Normally, you don't need to set these 
+ parameters.</p>
+<h2 class="sample-code"><a name="MiniTOCBookMark7"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre><code class="cpp">// Set the Hue parameter to 5 degrees
+camera.BslHue.SetValue(5);
+// Set the Saturation parameter to 1.4
+camera.BslSaturation.SetValue(1.4);</code></pre></div><div class="tab-2 tab-content"><pre><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Set the Hue parameter to 5 degrees
+CIntegerPtr(nodemap.GetNode("BslHue"))-&gt;SetValue(5);
+// Set the Saturation parameter to 1.4
+CFloatPtr(nodemap.GetNode("BslSaturation"))-&gt;SetValue(1.4);</code></pre></div><div class="tab-3 tab-content"><pre><code class="csharp" generated="true">// Set the Hue parameter to 5 degrees
+camera.Parameters[PLCamera.BslHue].SetValue(5);
+// Set the Saturation parameter to 1.4
+camera.Parameters[PLCamera.BslSaturation].SetValue(1.4);</code></pre></div><div class="tab-4 tab-content"><pre><code class="csharp" generated="true">// Set the Hue parameter to 5 degrees
+Pylon.DeviceSetIntegerFeature(hdev, "BslHue", 5);
+// Set the Saturation parameter to 1.4
+Pylon.DeviceSetFloatFeature(hdev, "BslSaturation", 1.4);</code></pre></div><div class="tab-5 tab-content"><pre><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+/* Set the Hue parameter to 5 degrees */
+errRes = PylonDeviceSetIntegerFeature(hdev, "BslHue", 5);
+CHECK(errRes);
+/* Set the Saturation parameter to 1.4 */
+errRes = PylonDeviceSetFloatFeature(hdev, "BslSaturation", 1.4);
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

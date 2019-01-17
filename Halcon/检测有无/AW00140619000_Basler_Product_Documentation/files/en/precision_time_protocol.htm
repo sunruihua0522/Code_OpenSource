@@ -1,0 +1,312 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Precision Time Protocol</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_61";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Precision Time Protocol<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Precision Time Protocol</h1>
+<p class="teaser">The Precision Time Protocol 
+ (PTP) <a href="features.htm">camera feature</a> allows you to synchronize 
+ multiple GigE cameras in the same network.</p>
+<p>The protocol is defined in the IEEE 1588 standard. Basler cameras support 
+ the revised version of the standard (<a href="https://standards.ieee.org/findstds/standard/1588-2008.html">IEEE 
+ 1588-2008</a>, also known as PTP Version 2).</p>
+<p class="info">The precision of the PTP synchronization depends to a large 
+ extent on your network hardware and setup. For maximum precision, choose 
+ high-quality network hardware, use PTP-enabled network switches, and add 
+ an external PTP clock device with a GPS receiver to your network.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot15594" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot15594', 'MTPOPUP15594');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP15594" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Why Use PTP</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >How it Works</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >Enabling PTP Clock Synchronization</a>
+</li>
+    <li><a href="#MiniTOCBookMark6" >Checking 
+ the Status of the PTP Clock Synchronization</a>
+</li>
+    <li><a href="#MiniTOCBookMark7" >External Links</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark8" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>Why Use PTP</h3>
+<p>The Precision Time Protocol (PTP) feature enables a camera to use the 
+ following features:</p>
+<ul>
+	<li><a href="scheduled_action_commands.htm">Scheduled Action Commands</a></li>
+	<li><a href="synchronous_free_run.htm">Synchronous Free Run</a></li>
+</ul>
+<h3><a name="MiniTOCBookMark4"></a>How it Works</h3>
+<p>Through PTP, multiple devices (e.g., cameras) are automatically synchronized 
+ with the most accurate clock found in a network, the so-called master 
+ clock or best master clock.</p>
+<p>The protocol enables systems within a network to do the following:</p>
+<ul>
+	<li><strong>Synchronize</strong> with the master clock, i.e., set the 
+	 local clock as precisely as possible to the time of the master clock.</li>
+	<li><strong>Syntonize</strong> with the master clock, i.e., adjust 
+	 the frequency of the local clock to the frequency of the master clock. 
+	 You want the duration of a second to be as identical as possible on 
+	 both devices.</li>
+</ul>
+<p>The master clock is determined by several criteria. The most important 
+ criterion is the device's Priority 1 setting. The network device with 
+ the lowest Priority 1 setting is the master clock. On all Basler cameras, 
+ the Priority 1 setting is preset to 128 and can't be changed. If your 
+ PTP network setup consists only of Basler cameras, the master clock will 
+ be chosen based on the device's MAC address.</p>
+<p>For more information about the master clock criteria, see the <a href="https://standards.ieee.org/findstds/standard/1588-2008.html">IEEE 
+ 1588-2008 specification</a>, clause 7.6.2.2.</p>
+<p class="subheading">Timestamp Synchronization</p>
+<p>The basic concept of the Precision Time Protocol (IEEE 1588) is based 
+ on the exchange of PTP messages. These messages allow the slave clocks 
+ to synchronize their <a href="timestamp.htm">timestamp</a> value with 
+ the timestamp value of the master clock. When the synchronization has 
+ been completed, the <span class="parameter-name rh-hide" data-rhtags="48">GevTimestampValue</span><span class="parameter-name rh-hide" data-rhtags="49">TimestampLatchValue</span> 
+ parameter value on all GigE devices will be as identical as possible. 
+ The precision highly depends on your network hardware and setup.</p>
+<p>IEEE 1588 defines 80-bit timestamps for storing and transporting time 
+ information. Because GigE Vision uses 64-bit timestamps, the PTP timestamps 
+ are mapped to the 64-bit timestamps of GigE Vision. </p>
+<p>If no device in the network is synchronized to a coordinated world time 
+ (e.g., UTC), the network will operate in the arbitrary timescale mode 
+ (ARB). In this mode, the epoch is arbitrary, as it is not bound to an 
+ absolute time. The timescale is relative and only valid in this network.</p>
+<div class="info">
+	<ul>
+		<li>A PTP-enabled device that operates in a network with no other 
+		 PTP-enabled devices does not discipline its local clock. The precision 
+		 of its local clock is identical to a non-PTP-enabled device.</li>
+		<li>If you use a PTP-enabled switch in two-step boundary mode, 
+		 in rare cases, no camera clock may reach the master state. If 
+		 this happens, Basler recommends that you set Priority 1 in the 
+		 switch settings to a value greater than 128. This priority setting 
+		 ensures that a PTP port is able to be in the slave state and a 
+		 connected camera is able to become a master.</li>
+		<li>For more information about the Precision Time Protocol, see 
+		 the <a href="https://www.baslerweb.com/en/support/downloads/document-downloads/multi-camera-applications/">Synchronous 
+		 and in Real Time: Multi-Camera Applications in the GigE Network</a> 
+		 white paper.</li>
+	</ul>
+</div>
+<h3><a name="MiniTOCBookMark5"></a>Enabling PTP Clock Synchronization</h3>
+<p>When powering on the camera, PTP is always disabled. If you want to 
+ use PTP, you must enable it.</p>
+<p>To enable PTP:</p>
+<ol>
+	<li>If you want to use an external device as the master clock (e.g., 
+	 a GPS receiver), configure the external device as the master clock. 
+	 <br />
+	Basler recommends an ANNOUNCE interval of 2 seconds and a SYNC interval 
+	 of 0.5 seconds.</li>
+	<li>On all cameras that you want to synchronize via PTP, set the <span class="parameter-name">GevIEEE1588</span> 
+	 parameter to <span class="parameter-name">t</span><span class="parameter-name">rue</span>.</li>
+	<li><strong>Wait</strong> until all PTP network devices are sufficiently 
+	 synchronized. Depending on your network setup, this may take a few 
+	 seconds or minutes.<br />
+	You can determine when the devices are synchronized by <a href="precision_time_protocol.htm#Checking_the_Status_of_the_PTP_Clock_Synchronization">checking 
+	 the status of the PTP clock synchronization</a>.</li>
+</ol>
+<p>Now, you can use the <a href="scheduled_action_commands.htm">Scheduled 
+ Action Commands</a> feature and the <a href="synchronous_free_run.htm">Synchronous 
+ Free Run</a> feature.</p>
+<div class="info">
+	<p>Enabling PTP clock synchronization changes the camera's internal 
+	 tick frequency from 125 MHz (= 8 ns tick duration) to 1 GHz (= 1 ns 
+	 tick duration). </p>
+	<p>The <a href="network_related_parameters.htm#Inter-Packet_Delay">Inter-packet 
+	 Delay</a> and the <a href="network_related_parameters.htm#Frame_Transmission_Delay">Frame 
+	 Transmission Delay</a> parameter values are adjusted automatically.</p>
+</div>
+<h3><a name="MiniTOCBookMark6"></a><a name="Checking_the_Status_of_the_PTP_Clock_Synchronization">Checking 
+ the Status of the PTP Clock Synchronization</a></h3>
+<p>To check the status of the PTP clock synchronization, you must develop 
+ your own check method using the pylon API.</p>
+<p>These guidelines may help you in developing a suitable method:</p>
+<ul>
+	<li>The <span class="parameter-name">GevIEEE1588DataSetLatch</span> 
+	 command allows you to take a &quot;snapshot&quot; of the camera's 
+	 current PTP clock synchronization status. The &quot;snapshot&quot; 
+	 implementation ensures that all parameter values specified (see below) 
+	 refer to exactly the same point in time.</li>
+	<li>After executing the <span class="parameter-name">GevIEEE1588DataSetLatch</span> 
+	 command, you can read the following parameter values from the device:</li>
+	<ul>
+		<li><span class="parameter-name">GevIEEE1588OffsetFromMaster</span>: 
+		 A 32-bit number. Indicates the temporal offset between the master 
+		 clock and the clock of the current IEEE 1588 device in ticks.</li>
+		<li><span class="parameter-name">GevIEEE1588ClockId</span>: 
+		 A 64-bit number. Indicates the unique ID of the current IEEE 1588 
+		 device (the &quot;clock ID&quot;).</li>
+		<li><span class="parameter-name">GevIEEE1588ParentClockId</span>: 
+		 A 64-bit number. Indicates the clock ID of the IEEE 1588 device 
+		 that currently serves as the master clock (the &quot;parent clock 
+		 ID&quot;).</li>
+		<li><span class="parameter-name">GevIEEE1588StatusLatched</span>: 
+		 An enumeration. Indicates the state of the current IEEE 1588 device, 
+		 e.g., whether it is a master or a slave clock. The returned values 
+		 match the IEEE 1588 PTP port state enumeration (Initializing, 
+		 Faulty, Disabled, Listening, Pre_Master, Master, Passive, Uncalibrated, 
+		 and Slave). For more information, refer to the pylon API documentation 
+		 and the <a href="https://standards.ieee.org/findstds/standard/1588-2008.html">IEEE 
+		 1588-2008 specification</a>.</li>
+		<li><span class="parameter-name rh-hide" data-rhtags="48">GevIEEE1588Status</span>: 
+		 An enumeration. Serves as an alternative to the <span class="parameter-name">GevIEEE1588StatusLatched</span> 
+		 parameter. Returns the same values, but does not require executing 
+		 the <span class="parameter-name">GevIEEE1588DataSetLatch</span> 
+		 command beforehand. However, if you read multiple PTP-related 
+		 values from a device, the <span class="parameter-name rh-hide" data-rhtags="48">GevIEEE1588Status</span> 
+		 parameter value will not relate to the same point 
+		 in time as the other values.</li>
+	</ul>
+	<li>A typical implementation of a PTP status check involves executing 
+	 the <span class="parameter-name">GevIEEE1588DataSetLatch</span> 
+	 command and checking the <span class="parameter-name">GevIEEE1588OffsetFromMaster</span> 
+	 parameter value repeatedly on all slave cameras until the highest 
+	 offset from master is below a certain threshold (defined by you, e.g., 
+	 1 millisecond).</li>
+	<li>Due to the fact that the clock is continuously&#160;adjusted by 
+	 a control mechanism, the offset is not decreasing monotonically. Basler 
+	 recommends that you check the maximum <span class="parameter-name">GevIEEE1588OffsetFromMaster</span> 
+	 parameter value within a given time window:<br />
+	<img src="images/drawing_ptp_offset_from_master_amplitude.png" alt="PTP Offset From Master Amplitude" title="PTP Offset From Master Amplitude" /></li>
+</ul>
+<h3><a name="MiniTOCBookMark7"></a>External Links</h3>
+<ul>
+	<li><a href="https://en.wikipedia.org/wiki/Precision_Time_Protocol">Precision 
+	 Time Protocol (Wikipedia)</a></li>
+	<li><a href="https://www.baslerweb.com/en/support/downloads/document-downloads/multi-camera-applications/">White 
+	 Paper: Synchronous and in Real Time: Multi-Camera Applications in 
+	 the GigE Network (Basler)</a></li>
+	<li><a href="https://standards.ieee.org/findstds/standard/1588-2008.html">IEEE 
+	 1588-2008 Specification (IEEE Standards Association)</a></li>
+</ul>
+<h2 class="sample-code"><a name="MiniTOCBookMark8"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre><code class="cpp">// Enable PTP on the current device
+camera.GevIEEE1588.SetValue(true);
+// To check the status of the PTP clock synchronization,
+// implement your own check method here.
+// For guidelines, see section "Checking the Status of 
+// the PTP Clock Synchronization" in this topic.</code></pre></div><div class="tab-2 tab-content"><pre><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Enable PTP on the current device
+CBooleanPtr(nodemap.GetNode("GevIEEE1588"))-&gt;SetValue(true);
+// To check the status of the PTP clock synchronization,
+// implement your own check method here.
+// For guidelines, see section "Checking the Status of
+// the PTP Clock Synchronization" in this topic.</code></pre></div><div class="tab-3 tab-content"><pre><code class="csharp" generated="true">// Enable PTP on the current device
+camera.Parameters[PLCamera.GevIEEE1588].SetValue(true);
+// To check the status of the PTP clock synchronization,
+// implement your own check method here.
+// For guidelines, see section "Checking the Status of
+// the PTP Clock Synchronization" in this topic.</code></pre></div><div class="tab-4 tab-content"><pre><code class="csharp" generated="true">// Enable PTP on the current device
+Pylon.DeviceSetBooleanFeature(hdev, "GevIEEE1588", true);
+// To check the status of the PTP clock synchronization,
+// implement your own check method here.
+// For guidelines, see section "Checking the Status of
+// the PTP Clock Synchronization" in this topic.</code></pre></div><div class="tab-5 tab-content"><pre><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+/* Enable PTP on the current device */
+errRes = PylonDeviceSetBooleanFeature(hdev, "GevIEEE1588", 1);
+CHECK(errRes);
+/* To check the status of the PTP clock synchronization, */
+/* implement your own check method here. */
+/* For guidelines, see section "Checking the Status of */
+/* the PTP Clock Synchronization" in this topic. */</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon Viewer </a>to easily 
+ set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+<script type="text/javascript" language="JavaScript1.2">//<![CDATA[
+//]]></script>
+</body>
+</html>

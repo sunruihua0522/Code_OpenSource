@@ -1,0 +1,139 @@
+﻿{
+  "ProfileContainer": [
+    {
+      "Vendor": "Suruga",
+      "Profiles": [
+        {
+          "Model": "KZC04015-C",
+          "Unit": "mm",
+          "Resolution": 0.002,
+          "TravelDistance": 15
+        },
+        {
+          "Model": "KXG06020-C",
+          "Unit": "mm",
+          "Resolution": 0.002,
+          "TravelDistance": 20
+        },
+        {
+          "Model": "KXG06030-C",
+          "Unit": "mm",
+          "Resolution": 0.002,
+          "TravelDistance": 30
+        },
+        {
+          "Model": "KXG06030-G",
+          "Unit": "mm",
+          "Resolution": 0.001,
+          "TravelDistance": 30
+        },
+        {
+          "Model": "KZG06030-C",
+          "Unit": "mm",
+          "Resolution": 0.002,
+          "TravelDistance": 30
+        },
+        {
+          "Model": "KZG06030-G",
+          "Unit": "mm",
+          "Resolution": 0.001,
+          "TravelDistance": 30
+        },
+        {
+          "Model": "KXL06050-C1-G",
+          "Unit": "mm",
+          "Resolution": 0.001,
+          "TravelDistance": 50
+        },
+        {
+          "Model": "KXL06100-C2-G",
+          "Unit": "mm",
+          "Resolution": 0.002,
+          "TravelDistance": 100
+        },
+        {
+          "Model": "KXL06150-C2-G4",
+          "Unit": "mm",
+          "Resolution": 0.002,
+          "TravelDistance": 150
+        },
+        {
+          "Model": "EKT3-50R",
+          "Unit": "mm",
+          "Resolution": 0.001,
+          "TravelDistance": 50,
+		  "Comment": "ES6701-X/Y"
+        },
+        {
+          "Model": "EKS1-10R",
+          "Unit": "mm",
+          "Resolution": 0.0005,
+          "TravelDistance": 10,
+		  "Comment": "ES6701-Z"
+        },
+        {
+          "Model": "KGW06100-R",
+          "Unit": "deg",
+          "Resolution": 0.0025,
+          "TravelDistance": 12,
+		  "Comment": "ES6701-θX"
+        },
+        {
+          "Model": "KGW04040-R",
+          "Unit": "deg",
+          "Resolution": 0.003,
+          "TravelDistance": 16,
+		  "Comment": "ES6701-θY"
+        },
+        {
+          "Model": "KGW06075-R",
+          "Unit": "deg",
+          "Resolution": 0.0032,
+          "TravelDistance": 16,
+		  "Comment": "ES6701-θZ"
+        }
+      ]
+    },
+    {
+      "Vendor": "Luminos",
+      "Profiles": [
+        {
+          "Model": "X",
+          "Unit": "um",
+          "Resolution": 0.01953125,
+          "TravelDistance": 2500
+        },
+        {
+          "Model": "Y",
+          "Unit": "um",
+          "Resolution": 0.01953125,
+          "TravelDistance": 2500
+        },
+        {
+          "Model": "Z",
+          "Unit": "um",
+          "Resolution": 0.09921875,
+          "TravelDistance": 12700
+        },
+        {
+          "Model": "Roll",
+          "Unit": "deg",
+          "Resolution": 0.0000260416666666666667,
+          "TravelDistance": 3
+        },
+        {
+          "Model": "Yaw",
+          "Unit": "deg",
+          "Resolution": 0.00004960973673766371,
+          "TravelDistance": 3
+        },
+        {
+          "Model": "Pitch",
+          "Unit": "deg",
+          "Resolution": 0.00004960973673766371,
+          "TravelDistance": 3
+        }
+      ]
+    }
+  ]
+}

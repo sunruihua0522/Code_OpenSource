@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="801524532">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image (Image1, 'C:/Users/GPAP/Desktop/1.jpg')</l>
+<l>dev_close_window()</l>
+<l>dev_open_window_fit_image(Image1, 0, 0, -1, -1, WindowHandle)</l>
+<l>draw_point_mod(WindowHandle,200 ,200 , Row4, Column4)</l>
+<l>gen_cross_contour_xld(Cross, Row4, Column4, 36, 0)</l>
+<l>dev_set_color('red')</l>
+<l>dev_display(Cross)</l>
+<l>vector_angle_to_rigid(Row4, Column4, Column4, Row4, Column4, Column4, HomMat2D)</l>
+<l>dev_display (Image1)</l>
+<l>draw_rectangle1(WindowHandle, Row1, Column1, Row2, Column2)</l>
+<l>gen_rectangle1 (Rectangle, Row1, Column1, Row2, Column2)</l>
+<l>area_center(Rectangle, Area, Row3, Column3)</l>
+<c></c>
+<l>dev_set_part(Row1, Column1, Row2, Column2)</l>
+<l>dev_display(Image1)</l>
+<l>draw_circle_mod(WindowHandle, Row3, Column3, 20, Row, Column, Radius)</l>
+<l>dev_set_draw('margin')</l>
+<l>gen_circle(Circle, Row, Column, Radius)</l>
+<l>disp_cross(WindowHandle, Row, Column, 16, 0)</l>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

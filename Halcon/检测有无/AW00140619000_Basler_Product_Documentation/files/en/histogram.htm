@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="noindex" />
+<meta http-equiv="Content-Language" content="en-US" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Histogram</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "4.1.1.0_13";
+</script>
+ <meta name="topic-breadcrumbs" content="Software > pylon Camera Software Suite > pylon Viewer" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"pylon_camera_software_suite.htm\">Software<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"pylon_camera_software_suite.htm#bc-1\">pylon Camera Software Suite<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"overview_of_the_pylon_viewer.htm\">pylon Viewer<\/a>  &gt;  Histogram<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Histogram</h1>
+<p class="teaser">The Histogram feature allows you to quickly evaluate 
+ the quality of your image by displaying the distribution of gray values 
+ in the image. </p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot39559" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot39559', 'MTPOPUP39559');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP39559" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Overview</a>
+</li>
+   <li><a href="#MiniTOCBookMark3" >Displaying Data</a>
+</li>
+   <li><a href="#MiniTOCBookMark4" >Exporting Data</a>
+</li>
+   <li><a href="#MiniTOCBookMark5" >Panning and Zooming</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Overview</h2>
+<p>To open or close the <span class="gui-text">Histogram</span> pane, click 
+ the <img src="images/icon_histogram.png" alt="Histogram Button" title="Histogram Button" /> button in the toolbar.</p>
+<p><img src="images/screen_histogram.png" alt="Histogram Pane" title="Histogram Pane" /></p>
+<p>The graph shows you the number of pixels per gray value.</p>
+<p>The X-axis represents the gray values, ranging from 0 to the maximum 
+ gray value. The maximum gray value depends on the <a href="pixel_format.htm">pixel 
+ format</a> selected. </p>
+<p>The Y-axis represents the number of pixels (in percent of all pixels 
+ in the image) with that particular gray value.</p>
+<p>To get more information about the distribution of gray values, move 
+ the mouse pointer over the graph:</p>
+<p><img src="images/screen_histogram_hover.png" alt="Histogram Tooltip" title="Histogram Tooltip" /></p>
+<p>In the example above, the tooltip shows that in the current image, there 
+ are 92517 red pixels, 82638 green pixels, and 42643 blue pixels with gray 
+ value 125. </p>
+<h2><a name="MiniTOCBookMark3"></a>Displaying Data</h2>
+<ul>
+	<li><span class="gui-text">Red / Green / Blue</span>: Shows or hides 
+	 the individual histograms for red, green, and blue pixels. Only available 
+	 if the camera's <a href="pixel_format.htm">pixel format</a> is set 
+	 to a color pixel format. When a histogram is hidden, its values are 
+	 excluded when <a href="#Exporting_Data">copying or saving data</a>.</li>
+	<li><span class="gui-text">Luminance</span>: Shows or hides the luminance 
+	 histogram. Only available if the camera's <a href="pixel_format.htm">pixel 
+	 format</a> is set to a mono pixel format. When a histogram is hidden, 
+	 its values are excluded when <a href="#Exporting_Data">copying or 
+	 saving data</a>.</li>
+	<li><span class="gui-text">Autofit Y-Axis</span>: When enabled, the 
+	 Y-axis continuously adapts to the maximum value of the graph. Enabling 
+	 this option is useful to get a complete view of the histograms and 
+	 removing any unnecessary white space. Disabling this option is useful 
+	 if you want to monitor changes to the histograms under different conditions.</li>
+	<li><span class="gui-text">Logarithmic Scale</span>: Switches between 
+	 a linear and a logarithmic view of the data.</li>
+	<li><span class="gui-text">Reset Axes</span>: Resets the zoom level. 
+	 Only available if you have <a href="#Panning_and_Zooming">zoomed into</a> 
+	 the graph.</li>
+	<li><span class="gui-text">Mean / Std. Dev. / Min. / Max.</span>: If 
+	 you select only <strong>one</strong> histogram (red, green, blue, 
+	 or luminance), statistical data about that histogram is displayed 
+	 here. If you select <strong>multiple</strong> histograms, no data 
+	 is displayed.</li>
+</ul>
+<h2><a name="MiniTOCBookMark4"></a><a name="Exporting_Data">Exporting Data</a></h2>
+<ul>
+	<li><span class="gui-text">Copy</span>: Copies the data of all histograms 
+	 displayed to the clipboard. This allows you to transfer the data to 
+	 other applications, e.g., Excel:<br />
+	<img src="images/screen_histogram_export.png" alt="Excel Sheet with Exported Data" title="Excel Sheet with Exported Data" /></li>
+	<li><span class="gui-text">Save</span>: Saves the data of all histograms 
+	 displayed in a <strong>.csv</strong> file.</li>
+</ul>
+<h2><a name="MiniTOCBookMark5"></a><a name="Panning_and_Zooming">Panning and Zooming</a></h2>
+<p>Panning and zooming allows you to look at specific areas of the histogram(s) 
+ in more detail. </p>
+<p>To zoom in or out, hold down the <strong>CTRL</strong> key and scroll 
+ the mouse wheel while the mouse pointer is over a histogram.</p>
+<p>When zoomed in, you can click and hold the left mouse button to pan.</p>
+<p><img src="videos/animation_histogram_zoom_pan.gif" alt="Panning and Zooming Animation" title="Panning and Zooming Animation" /></p>
+<p>To reset the zoom level, click <span class="gui-text">Reset Axes</span>.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

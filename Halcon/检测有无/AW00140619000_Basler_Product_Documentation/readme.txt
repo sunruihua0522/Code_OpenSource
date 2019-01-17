@@ -1,0 +1,1 @@
+If you downloaded the documentation as a ZIP file, extract all files before clicking on start.htm.

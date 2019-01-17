@@ -1,0 +1,277 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Scaling</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_66";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Scaling<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Scaling</h1>
+<p class="teaser">The Scaling 
+ <a href="features.htm">camera feature</a> allows you to shrink the size 
+ of an image.</p>
+<div class="info">
+	<p>When the Scaling feature is used, <a href="binning.htm">Binning</a> 
+	 and <a href="decimation.htm">Decimation</a> are not available.</p>
+</div>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot13468" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot13468', 'MTPOPUP13468');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP13468" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Prerequisites</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >How It Works</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >Configuring Scaling</a>
+</li>
+    <li><a href="#MiniTOCBookMark6" >Scaling Values</a>
+</li>
+    <li><a href="#MiniTOCBookMark7" >Considerations When Using Scaling</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark8" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>Prerequisites</h3>
+<ul>
+	<li>The camera must be idle, i.e., not capturing images.</li>
+	<li><a href="decimation.htm">Decimation</a> must be disabled, i.e., 
+	 the horizontal and vertical decimation factors must be set to 1.</li>
+	<li><a href="binning.htm">Binning</a> must be disabled, i.e., the horizontal 
+	 and vertical binning factors must be set to 1.</li>
+</ul>
+<h3><a name="MiniTOCBookMark4"></a>How It Works</h3>
+<p>During scaling, the image size is reduced proportionally by <strong>interpolation</strong>. 
+ Pixel values are added and averaged as required to map them to the pixels 
+ of the scaled image. This increases the signal-to-noise ratio.</p>
+<p>Scaling is controlled by the scaling factor that you choose. The same 
+ factor is applied in horizontal and vertical direction. With a factor 
+ of 1.0, the image size stays the same. A factor smaller than 1.0 causes 
+ the image width and height to shrink.</p>
+<h3><a name="MiniTOCBookMark5"></a>Configuring Scaling</h3>
+<p>To adjust scaling, specify a <a href="#Scaling_Values">scaling value</a> 
+ for the <span class="parameter-name rh-hide" data-rhtags="48">ScalingHorizontalAbs</span><span class="parameter-name rh-hide" data-rhtags="49">ScalingHorizontal</span> 
+ parameter. </p>
+<div class="info">
+	<p>Changing the <span class="parameter-name rh-hide" data-rhtags="48">ScalingHorizontalAbs</span><span class="parameter-name rh-hide" data-rhtags="49">ScalingHorizontal</span> 
+	 parameter value automatically adapts the <span class="parameter-name rh-hide" data-rhtags="48">ScalingVerticalAbs</span><span class="parameter-name rh-hide" data-rhtags="49">ScalingVertical</span> 
+	 parameter value. This maintains the original height-to-width ratio.</p>
+</div>
+<h3><a name="MiniTOCBookMark6"></a><a name="Scaling_Values">Scaling Values</a></h3>
+<p>You can choose a scaling factor from <strong>0.125</strong> to <strong>1</strong>. 
+ However, only 112 discrete values are available. If you enter a value 
+ that is not available, the float control automatically rounds up or down 
+ to the nearest available value.</p>
+<p>To calculate valid values use the following formula: 16/x, where x = 
+ any natural number between 16 to 128.</p>
+<table >
+	<col style="width: 13.096%;" />
+	<col style="width: 27.167%;" />
+	<col style="width: 59.737%;" />
+	<tr>
+		<th>Examples</th>
+		<th>Resulting Scaling Factor</th>
+		<th>Consequences</th>
+	</tr>
+	<tr>
+		<td><p>16 / 16</p></td>
+		<td><p><strong>1.0</strong></p></td>
+		<td>Default setting. Scaling is disabled. No change to the original 
+		 image size. 
+		<p>Binning and <a href="decimation.htm">Decimation</a> are available.</p></td>
+	</tr>
+	<tr>
+		<td><p>16 / 17</p></td>
+		<td><p>0.941</p></td>
+		<td>&#160;</td>
+	</tr>
+	<tr>
+		<td><p>16 / 18</p></td>
+		<td><p>0.888</p></td>
+		<td>&#160;</td>
+	</tr>
+	<tr>
+		<td><p>and so on</p></td>
+		<td><p>...</p></td>
+		<td>&#160;</td>
+	</tr>
+	<tr>
+		<td><p>16 / 32</p></td>
+		<td><p><strong>0.5</strong></p></td>
+		<td>The image size is reduced by half (factor 2).</td>
+	</tr>
+	<tr>
+		<td>16 / 64</td>
+		<td><p>0.25</p></td>
+		<td>The image size is reduced by factor 4.</td>
+	</tr>
+	<tr>
+		<td><p>and so on</p></td>
+		<td><p>...</p></td>
+		<td>&#160;</td>
+	</tr>
+	<tr>
+		<td><p>16 / 128</p></td>
+		<td><p><strong>0.125</strong></p></td>
+		<td><span>The image size is reduced by factor 8 (largest reduction).</span></td>
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark7"></a>Considerations When Using Scaling</h3>
+<p class="subheading">Effect on ROI Settings</p>
+<p>When you are using scaling, <a href="image_roi.htm">image ROI</a> and 
+ <a href="auto_function_roi.htm">auto function ROI</a> settings refer to 
+ the scaled rows and columns of the modified image and not to the physical 
+ rows and columns of the sensor.</p>
+<p>For example, assume that you are using a camera with a 3&#160;840 x 
+ 2&#160;748 sensor. A scaling factor of 0.5 is applied to full resolution. 
+ In this case, the maximum ROI width is 1918 and the maximum ROI height 
+ is 1372. The ROI width and height parameters are adjusted automatically. 
+ Likewise, any offsets that you have defined before enabling scaling are 
+ adjusted automatically.</p>
+<p>When scaling is disabled, the ROI increases again, but may be smaller 
+ than the original ROI.</p>
+<div class="info">
+	<p>Basler recommends that you always check the image ROI settings after 
+	 disabling scaling and, if necessary, to manually restore the image 
+	 ROI to the desired size and position.</p>
+</div>
+<p class="subheading">Reduced Resolution</p>
+<p>Using scaling effectively reduces the resolution of the camera's imaging 
+ sensor. For example, if you are configuring a scaling factor of 0.25 on 
+ a camera with a 3&#160;840 x 2&#160;748 sensor, the effective resolution 
+ of the camera is reduced to 954 x 682.</p>
+<p class="subheading">Rounding Losses</p>
+<p>During scaling, the image dimensions are rounded frequently. If you 
+ change the scaling factor repeatedly, the rounding effects accumulate. 
+ When returning to a previous image size, the dimensions that were lost 
+ due to rounding can't be restored.</p>
+<p>To avoid cumulative rounding losses, restore the previous image size 
+ manually. Alternatively, return to a &quot;reference&quot; image size, 
+ e.g., to full resolution, and specify the image size manually to avoid 
+ rounding errors.</p>
+<h2 class="sample-code"><a name="MiniTOCBookMark8"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre data-rhtags="48" class="rh-hide"><code class="cpp">// Set horizontal scaling to 0.5
+camera.ScalingHorizontalAbs.SetValue(0.5);
+// Disable scaling
+camera.ScalingHorizontalAbs.SetValue(1);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="cpp">// Set horizontal scaling to 0.5
+camera.ScalingHorizontal.SetValue(0.5);
+// Disable scaling
+camera.ScalingHorizontal.SetValue(1);</code></pre></div><div class="tab-2 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Set horizontal scaling to 0.5
+CFloatPtr(nodemap.GetNode("ScalingHorizontalAbs"))-&gt;SetValue(0.5);
+// Disable scaling
+CIntegerPtr(nodemap.GetNode("ScalingHorizontalAbs"))-&gt;SetValue(1);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="cpp" generated="true">// Set horizontal scaling to 0.5
+CFloatPtr(nodemap.GetNode("ScalingHorizontal"))-&gt;SetValue(0.5);
+// Disable scaling
+CIntegerPtr(nodemap.GetNode("ScalingHorizontal"))-&gt;SetValue(1);</code></pre></div><div class="tab-3 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="csharp" generated="true">// Set horizontal scaling to 0.5
+camera.Parameters[PLCamera.ScalingHorizontalAbs].SetValue(0.5);
+// Disable scaling
+camera.Parameters[PLCamera.ScalingHorizontalAbs].SetValue(1);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="csharp" generated="true">// Set horizontal scaling to 0.5
+camera.Parameters[PLCamera.ScalingHorizontal].SetValue(0.5);
+// Disable scaling
+camera.Parameters[PLCamera.ScalingHorizontal].SetValue(1);</code></pre></div><div class="tab-4 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="csharp" generated="true">// Set horizontal scaling to 0.5
+Pylon.DeviceSetFloatFeature(hdev, "ScalingHorizontalAbs", 0.5);
+// Disable scaling
+Pylon.DeviceSetIntegerFeature(hdev, "ScalingHorizontalAbs", 1);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="csharp" generated="true">// Set horizontal scaling to 0.5
+Pylon.DeviceSetFloatFeature(hdev, "ScalingHorizontal", 0.5);
+// Disable scaling
+Pylon.DeviceSetIntegerFeature(hdev, "ScalingHorizontal", 1);</code></pre></div><div class="tab-5 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+/* Set horizontal scaling to 0.5 */
+errRes = PylonDeviceSetFloatFeature(hdev, "ScalingHorizontalAbs", 0.5);
+CHECK(errRes);
+/* Disable scaling */
+errRes = PylonDeviceSetIntegerFeature(hdev, "ScalingHorizontalAbs", 1);
+CHECK(errRes);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="c" generated="true">/* Set horizontal scaling to 0.5 */
+errRes = PylonDeviceSetFloatFeature(hdev, "ScalingHorizontal", 0.5);
+CHECK(errRes);
+/* Disable scaling */
+errRes = PylonDeviceSetIntegerFeature(hdev, "ScalingHorizontal", 1);
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

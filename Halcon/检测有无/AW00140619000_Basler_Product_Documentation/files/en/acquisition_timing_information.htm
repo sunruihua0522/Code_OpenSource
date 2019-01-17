@@ -1,0 +1,1339 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Acquisition Timing Information</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.5_1";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  Acquisition Timing Information<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Acquisition Timing Information</h1>
+<p class="teaser">This topic provides information about the image acquisition 
+ process on <a href="basler_ace_gige.htm">Basler ace GigE</a> and <a href="basler_ace_usb_3.0.htm">ace 
+ USB 3.0</a> cameras.</p>
+<p>Knowing the camera's timings and delays can help you to optimize your 
+ imaging system for maximum performance.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot27553" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot27553', 'MTPOPUP27553');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP27553" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Acquisition Timing Chart</a>
+</li>
+   <li><a href="#MiniTOCBookMark3" >Timings and Delays</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark4" >Exposure Start Delay</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >Sensor Readout Time</a>
+</li>
+    <li><a href="#MiniTOCBookMark6" >Frame Transmission Time</a>
+</li>
+    <li><a href="#MiniTOCBookMark7" >Transmission Start Delay</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark8" >Specifics</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Acquisition Timing Chart</h2>
+<p>The following figure shows a timing chart for image acquisition and 
+ transmission.</p>
+<p><img src="images/drawing_acquisition_timing_chart.png" alt="Acquisition Timing Chart" title="Acquisition Timing Chart" /></p>
+<p>The diagram is based on a camera with the following settings:</p>
+<ul>
+	<li><a href="triggered_image_acquisition.htm#Hardware_Triggering">Hardware 
+	 triggering</a> enabled (external Frame Start trigger)</li>
+	<li><a href="exposure_mode.htm#Timed_Exposure_Mode">Timed Exposure 
+	 Mode</a></li>
+	<li><a href="trigger_activation.htm">Rising Edge Trigger Activation</a></li>
+	<li><a href="overlapping_image_acquisition.htm#Non-Overlapping_Image_Acquisition">Non-overlapping 
+	 image acquisition</a></li>
+</ul>
+<h2><a name="MiniTOCBookMark3"></a>Timings and Delays</h2>
+<h3><a name="MiniTOCBookMark4"></a><a name="Exposure_Start_Delay">Exposure Start Delay</a></h3>
+<p>The exposure start delay is the amount of time between the point where 
+ the trigger signal is detected and the point where exposure actually begins.</p>
+<p>The exposure start delay depends on<a href="#Specifics"> the camera 
+ model</a> and is extended when the camera operation mode is set to <a href="camera_operation_mode.htm">LongExposure</a>.</p>
+<p>You may have to add additional delays to the exposure start delay:</p>
+<ul>
+	<li>If you use <a href="triggered_image_acquisition.htm#Hardware_Triggering">hardware 
+	 triggering</a>, you must add a delay due to the input line's <a href="i_o_timing_characteristics_(ace).htm">propagation 
+	 delay</a> (&quot;response time&quot;).</li>
+	<li>If you use the <a href="line_debouncer.htm">Line Debouncer</a> 
+	 feature, you must add a delay equal to the <span class="parameter-name rh-hide" data-rhtags="48">LineDebouncerTimeAbs</span><span class="parameter-name rh-hide" data-rhtags="49">LineDebouncerTime</span> 
+	 parameter value.</li>
+	<li>If you configure a <a href="trigger_delay.htm">trigger delay</a> 
+	 for the Frame Start trigger, you must add a delay equal to the <span class="parameter-name rh-hide" data-rhtags="48">TriggerDelayAbs</span><span class="parameter-name rh-hide" data-rhtags="49">TriggerDelay</span> 
+	 parameter value.</li>
+	<li>Depending on <a href="#Specifics">your camera model</a>, you may 
+	 have to take into account an additional <a name="Image_ROI_exposure_start_delay">image 
+	 ROI exposure start delay</a>. The image ROI exposure start delay&#160;varies 
+	 with the <span class="parameter-name">OffsetY</span> 
+	 setting of the <a href="image_roi.htm">image ROI</a> and can be calculated 
+	 by <span class="parameter-name">OffsetY</span> 
+	 &#160;* <a href="shutter_mode.htm#Rolling_Shutter_Mode">t<sub>Row</sub></a>. 
+	 The delay results from the fact that for each acquisition the entire 
+	 sensor is exposed and read out, regardless of the image ROI settings.</li>
+	<li>If you use the Long Exposure <a href="camera_operation_mode.htm">camera 
+	 operation mode</a>, the exposure start delay increases. </li>
+</ul>
+<p><strong>Example:</strong> Assume that the exposure start delay for your 
+ camera is 18 µs. Also assume that you have configured the camera for hardware 
+ triggering, that the input line's propagation delay is 1.5 μs, that you 
+ set the <span class="parameter-name rh-hide" data-rhtags="48">LineDebouncerTimeAbs</span><span class="parameter-name rh-hide" data-rhtags="49">LineDebouncerTime</span> 
+ parameter to 5 μs, that you set the trigger delay for the Frame Start 
+ trigger to 200 μs, that no image ROI exposure start delay applies, and 
+ that the camera operation mode is set to <span class="parameter-name">Standard</span>.</p>
+<p>In this case:</p>
+<p>Total Start Delay = Exposure Start Delay + Input Line Response Time 
+ + Line Debouncer Setting + Frame Start Trigger Delay = 18 μs + 1.5 μs 
+ + 5 μs + 200 μs = 224.5 μs</p>
+<h3><a name="MiniTOCBookMark5"></a>Sensor Readout Time</h3>
+<p>The sensor readout time is the amount of time it takes to read out image 
+ data from the sensor. You can determine the amount of time using the <a href="sensor_readout_time.htm">Sensor Readout Time</a> camera feature.</p>
+<p>When the camera has determined that a sufficient amount of data has 
+ accumulated in the buffer, the camera begins transmitting the data from 
+ the camera to the host computer.</p>
+<h3><a name="MiniTOCBookMark6"></a>Frame Transmission Time</h3>
+<p>The frame transmission time is the amount of time it takes to transmit 
+ an acquired frame from the buffer in the camera to the host computer.</p>
+<p>The frame transmission time can vary between frames and partly depends 
+ on when the host computer calls for data transmission.</p>
+<h3><a name="MiniTOCBookMark7"></a>Transmission Start Delay</h3>
+<p>The transmission start delay is the amount of time between the point 
+ where the camera begins reading out the acquired frame data from the sensor 
+ to the point where it begins transmitting the data for the acquired frame 
+ to the host computer.</p>
+<p>The transmission start delay can vary between frames and largely depends 
+ on when the host computer starts calling for data transmission.</p>
+<h2 class="specifics"><a name="MiniTOCBookMark8"></a><a name="Specifics">Specifics</a></h2>
+<div>
+<table class="specifics-table">
+	<col />
+	<col />
+	<col />
+	<tr>
+		<th rowspan="2"><p>Camera Model</p></th>
+		<th colspan="2">Exposure Start Delay [µs]</th>
+		
+	</tr>
+	<tr>
+		<th><a href="overlapping_image_acquisition.htm#Non-Overlapping_Image_Acquisition">Non-Overlapping 
+		 Image Acquisition</a></th>
+		<th><a href="overlapping_image_acquisition.htm#Overlapping_Image_Acquisition">Overlapping 
+		 Image Acquisition</a></th>
+	</tr>
+	<tr>
+		<td data-rhtags="50" class="rh-hide">acA640-90gm</td>
+		<td data-rhtags="50" class="rh-hide">21.48</td>
+		<td data-rhtags="50" class="rh-hide">21.48</td>
+	</tr>
+	<tr>
+		<td data-rhtags="51" class="rh-hide">acA640-90gc</td>
+		<td data-rhtags="51" class="rh-hide">21.48</td>
+		<td data-rhtags="51" class="rh-hide">21.48</td>
+	</tr>
+	<tr>
+		<td data-rhtags="52" class="rh-hide">acA640-120gm</td>
+		<td data-rhtags="52" class="rh-hide">17.62</td>
+		<td data-rhtags="52" class="rh-hide">17.62</td>
+	</tr>
+	<tr>
+		<td data-rhtags="53" class="rh-hide">acA640-120gc</td>
+		<td data-rhtags="53" class="rh-hide">17.62</td>
+		<td data-rhtags="53" class="rh-hide">17.62</td>
+	</tr>
+	<tr>
+		<td data-rhtags="54" class="rh-hide">acA640-121gm</td>
+		<td data-rhtags="54" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 21.3</li>
+			<li>12-bit pixel formats: 24.7</li>
+		</ul></td>
+		<td data-rhtags="54" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 21.3</li>
+			<li>12-bit pixel formats: 24.7</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="55" class="rh-hide">acA640-300gm</td>
+		<td data-rhtags="55" class="rh-hide">3</td>
+		<td data-rhtags="55" class="rh-hide">3–9</td>
+	</tr>
+	<tr>
+		<td data-rhtags="56" class="rh-hide">acA640-300gc</td>
+		<td data-rhtags="56" class="rh-hide">3</td>
+		<td data-rhtags="56" class="rh-hide">3–9</td>
+	</tr>
+	<tr>
+		<td data-rhtags="57" class="rh-hide">acA720-290gm</td>
+		<td data-rhtags="57" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 13.5 / 29.5<sup>e</sup></li>
+			<li>12-bit pixel formats: 17.5 / 35.5<sup>e</sup></li>
+		</ul></td>
+		<td data-rhtags="57" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 13.5 / 29.5<sup>e</sup></li>
+			<li>12-bit pixel formats: 17.5 / 35.5<sup>e</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="58" class="rh-hide">acA720-290gc</td>
+		<td data-rhtags="58" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 13.5 / 29.5<sup>e</sup></li>
+			<li>12-bit pixel formats: 17.5 / 35.5<sup>e</sup></li>
+		</ul></td>
+		<td data-rhtags="58" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 13.5 / 29.5<sup>e</sup></li>
+			<li>12-bit pixel formats: 17.5 / 35.5<sup>e</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="59" class="rh-hide">acA750-30gm</td>
+		<td data-rhtags="59" class="rh-hide">48.97</td>
+		<td data-rhtags="59" class="rh-hide">48.97</td>
+	</tr>
+	<tr>
+		<td data-rhtags="45" class="rh-hide">acA750-30gc</td>
+		<td data-rhtags="45" class="rh-hide">48.97</td>
+		<td data-rhtags="45" class="rh-hide">48.97</td>
+	</tr>
+	<tr>
+		<td data-rhtags="60" class="rh-hide">acA780-75gm</td>
+		<td data-rhtags="60" class="rh-hide">24.5</td>
+		<td data-rhtags="60" class="rh-hide">24.5</td>
+	</tr>
+	<tr>
+		<td data-rhtags="61" class="rh-hide">acA780-75gc</td>
+		<td data-rhtags="61" class="rh-hide">24.5</td>
+		<td data-rhtags="61" class="rh-hide">24.5</td>
+	</tr>
+	<tr>
+		<td data-rhtags="62" class="rh-hide">acA800-200gm</td>
+		<td data-rhtags="62" class="rh-hide">3</td>
+		<td data-rhtags="62" class="rh-hide">3–10</td>
+	</tr>
+	<tr>
+		<td data-rhtags="63" class="rh-hide">acA800-200gc</td>
+		<td data-rhtags="63" class="rh-hide">3</td>
+		<td data-rhtags="63" class="rh-hide">3–10</td>
+	</tr>
+	<tr>
+		<td data-rhtags="64" class="rh-hide">acA1280-60gm</td>
+		<td data-rhtags="64" class="rh-hide">190–200<sup>a</sup></td>
+		<td data-rhtags="64" class="rh-hide">190–200<sup>a</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="65" class="rh-hide">acA1280-60gc</td>
+		<td data-rhtags="65" class="rh-hide">190–200<sup>a</sup></td>
+		<td data-rhtags="65" class="rh-hide">190–200<sup>a</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="66" class="rh-hide">acA1300-22gm</td>
+		<td data-rhtags="66" class="rh-hide">34.5</td>
+		<td data-rhtags="66" class="rh-hide">34.5</td>
+	</tr>
+	<tr>
+		<td data-rhtags="67" class="rh-hide">acA1300-22gc</td>
+		<td data-rhtags="67" class="rh-hide">34.5</td>
+		<td data-rhtags="67" class="rh-hide">34.5</td>
+	</tr>
+	<tr>
+		<td data-rhtags="68" class="rh-hide">acA1300-30gm</td>
+		<td data-rhtags="68" class="rh-hide">34.5</td>
+		<td data-rhtags="68" class="rh-hide">34.5</td>
+	</tr>
+	<tr>
+		<td data-rhtags="69" class="rh-hide">acA1300-30gc</td>
+		<td data-rhtags="69" class="rh-hide">34.5</td>
+		<td data-rhtags="69" class="rh-hide">34.5</td>
+	</tr>
+	<tr>
+		<td data-rhtags="70" class="rh-hide">acA1300-60gm</td>
+		<td data-rhtags="70" class="rh-hide"><ul>
+			<li>Global <a href="shutter_mode.htm">shutter mode</a>: 
+			 43</li>
+			<li>Rolling shutter mode: 190–200<sup>a</sup></li>
+			<li>Global Reset Release shutter mode: 35–48</li>
+		</ul></td>
+		<td data-rhtags="70" class="rh-hide"><ul>
+			<li>Global <a href="shutter_mode.htm">shutter mode</a>: 
+			 43</li>
+			<li>Rolling shutter mode: 190–200<sup>a</sup></li>
+			<li>Global Reset Release shutter mode: <sup>35–48a</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="71" class="rh-hide">acA1300-60gmNIR</td>
+		<td data-rhtags="71" class="rh-hide"><ul>
+			<li>Global <a href="shutter_mode.htm">shutter mode</a>: 
+			 43</li>
+			<li>Rolling shutter mode: 190–200<sup>a</sup></li>
+			<li>Global Reset Release shutter mode: 35–48</li>
+		</ul></td>
+		<td data-rhtags="71" class="rh-hide"><ul>
+			<li>Global <a href="shutter_mode.htm">shutter mode</a>: 
+			 43</li>
+			<li>Rolling shutter mode: 190–200<sup>a</sup></li>
+			<li>Global Reset Release shutter mode: <sup>35–48a</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="72" class="rh-hide">acA1300-60gc</td>
+		<td data-rhtags="72" class="rh-hide"><ul>
+			<li>Global <a href="shutter_mode.htm">shutter mode</a>: 
+			 43</li>
+			<li>Rolling shutter mode: 190–200<sup>a</sup></li>
+			<li>Global Reset Release shutter mode: 35–48</li>
+		</ul></td>
+		<td data-rhtags="72" class="rh-hide"><ul>
+			<li>Global <a href="shutter_mode.htm">shutter mode</a>: 
+			 43</li>
+			<li>Rolling shutter mode: 190–200<sup>a</sup></li>
+			<li>Global Reset Release shutter mode: <sup>35–48a</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="73" class="rh-hide">acA1300-75gm</td>
+		<td data-rhtags="73" class="rh-hide">3</td>
+		<td data-rhtags="73" class="rh-hide">3-15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="74" class="rh-hide">acA1300-75gc</td>
+		<td data-rhtags="74" class="rh-hide">3</td>
+		<td data-rhtags="74" class="rh-hide">3-15</td>
+	</tr>
+	<tr>
+		<td data-rhtags="75" class="rh-hide">acA1440-73gm</td>
+		<td data-rhtags="75" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 23 / 42<sup>e</sup></li>
+			<li>12-bit pixel formats: 26 / 47<sup>e</sup></li>
+		</ul></td>
+		<td data-rhtags="75" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 23 / 42<sup>e</sup></li>
+			<li>12-bit pixel formats: 26 / 47<sup>e</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="76" class="rh-hide">acA1440-73gc</td>
+		<td data-rhtags="76" class="rh-hide"><ul>
+			<li>8-bit<a href="pixel_format.htm"> pixel formats</a>: 
+			 23 / 42<sup>e</sup></li>
+			<li>12-bit pixel formats: 26 / 47<sup>e</sup></li>
+		</ul></td>
+		<td data-rhtags="76" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 23 / 42<sup>e</sup></li>
+			<li>12-bit pixel formats: 26 / 47<sup>e</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="77" class="rh-hide">acA1600-20gm</td>
+		<td data-rhtags="77" class="rh-hide">45.54</td>
+		<td data-rhtags="77" class="rh-hide">45.54</td>
+	</tr>
+	<tr>
+		<td data-rhtags="78" class="rh-hide">acA1600-20gc</td>
+		<td data-rhtags="78" class="rh-hide">45.54</td>
+		<td data-rhtags="78" class="rh-hide">45.54</td>
+	</tr>
+	<tr>
+		<td data-rhtags="79" class="rh-hide">acA1600-60gm</td>
+		<td data-rhtags="79" class="rh-hide"><ul>
+			<li>Global <a href="shutter_mode.htm">shutter mode</a>: 
+			 41.5</li>
+			<li>Rolling shutter mode: 180–240</li>
+			<li>Global Reset Release shutter mode: 34–51</li>
+		</ul></td>
+		<td data-rhtags="79" class="rh-hide"><ul>
+			<li>Global <a href="shutter_mode.htm">shutter mode</a>: 
+			 41.5</li>
+			<li>Rolling shutter mode: 180–240<sup>b</sup></li>
+			<li>Global Reset Release shutter mode: <sup>34–51b</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="80" class="rh-hide">acA1600-60gc</td>
+		<td data-rhtags="80" class="rh-hide"><ul>
+			<li>Global <a href="shutter_mode.htm">shutter mode</a>: 
+			 41.5</li>
+			<li>Rolling shutter mode: 180–240</li>
+			<li>Global Reset Release shutter mode: 34–51</li>
+		</ul></td>
+		<td data-rhtags="80" class="rh-hide"><ul>
+			<li>Global <a href="shutter_mode.htm">shutter mode</a>: 
+			 41.5</li>
+			<li>Rolling shutter mode: 180–240</li>
+			<li>Global Reset Release shutter mode: 34–51</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="81" class="rh-hide">acA1920-25gm</td>
+		<td data-rhtags="81" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm">shutter mode</a>: 
+			 848</li>
+			<li>Global Reset Release shutter mode: 848</li>
+		</ul></td>
+		<td data-rhtags="81" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm">shutter mode</a>: 
+			 848–883</li>
+			<li>Global Reset Release shutter mode: 848</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="82" class="rh-hide">acA1920-25gc</td>
+		<td data-rhtags="82" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm">shutter mode</a>: 
+			 848</li>
+			<li>Global Reset Release shutter mode: 848</li>
+		</ul></td>
+		<td data-rhtags="82" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm">shutter mode</a>: 
+			 848–883</li>
+			<li>Global Reset Release shutter mode: 848</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="83" class="rh-hide">acA1920-40gm</td>
+		<td data-rhtags="83" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 57.6</li>
+			<li>12-bit pixel formats: 74.4</li>
+		</ul></td>
+		<td data-rhtags="83" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 57.6</li>
+			<li>12-bit pixel formats: 74.4</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="84" class="rh-hide">acA1920-40gc</td>
+		<td data-rhtags="84" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 57.6</li>
+			<li>12-bit pixel formats: 74.4</li>
+		</ul></td>
+		<td data-rhtags="84" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 57.6</li>
+			<li>12-bit pixel formats: 74.4</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="85" class="rh-hide">acA1920-48gm</td>
+		<td data-rhtags="85" class="rh-hide">5</td>
+		<td data-rhtags="85" class="rh-hide">5–23</td>
+	</tr>
+	<tr>
+		<td data-rhtags="86" class="rh-hide">acA1920-48gc</td>
+		<td data-rhtags="86" class="rh-hide">5</td>
+		<td data-rhtags="86" class="rh-hide">5–23</td>
+	</tr>
+	<tr>
+		<td data-rhtags="87" class="rh-hide">acA1920-50gm</td>
+		<td data-rhtags="87" class="rh-hide">47.4</td>
+		<td data-rhtags="87" class="rh-hide">47.4</td>
+	</tr>
+	<tr>
+		<td data-rhtags="88" class="rh-hide">acA1920-50gc</td>
+		<td data-rhtags="88" class="rh-hide">47.4</td>
+		<td data-rhtags="88" class="rh-hide">47.4</td>
+	</tr>
+	<tr>
+		<td data-rhtags="89" class="rh-hide">acA2000-50gm</td>
+		<td data-rhtags="89" class="rh-hide">0.2</td>
+		<td data-rhtags="89" class="rh-hide">0.2–17.2</td>
+	</tr>
+	<tr>
+		<td data-rhtags="90" class="rh-hide">acA2000-50gmNIR</td>
+		<td data-rhtags="90" class="rh-hide">0.2</td>
+		<td data-rhtags="90" class="rh-hide">0.2–17.2</td>
+	</tr>
+	<tr>
+		<td data-rhtags="91" class="rh-hide">acA2000-50gc</td>
+		<td data-rhtags="91" class="rh-hide">0.2</td>
+		<td data-rhtags="91" class="rh-hide">0.2–17.2</td>
+	</tr>
+	<tr>
+		<td data-rhtags="92" class="rh-hide">acA2040-25gm</td>
+		<td data-rhtags="92" class="rh-hide">0.2</td>
+		<td data-rhtags="92" class="rh-hide">0.2–17.2</td>
+	</tr>
+	<tr>
+		<td data-rhtags="93" class="rh-hide">acA2040-25gmNIR</td>
+		<td data-rhtags="93" class="rh-hide">0.2</td>
+		<td data-rhtags="93" class="rh-hide">0.2–17.2</td>
+	</tr>
+	<tr>
+		<td data-rhtags="94" class="rh-hide">acA2040-25gc</td>
+		<td data-rhtags="94" class="rh-hide">0.2</td>
+		<td data-rhtags="94" class="rh-hide">0.2–17.2</td>
+	</tr>
+	<tr>
+		<td data-rhtags="95" class="rh-hide">acA2040-35gm</td>
+		<td data-rhtags="95" class="rh-hide">35</td>
+		<td data-rhtags="95" class="rh-hide">35</td>
+	</tr>
+	<tr>
+		<td data-rhtags="96" class="rh-hide">acA2040-35gc</td>
+		<td data-rhtags="96" class="rh-hide">35</td>
+		<td data-rhtags="96" class="rh-hide">35</td>
+	</tr>
+	<tr>
+		<td data-rhtags="97" class="rh-hide">acA2440-20gm</td>
+		<td data-rhtags="97" class="rh-hide">40</td>
+		<td data-rhtags="97" class="rh-hide">40</td>
+	</tr>
+	<tr>
+		<td data-rhtags="98" class="rh-hide">acA2440-20gc</td>
+		<td data-rhtags="98" class="rh-hide">40</td>
+		<td data-rhtags="98" class="rh-hide">40</td>
+	</tr>
+	<tr>
+		<td data-rhtags="99" class="rh-hide">acA2500-14gm</td>
+		<td data-rhtags="99" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm">shutter mode</a>: 
+			 848–883</li>
+			<li>Global Reset Release shutter mode: 848</li>
+		</ul></td>
+		<td data-rhtags="99" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm">shutter mode</a>: 
+			 848–883</li>
+			<li>Global Reset Release shutter mode: 848</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="100" class="rh-hide">acA2500-14gc</td>
+		<td data-rhtags="100" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm">shutter mode</a>: 
+			 848–883</li>
+			<li>Global Reset Release shutter mode: 848</li>
+		</ul></td>
+		<td data-rhtags="100" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm">shutter mode</a>: 
+			 848–883</li>
+			<li>Global Reset Release shutter mode: 848</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="101" class="rh-hide">acA2500-20gm</td>
+		<td data-rhtags="101" class="rh-hide">5</td>
+		<td data-rhtags="101" class="rh-hide">5–28</td>
+	</tr>
+	<tr>
+		<td data-rhtags="102" class="rh-hide">acA2500-20gc</td>
+		<td data-rhtags="102" class="rh-hide">5</td>
+		<td data-rhtags="102" class="rh-hide">5–28</td>
+	</tr>
+	<tr>
+		<td data-rhtags="103" class="rh-hide">acA2500-20gmMED</td>
+		<td data-rhtags="103" class="rh-hide">5 </td>
+		<td data-rhtags="103" class="rh-hide">5–28 </td>
+	</tr>
+	<tr>
+		<td data-rhtags="104" class="rh-hide">acA2500-20gcMED</td>
+		<td data-rhtags="104" class="rh-hide">5 </td>
+		<td data-rhtags="104" class="rh-hide">5–28</td>
+	</tr>
+	<tr>
+		<td data-rhtags="105" class="rh-hide">acA3088-16gm</td>
+		<td data-rhtags="105" class="rh-hide">2526</td>
+		<td data-rhtags="105" class="rh-hide">2526</td>
+	</tr>
+	<tr>
+		<td data-rhtags="106" class="rh-hide">acA3088-16gc</td>
+		<td data-rhtags="106" class="rh-hide">2526</td>
+		<td data-rhtags="106" class="rh-hide">2526</td>
+	</tr>
+	<tr>
+		<td data-rhtags="107" class="rh-hide">acA3800-10gm</td>
+		<td data-rhtags="107" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm">shutter mode</a>: 
+			 2900</li>
+			<li>Global Reset Release shutter mode: 2970</li>
+		</ul></td>
+		<td data-rhtags="107" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm">shutter mode</a>: 
+			 2900</li>
+			<li>Global Reset Release shutter mode: 2970</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="108" class="rh-hide">acA3800-10gc</td>
+		<td data-rhtags="108" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm">shutter mode</a>: 
+			 2550</li>
+			<li>Global Reset Release shutter mode: 2620</li>
+		</ul></td>
+		<td data-rhtags="108" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm">shutter mode</a>: 
+			 2550</li>
+			<li>Global Reset Release shutter mode: 2620</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="109" class="rh-hide">acA4024-8gm</td>
+		<td data-rhtags="109" class="rh-hide">2031<sup>d</sup></td>
+		<td data-rhtags="109" class="rh-hide">2031</td>
+	</tr>
+	<tr>
+		<td data-rhtags="110" class="rh-hide">acA4024-8gc</td>
+		<td data-rhtags="110" class="rh-hide">2031<sup>d</sup></td>
+		<td data-rhtags="110" class="rh-hide">2031</td>
+	</tr>
+	<tr>
+		<td data-rhtags="111" class="rh-hide">acA4096-11gm</td>
+		<td data-rhtags="111" class="rh-hide">66.3</td>
+		<td data-rhtags="111" class="rh-hide">66.3</td>
+	</tr>
+	<tr>
+		<td data-rhtags="112" class="rh-hide">acA4096-11gc</td>
+		<td data-rhtags="112" class="rh-hide">66.3</td>
+		<td data-rhtags="112" class="rh-hide">66.3</td>
+	</tr>
+	<tr>
+		<td data-rhtags="113" class="rh-hide">acA4112-8gm</td>
+		<td data-rhtags="113" class="rh-hide">66.3</td>
+		<td data-rhtags="113" class="rh-hide">66.3</td>
+	</tr>
+	<tr>
+		<td data-rhtags="114" class="rh-hide">acA4112-8gc</td>
+		<td data-rhtags="114" class="rh-hide">66.3</td>
+		<td data-rhtags="114" class="rh-hide">66.3</td>
+	</tr>
+	<tr>
+		<td data-rhtags="115" class="rh-hide">acA4600-7gc</td>
+		<td data-rhtags="115" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm">shutter mode</a>: 
+			 7700</li>
+			<li>Global Reset Release shutter mode: 7800</li>
+		</ul></td>
+		<td data-rhtags="115" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm">shutter mode</a>: 
+			 7700</li>
+			<li>Global Reset Release shutter mode: 7800</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="116" class="rh-hide">acA5472-5gm</td>
+		<td data-rhtags="116" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 3185</li>
+			<li>12-bit pixel formats: 3575</li>
+		</ul></td>
+		<td data-rhtags="116" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 3185</li>
+			<li>12-bit pixel formats: 3575</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="117" class="rh-hide">acA5472-5gc</td>
+		<td data-rhtags="117" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 3185</li>
+			<li>12-bit pixel formats: 3575</li>
+		</ul></td>
+		<td data-rhtags="117" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 3185</li>
+			<li>12-bit pixel formats: 3575</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="118" class="rh-hide">acA640-750um</td>
+		<td data-rhtags="118" class="rh-hide">3.6</td>
+		<td data-rhtags="118" class="rh-hide">8.4</td>
+	</tr>
+	<tr>
+		<td data-rhtags="119" class="rh-hide">acA640-750uc</td>
+		<td data-rhtags="119" class="rh-hide">3.6</td>
+		<td data-rhtags="119" class="rh-hide">8.4</td>
+	</tr>
+	<tr>
+		<td data-rhtags="120" class="rh-hide">acA640-90um</td>
+		<td data-rhtags="120" class="rh-hide">22</td>
+		<td data-rhtags="120" class="rh-hide">22.7</td>
+	</tr>
+	<tr>
+		<td data-rhtags="121" class="rh-hide">acA640-90uc</td>
+		<td data-rhtags="121" class="rh-hide">22</td>
+		<td data-rhtags="121" class="rh-hide">22.7</td>
+	</tr>
+	<tr>
+		<td data-rhtags="122" class="rh-hide">acA640-120um</td>
+		<td data-rhtags="122" class="rh-hide">18</td>
+		<td data-rhtags="122" class="rh-hide">18.4</td>
+	</tr>
+	<tr>
+		<td data-rhtags="123" class="rh-hide">acA640-120uc</td>
+		<td data-rhtags="123" class="rh-hide">18</td>
+		<td data-rhtags="123" class="rh-hide">18.4</td>
+	</tr>
+	<tr>
+		<td data-rhtags="124" class="rh-hide">acA720-520um</td>
+		<td data-rhtags="124" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 11.5 / 27<sup>e</sup></li>
+			<li>12-bit pixel formats: 18 / 35.5<sup>e</sup></li>
+		</ul></td>
+		<td data-rhtags="124" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 11.5 / 27<sup>e</sup></li>
+			<li>12-bit pixel formats: 18 / 35.5<sup>e</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="125" class="rh-hide">acA720-520uc</td>
+		<td data-rhtags="125" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 11.5 / 27<sup>e</sup></li>
+			<li>12-bit pixel formats: 18 / 35.5<sup>e</sup></li>
+		</ul></td>
+		<td data-rhtags="125" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 11.5 / 27<sup>e</sup></li>
+			<li>12-bit pixel formats:&#160;18 / 35.5<sup>e</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="126" class="rh-hide">acA800-510um</td>
+		<td data-rhtags="126" class="rh-hide">3.6</td>
+		<td data-rhtags="126" class="rh-hide">8.4</td>
+	</tr>
+	<tr>
+		<td data-rhtags="127" class="rh-hide">acA800-510uc</td>
+		<td data-rhtags="127" class="rh-hide">3.6</td>
+		<td data-rhtags="127" class="rh-hide">8.4</td>
+	</tr>
+	<tr>
+		<td data-rhtags="128" class="rh-hide">acA1300-200um</td>
+		<td data-rhtags="128" class="rh-hide">3.6</td>
+		<td data-rhtags="128" class="rh-hide">8.4</td>
+	</tr>
+	<tr>
+		<td data-rhtags="129" class="rh-hide">acA1300-200uc</td>
+		<td data-rhtags="129" class="rh-hide">3.6</td>
+		<td data-rhtags="129" class="rh-hide">8.4</td>
+	</tr>
+	<tr>
+		<td data-rhtags="130" class="rh-hide">acA1300-30um</td>
+		<td data-rhtags="130" class="rh-hide">35</td>
+		<td data-rhtags="130" class="rh-hide">34.8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="131" class="rh-hide">acA1300-30uc</td>
+		<td data-rhtags="131" class="rh-hide">35</td>
+		<td data-rhtags="131" class="rh-hide">34.8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="132" class="rh-hide">acA1440-220um</td>
+		<td data-rhtags="132" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 13.5 / 29.5<sup>e</sup></li>
+			<li>12-bit pixel formats: 17.5 / 35.5<sup>e</sup></li>
+		</ul></td>
+		<td data-rhtags="132" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 13.5 / 29.5<sup>e</sup></li>
+			<li>12-bit pixel formats: 17.5 / 35.5<sup>e</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="133" class="rh-hide">acA1440-220uc</td>
+		<td data-rhtags="133" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 13.5 / 29.5<sup>e</sup></li>
+			<li>12-bit pixel formats: 17.5 / 35.5<sup>e</sup></li>
+		</ul></td>
+		<td data-rhtags="133" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 13.5 / 29.5<sup>e</sup></li>
+			<li>12-bit pixel formats: 17.5 / 35.5<sup>e</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="134" class="rh-hide">acA1600-20um</td>
+		<td data-rhtags="134" class="rh-hide">46</td>
+		<td data-rhtags="134" class="rh-hide">46.6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="135" class="rh-hide">acA1600-20uc</td>
+		<td data-rhtags="135" class="rh-hide">46</td>
+		<td data-rhtags="135" class="rh-hide">46.6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="136" class="rh-hide">acA1920-25um</td>
+		<td data-rhtags="136" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm">shutter mode</a>: 
+			 35</li>
+			<li>Global Reset Release shutter mode: 850</li>
+		</ul></td>
+		<td data-rhtags="136" class="rh-hide">Rolling <a href="shutter_mode.htm">shutter 
+		 mode</a>: 1200</td>
+	</tr>
+	<tr>
+		<td data-rhtags="137" class="rh-hide">acA1920-25uc</td>
+		<td data-rhtags="137" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm">shutter mode</a>: 
+			 35</li>
+			<li>Global Reset Release shutter mode: 850</li>
+		</ul></td>
+		<td data-rhtags="137" class="rh-hide">Rolling <a href="shutter_mode.htm">shutter 
+		 mode</a>: 1200</td>
+	</tr>
+	<tr>
+		<td data-rhtags="138" class="rh-hide">acA1920-40um</td>
+		<td data-rhtags="138" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 58</li>
+			<li>12-bit pixel formats: 75</li>
+		</ul></td>
+		<td data-rhtags="138" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 58</li>
+			<li>12-bit pixel formats: 75</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="139" class="rh-hide">acA1920-40uc</td>
+		<td data-rhtags="139" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 58</li>
+			<li>12-bit pixel formats: 75</li>
+		</ul></td>
+		<td data-rhtags="139" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 58</li>
+			<li>12-bit pixel formats: 75</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="140" class="rh-hide">acA1920-40umMED</td>
+		<td data-rhtags="140" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 58 / 16270<sup>g</sup></li>
+			<li>12-bit pixel formats: 75 / 20430<sup>g</sup></li>
+		</ul></td>
+		<td data-rhtags="140" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 58<sup>h</sup></li>
+			<li>12-bit pixel formats: 75<sup>h</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="141" class="rh-hide">acA1920-40ucMED</td>
+		<td data-rhtags="141" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 58 / 16270<sup>g</sup></li>
+			<li>12-bit pixel formats: 75 / 20430<sup>g</sup></li>
+		</ul></td>
+		<td data-rhtags="141" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 58<sup>h</sup></li>
+			<li>12-bit pixel formats: 75<sup>h</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="142" class="rh-hide">acA1920-150um</td>
+		<td data-rhtags="142" class="rh-hide">3.4</td>
+		<td data-rhtags="142" class="rh-hide">13.5</td>
+	</tr>
+	<tr>
+		<td data-rhtags="143" class="rh-hide">acA1920-150uc</td>
+		<td data-rhtags="143" class="rh-hide">3.4</td>
+		<td data-rhtags="143" class="rh-hide">13.5</td>
+	</tr>
+	<tr>
+		<td data-rhtags="144" class="rh-hide">acA1920-155um</td>
+		<td data-rhtags="144" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 17</li>
+			<li>12-bit pixel formats: 21</li>
+		</ul></td>
+		<td data-rhtags="144" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 17</li>
+			<li>12-bit pixel formats: 21</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="145" class="rh-hide">acA1920-155uc</td>
+		<td data-rhtags="145" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 17</li>
+			<li>12-bit pixel formats: 21</li>
+		</ul></td>
+		<td data-rhtags="145" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 17</li>
+			<li>12-bit pixel formats: 21</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="146" class="rh-hide">acA1920-155umMED</td>
+		<td data-rhtags="146" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 17 / 5568<sup>g</sup></li>
+			<li>12-bit pixel formats: 21 / 6608<sup>g</sup></li>
+		</ul></td>
+		<td data-rhtags="146" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 17<sup>h</sup></li>
+			<li>12-bit pixel formats: 21<sup>h</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="147" class="rh-hide">acA1920-155ucMED</td>
+		<td data-rhtags="147" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 17 / 5568<sup>g</sup></li>
+			<li>12-bit pixel formats: 21 / 6608<sup>g</sup></li>
+		</ul></td>
+		<td data-rhtags="147" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 17<sup>h</sup></li>
+			<li>12-bit pixel formats: 21<sup>h</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="148" class="rh-hide">acA2040-90um</td>
+		<td data-rhtags="148" class="rh-hide">0.9–1.3<sup>c</sup></td>
+		<td data-rhtags="148" class="rh-hide">0.9–20.3<sup>c</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="149" class="rh-hide">acA2040-90umNIR</td>
+		<td data-rhtags="149" class="rh-hide">0.9–1.3<sup>c</sup></td>
+		<td data-rhtags="149" class="rh-hide">0.9–20.3<sup>c</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="150" class="rh-hide">acA2040-90uc</td>
+		<td data-rhtags="150" class="rh-hide">0.9–1.3<sup>c</sup></td>
+		<td data-rhtags="150" class="rh-hide">0.9–20.3<sup>c</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="151" class="rh-hide">acA2000-165um</td>
+		<td data-rhtags="151" class="rh-hide">0.9–1.3<sup>c</sup></td>
+		<td data-rhtags="151" class="rh-hide">0.9–20.3<sup>c</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="152" class="rh-hide">acA2000-165umNIR</td>
+		<td data-rhtags="152" class="rh-hide">0.9–1.3<sup>c</sup></td>
+		<td data-rhtags="152" class="rh-hide">0.9–20.3<sup>c</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="153" class="rh-hide">acA2000-165uc</td>
+		<td data-rhtags="153" class="rh-hide">0.9–1.3<sup>c</sup></td>
+		<td data-rhtags="153" class="rh-hide">0.9–20.3<sup>c</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="154" class="rh-hide">acA2040-55um</td>
+		<td data-rhtags="154" class="rh-hide">36</td>
+		<td data-rhtags="154" class="rh-hide">36</td>
+	</tr>
+	<tr>
+		<td data-rhtags="155" class="rh-hide">acA2040-55uc</td>
+		<td data-rhtags="155" class="rh-hide">36</td>
+		<td data-rhtags="155" class="rh-hide">36</td>
+	</tr>
+	<tr>
+		<td data-rhtags="156" class="rh-hide">acA2040-120um</td>
+		<td data-rhtags="156" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 15</li>
+			<li>12-bit pixel formats: 18</li>
+		</ul></td>
+		<td data-rhtags="156" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 15</li>
+			<li>12-bit pixel formats: 18</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="157" class="rh-hide">acA2040-120uc</td>
+		<td data-rhtags="157" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 15</li>
+			<li>12-bit pixel formats: 18</li>
+		</ul></td>
+		<td data-rhtags="157" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 15</li>
+			<li>12-bit pixel formats: 18</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="158" class="rh-hide">acA2440-35um</td>
+		<td data-rhtags="158" class="rh-hide">42</td>
+		<td data-rhtags="158" class="rh-hide">42</td>
+	</tr>
+	<tr>
+		<td data-rhtags="159" class="rh-hide">acA2440-35uc</td>
+		<td data-rhtags="159" class="rh-hide">42</td>
+		<td data-rhtags="159" class="rh-hide">42</td>
+	</tr>
+	<tr>
+		<td data-rhtags="160" class="rh-hide">acA2440-35umMED</td>
+		<td data-rhtags="160" class="rh-hide">42 / 11143<sup>g</sup></td>
+		<td data-rhtags="160" class="rh-hide">42<sup>h</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="161" class="rh-hide">acA2440-35ucMED</td>
+		<td data-rhtags="161" class="rh-hide">42 / 11143<sup>g</sup></td>
+		<td data-rhtags="161" class="rh-hide">42<sup>h</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="162" class="rh-hide">acA2440-75um</td>
+		<td data-rhtags="162" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 18</li>
+			<li>12-bit pixel formats: 21</li>
+		</ul></td>
+		<td data-rhtags="162" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 18</li>
+			<li>12-bit pixel formats: 21</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="163" class="rh-hide">acA2440-75uc</td>
+		<td data-rhtags="163" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 18</li>
+			<li>12-bit pixel formats: 21</li>
+		</ul></td>
+		<td data-rhtags="163" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 18</li>
+			<li>12-bit pixel formats: 21</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="164" class="rh-hide">acA2440-75umMED</td>
+		<td data-rhtags="164" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 18 / 6360<sup>g</sup></li>
+			<li>12-bit pixel formats: 21 / 7142<sup>g</sup></li>
+		</ul></td>
+		<td data-rhtags="164" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 18<sup>h</sup></li>
+			<li>12-bit pixel formats: 21<sup>h</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="165" class="rh-hide">acA2440-75ucMED</td>
+		<td data-rhtags="165" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 18 / 6360<sup>g</sup></li>
+			<li>12-bit pixel formats: 21 / 7142<sup>g</sup></li>
+		</ul></td>
+		<td data-rhtags="165" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 18<sup>h</sup></li>
+			<li>12-bit pixel formats: 21<sup>h</sup></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="166" class="rh-hide">acA2500-14um</td>
+		<td data-rhtags="166" class="rh-hide">848</td>
+		<td data-rhtags="166" class="rh-hide">848–883</td>
+	</tr>
+	<tr>
+		<td data-rhtags="167" class="rh-hide">acA2500-14uc</td>
+		<td data-rhtags="167" class="rh-hide">848</td>
+		<td data-rhtags="167" class="rh-hide">848–883</td>
+	</tr>
+	<tr>
+		<td data-rhtags="168" class="rh-hide">acA2500-60um</td>
+		<td data-rhtags="168" class="rh-hide">3.4</td>
+		<td data-rhtags="168" class="rh-hide">13.5</td>
+	</tr>
+	<tr>
+		<td data-rhtags="169" class="rh-hide">acA2500-60uc</td>
+		<td data-rhtags="169" class="rh-hide">3.4</td>
+		<td data-rhtags="169" class="rh-hide">13.5</td>
+	</tr>
+	<tr>
+		<td data-rhtags="170" class="rh-hide">acA3088-57um</td>
+		<td data-rhtags="170" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm" data-rhtags="170" class="rh-hide">pixel 
+			 formats</a>: 1761</li>
+			<li>12-bit pixel formats: 1761</li>
+		</ul></td>
+		<td data-rhtags="170" class="rh-hide"><p data-rhtags="170" class="rh-hide">1761</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="171" class="rh-hide">acA3088-57uc</td>
+		<td data-rhtags="171" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm" data-rhtags="171" class="rh-hide">pixel 
+			 formats</a>: 1761</li>
+			<li>12-bit pixel formats: 1761</li>
+		</ul></td>
+		<td data-rhtags="171" class="rh-hide">1761</td>
+	</tr>
+	<tr>
+		<td data-rhtags="172" class="rh-hide">acA3800-14um</td>
+		<td data-rhtags="172" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm">shutter mode</a>: 
+			 2970</li>
+			<li>Global Reset Release shutter mode: 2845</li>
+		</ul></td>
+		<td data-rhtags="172" class="rh-hide">Rolling <a href="shutter_mode.htm">shutter 
+		 mode</a>: 5560</td>
+	</tr>
+	<tr>
+		<td data-rhtags="173" class="rh-hide">acA3800-14uc</td>
+		<td data-rhtags="173" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm">shutter mode</a>: 
+			 2620</li>
+			<li>Global Reset Release shutter mode: 2845</li>
+		</ul></td>
+		<td data-rhtags="173" class="rh-hide">Rolling <a href="shutter_mode.htm">shutter 
+		 mode</a>: 5560</td>
+	</tr>
+	<tr>
+		<td data-rhtags="174" class="rh-hide">acA4024-29um</td>
+		<td data-rhtags="174" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 581<sup>d</sup></li>
+			<li>12-bit pixel formats: 581<sup>d</sup></li>
+		</ul></td>
+		<td data-rhtags="174" class="rh-hide">581</td>
+	</tr>
+	<tr>
+		<td data-rhtags="175" class="rh-hide">acA4024-29uc</td>
+		<td data-rhtags="175" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 581<sup>d</sup></li>
+			<li>12-bit pixel formats: 581<sup>d</sup></li>
+		</ul></td>
+		<td data-rhtags="175" class="rh-hide">581</td>
+	</tr>
+	<tr>
+		<td data-rhtags="176" class="rh-hide">acA4096-30um</td>
+		<td data-rhtags="176" class="rh-hide">43</td>
+		<td data-rhtags="176" class="rh-hide">43</td>
+	</tr>
+	<tr>
+		<td data-rhtags="177" class="rh-hide">acA4096-30uc</td>
+		<td data-rhtags="177" class="rh-hide">43</td>
+		<td data-rhtags="177" class="rh-hide">43</td>
+	</tr>
+	<tr>
+		<td data-rhtags="178" class="rh-hide">acA4096-40um</td>
+		<td data-rhtags="178" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 30</li>
+			<li>12-bit pixel formats: 35</li>
+		</ul></td>
+		<td data-rhtags="178" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 30</li>
+			<li>12-bit pixel formats: 35</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="179" class="rh-hide">acA4096-40uc</td>
+		<td data-rhtags="179" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 30</li>
+			<li>12-bit pixel formats: 35</li>
+		</ul></td>
+		<td data-rhtags="179" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 30</li>
+			<li>12-bit pixel formats: 35</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="180" class="rh-hide">acA4112-20um</td>
+		<td data-rhtags="180" class="rh-hide">43</td>
+		<td data-rhtags="180" class="rh-hide">43</td>
+	</tr>
+	<tr>
+		<td data-rhtags="181" class="rh-hide">acA4112-20uc</td>
+		<td data-rhtags="181" class="rh-hide">43</td>
+		<td data-rhtags="181" class="rh-hide">43</td>
+	</tr>
+	<tr>
+		<td data-rhtags="182" class="rh-hide">acA4112-30um</td>
+		<td data-rhtags="182" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 30</li>
+			<li>12-bit pixel formats: 35</li>
+		</ul></td>
+		<td data-rhtags="182" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 30</li>
+			<li>12-bit pixel formats: 35</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="183" class="rh-hide">acA4112-30uc</td>
+		<td data-rhtags="183" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 30</li>
+			<li>12-bit pixel formats: 35</li>
+		</ul></td>
+		<td data-rhtags="183" class="rh-hide"><ul>
+			<li>8-bit <a href="pixel_format.htm">pixel formats</a>: 
+			 30</li>
+			<li>12-bit pixel formats: 35</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="184" class="rh-hide">acA4600-10uc</td>
+		<td data-rhtags="184" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm">shutter mode</a>: 
+			 7855</li>
+			<li>Global Reset Release shutter mode: 7840</li>
+		</ul></td>
+		<td data-rhtags="184" class="rh-hide">Rolling <a href="shutter_mode.htm">shutter 
+		 mode</a>: 11000</td>
+	</tr>
+	<tr>
+		<td data-rhtags="185" class="rh-hide">acA5472–17um</td>
+		<td data-rhtags="185" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm">shutter mode</a>: 
+			 820 / 969<sup>f</sup></li>
+			<li>Global Reset Release shutter mode: 103 / 123<sup>f</sup></li>
+		</ul></td>
+		<td data-rhtags="185" class="rh-hide">N/A</td>
+	</tr>
+	<tr>
+		<td data-rhtags="186" class="rh-hide">acA5472–17uc</td>
+		<td data-rhtags="186" class="rh-hide"><ul>
+			<li>Rolling <a href="shutter_mode.htm">shutter mode</a>: 
+			 820 / 969<sup>f</sup></li>
+			<li>Global Reset Release shutter mode: 103 / 123<sup>f</sup></li>
+		</ul></td>
+		<td data-rhtags="186" class="rh-hide">N/A</td>
+	</tr>
+	<tr>
+		<td data-rhtags="44" class="rh-hide">All dart BCON for LVDS camera models</td>
+		<td data-rhtags="44" class="rh-hide">N/A</td>
+		<td data-rhtags="44" class="rh-hide">N/A</td>
+	</tr>
+	<tr>
+		<td data-rhtags="21" class="rh-hide">All dart BCON for MIPI cameras models</td>
+		<td data-rhtags="21" class="rh-hide">N/A</td>
+		<td data-rhtags="21" class="rh-hide">N/A</td>
+	</tr>
+	<tr>
+		<td data-rhtags="42" class="rh-hide">All dart USB 3.0 camera models</td>
+		<td data-rhtags="42" class="rh-hide">N/A</td>
+		<td data-rhtags="42" class="rh-hide">N/A</td>
+	</tr>
+	<tr>
+		<td data-rhtags="47" class="rh-hide">All pulse USB 3.0 camera models</td>
+		<td data-rhtags="47" class="rh-hide">N/A</td>
+		<td data-rhtags="47" class="rh-hide">N/A</td>
+	</tr>
+</table>
+<p class="table-footnote rh-hide" data-rhtags="187"><sup>a</sup>Value depends on the exposure time 
+ set.</p>
+<p class="table-footnote rh-hide" data-rhtags="188"><sup>b</sup>Value 
+ depends on the exposure time and the pixel format set.</p>
+<p class="table-footnote rh-hide" data-rhtags="189"><sup>c</sup>The shortest delays apply when 
+ maximum bandwidth is available. The delays increase as available bandwidth 
+ decreases.</p>
+<p class="table-footnote rh-hide" data-rhtags="190"><sup>d</sup>In addition to the exposure start 
+ delay, the <a href="acquisition_timing_information.htm#Image_ROI_exposure_start_delay">image 
+ ROI exposure start delay</a> applies.</p>
+<p class="table-footnote rh-hide" data-rhtags="191"><sup>e</sup>Standard <a href="exposure_time.htm#Exposure_Time_Mode" data-rhtags="191" class="rh-hide">exposure time mode</a> 
+ / Ultra Short exposure time mode</p>
+<p class="table-footnote rh-hide" data-rhtags="192"><sup>f</sup>8-bit 
+ <a href="pixel_format.htm">pixel format</a> / 12-bit pixel format</p>
+<p class="table-footnote rh-hide" data-rhtags="10"><sup>g</sup>Standard 
+ <a href="camera_operation_mode.htm" data-rhtags="10" class="rh-hide">camera 
+ operation mode</a> / Long Exposure camera operation mode</p>
+<p class="table-footnote rh-hide" data-rhtags="10"><sup>h</sup>Overlapping 
+ image acquisition is only possible in Standard <a href="camera_operation_mode.htm">camera 
+ operation mode</a>.</p>
+</div>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

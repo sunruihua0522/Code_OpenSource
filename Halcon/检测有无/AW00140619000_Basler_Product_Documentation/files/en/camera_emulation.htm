@@ -1,0 +1,370 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="noindex" />
+<meta http-equiv="Content-Language" content="en-US" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Camera Emulation</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "4.1.3_1";
+</script>
+ <meta name="topic-breadcrumbs" content="Software > pylon Camera Software Suite" />
+</head>
+
+<body>
+
+
+
+<h1><a name="MiniTOCBookMark1"></a>Camera Emulation</h1>
+<p class="teaser">The Camera Emulation feature allows you to test basic 
+ camera features and create test images without having a physical camera 
+ device attached to your computer. </p>
+<p>The camera emulation devices can be accessed using the pylon API and 
+ the pylon Viewer.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot38289" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot38289', 'MTPOPUP38289');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP38289" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Overview</a>
+</li>
+   <li><a href="#MiniTOCBookMark3" >Enabling Camera Emulation</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark4" >Installing Camera Emulation 
+ Support</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >Enabling Camera 
+ Emulation in the pylon Viewer</a>
+</li>
+    <li><a href="#MiniTOCBookMark6" >Enabling Camera 
+ Emulation in the pylon API</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark7" >Standard Camera Features</a>
+</li>
+   <li><a href="#MiniTOCBookMark8" >Additional Features</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark9" >Displaying Custom Test Images</a>
+</li>
+    <li><a href="#MiniTOCBookMark10" >Generating Failed Buffers</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark11" >External Links</a>
+</li>
+   <li><a href="#MiniTOCBookMark12" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Overview</h2>
+<p>In addition to camera transport layers like GigE Vision or USB3 Vision, 
+ pylon offers a transport layer that can create simple camera emulation 
+ devices. This allows you to develop applications without the need for 
+ a physical camera. It is also useful if you want to develop a multi-camera 
+ application and don't have enough cameras at hand.</p>
+<p>You can create up to 256 camera emulation devices.</p>
+<p>Besides emulating image acquisition and <a href="#Standard_Camera_Features">standard 
+ camera features</a>, camera emulation devices also offer features that 
+ a physical camera does not offer:</p>
+<ul>
+	<li>You can <a href="#Displaying_Custom_Test_Images">display custom 
+	 test images</a>, e.g., to optimize your image processing algorithms. 
+	 </li>
+	<li>You can <a href="#Generating_Failed_Buffers">generate failed buffers</a>, 
+	 e.g., to test your exception handling routines.</li>
+</ul>
+<h2><a name="MiniTOCBookMark3"></a>Enabling Camera Emulation</h2>
+<p>You can enable camera emulation <a href="#Enabling_Camera_Emulation_in_the_pylon_Viewer">in 
+ the pylon Viewer</a>, <a href="Enabling_Camera_Emulation_in_the_pylon_API">in 
+ the pylon API</a>, or both.</p>
+<h3><a name="MiniTOCBookMark4"></a><a name="Installing_Camera_Emulation_Support">Installing Camera Emulation 
+ Support</a></h3>
+<ul>
+	<li>If you are using pylon for Linux, camera emulation support is installed 
+	 by default.</li>
+	<li>If you are using pylon for Windows and have installed pylon via 
+	 the runtime redistributable package, camera emulation support is installed 
+	 by default.</li>
+	<li>If you are using pylon for Windows and have installed pylon via 
+	 the pylon Camera Software Suite installer:</li>
+	<ul>
+		<li>If you chose the <strong>Camera User</strong> or <strong>Developer</strong> 
+		 profile during installation, camera emulation support is installed 
+		 by default.</li>
+		<li>If you chose the <strong>Custom</strong> profile during installation, 
+		 camera emulation support is only installed if you selected the 
+		 <span class="gui-text">Camera Emulation Support </span>option. 
+		 If you haven't done that, run the installer again and select that 
+		 option.</li>
+	</ul>
+</ul>
+<h3><a name="MiniTOCBookMark5"></a><a name="Enabling_Camera_Emulation_in_the_pylon_Viewer">Enabling Camera 
+ Emulation in the pylon Viewer</a></h3>
+<p>To enable camera emulation in the pylon Viewer:</p>
+<ol>
+	<li>Make sure that camera emulation support is <a href="#Installing_Camera_Emulation_Support">installed</a>.</li>
+	<li>In the <span class="gui-text">Tools</span> menu of the pylon Viewer, 
+	 click <span class="gui-text">Options</span>.</li>
+	<li>In the <span class="gui-text">Options</span> dialog, click <span 
+	 class="gui-text">Camera Emulation</span>.</li>
+	<li>On the <span class="gui-text">Camera Emulation</span> page, enter 
+	 the desired number of camera emulation devices and click <span class="gui-text">OK</span>.<br />
+	The emulation devices will be visible in the <span class="gui-text">Devices</span> 
+	 pane after a short wait. <br />
+	They can be accessed using the pylon Viewer. If you also want to access 
+	 the devices in the pylon API, follow the <a href="#Enabling_Camera_Emulation_in_the_pylon_API">instructions 
+	 below</a>.</li>
+</ol>
+<div class="info">
+	<ul>
+		<li>When you're removing emulation devices, the pylon Viewer needs 
+		 to be restarted for the changes to take effect.</li>
+		<li>If the number of camera emulation devices is set to 0, the 
+		 <span class="gui-text">Camera Emulation</span> node will not be 
+		 shown in the <span class="gui-text">Devices</span> pane.</li>
+	</ul>
+</div>
+<h3><a name="MiniTOCBookMark6"></a><a name="Enabling_Camera_Emulation_in_the_pylon_API">Enabling Camera 
+ Emulation in the pylon API</a></h3>
+<p>To enable camera emulation in the pylon API:</p>
+<ol>
+	<li>Make sure that camera emulation support is <a href="#Installing_Camera_Emulation_Support">installed</a>.</li>
+	<li>Add a <a href="#External_Links">system environment variable</a> 
+	 named <span class="code">PYLON_CAMEMU</span> and set its value to 
+	 the desired number of emulation devices.<br />
+	<strong>Example:</strong> <span class="code">PYLON_CAMEMU=2</span><br />
+	This will provide two emulation devices. <br />
+	They can be accessed using the pylon API. If you also want to access 
+	 the devices in the pylon Viewer, follow the <a href="#Enabling_Camera_Emulation_in_the_pylon_Viewer">instructions 
+	 above</a>.</li>
+</ol>
+<div class="info">
+	<p>If <span class="code">PYLON_CAMEMU</span> is not set or set to 0, 
+	 no emulation devices will be available. </p>
+</div>
+<h2><a name="MiniTOCBookMark7"></a><a name="Standard_Camera_Features">Standard Camera Features</a></h2>
+<p>Camera emulation devices can emulate the following standard camera features:</p>
+<ul>
+	<li><a href="acquisition_frame_rate.htm">Acquisition Frame Rate</a></li>
+	<li><a href="acquisition_status.htm">Acquisition Status</a></li>
+	<li><a href="device_information_parameters.htm">Device Information 
+	 Parameters</a></li>
+	<li><a href="exposure_mode.htm">Exposure Mode</a></li>
+	<li><a href="exposure_time.htm">Exposure Time</a></li>
+	<li><a href="gain.htm">Gain</a></li>
+	<li><a href="image_roi.htm">Image ROI</a></li>
+	<li><a href="pixel_format.htm">Pixel Format</a></li>
+	<li><a href="resulting_frame_rate.htm">Resulting Frame Rate</a></li>
+	<li><a href="test_images.htm">Test Images</a></li>
+	<li><a href="trigger_mode.htm">Trigger Mode</a></li>
+	<li><a href="trigger_software.htm">Trigger Software</a></li>
+	<li><a href="trigger_selector.htm">Trigger Selector</a></li>
+</ul>
+<h2><a name="MiniTOCBookMark8"></a>Additional Features</h2>
+<p>The following features are <strong>only</strong> available on camera 
+ emulation devices and <strong>not</strong> on physical Basler cameras.</p>
+<h3><a name="MiniTOCBookMark9"></a><a name="Displaying_Custom_Test_Images">Displaying Custom Test Images</a></h3>
+<p>In addition to displaying standard <a href="test_images.htm">test images</a>, 
+ camera emulation allows you to display custom test images that are loaded 
+ from disk.</p>
+<div class="info">
+	<ul>
+		<li>On <strong>Windows</strong>, the following image file formats 
+		 can be loaded: BMP, JPG, PNG, and TIF.</li>
+		<li>On <strong>Linux</strong>, the following image file formats 
+		 can be loaded: PNG and TIF.</li>
+	</ul>
+</div>
+<p>To display a custom test image:</p>
+<ol>
+	<li>Set the <span class="parameter-name">TestImageSelector</span> 
+	 parameter to <span class="parameter-name">Off</span>.<br />
+	This disables the use of standard test images.</li>
+	<li>Set the <span class="parameter-name">ImageFileMode</span> 
+	 parameter to <span class="parameter-name">On</span>.<br />
+	This enables the use of custom test images.</li>
+	<li>If you want to display a <strong>single</strong> test image, provide 
+	 the &#160;image file name, including the full path, in the <span class="parameter-name">ImageFilename</span> 
+	 parameter.<br />
+	<strong>Example</strong><span>:</span> c:\images\my-test-image.png 
+	 </li>
+	<li>If you want to display <strong>multiple</strong> test images:</li>
+	<ol>
+		<li>Place all test images to be displayed in a single directory. 
+		 <br />
+		The directory must not contain any subdirectories.</li>
+		<li>Provide the full path of the directory containing the files 
+		 in the <span class="parameter-name">ImageFilename</span> 
+		 parameter. <br />
+		<strong>Example</strong>: c:\images\ </li>
+	</ol>
+	<li>Acquire at least one image to display the test image(s). If you 
+	 want to display the image(s) in the pylon Viewer, click the single 
+	 or continuous shot button in the toolbar.</li>
+</ol>
+<p class="subheading">Troubleshooting</p>
+<ul>
+	<li>If the custom test image isn't displayed, i.e., the image displayed 
+	 is completely black, then pylon couldn't load the file. Check the 
+	 file name or path provided in the <span class="parameter-name">ImageFilename</span> 
+	 parameter. If you provided a directory name, make sure that the directory 
+	 doesn't contain any subdirectories.</li>
+	<li>If the custom test image is displayed in monochrome, switch to 
+	 a color <a href="pixel_format.htm">pixel format</a> (BGR/BGRA/RGB).</li>
+	<li>If the custom test image isn't displayed in full size, adjust the 
+	 <a href="image_roi.htm">image ROI</a> parameters (<span class="parameter-name">Width</span>, 
+	 <span class="parameter-name">Height</span>, 
+	 <span class="parameter-name">OffsetX</span>, 
+	 and <span class="parameter-name">OffsetY</span>).</li>
+</ul>
+<h3><a name="MiniTOCBookMark10"></a><a name="Generating_Failed_Buffers">Generating Failed Buffers</a></h3>
+<p>The Force Failed Buffer feature allows you to simulate a bad camera 
+ connection by generating failed buffers. This can be useful, e.g., to 
+ test your exception handling routines.</p>
+<p>To generate failed buffers:</p>
+<ol>
+	<li>Start image acquisition.</li>
+	<li>Set the <span class="parameter-name">ForceFailedBufferCount</span> 
+	 parameter to the number of failed buffers you want to generate.</li>
+	<li>Execute the <span class="parameter-name">ForceFailedBuffer</span> 
+	 command.<br />
+	The camera emulation device will now generate corrupt images. The number 
+	 of corrupt images depends on the value of the <span class="parameter-name">ForceFailedBufferCount</span> 
+	 parameter.</li>
+</ol>
+<h2><a name="MiniTOCBookMark11"></a><a name="External_Links">External Links</a></h2>
+<ul>
+	<li><a href="https://www.computerhope.com/issues/ch000549.htm">How 
+	 to set the path and environment variables in Windows (Computer Hope)</a> 
+	 </li>
+	<li><a href="http://www.dowdandassociates.com/blog/content/howto-set-an-environment-variable-in-linux/">HowTo: 
+	 Set an Environment Variable in Linux (Dowd and Associates)</a></li>
+</ul>
+<h2 class="sample-code"><a name="MiniTOCBookMark12"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre><code class="cpp">/* Custom Test Images*/
+// Disable standard test images
+camera.TestImageSelector.SetValue(TestImageSelector_Off);
+// Enable custom test images
+camera.ImageFileMode.SetValue(ImageFileMode_Off);
+// Load custom test image from disk
+camera.ImageFilename.SetValue("c:\images\image1.png");
+/* Force Failed Buffer */
+// Set the number of failed buffers to generate to 40
+camera.ForceFailedBufferCount.SetValue(40);
+// Generate 40 failed buffers
+camera.ForceFailedBuffer.Execute();</code></pre></div><div class="tab-2 tab-content"><pre><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+/*Custom Test Images*/
+
+CEnumerationPtr(nodemap.GetNode("TestImageSelector"))-&gt;FromString("Off");
+// Enable custom test images
+CEnumerationPtr(nodemap.GetNode("ImageFileMode"))-&gt;FromString("Off");
+// Load custom test image from disk
+CStringPtr(nodemap.GetNode("ImageFilename"))-&gt;SetValue("c:\images\image1.png");
+/*Force Failed Buffer*/
+
+CIntegerPtr(nodemap.GetNode("ForceFailedBufferCount"))-&gt;SetValue(40);
+// Generate 40 failed buffers
+CCommandPtr(nodemap.GetNode("ForceFailedBuffer"))-&gt;Execute();</code></pre></div><div class="tab-3 tab-content"><pre><code class="csharp" generated="true">/*Custom Test Images*/
+
+camera.Parameters[PLCamera.TestImageSelector].SetValue(PLCamera.TestImageSelector.Off);
+// Enable custom test images
+camera.Parameters[PLCamera.ImageFileMode].SetValue(PLCamera.ImageFileMode.Off);
+// Load custom test image from disk
+camera.Parameters[PLCamera.ImageFilename].SetValue("c:\images\image1.png");
+/*Force Failed Buffer*/
+
+camera.Parameters[PLCamera.ForceFailedBufferCount].SetValue(40);
+// Generate 40 failed buffers
+camera.Parameters[PLCamera.ForceFailedBuffer].Execute();</code></pre></div><div class="tab-4 tab-content"><pre><code class="csharp" generated="true">/*Custom Test Images*/
+
+Pylon.DeviceFeatureFromString(hdev, "TestImageSelector", "Off");
+// Enable custom test images
+Pylon.DeviceFeatureFromString(hdev, "ImageFileMode", "Off");
+// Load custom test image from disk
+Pylon.DeviceFeatureFromString(hdev, "ImageFilename", "c:\images\image1.png");
+/*Force Failed Buffer*/
+
+Pylon.DeviceSetIntegerFeature(hdev, "ForceFailedBufferCount", 40);
+// Generate 40 failed buffers
+Pylon.DeviceExecuteCommandFeature(hdev, "ForceFailedBuffer");</code></pre></div><div class="tab-5 tab-content"><pre><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+/*Custom Test Images*/
+
+errRes = PylonDeviceFeatureFromString(hdev, "TestImageSelector", "Off");
+CHECK(errRes);
+/* Enable custom test images */
+errRes = PylonDeviceFeatureFromString(hdev, "ImageFileMode", "Off");
+CHECK(errRes);
+/* Load custom test image from disk */
+errRes = PylonDeviceFeatureFromString(hdev, "ImageFilename", "c:\images\image1.png");
+CHECK(errRes);
+/*Force Failed Buffer*/
+
+errRes = PylonDeviceSetIntegerFeature(hdev, "ForceFailedBufferCount", 40);
+CHECK(errRes);
+/* Generate 40 failed buffers */
+errRes = PylonDeviceExecuteCommandFeature(hdev, "ForceFailedBuffer");
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

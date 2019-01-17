@@ -1,0 +1,1385 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Data Chunks</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_24";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Data Chunks<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Data Chunks</h1>
+<p class="teaser">The Data Chunks 
+ <a href="features.htm">camera feature</a> allows you to generate supplementary 
+ image data and append that data to every image that you acquire.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot28537" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot28537', 'MTPOPUP28537');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP28537" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >How It Works</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Enabling and Retrieving Data Chunks</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >Available Data Chunks</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark6" >Gain Chunk (= GainAll Chunk)</a>
+</li>
+     <li><a href="#MiniTOCBookMark7" >Exposure Time Chunk</a>
+</li>
+     <li><a href="#MiniTOCBookMark8" >Timestamp Chunk</a>
+</li>
+     <li><a href="#MiniTOCBookMark9" >Line Status All Chunk</a>
+</li>
+     <li><a href="#MiniTOCBookMark10" >Trigger Input Counter Chunk</a>
+</li>
+     <li><a href="#MiniTOCBookMark11" >Counter Value Chunk</a>
+</li>
+     <li><a href="#MiniTOCBookMark12" >Frame Counter Chunk</a>
+</li>
+     <li><a href="#MiniTOCBookMark13" >Sequencer Set Active Chunk (= 
+ Sequence Set Index Chunk)</a>
+</li>
+     <li><a href="#MiniTOCBookMark14" >CRC Checksum Chunk</a>
+</li>
+    </ul></li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark15" >Specifics</a>
+</li>
+   <li><a href="#MiniTOCBookMark16" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>How It Works</h3>
+<p>Data chunks allow you to add supplementary information to individual 
+ image acquisitions.&#160;The desired supplementary information is generated 
+ and appended as data chunks to the image data.</p>
+<p>Image data is also considered a &quot;chunk&quot;. This &quot;image 
+ data chunk&quot; can't be disabled and is always the first chunk transmitted 
+ by the camera. If one or more data chunks are enabled, these chunks are 
+ transmitted as chunk 2, 3, and so on.</p>
+<p>The figure below shows a set of chunks with the leading image data chunk 
+ and appended data chunks. The example assumes that the CRC checksum chunk 
+ feature is enabled.</p>
+<p><img src="images/drawing_image_data_and_chunks.png" alt="Example Chunk Set" title="Example Chunk Set" /></p>
+<p>After data chunks have been transmitted to the computer, they must be 
+ retrieved to obtain their information. The exact procedure depends on 
+ your camera model and the programming language used for your application. 
+ For more information about retrieving data chunks, see the<em> Programmer's 
+ Guide and Reference Documentation</em> delivered with the Basler pylon 
+ Camera Software Suite.</p>
+<p class="subheading">Additional Metadata</p>
+<p>Besides the data chunks, the camera adds additional metadata to individual 
+ images, e.g., the image height, image width, the image ROI offset, and 
+ the pixel format used. This information can be retrieved by accessing 
+ the grab result data via the pylon API.</p>
+<div class="info">
+	<p>If <strong>all</strong> of the following conditions are met, the 
+	 grab result data doesn't contain any useful information (image height, 
+	 image width, etc. will be set to -1): </p>
+	<ul>
+		<li>You are using a Basler <a href="https://www.baslerweb.com/en/products/cameras/area-scan-cameras/ace#productline=aceclassic;interface=gige">ace 
+		 classic GigE</a> camera.</li>
+		<li>You are using the pylon C API, the pylon C. NET API, or the 
+		 pylon C++ low level API.</li>
+		<li>The <span class="parameter-name">ChunkModeActive</span> 
+		 parameter is set to <span class="parameter-name">true</span>.</li>
+	</ul>
+	<p>In this case, you must retrieve the additional metadata using the 
+	 pylon chunk parser. For more information, see the code samples in 
+	 the <em>Programmer's Guide and Reference Documentation</em> delivered 
+	 with the Basler pylon Camera Software Suite.</p>
+</div>
+<h3><a name="MiniTOCBookMark4"></a>Enabling and Retrieving Data Chunks</h3>
+<ol>
+	<li>Set the <span class="parameter-name">ChunkModeActive</span> 
+	 parameter to <span class="parameter-name">true</span>.</li>
+	<li>Set the <span class="parameter-name">ChunkSelector</span>&#160;parameter 
+	 to the kind of chunk that you want to enable:</li>
+	<ul>
+		<li><a href="data_chunks.htm#Gain_Chunk"><span class="parameter-name rh-hide" data-rhtags="48">GainAll</span><span class="parameter-name rh-hide" data-rhtags="49">Gain</span></a></li>
+		<li><a href="data_chunks.htm#Exposure_Time_Chunk"><span class="parameter-name">ExposureTime</span></a></li>
+		<li><a href="data_chunks.htm#Timestamp_Chunk"><span class="parameter-name">Timestamp</span></a></li>
+		<li><a href="data_chunks.htm#Line_Status_All_Chunk"><span class="parameter-name">LineStatusAll</span></a></li>
+		<li><a href="data_chunks.htm#Trigger_Input_Counter_Chunk"><span class="parameter-name">Triggerinputcounter</span></a>&#160;(<a 
+		 href="#Specifics">if available</a>)</li>
+		<li><a href="data_chunks.htm#Counter_Value_Chunk"><span class="parameter-name">CounterValue</span></a>&#160;(<a 
+		 href="#Specifics">if available</a>)</li>
+		<li><a href="data_chunks.htm#Frame_Counter_Chunk"><span class="parameter-name">Framecounter</span></a>&#160;(<a 
+		 href="#Specifics">if available</a>)</li>
+		<li><a href="data_chunks.htm#Sequencer_Set_Active_Chunk"><span class="parameter-name">SequenceSetIndex</span> 
+		 or <span class="parameter-name">SequencerSetActive</span></a>&#160;(<a 
+		 href="#Specifics">if available</a>)</li>
+		<li><a href="#CRC_Checksum_Chunk"><span class="parameter-name">PayloadCRC16</span></a></li>
+	</ul>
+	<li>Enable the selected chunk by setting the <span class="parameter-name">ChunkEnable</span> 
+	 parameter to <span class="parameter-name">true</span>.</li>
+	<li>Repeat steps 2 and 3 for every desired chunk.</li>
+	<li>Implement chunk retrieval in your application.<br />
+	For information about implementing chunk retrieval, see the<em> Programmer's 
+	 Guide and Reference Documentation</em>&#160;delivered with the Basler 
+	 pylon Camera Software Suite.</li>
+</ol>
+<p class="info">Data chunks can also be viewed in the <a href="overview_of_the_pylon_viewer.htm">pylon 
+ Viewer</a>.</p>
+<h3><a name="MiniTOCBookMark5"></a>Available Data Chunks</h3>
+<h4><a name="MiniTOCBookMark6"></a><a name="Gain_Chunk">Gain Chunk (= GainAll Chunk)</a></h4>
+<p>If this chunk is <a href="#Specifics">available</a> and enabled, the 
+ camera appends the gain used for image acquisition to every image. </p>
+<p>The data chunk includes the <a href="gain.htm"><span class="parameter-name rh-hide" data-rhtags="48">GainRaw</span><span class="parameter-name rh-hide" data-rhtags="49">Gain</span></a> 
+ parameter value.</p>
+<h4><a name="MiniTOCBookMark7"></a><a name="Exposure_Time_Chunk">Exposure Time Chunk</a></h4>
+<p>If this chunk is enabled, the camera appends the exposure time used 
+ for image acquisition to every image. </p>
+<p>The data chunk includes the <a href="exposure_time.htm"><span class="parameter-name rh-hide" data-rhtags="48">ExposureTimeAbs</span><span class="parameter-name rh-hide" data-rhtags="49">ExposureTime</span></a> 
+ parameter value.</p>
+<p class="info">When using the <a href="exposure_mode.htm">Trigger Width</a> 
+ exposure mode, the Exposure Time chunk feature is not available.</p>
+<h4><a name="MiniTOCBookMark8"></a><a name="Timestamp_Chunk">Timestamp Chunk</a></h4>
+<p>If this chunk is enabled, the camera appends the internal <a href="timestamp.htm">timestamp</a> 
+ (in ticks) of the moment when image acquisition was triggered to every 
+ image. </p>
+<h4><a name="MiniTOCBookMark9"></a><a name="Line_Status_All_Chunk">Line Status All Chunk</a></h4>
+<p>If this chunk is enabled, the camera appends the status of all I/O lines 
+ at the moment when image acquisition was triggered to every image. </p>
+<p>The data chunk includes the&#160;<span class="parameter-name">LineStatusAll</span> 
+ parameter value.</p>
+<h4><a name="MiniTOCBookMark10"></a><a name="Trigger_Input_Counter_Chunk">Trigger Input Counter Chunk</a></h4>
+<p>If this chunk is <a href="#Specifics">available</a> and enabled, the 
+ camera appends the number of hardware frame start trigger signals received 
+ to every image.</p>
+<p>To do so, the camera retrieves the current value of the <a href="counter.htm">Counter 
+ 1 counter</a>. On cameras with the Trigger Input Counter chunk, Counter 
+ 1 counts the number of hardware trigger signals received.</p>
+<p>To manually reset the counter, <a href="counter.htm#Resetting_a_Counter">reset 
+ Counter 1</a>.</p>
+<p class="info">The trigger input counter only counts hardware trigger 
+ signals. If the camera is configured for <a href="triggered_image_acquisition.htm#Software_Triggering">software 
+ triggering</a> or <a href="free_run_image_acquisition.htm">free run</a>, 
+ the counter value will not increase.</p>
+<h4><a name="MiniTOCBookMark11"></a><a name="Counter_Value_Chunk">Counter Value Chunk</a></h4>
+<p>If this chunk is <a href="#Specifics">available</a> and enabled, the 
+ camera appends the number of acquired images to every image.</p>
+<p>To do so, the camera retrieves the current value of the <a href="counter.htm">Counter 
+ 1 counter</a>. On cameras with the Counter Value chunk, Counter 1 counts 
+ the number of acquired images.</p>
+<p>To manually reset the counter, <a href="counter.htm#Resetting_a_Counter">reset 
+ Counter 1</a>.</p>
+<h4><a name="MiniTOCBookMark12"></a><a name="Frame_Counter_Chunk">Frame Counter Chunk</a></h4>
+<p>If this chunk is <a href="#Specifics">available</a> and enabled, the 
+ camera appends the number of acquired images to every image.</p>
+<p>To do so, the camera retrieves the current value of the <a href="counter.htm">Counter 
+ 2 counter</a>. On cameras with the Frame Counter chunk, Counter 2 counts 
+ the number of acquired images.</p>
+<p>To manually reset the counter, <a href="counter.htm#Resetting_a_Counter">reset 
+ Counter 2</a>.</p>
+<p class="info">Numbers in the counting sequence may be skipped when the 
+ <a href="acquisition_mode.htm">acquisition mode</a> is changed from Continuous 
+ to Single Frame. Numbers may also be skipped when overtriggering occurs.</p>
+<h4><a name="MiniTOCBookMark13"></a><a name="Sequencer_Set_Active_Chunk">Sequencer Set Active Chunk (= 
+ Sequence Set Index Chunk)</a></h4>
+<p>If this chunk is <a href="#Specifics">available</a> and enabled, the 
+ camera appends the sequencer set used for image acquisition to every image.</p>
+<p>The data chunk includes the <span class="parameter-name">SequencerSetActive</span> 
+ or <span class="parameter-name">SequenceSetIndex</span> 
+ parameter value (depending on <a href="#Specifics">your camera model</a>).</p>
+<p class="info">Enabling this chunk is only useful if the camera's <a href="sequencer.htm">Sequencer</a> 
+ feature is used for image acquisition.</p>
+<h4><a name="MiniTOCBookMark14"></a><a name="CRC_Checksum_Chunk">CRC Checksum Chunk</a></h4>
+<p>If this chunk is enabled, the camera appends a CRC (Cyclic Redundancy 
+ Check) checksum to every image.</p>
+<p>The checksum is calculated using the X-modem method and includes the 
+ image data and all appended chunks, if any, except the CRC chunk itself.</p>
+<p>The CRC checksum chunk is always the last chunk appended to image data.</p>
+<h2 class="specifics"><a name="MiniTOCBookMark15"></a><a name="Specifics">Specifics</a></h2>
+<div>
+<table class="specifics-table">
+	<tr>
+		<th>Camera Model</th>
+		<th>Available Data Chunks</th>
+	</tr>
+	<tr>
+		<td data-rhtags="18" class="rh-hide">All ace GigE camera models</td>
+		<td data-rhtags="18" class="rh-hide"><ul>
+			<li>Gain All Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Trigger Input Counter</li>
+			<li>Frame Counter</li>
+			<li>Sequence Set Index Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="118" class="rh-hide">acA640-750um</td>
+		<td data-rhtags="118" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="119" class="rh-hide">acA640-750uc</td>
+		<td data-rhtags="119" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="120" class="rh-hide">acA640-90um</td>
+		<td data-rhtags="120" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="121" class="rh-hide">acA640-90uc</td>
+		<td data-rhtags="121" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="122" class="rh-hide">acA640-120um</td>
+		<td data-rhtags="122" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="123" class="rh-hide">acA640-120uc</td>
+		<td data-rhtags="123" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="124" class="rh-hide">acA720-520um</td>
+		<td data-rhtags="124" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="125" class="rh-hide">acA720-520uc</td>
+		<td data-rhtags="125" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="126" class="rh-hide">acA800-510um</td>
+		<td data-rhtags="126" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="127" class="rh-hide">acA800-510uc</td>
+		<td data-rhtags="127" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="128" class="rh-hide">acA1300-200um</td>
+		<td data-rhtags="128" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="129" class="rh-hide">acA1300-200uc</td>
+		<td data-rhtags="129" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="130" class="rh-hide">acA1300-30um</td>
+		<td data-rhtags="130" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="131" class="rh-hide">acA1300-30uc</td>
+		<td data-rhtags="131" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="132" class="rh-hide">acA1440-220um</td>
+		<td data-rhtags="132" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="133" class="rh-hide">acA1440-220uc</td>
+		<td data-rhtags="133" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="134" class="rh-hide">acA1600-20um</td>
+		<td data-rhtags="134" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="135" class="rh-hide">acA1600-20uc</td>
+		<td data-rhtags="135" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="136" class="rh-hide">acA1920-25um</td>
+		<td data-rhtags="136" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="137" class="rh-hide">acA1920-25uc</td>
+		<td data-rhtags="137" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="138" class="rh-hide">acA1920-40um</td>
+		<td data-rhtags="138" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="139" class="rh-hide">acA1920-40uc</td>
+		<td data-rhtags="139" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="140" class="rh-hide">acA1920-40umMED</td>
+		<td data-rhtags="140" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="141" class="rh-hide">acA1920-40ucMED</td>
+		<td data-rhtags="141" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="142" class="rh-hide">acA1920-150um</td>
+		<td data-rhtags="142" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="143" class="rh-hide">acA1920-150uc</td>
+		<td data-rhtags="143" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="144" class="rh-hide">acA1920-155um</td>
+		<td data-rhtags="144" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="145" class="rh-hide">acA1920-155uc</td>
+		<td data-rhtags="145" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="146" class="rh-hide">acA1920-155umMED</td>
+		<td data-rhtags="146" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="147" class="rh-hide">acA1920-155ucMED</td>
+		<td data-rhtags="147" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="148" class="rh-hide">acA2040-90um</td>
+		<td data-rhtags="148" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="149" class="rh-hide">acA2040-90umNIR</td>
+		<td data-rhtags="149" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="150" class="rh-hide">acA2040-90uc</td>
+		<td data-rhtags="150" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="151" class="rh-hide">acA2000-165um</td>
+		<td data-rhtags="151" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="152" class="rh-hide">acA2000-165umNIR</td>
+		<td data-rhtags="152" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="153" class="rh-hide">acA2000-165uc</td>
+		<td data-rhtags="153" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="154" class="rh-hide">acA2040-55um</td>
+		<td data-rhtags="154" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="155" class="rh-hide">acA2040-55uc</td>
+		<td data-rhtags="155" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="156" class="rh-hide">acA2040-120um</td>
+		<td data-rhtags="156" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="157" class="rh-hide">acA2040-120uc</td>
+		<td data-rhtags="157" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="158" class="rh-hide">acA2440-35um</td>
+		<td data-rhtags="158" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="159" class="rh-hide">acA2440-35uc</td>
+		<td data-rhtags="159" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="160" class="rh-hide">acA2440-35umMED</td>
+		<td data-rhtags="160" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="161" class="rh-hide">acA2440-35ucMED</td>
+		<td data-rhtags="161" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="162" class="rh-hide">acA2440-75um</td>
+		<td data-rhtags="162" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="163" class="rh-hide">acA2440-75uc</td>
+		<td data-rhtags="163" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="164" class="rh-hide">acA2440-75umMED</td>
+		<td data-rhtags="164" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="165" class="rh-hide">acA2440-75ucMED</td>
+		<td data-rhtags="165" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="166" class="rh-hide">acA2500-14um</td>
+		<td data-rhtags="166" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="167" class="rh-hide">acA2500-14uc</td>
+		<td data-rhtags="167" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="168" class="rh-hide">acA2500-60um</td>
+		<td data-rhtags="168" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="169" class="rh-hide">acA2500-60uc</td>
+		<td data-rhtags="169" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="170" class="rh-hide">acA3088-57um</td>
+		<td data-rhtags="170" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="171" class="rh-hide">acA3088-57uc</td>
+		<td data-rhtags="171" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="172" class="rh-hide">acA3800-14um</td>
+		<td data-rhtags="172" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="173" class="rh-hide">acA3800-14uc</td>
+		<td data-rhtags="173" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="174" class="rh-hide">acA4024-29um</td>
+		<td data-rhtags="174" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="175" class="rh-hide">acA4024-29uc</td>
+		<td data-rhtags="175" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="176" class="rh-hide">acA4096-30um</td>
+		<td data-rhtags="176" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="177" class="rh-hide">acA4096-30uc</td>
+		<td data-rhtags="177" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="178" class="rh-hide">acA4096-40um</td>
+		<td data-rhtags="178" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="179" class="rh-hide">acA4096-40uc</td>
+		<td data-rhtags="179" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="180" class="rh-hide">acA4112-20um</td>
+		<td data-rhtags="180" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="181" class="rh-hide">acA4112-20uc</td>
+		<td data-rhtags="181" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="182" class="rh-hide">acA4112-30um</td>
+		<td data-rhtags="182" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="183" class="rh-hide">acA4112-30uc</td>
+		<td data-rhtags="183" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="184" class="rh-hide">acA4600-10uc</td>
+		<td data-rhtags="184" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="185" class="rh-hide">acA5472-17um</td>
+		<td data-rhtags="185" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="186" class="rh-hide">acA5472-17uc</td>
+		<td data-rhtags="186" class="rh-hide"><ul>
+			<li>Gain Chunk</li>
+			<li>Exposure Time Chunk</li>
+			<li>Timestamp Chunk</li>
+			<li>Line Status All Chunk</li>
+			<li>Counter Value Chunk</li>
+			<li>Sequencer Set Active Chunk</li>
+			<li>CRC Checksum Chunk</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="44" class="rh-hide">All dart BCON for LVDS camera models</td>
+		<td data-rhtags="44" class="rh-hide">Data Chunks feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="21" class="rh-hide">All dart BCON for MIPI camera models</td>
+		<td data-rhtags="21" class="rh-hide">Data Chunks feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="42" class="rh-hide">All dart USB 3.0 camera models</td>
+		<td data-rhtags="42" class="rh-hide">Data Chunks feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="47" class="rh-hide">All pulse USB 3.0 camera models</td>
+		<td data-rhtags="47" class="rh-hide">Data Chunks feature 
+		 not supported</td>
+	</tr>
+</table>
+</div>
+<h2 class="sample-code"><a name="MiniTOCBookMark16"></a>Sample Code</h2>
+<p>The following source code is provided as an example.</p>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre data-rhtags="48" class="rh-hide"><code class="cpp">// Enable data chunks
+camera.ChunkModeActive.SetValue(true);
+// Select and enable Gain All chunk
+camera.ChunkSelector.SetValue(ChunkSelector_GainAll);
+camera.ChunkEnable.SetValue(true);
+// Select and enable Exposure Time chunk
+camera.ChunkSelector.SetValue(ChunkSelector_ExposureTime);
+camera.ChunkEnable.SetValue(true);
+// Select and enable Timestamp chunk
+camera.ChunkSelector.SetValue(ChunkSelector_Timestamp);
+camera.ChunkEnable.SetValue(true);
+// Select and enable Line Status All chunk
+camera.ChunkSelector.SetValue(ChunkSelector_LineStatusAll);
+camera.ChunkEnable.SetValue(true);
+// Select and enable Trigger Input Counter chunk
+camera.ChunkSelector.SetValue(ChunkSelector_TriggerInputCounter);
+camera.ChunkEnable.SetValue(true);
+// Select and enable Frame Counter chunk
+camera.ChunkSelector.SetValue(ChunkSelector_FrameCounter);
+camera.ChunkEnable.SetValue(true);
+// Select and enable Sequence Set Index chunk
+camera.ChunkSelector.SetValue(ChunkSelector_SequenceSetIndex);
+camera.ChunkEnable.SetValue(true);
+// Select and enable CRC checksum chunk
+camera.ChunkSelector.SetValue(ChunkSelector_PayloadCRC16);
+camera.ChunkEnable.SetValue(true);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="cpp">// Enable Chunk Mode Active
+camera.ChunkModeActive.SetValue(true);
+// Select and enable Gain chunk
+camera.ChunkSelector.SetValue(ChunkSelector_Gain);
+camera.ChunkEnable.SetValue(true);
+// Select and enable Exposure Time chunk
+camera.ChunkSelector.SetValue(ChunkSelector_ExposureTime);
+camera.ChunkEnable.SetValue(true);
+// Select and enable Timestamp chunk
+camera.ChunkSelector.SetValue(ChunkSelector_Timestamp);
+camera.ChunkEnable.SetValue(true);
+// Select and enable Line Status All chunk
+camera.ChunkSelector.SetValue(ChunkSelector_LineStatusAll);
+camera.ChunkEnable.SetValue(true);
+// Select and enable Counter Value chunk
+camera.ChunkSelector.SetValue(ChunkSelector_CounterValue);
+camera.ChunkEnable.SetValue(true);
+// Select and enable Sequencer Set Active chunk
+camera.ChunkSelector.SetValue(ChunkSelector_SequencerSetActive);
+camera.ChunkEnable.SetValue(true);
+// Select and enable CRC checksum chunk
+camera.ChunkSelector.SetValue(ChunkSelector_PayloadCRC16);
+camera.ChunkEnable.SetValue(true);</code></pre></div><div class="tab-2 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Enable data chunks
+CBooleanPtr(nodemap.GetNode("ChunkModeActive"))-&gt;SetValue(true);
+// Select and enable Gain All chunk
+CEnumerationPtr(nodemap.GetNode("ChunkSelector"))-&gt;FromString("GainAll");
+CBooleanPtr(nodemap.GetNode("ChunkEnable"))-&gt;SetValue(true);
+// Select and enable Exposure Time chunk
+CEnumerationPtr(nodemap.GetNode("ChunkSelector"))-&gt;FromString("ExposureTime");
+CBooleanPtr(nodemap.GetNode("ChunkEnable"))-&gt;SetValue(true);
+// Select and enable Timestamp chunk
+CEnumerationPtr(nodemap.GetNode("ChunkSelector"))-&gt;FromString("Timestamp");
+CBooleanPtr(nodemap.GetNode("ChunkEnable"))-&gt;SetValue(true);
+// Select and enable Line Status All chunk
+CEnumerationPtr(nodemap.GetNode("ChunkSelector"))-&gt;FromString("LineStatusAll");
+CBooleanPtr(nodemap.GetNode("ChunkEnable"))-&gt;SetValue(true);
+// Select and enable Trigger Input Counter chunk
+CEnumerationPtr(nodemap.GetNode("ChunkSelector"))-&gt;FromString("TriggerInputCounter");
+CBooleanPtr(nodemap.GetNode("ChunkEnable"))-&gt;SetValue(true);
+// Select and enable Frame Counter chunk
+CEnumerationPtr(nodemap.GetNode("ChunkSelector"))-&gt;FromString("FrameCounter");
+CBooleanPtr(nodemap.GetNode("ChunkEnable"))-&gt;SetValue(true);
+// Select and enable Sequence Set Index chunk
+CEnumerationPtr(nodemap.GetNode("ChunkSelector"))-&gt;FromString("SequenceSetIndex");
+CBooleanPtr(nodemap.GetNode("ChunkEnable"))-&gt;SetValue(true);
+// Select and enable CRC checksum chunk
+CEnumerationPtr(nodemap.GetNode("ChunkSelector"))-&gt;FromString("PayloadCRC16");
+CBooleanPtr(nodemap.GetNode("ChunkEnable"))-&gt;SetValue(true);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="cpp" generated="true">// Enable Chunk Mode Active
+CBooleanPtr(nodemap.GetNode("ChunkModeActive"))-&gt;SetValue(true);
+// Select and enable Gain chunk
+CEnumerationPtr(nodemap.GetNode("ChunkSelector"))-&gt;FromString("Gain");
+CBooleanPtr(nodemap.GetNode("ChunkEnable"))-&gt;SetValue(true);
+// Select and enable Exposure Time chunk
+CEnumerationPtr(nodemap.GetNode("ChunkSelector"))-&gt;FromString("ExposureTime");
+CBooleanPtr(nodemap.GetNode("ChunkEnable"))-&gt;SetValue(true);
+// Select and enable Timestamp chunk
+CEnumerationPtr(nodemap.GetNode("ChunkSelector"))-&gt;FromString("Timestamp");
+CBooleanPtr(nodemap.GetNode("ChunkEnable"))-&gt;SetValue(true);
+// Select and enable Line Status All chunk
+CEnumerationPtr(nodemap.GetNode("ChunkSelector"))-&gt;FromString("LineStatusAll");
+CBooleanPtr(nodemap.GetNode("ChunkEnable"))-&gt;SetValue(true);
+// Select and enable Counter Value chunk
+CEnumerationPtr(nodemap.GetNode("ChunkSelector"))-&gt;FromString("CounterValue");
+CBooleanPtr(nodemap.GetNode("ChunkEnable"))-&gt;SetValue(true);
+// Select and enable Sequencer Set Active chunk
+CEnumerationPtr(nodemap.GetNode("ChunkSelector"))-&gt;FromString("SequencerSetActive");
+CBooleanPtr(nodemap.GetNode("ChunkEnable"))-&gt;SetValue(true);
+// Select and enable CRC checksum chunk
+CEnumerationPtr(nodemap.GetNode("ChunkSelector"))-&gt;FromString("PayloadCRC16");
+CBooleanPtr(nodemap.GetNode("ChunkEnable"))-&gt;SetValue(true);</code></pre></div><div class="tab-3 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="csharp" generated="true">// Enable data chunks
+camera.Parameters[PLCamera.ChunkModeActive].SetValue(true);
+// Select and enable Gain All chunk
+camera.Parameters[PLCamera.ChunkSelector].SetValue(PLCamera.ChunkSelector.GainAll);
+camera.Parameters[PLCamera.ChunkEnable].SetValue(true);
+// Select and enable Exposure Time chunk
+camera.Parameters[PLCamera.ChunkSelector].SetValue(PLCamera.ChunkSelector.ExposureTime);
+camera.Parameters[PLCamera.ChunkEnable].SetValue(true);
+// Select and enable Timestamp chunk
+camera.Parameters[PLCamera.ChunkSelector].SetValue(PLCamera.ChunkSelector.Timestamp);
+camera.Parameters[PLCamera.ChunkEnable].SetValue(true);
+// Select and enable Line Status All chunk
+camera.Parameters[PLCamera.ChunkSelector].SetValue(PLCamera.ChunkSelector.LineStatusAll);
+camera.Parameters[PLCamera.ChunkEnable].SetValue(true);
+// Select and enable Trigger Input Counter chunk
+camera.Parameters[PLCamera.ChunkSelector].SetValue(PLCamera.ChunkSelector.TriggerInputCounter);
+camera.Parameters[PLCamera.ChunkEnable].SetValue(true);
+// Select and enable Frame Counter chunk
+camera.Parameters[PLCamera.ChunkSelector].SetValue(PLCamera.ChunkSelector.FrameCounter);
+camera.Parameters[PLCamera.ChunkEnable].SetValue(true);
+// Select and enable Sequence Set Index chunk
+camera.Parameters[PLCamera.ChunkSelector].SetValue(PLCamera.ChunkSelector.SequenceSetIndex);
+camera.Parameters[PLCamera.ChunkEnable].SetValue(true);
+// Select and enable CRC checksum chunk
+camera.Parameters[PLCamera.ChunkSelector].SetValue(PLCamera.ChunkSelector.PayloadCRC16);
+camera.Parameters[PLCamera.ChunkEnable].SetValue(true);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="csharp" generated="true">// Enable Chunk Mode Active
+camera.Parameters[PLCamera.ChunkModeActive].SetValue(true);
+// Select and enable Gain chunk
+camera.Parameters[PLCamera.ChunkSelector].SetValue(PLCamera.ChunkSelector.Gain);
+camera.Parameters[PLCamera.ChunkEnable].SetValue(true);
+// Select and enable Exposure Time chunk
+camera.Parameters[PLCamera.ChunkSelector].SetValue(PLCamera.ChunkSelector.ExposureTime);
+camera.Parameters[PLCamera.ChunkEnable].SetValue(true);
+// Select and enable Timestamp chunk
+camera.Parameters[PLCamera.ChunkSelector].SetValue(PLCamera.ChunkSelector.Timestamp);
+camera.Parameters[PLCamera.ChunkEnable].SetValue(true);
+// Select and enable Line Status All chunk
+camera.Parameters[PLCamera.ChunkSelector].SetValue(PLCamera.ChunkSelector.LineStatusAll);
+camera.Parameters[PLCamera.ChunkEnable].SetValue(true);
+// Select and enable Counter Value chunk
+camera.Parameters[PLCamera.ChunkSelector].SetValue(PLCamera.ChunkSelector.CounterValue);
+camera.Parameters[PLCamera.ChunkEnable].SetValue(true);
+// Select and enable Sequencer Set Active chunk
+camera.Parameters[PLCamera.ChunkSelector].SetValue(PLCamera.ChunkSelector.SequencerSetActive);
+camera.Parameters[PLCamera.ChunkEnable].SetValue(true);
+// Select and enable CRC checksum chunk
+camera.Parameters[PLCamera.ChunkSelector].SetValue(PLCamera.ChunkSelector.PayloadCRC16);
+camera.Parameters[PLCamera.ChunkEnable].SetValue(true);</code></pre></div><div class="tab-4 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="csharp" generated="true">// Enable data chunks
+Pylon.DeviceSetBooleanFeature(hdev, "ChunkModeActive", true);
+// Select and enable Gain All chunk
+Pylon.DeviceFeatureFromString(hdev, "ChunkSelector", "GainAll");
+Pylon.DeviceSetBooleanFeature(hdev, "ChunkEnable", true);
+// Select and enable Exposure Time chunk
+Pylon.DeviceFeatureFromString(hdev, "ChunkSelector", "ExposureTime");
+Pylon.DeviceSetBooleanFeature(hdev, "ChunkEnable", true);
+// Select and enable Timestamp chunk
+Pylon.DeviceFeatureFromString(hdev, "ChunkSelector", "Timestamp");
+Pylon.DeviceSetBooleanFeature(hdev, "ChunkEnable", true);
+// Select and enable Line Status All chunk
+Pylon.DeviceFeatureFromString(hdev, "ChunkSelector", "LineStatusAll");
+Pylon.DeviceSetBooleanFeature(hdev, "ChunkEnable", true);
+// Select and enable Trigger Input Counter chunk
+Pylon.DeviceFeatureFromString(hdev, "ChunkSelector", "TriggerInputCounter");
+Pylon.DeviceSetBooleanFeature(hdev, "ChunkEnable", true);
+// Select and enable Frame Counter chunk
+Pylon.DeviceFeatureFromString(hdev, "ChunkSelector", "FrameCounter");
+Pylon.DeviceSetBooleanFeature(hdev, "ChunkEnable", true);
+// Select and enable Sequence Set Index chunk
+Pylon.DeviceFeatureFromString(hdev, "ChunkSelector", "SequenceSetIndex");
+Pylon.DeviceSetBooleanFeature(hdev, "ChunkEnable", true);
+// Select and enable CRC checksum chunk
+Pylon.DeviceFeatureFromString(hdev, "ChunkSelector", "PayloadCRC16");
+Pylon.DeviceSetBooleanFeature(hdev, "ChunkEnable", true);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="csharp" generated="true">// Enable Chunk Mode Active
+Pylon.DeviceSetBooleanFeature(hdev, "ChunkModeActive", true);
+// Select and enable Gain chunk
+Pylon.DeviceFeatureFromString(hdev, "ChunkSelector", "Gain");
+Pylon.DeviceSetBooleanFeature(hdev, "ChunkEnable", true);
+// Select and enable Exposure Time chunk
+Pylon.DeviceFeatureFromString(hdev, "ChunkSelector", "ExposureTime");
+Pylon.DeviceSetBooleanFeature(hdev, "ChunkEnable", true);
+// Select and enable Timestamp chunk
+Pylon.DeviceFeatureFromString(hdev, "ChunkSelector", "Timestamp");
+Pylon.DeviceSetBooleanFeature(hdev, "ChunkEnable", true);
+// Select and enable Line Status All chunk
+Pylon.DeviceFeatureFromString(hdev, "ChunkSelector", "LineStatusAll");
+Pylon.DeviceSetBooleanFeature(hdev, "ChunkEnable", true);
+// Select and enable Counter Value chunk
+Pylon.DeviceFeatureFromString(hdev, "ChunkSelector", "CounterValue");
+Pylon.DeviceSetBooleanFeature(hdev, "ChunkEnable", true);
+// Select and enable Sequencer Set Active chunk
+Pylon.DeviceFeatureFromString(hdev, "ChunkSelector", "SequencerSetActive");
+Pylon.DeviceSetBooleanFeature(hdev, "ChunkEnable", true);
+// Select and enable CRC checksum chunk
+Pylon.DeviceFeatureFromString(hdev, "ChunkSelector", "PayloadCRC16");
+Pylon.DeviceSetBooleanFeature(hdev, "ChunkEnable", true);</code></pre></div><div class="tab-5 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+/* Enable data chunks */
+errRes = PylonDeviceSetBooleanFeature(hdev, "ChunkModeActive", 1);
+CHECK(errRes);
+/* Select and enable Gain All chunk */
+errRes = PylonDeviceFeatureFromString(hdev, "ChunkSelector", "GainAll");
+CHECK(errRes);
+errRes = PylonDeviceSetBooleanFeature(hdev, "ChunkEnable", 1);
+CHECK(errRes);
+/* Select and enable Exposure Time chunk */
+errRes = PylonDeviceFeatureFromString(hdev, "ChunkSelector", "ExposureTime");
+CHECK(errRes);
+errRes = PylonDeviceSetBooleanFeature(hdev, "ChunkEnable", 1);
+CHECK(errRes);
+/* Select and enable Timestamp chunk */
+errRes = PylonDeviceFeatureFromString(hdev, "ChunkSelector", "Timestamp");
+CHECK(errRes);
+errRes = PylonDeviceSetBooleanFeature(hdev, "ChunkEnable", 1);
+CHECK(errRes);
+/* Select and enable Line Status All chunk */
+errRes = PylonDeviceFeatureFromString(hdev, "ChunkSelector", "LineStatusAll");
+CHECK(errRes);
+errRes = PylonDeviceSetBooleanFeature(hdev, "ChunkEnable", 1);
+CHECK(errRes);
+/* Select and enable Trigger Input Counter chunk */
+errRes = PylonDeviceFeatureFromString(hdev, "ChunkSelector", "TriggerInputCounter");
+CHECK(errRes);
+errRes = PylonDeviceSetBooleanFeature(hdev, "ChunkEnable", 1);
+CHECK(errRes);
+/* Select and enable Frame Counter chunk */
+errRes = PylonDeviceFeatureFromString(hdev, "ChunkSelector", "FrameCounter");
+CHECK(errRes);
+errRes = PylonDeviceSetBooleanFeature(hdev, "ChunkEnable", 1);
+CHECK(errRes);
+/* Select and enable Sequence Set Index chunk */
+errRes = PylonDeviceFeatureFromString(hdev, "ChunkSelector", "SequenceSetIndex");
+CHECK(errRes);
+errRes = PylonDeviceSetBooleanFeature(hdev, "ChunkEnable", 1);
+CHECK(errRes);
+/* Select and enable CRC checksum chunk */
+errRes = PylonDeviceFeatureFromString(hdev, "ChunkSelector", "PayloadCRC16");
+CHECK(errRes);
+errRes = PylonDeviceSetBooleanFeature(hdev, "ChunkEnable", 1);
+CHECK(errRes);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="c" generated="true">/* Enable Chunk Mode Active */
+errRes = PylonDeviceSetBooleanFeature(hdev, "ChunkModeActive", 1);
+CHECK(errRes);
+/* Select and enable Gain chunk */
+errRes = PylonDeviceFeatureFromString(hdev, "ChunkSelector", "Gain");
+CHECK(errRes);
+errRes = PylonDeviceSetBooleanFeature(hdev, "ChunkEnable", 1);
+CHECK(errRes);
+/* Select and enable Exposure Time chunk */
+errRes = PylonDeviceFeatureFromString(hdev, "ChunkSelector", "ExposureTime");
+CHECK(errRes);
+errRes = PylonDeviceSetBooleanFeature(hdev, "ChunkEnable", 1);
+CHECK(errRes);
+/* Select and enable Timestamp chunk */
+errRes = PylonDeviceFeatureFromString(hdev, "ChunkSelector", "Timestamp");
+CHECK(errRes);
+errRes = PylonDeviceSetBooleanFeature(hdev, "ChunkEnable", 1);
+CHECK(errRes);
+/* Select and enable Line Status All chunk */
+errRes = PylonDeviceFeatureFromString(hdev, "ChunkSelector", "LineStatusAll");
+CHECK(errRes);
+errRes = PylonDeviceSetBooleanFeature(hdev, "ChunkEnable", 1);
+CHECK(errRes);
+/* Select and enable Counter Value chunk */
+errRes = PylonDeviceFeatureFromString(hdev, "ChunkSelector", "CounterValue");
+CHECK(errRes);
+errRes = PylonDeviceSetBooleanFeature(hdev, "ChunkEnable", 1);
+CHECK(errRes);
+/* Select and enable Sequencer Set Active chunk */
+errRes = PylonDeviceFeatureFromString(hdev, "ChunkSelector", "SequencerSetActive");
+CHECK(errRes);
+errRes = PylonDeviceSetBooleanFeature(hdev, "ChunkEnable", 1);
+CHECK(errRes);
+/* Select and enable CRC checksum chunk */
+errRes = PylonDeviceFeatureFromString(hdev, "ChunkSelector", "PayloadCRC16");
+CHECK(errRes);
+errRes = PylonDeviceSetBooleanFeature(hdev, "ChunkEnable", 1);
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

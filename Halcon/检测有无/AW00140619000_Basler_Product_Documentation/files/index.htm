@@ -1,0 +1,344 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, user-scalable=yes" />
+        <meta name="robots" content="noindex" />
+        <title>Product Documentation</title>
+        <link rel="StyleSheet" href="template/basler-screen-layout/layout.css" type="text/css" />
+        <link rel="stylesheet" href="template/basler-screen-layout/select2.min.css"> 
+        <link rel="stylesheet" href="template/basler-screen-layout/introjs.min.css"> 
+        <script src="js/jquery-3.3.1.min.js"></script>        
+        <script src="js/config.js"></script>        
+    
+<script type="text/javascript" src="template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="template/scripts/common.min.js"></script>
+<script type="text/javascript" src="template/scripts/layout.min.js"></script>
+<script type="text/javascript" src="template/scripts/constants.js"></script>
+<script type="text/javascript" src="template/scripts/projectdata.js"></script>
+<script type="text/javascript" src="template/scripts/utils.js"></script>
+<script type="text/javascript" src="template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="template/scripts/mhver.js"></script>
+<script type="text/javascript" src="template/scripts/settings.js"></script>
+<script type="text/javascript" src="template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="template/scripts/loadcsh.js"></script>
+<script type="text/javascript" src="template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="template/scripts/showhidecontrols.js"></script>
+<script type="text/javascript" src="template/scripts/pageloader.js"></script>
+ <link rel="stylesheet" type="text/css" href="template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="template/styles/layoutfix.min.css">
+ <link rel="stylesheet" type="text/css" href="template/styles/layout.min.css">
+<script type="text/javascript" src="template/scripts/mhfhost.js"></script>
+<script type="text/javascript" src="template/scripts/search.js"></script>
+<script type="text/javascript" >
+gTopicFrameName = "rh_default_topic_frame_name";
+gDefaultTopic = "#en/basler_product_documentation.htm";
+</script>
+<script type="text/javascript" >
+gRootRelPath = ".";
+gCommonRootRelPath = ".";
+</script>
+ <link rel="SHORTCUT ICON" href="favicon.ico" />
+</head>
+
+    <body class="hide-children loading" data-rhwidget="Basic" data-class="media-desktop: KEY_SCREEN_DESKTOP; media-landscape: KEY_SCREEN_TABLET; media-mobile: KEY_SCREEN_PHONE; ios: KEY_SCREEN_IOS" data-controller="ModernLayoutController: mc; JsLoadingController" data-attr="dir:KEY_DIR">
+
+
+
+
+        <div class="header" data-class="mobile-header-visible: @.l.mobile_header_visible" role="banner">
+            <a data-controller="HomeController: hc;" data-click="$hc.goToHome()" data-attr="title: @KEY_LNG.HomeButton; aria-label: @KEY_LNG.HomeButton">
+                <div class="logo" data-attr="title:@KEY_LNG.HomeButton">
+                    &nbsp;<span class="rh-hide" aria-hidden="true" data-html="@KEY_LNG.HomeButton"></span>
+                </div>				
+            </a>
+            <div class="title">
+                <p style="margin: 0"><span>Product Documentation</span></p>
+                <p id="offlineVersionLabel" style="display:none; font-size: 0.5em; vertical-align: top; margin: 0"><span>Offline Version</span></p>
+            </div>
+            <div class="brs_next" data-attr="title:@KEY_LNG.Next">
+                <a id="browseSeqNextLandscape" class="wBSNextButton" data-rhwidget="Basic" data-attr="href:.l.brsNext" data-css="visibility: @.l.brsNext?'visible':'hidden'">
+                &nbsp;<span class="rh-hide" aria-hidden="true" data-html="@KEY_LNG.Next"></span>
+                </a>
+            </div>
+            <div class="brs_previous" data-attr="title:@KEY_LNG.Prev">
+                <a id="browseSeqBackLandscape" class="wBSBackButton" data-rhwidget="Basic" data-attr="href:.l.brsBack" data-css="visibility: @.l.brsBack?'visible':'hidden'">
+                &nbsp;<span class="rh-hide" aria-hidden="true" data-html="@KEY_LNG.Prev"></span>
+                </a>
+            </div>
+        </div>
+        <!-- Extra mobile header with special functions -->
+        <div class="mobilespecialfunctions" data-class="sidebar-opened: $mc.isSidebarTab(@KEY_ACTIVE_TAB); mobile-header-visible: @.l.mobile_header_visible; searchpage-mode: @KEY_ACTIVE_TAB == 'fts'" data-attr="aria-hidden: !@KEY_SCREEN_PHONE" role="banner">
+            <a class="menubutton" data-attr="href: '#'; title:@KEY_LNG.NavTip; aria-hidden: !@.l.mobile_menu_enabled" data-click="$mc.toggleSideBar()"
+                    data-if="@.l.mobile_menu_enabled === true">
+                <span class="rh-hide" aria-hidden="true" data-html="@KEY_LNG.NavTip"></span>
+            </a> 
+            <a class="fts" data-attr="href: '#'; title:@KEY_LNG.SearchTitle;" data-click="$mc.toggleActiveTab('fts')">
+                &#160;<span class="rh-hide" aria-hidden="true" data-html="@KEY_LNG.SearchTitle"></span>
+            </a>
+            <a class="filter" id="filterbtnmobile" data-attr="href: '#'; title:@KEY_LNG.Filter; aria-hidden:!KEY_FEATURE.filter" data-if="KEY_FEATURE.filter"
+                    data-class="filter-applied: @.l.tag_expression.length" data-click="$mc.toggleActiveTab('filter')">
+                &#160;<span class="rh-hide" aria-hidden="true" data-html="@KEY_LNG.Filter"></span>
+            </a>
+            <div id="selectedDeviceHolderMobile" class="filter-text-holder-mobile">
+                <a id="selectedDeviceLinkMobile"></a>
+                <a data-click="$mc.toggleActiveTab('filter')" data-attr="href: '#'"><img src="template/basler-screen-layout/basler_edit.svg" width="12" height="12" data-attr="title: @KEY_LNG.ChangeDeviceText"></a>
+                <img class="prototype-message" src="template/basler-screen-layout/basler_warning.svg" alt="Design-in sample" title="Design-in sample" />
+            </div>
+            <div class="brs-holder">
+                <div class="brs_previous" data-if="@active_content != 'search' && @KEY_SEARCH_LOCATION == 'content'" data-attr="title:@KEY_LNG.Prev">
+                    <a id="browseSeqBackMobile" class="wBSBackButton" data-rhwidget="Basic" data-attr="href:.l.brsBack" data-css="visibility: @.l.brsBack?'visible':'hidden'">
+                    &nbsp;<span class="rh-hide" aria-hidden="true" data-html="@KEY_LNG.Prev"></span>
+                    </a>
+                </div>
+                <div class="brs_next" data-if="@active_content != 'search' && @KEY_SEARCH_LOCATION == 'content'" data-attr="title:@KEY_LNG.Next">
+                    <a id="browseSeqNextMobile" class="wBSNextButton" data-rhwidget="Basic" data-attr="href:.l.brsNext" data-css="visibility: @.l.brsNext?'visible':'hidden'">
+                    &nbsp;<span class="rh-hide" aria-hidden="true" data-html="@KEY_LNG.Next"></span>
+                    </a>
+                </div>	  
+            </div>	
+        </div>
+        <!-- Function bar with TOC/FILTER/FTS buttons -->
+        <div class="functionbar" data-css="width: sidebar_width | screen: 'desktop'" data-class="sidebar-opened: $mc.isSidebarTab(@KEY_ACTIVE_TAB); desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; mobile-header-visible: @.l.mobile_header_visible" role="dialog">
+            <div class="nav" role="navigation">
+                <a id="tocbtn" class="toc" data-if="KEY_FEATURE.toc" data-class="active: @KEY_ACTIVE_TAB == 'toc'" data-click="$mc.toggleActiveTab('toc')"
+                        data-attr="title:@KEY_LNG.TableOfContents; href: '#'; aria-hidden: !@KEY_FEATURE.toc">
+                    &#160;<span class="rh-hide" aria-hidden="true" data-html="@KEY_LNG.TableOfContents"></span>
+                </a>
+                <a class="fts" data-if="@KEY_SEARCH_LOCATION == 'tabbar'" data-class="active: @KEY_ACTIVE_TAB == 'fts'; search-sidebar: @KEY_SEARCH_LOCATION == 'tabbar'"
+                        data-click="$mc.toggleActiveTab('fts')" data-attr="title:@KEY_LNG.SearchTitle; href: '#'">
+                    &#160;<span class="rh-hide" aria-hidden="true" data-html="@KEY_LNG.SearchTitle"></span>
+                </a>
+                <a id="filterbtn" class="filter" data-if="KEY_FEATURE.filter" data-class="active: @KEY_ACTIVE_TAB == 'filter'; filter-applied: @.l.tag_expression.length"
+                        data-click="$mc.toggleActiveTab('filter')" data-attr="title:@KEY_LNG.Filter; href: '#'; aria-hidden: !@KEY_FEATURE.filter">
+                    &#160;<span class="rh-hide" aria-hidden="true" data-html="@KEY_LNG.Filter"></span>
+                </a>
+            </div>
+        </div>
+        <!-- Table of contents -->
+        <div class="toc-holder left-pane" data-css="width: sidebar_width | screen: 'desktop'" data-class="desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; search-sidebar: @KEY_SEARCH_LOCATION == 'tabbar'; search-content: @KEY_SEARCH_LOCATION == 'content'; layout-visible: @KEY_ACTIVE_TAB == 'toc'; drill-down: KEY_TOC_DRILL_DOWN; mobile-header-visible: @.l.mobile_header_visible; loading: !@EVT_TOC_LOADED" role="navigation" data-attr="aria-hidden: @KEY_ACTIVE_TAB != 'toc'">
+            <ul class="toc" data-rhwidget="List: .p.toc" data-controller="TocController: toc" data-click="$toc.onClick(event)">
+                <li data-rif="item.type === 'item' || item.type === 'remoteitem'" data-i-class="$toc.class(item)" data-class="inactive: @bookid != '#{@pid}'" data-childorder="#{childOrder}" 
+                        data-rhtags="#{$toc.tags(item)}" data-itemid="#{@id}">
+                    <a data-itext="item.name" data-i-href="$toc.url(item, '#{@id}')"></a>
+                </li>
+                <li class="book" data-rif="item.type === 'book'" data-class="active: @bookid == '#{@id}'; inactive: @bookid != '#{@pid}' &amp;&amp; @bookid != '#{@id}'" data-childorder="#{childOrder}" data-itemkey="#{$toc.key(item.absRef, item.key)}" data-itemid="#{@id}" data-itemlevel="#{@level}" data-rhtags="#{$toc.tags(item)}">
+                    <a data-itext="item.name" data-i-href="$toc.url(item, '#{@id}')"></a>
+                </li>
+                <li class="child max-height-transition" data-rif="item.key" data-class="show: @show_child#{@id}" data-childorder="#{childOrder}">
+                    <ul class="child" data-child="$toc.key(item.absRef, item.key)"></ul>
+                </li>
+            </ul>
+            <div id="versionInfo">
+                <hr size='1' class='toc-footer-seperator'>
+                <p class='toc-footer'>
+                    <span><a href='en/privacy_statement.htm'>Privacy</a>&thinsp;/&thinsp;<a href='en/datenschutzerklaerung.htm'>Datenschutz</a>&ensp;•&ensp;<a href='en/licensing_information.htm'>Licensing</a>&ensp;•&ensp;<a href='en/legal_info.htm'>Legal Info</a></span><br />
+                    <span>Version:</span>&#160;<span>19</span><br />
+                    <span>Release date:</span>&#160;11 December 2018<br />
+                    <span>ICP license number:</span>&#160;&#27818;ICP&#22791;17041046&#21495;-1
+                    </p>
+            </div>            
+        </div>
+        <!-- Filter -->
+        <div class="filter-holder left-pane" data-css="width: sidebar_width | screen: 'desktop'" data-class="sidebar-opened: $mc.isSidebarTab(@KEY_ACTIVE_TAB); desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; layout-visible: @KEY_ACTIVE_TAB == 'filter'; mobile-header-visible: @.l.mobile_header_visible; loading: !@KEY_MERGED_FILTER_KEY" role="dialog" data-attr="aria-hidden: @KEY_ACTIVE_TAB != 'filter'">
+            <div class="mobile-filter-heading" data-if="KEY_SCREEN_PHONE">
+                <a class="mobile_back" data-click="$mc.filterDone()" data-attr="title:@KEY_LNG.ApplyTip">
+                    <span class="rh-hide" aria-hidden="true" data-html="@KEY_LNG.ApplyTip"></span>
+                </a>
+                <div class="page-title" data-text="KEY_PROJECT_FILTER_CAPTION"></div>
+                <a class="reset-button" data-attr="href: '#'; title: @KEY_LNG.Reset" data-click="$mc.setDefaultTagStates()"
+                        data-class="layout-visible: $mc.isTagStatesChanged(@KEY_TAG_EXPRESSION)">
+                    <span class="rh-hide" aria-hidden="true" data-html="@KEY_LNG.Reset"></span>
+                </a>
+            </div>
+            <p class="filter-title" data-if="(@KEY_SCREEN_TABLET || @KEY_SCREEN_DESKTOP) &amp;&amp; @KEY_MERGED_FILTER_KEY" data-text="KEY_PROJECT_FILTER_CAPTION"></p>
+            <a class="reset-button" data-attr="href: '#'; title: @KEY_LNG.Reset" data-click="$mc.setDefaultTagStates()"
+                    data-class="layout-visible: $mc.isTagStatesChanged(@KEY_TAG_EXPRESSION)">
+                <span class="rh-hide" aria-hidden="true" data-html="@KEY_LNG.Reset"></span>
+            </a>
+            <ul class="wFltOpts" data-rhwidget="List:KEY_MERGED_FILTER_KEY" data-controller="FilterController: fc" data-click="$fc.click(event)"
+                    data-class="radio: @KEY_PROJECT_FILTER_TYPE == 'radio'; checkbox: @KEY_PROJECT_FILTER_TYPE == 'checkbox'">
+
+                <li data-i-class="$fc.class(item)" data-itemkey="#{@path}" data-itemvalue="#{name}">
+                    <input data-rif="$fc.inputType(item) == 'checkbox'" data-i-id="'filter#{@id}'" type="checkbox" data-i-value="#{@index}" data-i-aria-labelledby="filter-label-#{@id}"/>
+                    <input data-rif="$fc.inputType(item) == 'radio'" data-i-id="'filter#{@id}'" type="radio" data-i-name="'filter_name#{@pid}'" data-i-value="'#{@index}'" data-i-aria-labelledby="filter-label-#{@id}"/>		  
+                    <label data-i-for="'filter#{@id}'" data-i-title="item.display" data-itext="item.display" data-i-id="filter-label-#{@id}"
+                           data-class="tag-parent: #{@itemkey}.children; checked: KEY_PROJECT_TAG_STATES#{@path}">
+                    </label>
+                    <ul class="wFltOptsGrp" data-child="#{@itemkey}.children" data-rif="item.children"></ul>
+                </li>
+            </ul>
+        </div>
+        <!-- Sidebar sizer -->
+        <div class="sidebarsizer left-pane boundry column-resize" data-if="@.l.desktop_sidebar_available === true" data-resize="@.l.desktop_sidebar_visible(@sidebar_width == null || @sidebar_width != '0px') | x: 'sidebar_width', maxx: 0.7, screen: 'desktop'" data-css="left: sidebar_width | screen: 'desktop', dir: 'ltr'; right: sidebar_width | screen: 'desktop', dir: 'rtl'" data-class="desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false;" role="presentation" data-attr="aria-hidden: !@KEY_SCREEN_DESKTOP">
+            <a class="sidebartoggle" data-click="@sidebar_width(null) | screen: 'desktop'" data-toggle=".l.desktop_sidebar_visible" data-attr="title: @KEY_LNG.SidebarToggleTip">
+                &nbsp;<span class="rh-hide" aria-hidden="true" data-html="@KEY_LNG.SidebarToggleTip"></span>
+            </a>
+        </div>
+        <!-- Search field -->
+        <div class="searchbar left-pane" data-css="width: sidebar_width | screen: 'desktop'" data-class="searchpage-mode, layout-visible: @KEY_ACTIVE_TAB == 'fts'; search-sidebar: @KEY_SEARCH_LOCATION == 'tabbar'; searchbar-mobile:KEY_SCREEN_PHONE; search-content: @KEY_SEARCH_LOCATION == 'content';  @SEARCH_RESULTS_KEY!== undefined &&  (@SEARCH_RESULTS_KEY).length>0" data-controller="SearchController:sc" role="dialog" data-attr="aria-hidden: @KEY_ACTIVE_TAB != 'fts'">
+            <a class="mobile_back" data-click="@KEY_ACTIVE_TAB(null)" data-attr="title: @KEY_LNG.Back">
+                <span class="rh-hide" aria-hidden="true" data-html="@KEY_LNG.Back"></span>
+            </a>
+            <div class="search-input" data-class="search-input-open:@focusin_main_searchbox && @SEARCH_RESULTS_KEY!== undefined &&  (@SEARCH_RESULTS_KEY).length>0"
+                data-if="$mc.isSearchMode(@KEY_ACTIVE_TAB, @active_content)" data-attr="aria-hidden: !$mc.isSearchMode(@KEY_ACTIVE_TAB, @active_content)" role="search">
+
+                <input class="wSearchField" type="text" data-class="no-filter: !@KEY_FEATURE.filter" data-attr="placeholder: @KEY_LNG.Search; title: @KEY_LNG.Search" data-value="KEY_SEARCH_TERM"
+                        data-keyup="$mc.newSearch(node.value, event.keyCode, event), $sc.handleKey(event)|debounce:150" data-focus="@focusin_main_searchbox(true)"
+                        data-blur="$sc.handleFocusOut('focusin_main_searchbox')|timeout:200" />
+
+                <a class="wSearchLink" data-click="@EVT_SEARCH_TERM(true)" data-attr="href: '#'" data-if="@KEY_SCREEN_PHONE">
+                    &nbsp;<span class="rh-hide" aria-hidden="true" data-html="@KEY_LNG.Search"></span>
+                </a>	  
+
+                <div data-if="@focusin_main_searchbox && @SEARCH_RESULTS_KEY!== undefined &&  (@SEARCH_RESULTS_KEY).length>0" class="search-list" >
+                    <table data-class="search-table-desktop:KEY_SCREEN_DESKTOP; search-table-mobile:KEY_SCREEN_PHONE; search-table-tablet:KEY_SCREEN_TABLET">
+                        <tr data-repeat="search_results" data-class="search-suggestion:true; search-selected:@selected===#{@index}" data-click="$sc.handleClick(#{@index})">
+                            <td class="search-text-column">
+                                <div class="search-text" data-itext="item.term"></div>
+                            </td>
+                            <td>
+                                <div class="search-delete" data-if="$sc.canDelete(#{@index})" data-click="$sc.handleDelete(#{@index})"></div>
+                            </td>
+                        </tr>
+                    </table> 
+                </div>
+            </div> 	
+        </div>
+        <!-- Search results -->
+        <div class="searchresults left-pane" data-css="width: sidebar_width | screen: 'desktop'; left: sidebar_width | screen: 'desktop', dir: 'ltr'; right: sidebar_width | screen: 'desktop', dir: 'rtl'" data-class="sidebar-opened: $mc.isSidebarTab(@KEY_ACTIVE_TAB); desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; search-sidebar: @KEY_SEARCH_LOCATION == 'tabbar'; search-content: @KEY_SEARCH_LOCATION == 'content'; layout-visible: $mc.isSearchMode(@KEY_ACTIVE_TAB, @active_content); mobile-header-visible: @.l.mobile_header_visible" data-scroll="@.l.load_more_results(true) | debounce: 50, delta: 100" role="dialog" data-attr="aria-hidden: !$mc.isSearchMode(@KEY_ACTIVE_TAB, @active_content)">
+
+            <div class="wSearchResults" id="searchresults" role="navigation">
+            <div class="wSearchResultSettings">
+                <div class="wSearchHighlight">
+                    <input id="highlightsearch" type="checkbox" checked="" class="wSearchHighlight" aria-labelledby="highlightlabel" onclick="onToggleHighlightSearch()" /> <!-- Off: "inherit" + "transparent" -->
+                    <label for="highlightsearch" data-html="@KEY_LNG.HighlightSearchResults" id="highlightlabel"></label>
+                </div>
+            </div>			            
+            <div class="wSearchMessage" data-if="!@EVT_SEARCH_IN_PROGRESS" data-attr="aria-hidden: @EVT_SEARCH_IN_PROGRESS">
+                <span id="searchMsg" class="wSearchMessage"></span> 
+            </div>
+            <div data-class="loading: EVT_SEARCH_IN_PROGRESS" data-if="EVT_SEARCH_IN_PROGRESS" data-attr="aria-hidden: @EVT_SEARCH_IN_PROGRESS"></div>
+            <p class="progressbar" data-if="KEY_SEARCH_PROGRESS" data-attr="aria-hidden: Boolean(@KEY_SEARCH_PROGRESS)"><span data-text="KEY_SEARCH_PROGRESS"></span>%</p>
+            <div class="wSearchResultItemsBlock" data-if="!@EVT_SEARCH_IN_PROGRESS">
+                <div data-rhwidget="List: key: @.p.searchresults, spliton: index % @MAX_RESULTS == 14" data-config="loadmore: '.l.load_more_results', loaded: '.l.results_loaded'">
+                    <div class="wSearchResultItem">
+                        <a class="nolink" data-i-href="item.strUrl+@.p.searchresultparams">
+                            <div class="wSearchResultTitle" data-itext="item.strTitle"></div>
+                        </a>
+                        <div class="wSearchContent">
+                            <span class="wSearchContext" data-itext="item.strSummary"></span>
+                        </div>
+                        <div class="wSearchURL">
+                            <span class="wSearchURL" data-itext="item.strBreadcrumbs"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-if="@.l.results_loaded && @.p.searchresults.length && !@EVT_SEARCH_IN_PROGRESS" class="wSearchResultsEnd">
+                <span>End of search results.</span>
+            </div>
+            </div>
+
+        </div>
+        <div class="searchbar-extra" data-if="KEY_SCREEN_DESKTOP" data-mouseover="@mousein_searchbox(true)" data-mouseout="@mousein_searchbox(false)"
+                data-controller="SearchController:sc" data-attr="aria-hidden: !@KEY_SCREEN_DESKTOP">
+            <input id="inp" class="wSearchField" type="text" data-class="searchpage-mode: @active_content == 'search'" data-attr="placeholder: @KEY_LNG.Search; title: @KEY_LNG.Search"
+                    data-focus="@focusin_searchbox(true)" data-blur="$sc.handleFocusOut('focusin_searchbox')|timeout:200" data-value="KEY_SEARCH_TERM"
+                    data-keyup="$mc.newSearch(node.value, event.keyCode),$sc.handleKey(event)|debounce:150"/>
+
+            <a class="wSearchLink" data-click="@EVT_SEARCH_TERM(true)" data-attr="href: '#'">
+                &nbsp;<span class="rh-hide" aria-hidden="true" data-html="@KEY_LNG.Search"></span>
+            </a>
+
+            <div data-if="@focusin_searchbox && @SEARCH_RESULTS_KEY!== undefined &&  (@SEARCH_RESULTS_KEY).length>0" class="search-list" >
+                <table>
+                    <tr data-repeat="search_results" data-class="search-suggestion:true; search-selected:@selected===#{@index}" data-click="$sc.handleClick(#{@index})">
+                        <td class="search-text-column">
+                            <div class="search-text" data-itext="item.term"></div>
+                        </td>
+                        <td>
+                            <div class="search-delete" data-if="$sc.canDelete(#{@index})" data-click="$sc.handleDelete(#{@index})"></div>
+                        </td>
+                    </tr>
+                </table> 
+            </div>
+        </div>
+        <!-- Topics -->
+        <div class="topic main" data-css="left: sidebar_width | screen: 'desktop', dir: 'ltr'; right: sidebar_width | screen: 'desktop', dir: 'rtl'" data-class="sidebar-opened: $mc.isSidebarTab(@KEY_ACTIVE_TAB); desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; mobile-header-visible: @.l.mobile_header_visible" role="main">
+            <div class="functionholder" role="banner">
+                <div id="selectedDeviceHolder" class="filter-text-holder">
+                    <span id="selectedDeviceText"><span>Your camera model:</span></span>
+                    <a id="selectedDeviceLink"></a>&nbsp;
+                    <a data-click="$mc.toggleActiveTab('filter')" data-attr="href: '#'"><img src="template/basler-screen-layout/basler_edit.svg" width="12" height="12" data-attr="title: @KEY_LNG.ChangeDeviceText"></a>&nbsp;
+                    <img class="prototype-message" src="template/basler-screen-layout/basler_warning.svg" alt="Design-in sample" title="Design-in sample" />
+                </div>
+                <div class="buttons">
+                    <div class="share" id="sharebtn" aria-hidden="true">
+                        <a class="share" style="display:none" data-attr="title:@KEY_LNG.Share; href: '#'">&#160;</a>
+                    </div>
+                    <div class="help" id="helpbtn" aria-hidden="true">
+                        <a class="help" data-attr="title:@KEY_LNG.Help; href: '#'">&#160;</a>
+                    </div>
+                        <div class="print" id="printbtn">
+                        <a data-trigger="EVT_PRINT_TOPIC" class="print" data-attr="title:@KEY_LNG.Print; href: '#'">
+                            &#160;<span class="rh-hide" aria-hidden="true" data-html="@KEY_LNG.Print"></span>
+                        </a>
+                    </div>
+                    <div class="brs_previous" data-attr="title:@KEY_LNG.Prev">
+                        <a id="browseSeqBack" class="wBSBackButton" data-rhwidget="Basic" data-attr="href:.l.brsBack" data-css="visibility: @.l.brsBack?'visible':'hidden'">
+                        &nbsp;<span class="rh-hide" aria-hidden="true" data-html="@KEY_LNG.Prev"></span>
+                        </a>
+                    </div>
+                    <div class="brs_next" data-attr="title:@KEY_LNG.Next">
+                        <a id="browseSeqNext" class="wBSNextButton" data-rhwidget="Basic" data-attr="href:.l.brsNext" data-css="visibility: @.l.brsNext?'visible':'hidden'">
+                        &nbsp;<span class="rh-hide" aria-hidden="true" data-html="@KEY_LNG.Prev"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="topic-state" data-class="loading: EVT_TOPIC_LOADING" data-if="EVT_TOPIC_LOADING" data-attr="aria-hidden: !@EVT_TOPIC_LOADING" role="presentation"></div>
+            <iframe class="topic" name="rh_default_topic_frame_name"></iframe>
+        </div>
+        
+        <!-- Scripts -->
+        <script>
+            jQuery.noConflict();
+            var gAccount = "UA-41699848-8";            
+            window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;            
+            function addGA() {
+                var resource = document.createElement('script');
+                resource.src = "https://www.google-analytics.com/analytics.js";
+                var script = document.getElementsByTagName('script')[0];
+                script.parentNode.insertBefore(resource, script);            
+            }            
+            if (location.protocol === "file:" || location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+                window.setTimeout(function() { addGA(); }, 1000);
+                if (isLocalDBSupported())  {
+                    ga('create', gAccount, { 'storage': 'none', 'clientId': localStorage.getItem('ga:clientId') });
+                    ga(function(tracker) { localStorage.setItem('ga:clientId', tracker.get('clientId')); });
+                }
+                else {
+                    ga('create', gAccount, { 'storage': 'none', 'clientId': getCookie('ga:clientId') });
+                    ga(function(tracker) { setCookie('ga:clientId', tracker.get('clientId')); });                        
+                }
+                ga('set', 'checkProtocolTask', null);
+                ga('set', 'referrer', '/');
+            }
+            else {
+                addGA(); 
+                ga('create', gAccount, 'auto');
+            }
+            ga('set', 'anonymizeIp', true);
+        </script>
+        <script src="template/basler-screen-layout/usersettings.js"></script>
+        <script src="js/intro.min.js"></script>
+        <script src="js/select2.min.js"></script>
+        <script src="js/enhance-template.min.js"></script>
+    <script type="text/javascript" src="whxdata/whtagdata.js"></script>
+          </body>
+</html>

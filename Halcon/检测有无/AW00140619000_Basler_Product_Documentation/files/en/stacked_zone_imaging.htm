@@ -1,0 +1,348 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Stacked Zone Imaging</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_75";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Stacked Zone Imaging<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Stacked Zone Imaging</h1>
+<p class="teaser">The Stacked Zone Imaging 
+ <a href="features.htm">camera feature</a> allows you to define up to eight 
+ zones on the sensor array that will be transmitted as a single image.</p>
+<p>Only the pixel data from those zones will be transmitted. This increases 
+ the camera's <a href="resulting_frame_rate.htm">frame rate</a>.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot22481" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot22481', 'MTPOPUP22481');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP22481" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Prerequisites</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >How It Works</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >Configuring Stacked Zone Imaging</a>
+</li>
+    <li><a href="#MiniTOCBookMark6" >Considerations When Using Stacked Zone Imaging</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark7" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>Prerequisites</h3>
+<ul>
+	<li><a href="center_x_and_center_y.htm">Center X and Center Y</a> must 
+	 be disabled.</li>
+	<li><a href="decimation.htm">Decimation</a> must be disabled, i.e., 
+	 the horizontal and vertical decimation factor must be set to 1.</li>
+</ul>
+<h3><a name="MiniTOCBookMark4"></a>How It Works</h3>
+<p>The Stacked Zone Imaging feature allows you to define up to eight vertically 
+ aligned zones of equal width on the sensor array. When an image is acquired, 
+ only the pixel information from within the defined zones is read out of 
+ the sensor. The pixel information is then stacked together and transmitted 
+ as a single image.</p>
+<p><img src="images/drawing_stacked_zone_imaging.png" alt="Stacked Zone Imaging Example" title="Stacked Zone Imaging Example" /></p>
+<p>The zones always have the same width and are vertically aligned. To 
+ configure the ROI zones, Basler recommends the following procedure: </p>
+<ol>
+	<li>Define a width and a horizontal offset that is valid for <strong>all 
+	 zones</strong>. </li>
+	<li>Define the heights and vertical offsets of the <strong>individual 
+	 zones</strong>.</li>
+</ol>
+<h3><a name="MiniTOCBookMark5"></a>Configuring Stacked Zone Imaging</h3>
+<ol>
+	<li>Set the <span class="parameter-name">StackedZoneImagingEnable</span> 
+	 parameter to <span class="parameter-name">true</span>.<br />
+	The Stacked Zone Imaging feature is enabled and can be configured.</li>
+	<li>Set the <span class="parameter-name">OffsetX</span> 
+	 parameter to the desired horizontal offset. The value is applied to 
+	 <strong>all zones</strong>.</li>
+	<li>Set the <span class="parameter-name">Width</span> 
+	 parameter to the desired zone width. The value is applied to <strong>all 
+	 zones</strong>.</li>
+	<li>Set the <span class="parameter-name">StackedZoneImagingIndex</span> 
+	 parameter to the zone that you want to configure, e.g., 1.</li>
+	<li>Set the <span class="parameter-name">StackedZoneImagingZoneEnable</span> 
+	 parameter to <span class="parameter-name">true</span> to enable the 
+	 zone selected in step 4.</li>
+	<li>Set the <span class="parameter-name">StackedZoneImagingZoneOffsetY</span> 
+	 parameter to the desired vertical offset. The value is applied to 
+	 the zone selected in step 4.</li>
+	<li>Set the <span class="parameter-name">StackedZoneImagingZoneHeight</span> 
+	 parameter to the desired zone height. The value is applied to the 
+	 zone selected in step 4.</li>
+	<li>Repeat steps 4 to 7 for every zone you want to configure.</li>
+</ol>
+<h3><a name="MiniTOCBookMark6"></a>Considerations When Using Stacked Zone Imaging</h3>
+<ul>
+	<li>You can enable the zones in any order you like. For example, you 
+	 can enable zones 2, 4, and 6 and disable zones 1, 3, and 5.</li>
+	<li>You can place the zones freely around the sensor. For example, 
+	 you can place zone 1 near the bottom, zone 3 near the top, and zone 
+	 2 in the middle. However, the camera always starts reading out and 
+	 transmitting pixel data from the topmost zone on the sensor and then 
+	 proceeds towards the bottom.</li>
+	<li>You can define vertically overlapping zones. If two zones overlap, 
+	 they are transmitted as a single merged zone. The pixel data from 
+	 the area of overlap is read out and transmitted only once.</li>
+	<li>You can set the <span class="parameter-name">StackedZoneImagingZoneOffsetY</span> 
+	 and <span class="parameter-name">StackedZoneImagingZoneHeight</span> 
+	 parameters in increments of one on mono cameras, and in increments 
+	 of two on color cameras. For color cameras, the parameter values must 
+	 be even.</li>
+	<li>When the Stacked Zone Imaging feature is enabled, the following 
+	 parameters become read-only:</li>
+	<ul>
+		<li><span class="parameter-name">OffsetY</span>. 
+		 The parameter is set to the vertical offset of the topmost zone.</li>
+		<li><span class="parameter-name">Height</span>. 
+		 The parameter is set to the height of the final image, i.e., the 
+		 sum of the heights of all zones.</li>
+		<li><span class="parameter-name">CenterY</span>.</li>
+	</ul>
+	<li>If you have enabled the Stacked Zone Imaging feature and then enable 
+	 <a href="binning.htm">binning</a>, the positions and the sizes of 
+	 the stacked zones are adapted automatically. The parameter values 
+	 are divided by the corresponding binning factor and rounded down.</li>
+	<li>If you disable all zones after using the Stacked Zones Imaging 
+	 feature, the size and position of the <a href="image_roi.htm">image 
+	 ROI</a> is set to the size and position of the zone that was disabled 
+	 last. For example, assume zones 0, 1, and 2 are enabled. Then, you 
+	 disable the zones in the following order: 2, 1, 0. As a result, the 
+	 size and position of the image ROI is set to the size and position 
+	 of the disabled zone 0.</li>
+</ul>
+<h2 class="sample-code"><a name="MiniTOCBookMark7"></a>Sample Code</h2>
+<div>
+<div class="container">
+	<ul class="tabs">
+		<li class="tab-link current" data-tab="tab-1">C++ (Native)</li>
+		<li class="tab-link" data-tab="tab-2">C++ (Generic)</li>
+		<li class="tab-link" data-tab="tab-3">C#</li>
+		<li class="tab-link" data-tab="tab-4">C.NET</li>
+		<li class="tab-link" data-tab="tab-5">C</li>
+	</ul>
+	<div class="tab-1 tab-content current">
+		<pre>
+<code class="cpp">// Enable stacked zone imaging
+camera.StackedZoneImagingEnable.SetValue(true);
+// Configure width and offset X for all zones
+camera.Width.SetValue(200);
+camera.OffsetX.SetValue(100);
+// Select zone 1
+camera.StackedZoneImagingIndex.SetValue(1);
+// Enable the selected zone
+camera.StackedZoneImagingZoneEnable.SetValue(true);
+// Set the vertical offset for the selected zone
+camera.StackedZoneImagingZoneOffsetY.SetValue(100);
+// Set the height for the selected zone
+camera.StackedZoneImagingZoneHeight.SetValue(100);
+// Select zone 2
+camera.StackedZoneImagingIndex.SetValue(2);
+// Enable the selected zone
+camera.StackedZoneImagingZoneEnable.SetValue(true);
+// Set the offset Y for the selected zone
+camera.StackedZoneImagingZoneOffsetY.SetValue(250);
+// Set the height for the selected zone
+camera.StackedZoneImagingZoneHeight.SetValue(200);</code></pre>
+	</div>
+	<div class="tab-2 tab-content">
+		<pre>
+<code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Enable stacked zone imaging
+CBooleanPtr(nodemap.GetNode(&quot;StackedZoneImagingEnable&quot;))-&gt;SetValue(true);
+// Set the width and offset X for all zones
+CIntegerPtr(nodemap.GetNode(&quot;Width&quot;))-&gt;SetValue(200);
+CIntegerPtr(nodemap.GetNode(&quot;OffsetX&quot;))-&gt;SetValue(100);
+// <code class="cpp">Select zone 1</code>
+CIntegerPtr(nodemap.GetNode(&quot;StackedZoneImagingIndex&quot;))-&gt;SetValue(1);
+// Enable the selected zone
+CBooleanPtr(nodemap.GetNode(&quot;StackedZoneImagingZoneEnable&quot;))-&gt;SetValue(true);
+// Set the offset Y for the selected zone
+CIntegerPtr(nodemap.GetNode(&quot;StackedZoneImagingZoneOffsetY&quot;))-&gt;SetValue(100);
+// Set the height for the selected zone
+CIntegerPtr(nodemap.GetNode(&quot;StackedZoneImagingZoneHeight&quot;))-&gt;SetValue(100);
+// <code class="cpp">Select zone 2</code>
+CIntegerPtr(nodemap.GetNode(&quot;StackedZoneImagingIndex&quot;))-&gt;SetValue(2);
+// Enable the selected zone
+CBooleanPtr(nodemap.GetNode(&quot;StackedZoneImagingZoneEnable&quot;))-&gt;SetValue(true);
+// Set the offset Y for the selected zone
+CIntegerPtr(nodemap.GetNode(&quot;StackedZoneImagingZoneOffsetY&quot;))-&gt;SetValue(250);
+// Set the height for the selected zone
+CIntegerPtr(nodemap.GetNode(&quot;StackedZoneImagingZoneHeight&quot;))-&gt;SetValue(200);</code></pre>
+	</div>
+	<div class="tab-3 tab-content">
+		<pre>
+<code class="csharp" generated="true">// Enable stacked zone imaging
+camera.Parameters[PLCamera.StackedZoneImagingEnable].SetValue(true);
+// Set the width and offset X for all zones
+camera.Parameters[PLCamera.Width].SetValue(200);
+camera.Parameters[PLCamera.OffsetX].SetValue(100);
+// <code class="cpp" generated="true">Select zone 1</code>
+camera.Parameters[PLCamera.StackedZoneImagingIndex].SetValue(1);
+// Enable the selected zone
+camera.Parameters[PLCamera.StackedZoneImagingZoneEnable].SetValue(true);
+// Set the offset Y for the selected zone
+camera.Parameters[PLCamera.StackedZoneImagingZoneOffsetY].SetValue(100);
+// Set the height for the selected zone
+camera.Parameters[PLCamera.StackedZoneImagingZoneHeight].SetValue(100);
+// <code class="cpp" generated="true">Select zone 2</code>
+camera.Parameters[PLCamera.StackedZoneImagingIndex].SetValue(2);
+// Enable the selected zone
+camera.Parameters[PLCamera.StackedZoneImagingZoneEnable].SetValue(true);
+// Set the offset Y for the selected zone
+camera.Parameters[PLCamera.StackedZoneImagingZoneOffsetY].SetValue(250);
+// Set the height for the selected zone
+camera.Parameters[PLCamera.StackedZoneImagingZoneHeight].SetValue(200);</code></pre>
+	</div>
+	<div class="tab-4 tab-content">
+		<pre>
+<code class="csharp" generated="true">// Enable stacked zone imaging
+Pylon.DeviceSetBooleanFeature(hdev, &quot;StackedZoneImagingEnable&quot;, true);
+// Set the width and offset X for all zones
+Pylon.DeviceSetIntegerFeature(hdev, &quot;Width&quot;, 200);
+Pylon.DeviceSetIntegerFeature(hdev, &quot;OffsetX&quot;, 100);
+// <code class="cpp" generated="true">Select zone 1</code>
+Pylon.DeviceSetIntegerFeature(hdev, &quot;StackedZoneImagingIndex&quot;, 1);
+// Enable the selected zone
+Pylon.DeviceSetBooleanFeature(hdev, &quot;StackedZoneImagingZoneEnable&quot;, true);
+// Set the offset Y for the selected zone
+Pylon.DeviceSetIntegerFeature(hdev, &quot;StackedZoneImagingZoneOffsetY&quot;, 100);
+// Set the height for the selected zone
+Pylon.DeviceSetIntegerFeature(hdev, &quot;StackedZoneImagingZoneHeight&quot;, 100);
+// <code class="cpp" generated="true">Select zone 2</code>
+Pylon.DeviceSetIntegerFeature(hdev, &quot;StackedZoneImagingIndex&quot;, 2);
+// Enable the selected zone
+Pylon.DeviceSetBooleanFeature(hdev, &quot;StackedZoneImagingZoneEnable&quot;, true);
+// Set the offset Y for the selected zone
+Pylon.DeviceSetIntegerFeature(hdev, &quot;StackedZoneImagingZoneOffsetY&quot;, 250);
+// Set the height for the selected zone
+Pylon.DeviceSetIntegerFeature(hdev, &quot;StackedZoneImagingZoneHeight&quot;, 200);</code></pre>
+	</div>
+	<div class="tab-5 tab-content">
+		<pre>
+<code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK; &#160;/* Return value of pylon methods */
+/* Enable stacked zone imaging */
+errRes = PylonDeviceSetBooleanFeature(hdev, &quot;StackedZoneImagingEnable&quot;, 1);
+CHECK(errRes);
+/* Set the width and offset X for all zones */
+errRes = PylonDeviceSetIntegerFeature(hdev, &quot;Width&quot;, 200);
+CHECK(errRes);
+errRes = PylonDeviceSetIntegerFeature(hdev, &quot;OffsetX&quot;, 100);
+CHECK(errRes);
+/* Select zone 1 */
+errRes = PylonDeviceSetIntegerFeature(hdev, &quot;StackedZoneImagingIndex&quot;, 1);
+CHECK(errRes);
+/* Enable the selected zone */
+errRes = PylonDeviceSetBooleanFeature(hdev, &quot;StackedZoneImagingZoneEnable&quot;, 1);
+CHECK(errRes);
+/* Set the offset Y for the selected zone */
+errRes = PylonDeviceSetIntegerFeature(hdev, &quot;StackedZoneImagingZoneOffsetY&quot;, 100);
+CHECK(errRes);
+/* Set the height for the selected zone */
+errRes = PylonDeviceSetIntegerFeature(hdev, &quot;StackedZoneImagingZoneHeight&quot;, 100);
+CHECK(errRes);
+/* Select zone 2 */
+errRes = PylonDeviceSetIntegerFeature(hdev, &quot;StackedZoneImagingIndex&quot;, 2);
+CHECK(errRes);
+/* Enable the selected zone */
+errRes = PylonDeviceSetBooleanFeature(hdev, &quot;StackedZoneImagingZoneEnable&quot;, 1);
+CHECK(errRes);
+/* Set the offset Y for the selected zone */
+errRes = PylonDeviceSetIntegerFeature(hdev, &quot;StackedZoneImagingZoneOffsetY&quot;, 250);
+CHECK(errRes);
+/* Set the height for the selected zone */
+errRes = PylonDeviceSetIntegerFeature(hdev, &quot;StackedZoneImagingZoneHeight&quot;, 200);
+CHECK(errRes);</code></pre>
+	</div>
+</div>
+</div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,237 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:dxprg="http://schemas.devexpress.com/winfx/2008/xaml/propertygrid" 
+             xmlns:local="clr-namespace:Irixi_Aligner_Common.View.ListBasedUserScript"
+            xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
+            xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:conv ="clr-namespace:Irixi_Aligner_Common.Classes.Converters"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+            xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" x:Class="Irixi_Aligner_Common.View.ListBasedUserScript.ListBasedUserScriptEditor"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="1024">
+    <UserControl.Resources>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="PropertyDataTemplate.xaml"/>
+                <ResourceDictionary Source="/Irixi_Aligner_Common;component/Resources/IconsCollection.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style x:Key="DragAndDropHintStyle" TargetType="Border">
+                <Setter Property="BorderBrush" Value="#FFADADAD"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Background" Value="White"/>
+                <Setter Property="Padding" Value="5"/>
+            </Style>
+            
+            <local:PropertyDefinitionTemplateSelector x:Key="PropDefTemplSelector"/>
+            <conv:UserScriptExecStatusToIcon x:Key="StatusToIcon"/>
+            
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="200"/>
+        </Grid.RowDefinitions>
+
+        <!-- Available commands -->
+        <Grid Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+
+            <dxg:GridControl Name="gridCommandSource" ItemsSource="{Binding CommandList}" SelectedItem="{Binding SelectedCommand, Mode=OneWayToSource}">
+                <dxg:GridControl.Columns>
+                    <dxg:GridColumn Header="Name" FieldName="Name"/>
+                    <dxg:GridColumn Header="Usage" FieldName="Usage">
+                        <dxg:GridColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="5,0,0,0" 
+                                           VerticalAlignment="Center"
+                                           Text="{Binding RowData.Row.Usage }"
+                                           FontStyle="Italic" FontSize="11"/>
+                            </DataTemplate>
+                        </dxg:GridColumn.CellTemplate>
+                    </dxg:GridColumn>
+                </dxg:GridControl.Columns>
+                <dxg:GridControl.View>
+                    <dxg:TableView  x:Name="tbvCommandSource" AllowGrouping="False"
+                                   AllowEditing="False"
+                                  AllowDragDrop="True"
+                                   AutoWidth="True"
+                                  ShowGroupPanel="False"
+                                   ShowSearchPanelMode="Always"
+                                  DragRecordOver="TbvCommandSource_DragRecordOver"
+                                  StartRecordDrag="ListBoxEdit_StartRecordDrag"
+                                  CompleteRecordDragDrop="CompleteRecordDragDrop">
+                        <dxg:TableView.DragDropHintTemplate>
+                            <DataTemplate>
+                                <Border Style="{StaticResource DragAndDropHintStyle}">
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Records[0].Name}" 
+                                                   FontSize="12" Foreground="#6F6F6F" FontWeight="Bold"
+                                                   Margin="0,0,0,5"/>
+                                        <TextBlock Text="{Binding Records[0].Usage}" 
+                                                   FontSize="11" FontStyle="Italic"/>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </dxg:TableView.DragDropHintTemplate>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="RowDoubleClick">
+                                <cmd:EventToCommand Command="{Binding AddNewCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </dxg:TableView>
+                </dxg:GridControl.View>
+            </dxg:GridControl>
+
+            <!-- Operation buttons -->
+            <StackPanel Grid.Row="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="42"/>
+                        <ColumnDefinition Width="42"/>
+                        <ColumnDefinition Width="42"/>
+                    </Grid.ColumnDefinitions>
+                    <ComboBox 
+                        VerticalAlignment="Center" 
+                        Margin="0,0,5,0" 
+                        ItemsSource="{Binding ScriptFileList}" 
+                        SelectedItem="{Binding SelectedScriptFile, Mode=TwoWay, Delay=10}"/>
+                    <Button Grid.Column="1" VerticalAlignment="Center"
+                            Command="{Binding OpenNewEditorCommand}">
+                        <Button.Content>
+                            <Image Source="{dx:DXImageOffice2013 Image=New_16x16.png}"/>
+                        </Button.Content>
+                    </Button>
+                    <Button 
+                        Grid.Column="2" 
+                        VerticalAlignment="Center"
+                        Command="{Binding SaveCommand}" ToolTip="Save">
+                        <Button.Content>
+                            <Image Source="{dx:DXImageOffice2013 Image=Save_16x16.png}"/>
+                        </Button.Content>
+                    </Button>
+                    <Button 
+                        Grid.Column="3" 
+                        VerticalAlignment="Center"
+                        Command="{Binding SaveAsCommand}" ToolTip="Save As, save the settings to a new file">
+                        <Button.Content>
+                            <Image Source="{dx:DXImageOffice2013 Image=SaveAs_32x32.png}"/>
+                        </Button.Content>
+                    </Button>
+                </Grid>
+                <Button Content="Start" Command="{Binding StartCommand}"/>
+            </StackPanel>
+        </Grid>
+
+        <GridSplitter Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Center"/>
+
+        <!-- Selected commands -->
+        <dxg:GridControl x:Name="gridScriptAdded" Grid.Column="2" Grid.RowSpan="2" 
+                         SelectionMode="Row" 
+                         ItemsSource="{Binding Manager}"
+                         SelectedItems="{Binding SelectedCommandsInGrid}">
+            <dxg:GridControl.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Remove" Command="{Binding RemoveCommand}"/>
+                    <Separator/>
+                    <MenuItem Header="Run following" 
+                              Command="{Binding StartCommand}" 
+                              CommandParameter="{Binding SelectedCommandsInGrid[0]}"/>
+                    <MenuItem Header="Run this line" 
+                              Command="{Binding StartOneLineCommand}" 
+                              CommandParameter="{Binding SelectedCommandsInGrid[0]}"/>
+                </ContextMenu>
+            </dxg:GridControl.ContextMenu>
+            <dxg:GridControl.View>
+                <dxg:TableView
+                    CustomRowAppearance="CustomRowAppearance"
+                    ShowSearchPanelMode="Always"
+                    ShowSearchPanelFindButton="True"
+                    AllowPerPixelScrolling="True" 
+                    AllowEditing="False" 
+                    AllowColumnMoving="False" 
+                    AllowColumnFiltering="False"
+                    AllowSorting="False"
+                    AllowGrouping="False"
+                    ShowGroupPanel="False"
+                    AllowDragDrop="True"
+                    DragRecordOver="OnDragRecordOver">
+                    <dxg:TableView.DragDropHintTemplate>
+                        <DataTemplate>
+                            <Border Style="{StaticResource DragAndDropHintStyle}">
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Records.Count, StringFormat={}Dragging {0} Items}"
+                                               Margin="0,0,0,5" 
+                                               FontSize="12"
+                                               FontWeight="Bold"
+                                               Foreground="#6F6F6F"/>
+                                    <dxe:ListBoxEdit ItemsSource="{Binding Records}" ShowBorder="False">
+                                        <dxe:ListBoxEdit.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="{Binding Order}" Margin="0,0,5,0"/>
+                                                    <TextBlock Text="{Binding Name}"/>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </dxe:ListBoxEdit.ItemTemplate>
+                                    </dxe:ListBoxEdit>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </dxg:TableView.DragDropHintTemplate>
+                    <dxg:TableView.FormatConditions>
+                        <dxg:FormatCondition ApplyToRow="True" 
+                                             ValueRule="Equal" 
+                                             Value1="True" 
+                                             FieldName="IsError" 
+                                             PredefinedFormatName="LightRedFillWithDarkRedText"/>
+                    </dxg:TableView.FormatConditions>
+                </dxg:TableView>
+            </dxg:GridControl.View>
+            <dxg:GridColumn FieldName="IsExecuted" Header="" Width="30" AllowResizing="false">
+                <dxg:GridColumn.CellTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Image Stretch="Uniform" Height="16" Width="16" 
+                                   Source="{Binding RowData.Row.ExecStatus, Converter={StaticResource StatusToIcon}}"/>
+                        </Grid>
+                    </DataTemplate>
+                </dxg:GridColumn.CellTemplate>
+            </dxg:GridColumn>
+            <dxg:GridColumn FieldName="Order" Header="Index" Width="50" AllowResizing="false"/>
+            <dxg:GridColumn FieldName="Name" Header="Command" Width="200" />
+            <dxg:GridColumn FieldName="Summary" Header="Summary"/>
+            <dxg:GridColumn FieldName="ErrorMessage" Header="Comment"/>
+        </dxg:GridControl>
+
+        <GridSplitter Grid.Column="3" Grid.RowSpan="2" HorizontalAlignment="Center"/>
+
+        <!-- Editor of command properties -->
+        <dxprg:PropertyGridControl 
+            Grid.Column="4" Grid.RowSpan="2" 
+            PropertyDefinitionsSource="{Binding SelectedItem.PropertiesAllowTemplated, ElementName=gridScriptAdded}"
+            PropertyDefinitionTemplateSelector="{StaticResource PropDefTemplSelector}"
+            SelectedObject="{Binding SelectedItem, ElementName=gridScriptAdded}"
+            ExpandCategoriesWhenSelectedObjectChanged="True"/>
+
+        
+    </Grid>
+</UserControl>

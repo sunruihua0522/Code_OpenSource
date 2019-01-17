@@ -1,0 +1,248 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Balance White Auto</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_12";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Balance White Auto<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Balance White Auto</h1>
+<p class="teaser">The Balance White Auto 
+ <a href="features.htm">camera feature</a> automatically corrects color 
+ shifts in images acquired.</p>
+<p>The pixel data for the auto function can come from one or multiple <a href="auto_function_roi.htm">auto function ROIs</a>.</p>
+<p>To correct color shifts manually, use the <a href="balance_white.htm">Balance 
+ White</a> feature.</p>
+<div class="mini-toc">
+	<p align="left" style="font-weight: normal;font-style: normal;text-decoration: none;" >In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot44800" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot44800', 'MTPOPUP44800');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP44800" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Prerequisites</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Enabling or Disabling Balance White Auto</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >How It Works</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark6" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>Prerequisites</h3>
+<ul>
+	<li>At least one <a href="auto_function_roi.htm">auto function ROI</a> 
+	 must be <a href="auto_function_roi.htm#Assigning_Auto_Functions">assigned</a> 
+	 to the Balance White Auto auto function.</li>
+	<li>The auto function ROI assigned must <a href="auto_function_roi.htm#Overlap_Between_Auto_Function_AOI_and_Image_AOI">overlap 
+	 the image ROI</a>, either partially or completely.</li>
+</ul>
+<h3><a name="MiniTOCBookMark4"></a>Enabling or Disabling Balance White Auto</h3>
+<p>To enable or disable the Balance White Auto auto function, set the <span class="parameter-name">BalanceWhiteAuto</span> 
+ parameter to one of the following operating modes:</p>
+<ul>
+	<li><span><span class="parameter-name">Once</span>:</span> 
+	 The camera adjusts the white balance until the <a href="#How_it_Works">average 
+	 gray values for red, green, and blue are identical</a>. When this 
+	 has been achieved, or after a maximum of 30 calculation cycles, the 
+	 camera sets the auto function to <span><span class="parameter-name">Off</span></span> 
+	 and applies the balance ratios resulting from the last calculation 
+	 to all following images.</li>
+	<li><span><span class="parameter-name">Continuous</span>:</span> 
+	 The camera adjusts the white balance continuously while images are 
+	 acquired. The adjustment process continues until the operating mode 
+	 is set to <span><span class="parameter-name">Once</span> 
+	 or</span> <span><span class="parameter-name">Off</span></span>.</li>
+	<li><span><span class="parameter-name">Off</span>:</span> 
+	 Disables the Balance White Auto auto function. The <span class="parameter-name rh-hide" data-rhtags="48">BalanceRatioAbs</span><span class="parameter-name rh-hide" data-rhtags="49">BalanceRatio</span> 
+	 parameters are set to the values resulting from the last automatic 
+	 or manual adjustment.</li>
+</ul>
+<h3><a name="MiniTOCBookMark5"></a><a name="How_it_Works">How It Works</a></h3>
+<p>Automatic white balancing is a two-step process:</p>
+<ol>
+	<li>The camera compares the average gray values of the red, green, 
+	 and blue pixels. It determines the color with the highest average 
+	 gray value (i.e., the brightest color) and sets the <a href="balance_white.htm"><span class="parameter-name rh-hide" data-rhtags="48">BalanceRatioAbs</span><span class="parameter-name rh-hide" data-rhtags="49">BalanceRatio</span> 
+	 parameter</a> value for this color to 1.</li>
+	<li>The camera automatically adjusts the <span class="parameter-name rh-hide" data-rhtags="48">BalanceRatioAbs</span><span class="parameter-name rh-hide" data-rhtags="49">BalanceRatio</span> 
+	 parameter values of the other two colors until the average gray values 
+	 for red, green, and blue are identical.</li>
+</ol>
+<p>As a result, the <span class="parameter-name rh-hide" data-rhtags="48">BalanceRatioAbs</span><span class="parameter-name rh-hide" data-rhtags="49">BalanceRatio</span> 
+ parameter is set to 1 for one color and to a value between 1 and ≈15.98 
+ for the other two colors.</p>
+<p><strong>Example:</strong> Assume the green pixels in your image have 
+ the highest average gray value. If you enable the Balance White Auto auto 
+ function, the camera sets the <span class="parameter-name rh-hide" data-rhtags="48">BalanceRatioAbs</span><span class="parameter-name rh-hide" data-rhtags="49">BalanceRatio</span> 
+ parameter value for green to 1. Then, the camera automatically adjusts 
+ the <span class="parameter-name rh-hide" data-rhtags="48">BalanceRatioAbs</span><span class="parameter-name rh-hide" data-rhtags="49">BalanceRatio</span> 
+ parameter values for red and blue until the average gray values for red, 
+ green, and blue are identical. The new balance ratios could be, e.g., 
+ green = 1, red = 1.08789, and blue = 2.19678.</p>
+<div class="info">
+	<ul>
+		<li>To view the <span class="parameter-name rh-hide" data-rhtags="48">BalanceRatioAbs</span><span class="parameter-name rh-hide" data-rhtags="49">BalanceRatio</span> 
+		 parameter values for red, green, or blue, switch to the respective 
+		 color channel using the <a href="balance_white.htm"><span class="parameter-name">BalanceRatioSelector</span></a>.</li>
+		<li>When the camera is capturing images continuously, the auto 
+		 function takes effect with a short delay. The first few images 
+		 may not be affected by the auto function.</li>
+	</ul>
+</div>
+<h2 class="sample-code"><a name="MiniTOCBookMark6"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre data-rhtags="48" class="rh-hide"><code class="cpp">// Select auto function ROI 2
+camera.AutoFunctionAOISelector.SetValue(AutoFunctionAOISelector_AOI2);
+// Enable the Balance White Auto auto function 
+// for the auto function ROI selected
+camera.AutoFunctionAOIUsageWhiteBalance.SetValue(true);
+// Enable Balance White Auto by setting the operating mode to Continuous
+camera.BalanceWhiteAuto.SetValue(BalanceWhiteAuto_Continuous);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="cpp">// Select auto function ROI 2
+camera.AutoFunctionROISelector.SetValue(AutoFunctionROISelector_ROI2);
+// Enable the Balance White Auto auto function 
+// for the auto function ROI selected
+camera.AutoFunctionROIUseWhiteBalance.SetValue(true);
+// Enable Balance White Auto by setting the operating mode to Continuous
+camera.BalanceWhiteAuto.SetValue(BalanceWhiteAuto_Continuous);</code></pre></div><div class="tab-2 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Select auto function ROI 2
+CEnumerationPtr(nodemap.GetNode("AutoFunctionAOISelector"))-&gt;FromString("AOI2");
+// Enable the Balance White Auto auto function
+// for the auto function ROI selected
+CBooleanPtr(nodemap.GetNode("AutoFunctionAOIUsageWhiteBalance"))-&gt;SetValue(true);
+// Enable Balance White Auto by setting the operating mode to Continuous
+CEnumerationPtr(nodemap.GetNode("BalanceWhiteAuto"))-&gt;FromString("Continuous");</code></pre><pre data-rhtags="49" class="rh-hide"><code class="cpp" generated="true">// Select auto function ROI 2
+CEnumerationPtr(nodemap.GetNode("AutoFunctionROISelector"))-&gt;FromString("ROI2");
+// Enable the Balance White Auto auto function
+// for the auto function ROI selected
+CBooleanPtr(nodemap.GetNode("AutoFunctionROIUseWhiteBalance"))-&gt;SetValue(true);
+// Enable Balance White Auto by setting the operating mode to Continuous
+CEnumerationPtr(nodemap.GetNode("BalanceWhiteAuto"))-&gt;FromString("Continuous");</code></pre></div><div class="tab-3 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="csharp" generated="true">// Select auto function ROI 2
+camera.Parameters[PLCamera.AutoFunctionAOISelector].SetValue(PLCamera.AutoFunctionAOISelector.AOI2);
+// Enable the Balance White Auto auto function
+// for the auto function ROI selected
+camera.Parameters[PLCamera.AutoFunctionAOIUsageWhiteBalance].SetValue(true);
+// Enable Balance White Auto by setting the operating mode to Continuous
+camera.Parameters[PLCamera.BalanceWhiteAuto].SetValue(PLCamera.BalanceWhiteAuto.Continuous);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="csharp" generated="true">// Select auto function ROI 2
+camera.Parameters[PLCamera.AutoFunctionROISelector].SetValue(PLCamera.AutoFunctionROISelector.ROI2);
+// Enable the Balance White Auto auto function
+// for the auto function ROI selected
+camera.Parameters[PLCamera.AutoFunctionROIUseWhiteBalance].SetValue(true);
+// Enable Balance White Auto by setting the operating mode to Continuous
+camera.Parameters[PLCamera.BalanceWhiteAuto].SetValue(PLCamera.BalanceWhiteAuto.Continuous);</code></pre></div><div class="tab-4 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="csharp" generated="true">// Select auto function ROI 2
+Pylon.DeviceFeatureFromString(hdev, "AutoFunctionAOISelector", "AOI2");
+// Enable the Balance White Auto auto function
+// for the auto function ROI selected
+Pylon.DeviceSetBooleanFeature(hdev, "AutoFunctionAOIUsageWhiteBalance", true);
+// Enable Balance White Auto by setting the operating mode to Continuous
+Pylon.DeviceFeatureFromString(hdev, "BalanceWhiteAuto", "Continuous");</code></pre><pre data-rhtags="49" class="rh-hide"><code class="csharp" generated="true">// Select auto function ROI 2
+Pylon.DeviceFeatureFromString(hdev, "AutoFunctionROISelector", "ROI2");
+// Enable the Balance White Auto auto function
+// for the auto function ROI selected
+Pylon.DeviceSetBooleanFeature(hdev, "AutoFunctionROIUseWhiteBalance", true);
+// Enable Balance White Auto by setting the operating mode to Continuous
+Pylon.DeviceFeatureFromString(hdev, "BalanceWhiteAuto", "Continuous");</code></pre></div><div class="tab-5 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+/* Select auto function ROI 2 */
+errRes = PylonDeviceFeatureFromString(hdev, "AutoFunctionAOISelector", "AOI2");
+CHECK(errRes);
+/* Enable the Balance White Auto auto function */
+/* for the auto function ROI selected */
+errRes = PylonDeviceSetBooleanFeature(hdev, "AutoFunctionAOIUsageWhiteBalance", 1);
+CHECK(errRes);
+/* Enable Balance White Auto by setting the operating mode to Continuous */
+errRes = PylonDeviceFeatureFromString(hdev, "BalanceWhiteAuto", "Continuous");
+CHECK(errRes);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="c" generated="true">/* Select auto function ROI 2 */
+errRes = PylonDeviceFeatureFromString(hdev, "AutoFunctionROISelector", "ROI2");
+CHECK(errRes);
+/* Enable the Balance White Auto auto function */
+/* for the auto function ROI selected */
+errRes = PylonDeviceSetBooleanFeature(hdev, "AutoFunctionROIUseWhiteBalance", 1);
+CHECK(errRes);
+/* Enable Balance White Auto by setting the operating mode to Continuous */
+errRes = PylonDeviceFeatureFromString(hdev, "BalanceWhiteAuto", "Continuous");
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

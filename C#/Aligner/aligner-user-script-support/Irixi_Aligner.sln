@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Irixi_Aligner_Common", "Irixi_Aligner_Common\Irixi_Aligner_Common.csproj", "{AA5F84D6-1E8E-416C-913D-CF898983E49E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "USBHIDDRIVER", "USBHIDDRIVER\USBHIDDRIVER.csproj", "{58F64D08-1159-4A19-9EC4-DDD5ED056946}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IrixiStepperControllerHelper", "StepperControllerLib\IrixiStepperControllerHelper.csproj", "{7D9A7B1A-E2E1-4D53-8986-3A4DE679551C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StepperControllerDebuger", "StepperControllerDebuger\StepperControllerDebuger.csproj", "{F978E3E1-FDA4-4639-9150-51E2CCA49FD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IrixiAlignerTest", "IrixiAlignerTest\IrixiAlignerTest.csproj", "{431CD878-22DB-42DE-AF68-1158B99626AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M12", "..\irixi-m12-library-develop\M12\M12.csproj", "{0D53D43A-73DE-4AB8-9549-E9C06675928F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA5F84D6-1E8E-416C-913D-CF898983E49E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA5F84D6-1E8E-416C-913D-CF898983E49E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA5F84D6-1E8E-416C-913D-CF898983E49E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA5F84D6-1E8E-416C-913D-CF898983E49E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58F64D08-1159-4A19-9EC4-DDD5ED056946}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58F64D08-1159-4A19-9EC4-DDD5ED056946}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58F64D08-1159-4A19-9EC4-DDD5ED056946}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58F64D08-1159-4A19-9EC4-DDD5ED056946}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D9A7B1A-E2E1-4D53-8986-3A4DE679551C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D9A7B1A-E2E1-4D53-8986-3A4DE679551C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D9A7B1A-E2E1-4D53-8986-3A4DE679551C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D9A7B1A-E2E1-4D53-8986-3A4DE679551C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F978E3E1-FDA4-4639-9150-51E2CCA49FD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F978E3E1-FDA4-4639-9150-51E2CCA49FD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F978E3E1-FDA4-4639-9150-51E2CCA49FD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F978E3E1-FDA4-4639-9150-51E2CCA49FD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{431CD878-22DB-42DE-AF68-1158B99626AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{431CD878-22DB-42DE-AF68-1158B99626AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{431CD878-22DB-42DE-AF68-1158B99626AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{431CD878-22DB-42DE-AF68-1158B99626AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D53D43A-73DE-4AB8-9549-E9C06675928F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D53D43A-73DE-4AB8-9549-E9C06675928F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D53D43A-73DE-4AB8-9549-E9C06675928F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D53D43A-73DE-4AB8-9549-E9C06675928F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AF961B98-2E56-4457-AA6D-1B96B7670505}
+	EndGlobalSection
+EndGlobal

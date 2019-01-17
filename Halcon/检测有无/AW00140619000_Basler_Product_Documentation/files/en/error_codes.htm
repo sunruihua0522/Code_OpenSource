@@ -1,0 +1,562 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Error Codes</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_30";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Error Codes<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Error Codes</h1>
+<p class="teaser">The Error Codes 
+ <a href="features.htm">camera feature</a> allows you to read error codes 
+ from the camera. These codes alert you to errors that can be corrected 
+ by yourself. </p>
+<p>Error codes are saved in an error list. After you have dealt with an 
+ error, you can delete it from the error list. </p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot31560" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot31560', 'MTPOPUP31560');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP31560" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >How It Works</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Checking and Clearing Error Codes</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark5" >Available Error Codes</a>
+</li>
+    </ul></li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark6" >Specifics</a>
+</li>
+   <li><a href="#MiniTOCBookMark7" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>How It Works</h3>
+<p>The camera can detect errors that you can correct yourself. If such 
+ an error occurs, the camera assigns an <a href="#Available_Error_Codes">error 
+ code</a> to this error and stores the error code in memory. After you 
+ have corrected the error, you can clear the error code from the list.</p>
+<p>If several different errors have occurred, the camera stores the code 
+ for each type of error detected. The camera stores each code only once 
+ regardless of how many times it has detected the corresponding error.</p>
+<h3><a name="MiniTOCBookMark4"></a>Checking and Clearing Error Codes</h3>
+<p>Checking and clearing error codes is&#160;an iterative process, depending 
+ on how many errors have occurred.</p>
+<ol>
+	<li>To check the last error code in the memory, get the value of the 
+	 <span class="parameter-name">LastError</span> 
+	 parameter.</li>
+	<li>Correct the corresponding error.</li>
+	<li>To delete the last error code from the list of error codes, execute 
+	 the <span class="parameter-name">ClearLastError</span> 
+	 command.</li>
+	<li>Continue getting and deleting the last error code until the <span class="parameter-name">LastError</span> 
+	 parameter shows <span class="parameter-name">NoError</span>.</li>
+</ol>
+<h4><a name="MiniTOCBookMark5"></a><a name="Available_Error_Codes">Available Error Codes</a></h4>
+<table >
+	<col />
+	<col />
+	<col />
+	<thead>
+  <tr>
+		<th>Error Code</th>
+		<th>Value</th>
+		<th>Meaning</th>
+	</tr>
+ </thead>
+	<tr>
+		<td>0</td>
+		<td>No Error</td>
+		<td>The camera hasn't detected any errors since the last time the 
+		 error memory was cleared.</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>Overtrigger</td>
+		<td>An overtrigger has occurred. 
+		<ul>
+			<li>The user has applied an <a href="trigger_selector.htm#Frame_Burst_Start_Trigger">Acquisition 
+			 Start</a> trigger to the camera when the camera was not in 
+			 a waiting for acquisition start condition.</li>
+		</ul>
+		Or: 
+		<ul>
+			<li>The user has applied a <a href="trigger_selector.htm#Frame_Start_Trigger">Frame 
+			 Start</a> trigger to the camera when the camera was not in 
+			 a waiting for frame start condition.</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td>Userset</td>
+		<td>An error occurred when attempting to load a user set. Typically, 
+		 this means that the user set contains an invalid value. Try loading 
+		 a different user set.</td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td>Invalid Parameter</td>
+		<td>A parameter has been entered that is out of range or otherwise 
+		 invalid. Typically, this error only occurs when the user sets 
+		 parameters via direct register access.</td>
+	</tr>
+	<tr>
+		<td><p>4</p></td>
+		<td><p>Over Temperature</p></td>
+		<td><p>The camera is in the <a href="temperature_state.htm">over 
+		 temperature mode</a>. </p>
+		<p>This error indicates that an <a href="temperature_state.htm">over 
+		 temperature</a> condition exists and that damage to camera components 
+		 may occur.</p></td>
+	</tr>
+	<tr>
+		<td>5</td>
+		<td>Power Failure</td>
+		<td>This error indicates that the power supply is not sufficient. 
+		 
+		<p>Check the power supply.</p></td>
+	</tr>
+	<tr>
+		<td>6</td>
+		<td>Insufficient Trigger Width</td>
+		<td>This error is reported in <a href="exposure_mode.htm#Trigger_Width_Exposure_Mode">Trigger 
+		 Width exposure mode</a>, when a trigger is shorter than the minimum 
+		 exposure time.</td>
+	</tr>
+</table>
+<h2 class="specifics"><a name="MiniTOCBookMark6"></a>Specifics</h2>
+<div>
+<table class="specifics-table">
+	<col />
+	<col />
+	<tr>
+		<th>Camera Model</th>
+		<th>Available Error Codes</th>
+	</tr>
+	<tr>
+		<td data-rhtags="50" class="rh-hide">acA640-90gm</td>
+		<td data-rhtags="50" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="51" class="rh-hide">acA640-90gc</td>
+		<td data-rhtags="51" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="52" class="rh-hide">acA640-120gm</td>
+		<td data-rhtags="52" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="53" class="rh-hide">acA640-120gc</td>
+		<td data-rhtags="53" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="54" class="rh-hide">acA640-121gm</td>
+		<td data-rhtags="54" class="rh-hide">1, 2, 3, 4, 5, 
+		 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="55" class="rh-hide">acA640-300gm</td>
+		<td data-rhtags="55" class="rh-hide">1, 2, 3, 4, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="56" class="rh-hide">acA640-300gc</td>
+		<td data-rhtags="56" class="rh-hide">1, 2, 3, 4, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="57" class="rh-hide">acA720-290gm</td>
+		<td data-rhtags="57" class="rh-hide">1, 2, 3, 4, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="58" class="rh-hide">acA720-290gc</td>
+		<td data-rhtags="58" class="rh-hide">1, 2, 3, 4, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="59" class="rh-hide">acA750-30gm</td>
+		<td data-rhtags="59" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="45" class="rh-hide">acA750-30gc</td>
+		<td data-rhtags="45" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="60" class="rh-hide">acA780-75gm</td>
+		<td data-rhtags="60" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="61" class="rh-hide">acA780-75gc</td>
+		<td data-rhtags="61" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="62" class="rh-hide">acA800-200gm</td>
+		<td data-rhtags="62" class="rh-hide">1, 2, 3, 4, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="63" class="rh-hide">acA800-200gc</td>
+		<td data-rhtags="63" class="rh-hide">1, 2, 3, 4, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="64" class="rh-hide">acA1280-60gm</td>
+		<td data-rhtags="64" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="65" class="rh-hide">acA1280-60gc</td>
+		<td data-rhtags="65" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="66" class="rh-hide">acA1300-22gm</td>
+		<td data-rhtags="66" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="67" class="rh-hide">acA1300-22gc</td>
+		<td data-rhtags="67" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="68" class="rh-hide">acA1300-30gm</td>
+		<td data-rhtags="68" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="69" class="rh-hide">acA1300-30gc</td>
+		<td data-rhtags="69" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="70" class="rh-hide">acA1300-60gm</td>
+		<td data-rhtags="70" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="71" class="rh-hide">acA1300-60gmNIR</td>
+		<td data-rhtags="71" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="72" class="rh-hide">acA1300-60gc</td>
+		<td data-rhtags="72" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="73" class="rh-hide">acA1300-75gm</td>
+		<td data-rhtags="73" class="rh-hide">1, 2, 3, 4, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="74" class="rh-hide">acA1300-75gc</td>
+		<td data-rhtags="74" class="rh-hide">1, 2, 3, 4, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="75" class="rh-hide">acA1440-73gm</td>
+		<td data-rhtags="75" class="rh-hide">1, 2, 3, 4, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="76" class="rh-hide">acA1440-73gc</td>
+		<td data-rhtags="76" class="rh-hide">1, 2, 3, 4, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="77" class="rh-hide">acA1600-20gm</td>
+		<td data-rhtags="77" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="78" class="rh-hide">acA1600-20gc</td>
+		<td data-rhtags="78" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="79" class="rh-hide">acA1600-60gm</td>
+		<td data-rhtags="79" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="80" class="rh-hide">acA1600-60gc</td>
+		<td data-rhtags="80" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="81" class="rh-hide">acA1920-25gm</td>
+		<td data-rhtags="81" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="82" class="rh-hide">acA1920-25gc</td>
+		<td data-rhtags="82" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="83" class="rh-hide">acA1920-40gm</td>
+		<td data-rhtags="83" class="rh-hide">1, 2, 3, 4, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="84" class="rh-hide">acA1920-40gc</td>
+		<td data-rhtags="84" class="rh-hide">1, 2, 3, 4, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="85" class="rh-hide">acA1920-48gm</td>
+		<td data-rhtags="85" class="rh-hide">1, 2, 3, 4, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="86" class="rh-hide">acA1920-48gc</td>
+		<td data-rhtags="86" class="rh-hide">1, 2, 3, 4, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="87" class="rh-hide">acA1920-50gm</td>
+		<td data-rhtags="87" class="rh-hide">1, 2, 3, 4, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="88" class="rh-hide">acA1920-50gc</td>
+		<td data-rhtags="88" class="rh-hide">1, 2, 3, 4, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="89" class="rh-hide">acA2000-50gm</td>
+		<td data-rhtags="89" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="90" class="rh-hide">acA2000-50gmNIR</td>
+		<td data-rhtags="90" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="91" class="rh-hide">acA2000-50gc</td>
+		<td data-rhtags="91" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="92" class="rh-hide">acA2040-25gm</td>
+		<td data-rhtags="92" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="93" class="rh-hide">acA2040-25gmNIR</td>
+		<td data-rhtags="93" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="94" class="rh-hide">acA2040-25gc</td>
+		<td data-rhtags="94" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="95" class="rh-hide">acA2040-35gm</td>
+		<td data-rhtags="95" class="rh-hide">1, 2, 3, 4, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="96" class="rh-hide">acA2040-35gc</td>
+		<td data-rhtags="96" class="rh-hide">1, 2, 3, 4, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="97" class="rh-hide">acA2440-20gm</td>
+		<td data-rhtags="97" class="rh-hide">1, 2, 3, 4, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="98" class="rh-hide">acA2440-20gc</td>
+		<td data-rhtags="98" class="rh-hide">1, 2, 3, 4, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="99" class="rh-hide">acA2500-14gm</td>
+		<td data-rhtags="99" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="100" class="rh-hide">acA2500-14gc</td>
+		<td data-rhtags="100" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="101" class="rh-hide">acA2500-20gm</td>
+		<td data-rhtags="101" class="rh-hide">1, 2, 3, 4, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="102" class="rh-hide">acA2500-20gc</td>
+		<td data-rhtags="102" class="rh-hide">1, 2, 3, 4, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="103" class="rh-hide">acA2500-20gmMED</td>
+		<td data-rhtags="103" class="rh-hide">1, 2, 3, 4, 
+		 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="104" class="rh-hide">acA2500-20gcMED</td>
+		<td data-rhtags="104" class="rh-hide">1, 2, 3, 4, 
+		 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="105" class="rh-hide">acA3088-16gm</td>
+		<td data-rhtags="105" class="rh-hide">1, 2, 3, 4 (not used), 
+		 5</td>
+	</tr>
+	<tr>
+		<td data-rhtags="106" class="rh-hide">acA3088-16gc</td>
+		<td data-rhtags="106" class="rh-hide">1, 2, 3, 4 (not used), 
+		 5</td>
+	</tr>
+	<tr>
+		<td data-rhtags="107" class="rh-hide">acA3800-10gm</td>
+		<td data-rhtags="107" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="108" class="rh-hide">acA3800-10gc</td>
+		<td data-rhtags="108" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="109" class="rh-hide">acA4024-8gm</td>
+		<td data-rhtags="109" class="rh-hide">1, 2, 3, 4 (not used), 
+		 5</td>
+	</tr>
+	<tr>
+		<td data-rhtags="110" class="rh-hide">acA4024-8gc</td>
+		<td data-rhtags="110" class="rh-hide">1, 2, 3, 4 (not used), 
+		 5</td>
+	</tr>
+	<tr>
+		<td data-rhtags="111" class="rh-hide">acA4096-11gm</td>
+		<td data-rhtags="111" class="rh-hide">1, 2, 3, 4 (not used), 
+		 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="198" class="rh-hide">acA4096-11gc</td>
+		<td data-rhtags="198" class="rh-hide">1, 2, 3, 4 (not used), 
+		 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="113" class="rh-hide">acA4112-8gm</td>
+		<td data-rhtags="113" class="rh-hide">1, 2, 3, 4 (not used), 
+		 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="114" class="rh-hide">acA4112-8gc</td>
+		<td data-rhtags="114" class="rh-hide">1, 2, 3, 4 (not used), 
+		 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="115" class="rh-hide">acA4600-7gc</td>
+		<td data-rhtags="115" class="rh-hide">1, 2, 3, 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="116" class="rh-hide">acA5472-5gm</td>
+		<td data-rhtags="116" class="rh-hide">1, 2, 3, 4 (not 
+		 used), 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="117" class="rh-hide">acA5472-5gc</td>
+		<td data-rhtags="117" class="rh-hide">1, 2, 3, 4 (not 
+		 used), 5, 6</td>
+	</tr>
+	<tr>
+		<td data-rhtags="33" class="rh-hide">All ace USB 3.0 camera models</td>
+		<td data-rhtags="33" class="rh-hide">Error Codes 
+		 feature not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="44" class="rh-hide">All dart BCON for LVDS camera models</td>
+		<td data-rhtags="44" class="rh-hide">Error Codes feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="21" class="rh-hide">All dart BCON for MIPI camera models</td>
+		<td data-rhtags="21" class="rh-hide">Error Codes feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="42" class="rh-hide">All dart USB 3.0 camera models</td>
+		<td data-rhtags="42" class="rh-hide">Error Codes feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="47" class="rh-hide">All pulse USB 3.0 camera models</td>
+		<td data-rhtags="47" class="rh-hide">Error Codes feature 
+		 not supported</td>
+	</tr>
+</table>
+</div>
+<h2 class="sample-code"><a name="MiniTOCBookMark7"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre><code class="cpp">// Get the value of the last error code in the memory
+LastErrorEnums lasterror = camera.LastError.GetValue();
+// Clear the value of the last error code in the memory
+camera.ClearLastError.Execute();</code></pre></div><div class="tab-2 tab-content"><pre><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Get the value of the last error code in the memory
+String_t lasterror = CEnumerationPtr(nodemap.GetNode("LastError"))-&gt;ToString();
+// Clear the value of the last error code in the memory
+CCommandPtr(nodemap.GetNode("ClearLastError"))-&gt;Execute();</code></pre></div><div class="tab-3 tab-content"><pre><code class="csharp" generated="true">// Get the value of the last error code in the memory
+string lasterror = camera.Parameters[PLCamera.LastError].GetValue();
+// Clear the value of the last error code in the memory
+camera.Parameters[PLCamera.ClearLastError].Execute();</code></pre></div><div class="tab-4 tab-content"><pre><code class="csharp" generated="true">// Get the value of the last error code in the memory
+string lasterror = Pylon.DeviceFeatureToString(hdev, "LastError");
+// Clear the value of the last error code in the memory
+Pylon.DeviceExecuteCommandFeature(hdev, "ClearLastError");</code></pre></div><div class="tab-5 tab-content"><pre><code class="c" generated="true">size_t len = 0;
+char lasterror_str[64] = {0};
+/* Get the value of the last error code in the memory */
+len = sizeof(lasterror_str);
+errRes = PylonDeviceFeatureToString(hdev, "LastError", lasterror_str, &amp;len);
+CHECK(errRes);
+/* Clear the value of the last error code in the memory */
+errRes = PylonDeviceExecuteCommandFeature(hdev, "ClearLastError");
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

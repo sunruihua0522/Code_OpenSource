@@ -1,0 +1,260 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+            x:Class="Irixi_Aligner_Common.View.UserControls.Keithley2400ControlPanel"
+            xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+            xmlns:ViewModel="clr-namespace:Irixi_Aligner_Common.ViewModel"
+             mc:Ignorable="d" 
+             Height="270" Width="250">
+    <UserControl.Resources>
+        <!-- Converter Definition -->
+        <ViewModel:FormatMeasurementValue x:Key="FormatMeasValue"/>
+        
+        <!-- Style Definition -->
+        <Style TargetType="{x:Type dxe:ButtonEdit}">
+            <Setter Property="MaskType" Value="Numeric"/>
+            <Setter Property="AllowDefaultButton" Value="False"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        
+        <Style TargetType="{x:Type dxe:ButtonInfo}">
+            <Setter Property="GlyphKind" Value="Refresh"/>
+        </Style>
+        
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="{x:Type RadioButton}">
+            <Setter Property="Margin" Value="0,0,10,0"/>
+        </Style>
+        
+        <Style TargetType="ComboBox">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="IsEditable" Value="False"/>
+            <Setter Property="SelectedIndex" Value="0"/>
+        </Style>
+    </UserControl.Resources>
+    
+    <Grid IsEnabled="{Binding K2400.IsInitialized, Mode=OneWay}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        
+        <!-- measurement values display panel -->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock  Margin="0" Text="Measurement"/>
+            <TextBox IsReadOnly="True" 
+                     Grid.Row="1" 
+                     VerticalContentAlignment="Center" 
+                     HorizontalContentAlignment="Right" 
+                     Margin="0" 
+                     FontSize="24" 
+                     FontFamily="Microsoft Sans Serif" 
+                     FontWeight="Bold">
+                <TextBox.Text>
+                    <MultiBinding Converter="{StaticResource FormatMeasValue}" Mode="OneWay">
+                        <Binding Path="K2400.MeasurementValue"/>
+                        <Binding Path="K2400.MeasurementFunc" />
+                        <Binding Path="K2400.IsOutputEnabled" />
+                    </MultiBinding>
+                </TextBox.Text>
+            </TextBox>
+            <TextBlock 
+                Text="CMPL" 
+                Grid.Row="1" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="5,5,0,0" 
+                FontSize="10" 
+                FontWeight="Bold" 
+                Foreground="#3EE100" 
+                Visibility="{Binding K2400.IsInRangeCompliance, Mode=OneWay, Converter={StaticResource BooleanToVisibility}}"/>
+            <TextBlock 
+                Text="OL" 
+                Grid.Row="1" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="5,20,0,0" 
+                FontSize="10" 
+                FontWeight="Bold" 
+                Foreground="Red" 
+                Visibility="{Binding K2400.IsMeasOverRange, Mode=OneWay, Converter={StaticResource BooleanToVisibility}}"/>
+        </Grid>
+        
+        <!-- Panel contains settings elements -->
+        <Grid Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <!-- Radio Button to switch source mode -->
+                <RadioButton 
+                    x:Name="rbVoltageSource" 
+                    Content="Voltage Source" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    Command="{Binding SetToVoltageSource}" 
+                    IsChecked="True"/>
+                <RadioButton 
+                    x:Name="rbCurrentSource" 
+                    Content="Current Source" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    Command="{Binding SetToCurrentSource}" 
+                    Grid.Column="1"/>
+                
+                <!-- Panel of volt source settings -->
+                <dx:GroupFrame 
+                    x:Name="grpVoltageSourceSetting" 
+                    Grid.Row="1" 
+                    Header="Setting" 
+                    Grid.ColumnSpan="2" 
+                    Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibility}, ElementName=rbVoltageSource, Mode=OneWay}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="95"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Voltage(V)"/>
+                        <dxe:ButtonEdit x:Name="txtVoltLevel" Grid.Column="1" Text="{Binding K2400.OutputVoltageLevel, Mode=OneWay, StringFormat=0.####}">
+                            <dxe:ButtonInfo 
+                                Command="{Binding SetOutputLevel}"
+                                CommandParameter="{Binding ElementName=txtVoltLevel, Path=Text, Converter={StaticResource TextToDouble}}"/>
+                        </dxe:ButtonEdit>
+                        <TextBlock Text="Compliance(A)" Grid.Row="1"/>
+                        <dxe:ButtonEdit 
+                            Grid.Column="1" 
+                            Grid.Row="1" 
+                            x:Name="txtCurrCmpl" 
+                            Text="{Binding K2400.ComplianceCurrent, Mode=OneWay, StringFormat=0.#######}" >
+                            <dxe:ButtonInfo 
+                                Command="{Binding SetCompliance}" 
+                                CommandParameter="{Binding ElementName=txtCurrCmpl, Path=Text, Converter={StaticResource TextToDouble}}"/>
+                        </dxe:ButtonEdit>
+                        <TextBlock Text="Meas Range(A)" Grid.Row="2"/>
+                        <ComboBox 
+                            x:Name="cbxMeasRangeAmps" 
+                            Grid.Column="1" 
+                            Grid.Row="2"  
+                            SelectedIndex="{Binding K2400.MeasRangeOfAmps, Converter={StaticResource EnumToInt}, Mode=OneWay}">
+                            <ComboBox.Items>
+                                <ComboBoxItem Content="Auto"/>
+                                <ComboBoxItem Content="1uA" />
+                                <ComboBoxItem Content="10uA"/>
+                                <ComboBoxItem Content="100uA"/>
+                                <ComboBoxItem Content="1mA"/>
+                                <ComboBoxItem Content="10mA"/>
+                                <ComboBoxItem Content="100mA"/>
+                                <ComboBoxItem Content="1A"/>
+                            </ComboBox.Items>
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction 
+                                        Command="{Binding SetCurrentMeasurementRange}"   
+                                        CommandParameter="{Binding ElementName=cbxMeasRangeAmps, Path=SelectedIndex}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </ComboBox>
+                        <dxe:ButtonEdit 
+                            Visibility="Hidden" 
+                            x:Name="txtCurrMeasRange" 
+                            Grid.Column="1" Grid.Row="2" 
+                            Text="{Binding K2400.MeasRangeOfAmps, Mode=OneWay}">
+                            <dxe:ButtonInfo
+                                Command="{Binding SetMeasurementRange}"
+                                CommandParameter="{Binding ElementName=txtCurrMeasRange, Path=Text, Converter={StaticResource TextToDouble}}"/>
+                        </dxe:ButtonEdit>
+                    </Grid>
+                </dx:GroupFrame>
+
+                <!-- Panel of current source settings -->
+                <dx:GroupFrame 
+                    x:Name="grpCurrentSourceSetting" 
+                    Grid.Row="1" 
+                    Header="Setting" 
+                    Grid.ColumnSpan="2" 
+                    Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibility}, ElementName=rbCurrentSource, Mode=OneWay}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="95"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Current(A)"/>
+                        <dxe:ButtonEdit 
+                            x:Name="txtCurrLevel" 
+                            Grid.Column="1"  
+                            Text="{Binding K2400.OutputCurrentLevel, Mode=OneWay, StringFormat=0.#######}">
+                            <dxe:ButtonInfo 
+                                Command="{Binding SetOutputLevel}" 
+                                CommandParameter="{Binding ElementName=txtCurrLevel, Path=Text, Converter={StaticResource TextToDouble}}"/>
+                        </dxe:ButtonEdit>
+                        <TextBlock Text="Compliance(V)" Grid.Row="1"/>
+                        <dxe:ButtonEdit x:Name="txtVoltCmpl" Grid.Column="1" Grid.Row="1" Text="{Binding K2400.ComplianceVoltage, Mode=OneWay, StringFormat=0.####}">
+                            <dxe:ButtonInfo
+                                Command="{Binding SetCompliance}"
+                                CommandParameter="{Binding ElementName=txtVoltCmpl, Path=Text, Converter={StaticResource TextToDouble}}"/>
+                        </dxe:ButtonEdit>
+                        <TextBlock Text="Meas Range(V)" Grid.Row="2"/>
+                        <ComboBox x:Name="cbxMeasRangeVolts" Grid.Column="1" Grid.Row="2" SelectedIndex="{Binding K2400.MeasRangeOfVolts, Converter={StaticResource EnumToInt}, Mode=OneWay}">
+                            <ComboBox.Items>
+                                <ComboBoxItem Content="Auto"/>
+                                <ComboBoxItem Content="200mV"/>
+                                <ComboBoxItem Content="2V"/>
+                                <ComboBoxItem Content="20V"/>
+                            </ComboBox.Items>
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction 
+                                        Command="{Binding SetVoltageMeasurementRange}"   
+                                        CommandParameter="{Binding ElementName=cbxMeasRangeVolts, Path=SelectedIndex}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </ComboBox>
+                    </Grid>
+                </dx:GroupFrame>
+            </Grid>
+        </Grid>
+        
+        <!-- Panel of Control buttons -->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ToggleButton 
+                IsChecked="False" 
+                Content="Front Panel" 
+                Margin="0,5,5,5" 
+                ToolTipService.ToolTip="Indicates where the valid output port located, on front panel or rear panel"/>
+            <ToggleButton 
+                IsChecked="{Binding K2400.IsOutputEnabled, Mode=OneWay}" Content="Output" Margin="5,5,0,5" 
+                Grid.Column="1" 
+                Command="{Binding SetOutputEnabled}"/>
+        </Grid>
+    </Grid>
+</UserControl>

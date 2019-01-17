@@ -1,0 +1,269 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="noindex" />
+<meta http-equiv="Content-Language" content="en-US" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>BCON for LVDS Hardware Design Guide</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.5.0_2";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > BCON Interfaces" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"bcon_interfaces.htm\">BCON Interfaces<\/a>  &gt;  BCON for LVDS Hardware Design Guide<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>BCON for LVDS Hardware Design Guide</h1>
+<p class="teaser">This topic provides recommendations for designing your 
+ hardware to work with the Basler BCON for LVDS interface.</p>
+<p>Identifiers such as X1, XCLK, CC0, or I2C_SDC refer to the pin names 
+ given in <span class="camera-topic-link">your camera model topic</span>.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot33465" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot33465', 'MTPOPUP33465');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP33465" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Data Transmission 
+ (X0, X1, X2, X3, XCLK)</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Design Recommendations for Data Transmission</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark4" >Printed Circuit Board (PCB)</a>
+</li>
+     <li><a href="#MiniTOCBookMark5" >Flexible Flat Cable (FFC)</a>
+</li>
+     <li><a href="#MiniTOCBookMark6" >FFC Connector</a>
+</li>
+    </ul></li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark7" >Trigger and General Purpose Input (CC0)</a>
+</li>
+   <li><a href="#MiniTOCBookMark8" >I²C Configuration Interface (I2C_SDA, I2C_SCL, I2C_ID)</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark9" >Design Recommendations for the I²C Interface</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark10" >Power Supply (GND, VCC)</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark11" >Design Recommendations for the Power Supply</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark12" >LVDS Receiver</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a><a name="Data_Transmission__X0__X1__X2__X3__XCLK_">Data Transmission 
+ (X0, X1, X2, X3, XCLK)</a></h2>
+<p>BCON for LVDS uses four data lanes (X0 through X3) and one clock line 
+ (XCLK) to transmit image data from the camera to the image processing 
+ unit.</p>
+<p>During data transmission, signal reflections can be a major cause of 
+ bit errors. Every signal change in the transmitter launches a wave that 
+ travels to the receiver. If the termination resistor at the other end 
+ of the trace matches the impedance of the differential trace, it consumes 
+ most of the energy of the wave.</p>
+<p>Therefore, both the differential traces and the termination resistors 
+ must have an impedance of 100 ohm. If they do not match the target impedance, 
+ the reflected wave can disturb the original signal and cause bit errors.</p>
+<h3><a name="MiniTOCBookMark3"></a>Design Recommendations for Data Transmission</h3>
+<h4><a name="MiniTOCBookMark4"></a>Printed Circuit Board (PCB)</h4>
+<ul>
+	<li>Design the PCB to have a differential impedance of 100 ohms. If 
+	 this is not possible, make the traces between the connector and the 
+	 receiver as short as possible.</li>
+	<li>Run the differential traces as close as possible, but leave a gap 
+	 of at least three trace widths between the individual pairs.</li>
+	<li>Ensure that the two traces of a differential pair have the same 
+	 length. A mismatch of 5 mm or less is not critical.</li>
+	<li>Ensure that the lengths of all pairs do not differ more than 20 
+	 mm.</li>
+	<li>Place a 100 ohm termination resistor across the traces of each 
+	 pair as close to the receiver's pins as possible.</li>
+	<li>Avoid vias. Run the traces from the connector to the receiver on 
+	 a single PCB layer if possible.</li>
+	<li>Avoid stubs. Run the traces through the termination resistor's 
+	 solder pads rather than branching the trace. Even small stubs can 
+	 cause reflections.</li>
+</ul>
+<h4><a name="MiniTOCBookMark5"></a>Flexible Flat Cable (FFC)</h4>
+<ul>
+	<li>Choose an FFC with a differential impedance of 100 ohms to avoid 
+	 problems with <a href="avoiding_emi_and_esd_problems.htm">electromagnetic 
+	 interference (EMI)</a>.</li>
+	<li>Keep the cable away from unshielded electric motors, transformers, 
+	 and unshielded coils.</li>
+	<li>If you use an FFC without a ground layer, keep the cable away from 
+	 materials with a high dielectric loss.</li>
+	<li>If you use an FFC with a ground layer, make sure to insert the 
+	 cable with the ground tab facing down.</li>
+	<li>When ordering a custom flexible flat cable, specify the FFC connector 
+	 (see below) to ensure that the ground tab is in the correct position 
+	 and the retaining tabs have the correct shape.</li>
+	<li>When using a standard flexible flat cable without a ground layer 
+	 and retaining tabs, keep the cable short and avoid close proximity 
+	 to other materials. Note that the pull-out force is reduced when using 
+	 a cable without retaining tabs.</li>
+</ul>
+<h4><a name="MiniTOCBookMark6"></a>FFC Connector</h4>
+<ul>
+	<li>Basler recommends using the same connectors on the camera and the 
+	 system side, although other connectors with the same number of pins 
+	 can be used.</li>
+	<li>The order code of the FFC connector on camera side is Hirose FH41-28S-0.5SH(05). 
+	 This connector is optimized for impedance controlled flexible flat 
+	 cables.</li>
+	<li>Make sure that the FFC contact pads meet the mechanical specification 
+	 of the Hirose FH41 connector to avoid shorting the GND layer and the 
+	 data lines. For more information, see the <a href="https://www.hirose.com/product/en/products/FH41/FH41-28S-0.5SH(05)/">FH41 
+	 Series connector website</a>.</li>
+</ul>
+<h2><a name="MiniTOCBookMark7"></a>Trigger and General Purpose Input (CC0)</h2>
+<p>The LVDS input line can be used to send a trigger signal to the camera. 
+ Although the trigger frequency is very moderate, make sure to observe 
+ the LVDS design rules to avoid noise being picked up. Noise can cause 
+ false trigger events.</p>
+<p>In addition, the LVDS input can be used as a general purpose input. 
+ The state of the input can be read via the camera’s control interface 
+ at any time.</p>
+<p>The input does not need a termination resistor. The line is terminated 
+ at camera side. </p>
+<p>In other respects, the same recommendations as for the <a href="#Data_Transmission__X0__X1__X2__X3__XCLK_">data 
+ output lines</a> apply.</p>
+<h2><a name="MiniTOCBookMark8"></a>I²C Configuration Interface (I2C_SDA, I2C_SCL, I2C_ID)</h2>
+<p>Basler dart BCON for LVDS cameras use the I²C interface to exchange 
+ configuration data with the controlling processor.</p>
+<p>I²C is an open-collector bus interface with two signal lines, SDA and 
+ SCL. Connect these signal lines to the appropriate ports of an I²C controller. 
+ Typically, an I²C controller is part of the microcontroller or the System 
+ on a Chip (SoC) that you will be using to process the image data.</p>
+<p>For more information about I²C, see the <a href="http://www.nxp.com/documents/user_manual/UM10204.pdf">I²C-Bus 
+ Specification and User Manual</a>.</p>
+<div class="panel notice">
+	<div class="panel-head">
+		<p class="safety-panel-heading">Notice</p>
+		<p class="panel-teaser">Voltage outside of the specified range 
+		 can cause damage.</p>
+	</div>
+	<div class="panel-content">
+		<p>You must supply camera power that complies with the individual 
+		 voltage requirements of the BCON for LVDS interface lines:</p>
+		<p>The nominal voltage for the power supply line (VCC) is <strong>5 
+		 VDC</strong>.</p>
+		<p>The nominal voltage for the I²C interface lines (I2C_SCL, I2C_SDA, 
+		 I2C_ID) is <strong>3.3 VDC</strong>.</p>
+	</div>
+</div>
+<h3><a name="MiniTOCBookMark9"></a>Design Recommendations for the I²C Interface</h3>
+<ul>
+	<li>The voltage level for the I²C bus is 3.3 V. Make sure that the 
+	 pull-up resistor is connected to 3.3 V.</li>
+	<li>If you have only one or two cameras, tie the I2C_ID pin to GND 
+	 on the first camera and to 3.3 VDC on the second camera. This helps 
+	 you to identify which camera is connected to a given data interface.</li>
+	<li>The capacitive bus load for a single I²C bus segment is limited 
+	 to 400 pF. Take into account that long flexible flat cables can significantly 
+	 contribute to the total bus load. If necessary, use more than one 
+	 I²C bus or use an I²C bus repeater.</li>
+	<li>Choose a suitable pull-up resistor. The optimal value depends on 
+	 the capacitive load of the I²C bus lines. For determining appropriate 
+	 resistor values, refer to the <a href="http://www.nxp.com/documents/user_manual/UM10204.pdf">I²C-Bus 
+	 Specification and User Manual</a>.</li>
+</ul>
+<h2><a name="MiniTOCBookMark10"></a>Power Supply (GND, VCC)</h2>
+<p>The camera needs a single 5 VDC power supply. Bad power quality can 
+ deteriorate the camera's image quality. However, a properly designed switched-mode 
+ power supply, as used to supply a USB port, will yield a good result.</p>
+<h3><a name="MiniTOCBookMark11"></a>Design Recommendations for the Power Supply</h3>
+<ul>
+	<li>The power supply should be able to supply 1.5 W per camera. Long 
+	 cables can cause a significant voltage drop, leading to a higher power 
+	 consumption than the camera alone.</li>
+	<li>Ground noise can cause bad image quality. Make sure that the power 
+	 supply input (VCC and GND) is close to the camera connectors. The 
+	 processor and the memory should not be placed between the power supply 
+	 input and the camera connector.</li>
+	<li>Provide an extra capacitor directly on the camera connector where 
+	 the supply voltage is delivered to the camera (e.g. 10 μF MLCC - multi-layer 
+	 ceramic capacitor). If the supply is noisy, a low-pass-filter consisting 
+	 of a capacitor and an inductor can help to smoothen the supply voltage.</li>
+</ul>
+<h2><a name="MiniTOCBookMark12"></a>LVDS Receiver</h2>
+<p>The BCON for LVDS interface is designed to work with FPGAs as well as 
+ Channel Link deserializer devices.</p>
+<p>For full speed operation, the FPGA must support a bit rate of at least 
+ 560 Mbit/s. The Channel Link deserializer device must support 28 bits 
+ and 84 MHz or more.</p>
+<p>For a list of suitable Channel Link devices, see the <a href="http://www.ti.com/lit/ug/snla167/snla167.pdf">Channel 
+ Link Design Guide</a>.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

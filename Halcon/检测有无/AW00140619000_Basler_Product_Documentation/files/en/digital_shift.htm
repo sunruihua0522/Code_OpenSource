@@ -1,0 +1,217 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Digital Shift</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_29";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Digital Shift<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Digital Shift</h1>
+<p class="teaser">The Digital Shift 
+ <a href="features.htm">camera feature</a> allows you to multiply 
+ the pixel values of the images. </p>
+<p>This increases the brightness of the image. If your camera doesn't support 
+ the digital shift feature, you can use the <a href="gain.htm">Gain</a> 
+ feature to achieve a similar effect.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot44894" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot44894', 'MTPOPUP44894');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP44894" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >How It Works</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Configuring Digital Shift</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >Examples</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark6" >Example 1: Digital Shift by 1, 12-Bit Image Data</a>
+</li>
+     <li><a href="#MiniTOCBookMark7" >Example 2: Digital Shift by 2, 12-Bit Image Data</a>
+</li>
+     <li><a href="#MiniTOCBookMark8" >Example 3: Digital Shift by 2, 8-Bit Image Data</a>
+</li>
+     <li><a href="#MiniTOCBookMark9" >Example 4: Digital Shift by 1, 12-bit Image Data, High Value</a>
+</li>
+    </ul></li>
+    <li><a href="#MiniTOCBookMark10" >External links</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark11" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>How It Works</h3>
+<p>Configuring a digital shift factor of <em>n</em> results in a <strong>logical 
+ left shift by <em>n</em></strong> on all pixel values. This has the effect 
+ of multiplying all pixel values by 2<sup>n</sup>. </p>
+<p>If the resulting pixel value is greater than the maximum value possible 
+ for the current <a href="pixel_format.htm">pixel format</a> (e.g., 4&#160;095 
+ for a 12-bit pixel format), the value is set to the maximum value.</p>
+<p>For more information, see the <a href="#Examples">examples</a> below.</p>
+<h3><a name="MiniTOCBookMark4"></a>Configuring Digital Shift</h3>
+<p>To configure the digital shift factor, enter the desired value for the 
+ <span class="parameter-name">DigitalShift</span> 
+ parameter.</p>
+<p>By default, the parameter is set to 0, i.e., digital shift is disabled.</p>
+<h3><a name="MiniTOCBookMark5"></a><a name="Examples">Examples</a></h3>
+<h4><a name="MiniTOCBookMark6"></a>Example 1: Digital Shift by 1, 12-Bit Image Data</h4>
+<p>Assume that you have entered a digital shift factor of 1 on a camera 
+ that uses a 12-bit <a href="pixel_format.htm">pixel format</a>. This has 
+ the following effects:</p>
+<p><img src="images/drawing_digital_shift_by_1.png" alt="Digital Shift by 1, 12-Bit Image Data Output" title="Digital Shift by 1, 12-Bit Image Data Output" /></p>
+<ul>
+	<li>The least significant bit in each 12-bit image data word is set 
+	 to 0.</li>
+	<li>The pixel values are multiplied by 2<sup>1</sup>= 2.</li>
+	<li>Because the least significant bit is set to 0, the camera transmits 
+	 only even pixel values, e.g., 2, 4, 6, 8, 10, and so on.</li>
+</ul>
+<h4><a name="MiniTOCBookMark7"></a>Example 2: Digital Shift by 2, 12-Bit Image Data</h4>
+<p>Assume that you have entered a digital shift factor of 2 on a camera 
+ that uses a 12-bit <a href="pixel_format.htm">pixel format</a>. This has 
+ the following effects:</p>
+<p><img src="images/drawing_digital_shift_by_2.png" alt="Digital Shift by 2, 12-Bit Image Data Output" title="Digital Shift by 2, 12-Bit Image Data Output" /></p>
+<ul>
+	<li>The least 2 significant bits in each 12-bit image data word are 
+	 set to 0.</li>
+	<li>The pixel values are multiplied by 2<sup>2</sup>= 4.</li>
+	<li>Because the two least significant bits are set to 0, the camera 
+	 transmits only every fourth pixel value, &#160;e.g., 4, 8, 12, 16, 
+	 20, and so on.</li>
+</ul>
+<h4><a name="MiniTOCBookMark8"></a>Example 3: Digital Shift by 2, 8-Bit Image Data</h4>
+<p>Assume that your camera has a <a href="pixel_format.htm#Maximum_Pixel_Bit_Depth">maximum 
+ pixel bit depth</a> of 12 bit, but is currently using an 8-bit pixel format. 
+ </p>
+<p>In this case, the camera first performs the digital shift calculation 
+ on the 12-bit image data. Then, the camera drops the 4 least significant 
+ bits and transmits the 8 most significant bits:</p>
+<p><img src="images/drawing_digital_shift_by_2_8_bit.png" alt="Digital Shift by 2, 8-Bit Image Data Output" title="Digital Shift by 2, 8-Bit Image Data Output" /></p>
+<h4><a name="MiniTOCBookMark9"></a>Example 4: Digital Shift by 1, 12-bit Image Data, High Value</h4>
+<p>Assume that your camera is using a 12-bit <a href="pixel_format.htm">pixel 
+ format</a>. Also assume that one of your original pixel values is 2&#160;839:</p>
+<p><img src="images/drawing_digital_shift_by_1_high_value_1.png" alt="Digital Shift by 1, 12-bit Image Data Output, Value of 2839" title="Digital Shift by 1, 12-bit Image Data Output, Value of 2839" /></p>
+<p>If you apply digital shift by 1 to this pixel value, the resulting value 
+ is greater than the maximum possible value for 12-bit pixel formats (4096 
+ + 1024 + 512 + 32 + 8 + 4 + 2 = 5678; maximum value for 12-bit formats: 
+ 4&#160;095). In this case, the value is set to the maximum value, i.e., 
+ all bits are set to 1:</p>
+<p><img src="images/drawing_digital_shift_by_1_high_value_2.png" alt="Digital Shift by 1, 12-bit Image Data Output, Resulting Value 4095" title="Digital Shift by 1, 12-bit Image Data Output, Resulting Value 4095" /></p>
+<p class="info">As a consequence, make sure not to apply a digital shift 
+ factor that is too high for your imaging scenario. Otherwise, all bright 
+ areas in your images will be set to white, i.e., image information will 
+ be lost.</p>
+<h3><a name="MiniTOCBookMark10"></a>External links</h3>
+<ul>
+	<li><a href="https://en.wikipedia.org/wiki/Logical_shift">Logical Shift 
+	 (Wikipedia)</a></li>
+</ul>
+<h2 class="sample-code"><a name="MiniTOCBookMark11"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre><code class="cpp">// Disable digital shift
+camera.DigitalShift.SetValue(0);
+// Enable digital shift by 2
+camera.DigitalShift.SetValue(2);</code></pre></div><div class="tab-2 tab-content"><pre><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Disable digital shift
+CIntegerPtr(nodemap.GetNode("DigitalShift"))-&gt;SetValue(0);
+// Enable digital shift by 2
+CIntegerPtr(nodemap.GetNode("DigitalShift"))-&gt;SetValue(2);</code></pre></div><div class="tab-3 tab-content"><pre><code class="csharp" generated="true">// Disable digital shift
+camera.Parameters[PLCamera.DigitalShift].SetValue(0);
+// Enable digital shift by 2
+camera.Parameters[PLCamera.DigitalShift].SetValue(2);</code></pre></div><div class="tab-4 tab-content"><pre><code class="csharp" generated="true">// Disable digital shift
+Pylon.DeviceSetIntegerFeature(hdev, "DigitalShift", 0);
+// Enable digital shift by 2
+Pylon.DeviceSetIntegerFeature(hdev, "DigitalShift", 2);</code></pre></div><div class="tab-5 tab-content"><pre><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+/* Disable digital shift */
+errRes = PylonDeviceSetIntegerFeature(hdev, "DigitalShift", 0);
+CHECK(errRes);
+/* Enable digital shift by 2 */
+errRes = PylonDeviceSetIntegerFeature(hdev, "DigitalShift", 2);
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

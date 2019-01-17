@@ -1,0 +1,454 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="noindex, nofollow" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Network Configuration (ace GigE)</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.3.0_4";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Installation" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"camera_installation.htm\">Installation<\/a>  &gt;  Network Configuration (ace GigE)<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Network Configuration (ace GigE)</h1>
+<p class="teaser">This topic tells you how to configure a <a href="basler_ace_gige.htm">Basler 
+ ace GigE camera</a> in a Windows network.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot43919" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot43919', 'MTPOPUP43919');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP43919" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Prerequisites</a>
+</li>
+   <li><a href="#MiniTOCBookMark3" >Recommended 
+ Network Architectures</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark4" >Peer-to-peer Network Architecture</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >Connecting Via Network Switches</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark6" >Configuring Network Adapters Using the Filter Driver</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark7" >Changing the Network Adapter Connections</a>
+</li>
+    <li><a href="#MiniTOCBookMark8" >Changing the Network Adapter Properties</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark9" >Turning off Windows Firewall</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark10" >Turning off Windows Firewall via Windows Control Panel</a>
+</li>
+    <li><a href="#MiniTOCBookMark11" >Turning off Windows Firewall via Command Prompt</a>
+</li>
+    <li><a href="#MiniTOCBookMark12" >Turning off Windows Firewall via Advanced Security Settings</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark13" >Network Adapter IP Configuration</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark14" >Assigning 
+ a Fixed IP Address</a>
+</li>
+    <li><a href="#MiniTOCBookMark15" >Assigning 
+ an IP Address via DHCP / Auto IP</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark16" >Next Steps</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Prerequisites</h2>
+<p>The pylon Camera Software Suite for Windows must be <a href="software_installation_(windows).htm">installed</a>.</p>
+<h2><a name="MiniTOCBookMark3"></a><a name="Recommended_Network_Architectures" id="Recommended_Network_Architectures">Recommended 
+ Network Architectures</a></h2>
+<p class="info">If you are using your GigE camera in a wireless LAN, also 
+ read the <a href="using_basler_gige_cameras_in_a_wireless_lan.htm">Using 
+ Basler GigE Cameras in a Wireless LAN</a> topic.</p>
+<h3><a name="MiniTOCBookMark4"></a>Peer-to-peer Network Architecture</h3>
+<p>One option is to establish a direct peer-to-peer connection between 
+ your cameras and your host computer.</p>
+<p>The cameras can be connected to individual GigE network adapters or 
+ to a multiport adapter in the host computer.</p>
+<p><img src="images/drawing_network_architecture_p2p.png" alt="Peer-to-peer Network Architecture" title="Peer-to-peer Network Architecture" /></p>
+<ul>
+	<li><strong>Advantage:</strong> Each camera has an individual connection 
+	 to the host computer. Thus, each camera has the full connection bandwidth 
+	 available for transmitting acquired images. This means that you can 
+	 operate each camera at its full acquisition rate.</li>
+	<li><strong>Disadvantage:</strong> The number of cameras that can be 
+	 connected to a single computer is limited.</li>
+</ul>
+<h3><a name="MiniTOCBookMark5"></a>Connecting Via Network Switches</h3>
+<p>As an alternative, you can establish a connection between your cameras 
+ and your host computer via network switches.</p>
+<p>The example below shows a 1-port GigE network adapter connected to a 
+ 4-port network switch. You can also use multiport network adapters or 
+ multiple switches.</p>
+<p><img src="images/drawing_network_architecture_switch.png" alt="Connecting Via Network Switches" title="Connecting Via Network Switches" /></p>
+<ul>
+	<li><strong>Advantage:</strong> Allows you to connect many cameras 
+	 to a single host computer.</li>
+	<li><strong>Advantage:</strong> Allows longer overall cable lengths 
+	 because the cables between devices can each be up to 100 meters long.</li>
+	<li><strong>Disadvantage:</strong> &#160;The switch only has a single 
+	 GigE connection to the computer. The cameras must share the bandwidth 
+	 available on this single path. The bandwidth available on the single 
+	 path is about 125 MByte/s.</li>
+</ul>
+<div class="info">
+	<ul>
+		<li>The switch must be able to handle large packets (known as &quot;jumbo 
+		 packets&quot; or &quot;jumbo frames&quot;). With jumbo frame-capable 
+		 devices, the maximum packet size can be up to 16&#160;kB (earlier 
+		 Ethernet devices: 1.5&#160;kB).<br />
+		Basler GigE cameras and the <a href="hardware_installation_(ace_gige).htm#Recommended_GigE_Network_Adapters">recommended 
+		 network adapters</a> can both handle jumbo frames. For maximum 
+		 network efficiency, your camera should be configured to use the 
+		 largest packet size that your network can handle.</li>
+		<li>When multiple cameras are attached to a switch, the switch 
+		 must have sufficient buffer capacity. This allows the switch to 
+		 hold incoming data from the cameras while it transmits data on 
+		 the single outgoing line.</li>
+	</ul>
+</div>
+<h2><a name="MiniTOCBookMark6"></a>Configuring Network Adapters Using the Filter Driver</h2>
+<p>All network adapters using the <a href="pylon_camera_software_suite.htm#Drivers">pylon 
+ GigE Vision filter driver</a> must be configured before you can use them 
+ with your camera.</p>
+<h3><a name="MiniTOCBookMark7"></a>Changing the Network Adapter Connections</h3>
+<p>For all network adapters using the <a href="pylon_camera_software_suite.htm#Drivers">pylon 
+ GigE Vision filter driver</a>, Basler recommends disabling protocols or 
+ services that may interfere with the pylon driver.</p>
+<p>To disable protocols or services:</p>
+<ol>
+	<li>Open the <strong>Network Connections</strong> window in the Windows 
+	 Control Panel.<br />
+	For quick access, press <span class="gui-text">Windows + R</span>, 
+	 type <span class="gui-text">ncpa.cpl</span>, and press <span class="gui-text">Enter</span>.</li>
+	<li>Right-click the network adapter connection that is used with your 
+	 camera and select <span class="gui-text">Properties</span>.<br />
+	The <span class="gui-text">Properties</span> window opens.</li>
+	<li>Clear all check boxes except the <span class="gui-text">pylon GigE 
+	 Vision Driver</span> and the <span class="gui-text">Internet Protocol 
+	 Version 4 (TCP/IPv4)</span> check boxes:<br />
+	<img src="images/screen_network_properties.png" alt="Network Adapter Properties Window" title="Network Adapter Properties Window" /></li>
+	<li>Repeat steps 2 to 4 for all applicable network adapters.</li>
+</ol>
+<h3><a name="MiniTOCBookMark8"></a>Changing the Network Adapter Properties</h3>
+<p>For all network adapters using the <a href="pylon_camera_software_suite.htm#Drivers">pylon 
+ GigE Vision filter driver</a>, Basler recommends optimizing the adapter 
+ properties.</p>
+<p>To optimize the adapter properties:</p>
+<ol>
+	<li>Open the <strong>Network Connections</strong> window in the Windows 
+	 Control Panel.<br />
+	For quick access, press <span class="gui-text">Windows + R</span>, 
+	 type <span class="gui-text">ncpa.cpl</span>, and press <span class="gui-text">Enter</span>.</li>
+	<li>Right-click the network adapter connection that is used with your 
+	 camera and select <span class="gui-text">Properties</span>.<br />
+	The <span class="gui-text">Properties</span> window opens.</li>
+	<li>Click <span class="gui-text">Configure</span>.<br />
+	The configuration window of the network driver opens.</li>
+	<li>Click <span class="gui-text">Advanced</span>.</li>
+	<li><p>Adjust the following properties:</p>
+	<p class="info">Depending on the network adapter model, the parameter 
+	 names of your network adapter may differ from the ones used below. 
+	 Also, the way to set the parameters may differ, and some parameters 
+	 may not be available.</p>
+	<ol>
+		<li>Set the <span class="gui-text">Jumbo Frames</span> (or <span 
+		 class="gui-text">Jumbo Packets</span>) property to its maximum 
+		 value.<br />
+		If there is no <span class="gui-text">Jumbo Frames</span> property, 
+		 select the parameter that relates to frame size and set it to 
+		 its maximum value.</li>
+		<li>Select the parameter that relates to the number of receive 
+		 descriptors (e.g., <span class="gui-text">Receive Descriptors</span>) 
+		 and set it to its maximum value.</li>
+		<li>Select the parameter that relates to the number of CPU interrupts 
+		 (e.g., <span class="gui-text">Interrupt Moderation Rate</span>) 
+		 and set it to a low value, e.g., 1000.<br />
+		The way to set the number of CPU interrupts may differ for your 
+		 network adapter. You may have to use a separate parameter to enable 
+		 the interrupt moderation.</li>
+		<li>Select the parameter that relates to speed and duplex mode 
+		 (e.g., <span class="gui-text">Speed and Duplex Mode</span>) and 
+		 set it to automatic (e.g., <span class="gui-text">Auto Negotiation</span>).</li>
+	</ol></li>
+	<li>Repeat steps 2 to 5 for all applicable network adapters.</li>
+</ol>
+<h2><a name="MiniTOCBookMark9"></a>Turning off Windows Firewall</h2>
+<p>You do not necessarily need to turn the Windows Firewall off. If you 
+ leave the firewall on, the camera is fully operational, with the following 
+ exceptions:</p>
+<ul>
+	<li>The <a href="event_notification.htm">Event Notification</a> feature 
+	 will not work.</li>
+	<li>Whenever a program addresses a camera for the first time, a Windows 
+	 Security Alert will open asking you to allow incoming requests.</li>
+</ul>
+<p>Therefore, Basler recommends turning the firewall off for the connections 
+ with Basler cameras.</p>
+<h3><a name="MiniTOCBookMark10"></a>Turning off Windows Firewall via Windows Control Panel</h3>
+<p>This option allows you to turn off the firewall for all connections.</p>
+<p>To turn off the firewall via Windows Control Panel:</p>
+<ol>
+	<li>Open the <strong>Windows Firewall</strong> window in the Windows 
+	 Control Panel.<br />
+	For quick access, press <span class="gui-text">Windows + R</span>, 
+	 type <span class="gui-text">firewall.cpl</span>, and press <span class="gui-text">Enter</span>.</li>
+	<li>In the left pane, click <span class="gui-text">Turn Windows Firewall 
+	 on or off</span>.<br />
+	The <span class="gui-text">Customize Settings</span> window opens.</li>
+	<li>In the <span class="gui-text">Customize Settings</span> window, 
+	 find the network location section where you want to turn off firewall 
+	 protection.<br />
+	Typically, this will be the <span class="gui-text">Public network location 
+	 settings</span> section. However, if you use a dedicated network card, 
+	 Basler recommends also disabling firewall protection for the other 
+	 network locations.</li>
+	<li>In the desired sections,&#160;click <span class="gui-text">Turn 
+	 off Windows Firewall (not recommended)</span>.<br />
+	<img src="images/screen_windows_firewall.png" alt="Windows Firewall Settings" title="Windows Firewall Settings" /></li>
+</ol>
+<h3><a name="MiniTOCBookMark11"></a>Turning off Windows Firewall via Command Prompt</h3>
+<p>This option allows you to turn off the firewall for all connections.</p>
+<p>To turn off the firewall via command prompt:</p>
+<ol>
+	<li>Press <span class="gui-text">Windows + R</span>.</li>
+	<li>In the <span class="gui-text">Run</span> window, make sure that 
+	 the message <span class="gui-text">This task will be created with 
+	 administrative privileges</span> is displayed.<br />
+	<img src="images/screen_run_command.png" alt="Windows Run Dialog" title="Windows Run Dialog" /></li>
+	<li>Press <span class="gui-text">Enter</span>.<br />
+	The command prompt window opens.</li>
+	<li>Type <span class="gui-text">netsh advfirewall set allprofiles state 
+	 off</span>.</li>
+	<li>Press <span class="gui-text">Enter</span>.</li>
+</ol>
+<p>The firewall is turned off for all profiles. It is not possible to use 
+ netsh to turn off the firewall for selected connections only.</p>
+<h3><a name="MiniTOCBookMark12"></a>Turning off Windows Firewall via Advanced Security Settings</h3>
+<p>This option allows you to turn off the firewall for selected connections.</p>
+<p>To turn off the firewall on <strong>selected network adapters</strong>:</p>
+<ol>
+	<li>Press <span class="gui-text">Windows + R</span>, type <span class="gui-text">wf.msc</span>, 
+	 and press the <span class="gui-text">Enter</span> key.<br />
+	The <strong>Windows Firewall with Advanced Security</strong> window 
+	 opens.</li>
+	<li>Click <span class="gui-text">Windows Firewall Properties</span>.<br />
+	<img src="images/screen_windows_firewall_advanced.png" alt="Windows Firewall with Advanced Security Window" title="Windows Firewall with Advanced Security Window" /><br />
+	The <span class="gui-text">Windows Firewall with Advanced Security 
+	 on Local Computer Properties...</span> window opens.</li>
+	<li>Click the tab of the profile where you want to turn off firewall 
+	 protection.<br />
+	Typically, this will be the <span class="gui-text">Public Profile</span> 
+	 tab. However, if you use a dedicated network card, Basler recommends 
+	 also disabling firewall protection for the other profiles.</li>
+	<li>Click <span class="gui-text">Customize</span>.<br />
+	<img src="images/screen_windows_firewall_advanced_2.png" alt="Windows Firewall with Advanced Security Settings" title="Windows Firewall with Advanced Security Settings" /><br />
+	The <span class="gui-text">Protected Network Connections for the Public 
+	 Profile</span> window opens. The window lists connections where the 
+	 firewall is turned on.<br />
+	<img src="images/screen_windows_firewall_advanced_3.png" alt="Protected Network Connections Window" title="Protected Network Connections Window" /></li>
+	<li>Clear the connections where cameras are attached. This turns off 
+	 their firewall protection.</li>
+	<li>Repeat steps 3 to 5 for all profiles where you want to turn off 
+	 firewall protection.</li>
+</ol>
+<h2><a name="MiniTOCBookMark13"></a>Network Adapter IP Configuration</h2>
+<p>These are the two most common ways to configure the IP addresses of 
+ network adapters:</p>
+<ul>
+	<li>Assigning a <span><a href="#Assigning_a_Fixed_IP_Address">fixed</a></span> 
+	 (also &quot;static&quot; or &quot;persistent&quot;) address</li>
+	<li>Configuring <span><a href="#Assigning_an_IP_Address_via_DHCP___Auto_IP_to_a_Network_Adapter">automatic</a></span> 
+	 addressing via DHCP (Dynamic Host Configuration Protocol) or Auto 
+	 IP (Automatic Private IP Addressing, based on link-local addresses 
+	 (LLA)).</li>
+</ul>
+<h3><a name="MiniTOCBookMark14"></a><a name="Assigning_a_Fixed_IP_Address" id="Assigning_a_Fixed_IP_Address">Assigning 
+ a Fixed IP Address</a></h3>
+<p>To assign a fixed IP address to a network adapter:</p>
+<ol>
+	<li>Open the <strong>Network Connections</strong> window in the Windows 
+	 Control Panel.<br />
+	For quick access, press <span class="gui-text">Windows + R</span>, 
+	 type <span class="gui-text">ncpa.cpl</span>, and press <span class="gui-text">Enter</span>.</li>
+	<li>Right-click the network adapter connection that is used with your 
+	 camera and select <span class="gui-text">Properties</span>.<br />
+	The <span class="gui-text">Properties</span> window opens.</li>
+	<li>Double-click <span class="gui-text">Internet Protocol Version 4 
+	 (TCP/IPv4)</span>.<br />
+	The <span class="gui-text">Internet Protocol Version 4 (TCP/IPv4) Properties</span> 
+	 window opens.</li>
+	<li>Click <span class="gui-text">Use the following IP address</span>.</li>
+	<li>In the <span class="gui-text">IP address</span>, <span class="gui-text">Subnet 
+	 mask</span>, and <span class="gui-text">Default gateway</span> <span 
+	 class="gui-text">fields</span>, type the IP address, subnet mask, 
+	 and default gateway addresses.</li>
+	<li>In the <span class="gui-text">Preferred DNS server</span> and <span 
+	 class="gui-text">Alternate DNS server</span> <span class="gui-text">fields</span>, 
+	 type the primary and secondary DNS server addresses. (Normally, a 
+	 domain name server is not needed.)<br />
+	<img src="images/screen_ip_properties.png" alt="Internet Protocol Version 4 Properties" title="Internet Protocol Version 4 Properties" /></li>
+	<li>Repeat steps 2 to 6 for all applicable network adapters.</li>
+</ol>
+<div class="info">
+	<ul>
+		<li>During camera design-in, you can use the following settings 
+		 to establish a network connection very quickly: 
+		<ul>
+			<li>Configure a fixed address for your network adapter in the 
+			 automatic IP address range (169.254.0.1 to 169.254.255.254) 
+			 with a subnet mask of 255.255.0.0.</li>
+			<li>Configure Auto IP address assignment for your cameras.</li>
+		</ul></li>
+		<li>If your computer has multiple network adapters, each adapter 
+		 must be in a different subnet.</li>
+		<li>The recommended range for fixed IP addresses is from 172.16.0.1 
+		 to 172.32.255.254 with a subnet mask of 255.255.0.0 and from 192.168.0.1 
+		 to 192.168.255.254 with a subnet mask of 255.255.255.0. These 
+		 address ranges have been reserved for private use according to 
+		 IP standards.</li>
+		<li>If you are assigning fixed IP addresses to your cameras, keep 
+		 in mind that for a camera to communicate properly with a network 
+		 adapter, it must be in the same subnet as the adapter to which 
+		 it is attached.</li>
+	</ul>
+</div>
+<h3><a name="MiniTOCBookMark15"></a><a name="Assigning_an_IP_Address_via_DHCP___Auto_IP_to_a_Network_Adapter" 
+		 id="Assigning_an_IP_Address_via_DHCP___Auto_IP_to_a_Network_Adapter">Assigning 
+ an IP Address via DHCP / Auto IP</a></h3>
+<p>When an adapter is configured to receive its IP address via DHCP / Auto 
+ IP, it operates as follows:</p>
+<ul>
+	<li>The adapter tries to obtain an IP address from a DHCP server. If 
+	 a DHCP server is available, it receives an IP address from the server 
+	 and uses it.</li>
+	<li>If no DHCP server is available, the adapter uses the Auto IP routine 
+	 to assign itself an IP address.</li>
+</ul>
+<p>The default setting for most network adapters is DHCP / Auto IP. In 
+ most cases, the adapter used with your cameras will not have a DHCP server 
+ available. So with the default settings, the adapter will end up using 
+ automatic IP addressing to assign itself an IP address.</p>
+<div class="info">
+	<p>Only one adapter can be set to use Auto IP. If DHCP / Auto IP is 
+	 configured on more than one adapter, the Auto IP assignment will not 
+	 work correctly and the cameras will not be able to connect to the 
+	 network via Auto IP.</p>
+	<p>If you have multiple network adapters in your computer, Basler recommends 
+	 installing a DHCP server in your network or assigning static IP addresses 
+	 to the adapters and to the cameras.</p>
+</div>
+<p>To assign an IP address using DHCP / Auto IP:</p>
+<ol>
+	<li>Open the <strong>Network Connections</strong> window in the Windows 
+	 Control Panel.<br />
+	For quick access, press <span class="gui-text">Windows + R</span>, 
+	 type <span class="gui-text">ncpa.cpl</span>, and press <span class="gui-text">Enter</span>.</li>
+	<li>Right-click the network adapter connection that is used with your 
+	 camera and select <span class="gui-text">Properties</span>.<br />
+	The <span class="gui-text">Properties</span> window opens.</li>
+	<li>Double-click <span class="gui-text">Internet Protocol Version 4 
+	 (TCP/IPv4)</span>.<br />
+	The <span class="gui-text">Internet Protocol Version 4 (TCP/IPv4) Properties</span> 
+	 window opens.</li>
+	<li>Make sure that <span class="gui-text">Obtain an IP address automatically</span> 
+	 is selected.<br />
+	This makes the adapter check for a DHCP server as its first choice.</li>
+	<li>Click on the <span class="gui-text">Alternate Configuration</span> 
+	 tab.<br />
+	The settings on this tab are used to configure the Auto IP address 
+	 assignment that the adapter will use if no DHCP server is found.</li>
+	<li>Make sure that <span class="gui-text">Automatic private IP address</span> 
+	 is selected.<br />
+	<img src="images/screen_ip_properties_2.png" alt="Internet Protocol Version 4 Properties (Alternate Configuration)" title="Internet Protocol Version 4 Properties (Alternate Configuration)" /></li>
+</ol>
+<h2><a name="MiniTOCBookMark16"></a>Next Steps</h2>
+<ul>
+	<li>Use the <a href="overview_of_the_pylon_ip_configurator.htm">pylon 
+	 IP Configurator</a> to <a href="assigning_an_ip_address_to_a_camera.htm">assign 
+	 an IP address</a> to your camera.</li>
+	<li>If you are using your GigE camera in a wireless LAN, read the <a href="using_basler_gige_cameras_in_a_wireless_lan.htm">Using Basler 
+	 GigE Cameras in a Wireless LAN</a> topic.</li>
+	<li>Use the <a href="overview_of_the_pylon_viewer.htm">pylon Viewer</a> 
+	 to check whether your camera has been detected, acquire images, display 
+	 images, and adjust parameter settings to improve image quality.</li>
+</ul>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

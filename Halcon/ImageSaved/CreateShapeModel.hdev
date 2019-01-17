@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="959343490">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image (Image9, 'C:/Users/GPAP/Desktop/9.jpg')</l>
+<l>dev_close_window()</l>
+<l>dev_open_window_fit_image(Image9, 0, 0, -1, -1, WindowHandle)</l>
+<l>dev_display(Image9)</l>
+<l>draw_rectangle1(WindowHandle, Row1, Column1, Row2, Column2)</l>
+<l>scale_image_range(Image9, ImageScaled, 40, 70)</l>
+<l>gen_rectangle1(Rectangle, Row1, Column1, Row2, Column2)</l>
+<l>reduce_domain(Image9, Rectangle, ImageReduced)</l>
+<l>inspect_shape_model(ImageReduced, ModelImages, ModelRegions, 4, 30)</l>
+<l>select_obj (ModelImages, FirstImageObj, 1)</l>
+<l>threshold (FirstImageObj, Regions, 126, 255)</l>
+<l>gen_contour_region_xld(Regions, Contours, 'border')</l>
+<l>edges_sub_pix(FirstImageObj, Edges, 'canny', 1, 20, 40)</l>
+<l>create_shape_model_xld(Edges, 'auto', -0.39, 0.79, 'auto', 'auto', 'ignore_local_polarity', 5, ModelID)</l>
+<c></c>
+<l>*create_shape_model(ImageReduced, 'auto', -0.5, 0.5, 'auto', 'auto', 'use_polarity', 'auto', 'auto', ModelID)</l>
+<c></c>
+<l>write_shape_model(ModelID,'C:/Users/GPAP/Desktop/2.shm')</l>
+<c></c>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

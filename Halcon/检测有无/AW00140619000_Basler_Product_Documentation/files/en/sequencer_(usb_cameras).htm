@@ -1,0 +1,1394 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Sequencer (USB Cameras)</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_71";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Sequencer (USB Cameras)<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Sequencer (USB Cameras)</h1>
+<p class="teaser">The Sequencer (USB Cameras) 
+ <a href="features.htm">camera feature</a> allows you to define up to 32 
+ sets of parameter settings, called sequencer sets, and apply them to a 
+ sequence of image acquisitions.</p>
+<p>As the camera acquires images, it applies one sequencer set after the 
+ other. This enables you to quickly change camera parameters without compromising 
+ the maximum frame rate.</p>
+<p>For example, you can use the Sequencer feature to quickly change between 
+ preconfigured <a href="image_roi.htm">image ROIs</a> or <a href="exposure_time.htm">exposure 
+ times</a>.</p>
+<p>For a description of the Sequencer feature for GigE cameras, click <a href="sequencer_(gige_cameras).htm">here</a>.</p>
+<div class="mini-toc">
+	<p align="left" style="font-weight: normal;font-style: normal;text-decoration: none;" >In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot13484" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot13484', 'MTPOPUP13484');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP13484" >
+  <ul style="text-align:left; font-weight: normal;font-style: normal;text-decoration: none;"  >
+   <li><a href="#MiniTOCBookMark2" style="font-weight: normal;font-style: normal;text-decoration: none;">Using the Feature</a>
+   <ul style="font-weight: normal;font-style: normal;text-decoration: none;"  >
+    <li><a href="#MiniTOCBookMark3" style="font-weight: normal;font-style: normal;text-decoration: none;">Prerequisites</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" style="font-weight: normal;font-style: normal;text-decoration: none;">Sequencer Modes</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" style="font-weight: normal;font-style: normal;text-decoration: none;">What's in a Sequencer Set?</a>
+</li>
+    <li><a href="#MiniTOCBookMark6" style="font-weight: normal;font-style: normal;text-decoration: none;">Configuring Sequencer Sets</a>
+    <ul style="font-weight: normal;font-style: normal;text-decoration: none;"  >
+     <li><a href="#MiniTOCBookMark7" style="font-weight: normal;font-style: normal;text-decoration: none;">Saving a Sequencer Set</a>
+</li>
+     <li><a href="#MiniTOCBookMark8" style="font-weight: normal;font-style: normal;text-decoration: none;">Loading a Sequencer Set</a>
+</li>
+    </ul></li>
+    <li><a href="#MiniTOCBookMark9" style="font-weight: normal;font-style: normal;text-decoration: none;">Configuring the Sequencer</a>
+    <ul style="font-weight: normal;font-style: normal;text-decoration: none;"  >
+     <li><a href="#MiniTOCBookMark10" style="font-weight: normal;font-style: normal;text-decoration: none;">Path 0 and Path 1</a>
+</li>
+     <li><a href="#MiniTOCBookMark11" style="font-weight: normal;font-style: normal;text-decoration: none;">Setting up Path 0</a>
+</li>
+     <li><a href="#MiniTOCBookMark12" style="font-weight: normal;font-style: normal;text-decoration: none;">Setting up Path 1</a>
+</li>
+     <li><a href="#MiniTOCBookMark13" style="font-weight: normal;font-style: normal;text-decoration: none;">Using a Counter 
+ to Control the Sequencer</a>
+</li>
+     <li><a href="#MiniTOCBookMark14" style="font-weight: normal;font-style: normal;text-decoration: none;">Additional Parameters</a>
+</li>
+    </ul></li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark15" style="font-weight: normal;font-style: normal;text-decoration: none;">Specifics</a>
+</li>
+   <li><a href="#MiniTOCBookMark16" style="font-weight: normal;font-style: normal;text-decoration: none;">Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>Prerequisites</h3>
+<p>All <a href="auto_functions.htm">auto functions</a> (e.g., <a href="gain_auto.htm">Gain 
+ Auto</a>, <a href="exposure_auto.htm">Exposure Auto</a>) must be set to 
+ <span class="parameter-name">Off</span>.</p>
+<h3><a name="MiniTOCBookMark4"></a><a name="Sequencer_Modes">Sequencer Modes</a></h3>
+<ul>
+	<li>In <strong>sequencer mode</strong>, the sequencer controls image 
+	 acquisition. &#160;It can't be configured in this state.</li>
+	<li>In <strong>sequencer configuration mode</strong>, the sequencer 
+	 can be configured but is not controlling image acquisitions.</li>
+</ul>
+<p>To enable the sequencer mode, set the <span class="parameter-name">SequencerMode</span> 
+ parameter to <span class="parameter-name">On</span>.</p>
+<p>To enable the sequencer configuration mode, set the <span class="parameter-name">SequencerMode</span> 
+ parameter to <span class="parameter-name">Off</span> 
+ and the <span class="parameter-name rh-hide" data-rhtags="48">SequenceConfigurationMode</span><span class="parameter-name rh-hide" data-rhtags="49">SequencerConfigurationMode</span> 
+ parameter to <span class="parameter-name rh-hide" data-rhtags="48">On</span><span class="parameter-name rh-hide" data-rhtags="49">On</span>.</p>
+<h3><a name="MiniTOCBookMark5"></a><a name="What_s_in_a_Sequencer_Set_">What's in a Sequencer Set?</a></h3>
+<p>Sequencer sets contain the following parameters, if available:</p>
+<table class="borderless-table">
+	<col style="width: 50%;" />
+	<col style="width: 50%;" />
+	<tr>
+		<td><p><span class="parameter-name">AcquisitionFrameRate</span></p>
+		<p><span class="parameter-name">AcquisitionFrameRateEnable</span></p>
+		<p><span class="parameter-name">BalanceRatio</span></p>
+		<p><span class="parameter-name">BinningHorizontal</span></p>
+		<p><span class="parameter-name">BinningVertical</span></p>
+		<p><span class="parameter-name">BlackLevel</span></p>
+		<p><span class="parameter-name">CenterX</span></p>
+		<p><span class="parameter-name">CenterY</span></p>
+		<p><span class="parameter-name">ChunkEnable</span></p>
+		<p><span class="parameter-name">ChunkModeActive</span></p>
+		<p><span class="parameter-name">ColorAdjustmentHue</span></p>
+		<p><span class="parameter-name">ColorAdjustmentSaturation</span></p>
+		<p><span class="parameter-name">ColorTransformationValue</span></p>
+		<p><span class="parameter-name">CounterDuration </span>(for Counter 
+		 2)</p>
+		<p><span class="parameter-name">CounterEventSource</span></p>
+		<p><span class="parameter-name">CounterResetSource</span></p>
+		<p><span class="parameter-name"><span class="parameter-name">D</span>igitalShift</span></p>
+		<p><span class="parameter-name">ExposureTime</span></p>
+		<p><span class="parameter-name">Gain</span></p></td>
+		<td><p><span class="parameter-name">Height</span></p>
+		<p><span class="parameter-name">LUTEnable</span><sup>a</sup></p>
+		<p><span class="parameter-name">OffsetX</span></p>
+		<p><span class="parameter-name">OffsetY</span></p>
+		<p><span class="parameter-name">PixelFormat</span></p>
+		<p><span class="parameter-name">ReverseX</span></p>
+		<p><span class="parameter-name">ReverseY</span></p>
+		<p><span class="parameter-name">ScalingHorizontal</span></p>
+		<p><span class="parameter-name">SequencerSetNext</span></p>
+		<p><span class="parameter-name">SequencerSetPath</span></p>
+		<p><span class="parameter-name">SequencerSetSelector</span></p>
+		<p><span class="parameter-name">SequencerSetStart</span></p>
+		<p><span class="parameter-name">SequencerTriggerActivation</span></p>
+		<p><span class="parameter-name">SequencerTriggerSource</span></p>
+		<p><span class="parameter-name">TestImageSelector</span></p>
+		<p><span class="parameter-name">TimerDelay (for Timer 1)</span></p>
+		<p><span class="parameter-name">TimerDuration (for Timer 1)</span></p>
+		<p><span class="parameter-name">Width</span></p></td>
+	</tr>
+</table>
+<p class="table-footnote"><sup>a</sup>Only contained if the <span class="parameter-name">Gamma 
+ </span>parameter is set to <span class="parameter-name">1.0 </span>and 
+ the <span class="parameter-name">LightSourcePreset</span> parameter is 
+ set to <span class="parameter-name">Off</span>.</p>
+<p>All other camera parameters <strong>can't</strong> be controlled using 
+ the Sequencer feature.</p>
+<p class="info"><a href="#Loading_a_Sequencer_Set">Loading</a> or <a href="#Saving_a_Sequencer_Set">saving</a> 
+ a sequencer set will always load or save <strong>all</strong> of the above 
+ parameters, even those you haven't changed. For example, if you only changed 
+ the exposure time and left all other parameters at their default values, 
+ the values of all other parameters will also be stored (and overwritten 
+ on load).</p>
+<h3><a name="MiniTOCBookMark6"></a><a name="Configuring_Sequencer_Sets">Configuring Sequencer Sets</a></h3>
+<div class="info">
+	<ul>
+		<li>To configure sequencer sets, the sequencer must be in<a href="#Sequencer_Modes"> 
+		 configuration mode</a>.</li>
+		<li>All changes made to sequencer sets are <strong>lost</strong> 
+		 when the camera is disconnected from power. Also, sequencer settings 
+		 can't be saved in a <a href="user_sets.htm">user set</a>. In order 
+		 to preserve your settings, Basler recommends that you write suitable 
+		 program code using the pylon API to re-populate the sequence sets 
+		 every time the camera is powered on.</li>
+	</ul>
+</div>
+<p>Before you can use the Sequencer feature, you must populate the sequencer 
+ sets with your desired settings. Each sequencer set has a unique sequencer 
+ set index number, ranging from 0 to 31.</p>
+<p>To populate the sequencer sets:</p>
+<ol>
+	<li>Configure the <a href="#What_s_in_a_Sequencer_Set_">sequencer set 
+	 parameters</a> that you want to store in sequencer set 0.</li>
+	<li><a href="#Saving_a_Sequencer_Set">Save</a> sequencer set 0.</li>
+	<li>Repeat steps 1 and 2 for all sequencer sets you want to use.<br />
+	Make sure to always use a continuous series of index numbers starting 
+	 with index number 0, e.g., use sequencer sets 0, 1, 2, and 3.</li>
+</ol>
+<p><strong>Example:</strong> Assume you need two sequencer sets and want 
+ to populate them with different <a href="image_roi.htm">image ROI</a> 
+ settings. To do so:</p>
+<ol>
+	<li>Create the first image ROI by adjusting the <span class="parameter-name">Width</span>, 
+	 <span class="parameter-name">Height</span>, 
+	 <span class="parameter-name">OffsetX</span>, 
+	 and <span class="parameter-name">OffsetY</span> 
+	 parameter values. </li>
+	<li><a href="#Saving_a_Sequencer_Set">Save sequencer set</a> 0. </li>
+	<li>Create the second image ROI by choosing different values for the 
+	 <span class="parameter-name">Width</span>, 
+	 <span class="parameter-name">Height</span>, 
+	 <span class="parameter-name">OffsetX</span>, 
+	 and <span class="parameter-name">OffsetY</span> 
+	 parameters.</li>
+	<li><a href="#Saving_a_Sequencer_Set">Save sequencer set</a> 1.</li>
+</ol>
+<p>You can now <a href="#Configuring_the_Sequencer">configure the sequencer</a> 
+ to quickly change between the two image ROIs.</p>
+<h4><a name="MiniTOCBookMark7"></a><a name="Saving_a_Sequencer_Set">Saving a Sequencer Set</a></h4>
+<p>To save a sequencer set:</p>
+<ol>
+	<li>Set the <span class="parameter-name">SequencerSetSelector</span> 
+	 parameter to the desired sequencer set.</li>
+	<li>Execute the <span class="parameter-name">SequencerSetSave</span> 
+	 command.</li>
+</ol>
+<p>The values of all <a href="#What_s_in_a_Sequencer_Set_">sequencer set 
+ parameters</a> are stored in the selected sequencer set.</p>
+<h4><a name="MiniTOCBookMark8"></a><a name="Loading_a_Sequencer_Set">Loading a Sequencer Set</a></h4>
+<p>Sequencer sets are loaded automatically during sequencer operation. 
+ However, loading a sequencer set manually can be useful for testing purposes 
+ or to set up the sequencer. </p>
+<p>To manually load a sequencer set: </p>
+<ol>
+	<li>Set the <span class="parameter-name">SequencerSetSelector</span> 
+	 parameter to the desired sequencer set.</li>
+	<li>Execute the <span class="parameter-name">SequencerSetLoad</span> 
+	 command. </li>
+</ol>
+<p>The values of all <a href="#What_s_in_a_Sequencer_Set_">sequencer set 
+ parameters</a> are overwritten and replaced by the values stored in the 
+ selected sequencer set.</p>
+<h3><a name="MiniTOCBookMark9"></a><a name="Configuring_the_Sequencer">Configuring the Sequencer</a></h3>
+<p>After you have <a href="#Configuring_Sequencer_Sets">configured</a> 
+ the sequencer sets, you must set up the sequencer.</p>
+<div class="info">
+	<ul>
+		<li>To configure the sequencer, the sequencer must be in<a href="#Sequencer_Modes"> 
+		 configuration mode</a>.</li>
+		<li>All changes made to the sequencer configuration are <strong>lost</strong> 
+		 when the camera is disconnected from power. Also, sequencer settings 
+		 can't be saved in a <a href="user_sets.htm">user set</a>. Basler 
+		 recommends that you write suitable program code using the pylon 
+		 API to reconfigure the camera every time it is powered on.</li>
+		<li>You can use the <a href="data_chunks.htm">SequencerSetActive 
+		 chunk</a> to keep track of the sequencer sets used. When enabled, 
+		 each image contains chunk data including the index number of the 
+		 sequencer set used for image acquisition.</li>
+	</ul>
+</div>
+<h4><a name="MiniTOCBookMark10"></a>Path 0 and Path 1</h4>
+<p>To control the sequencer, you must set up two so-called &quot;paths&quot;:</p>
+<ul>
+	<li><strong>Path 1</strong> allows you to cycle through available sequencer 
+	 sets (sequencer set <strong>advance</strong>). Whenever the sequencer 
+	 receives a &quot;path 1&quot; trigger signal, the sequencer <span>advances</span> 
+	 to the next set. <br />
+	<strong>Example:</strong><br />
+	<img src="images/drawing_sequencer_usb_path1.png" alt="Sample Sequence Cycle for Path 1: 0-1-2-3-4-0-1-..." title="Sample Sequence Cycle: 0-1-2-3-4-0-1-..." /></li>
+	<li><strong>Path 0</strong> allows you to reset the cycle (sequencer 
+	 set <strong>reset</strong>). Whenever the sequencer receives a &quot;path 
+	 0&quot; trigger signal, the sequencer restarts the cycle at sequencer 
+	 set 0. <br />
+	<strong>Example:</strong> <br />
+	<img src="images/drawing_sequencer_usb_path0.png" alt="Sample Sequence Cycle for Path 0: 0-1-2-0-1-2-..." title="Sample Sequence Cycle for Path 0: 0-1-2-0-1-2-..." /></li>
+</ul>
+<h4><a name="MiniTOCBookMark11"></a>Setting up Path 0</h4>
+<p>To set up path 0, you must specify the <strong>source signal</strong> 
+ that should be used as a &quot;path 0&quot; trigger signal, i.e., as a 
+ sequencer set reset signal.</p>
+<p>You can select hardware signals or software signals as source signals 
+ for path 0. The source setting must be stored in sequencer set 0.</p>
+<p>To specify the source signal for path 0:</p>
+<ol>
+	<li><a href="#Loading_a_Sequencer_Set">Load</a> sequencer set 0.</li>
+	<li>Set the <span class="parameter-name">SequencerPathSelector</span> 
+	 parameter to 0.</li>
+	<li>Set the <span class="parameter-name">SequencerTriggerSource</span> 
+	 parameter to one of the following values:</li>
+	<ul>
+		<li><span class="parameter-name">Line1</span>, 
+		 <span class="parameter-name">Line3</span>, 
+		 or <span class="parameter-name">Line4</span>: 
+		 Sequencer set reset can be controlled via input line&#160;1, GPIO 
+		 line 3, or GPIO line 4. </li>
+		<li><span class="parameter-name">SoftwareSignal1</span>, 
+		 <span class="parameter-name">SoftwareSignal2</span>, 
+		 or <span class="parameter-name">SoftwareSignal3</span>: 
+		 Sequencer set reset can be controlled using the <a href="software_signal_pulse.htm">Software 
+		 Signal Pulse</a> feature.</li>
+	</ul>
+	<li><a href="#Saving_a_Sequencer_Set">Save</a> sequencer set 0.</li>
+</ol>
+<div class="info">
+	<ul>
+		<li>For real-time applications, Basler strongly recommends <strong>not</strong> 
+		 to control sequencer set reset via software commands. Due to signal 
+		 processing and transmission, there is an unspecified delay between 
+		 issuing the software command and sequencer set reset. Accordingly, 
+		 the number of image acquisitions that may occur between sending 
+		 the software command and it becoming effective can’t be predicted.</li>
+		<li>Do not use the same trigger source for path 0 and path 1.</li>
+	</ul>
+</div>
+<h4><a name="MiniTOCBookMark12"></a>Setting up Path 1</h4>
+<p class="subheading"><a name="Specifying_the_Trigger_Source">Specifying 
+ the Trigger Source</a></p>
+<p>First, you must specify the <strong>source signal</strong> that should 
+ be used as &quot;path 1&quot; trigger signal, i.e., as a sequencer set 
+ advance signal.</p>
+<p>You can select the Frame Start trigger signal, hardware signals, software 
+ signals, or a counter as source signals for path 1.&#160;The source setting 
+ must be stored in sequencer set 0.</p>
+<p>To specify the source signal for path 1:</p>
+<ol>
+	<li><a href="#Loading_a_Sequencer_Set">Load</a> sequencer set 0.</li>
+	<li>Set the <span class="parameter-name">SequencerPathSelector</span> 
+	 parameter to 1.</li>
+	<li>Set the <span class="parameter-name">SequencerTriggerSource</span> 
+	 parameter to one of the following values:</li>
+	<ul>
+		<li><span class="parameter-name">FrameStart</span>: 
+		 Sequencer set advance occurs automatically as <a href="trigger_selector.htm#Frame_Start_Trigger">Frame 
+		 Start trigger</a> signals are received.</li>
+		<li><span class="parameter-name">Line1</span>, 
+		 <span class="parameter-name">Line3</span>, 
+		 or <span class="parameter-name">Line4</span>: 
+		 &#160;Sequencer set advance can be controlled via input line&#160;1, 
+		 GPIO line 3, or GPIO line 4. To use one of the GPIO lines, the 
+		 line must be configured for input. If the specified line is low 
+		 (0) while a <a href="trigger_selector.htm#Frame_Start_Trigger">Frame 
+		 Start trigger</a> signal is received, the sequencer does not advance, 
+		 and the current set is used again for image acquisition. If the 
+		 line is high (1) while a Frame Start trigger signal is received, 
+		 the sequencer advances, and the next sequencer set in the cycle 
+		 is used for image acquisition.</li>
+		<li><span class="parameter-name">SoftwareSignal1</span>, 
+		 <span class="parameter-name">SoftwareSignal2</span>, 
+		 or <span class="parameter-name">SoftwareSignal3</span>: 
+		 Sequencer set advance can be controlled using the <a href="software_signal_pulse.htm">Software 
+		 Signal Pulse</a> feature.</li>
+		<li><span class="parameter-name">Counter2End</span>: 
+		 Sequencer set advance can be controlled <a href="#Using_a_Counter_to_Control_the_Sequencer">using 
+		 a counter</a>.</li>
+	</ul>
+	<li><a href="#Saving_a_Sequencer_Set">Save</a> sequencer set 0.</li>
+</ol>
+<p class="subheading">Specifying the Sequencer Sets Used</p>
+<p>Second, you must specify which <strong>sequencer sets</strong> should 
+ be used during sequencer operation.</p>
+<p>By default, all 32 sequencer sets are used. As &quot;path 1&quot; trigger 
+ signals are received, the sequencer advances in ascending sequencer set 
+ index numbers from 0 to 31. After that, the cycle restarts at 0.</p>
+<p>To use a lower number of sequencer sets:</p>
+<ol>
+	<li><a href="#Loading_a_Sequencer_Set">Load</a> the sequencer set with 
+	 the highest index number to be used.<br />
+	<strong>Example:</strong> Assume you have <a href="#Configuring_Sequencer_Sets">configured</a> 
+	 five sequencer sets, and you want to set up the following cycle:<br />
+	<img src="images/drawing_sequencer_usb_path1.png" alt="Sample Sequence Cycle for Path 1: 0-1-2-3-4-0-1-..." title="Sample Sequence Cycle for Path 1: 0-1-2-3-4-0-1-..." /><br />
+	In this cycle, the highest sequencer set index number is 4. Therefore, 
+	 load sequencer set 4.</li>
+	<li>Set the <span class="parameter-name">SequencerPathSelector</span> 
+	 parameter to 1.</li>
+	<li>Set the <span class="parameter-name">SequencerSetNext</span> 
+	 parameter to 0.</li>
+	<li><a href="#Saving_a_Sequencer_Set">Save</a> the sequencer set.</li>
+</ol>
+<p>During operation, the sequencer will now switch to sequencer set 0 after 
+ the set with the highest index number. This &quot;closes the circle&quot;.</p>
+<div class="info">
+	<ul>
+		<li>For real-time applications, Basler strongly recommends <strong>not</strong> 
+		 to control sequencer set advance via software commands. Due to 
+		 signal processing and transmission, there is an unspecified delay 
+		 between issuing the software command and sequencer set advance. 
+		 Accordingly, the number of image acquisitions that may occur between 
+		 sending the software command and it becoming effective can’t be 
+		 predicted.</li>
+		<li>Do not use the same trigger source for path 0 and path 1.</li>
+	</ul>
+</div>
+<h4><a name="MiniTOCBookMark13"></a><a name="Using_a_Counter_to_Control_the_Sequencer">Using a Counter 
+ to Control the Sequencer</a></h4>
+<p>If you <a href="#Specifying_the_Trigger_Source">set the source signal 
+ for path 1</a> to <span class="parameter-name">Counter2End</span>, 
+ you can use a counter to control sequencer set advance.</p>
+<p>This is useful if you want to set up a <strong>fixed</strong> sequence 
+ that uses sequencer sets <strong>multiple times in a row</strong>.</p>
+<p>For each sequencer set, you can set the <span class="parameter-name">CounterDuration</span> 
+ parameter to specify how many times the set should be used in a row. By 
+ default, the parameter is set to 1 for all sets, and each sequence set 
+ is used once per cycle.</p>
+<p><strong>Example:</strong> Assume you want to set up the following sequencer 
+ set cycle:</p>
+<p><img src="images/drawing_sequencer_auto_sequence_example_2.png" alt="Sample Sequencer Cycle: 0-1-1-1-2-3-4-5-5-0-1-..." title="Sample Sequencer Cycle: 0-1-1-1-2-3-4-5-5-0-1-..." /></p>
+<p>To set up the above sequencer set cycle:</p>
+<ol>
+	<li><a href="#Loading_a_Sequencer_Set">Load</a> sequencer set 0.</li>
+	<li>Set the <span class="parameter-name">SequencerPathSelector</span> 
+	 parameter to 1.</li>
+	<li>Set the <span class="parameter-name">SequencerTriggerSource</span> 
+	 parameter to <span class="parameter-name">Counter2End</span>.</li>
+	<li><a href="#Saving_a_Sequencer_Set">Save</a> sequencer set 0.</li>
+	<li>Set the <span class="parameter-name">CounterSelector</span> 
+	 parameter to <span class="parameter-name">Counter2</span>.</li>
+	<li>Set the <span class="parameter-name">CounterDuration</span> 
+	 parameter for each sequencer set:</li>
+	<ul>
+		<li>Sequencer sets 0, 2, 3, and 4 should be used only once per 
+		 cycle. Therefore, you can skip these sets and leave the <span class="parameter-name">CounterDuration</span> 
+		 parameter at the default value of 1.</li>
+		<li>Sequencer set 1 should be used three times in a row. <a href="#Loading_a_Sequencer_Set">Load</a> 
+		 sequencer set 1, set the <span class="parameter-name">CounterDuration</span> 
+		 parameter to 3, and <a href="#Saving_a_Sequencer_Set">save</a> 
+		 sequencer set 1. </li>
+		<li>Sequencer set 5 should be used two times in a row. <a href="#Loading_a_Sequencer_Set">Load</a> 
+		 sequencer set 5, set the <span class="parameter-name">CounterDuration</span> 
+		 parameter to 2, and <a href="#Saving_a_Sequencer_Set">save</a> 
+		 sequencer set 5. </li>
+	</ul>
+</ol>
+<h4><a name="MiniTOCBookMark14"></a>Additional Parameters</h4>
+<p>The <span class="parameter-name">SequencerSetStart</span> 
+ and <span class="parameter-name">SequencerTriggerActivation</span> 
+ parameters also control the operation of the sequencer. However, these 
+ parameters are preset and can’t be changed.</p>
+<h2 class="specifics"><a name="MiniTOCBookMark15"></a>Specifics</h2>
+<div>
+<table class="specifics-table">
+	<col />
+	<col />
+	<tr>
+		<th>Camera Model</th>
+		<th>Notes</th>
+	</tr>
+	<tr>
+		<td data-rhtags="18" class="rh-hide">All ace GigE camera models</td>
+		<td data-rhtags="18" class="rh-hide">See <a href="sequencer_(gige_cameras).htm">Sequencer (GigE Cameras)</a>.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="118" class="rh-hide">acA640-750um</td>
+		<td data-rhtags="118" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="119" class="rh-hide">acA640-750uc</td>
+		<td data-rhtags="119" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="120" class="rh-hide">acA640-90um</td>
+		<td data-rhtags="120" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="121" class="rh-hide">acA640-90uc</td>
+		<td data-rhtags="121" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="122" class="rh-hide">acA640-120um</td>
+		<td data-rhtags="122" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="123" class="rh-hide">acA640-120uc</td>
+		<td data-rhtags="123" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="124" class="rh-hide">acA720-520um</td>
+		<td data-rhtags="124" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="125" class="rh-hide">acA720-520uc</td>
+		<td data-rhtags="125" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="126" class="rh-hide">acA800-510um</td>
+		<td data-rhtags="126" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="127" class="rh-hide">acA800-510uc</td>
+		<td data-rhtags="127" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="128" class="rh-hide">acA1300-200um</td>
+		<td data-rhtags="128" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="129" class="rh-hide">acA1300-200uc</td>
+		<td data-rhtags="129" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="130" class="rh-hide">acA1300-30um</td>
+		<td data-rhtags="130" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="131" class="rh-hide">acA1300-30uc</td>
+		<td data-rhtags="131" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="132" class="rh-hide">acA1440-220um</td>
+		<td data-rhtags="132" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="133" class="rh-hide">acA1440-220uc</td>
+		<td data-rhtags="133" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="134" class="rh-hide">acA1600-20um</td>
+		<td data-rhtags="134" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="135" class="rh-hide">acA1600-20uc</td>
+		<td data-rhtags="135" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="136" class="rh-hide">acA1920-25um</td>
+		<td data-rhtags="136" class="rh-hide">If you use the camera 
+		 with <a href="overlapping_image_acquisition.htm">overlapping 
+		 image acquisition</a>, enabling the sequencer may affect the frame 
+		 rate: 
+		<ul>
+			<li><p>When acquiring multiple images using the <strong>same</strong> 
+			 sequencer set, overlapping image acquisition is possible and 
+			 the Sequencer feature has no effect on the camera’s frame 
+			 rate.</p></li>
+			<li><p>When acquiring multiple images using <strong>different 
+			 </strong>sequencer sets, overlapping image acquisition is 
+			 not possible. The camera must complete the entire exposure/readout 
+			 process before a new sequence set can be loaded. As a consequence, 
+			 the frame rate can be significantly reduced.</p></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="137" class="rh-hide">acA1920-25uc</td>
+		<td data-rhtags="137" class="rh-hide">If you use the camera 
+		 with <a href="overlapping_image_acquisition.htm">overlapping 
+		 image acquisition</a>, enabling the sequencer may affect the frame 
+		 rate: 
+		<ul>
+			<li><p>When acquiring multiple images using the <strong>same</strong> 
+			 sequencer set, overlapping image acquisition is possible and 
+			 the Sequencer feature has no effect on the camera’s frame 
+			 rate.</p></li>
+			<li><p>When acquiring multiple images using <strong>different 
+			 </strong>sequencer sets, overlapping image acquisition is 
+			 not possible. The camera must complete the entire exposure/readout 
+			 process before a new sequence set can be loaded. As a consequence, 
+			 the frame rate can be significantly reduced.</p></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="138" class="rh-hide">acA1920-40um</td>
+		<td data-rhtags="138" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="139" class="rh-hide">acA1920-40uc</td>
+		<td data-rhtags="139" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="140" class="rh-hide">acA1920-40umMED</td>
+		<td data-rhtags="140" class="rh-hide">No specific 
+		 information for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="141" class="rh-hide">acA1920-40ucMED</td>
+		<td data-rhtags="141" class="rh-hide">No specific 
+		 information for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="142" class="rh-hide">acA1920-150um</td>
+		<td data-rhtags="142" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="143" class="rh-hide">acA1920-150uc</td>
+		<td data-rhtags="143" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="144" class="rh-hide">acA1920-155um</td>
+		<td data-rhtags="144" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="145" class="rh-hide">acA1920-155uc</td>
+		<td data-rhtags="145" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="146" class="rh-hide">acA1920-155umMED</td>
+		<td data-rhtags="146" class="rh-hide">No specific 
+		 information for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="147" class="rh-hide">acA1920-155ucMED</td>
+		<td data-rhtags="147" class="rh-hide">No specific 
+		 information for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="148" class="rh-hide">acA2040-90um</td>
+		<td data-rhtags="148" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="149" class="rh-hide">acA2040-90umNIR</td>
+		<td data-rhtags="149" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="150" class="rh-hide">acA2040-90uc</td>
+		<td data-rhtags="150" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="151" class="rh-hide">acA2000-165um</td>
+		<td data-rhtags="151" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="152" class="rh-hide">acA2000-165umNIR</td>
+		<td data-rhtags="152" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="153" class="rh-hide">acA2000-165uc</td>
+		<td data-rhtags="153" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="154" class="rh-hide">acA2040-55um</td>
+		<td data-rhtags="154" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="155" class="rh-hide">acA2040-55uc</td>
+		<td data-rhtags="155" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="156" class="rh-hide">acA2040-120um</td>
+		<td data-rhtags="156" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="157" class="rh-hide">acA2040-120uc</td>
+		<td data-rhtags="157" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="158" class="rh-hide">acA2440-35um</td>
+		<td data-rhtags="158" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="159" class="rh-hide">acA2440-35uc</td>
+		<td data-rhtags="159" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="160" class="rh-hide">acA2440-35umMED</td>
+		<td data-rhtags="160" class="rh-hide">No specific 
+		 information for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="161" class="rh-hide">acA2440-35ucMED</td>
+		<td data-rhtags="161" class="rh-hide">No specific 
+		 information for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="162" class="rh-hide">acA2440-75um</td>
+		<td data-rhtags="162" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="163" class="rh-hide">acA2440-75uc</td>
+		<td data-rhtags="163" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="164" class="rh-hide">acA2440-75umMED</td>
+		<td data-rhtags="164" class="rh-hide">No specific 
+		 information for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="165" class="rh-hide">acA2440-75ucMED</td>
+		<td data-rhtags="165" class="rh-hide">No specific 
+		 information for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="166" class="rh-hide">acA2500-14um</td>
+		<td data-rhtags="166" class="rh-hide">If you use the camera 
+		 with <a href="overlapping_image_acquisition.htm">overlapping 
+		 image acquisition</a>, enabling the sequencer may affect the frame 
+		 rate: 
+		<ul>
+			<li><p>When acquiring multiple images using the <strong>same</strong> 
+			 sequencer set, overlapping image acquisition is possible and 
+			 the Sequencer feature has no effect on the camera’s frame 
+			 rate.</p></li>
+			<li><p>When acquiring multiple images using <strong>different 
+			 </strong>sequencer sets, overlapping image acquisition is 
+			 not possible. The camera must complete the entire exposure/readout 
+			 process before a new sequence set can be loaded. As a consequence, 
+			 the frame rate can be significantly reduced.</p></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="167" class="rh-hide">acA2500-14uc</td>
+		<td data-rhtags="167" class="rh-hide">If you use the camera 
+		 with <a href="overlapping_image_acquisition.htm">overlapping 
+		 image acquisition</a>, enabling the sequencer may affect the frame 
+		 rate: 
+		<ul>
+			<li><p>When acquiring multiple images using the <strong>same</strong> 
+			 sequencer set, overlapping image acquisition is possible and 
+			 the Sequencer feature has no effect on the camera’s frame 
+			 rate.</p></li>
+			<li><p>When acquiring multiple images using <strong>different 
+			 </strong>sequencer sets, overlapping image acquisition is 
+			 not possible. The camera must complete the entire exposure/readout 
+			 process before a new sequence set can be loaded. As a consequence, 
+			 the frame rate can be significantly reduced.</p></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="168" class="rh-hide">acA2500-60um</td>
+		<td data-rhtags="168" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="169" class="rh-hide">acA2500-60uc</td>
+		<td data-rhtags="169" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="170" class="rh-hide">acA3088-57um</td>
+		<td data-rhtags="170" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="171" class="rh-hide">acA3088-57uc</td>
+		<td data-rhtags="171" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="172" class="rh-hide">acA3800-14um</td>
+		<td data-rhtags="172" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="173" class="rh-hide">acA3800-14uc</td>
+		<td data-rhtags="173" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="174" class="rh-hide">acA4024-29um</td>
+		<td data-rhtags="174" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="175" class="rh-hide">acA4024-29uc</td>
+		<td data-rhtags="175" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="176" class="rh-hide">acA4096-30um</td>
+		<td data-rhtags="176" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="177" class="rh-hide">acA4096-30uc</td>
+		<td data-rhtags="177" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="178" class="rh-hide">acA4096-40um</td>
+		<td data-rhtags="178" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="179" class="rh-hide">acA4096-40uc</td>
+		<td data-rhtags="179" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="180" class="rh-hide">acA4112-20um</td>
+		<td data-rhtags="180" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="181" class="rh-hide">acA4112-20uc</td>
+		<td data-rhtags="181" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="182" class="rh-hide">acA4112-30um</td>
+		<td data-rhtags="182" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="183" class="rh-hide">acA4112-30uc</td>
+		<td data-rhtags="183" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="184" class="rh-hide">acA4600-10uc</td>
+		<td data-rhtags="184" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="185" class="rh-hide">acA5472-17um</td>
+		<td data-rhtags="185" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="186" class="rh-hide">acA5472-17uc</td>
+		<td data-rhtags="186" class="rh-hide">No specific information 
+		 for your camera model.</td>
+	</tr>
+	<tr>
+		<td data-rhtags="44" class="rh-hide">All dart BCON for LVDS camera models</td>
+		<td data-rhtags="44" class="rh-hide">Sequencer feature not 
+		 supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="21" class="rh-hide">All dart BCON for MIPI camera models</td>
+		<td data-rhtags="21" class="rh-hide">Sequencer feature not 
+		 supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="42" class="rh-hide">All dart USB 3.0 camera models</td>
+		<td data-rhtags="42" class="rh-hide">Sequencer feature not 
+		 supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="47" class="rh-hide">All pulse USB 3.0 camera models</td>
+		<td data-rhtags="47" class="rh-hide">Sequencer feature not 
+		 supported</td>
+	</tr>
+</table>
+</div>
+<h2 class="sample-code"><a name="MiniTOCBookMark16"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre><code class="cpp">/* Configuring the sequencer sets */
+// Enable sequencer configuration mode
+camera.SequencerMode.SetValue(SequencerMode_Off);
+camera.SequencerConfigurationMode.SetValue(SequencerConfigurationMode_On);
+// Configure parameters to be stored in the first sequencer set
+camera.Width.SetValue(600);
+camera.Height.SetValue(300);
+// Select sequencer set 0 and save the parameter values
+camera.SequencerSetSelector.SetValue(0);
+camera.SequencerSetSave.Execute();
+// Configure parameters to be stored in the second sequencer set
+camera.Width.SetValue(800);
+camera.Height.SetValue(600);
+// Select sequencer set 1 and save the parameter values
+camera.SequencerSetSelector.SetValue(1);
+camera.SequencerSetSave.Execute();
+// Enable sequencer mode to operate the sequencer
+camera.SequencerMode.SetValue(SequencerMode_On);
+/* Setting up path 0 */
+// Enable sequencer configuration mode
+camera.SequencerMode.SetValue(SequencerMode_Off);
+camera.SequencerConfigurationMode.SetValue(SequencerConfigurationMode_On);
+// Load sequencer set 0 and select path 0
+camera.SequencerSetSelector.SetValue(0);
+camera.SequencerSetLoad.Execute();
+camera.SequencerPathSelector.SetValue(0);
+// Set software signal 1 as "path 0" trigger signal
+camera.SequencerTriggerSource.SetValue(SequencerTriggerSource_SoftwareSignal1);
+// Save the changes
+camera.SequencerSetSave.Execute();
+// Enable sequencer mode to operate the sequencer
+camera.SequencerMode.SetValue(SequencerMode_On);
+/* Setting up path 1 */
+// Enable sequencer configuration mode
+camera.SequencerMode.SetValue(SequencerMode_Off);
+camera.SequencerConfigurationMode.SetValue(SequencerConfigurationMode_On);
+// Load sequencer set 0 and select path 1
+camera.SequencerSetSelector.SetValue(0);
+camera.SequencerSetLoad.Execute();
+camera.SequencerPathSelector.SetValue(1);
+// Set software signal 2 as "path 1" trigger signal
+camera.SequencerTriggerSource.SetValue(SequencerTriggerSource_SoftwareSignal2);
+// Save the changes
+camera.SequencerSetSave.Execute();
+// Assume you want to set up the following sequencer set cycle: 
+// 0 - 1 - 2 - 3 (- 0 - 1 - ...)
+// Load the sequencer set with the highest index number to be used (here: 3)
+camera.SequencerSetSelector.SetValue(3);
+camera.SequencerSetLoad.Execute();
+// Set the next sequencer set to 0 to "close the circle"
+camera.SequencerPathSelector.SetValue(1);
+camera.SequencerSetNext.SetValue(0);
+// Save the changes
+camera.SequencerSetSave.Execute();
+// Enable sequencer mode to operate the sequencer
+camera.SequencerMode.SetValue(SequencerMode_On);
+/* Advanced: Using a counter to control the sequencer */
+// Enable sequencer configuration mode
+camera.SequencerMode.SetValue(SequencerMode_Off);
+camera.SequencerConfigurationMode.SetValue(SequencerConfigurationMode_On);
+// Load sequencer set 0 and select path 1
+camera.SequencerSetSelector.SetValue(0);
+camera.SequencerSetLoad.Execute();
+camera.SequencerPathSelector.SetValue(1);
+// Set the Counter2 end event as "path 1" trigger signal
+camera.SequencerTriggerSource.SetValue(SequencerTriggerSource_Counter2End);
+// Save the changes
+camera.SequencerSetSave.Execute();
+// Select counter 2 to configure this counter
+camera.CounterSelector.SetValue(CounterSelector_Counter2);
+// Assume you want to set up the following sequencer set cycle: 
+// 0 - 0 - 1 - 1 - 1 (- 0 - 0 - ...)
+// Load sequencer set 0 and specify that this set should be used 
+// two times in a row
+camera.SequencerSetSelector.SetValue(0);
+camera.SequencerSetLoad.Execute();
+camera.CounterDuration.SetValue(2);
+camera.SequencerSetSave.Execute();
+// Load sequencer set 1 and specify that this set should be used 
+// three times in a row
+camera.SequencerSetSelector.SetValue(1);
+camera.SequencerSetLoad.Execute();
+camera.CounterDuration.SetValue(3);
+camera.SequencerSetSave.Execute();
+// Enable sequencer mode to operate the sequencer
+camera.SequencerMode.SetValue(SequencerMode_On);</code></pre></div><div class="tab-2 tab-content"><pre><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+/*Configuring the sequencer sets*/
+
+CEnumerationPtr(nodemap.GetNode("SequencerMode"))-&gt;FromString("Off");
+CEnumerationPtr(nodemap.GetNode("SequencerConfigurationMode"))-&gt;FromString("On");
+// Configure parameters to be stored in the first sequencer set
+CIntegerPtr(nodemap.GetNode("Width"))-&gt;SetValue(600);
+CIntegerPtr(nodemap.GetNode("Height"))-&gt;SetValue(300);
+// Select sequencer set 0 and save the parameter values
+CIntegerPtr(nodemap.GetNode("SequencerSetSelector"))-&gt;SetValue(0);
+CCommandPtr(nodemap.GetNode("SequencerSetSave"))-&gt;Execute();
+// Configure parameters to be stored in the second sequencer set
+CIntegerPtr(nodemap.GetNode("Width"))-&gt;SetValue(800);
+CIntegerPtr(nodemap.GetNode("Height"))-&gt;SetValue(600);
+// Select sequencer set 1 and save the parameter values
+CIntegerPtr(nodemap.GetNode("SequencerSetSelector"))-&gt;SetValue(1);
+CCommandPtr(nodemap.GetNode("SequencerSetSave"))-&gt;Execute();
+// Enable sequencer mode to operate the sequencer
+CEnumerationPtr(nodemap.GetNode("SequencerMode"))-&gt;FromString("On");
+/*Setting up path 0*/
+
+CEnumerationPtr(nodemap.GetNode("SequencerMode"))-&gt;FromString("Off");
+CEnumerationPtr(nodemap.GetNode("SequencerConfigurationMode"))-&gt;FromString("On");
+// Load sequencer set 0 and select path 0
+CIntegerPtr(nodemap.GetNode("SequencerSetSelector"))-&gt;SetValue(0);
+CCommandPtr(nodemap.GetNode("SequencerSetLoad"))-&gt;Execute();
+CIntegerPtr(nodemap.GetNode("SequencerPathSelector"))-&gt;SetValue(0);
+// Set software signal 1 as "path 0" trigger signal
+CEnumerationPtr(nodemap.GetNode("SequencerTriggerSource"))-&gt;FromString("SoftwareSignal1");
+// Save the changes
+CCommandPtr(nodemap.GetNode("SequencerSetSave"))-&gt;Execute();
+// Enable sequencer mode to operate the sequencer
+CEnumerationPtr(nodemap.GetNode("SequencerMode"))-&gt;FromString("On");
+/*Setting up path 1*/
+
+CEnumerationPtr(nodemap.GetNode("SequencerMode"))-&gt;FromString("Off");
+CEnumerationPtr(nodemap.GetNode("SequencerConfigurationMode"))-&gt;FromString("On");
+// Load sequencer set 0 and select path 1
+CIntegerPtr(nodemap.GetNode("SequencerSetSelector"))-&gt;SetValue(0);
+CCommandPtr(nodemap.GetNode("SequencerSetLoad"))-&gt;Execute();
+CIntegerPtr(nodemap.GetNode("SequencerPathSelector"))-&gt;SetValue(1);
+// Set software signal 2 as "path 1" trigger signal
+CEnumerationPtr(nodemap.GetNode("SequencerTriggerSource"))-&gt;FromString("SoftwareSignal2");
+// Save the changes
+CCommandPtr(nodemap.GetNode("SequencerSetSave"))-&gt;Execute();
+// Assume you want to set up the following sequencer set cycle:
+// 0 - 1 - 2 - 3 (- 0 - 1 - ...)
+// Load the sequencer set with the highest index number to be used (here: 3)
+CIntegerPtr(nodemap.GetNode("SequencerSetSelector"))-&gt;SetValue(3);
+CCommandPtr(nodemap.GetNode("SequencerSetLoad"))-&gt;Execute();
+// Set the next sequencer set to 0 to "close the circle"
+CIntegerPtr(nodemap.GetNode("SequencerPathSelector"))-&gt;SetValue(1);
+CIntegerPtr(nodemap.GetNode("SequencerSetNext"))-&gt;SetValue(0);
+// Save the changes
+CCommandPtr(nodemap.GetNode("SequencerSetSave"))-&gt;Execute();
+// Enable sequencer mode to operate the sequencer
+CEnumerationPtr(nodemap.GetNode("SequencerMode"))-&gt;FromString("On");
+/*Advanced: Using a counter to control the sequencer*/
+
+CEnumerationPtr(nodemap.GetNode("SequencerMode"))-&gt;FromString("Off");
+CEnumerationPtr(nodemap.GetNode("SequencerConfigurationMode"))-&gt;FromString("On");
+// Load sequencer set 0 and select path 1
+CIntegerPtr(nodemap.GetNode("SequencerSetSelector"))-&gt;SetValue(0);
+CCommandPtr(nodemap.GetNode("SequencerSetLoad"))-&gt;Execute();
+CIntegerPtr(nodemap.GetNode("SequencerPathSelector"))-&gt;SetValue(1);
+// Set the Counter2 end event as "path 1" trigger signal
+CEnumerationPtr(nodemap.GetNode("SequencerTriggerSource"))-&gt;FromString("Counter2End");
+// Save the changes
+CCommandPtr(nodemap.GetNode("SequencerSetSave"))-&gt;Execute();
+// Select counter 2 to configure this counter
+CEnumerationPtr(nodemap.GetNode("CounterSelector"))-&gt;FromString("Counter2");
+// Assume you want to set up the following sequencer set cycle:
+// 0 - 0 - 1 - 1 - 1 (- 0 - 0 - ...)
+// Load sequencer set 0 and specify that this set should be used
+// two times in a row
+CIntegerPtr(nodemap.GetNode("SequencerSetSelector"))-&gt;SetValue(0);
+CCommandPtr(nodemap.GetNode("SequencerSetLoad"))-&gt;Execute();
+CIntegerPtr(nodemap.GetNode("CounterDuration"))-&gt;SetValue(2);
+CCommandPtr(nodemap.GetNode("SequencerSetSave"))-&gt;Execute();
+// Load sequencer set 1 and specify that this set should be used
+// three times in a row
+CIntegerPtr(nodemap.GetNode("SequencerSetSelector"))-&gt;SetValue(1);
+CCommandPtr(nodemap.GetNode("SequencerSetLoad"))-&gt;Execute();
+CIntegerPtr(nodemap.GetNode("CounterDuration"))-&gt;SetValue(3);
+CCommandPtr(nodemap.GetNode("SequencerSetSave"))-&gt;Execute();
+// Enable sequencer mode to operate the sequencer
+CEnumerationPtr(nodemap.GetNode("SequencerMode"))-&gt;FromString("On");</code></pre></div><div class="tab-3 tab-content"><pre><code class="csharp" generated="true">/*Configuring the sequencer sets*/
+
+camera.Parameters[PLCamera.SequencerMode].SetValue(PLCamera.SequencerMode.Off);
+camera.Parameters[PLCamera.SequencerConfigurationMode].SetValue(PLCamera.SequencerConfigurationMode.On);
+// Configure parameters to be stored in the first sequencer set
+camera.Parameters[PLCamera.Width].SetValue(600);
+camera.Parameters[PLCamera.Height].SetValue(300);
+// Select sequencer set 0 and save the parameter values
+camera.Parameters[PLCamera.SequencerSetSelector].SetValue(0);
+camera.Parameters[PLCamera.SequencerSetSave].Execute();
+// Configure parameters to be stored in the second sequencer set
+camera.Parameters[PLCamera.Width].SetValue(800);
+camera.Parameters[PLCamera.Height].SetValue(600);
+// Select sequencer set 1 and save the parameter values
+camera.Parameters[PLCamera.SequencerSetSelector].SetValue(1);
+camera.Parameters[PLCamera.SequencerSetSave].Execute();
+// Enable sequencer mode to operate the sequencer
+camera.Parameters[PLCamera.SequencerMode].SetValue(PLCamera.SequencerMode.On);
+/*Setting up path 0*/
+
+camera.Parameters[PLCamera.SequencerMode].SetValue(PLCamera.SequencerMode.Off);
+camera.Parameters[PLCamera.SequencerConfigurationMode].SetValue(PLCamera.SequencerConfigurationMode.On);
+// Load sequencer set 0 and select path 0
+camera.Parameters[PLCamera.SequencerSetSelector].SetValue(0);
+camera.Parameters[PLCamera.SequencerSetLoad].Execute();
+camera.Parameters[PLCamera.SequencerPathSelector].SetValue(0);
+// Set software signal 1 as "path 0" trigger signal
+camera.Parameters[PLCamera.SequencerTriggerSource].SetValue(PLCamera.SequencerTriggerSource.SoftwareSignal1);
+// Save the changes
+camera.Parameters[PLCamera.SequencerSetSave].Execute();
+// Enable sequencer mode to operate the sequencer
+camera.Parameters[PLCamera.SequencerMode].SetValue(PLCamera.SequencerMode.On);
+/*Setting up path 1*/
+
+camera.Parameters[PLCamera.SequencerMode].SetValue(PLCamera.SequencerMode.Off);
+camera.Parameters[PLCamera.SequencerConfigurationMode].SetValue(PLCamera.SequencerConfigurationMode.On);
+// Load sequencer set 0 and select path 1
+camera.Parameters[PLCamera.SequencerSetSelector].SetValue(0);
+camera.Parameters[PLCamera.SequencerSetLoad].Execute();
+camera.Parameters[PLCamera.SequencerPathSelector].SetValue(1);
+// Set software signal 2 as "path 1" trigger signal
+camera.Parameters[PLCamera.SequencerTriggerSource].SetValue(PLCamera.SequencerTriggerSource.SoftwareSignal2);
+// Save the changes
+camera.Parameters[PLCamera.SequencerSetSave].Execute();
+// Assume you want to set up the following sequencer set cycle:
+// 0 - 1 - 2 - 3 (- 0 - 1 - ...)
+// Load the sequencer set with the highest index number to be used (here: 3)
+camera.Parameters[PLCamera.SequencerSetSelector].SetValue(3);
+camera.Parameters[PLCamera.SequencerSetLoad].Execute();
+// Set the next sequencer set to 0 to "close the circle"
+camera.Parameters[PLCamera.SequencerPathSelector].SetValue(1);
+camera.Parameters[PLCamera.SequencerSetNext].SetValue(0);
+// Save the changes
+camera.Parameters[PLCamera.SequencerSetSave].Execute();
+// Enable sequencer mode to operate the sequencer
+camera.Parameters[PLCamera.SequencerMode].SetValue(PLCamera.SequencerMode.On);
+/*Advanced: Using a counter to control the sequencer*/
+
+camera.Parameters[PLCamera.SequencerMode].SetValue(PLCamera.SequencerMode.Off);
+camera.Parameters[PLCamera.SequencerConfigurationMode].SetValue(PLCamera.SequencerConfigurationMode.On);
+// Load sequencer set 0 and select path 1
+camera.Parameters[PLCamera.SequencerSetSelector].SetValue(0);
+camera.Parameters[PLCamera.SequencerSetLoad].Execute();
+camera.Parameters[PLCamera.SequencerPathSelector].SetValue(1);
+// Set the Counter2 end event as "path 1" trigger signal
+camera.Parameters[PLCamera.SequencerTriggerSource].SetValue(PLCamera.SequencerTriggerSource.Counter2End);
+// Save the changes
+camera.Parameters[PLCamera.SequencerSetSave].Execute();
+// Select counter 2 to configure this counter
+camera.Parameters[PLCamera.CounterSelector].SetValue(PLCamera.CounterSelector.Counter2);
+// Assume you want to set up the following sequencer set cycle:
+// 0 - 0 - 1 - 1 - 1 (- 0 - 0 - ...)
+// Load sequencer set 0 and specify that this set should be used
+// two times in a row
+camera.Parameters[PLCamera.SequencerSetSelector].SetValue(0);
+camera.Parameters[PLCamera.SequencerSetLoad].Execute();
+camera.Parameters[PLCamera.CounterDuration].SetValue(2);
+camera.Parameters[PLCamera.SequencerSetSave].Execute();
+// Load sequencer set 1 and specify that this set should be used
+// three times in a row
+camera.Parameters[PLCamera.SequencerSetSelector].SetValue(1);
+camera.Parameters[PLCamera.SequencerSetLoad].Execute();
+camera.Parameters[PLCamera.CounterDuration].SetValue(3);
+camera.Parameters[PLCamera.SequencerSetSave].Execute();
+// Enable sequencer mode to operate the sequencer
+camera.Parameters[PLCamera.SequencerMode].SetValue(PLCamera.SequencerMode.On);</code></pre></div><div class="tab-4 tab-content"><pre><code class="csharp" generated="true">/*Configuring the sequencer sets*/
+
+Pylon.DeviceFeatureFromString(hdev, "SequencerMode", "Off");
+Pylon.DeviceFeatureFromString(hdev, "SequencerConfigurationMode", "On");
+// Configure parameters to be stored in the first sequencer set
+Pylon.DeviceSetIntegerFeature(hdev, "Width", 600);
+Pylon.DeviceSetIntegerFeature(hdev, "Height", 300);
+// Select sequencer set 0 and save the parameter values
+Pylon.DeviceSetIntegerFeature(hdev, "SequencerSetSelector", 0);
+Pylon.DeviceExecuteCommandFeature(hdev, "SequencerSetSave");
+// Configure parameters to be stored in the second sequencer set
+Pylon.DeviceSetIntegerFeature(hdev, "Width", 800);
+Pylon.DeviceSetIntegerFeature(hdev, "Height", 600);
+// Select sequencer set 1 and save the parameter values
+Pylon.DeviceSetIntegerFeature(hdev, "SequencerSetSelector", 1);
+Pylon.DeviceExecuteCommandFeature(hdev, "SequencerSetSave");
+// Enable sequencer mode to operate the sequencer
+Pylon.DeviceFeatureFromString(hdev, "SequencerMode", "On");
+/*Setting up path 0*/
+
+Pylon.DeviceFeatureFromString(hdev, "SequencerMode", "Off");
+Pylon.DeviceFeatureFromString(hdev, "SequencerConfigurationMode", "On");
+// Load sequencer set 0 and select path 0
+Pylon.DeviceSetIntegerFeature(hdev, "SequencerSetSelector", 0);
+Pylon.DeviceExecuteCommandFeature(hdev, "SequencerSetLoad");
+Pylon.DeviceSetIntegerFeature(hdev, "SequencerPathSelector", 0);
+// Set software signal 1 as "path 0" trigger signal
+Pylon.DeviceFeatureFromString(hdev, "SequencerTriggerSource", "SoftwareSignal1");
+// Save the changes
+Pylon.DeviceExecuteCommandFeature(hdev, "SequencerSetSave");
+// Enable sequencer mode to operate the sequencer
+Pylon.DeviceFeatureFromString(hdev, "SequencerMode", "On");
+/*Setting up path 1*/
+
+Pylon.DeviceFeatureFromString(hdev, "SequencerMode", "Off");
+Pylon.DeviceFeatureFromString(hdev, "SequencerConfigurationMode", "On");
+// Load sequencer set 0 and select path 1
+Pylon.DeviceSetIntegerFeature(hdev, "SequencerSetSelector", 0);
+Pylon.DeviceExecuteCommandFeature(hdev, "SequencerSetLoad");
+Pylon.DeviceSetIntegerFeature(hdev, "SequencerPathSelector", 1);
+// Set software signal 2 as "path 1" trigger signal
+Pylon.DeviceFeatureFromString(hdev, "SequencerTriggerSource", "SoftwareSignal2");
+// Save the changes
+Pylon.DeviceExecuteCommandFeature(hdev, "SequencerSetSave");
+// Assume you want to set up the following sequencer set cycle:
+// 0 - 1 - 2 - 3 (- 0 - 1 - ...)
+// Load the sequencer set with the highest index number to be used (here: 3)
+Pylon.DeviceSetIntegerFeature(hdev, "SequencerSetSelector", 3);
+Pylon.DeviceExecuteCommandFeature(hdev, "SequencerSetLoad");
+// Set the next sequencer set to 0 to "close the circle"
+Pylon.DeviceSetIntegerFeature(hdev, "SequencerPathSelector", 1);
+Pylon.DeviceSetIntegerFeature(hdev, "SequencerSetNext", 0);
+// Save the changes
+Pylon.DeviceExecuteCommandFeature(hdev, "SequencerSetSave");
+// Enable sequencer mode to operate the sequencer
+Pylon.DeviceFeatureFromString(hdev, "SequencerMode", "On");
+/*Advanced: Using a counter to control the sequencer*/
+
+Pylon.DeviceFeatureFromString(hdev, "SequencerMode", "Off");
+Pylon.DeviceFeatureFromString(hdev, "SequencerConfigurationMode", "On");
+// Load sequencer set 0 and select path 1
+Pylon.DeviceSetIntegerFeature(hdev, "SequencerSetSelector", 0);
+Pylon.DeviceExecuteCommandFeature(hdev, "SequencerSetLoad");
+Pylon.DeviceSetIntegerFeature(hdev, "SequencerPathSelector", 1);
+// Set the Counter2 end event as "path 1" trigger signal
+Pylon.DeviceFeatureFromString(hdev, "SequencerTriggerSource", "Counter2End");
+// Save the changes
+Pylon.DeviceExecuteCommandFeature(hdev, "SequencerSetSave");
+// Select counter 2 to configure this counter
+Pylon.DeviceFeatureFromString(hdev, "CounterSelector", "Counter2");
+// Assume you want to set up the following sequencer set cycle:
+// 0 - 0 - 1 - 1 - 1 (- 0 - 0 - ...)
+// Load sequencer set 0 and specify that this set should be used
+// two times in a row
+Pylon.DeviceSetIntegerFeature(hdev, "SequencerSetSelector", 0);
+Pylon.DeviceExecuteCommandFeature(hdev, "SequencerSetLoad");
+Pylon.DeviceSetIntegerFeature(hdev, "CounterDuration", 2);
+Pylon.DeviceExecuteCommandFeature(hdev, "SequencerSetSave");
+// Load sequencer set 1 and specify that this set should be used
+// three times in a row
+Pylon.DeviceSetIntegerFeature(hdev, "SequencerSetSelector", 1);
+Pylon.DeviceExecuteCommandFeature(hdev, "SequencerSetLoad");
+Pylon.DeviceSetIntegerFeature(hdev, "CounterDuration", 3);
+Pylon.DeviceExecuteCommandFeature(hdev, "SequencerSetSave");
+// Enable sequencer mode to operate the sequencer
+Pylon.DeviceFeatureFromString(hdev, "SequencerMode", "On");</code></pre></div><div class="tab-5 tab-content"><pre><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+/*Configuring the sequencer sets*/
+
+errRes = PylonDeviceFeatureFromString(hdev, "SequencerMode", "Off");
+CHECK(errRes);
+errRes = PylonDeviceFeatureFromString(hdev, "SequencerConfigurationMode", "On");
+CHECK(errRes);
+/* Configure parameters to be stored in the first sequencer set */
+errRes = PylonDeviceSetIntegerFeature(hdev, "Width", 600);
+CHECK(errRes);
+errRes = PylonDeviceSetIntegerFeature(hdev, "Height", 300);
+CHECK(errRes);
+/* Select sequencer set 0 and save the parameter values */
+errRes = PylonDeviceSetIntegerFeature(hdev, "SequencerSetSelector", 0);
+CHECK(errRes);
+errRes = PylonDeviceExecuteCommandFeature(hdev, "SequencerSetSave");
+CHECK(errRes);
+/* Configure parameters to be stored in the second sequencer set */
+errRes = PylonDeviceSetIntegerFeature(hdev, "Width", 800);
+CHECK(errRes);
+errRes = PylonDeviceSetIntegerFeature(hdev, "Height", 600);
+CHECK(errRes);
+/* Select sequencer set 1 and save the parameter values */
+errRes = PylonDeviceSetIntegerFeature(hdev, "SequencerSetSelector", 1);
+CHECK(errRes);
+errRes = PylonDeviceExecuteCommandFeature(hdev, "SequencerSetSave");
+CHECK(errRes);
+/* Enable sequencer mode to operate the sequencer */
+errRes = PylonDeviceFeatureFromString(hdev, "SequencerMode", "On");
+CHECK(errRes);
+/*Setting up path 0*/
+
+errRes = PylonDeviceFeatureFromString(hdev, "SequencerMode", "Off");
+CHECK(errRes);
+errRes = PylonDeviceFeatureFromString(hdev, "SequencerConfigurationMode", "On");
+CHECK(errRes);
+/* Load sequencer set 0 and select path 0 */
+errRes = PylonDeviceSetIntegerFeature(hdev, "SequencerSetSelector", 0);
+CHECK(errRes);
+errRes = PylonDeviceExecuteCommandFeature(hdev, "SequencerSetLoad");
+CHECK(errRes);
+errRes = PylonDeviceSetIntegerFeature(hdev, "SequencerPathSelector", 0);
+CHECK(errRes);
+/* Set software signal 1 as "path 0" trigger signal */
+errRes = PylonDeviceFeatureFromString(hdev, "SequencerTriggerSource", "SoftwareSignal1");
+CHECK(errRes);
+/* Save the changes */
+errRes = PylonDeviceExecuteCommandFeature(hdev, "SequencerSetSave");
+CHECK(errRes);
+/* Enable sequencer mode to operate the sequencer */
+errRes = PylonDeviceFeatureFromString(hdev, "SequencerMode", "On");
+CHECK(errRes);
+/*Setting up path 1*/
+
+errRes = PylonDeviceFeatureFromString(hdev, "SequencerMode", "Off");
+CHECK(errRes);
+errRes = PylonDeviceFeatureFromString(hdev, "SequencerConfigurationMode", "On");
+CHECK(errRes);
+/* Load sequencer set 0 and select path 1 */
+errRes = PylonDeviceSetIntegerFeature(hdev, "SequencerSetSelector", 0);
+CHECK(errRes);
+errRes = PylonDeviceExecuteCommandFeature(hdev, "SequencerSetLoad");
+CHECK(errRes);
+errRes = PylonDeviceSetIntegerFeature(hdev, "SequencerPathSelector", 1);
+CHECK(errRes);
+/* Set software signal 2 as "path 1" trigger signal */
+errRes = PylonDeviceFeatureFromString(hdev, "SequencerTriggerSource", "SoftwareSignal2");
+CHECK(errRes);
+/* Save the changes */
+errRes = PylonDeviceExecuteCommandFeature(hdev, "SequencerSetSave");
+CHECK(errRes);
+/* Assume you want to set up the following sequencer set cycle: */
+/* 0 - 1 - 2 - 3 (- 0 - 1 - ...) */
+/* Load the sequencer set with the highest index number to be used (here: 3) */
+errRes = PylonDeviceSetIntegerFeature(hdev, "SequencerSetSelector", 3);
+CHECK(errRes);
+errRes = PylonDeviceExecuteCommandFeature(hdev, "SequencerSetLoad");
+CHECK(errRes);
+/* Set the next sequencer set to 0 to "close the circle" */
+errRes = PylonDeviceSetIntegerFeature(hdev, "SequencerPathSelector", 1);
+CHECK(errRes);
+errRes = PylonDeviceSetIntegerFeature(hdev, "SequencerSetNext", 0);
+CHECK(errRes);
+/* Save the changes */
+errRes = PylonDeviceExecuteCommandFeature(hdev, "SequencerSetSave");
+CHECK(errRes);
+/* Enable sequencer mode to operate the sequencer */
+errRes = PylonDeviceFeatureFromString(hdev, "SequencerMode", "On");
+CHECK(errRes);
+/*Advanced: Using a counter to control the sequencer*/
+
+errRes = PylonDeviceFeatureFromString(hdev, "SequencerMode", "Off");
+CHECK(errRes);
+errRes = PylonDeviceFeatureFromString(hdev, "SequencerConfigurationMode", "On");
+CHECK(errRes);
+/* Load sequencer set 0 and select path 1 */
+errRes = PylonDeviceSetIntegerFeature(hdev, "SequencerSetSelector", 0);
+CHECK(errRes);
+errRes = PylonDeviceExecuteCommandFeature(hdev, "SequencerSetLoad");
+CHECK(errRes);
+errRes = PylonDeviceSetIntegerFeature(hdev, "SequencerPathSelector", 1);
+CHECK(errRes);
+/* Set the Counter2 end event as "path 1" trigger signal */
+errRes = PylonDeviceFeatureFromString(hdev, "SequencerTriggerSource", "Counter2End");
+CHECK(errRes);
+/* Save the changes */
+errRes = PylonDeviceExecuteCommandFeature(hdev, "SequencerSetSave");
+CHECK(errRes);
+/* Select counter 2 to configure this counter */
+errRes = PylonDeviceFeatureFromString(hdev, "CounterSelector", "Counter2");
+CHECK(errRes);
+/* Assume you want to set up the following sequencer set cycle: */
+/* 0 - 0 - 1 - 1 - 1 (- 0 - 0 - ...) */
+/* Load sequencer set 0 and specify that this set should be used */
+/* two times in a row */
+errRes = PylonDeviceSetIntegerFeature(hdev, "SequencerSetSelector", 0);
+CHECK(errRes);
+errRes = PylonDeviceExecuteCommandFeature(hdev, "SequencerSetLoad");
+CHECK(errRes);
+errRes = PylonDeviceSetIntegerFeature(hdev, "CounterDuration", 2);
+CHECK(errRes);
+errRes = PylonDeviceExecuteCommandFeature(hdev, "SequencerSetSave");
+CHECK(errRes);
+/* Load sequencer set 1 and specify that this set should be used */
+/* three times in a row */
+errRes = PylonDeviceSetIntegerFeature(hdev, "SequencerSetSelector", 1);
+CHECK(errRes);
+errRes = PylonDeviceExecuteCommandFeature(hdev, "SequencerSetLoad");
+CHECK(errRes);
+errRes = PylonDeviceSetIntegerFeature(hdev, "CounterDuration", 3);
+CHECK(errRes);
+errRes = PylonDeviceExecuteCommandFeature(hdev, "SequencerSetSave");
+CHECK(errRes);
+/* Enable sequencer mode to operate the sequencer */
+errRes = PylonDeviceFeatureFromString(hdev, "SequencerMode", "On");
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

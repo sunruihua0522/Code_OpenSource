@@ -1,0 +1,1386 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Sequencer (GigE Cameras)</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_70";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Sequencer (GigE Cameras)<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Sequencer (GigE Cameras)</h1>
+<p class="teaser">The Sequencer (GigE Cameras) 
+ <a href="features.htm">camera feature</a> allows you to define up to 64 
+ sets of parameter settings, called sequence sets, and apply them to a 
+ sequence of image acquisitions. </p>
+<p>As the camera acquires images, it applies one sequence set after the 
+ other. This enables you to quickly change camera parameters without compromising 
+ the maximum frame rate.</p>
+<p>For example, you can use the Sequencer feature to quickly change between 
+ preconfigured <a href="image_roi.htm">image ROIs</a> or <a href="exposure_time.htm">exposure 
+ times</a>.</p>
+<p>For a description of the Sequencer feature for USB 3.0 cameras, click 
+ <a href="sequencer_(usb_cameras).htm">here</a>.</p>
+<div class="mini-toc">
+	<p align="left" style="font-weight: normal;font-style: normal;text-decoration: none;" >In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot29302" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot29302', 'MTPOPUP29302');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP29302" >
+  <ul style="text-align:left; font-weight: normal;font-style: normal;text-decoration: none;"  >
+   <li><a href="#MiniTOCBookMark2" style="font-weight: normal;font-style: normal;text-decoration: none;">Using the Feature</a>
+   <ul style="font-weight: normal;font-style: normal;text-decoration: none;"  >
+    <li><a href="#MiniTOCBookMark3" style="font-weight: normal;font-style: normal;text-decoration: none;">Prerequisites</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" style="font-weight: normal;font-style: normal;text-decoration: none;">Enabling or Disabling 
+ the Sequencer</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" style="font-weight: normal;font-style: normal;text-decoration: none;">What's in a Sequence Set?</a>
+</li>
+    <li><a href="#MiniTOCBookMark6" style="font-weight: normal;font-style: normal;text-decoration: none;">Configuring Sequence Sets</a>
+    <ul style="font-weight: normal;font-style: normal;text-decoration: none;"  >
+     <li><a href="#MiniTOCBookMark7" style="font-weight: normal;font-style: normal;text-decoration: none;">Saving a Sequence Set</a>
+</li>
+     <li><a href="#MiniTOCBookMark8" style="font-weight: normal;font-style: normal;text-decoration: none;">Loading a Sequence Set</a>
+</li>
+    </ul></li>
+    <li><a href="#MiniTOCBookMark9" style="font-weight: normal;font-style: normal;text-decoration: none;">Configuring the Sequencer</a>
+    <ul style="font-weight: normal;font-style: normal;text-decoration: none;"  >
+     <li><a href="#MiniTOCBookMark10" style="font-weight: normal;font-style: normal;text-decoration: none;">Auto Sequence Advance Mode</a>
+</li>
+     <li><a href="#MiniTOCBookMark11" style="font-weight: normal;font-style: normal;text-decoration: none;">Controlled Sequence Advance 
+ Mode</a>
+</li>
+     <li><a href="#MiniTOCBookMark12" style="font-weight: normal;font-style: normal;text-decoration: none;">Free Selection Advance Mode</a>
+</li>
+    </ul></li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark13" style="font-weight: normal;font-style: normal;text-decoration: none;">Specifics</a>
+</li>
+   <li><a href="#MiniTOCBookMark14" style="font-weight: normal;font-style: normal;text-decoration: none;">Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>Prerequisites</h3>
+<p>All <a href="auto_functions.htm">auto functions</a> (e.g., <a href="gain_auto.htm">Gain 
+ Auto</a>, <a href="exposure_auto.htm">Exposure Auto</a>) must be set to 
+ <span class="parameter-name">Off</span>.</p>
+<h3><a name="MiniTOCBookMark4"></a><a name="Enabling_or_Disabling_the_Sequencer">Enabling or Disabling 
+ the Sequencer</a></h3>
+<p>When <strong>enabled</strong>, the sequencer controls image acquisitions. 
+ It can't be configured in this state.</p>
+<p>When <strong>disabled</strong>, the sequencer can be configured but 
+ is not controlling image acquisitions.</p>
+<p>To enable the sequencer, set the <span class="parameter-name">SequenceEnable</span> 
+ parameter to <span class="parameter-name">true</span>.</p>
+<p>How to disable the sequencer depends on <a href="#Specifics">your camera 
+ model</a>:</p>
+<ul>
+	<li>If the <span class="parameter-name rh-hide" data-rhtags="48">SequenceConfigurationMode</span><span class="parameter-name rh-hide" data-rhtags="49">SequencerConfigurationMode</span> 
+	 parameter <a href="#Specifics">is available</a>:</li>
+	<ol>
+		<li>Set the <span class="parameter-name">SequenceEnable</span> 
+		 parameter to <span class="parameter-name">false</span>.</li>
+		<li>Set the <span class="parameter-name rh-hide" data-rhtags="48">SequenceConfigurationMode</span><span class="parameter-name rh-hide" data-rhtags="49">SequencerConfigurationMode</span> 
+		 parameter to <span class="parameter-name rh-hide" data-rhtags="48">On</span><span class="parameter-name rh-hide" data-rhtags="49">On</span>.</li>
+	</ol>
+	<li>If the <span class="parameter-name rh-hide" data-rhtags="48">SequenceConfigurationMode</span><span class="parameter-name rh-hide" data-rhtags="49">SequencerConfigurationMode</span> 
+	 parameter <a href="#Specifics">is not available</a>:</li>
+	<ol>
+		<li>Set the <span class="parameter-name">SequenceEnable</span> 
+		 parameter to <span class="parameter-name">false</span>.</li>
+	</ol>
+</ul>
+<h3><a name="MiniTOCBookMark5"></a><a name="What_s_in_a_Sequence_Set_">What's in a Sequence Set?</a></h3>
+<p>Sequencer sets contain the following parameters, if available:</p>
+<table class="borderless-table">
+	<col style="width: 50%;" />
+	<col style="width: 50%;" />
+	<tr>
+		<td><p><span class="parameter-name">AcquisitionFrameRate </span>&#160;</p>
+		<p><span class="parameter-name">BalanceRatio</span></p>
+		<p><span class="parameter-name">BinningHorizontal</span></p>
+		<p><span class="parameter-name">BinningVertical</span></p>
+		<p><span class="parameter-name">BlackLevel</span></p>
+		<p><span class="parameter-name">CenterX</span></p>
+		<p><span class="parameter-name">CenterY</span></p>
+		<p><span class="parameter-name">ColorAdjustmentEnable</span></p>
+		<p><span class="parameter-name">ColorAdjustmentHue</span></p>
+		<p><span class="parameter-name">ColorAdjustmentSaturation</span></p>
+		<p><span class="parameter-name">ColorTransformationValue</span></p>
+		<p><span class="parameter-name">ColorTransformationMatrixFactor</span></p>
+		<p><span class="parameter-name">ChunkModeActive</span></p>
+		<p><span class="parameter-name">ChunkEnable</span></p>
+		<p><span class="parameter-name">DecimationVertical</span></p>
+		<p><span class="parameter-name">DigitalShift</span></p>
+		<p><span class="parameter-name">EnableAcquisitionFrameRate</span></p>
+		<p><span class="parameter-name">EnabledStackedZoneImaging</span></p>
+		<p><span class="parameter-name">ExposureTime</span></p>
+		<p><span class="parameter-name">Gain</span></p>
+		<p><span class="parameter-name">GammaEnable</span><sup>a</sup></p></td>
+		<td><p><span class="parameter-name">Height</span></p>
+		<p><span class="parameter-name">LUTEnable</span><sup>b</sup></p>
+		<p><span class="parameter-name"><span class="parameter-name">O</span>ffset</span><span 
+		 class="parameter-name">X</span></p>
+		<p><span class="parameter-name">Offset</span><span class="parameter-name">Y</span></p>
+		<p><span class="parameter-name">PixelFormat</span></p>
+		<p><span class="parameter-name">ProcessedRawEnable</span></p>
+		<p><span class="parameter-name">ReverseX</span></p>
+		<p><span class="parameter-name">ReverseY</span></p>
+		<p><span class="parameter-name">ScalingHorizontal</span></p>
+		<p><span class="parameter-name">SequenceSetExecutions</span><sup>c</sup></p>
+		<p><span class="parameter-name">StackedZoneImagingZoneEnable</span></p>
+		<p><span class="parameter-name">StackedZoneImagingZoneOffsetY</span></p>
+		<p><span class="parameter-name">StackedZoneImagingZoneHeight</span></p>
+		<p><span class="parameter-name">SubsamplingHorizontal</span></p>
+		<p><span class="parameter-name">SyncUserOutput</span></p>
+		<p><span class="parameter-name">TestImageSelector</span></p>
+		<p><span class="parameter-name">TimerDelay</span><sup>d</sup></p>
+		<p><span class="parameter-name">TimerDuration</span><sup>d</sup></p>
+		<p><span class="parameter-name">TimerDelayTimebase</span><sup>d</sup></p>
+		<p><span class="parameter-name">TimerDurationTimebase</span><sup>d</sup></p>
+		<p><span class="parameter-name">Width</span></p></td>
+	</tr>
+	<tr>
+		<td colspan="2"><p class="table-footnote"><sup>a</sup>Only contained 
+		 if the <span class="parameter-name">LUTEnable </span>parameter 
+		 is set to <span class="parameter-name">false</span>.</p>
+		<p class="table-footnote"><sup>b</sup>Only contained if the <span 
+		 class="parameter-name">GammaEnable</span> parameter is set to 
+		 <span class="parameter-name">false</span>.</p>
+		<p class="table-footnote"><sup>c</sup>Only contained if the <a 
+		 href="#Auto_Sequence_Advance_Mode">auto sequence advance mode</a> 
+		 is enabled.</p>
+		<p class="table-footnote"><sup>d</sup>Available for Timer 1.</p></td>
+		
+	</tr>
+</table>
+<p>All other camera parameters <strong>can't</strong> be controlled using 
+ the Sequencer feature.</p>
+<p class="info"><a href="#Loading_a_Sequence_Set">Loading</a> or <a href="#Saving_a_Sequence_Set">saving</a> 
+ a sequence set will always load or save <strong>all</strong> of the above 
+ parameters, even those you haven't changed. For example, if you only changed 
+ the exposure time and left all other parameters at their default values, 
+ the values of all other parameters will also be stored (and overwritten 
+ on load).</p>
+<h3><a name="MiniTOCBookMark6"></a><a name="Configuring_Sequence_Sets">Configuring Sequence Sets</a></h3>
+<div class="info">
+	<ul>
+		<li>To configure sequence sets, the sequencer must be <a href="#Enabling_or_Disabling_the_Sequencer">disabled</a>.</li>
+		<li>All changes made to sequence sets are <strong>lost</strong> 
+		 when the camera is disconnected from power. Also, sequencer settings 
+		 can't be saved in a <a href="user_sets.htm">user set</a>. In order 
+		 to preserve your settings, Basler recommends that you write suitable 
+		 program code using the pylon API to re-populate the sequence sets 
+		 every time the camera is powered on.</li>
+	</ul>
+</div>
+<p>Before you can use the Sequencer feature, you must populate the sequence 
+ sets with your desired settings. Each sequence set has a unique sequence 
+ set index number, ranging from 0 to 63.</p>
+<p>To populate the sequence sets:</p>
+<ol>
+	<li>Set the <span class="parameter-name">SequenceSetTotalNumber</span> 
+	 parameter to the total number of sequence sets you want to use.</li>
+	<li>Configure the <a href="#What_s_in_a_Sequence_Set_">sequence set 
+	 parameters</a> that you want to store in sequence set 0.</li>
+	<li><a href="#Saving_a_Sequence_Set">Save</a> sequence set 0.</li>
+	<li>Repeat steps 2 and 3 for all sequence sets you want to use.<br />
+	Make sure to always use a continuous series of index numbers starting 
+	 with index number 0, e.g., use sequence sets 0, 1, 2, and 3.</li>
+</ol>
+<p><strong>Example:</strong> Assume you need two sequence sets and want 
+ to populate them with different <a href="image_roi.htm">image ROI</a> 
+ settings. To do so:</p>
+<ol>
+	<li>Set the <span class="parameter-name">SequenceSetTotalNumber</span> 
+	 parameter to 2.</li>
+	<li>Create the first image ROI by adjusting the <span class="parameter-name">Width</span>, 
+	 <span class="parameter-name">Height</span>, 
+	 <span class="parameter-name">OffsetX</span>, 
+	 and <span class="parameter-name">OffsetY</span> 
+	 parameter values. </li>
+	<li><a href="#Saving_a_Sequence_Set">Save </a>sequence set 0. </li>
+	<li>Create the second image ROI by choosing different values for the 
+	 <span class="parameter-name">Width</span>, 
+	 <span class="parameter-name">Height</span>, 
+	 <span class="parameter-name">OffsetX</span>, 
+	 and <span class="parameter-name">OffsetY</span> 
+	 parameters.</li>
+	<li><a href="#Saving_a_Sequence_Set">Save </a>sequence set 1. </li>
+</ol>
+<p>You can now <a href="#Configuring_the_Sequencer">configure the sequencer</a> 
+ to quickly change between the two image ROIs.</p>
+<h4><a name="MiniTOCBookMark7"></a><a name="Saving_a_Sequence_Set">Saving a Sequence Set</a></h4>
+<p>To save a sequence set:</p>
+<ol>
+	<li>Set the <span class="parameter-name">SequenceSetIndex</span> 
+	 parameter to the desired sequence set.</li>
+	<li>Execute the <span class="parameter-name">SequenceSetStore</span> 
+	 command.</li>
+</ol>
+<p>The values of all <a href="#What_s_in_a_Sequence_Set_">sequence set 
+ parameters</a> are stored in the selected sequence set.</p>
+<h4><a name="MiniTOCBookMark8"></a><a name="Loading_a_Sequence_Set">Loading a Sequence Set</a></h4>
+<p>Sequence sets are loaded automatically during sequencer operation. However, 
+ loading a sequence set manually can be useful for testing purposes or 
+ when configuring the sequencer. </p>
+<p>To manually load a sequence set: </p>
+<ol>
+	<li>Set the <span class="parameter-name">SequenceSetIndex</span> 
+	 parameter to the desired sequence set.</li>
+	<li>Execute the <span class="parameter-name">SequenceSetLoad</span> 
+	 command.</li>
+</ol>
+<p>The values of all <a href="#What_s_in_a_Sequence_Set_">sequence set 
+ parameters</a> are overwritten and replaced by the values stored in the 
+ selected sequence set.</p>
+<h3><a name="MiniTOCBookMark9"></a><a name="Configuring_the_Sequencer">Configuring the Sequencer</a></h3>
+<p>After you have <a href="#Configuring_Sequence_Sets">configured</a> the 
+ sequence sets, you must configure the sequencer. </p>
+<div class="info">
+	<ul>
+		<li>To configure the sequencer, the sequencer must be <a href="#Enabling_or_Disabling_the_Sequencer">disabled</a>.</li>
+		<li>All changes made to the sequencer configuration are <strong>lost</strong> 
+		 when the camera is disconnected from power. Also, sequencer settings 
+		 can't be saved in a <a href="user_sets.htm">user set</a>. Basler 
+		 recommends that you write suitable program code using the pylon 
+		 API to reconfigure the camera every time it is powered on.</li>
+		<li>You can use the <a href="data_chunks.htm">SequenceSetIndex 
+		 chunk</a> to keep track of the sequence sets used. When enabled, 
+		 each image contains chunk data including the index number of the 
+		 sequence set used for image acquisition.</li>
+	</ul>
+</div>
+<p>The sequencer can be operated in three modes, called &quot;advance modes&quot;:</p>
+<ul>
+	<li><a href="#Auto_Sequence_Advance_Mode">Auto sequence advance mode</a> 
+	 </li>
+	<li><a href="#Controlled_Sequence_Advance_Mode">Controlled sequence 
+	 advance mode</a></li>
+	<li><a href="#Free_Selection_Advance_Mode">Free selection advance mode</a></li>
+</ul>
+<p>In all modes, sequence sets always advance in ascending order, starting 
+ from sequence set index number 0.</p>
+<h4><a name="MiniTOCBookMark10"></a><a name="Auto_Sequence_Advance_Mode">Auto Sequence Advance Mode</a></h4>
+<p>This mode is useful if you want to configure a <strong>fixed</strong> 
+ sequence which is repeated continuously.</p>
+<p>You can enable this mode by setting the <span class="parameter-name">SequenceAdvanceMode</span> 
+ parameter to <span class="parameter-name">Auto</span>.</p>
+<p>In this mode, the advance from one sequence set to the next occurs automatically 
+ as <a href="trigger_selector.htm#Frame_Start_Trigger">Frame Start trigger</a> 
+ signals are received.</p>
+<p>The <span class="parameter-name">SequenceSetTotalNumber</span> 
+ parameter specifies the total number of sequence sets to be used. After 
+ the sequence set with the highest index number has been used, the cycle 
+ starts again at 0.</p>
+<p><strong>Example:</strong> Assume you want to configure the following 
+ sequence cycle:</p>
+<p><img src="images/drawing_sequencer_auto_sequence_example.png" alt="Sample Sequence Cycle: 0-1-2-3-4-0-1-..." title="Sample Sequence Cycle: 0-1-2-3-4-0-1-..." /></p>
+<p>To configure the above sequence cycle:</p>
+<ol>
+	<li>Set the <span class="parameter-name">SequenceAdvanceMode</span> 
+	 parameter to <span class="parameter-name">Auto</span>.</li>
+	<li>Set the <span class="parameter-name">SequenceSetTotalNumber</span> 
+	 parameter to 5. </li>
+</ol>
+<p class="subheading">Using Sequence Sets Multiple Times</p>
+<p>Optionally, each sequence set can be used several times in a row.</p>
+<p>To specify how many times you want to use each sequence set:</p>
+<ol>
+	<li><a href="#Loading_a_Sequence_Set">Load</a> the desired sequence 
+	 set.</li>
+	<li>Configure the <span class="parameter-name">SequenceSetExecutions</span> 
+	 parameter for this sequence set. <br />
+	By default, the parameter is set to 1 for all sets which means that 
+	 each sequence set is used once per cycle.</li>
+	<li><a href="#Saving_a_Sequence_Set">Save</a> the sequence set. </li>
+</ol>
+<p><strong>Example:</strong> Assume you want to configure the following 
+ sequence cycle:</p>
+<p><img src="images/drawing_sequencer_auto_sequence_example_2.png" alt="Sample Sequence Cycle: 0-1-1-1-2-3-4-5-5-0-1-..." title="Sample Sequence Cycle: 0-1-1-1-2-3-4-5-5-0-1-..." /></p>
+<p>To configure the above sequence cycle:</p>
+<ol>
+	<li>Set the <span class="parameter-name">SequenceAdvanceMode</span> 
+	 parameter to <span class="parameter-name">Auto</span>.</li>
+	<li>Set the <span class="parameter-name">SequenceSetTotalNumber</span> 
+	 parameter to 6.</li>
+	<li>Configure the <span class="parameter-name">SequenceSetExecutions</span> 
+	 parameter for each sequence set:</li>
+	<ul>
+		<li>Sequence sets 0, 2, 3, and 4 are to be used only once per cycle. 
+		 Therefore, you can skip these sets and leave the <span class="parameter-name">SequenceSetExecutions</span> 
+		 parameter at the default value of 1. </li>
+		<li>Sequence set 1 is to be used three times in a row. <a href="#Loading_a_Sequence_Set">Load</a> 
+		 sequence set 1, set the <span class="parameter-name">SequenceSetExecutions</span> 
+		 parameter to 3, and <a href="#Saving_a_Sequence_Set">save</a> 
+		 sequence set 1. </li>
+		<li>Sequence set 5 is to be used two times in a row. <a href="#Loading_a_Sequence_Set">Load</a> 
+		 sequence set 5, set the <span class="parameter-name">SequenceSetExecutions</span> 
+		 parameter to 2, and <a href="#Saving_a_Sequence_Set">save</a> 
+		 sequence set 5. </li>
+	</ul>
+</ol>
+<h4><a name="MiniTOCBookMark11"></a><a name="Controlled_Sequence_Advance_Mode">Controlled Sequence Advance 
+ Mode</a></h4>
+<p>This mode is useful if you want to configure a <strong>dynamic </strong>sequence 
+ which can be controlled via line 1 or software commands.</p>
+<div class="info">
+	<ul>
+		<li>For real-time applications, Basler strongly recommends <strong>not</strong> 
+		 to control the sequencer via software commands. The delay between 
+		 sending a software command and it becoming effective depends on 
+		 the specific installation and the current load on the network. 
+		 Therefore, it's impossible to predict how many image acquisitions 
+		 may occur between sending the software command and it becoming 
+		 effective.</li>
+		<li>When you're controlling the sequencer using line 1, you have 
+		 to bear in mind that it takes one microsecond between setting 
+		 the status of the line and the rise of the Frame Start trigger 
+		 signal. You also have to maintain the status of the line for at 
+		 least one microsecond after the Frame Start trigger signal has 
+		 risen. <a href="line_source.htm#Trigger_Wait">Monitor the Frame 
+		 Trigger Wait signal</a> to optimize the timing.</li>
+	</ul>
+</div>
+<p>You can enable this mode by setting the <span class="parameter-name">SequenceAdvanceMode</span> 
+ parameter to <span class="parameter-name">Controlled</span>.</p>
+<p>As in the other modes, the advance always proceeds in ascending order, 
+ starting from sequence set index number 0.</p>
+<p>You can, however, control the following:</p>
+<ul>
+	<li><strong>Sequence set advance:</strong> When do you want the sequencer 
+	 to advance to the next sequence set? </li>
+	<li><strong>Sequence set restart:</strong> When &#160;do you want the 
+	 sequence cycle to start again from sequence set 0? </li>
+</ul>
+<p>The <span class="parameter-name">SequenceSetTotalNumber</span> 
+ parameter specifies the total number of sequence sets you want to use. 
+ After the sequence set with the highest index number has been used, the 
+ cycle starts again at 0.</p>
+<p class="subheading">Configuring Sequence Set Advance</p>
+<p>To configure sequence set advance: </p>
+<ol>
+	<li>Set the <span class="parameter-name">SequenceControlSelector</span> 
+	 parameter to <span class="parameter-name">Advance</span>. 
+	 </li>
+	<li>Set the <span class="parameter-name">SequenceControlSource</span> 
+	 parameter to one of the following options:</li>
+	<ul>
+		<li><span class="parameter-name">Line1</span>: 
+		 Sequence set advance will be controlled via line&#160;1. If line&#160;1 
+		 is low (0) while a <a href="trigger_selector.htm#Frame_Start_Trigger">Frame 
+		 Start trigger</a> signal is received, the sequencer does not advance 
+		 and the current sequence set is used again for image acquisition. 
+		 If line 1 is high (1) while a Frame Start trigger signal is received, 
+		 the sequencer advances and the next sequence set in the cycle 
+		 is used for image acquisition.</li>
+		<li><span class="parameter-name">Disabled</span>: 
+		 Sequence set advance will be controlled using the <span class="parameter-name">SequenceAsyncAdvance</span> 
+		 software command. When this command is received, the sequencer 
+		 advances without acquiring an image. When the next <a href="trigger_selector.htm#Frame_Start_Trigger">Frame 
+		 Start trigger</a> signal is received, the sequence set indicated 
+		 by the <span class="parameter-name">SequenceCurrentSet</span> 
+		 parameter value is used for image acquisition.</li>
+		<li><span class="parameter-name">AlwaysActive</span>: 
+		 The sequencer behaves as if <span class="parameter-name">Line1</span> 
+		 was selected and line&#160;1 was always high (1). As a result, 
+		 the sequencer advances every time a <a href="trigger_selector.htm#Frame_Start_Trigger">Frame 
+		 Start trigger</a> signal is received. This way of operating the 
+		 sequencer is similar to operating it in auto sequence advance 
+		 mode when each sequence set is used only once per cycle. The only 
+		 difference is that sequence set 1 is used as the first sequence 
+		 set instead of sequence set 0.</li>
+	</ul>
+</ol>
+<p class="subheading">Configuring Sequence Set Restart</p>
+<p>To configure sequence set restart: </p>
+<ol>
+	<li>Set the <span class="parameter-name">SequenceControlSelector</span> 
+	 parameter to <span class="parameter-name">Restart</span>. 
+	 </li>
+	<li>Set the <span class="parameter-name">SequenceControlSource</span> 
+	 parameter to one of the following options:</li>
+	<ul>
+		<li><span class="parameter-name">Line1</span>: 
+		 Sequence set restart will be controlled via line 1. If line&#160;1 
+		 is low (0) while a <a href="trigger_selector.htm#Frame_Start_Trigger">Frame 
+		 Start trigger</a> signal is received, the next sequence set is 
+		 used.&#160;If line 1 is high (1) while a Frame Start trigger signal 
+		 is received, the sequence cycle is restarted and sequence set 
+		 0 is used.</li>
+		<li><span class="parameter-name">Disabled</span>: 
+		 Sequence set restart will be controlled using the <span class="parameter-name">SequenceAsyncRestart</span> 
+		 software command. When this command is received, the sequence 
+		 cycle is restarted without acquiring an image. When the next <a href="trigger_selector.htm#Frame_Start_Trigger">Frame Start trigger</a> 
+		 signal is received, sequence set 0 is used.</li>
+	</ul>
+</ol>
+<h4><a name="MiniTOCBookMark12"></a><a name="Free_Selection_Advance_Mode">Free Selection Advance Mode</a></h4>
+<p>This mode is useful if you want to quickly change between <strong>freely 
+ selectable</strong> sequence sets without having to observe any particular 
+ order. You use the input lines of your camera to determine the sequence.</p>
+<p class="info">Bear in mind that it takes one microsecond between setting 
+ the status of the line and the rise of the Frame Start trigger signal. 
+ You also have to maintain the status of the line for at least one microsecond 
+ after the Frame Start trigger signal has risen. <a href="line_source.htm#Trigger_Wait">Monitor 
+ the Frame Trigger Wait signal</a> to optimize the timing.</p>
+<p>How to configure free selection advance mode depends on how many input 
+ lines are available on your camera:</p>
+<p class="subheading"><a name="Cameras_with_One_Input_Line">Cameras with 
+ One Input Line</a></p>
+<p>Sequence sets are chosen according to the status of input line&#160;1:</p>
+<ul>
+	<li>If line&#160;1 is low (0) while a<a href="trigger_selector.htm#Frame_Start_Trigger"> 
+	 Frame Start trigger</a> signal is received, sequence set 0 is used 
+	 for image acquisition.</li>
+	<li>If line&#160;1 is high (1) while a Frame Start trigger signal is 
+	 received, sequence set 1 is used for image acquisition.</li>
+</ul>
+<p>Only sequence sets 0 and 1 are available.</p>
+<p>To enable free selection advance mode:</p>
+<ol>
+	<li>Set the <span class="parameter-name">SequenceAdvanceMode</span> 
+	 parameter to <span class="parameter-name">FreeSelection</span>. 
+	 </li>
+	<li>Set the <span class="parameter-name">SequenceSetTotalNumber</span> 
+	 parameter to 2. </li>
+</ol>
+<p>The <span class="parameter-name">SequenceAddressBitSelector</span> 
+ and <span class="parameter-name">SequenceAddressBitSource</span> 
+ parameters also control the operation of the free selection advance mode. 
+ However, these parameters are preset and can’t be changed.</p>
+<p class="subheading">Cameras with Two Input Lines</p>
+<p>Sequence sets are chosen according to the status of line 1 (opto-coupled 
+ input line) and line 3 (GPIO line, must be <a href="line_mode.htm">configured 
+ as input</a>), resulting in four possible combinations. This allows you 
+ to choose between four sequence sets. Consequently, only sequence sets 
+ 0, 1, 2, and 3 are available.</p>
+<p>In order to configure the free selection advance mode, you must assign 
+ a &quot;sequence set address bit&quot; to each line. The combinations 
+ of these address bits determine the sequence set index number. The following 
+ table shows the possible combinations and their respective outcomes.</p>
+<table >
+	<col />
+	<col />
+	<col />
+	<tr>
+		<th>Address Bit 1</th>
+		<th>Address Bit 0</th>
+		<th>Sequence Set That Will Be Selected</th>
+	</tr>
+	<tr>
+		<td>0</td>
+		<td>0</td>
+		<td>Sequence set 0</td>
+	</tr>
+	<tr>
+		<td>0</td>
+		<td>1</td>
+		<td>Sequence set 1</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>0</td>
+		<td>Sequence set 2</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>1</td>
+		<td>Sequence set 3</td>
+	</tr>
+</table>
+<p>For example, you can assign line 1 to bit 1 and line 3 to bit 0. This 
+ results in the following sample configuration:</p>
+<ul>
+	<li>If line&#160;1 is low (0) and line 3 is low (0) while a<a href="trigger_selector.htm#Frame_Start_Trigger"> 
+	 Frame Start trigger</a> signal is received, sequence set 0 is used 
+	 for image acquisition.</li>
+	<li>If line&#160;1 is low (0) and line 3 is high (1) while a<a href="trigger_selector.htm#Frame_Start_Trigger"> 
+	 Frame Start trigger</a> signal is received, sequence set 1 is used 
+	 for image acquisition.</li>
+	<li>If line&#160;1 is high (1) and line 3 is low (0) while a<a href="trigger_selector.htm#Frame_Start_Trigger"> 
+	 Frame Start trigger</a> signal is received, sequence set 2 is used 
+	 for image acquisition.</li>
+	<li>If line&#160;1 is high (1) and line 3 is high (1) while a<a href="trigger_selector.htm#Frame_Start_Trigger"> 
+	 Frame Start trigger</a> signal is received, sequence set 3 is used 
+	 for image acquisition.</li>
+</ul>
+<p>To configure the bits and enable free selection advance mode:</p>
+<ol>
+	<li>Set the <span class="parameter-name">SequenceAdvanceMode</span> 
+	 parameter to <span class="parameter-name">FreeSelection</span>. 
+	 </li>
+	<li>Set the <span class="parameter-name">SequenceSetTotalNumber</span> 
+	 parameter to 4.</li>
+	<li>Set the <span class="parameter-name">SequenceAddressBitSelector</span> 
+	 parameter to <span class="parameter-name">Bit0</span>.</li>
+	<li>Set the <span class="parameter-name">SequenceAddressBitSource</span> 
+	 parameter to the line that you want to assign to bit 0, e.g., <span class="parameter-name">Line3</span>.</li>
+	<li>Set the <span class="parameter-name">SequenceAddressBitSelector</span> 
+	 parameter to <span class="parameter-name">Bit1</span>.</li>
+	<li>Set the <span class="parameter-name">SequenceAddressBitSource</span> 
+	 parameter to the line that you want to assign to bit 1, e.g.,&#160;<span class="parameter-name">Line1</span>.</li>
+</ol>
+<p class="info">You can also use only one input line in free selection 
+ advance mode. To do so, set the <span class="parameter-name">SequenceSetTotalNumber</span> 
+ parameter to 2. Now, only bit 0 is used to choose a sequence set. The 
+ free selection advance mode will behave as described under &quot;<a href="sequencer_(gige_cameras).htm#Cameras_with_One_Input_Line">Cameras 
+ with One Input Line</a>&quot;.</p>
+<div class="panel">
+	<div class="panel-head">
+		<p class="panel-heading">Timing Diagrams</p>
+	</div>
+	<div class="panel-content">
+		<p class="subheading">Example: Auto Sequence Advance Mode</p>
+		<p class="subheading"><img src="images/drawing_sequencer_auto_sequence_timing_diagram.png" alt="Auto Sequence Advance Mode Timing Diagram (Example)" title="Auto Sequence Advance Mode Timing Diagram (Example)" /></p>
+		<p class="subheading">Example: Controlled Sequence Advance Mode 
+		 (Controlled via Line 1)</p>
+		<p><img src="images/drawing_sequencer_controlled_sequence_timing_diagram.png" alt="Controlled Sequence Advance Mode Timing Diagram (Example)" title="Controlled Sequence Advance Mode Timing Diagram (Example)" /></p>
+		<p class="subheading">Example: Free Selection Advance Mode</p>
+		<p><img src="images/drawing_sequencer_free_selection_timing_diagram.png" alt="Free Selection Advance Mode Timing Diagram (Example)" title="Free Selection Advance Mode Timing Diagram (Example)" /></p>
+	</div>
+</div>
+<h2 class="specifics"><a name="MiniTOCBookMark13"></a><a name="Specifics">Specifics</a></h2>
+<div>
+<table class="specifics-table">
+	<col />
+	<col />
+	<tr>
+		<th>Camera Model</th>
+		<th>SequenceConfigurationMode Parameter Available</th>
+	</tr>
+	<tr>
+		<td data-rhtags="50" class="rh-hide">acA640-90gm</td>
+		<td data-rhtags="50" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="51" class="rh-hide">acA640-90gc</td>
+		<td data-rhtags="51" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="52" class="rh-hide">acA640-120gm</td>
+		<td data-rhtags="52" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="53" class="rh-hide">acA640-120gc</td>
+		<td data-rhtags="53" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="54" class="rh-hide">acA640-121gm</td>
+		<td data-rhtags="54" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="55" class="rh-hide">acA640-300gm</td>
+		<td data-rhtags="55" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="56" class="rh-hide">acA640-300gc</td>
+		<td data-rhtags="56" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="57" class="rh-hide">acA720-290gm</td>
+		<td data-rhtags="57" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="58" class="rh-hide">acA720-290gc</td>
+		<td data-rhtags="58" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="59" class="rh-hide">acA750-30gm</td>
+		<td data-rhtags="59" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="45" class="rh-hide">acA750-30gc</td>
+		<td data-rhtags="45" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="60" class="rh-hide">acA780-75gm</td>
+		<td data-rhtags="60" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="61" class="rh-hide">acA780-75gc</td>
+		<td data-rhtags="61" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="62" class="rh-hide">acA800-200gm</td>
+		<td data-rhtags="62" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="63" class="rh-hide">acA800-200gc</td>
+		<td data-rhtags="63" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="64" class="rh-hide">acA1280-60gm</td>
+		<td data-rhtags="64" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="65" class="rh-hide">acA1280-60gc</td>
+		<td data-rhtags="65" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="66" class="rh-hide">acA1300-22gm</td>
+		<td data-rhtags="66" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="67" class="rh-hide">acA1300-22gc</td>
+		<td data-rhtags="67" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="68" class="rh-hide">acA1300-30gm</td>
+		<td data-rhtags="68" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="69" class="rh-hide">acA1300-30gc</td>
+		<td data-rhtags="69" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="70" class="rh-hide">acA1300-60gm</td>
+		<td data-rhtags="70" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="71" class="rh-hide">acA1300-60gmNIR</td>
+		<td data-rhtags="71" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="72" class="rh-hide">acA1300-60gc</td>
+		<td data-rhtags="72" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="73" class="rh-hide">acA1300-75gm</td>
+		<td data-rhtags="73" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="74" class="rh-hide">acA1300-75gc</td>
+		<td data-rhtags="74" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="75" class="rh-hide">acA1440-73gm</td>
+		<td data-rhtags="75" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="76" class="rh-hide">acA1440-73gc</td>
+		<td data-rhtags="76" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="77" class="rh-hide">acA1600-20gm</td>
+		<td data-rhtags="77" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="78" class="rh-hide">acA1600-20gc</td>
+		<td data-rhtags="78" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="79" class="rh-hide">acA1600-60gm</td>
+		<td data-rhtags="79" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="80" class="rh-hide">acA1600-60gc</td>
+		<td data-rhtags="80" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="81" class="rh-hide">acA1920-25gm</td>
+		<td data-rhtags="81" class="rh-hide">No<sup>a</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="82" class="rh-hide">acA1920-25gc</td>
+		<td data-rhtags="82" class="rh-hide">No<sup>a</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="83" class="rh-hide">acA1920-40gm</td>
+		<td data-rhtags="83" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="84" class="rh-hide">acA1920-40gc</td>
+		<td data-rhtags="84" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="85" class="rh-hide">acA1920-48gm</td>
+		<td data-rhtags="85" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="86" class="rh-hide">acA1920-48gc</td>
+		<td data-rhtags="86" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="87" class="rh-hide">acA1920-50gm</td>
+		<td data-rhtags="87" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="88" class="rh-hide">acA1920-50gc</td>
+		<td data-rhtags="88" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="89" class="rh-hide">acA2000-50gm</td>
+		<td data-rhtags="89" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="90" class="rh-hide">acA2000-50gmNIR</td>
+		<td data-rhtags="90" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="91" class="rh-hide">acA2000-50gc</td>
+		<td data-rhtags="91" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="92" class="rh-hide">acA2040-25gm</td>
+		<td data-rhtags="92" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="93" class="rh-hide">acA2040-25gmNIR</td>
+		<td data-rhtags="93" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="94" class="rh-hide">acA2040-25gc</td>
+		<td data-rhtags="94" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="95" class="rh-hide">acA2040-35gm</td>
+		<td data-rhtags="95" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="96" class="rh-hide">acA2040-35gc</td>
+		<td data-rhtags="96" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="97" class="rh-hide">acA2440-20gm</td>
+		<td data-rhtags="97" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="98" class="rh-hide">acA2440-20gc</td>
+		<td data-rhtags="98" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="99" class="rh-hide">acA2500-14gm</td>
+		<td data-rhtags="99" class="rh-hide">No<sup>a</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="100" class="rh-hide">acA2500-14gc</td>
+		<td data-rhtags="100" class="rh-hide">No<sup>a</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="101" class="rh-hide">acA2500-20gm</td>
+		<td data-rhtags="101" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="102" class="rh-hide">acA2500-20gc</td>
+		<td data-rhtags="102" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="103" class="rh-hide">acA2500-20gmMED</td>
+		<td data-rhtags="103" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="104" class="rh-hide">acA2500-20gcMED</td>
+		<td data-rhtags="104" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="105" class="rh-hide">acA3088-16gm</td>
+		<td data-rhtags="105" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="106" class="rh-hide">acA3088-16gc</td>
+		<td data-rhtags="106" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="107" class="rh-hide">acA3800-10gm</td>
+		<td data-rhtags="107" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="108" class="rh-hide">acA3800-10gc</td>
+		<td data-rhtags="108" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="109" class="rh-hide">acA4024-8gm</td>
+		<td data-rhtags="109" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="110" class="rh-hide">acA4024-8gc</td>
+		<td data-rhtags="110" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="111" class="rh-hide">acA4096-11gm</td>
+		<td data-rhtags="111" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="198" class="rh-hide">acA4096-11gc</td>
+		<td data-rhtags="198" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="113" class="rh-hide">acA4112-8gm</td>
+		<td data-rhtags="113" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="114" class="rh-hide">acA4112-8gc</td>
+		<td data-rhtags="114" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="115" class="rh-hide">acA4600-7gc</td>
+		<td data-rhtags="115" class="rh-hide">No</td>
+	</tr>
+	<tr>
+		<td data-rhtags="116" class="rh-hide">acA5472-5gm</td>
+		<td data-rhtags="116" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="117" class="rh-hide">acA5472-5gc</td>
+		<td data-rhtags="117" class="rh-hide">Yes</td>
+	</tr>
+	<tr>
+		<td data-rhtags="33" class="rh-hide">All ace USB 3.0 camera models</td>
+		<td data-rhtags="33" class="rh-hide">See <a href="sequencer_(usb_cameras).htm">Sequencer (USB 3.0 Cameras)</a></td>
+	</tr>
+	<tr>
+		<td data-rhtags="44" class="rh-hide">All dart BCON for LVDS camera models</td>
+		<td data-rhtags="44" class="rh-hide">Sequencer feature not 
+		 supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="21" class="rh-hide">All dart BCON for MIPI camera models</td>
+		<td data-rhtags="21" class="rh-hide">Sequencer feature not 
+		 supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="42" class="rh-hide">All dart USB 3.0 camera models</td>
+		<td data-rhtags="42" class="rh-hide">Sequencer feature not 
+		 supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="47" class="rh-hide">All pulse USB 3.0 camera models</td>
+		<td data-rhtags="47" class="rh-hide">Sequencer feature not 
+		 supported</td>
+	</tr>
+</table>
+<p class="table-footnote rh-hide" data-rhtags="258"><sup data-rhtags="243" class="rh-hide">a</sup><span data-rhtags="243" class="rh-hide">If 
+ you use the camera with </span><a href="overlapping_image_acquisition.htm" data-rhtags="243" class="rh-hide">overlapping image acquisition</a><span data-rhtags="243" class="rh-hide">, 
+ enabling the sequencer may affect the frame rate: When acquiring multiple 
+ images using the </span><strong data-rhtags="243" class="rh-hide">same</strong><span data-rhtags="243" class="rh-hide"> 
+ sequence set, overlapping image acquisition is possible and the Sequencer 
+ feature has no effect on the camera’s frame rate. When acquiring multiple 
+ images using </span><strong data-rhtags="243" class="rh-hide">different</strong><span data-rhtags="243" class="rh-hide"> 
+ sequence sets, overlapping image acquisition is not possible. The camera 
+ must complete the entire exposure/readout process before a new sequence 
+ set can be loaded. As a consequence, the frame rate may drop significantly.</span></p>
+</div>
+<h2 class="sample-code"><a name="MiniTOCBookMark14"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre><code class="cpp">/* Configuring sequence sets */
+// Disable the sequencer during configuration
+camera.SequenceEnable.SetValue(false);
+// Set the total number of sequence sets to 2
+camera.SequenceSetTotalNumber.SetValue(2);
+// Configure the parameters that you want to store in the first sequence set
+camera.Width.SetValue(500);
+camera.Height.SetValue(300);
+// Select sequence set 0 and save the parameter values
+camera.SequenceSetIndex.SetValue(0);
+camera.SequenceSetStore.Execute();
+// Configure the parameters that you want to store in the second sequence set
+camera.Width.SetValue(800);
+camera.Height.SetValue(600);
+// Select sequence set 1 and save the parameter values
+camera.SequenceSetIndex.SetValue(1);
+camera.SequenceSetStore.Execute();
+/* Configuring the sequencer for auto sequence advance mode
+Assuming you want to configure the following sequence cycle:
+0 - 0 - 1 - 1 - 1 (- 0 - 0 - ...) */
+// Disable the sequencer during configuration
+camera.SequenceEnable.SetValue(false);
+camera.SequenceAdvanceMode.SetValue(SequenceAdvanceMode_Auto);
+// Set the total number of sequence sets to 2
+camera.SequenceSetTotalNumber.SetValue(2);
+// Load sequence set 0 and specify that this set is to be used 
+// 2 times in a row
+camera.SequenceSetIndex.SetValue(0);
+camera.SequenceSetLoad.Execute();
+camera.SequenceSetExecutions.SetValue(2);
+camera.SequenceSetStore.Execute();
+// Load sequence set 1 and specify that this set is to be used 
+// 3 times in a row
+camera.SequenceSetIndex.SetValue(1);
+camera.SequenceSetLoad.Execute();
+camera.SequenceSetExecutions.SetValue(3);
+camera.SequenceSetStore.Execute();
+// Enable the sequencer
+camera.SequenceEnable.SetValue(true);
+/* Configuring the sequencer for controlled sequence advance mode */
+// Disable the sequencer during configuration
+camera.SequenceEnable.SetValue(false);
+camera.SequenceAdvanceMode.SetValue(SequenceAdvanceMode_Controlled);
+// Set the total number of sequence sets to 2
+camera.SequenceSetTotalNumber.SetValue(2);
+// Specify that sequence set advance is controlled via line 1
+camera.SequenceControlSelector.SetValue(SequenceControlSelector_Advance);
+camera.SequenceControlSource.SetValue(SequenceControlSource_Line1);
+// Specify that sequence set restart is controlled 
+// via software command
+camera.SequenceControlSelector.SetValue(SequenceControlSelector_Restart);
+camera.SequenceControlSource.SetValue(SequenceControlSource_Disabled);
+// Enable the sequencer
+camera.SequenceEnable.SetValue(true);
+// Restart the sequencer via software command (for testing purposes)
+camera.SequenceAsyncRestart.Execute();
+/* Configuring the sequencer for free selection advance mode 
+on cameras with ONE input line */
+// Disable the sequencer during configuration
+camera.SequenceEnable.SetValue(false);
+camera.SequenceAdvanceMode.SetValue(SequenceAdvanceMode_FreeSelection);
+// Set the total number of sequence sets to 2
+camera.SequenceSetTotalNumber.SetValue(2);
+// Enable the sequencer
+camera.SequenceEnable.SetValue(true);
+/* Configuring the sequencer for free selection advance mode 
+on cameras with TWO input lines (1x opto-coupled, 1x GPIO set for input) */
+// Disable the sequencer during configuration
+camera.SequenceEnable.SetValue(false);
+camera.SequenceAdvanceMode.SetValue(SequenceAdvanceMode_FreeSelection);
+// Set the total number of sequence sets to 2
+camera.SequenceSetTotalNumber.SetValue(4);
+// Assign sequence address bit 0 to line 3
+camera.SequenceAddressBitSelector.SetValue(SequenceAddressBitSelector_Bit0);
+camera.SequenceAddressBitSource.SetValue(SequenceAddressBitSource_Line3);
+// Assign sequence address bit 1 to line 1
+camera.SequenceAddressBitSelector.SetValue(SequenceAddressBitSelector_Bit1);
+camera.SequenceAddressBitSource.SetValue(SequenceAddressBitSource_Line1);
+// Enable the sequencer
+camera.SequenceEnable.SetValue(true);</code></pre></div><div class="tab-2 tab-content"><pre><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+/*Configuring sequence sets*/
+
+CBooleanPtr(nodemap.GetNode("SequenceEnable"))-&gt;SetValue(false);
+// Set the total number of sequence sets to 2
+CIntegerPtr(nodemap.GetNode("SequenceSetTotalNumber"))-&gt;SetValue(2);
+// Configure the parameters that you want to store in the first sequence set
+CIntegerPtr(nodemap.GetNode("Width"))-&gt;SetValue(500);
+CIntegerPtr(nodemap.GetNode("Height"))-&gt;SetValue(300);
+// Select sequence set 0 and save the parameter values
+CIntegerPtr(nodemap.GetNode("SequenceSetIndex"))-&gt;SetValue(0);
+CCommandPtr(nodemap.GetNode("SequenceSetStore"))-&gt;Execute();
+// Configure the parameters that you want to store in the second sequence set
+CIntegerPtr(nodemap.GetNode("Width"))-&gt;SetValue(800);
+CIntegerPtr(nodemap.GetNode("Height"))-&gt;SetValue(600);
+// Select sequence set 1 and save the parameter values
+CIntegerPtr(nodemap.GetNode("SequenceSetIndex"))-&gt;SetValue(1);
+CCommandPtr(nodemap.GetNode("SequenceSetStore"))-&gt;Execute();
+/*Configuring the sequencer for auto sequence advance mode
+Assuming you want to configure the following sequence cycle:
+0 - 0 - 1 - 1 - 1 (- 0 - 0 - ...)*/
+
+CBooleanPtr(nodemap.GetNode("SequenceEnable"))-&gt;SetValue(false);
+CEnumerationPtr(nodemap.GetNode("SequenceAdvanceMode"))-&gt;FromString("Auto");
+// Set the total number of sequence sets to 2
+CIntegerPtr(nodemap.GetNode("SequenceSetTotalNumber"))-&gt;SetValue(2);
+// Load sequence set 0 and specify that this set is to be used
+// 2 times in a row
+CIntegerPtr(nodemap.GetNode("SequenceSetIndex"))-&gt;SetValue(0);
+CCommandPtr(nodemap.GetNode("SequenceSetLoad"))-&gt;Execute();
+CIntegerPtr(nodemap.GetNode("SequenceSetExecutions"))-&gt;SetValue(2);
+CCommandPtr(nodemap.GetNode("SequenceSetStore"))-&gt;Execute();
+// Load sequence set 1 and specify that this set is to be used
+// 3 times in a row
+CIntegerPtr(nodemap.GetNode("SequenceSetIndex"))-&gt;SetValue(1);
+CCommandPtr(nodemap.GetNode("SequenceSetLoad"))-&gt;Execute();
+CIntegerPtr(nodemap.GetNode("SequenceSetExecutions"))-&gt;SetValue(3);
+CCommandPtr(nodemap.GetNode("SequenceSetStore"))-&gt;Execute();
+// Enable the sequencer
+CBooleanPtr(nodemap.GetNode("SequenceEnable"))-&gt;SetValue(true);
+/*Configuring the sequencer for controlled sequence advance mode*/
+
+CBooleanPtr(nodemap.GetNode("SequenceEnable"))-&gt;SetValue(false);
+CEnumerationPtr(nodemap.GetNode("SequenceAdvanceMode"))-&gt;FromString("Controlled");
+// Set the total number of sequence sets to 2
+CIntegerPtr(nodemap.GetNode("SequenceSetTotalNumber"))-&gt;SetValue(2);
+// Specify that sequence set advance is controlled via line 1
+CEnumerationPtr(nodemap.GetNode("SequenceControlSelector"))-&gt;FromString("Advance");
+CEnumerationPtr(nodemap.GetNode("SequenceControlSource"))-&gt;FromString("Line1");
+// Specify that sequence set restart is controlled
+// via software command
+CEnumerationPtr(nodemap.GetNode("SequenceControlSelector"))-&gt;FromString("Restart");
+CEnumerationPtr(nodemap.GetNode("SequenceControlSource"))-&gt;FromString("Disabled");
+// Enable the sequencer
+CBooleanPtr(nodemap.GetNode("SequenceEnable"))-&gt;SetValue(true);
+// Restart the sequencer via software command (for testing purposes)
+CCommandPtr(nodemap.GetNode("SequenceAsyncRestart"))-&gt;Execute();
+/*Configuring the sequencer for free selection advance mode
+on cameras with ONE input line*/
+
+CBooleanPtr(nodemap.GetNode("SequenceEnable"))-&gt;SetValue(false);
+CEnumerationPtr(nodemap.GetNode("SequenceAdvanceMode"))-&gt;FromString("FreeSelection");
+// Set the total number of sequence sets to 2
+CIntegerPtr(nodemap.GetNode("SequenceSetTotalNumber"))-&gt;SetValue(2);
+// Enable the sequencer
+CBooleanPtr(nodemap.GetNode("SequenceEnable"))-&gt;SetValue(true);
+/*Configuring the sequencer for free selection advance mode
+on cameras with TWO input lines (1x opto-coupled, 1x GPIO set for input)*/
+
+CBooleanPtr(nodemap.GetNode("SequenceEnable"))-&gt;SetValue(false);
+CEnumerationPtr(nodemap.GetNode("SequenceAdvanceMode"))-&gt;FromString("FreeSelection");
+// Set the total number of sequence sets to 2
+CIntegerPtr(nodemap.GetNode("SequenceSetTotalNumber"))-&gt;SetValue(4);
+// Assign sequence address bit 0 to line 3
+CEnumerationPtr(nodemap.GetNode("SequenceAddressBitSelector"))-&gt;FromString("Bit0");
+CEnumerationPtr(nodemap.GetNode("SequenceAddressBitSource"))-&gt;FromString("Line3");
+// Assign sequence address bit 1 to line 1
+CEnumerationPtr(nodemap.GetNode("SequenceAddressBitSelector"))-&gt;FromString("Bit1");
+CEnumerationPtr(nodemap.GetNode("SequenceAddressBitSource"))-&gt;FromString("Line1");
+// Enable the sequencer
+CBooleanPtr(nodemap.GetNode("SequenceEnable"))-&gt;SetValue(true);</code></pre></div><div class="tab-3 tab-content"><pre><code class="csharp" generated="true">/*Configuring sequence sets*/
+
+camera.Parameters[PLCamera.SequenceEnable].SetValue(false);
+// Set the total number of sequence sets to 2
+camera.Parameters[PLCamera.SequenceSetTotalNumber].SetValue(2);
+// Configure the parameters that you want to store in the first sequence set
+camera.Parameters[PLCamera.Width].SetValue(500);
+camera.Parameters[PLCamera.Height].SetValue(300);
+// Select sequence set 0 and save the parameter values
+camera.Parameters[PLCamera.SequenceSetIndex].SetValue(0);
+camera.Parameters[PLCamera.SequenceSetStore].Execute();
+// Configure the parameters that you want to store in the second sequence set
+camera.Parameters[PLCamera.Width].SetValue(800);
+camera.Parameters[PLCamera.Height].SetValue(600);
+// Select sequence set 1 and save the parameter values
+camera.Parameters[PLCamera.SequenceSetIndex].SetValue(1);
+camera.Parameters[PLCamera.SequenceSetStore].Execute();
+/*Configuring the sequencer for auto sequence advance mode
+Assuming you want to configure the following sequence cycle:
+0 - 0 - 1 - 1 - 1 (- 0 - 0 - ...)*/
+
+camera.Parameters[PLCamera.SequenceEnable].SetValue(false);
+camera.Parameters[PLCamera.SequenceAdvanceMode].SetValue(PLCamera.SequenceAdvanceMode.Auto);
+// Set the total number of sequence sets to 2
+camera.Parameters[PLCamera.SequenceSetTotalNumber].SetValue(2);
+// Load sequence set 0 and specify that this set is to be used
+// 2 times in a row
+camera.Parameters[PLCamera.SequenceSetIndex].SetValue(0);
+camera.Parameters[PLCamera.SequenceSetLoad].Execute();
+camera.Parameters[PLCamera.SequenceSetExecutions].SetValue(2);
+camera.Parameters[PLCamera.SequenceSetStore].Execute();
+// Load sequence set 1 and specify that this set is to be used
+// 3 times in a row
+camera.Parameters[PLCamera.SequenceSetIndex].SetValue(1);
+camera.Parameters[PLCamera.SequenceSetLoad].Execute();
+camera.Parameters[PLCamera.SequenceSetExecutions].SetValue(3);
+camera.Parameters[PLCamera.SequenceSetStore].Execute();
+// Enable the sequencer
+camera.Parameters[PLCamera.SequenceEnable].SetValue(true);
+/*Configuring the sequencer for controlled sequence advance mode*/
+
+camera.Parameters[PLCamera.SequenceEnable].SetValue(false);
+camera.Parameters[PLCamera.SequenceAdvanceMode].SetValue(PLCamera.SequenceAdvanceMode.Controlled);
+// Set the total number of sequence sets to 2
+camera.Parameters[PLCamera.SequenceSetTotalNumber].SetValue(2);
+// Specify that sequence set advance is controlled via line 1
+camera.Parameters[PLCamera.SequenceControlSelector].SetValue(PLCamera.SequenceControlSelector.Advance);
+camera.Parameters[PLCamera.SequenceControlSource].SetValue(PLCamera.SequenceControlSource.Line1);
+// Specify that sequence set restart is controlled
+// via software command
+camera.Parameters[PLCamera.SequenceControlSelector].SetValue(PLCamera.SequenceControlSelector.Restart);
+camera.Parameters[PLCamera.SequenceControlSource].SetValue(PLCamera.SequenceControlSource.Disabled);
+// Enable the sequencer
+camera.Parameters[PLCamera.SequenceEnable].SetValue(true);
+// Restart the sequencer via software command (for testing purposes)
+camera.Parameters[PLCamera.SequenceAsyncRestart].Execute();
+/*Configuring the sequencer for free selection advance mode
+on cameras with ONE input line*/
+
+camera.Parameters[PLCamera.SequenceEnable].SetValue(false);
+camera.Parameters[PLCamera.SequenceAdvanceMode].SetValue(PLCamera.SequenceAdvanceMode.FreeSelection);
+// Set the total number of sequence sets to 2
+camera.Parameters[PLCamera.SequenceSetTotalNumber].SetValue(2);
+// Enable the sequencer
+camera.Parameters[PLCamera.SequenceEnable].SetValue(true);
+/*Configuring the sequencer for free selection advance mode
+on cameras with TWO input lines (1x opto-coupled, 1x GPIO set for input)*/
+
+camera.Parameters[PLCamera.SequenceEnable].SetValue(false);
+camera.Parameters[PLCamera.SequenceAdvanceMode].SetValue(PLCamera.SequenceAdvanceMode.FreeSelection);
+// Set the total number of sequence sets to 2
+camera.Parameters[PLCamera.SequenceSetTotalNumber].SetValue(4);
+// Assign sequence address bit 0 to line 3
+camera.Parameters[PLCamera.SequenceAddressBitSelector].SetValue(PLCamera.SequenceAddressBitSelector.Bit0);
+camera.Parameters[PLCamera.SequenceAddressBitSource].SetValue(PLCamera.SequenceAddressBitSource.Line3);
+// Assign sequence address bit 1 to line 1
+camera.Parameters[PLCamera.SequenceAddressBitSelector].SetValue(PLCamera.SequenceAddressBitSelector.Bit1);
+camera.Parameters[PLCamera.SequenceAddressBitSource].SetValue(PLCamera.SequenceAddressBitSource.Line1);
+// Enable the sequencer
+camera.Parameters[PLCamera.SequenceEnable].SetValue(true);</code></pre></div><div class="tab-4 tab-content"><pre><code class="csharp" generated="true">/*Configuring sequence sets*/
+
+Pylon.DeviceSetBooleanFeature(hdev, "SequenceEnable", false);
+// Set the total number of sequence sets to 2
+Pylon.DeviceSetIntegerFeature(hdev, "SequenceSetTotalNumber", 2);
+// Configure the parameters that you want to store in the first sequence set
+Pylon.DeviceSetIntegerFeature(hdev, "Width", 500);
+Pylon.DeviceSetIntegerFeature(hdev, "Height", 300);
+// Select sequence set 0 and save the parameter values
+Pylon.DeviceSetIntegerFeature(hdev, "SequenceSetIndex", 0);
+Pylon.DeviceExecuteCommandFeature(hdev, "SequenceSetStore");
+// Configure the parameters that you want to store in the second sequence set
+Pylon.DeviceSetIntegerFeature(hdev, "Width", 800);
+Pylon.DeviceSetIntegerFeature(hdev, "Height", 600);
+// Select sequence set 1 and save the parameter values
+Pylon.DeviceSetIntegerFeature(hdev, "SequenceSetIndex", 1);
+Pylon.DeviceExecuteCommandFeature(hdev, "SequenceSetStore");
+/*Configuring the sequencer for auto sequence advance mode
+Assuming you want to configure the following sequence cycle:
+0 - 0 - 1 - 1 - 1 (- 0 - 0 - ...)*/
+
+Pylon.DeviceSetBooleanFeature(hdev, "SequenceEnable", false);
+Pylon.DeviceFeatureFromString(hdev, "SequenceAdvanceMode", "Auto");
+// Set the total number of sequence sets to 2
+Pylon.DeviceSetIntegerFeature(hdev, "SequenceSetTotalNumber", 2);
+// Load sequence set 0 and specify that this set is to be used
+// 2 times in a row
+Pylon.DeviceSetIntegerFeature(hdev, "SequenceSetIndex", 0);
+Pylon.DeviceExecuteCommandFeature(hdev, "SequenceSetLoad");
+Pylon.DeviceSetIntegerFeature(hdev, "SequenceSetExecutions", 2);
+Pylon.DeviceExecuteCommandFeature(hdev, "SequenceSetStore");
+// Load sequence set 1 and specify that this set is to be used
+// 3 times in a row
+Pylon.DeviceSetIntegerFeature(hdev, "SequenceSetIndex", 1);
+Pylon.DeviceExecuteCommandFeature(hdev, "SequenceSetLoad");
+Pylon.DeviceSetIntegerFeature(hdev, "SequenceSetExecutions", 3);
+Pylon.DeviceExecuteCommandFeature(hdev, "SequenceSetStore");
+// Enable the sequencer
+Pylon.DeviceSetBooleanFeature(hdev, "SequenceEnable", true);
+/*Configuring the sequencer for controlled sequence advance mode*/
+
+Pylon.DeviceSetBooleanFeature(hdev, "SequenceEnable", false);
+Pylon.DeviceFeatureFromString(hdev, "SequenceAdvanceMode", "Controlled");
+// Set the total number of sequence sets to 2
+Pylon.DeviceSetIntegerFeature(hdev, "SequenceSetTotalNumber", 2);
+// Specify that sequence set advance is controlled via line 1
+Pylon.DeviceFeatureFromString(hdev, "SequenceControlSelector", "Advance");
+Pylon.DeviceFeatureFromString(hdev, "SequenceControlSource", "Line1");
+// Specify that sequence set restart is controlled
+// via software command
+Pylon.DeviceFeatureFromString(hdev, "SequenceControlSelector", "Restart");
+Pylon.DeviceFeatureFromString(hdev, "SequenceControlSource", "Disabled");
+// Enable the sequencer
+Pylon.DeviceSetBooleanFeature(hdev, "SequenceEnable", true);
+// Restart the sequencer via software command (for testing purposes)
+Pylon.DeviceExecuteCommandFeature(hdev, "SequenceAsyncRestart");
+/*Configuring the sequencer for free selection advance mode
+on cameras with ONE input line*/
+
+Pylon.DeviceSetBooleanFeature(hdev, "SequenceEnable", false);
+Pylon.DeviceFeatureFromString(hdev, "SequenceAdvanceMode", "FreeSelection");
+// Set the total number of sequence sets to 2
+Pylon.DeviceSetIntegerFeature(hdev, "SequenceSetTotalNumber", 2);
+// Enable the sequencer
+Pylon.DeviceSetBooleanFeature(hdev, "SequenceEnable", true);
+/*Configuring the sequencer for free selection advance mode
+on cameras with TWO input lines (1x opto-coupled, 1x GPIO set for input)*/
+
+Pylon.DeviceSetBooleanFeature(hdev, "SequenceEnable", false);
+Pylon.DeviceFeatureFromString(hdev, "SequenceAdvanceMode", "FreeSelection");
+// Set the total number of sequence sets to 2
+Pylon.DeviceSetIntegerFeature(hdev, "SequenceSetTotalNumber", 4);
+// Assign sequence address bit 0 to line 3
+Pylon.DeviceFeatureFromString(hdev, "SequenceAddressBitSelector", "Bit0");
+Pylon.DeviceFeatureFromString(hdev, "SequenceAddressBitSource", "Line3");
+// Assign sequence address bit 1 to line 1
+Pylon.DeviceFeatureFromString(hdev, "SequenceAddressBitSelector", "Bit1");
+Pylon.DeviceFeatureFromString(hdev, "SequenceAddressBitSource", "Line1");
+// Enable the sequencer
+Pylon.DeviceSetBooleanFeature(hdev, "SequenceEnable", true);</code></pre></div><div class="tab-5 tab-content"><pre><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+/*Configuring sequence sets*/
+
+errRes = PylonDeviceSetBooleanFeature(hdev, "SequenceEnable", 0);
+CHECK(errRes);
+/* Set the total number of sequence sets to 2 */
+errRes = PylonDeviceSetIntegerFeature(hdev, "SequenceSetTotalNumber", 2);
+CHECK(errRes);
+/* Configure the parameters that you want to store in the first sequence set */
+errRes = PylonDeviceSetIntegerFeature(hdev, "Width", 500);
+CHECK(errRes);
+errRes = PylonDeviceSetIntegerFeature(hdev, "Height", 300);
+CHECK(errRes);
+/* Select sequence set 0 and save the parameter values */
+errRes = PylonDeviceSetIntegerFeature(hdev, "SequenceSetIndex", 0);
+CHECK(errRes);
+errRes = PylonDeviceExecuteCommandFeature(hdev, "SequenceSetStore");
+CHECK(errRes);
+/* Configure the parameters that you want to store in the second sequence set */
+errRes = PylonDeviceSetIntegerFeature(hdev, "Width", 800);
+CHECK(errRes);
+errRes = PylonDeviceSetIntegerFeature(hdev, "Height", 600);
+CHECK(errRes);
+/* Select sequence set 1 and save the parameter values */
+errRes = PylonDeviceSetIntegerFeature(hdev, "SequenceSetIndex", 1);
+CHECK(errRes);
+errRes = PylonDeviceExecuteCommandFeature(hdev, "SequenceSetStore");
+CHECK(errRes);
+/*Configuring the sequencer for auto sequence advance mode
+Assuming you want to configure the following sequence cycle:
+0 - 0 - 1 - 1 - 1 (- 0 - 0 - ...)*/
+
+errRes = PylonDeviceSetBooleanFeature(hdev, "SequenceEnable", 0);
+CHECK(errRes);
+errRes = PylonDeviceFeatureFromString(hdev, "SequenceAdvanceMode", "Auto");
+CHECK(errRes);
+/* Set the total number of sequence sets to 2 */
+errRes = PylonDeviceSetIntegerFeature(hdev, "SequenceSetTotalNumber", 2);
+CHECK(errRes);
+/* Load sequence set 0 and specify that this set is to be used */
+/* 2 times in a row */
+errRes = PylonDeviceSetIntegerFeature(hdev, "SequenceSetIndex", 0);
+CHECK(errRes);
+errRes = PylonDeviceExecuteCommandFeature(hdev, "SequenceSetLoad");
+CHECK(errRes);
+errRes = PylonDeviceSetIntegerFeature(hdev, "SequenceSetExecutions", 2);
+CHECK(errRes);
+errRes = PylonDeviceExecuteCommandFeature(hdev, "SequenceSetStore");
+CHECK(errRes);
+/* Load sequence set 1 and specify that this set is to be used */
+/* 3 times in a row */
+errRes = PylonDeviceSetIntegerFeature(hdev, "SequenceSetIndex", 1);
+CHECK(errRes);
+errRes = PylonDeviceExecuteCommandFeature(hdev, "SequenceSetLoad");
+CHECK(errRes);
+errRes = PylonDeviceSetIntegerFeature(hdev, "SequenceSetExecutions", 3);
+CHECK(errRes);
+errRes = PylonDeviceExecuteCommandFeature(hdev, "SequenceSetStore");
+CHECK(errRes);
+/* Enable the sequencer */
+errRes = PylonDeviceSetBooleanFeature(hdev, "SequenceEnable", 1);
+CHECK(errRes);
+/*Configuring the sequencer for controlled sequence advance mode*/
+
+errRes = PylonDeviceSetBooleanFeature(hdev, "SequenceEnable", 0);
+CHECK(errRes);
+errRes = PylonDeviceFeatureFromString(hdev, "SequenceAdvanceMode", "Controlled");
+CHECK(errRes);
+/* Set the total number of sequence sets to 2 */
+errRes = PylonDeviceSetIntegerFeature(hdev, "SequenceSetTotalNumber", 2);
+CHECK(errRes);
+/* Specify that sequence set advance is controlled via line 1 */
+errRes = PylonDeviceFeatureFromString(hdev, "SequenceControlSelector", "Advance");
+CHECK(errRes);
+errRes = PylonDeviceFeatureFromString(hdev, "SequenceControlSource", "Line1");
+CHECK(errRes);
+/* Specify that sequence set restart is controlled */
+/* via software command */
+errRes = PylonDeviceFeatureFromString(hdev, "SequenceControlSelector", "Restart");
+CHECK(errRes);
+errRes = PylonDeviceFeatureFromString(hdev, "SequenceControlSource", "Disabled");
+CHECK(errRes);
+/* Enable the sequencer */
+errRes = PylonDeviceSetBooleanFeature(hdev, "SequenceEnable", 1);
+CHECK(errRes);
+/* Restart the sequencer via software command (for testing purposes) */
+errRes = PylonDeviceExecuteCommandFeature(hdev, "SequenceAsyncRestart");
+CHECK(errRes);
+/*Configuring the sequencer for free selection advance mode
+on cameras with ONE input line*/
+
+errRes = PylonDeviceSetBooleanFeature(hdev, "SequenceEnable", 0);
+CHECK(errRes);
+errRes = PylonDeviceFeatureFromString(hdev, "SequenceAdvanceMode", "FreeSelection");
+CHECK(errRes);
+/* Set the total number of sequence sets to 2 */
+errRes = PylonDeviceSetIntegerFeature(hdev, "SequenceSetTotalNumber", 2);
+CHECK(errRes);
+/* Enable the sequencer */
+errRes = PylonDeviceSetBooleanFeature(hdev, "SequenceEnable", 1);
+CHECK(errRes);
+/*Configuring the sequencer for free selection advance mode
+on cameras with TWO input lines (1x opto-coupled, 1x GPIO set for input)*/
+
+errRes = PylonDeviceSetBooleanFeature(hdev, "SequenceEnable", 0);
+CHECK(errRes);
+errRes = PylonDeviceFeatureFromString(hdev, "SequenceAdvanceMode", "FreeSelection");
+CHECK(errRes);
+/* Set the total number of sequence sets to 2 */
+errRes = PylonDeviceSetIntegerFeature(hdev, "SequenceSetTotalNumber", 4);
+CHECK(errRes);
+/* Assign sequence address bit 0 to line 3 */
+errRes = PylonDeviceFeatureFromString(hdev, "SequenceAddressBitSelector", "Bit0");
+CHECK(errRes);
+errRes = PylonDeviceFeatureFromString(hdev, "SequenceAddressBitSource", "Line3");
+CHECK(errRes);
+/* Assign sequence address bit 1 to line 1 */
+errRes = PylonDeviceFeatureFromString(hdev, "SequenceAddressBitSelector", "Bit1");
+CHECK(errRes);
+errRes = PylonDeviceFeatureFromString(hdev, "SequenceAddressBitSource", "Line1");
+CHECK(errRes);
+/* Enable the sequencer */
+errRes = PylonDeviceSetBooleanFeature(hdev, "SequenceEnable", 1);
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

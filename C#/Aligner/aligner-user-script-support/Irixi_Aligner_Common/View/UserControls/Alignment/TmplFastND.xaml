@@ -1,0 +1,78 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Irixi_Aligner_Common.View.UserControls.AlignmentView"
+                    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+                    xmlns:dxprg="http://schemas.devexpress.com/winfx/2008/xaml/propertygrid">
+
+
+    <DataTemplate x:Key="SelectedAligner">
+        <dxprg:PropertyDefinition Path="{Binding Name}" IsReadOnly="False">
+            <dxprg:PropertyDefinition.EditSettings>
+                <dxe:ComboBoxEditSettings 
+                    ItemsSource="{Binding DataContext.Service.LogicalAlignerCollection, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" 
+                    IsTextEditable="False"
+                    DisplayMember="Caption" />
+            </dxprg:PropertyDefinition.EditSettings>
+        </dxprg:PropertyDefinition>
+    </DataTemplate>
+
+    <DataTemplate x:Key="axisElementsHeaderTemplate">
+        <dxprg:CellEditorPresenter Path="Axis.AxisName" IsHitTestVisible="False" dxprg:NavigationManager.NavigationMode="None"/>
+    </DataTemplate>
+
+    <DataTemplate x:Key="emptyTemplate"/>
+
+    <DataTemplate x:Key="axisArgsSummaryTemplate">
+        <StackPanel Orientation="Horizontal" IsHitTestVisible="False">
+            <dxprg:CellEditorPresenter Path="Order" IsHitTestVisible="False" dxprg:NavigationManager.NavigationMode="None"/>
+            <TextBlock Text=","/>
+            <dxprg:CellEditorPresenter Path="Interval" IsHitTestVisible="False" dxprg:NavigationManager.NavigationMode="None"/>
+            <dxprg:CellEditorPresenter Path="Axis.PhysicalAxisInst.UnitHelper" IsHitTestVisible="False" dxprg:NavigationManager.NavigationMode="None"/>
+            <TextBlock Text="/"/>
+            <dxprg:CellEditorPresenter Path="Range" IsHitTestVisible="False" dxprg:NavigationManager.NavigationMode="None"/>
+            <dxprg:CellEditorPresenter Path="Axis.PhysicalAxisInst.UnitHelper" IsHitTestVisible="False" dxprg:NavigationManager.NavigationMode="None"/>
+            <TextBlock Text=","/>
+            <dxprg:CellEditorPresenter Path="MoveSpeed" IsHitTestVisible="False" dxprg:NavigationManager.NavigationMode="None"/>
+            <!--
+            <TextBlock Text=","/>
+            <dxprg:CellEditorPresenter Path="IsEnabled" IsHitTestVisible="False" dxprg:NavigationManager.NavigationMode="None"/>
+            -->
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="AxisParamCollection">
+        <dxprg:CollectionDefinition
+                Path="{Binding CollectionName}" 
+                AllowNewItemInitializer="False" 
+                ContentTemplate="{StaticResource emptyTemplate}">
+            <dxprg:PropertyDefinition 
+                Path="*" 
+                HeaderTemplate="{StaticResource axisElementsHeaderTemplate}" 
+                ContentTemplate="{StaticResource axisArgsSummaryTemplate}">
+                <dxprg:PropertyDefinition Path="IsEnabled"/>
+                <dxprg:PropertyDefinition Path="Interval">
+                    <dxprg:PropertyDefinition.EditSettings>
+                        <dxe:SpinEditSettings/>
+                    </dxprg:PropertyDefinition.EditSettings>
+                </dxprg:PropertyDefinition>
+                <dxprg:PropertyDefinition Path="Range">
+                    <dxprg:PropertyDefinition.EditSettings>
+                        <dxe:SpinEditSettings/>
+                    </dxprg:PropertyDefinition.EditSettings>
+                </dxprg:PropertyDefinition>
+                <dxprg:PropertyDefinition Path="MoveSpeed">
+                    <dxprg:PropertyDefinition.EditSettings>
+                        <dxe:SpinEditSettings/>
+                    </dxprg:PropertyDefinition.EditSettings>
+                </dxprg:PropertyDefinition>
+                <dxprg:PropertyDefinition Path="Order">
+                    <dxprg:PropertyDefinition.EditSettings>
+                        <dxe:ComboBoxEditSettings 
+                            IsTextEditable="False"
+                            ItemsSource="{Binding DataContext.Arguments.ListScanOrder, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"/>
+                    </dxprg:PropertyDefinition.EditSettings>
+                </dxprg:PropertyDefinition>
+            </dxprg:PropertyDefinition>
+        </dxprg:CollectionDefinition>
+    </DataTemplate>
+</ResourceDictionary>

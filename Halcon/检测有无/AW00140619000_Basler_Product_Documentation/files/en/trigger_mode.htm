@@ -1,0 +1,292 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Trigger Mode</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_86";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Trigger Mode<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Trigger Mode</h1>
+<p class="teaser">The Trigger Mode 
+ <a href="features.htm">camera feature</a> allows you to enable 
+ or disable triggered image acquisition for the trigger type selected.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot5285" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot5285', 'MTPOPUP5285');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP5285" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Setting the Trigger Mode</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Immediate Trigger Mode</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >External links</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark6" >Specifics</a>
+</li>
+   <li><a href="#MiniTOCBookMark7" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>Setting the Trigger Mode</h3>
+<p>To set the trigger mode:</p>
+<ol>
+	<li>Set the <span class="parameter-name">TriggerSelector</span> 
+	 parameter to the desired <a href="trigger_selector.htm">trigger type</a>, 
+	 e.g., <span class="parameter-name">FrameStart</span>. 
+	 </li>
+	<li>Set the <span class="parameter-name">TriggerMode</span> 
+	 parameter to one of the following values:</li>
+	<ul>
+		<li><span class="parameter-name">On</span>: 
+		 Enables <a href="triggered_image_acquisition.htm">triggered image 
+		 acquisition</a> for the trigger type selected.</li>
+		<li><span class="parameter-name">Off</span>: 
+		 Disables triggered image acquisition for the trigger type selected. 
+		 Trigger signals are generated automatically by the camera. </li>
+	</ul>
+</ol>
+<p>By default, the trigger mode is set to <span class="parameter-name">Off</span> 
+ for all trigger types. This means that <a href="free_run_image_acquisition.htm">free 
+ run image acquisition</a> is enabled.</p>
+<h3><a name="MiniTOCBookMark4"></a>Immediate Trigger Mode</h3>
+<p>On <a href="#Specifics">some camera models</a>, the Immediate Trigger 
+ Mode is available.</p>
+<p>When the Immediate Trigger Mode is enabled, exposure starts immediately 
+ after triggering, but changes to image parameters become effective with 
+ a short delay, i.e., after one or more images have been acquired. This 
+ is useful if you want to minimize the exposure start delay, i.e., if you 
+ want to start image acquisition as soon as possible, and if your imaging 
+ conditions are stable.</p>
+<p>To enable the Immediate Trigger Mode, set the <span class="parameter-name">BslImmediateTriggerMode</span> 
+ parameter to <span class="parameter-name">On</span>.</p>
+<p>The setting takes effect whenever the <span class="parameter-name">TriggerMode</span> 
+ parameter is set to <span class="parameter-name">On</span>.</p>
+<h3><a name="MiniTOCBookMark5"></a>External links</h3>
+<ul>
+	<li><a href="http://www.vision-doctor.co.uk/camera-technology-basics/trigger-functions.html">Trigger 
+	 functions (Vision Doctor)</a></li>
+</ul>
+<h2 class="specifics"><a name="MiniTOCBookMark6"></a><a name="Specifics">Specifics</a></h2>
+<div>
+<table class="specifics-table">
+	<col />
+	<col />
+	<tr>
+		<th>Camera Model</th>
+		<th>Immediate Trigger Mode</th>
+	</tr>
+	<tr>
+		<td data-rhtags="18" class="rh-hide">All ace GigE camera models</td>
+		<td data-rhtags="18" class="rh-hide">Not available</td>
+	</tr>
+	<tr>
+		<td data-rhtags="33" class="rh-hide">All ace USB 3.0 camera models</td>
+		<td data-rhtags="33" class="rh-hide">Not available</td>
+	</tr>
+	<tr>
+		<td data-rhtags="199" class="rh-hide">daA1280-54lm</td>
+		<td data-rhtags="199" class="rh-hide">Available</td>
+	</tr>
+	<tr>
+		<td data-rhtags="200" class="rh-hide">daA1280-54lc</td>
+		<td data-rhtags="200" class="rh-hide">Available</td>
+	</tr>
+	<tr>
+		<td data-rhtags="201" class="rh-hide">daA1600-60lm</td>
+		<td data-rhtags="201" class="rh-hide">Not available</td>
+	</tr>
+	<tr>
+		<td data-rhtags="202" class="rh-hide">daA1600-60lc</td>
+		<td data-rhtags="202" class="rh-hide">Not available</td>
+	</tr>
+	<tr>
+		<td data-rhtags="203" class="rh-hide">daA2500-14lm</td>
+		<td data-rhtags="203" class="rh-hide">Available</td>
+	</tr>
+	<tr>
+		<td data-rhtags="204" class="rh-hide">daA2500-14lc</td>
+		<td data-rhtags="204" class="rh-hide">Available</td>
+	</tr>
+	<tr>
+		<td data-rhtags="239" class="rh-hide">daA2500-60mc (SD820)</td>
+		<td data-rhtags="239" class="rh-hide">Not available</td>
+	</tr>
+	<tr>
+		<td data-rhtags="205" class="rh-hide">daA1280-54um</td>
+		<td data-rhtags="205" class="rh-hide">Available</td>
+	</tr>
+	<tr>
+		<td data-rhtags="206" class="rh-hide">daA1280-54uc</td>
+		<td data-rhtags="206" class="rh-hide">Available</td>
+	</tr>
+	<tr>
+		<td data-rhtags="207" class="rh-hide">daA1600-60um</td>
+		<td data-rhtags="207" class="rh-hide">Not available</td>
+	</tr>
+	<tr>
+		<td data-rhtags="208" class="rh-hide">daA1600-60uc</td>
+		<td data-rhtags="208" class="rh-hide">Not available</td>
+	</tr>
+	<tr>
+		<td data-rhtags="209" class="rh-hide">daA1920-15um</td>
+		<td data-rhtags="209" class="rh-hide">Available</td>
+	</tr>
+	<tr>
+		<td data-rhtags="210" class="rh-hide">daA1920-30um</td>
+		<td data-rhtags="210" class="rh-hide">Available</td>
+	</tr>
+	<tr>
+		<td data-rhtags="211" class="rh-hide">daA1920-30uc</td>
+		<td data-rhtags="211" class="rh-hide">Available</td>
+	</tr>
+	<tr>
+		<td data-rhtags="212" class="rh-hide">daA2500-14um</td>
+		<td data-rhtags="212" class="rh-hide">Available</td>
+	</tr>
+	<tr>
+		<td data-rhtags="213" class="rh-hide">daA2500-14uc</td>
+		<td data-rhtags="213" class="rh-hide">Available</td>
+	</tr>
+	<tr>
+		<td data-rhtags="214" class="rh-hide">puA1280-54um</td>
+		<td data-rhtags="214" class="rh-hide">Available</td>
+	</tr>
+	<tr>
+		<td data-rhtags="215" class="rh-hide">puA1280-54uc</td>
+		<td data-rhtags="215" class="rh-hide">Available</td>
+	</tr>
+	<tr>
+		<td data-rhtags="216" class="rh-hide">puA1600-60um</td>
+		<td data-rhtags="216" class="rh-hide">Not available</td>
+	</tr>
+	<tr>
+		<td data-rhtags="217" class="rh-hide">puA1600-60uc</td>
+		<td data-rhtags="217" class="rh-hide">Not available</td>
+	</tr>
+	<tr>
+		<td data-rhtags="218" class="rh-hide">puA1920-30um</td>
+		<td data-rhtags="218" class="rh-hide">Available</td>
+	</tr>
+	<tr>
+		<td data-rhtags="219" class="rh-hide">puA1920-30uc</td>
+		<td data-rhtags="219" class="rh-hide">Available</td>
+	</tr>
+	<tr>
+		<td data-rhtags="220" class="rh-hide">puA2500-14um</td>
+		<td data-rhtags="220" class="rh-hide">Available</td>
+	</tr>
+	<tr>
+		<td data-rhtags="221" class="rh-hide">puA2500-14uc</td>
+		<td data-rhtags="221" class="rh-hide">Available</td>
+	</tr>
+</table>
+</div>
+<h2 class="sample-code"><a name="MiniTOCBookMark7"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre><code class="cpp">// Select the Frame Start trigger
+camera.TriggerSelector.SetValue(TriggerSelector_FrameStart);
+// Enable triggered image acquisition for the Frame Start trigger
+camera.TriggerMode.SetValue(TriggerMode_On);</code></pre></div><div class="tab-2 tab-content"><pre><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Select the Frame Start trigger
+CEnumerationPtr(nodemap.GetNode("TriggerSelector"))-&gt;FromString("FrameStart");
+// Enable triggered image acquisition for the Frame Start trigger
+CEnumerationPtr(nodemap.GetNode("TriggerMode"))-&gt;FromString("On");</code></pre></div><div class="tab-3 tab-content"><pre><code class="csharp" generated="true">// Select the Frame Start trigger
+camera.Parameters[PLCamera.TriggerSelector].SetValue(PLCamera.TriggerSelector.FrameStart);
+// Enable triggered image acquisition for the Frame Start trigger
+camera.Parameters[PLCamera.TriggerMode].SetValue(PLCamera.TriggerMode.On);</code></pre></div><div class="tab-4 tab-content"><pre><code class="csharp" generated="true">// Select the Frame Start trigger
+Pylon.DeviceFeatureFromString(hdev, "TriggerSelector", "FrameStart");
+// Enable triggered image acquisition for the Frame Start trigger
+Pylon.DeviceFeatureFromString(hdev, "TriggerMode", "On");</code></pre></div><div class="tab-5 tab-content"><pre><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+/* Select the Frame Start trigger */
+errRes = PylonDeviceFeatureFromString(hdev, "TriggerSelector", "FrameStart");
+CHECK(errRes);
+/* Enable triggered image acquisition for the Frame Start trigger */
+errRes = PylonDeviceFeatureFromString(hdev, "TriggerMode", "On");
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon Viewer 
+ </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

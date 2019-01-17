@@ -1,0 +1,84 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Irixi_Aligner_Common.View.UserControls.AlignmentView"
+                    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+                    xmlns:dxprg="http://schemas.devexpress.com/winfx/2008/xaml/propertygrid">
+
+    <!-- 
+        Data Template of property definition header
+    -->
+    <DataTemplate x:Key="PropDefHeaderTempl_Axis">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="{Binding Header}"/>
+            <TextBlock Text="{Binding DataContext.Arguments.Axis.PhysicalAxisInst.UnitHelper, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, StringFormat={}({0})}"/>
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="PropDefHeaderTempl_Axis2">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="{Binding Header}"/>
+            <TextBlock Text="{Binding DataContext.Arguments.Axis2.PhysicalAxisInst.UnitHelper, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, StringFormat={}({0})}"/>
+        </StackPanel>
+    </DataTemplate>
+
+
+    <!-- 
+        DataTemplate of Property Definition
+    -->
+    <DataTemplate x:Key="Axis">
+        <dxprg:PropertyDefinition Path="{Binding Name}" IsReadOnly="False" >
+            <dxprg:PropertyDefinition.EditSettings>
+                <dxe:ComboBoxEditSettings 
+                    ItemsSource="{Binding 
+                        DataContext.Service.LogicalAxisInAlignerCollection, 
+                        RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" 
+                    IsTextEditable="False"/>
+            </dxprg:PropertyDefinition.EditSettings>
+        </dxprg:PropertyDefinition>
+    </DataTemplate>
+
+    <DataTemplate x:Key="Axis2">
+        <dxprg:PropertyDefinition Path="{Binding Name}" IsReadOnly="False" >
+            <dxprg:PropertyDefinition.EditSettings>
+                <dxe:ComboBoxEditSettings 
+                    ItemsSource="{Binding 
+                        DataContext.Service.LogicalAxisInAlignerCollection, 
+                        RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" 
+                    IsTextEditable="False"/>
+            </dxprg:PropertyDefinition.EditSettings>
+        </dxprg:PropertyDefinition>
+    </DataTemplate>
+
+    <DataTemplate x:Key="Range">
+        <dxprg:PropertyDefinition Path="{Binding Name}"
+                                  HeaderTemplate="{StaticResource PropDefHeaderTempl_Axis}">
+            <dxprg:PropertyDefinition.EditSettings>
+                <dxe:SpinEditSettings/>
+            </dxprg:PropertyDefinition.EditSettings>
+        </dxprg:PropertyDefinition>
+    </DataTemplate>
+
+    <DataTemplate x:Key="Interval">
+        <dxprg:PropertyDefinition Path="{Binding Name}"
+                                  HeaderTemplate="{StaticResource PropDefHeaderTempl_Axis}">
+            <dxprg:PropertyDefinition.EditSettings>
+                <dxe:SpinEditSettings/>
+            </dxprg:PropertyDefinition.EditSettings>
+        </dxprg:PropertyDefinition>
+    </DataTemplate>
+
+    <DataTemplate x:Key="Instrument">
+        <dxprg:PropertyDefinition Path="{Binding Name}">
+            <dxprg:PropertyDefinition.EditSettings>
+                <dxe:ComboBoxEditSettings 
+                    DisplayMember="Config.Caption"
+                    ItemsSource="{Binding 
+                        DataContext.Service.MeasurementInstrumentCollection, 
+                        RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" 
+                    IsTextEditable="False"/>
+            </dxprg:PropertyDefinition.EditSettings>
+        </dxprg:PropertyDefinition>
+    </DataTemplate>
+
+
+</ResourceDictionary>

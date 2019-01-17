@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Brightness and Contrast</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_17";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Brightness and Contrast<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Brightness and Contrast</h1>
+<p class="teaser">The Brightness and Contrast 
+ <a href="features.htm">camera feature</a> allows you to adjust the tonal 
+ values of your images.</p>
+<p>Brightness and contrast are always processed together as parts of a 
+ common mathematical Brightness/Contrast function.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot35095" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot35095', 'MTPOPUP35095');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP35095" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Adjusting Contrast and Contrast Mode</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Adjusting Brightness</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >How It Works</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark6" >Contrast and Contrast Modes</a>
+</li>
+     <li><a href="#MiniTOCBookMark7" >Brightness</a>
+</li>
+    </ul></li>
+    <li><a href="#MiniTOCBookMark8" >Additional Parameters</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark9" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>Adjusting Contrast and Contrast Mode</h3>
+<p>To adjust the contrast:</p>
+<ol>
+	<li>Set the <span class="parameter-name">BslContrastMode</span> 
+	 parameter to one of the following values: 
+	<ul>
+		<li><a href="brightness_and_contrast.htm#Linear_Contrast_Mode"><span class="parameter-name">Linear</span></a></li>
+		<li><a href="brightness_and_contrast.htm#S-Curve_Contrast_Mode"><span class="parameter-name">SCurve</span></a></li>
+	</ul></li>
+	<li>Enter a value for the <span class="parameter-name">BslContrast</span> 
+	 parameter. The parameter's value range is from -1 to 1. By default, 
+	 the parameter is set to 0 which means that the contrast remains unchanged.</li>
+</ol>
+<h3><a name="MiniTOCBookMark4"></a>Adjusting Brightness</h3>
+<p>To adjust the brightness, enter a value for the <span class="parameter-name">BslBrightness</span> 
+ parameter. The parameter's value range is from -1 to 1. By default, the 
+ parameter is set to 0 which means that the brightness remains unchanged.</p>
+<h3><a name="MiniTOCBookMark5"></a>How It Works</h3>
+<h4><a name="MiniTOCBookMark6"></a>Contrast and Contrast Modes</h4>
+<p>Adjusting the contrast changes the degree of difference between light 
+ and dark areas in the image. The more contrast you apply, the more pronounced 
+ the difference will be.</p>
+<p>How the contrast is applied depends on the contrast mode that you select. 
+ </p>
+<p class="subheading"><a name="Linear_Contrast_Mode">Linear Contrast Mode</a></p>
+<p>This is the default contrast mode. If this contrast mode is selected, 
+ the camera uses a <strong>linear function</strong> to adjust the contrast. 
+ Increasing or decreasing the contrast, increases or decreases the gradient 
+ of the linear function.<br />
+<img src="images/drawing_bricon_con_0000_bri_0000_lin.png" alt="Contrast = 0, Brightness = 0, Linear Contrast Mode" title="Contrast = 0, Brightness = 0, Linear Contrast Mode" border="0" /></p>
+<p><img src="images/drawing_bricon_con_0030_bri_0000_lin.png" alt="Contrast = 0.3, Brightness = 0, Linear Contrast Mode" title="Contrast = 0.3, Brightness = 0, Linear Contrast Mode" border="0" /><br />
+With a contrast setting greater than 0, more output pixel values will be 
+ set to completely black (0) or completely white (maximum pixel value). 
+ </p>
+<p>If the contrast is set to 0.3 (see second figure), input values from 
+ 0 to approximately 50 are set to completely black, and input values from 
+ approximately 205 to 255 are set to completely white. This means that 
+ the overall range of tonal values, i.e, the dynamic range of the image, 
+ is reduced. The darkest and lightest regions of the image will appear 
+ completely black or completely white, but the other areas will appear 
+ more defined.</p>
+<p>Decreasing the contrast has the opposite effect.</p>
+<p class="subheading"><a name="S-Curve_Contrast_Mode">S-Curve Contrast 
+ Mode</a></p>
+<p>If this contrast mode is selected, the camera uses an <strong>S-curve 
+ function</strong> to adjust the contrast.</p>
+<p>This allows you to improve the perceived contrast while preserving the 
+ dynamic range of the image.</p>
+<p>The more you increase the contrast, the more S-shaped the graph of the 
+ function will be:</p>
+<p><img src="images/drawing_bricon_con_0030_bri_0000_cur.png" alt="Contrast = 0.3, Brightness = 0, S-Curve Contrast Mode" title="Contrast = 0.3, Brightness = 0, S-Curve Contrast Mode" border="0" /></p>
+<p><img src="images/drawing_bricon_con_0050_bri_0000_cur.png" alt="Contrast = 0.5, Brightness = 0, S-Curve Contrast Mode" title="Contrast = 0.5, Brightness = 0, S-Curve Contrast Mode" border="0" /><br />
+<br />
+The figures above show that increasing the contrast in S-Curve mode has 
+ the following effects:</p>
+<ul>
+	<li>The S-curve gets flatter around its starting and end points and 
+	 steeper around the center. As a result, contrast in light and dark 
+	 areas of the image is reduced, and contrast in mid tones is increased.</li>
+	<li>Low input pixel values are lowered and high input pixel values 
+	 are increased. As a result, extreme dark and light areas of your image 
+	 are compressed, which further improves the perceived contrast.</li>
+	<li>As the curve always starts at (0,0) and ends at (X<sub>max</sub>,Y<sub>max</sub>), 
+	 the dynamic range of the image is preserved.</li>
+</ul>
+<p>Contrast settings below 0 in S-Curve mode will result in an inverted 
+ S-curve with opposite effects.</p>
+<h4><a name="MiniTOCBookMark7"></a>Brightness</h4>
+<p>Adjusting the brightness allows you to lighten or darken the image by 
+ increasing or decreasing its tonal values.</p>
+<p>Adjusting the brightness moves the pivot point of the Brightness/Contrast 
+ function:</p>
+<ul>
+	<li><strong>Increasing</strong> the brightness moves the pivot point 
+	 towards the upper left. This means that the image will appear lighter.</li>
+	<li><strong>Decreasing</strong> the brightness moves the pivot point 
+	 to the lower right. This means that the image will appear darker.</li>
+</ul>
+<p>The figures below show examples with the <a href="brightness_and_contrast.htm#S-Curve_Contrast_Mode">S-Curve 
+ contrast mode</a> selected.</p>
+<p><img src="images/drawing_bricon_con_0030_bri_0000_cur_pivot.png" alt="Contrast = 0.3, Brightness = 0, S-Curve Contrast Mode" title="Contrast = 0.3, Brightness = 0, S-Curve Contrast Mode" border="0" /></p>
+<p><img src="images/drawing_bricon_con_0030_bri_0030_cur_pivot.png" alt="Contrast = 0.3, Brightness = 0.3, S-Curve Contrast Mode" title="Contrast = 0.3, Brightness = 0.3, S-Curve Contrast Mode" border="0" /></p>
+<h3><a name="MiniTOCBookMark8"></a>Additional Parameters</h3>
+<p>If available, the <span class="parameter-name">BslBrightnessRaw</span> 
+ and <span class="parameter-name">BslContrastRaw</span> 
+ parameters allow you to enter integer values instead of float values for 
+ the brightness and contrast parameters. Normally, you don't need to set 
+ these parameters.</p>
+<h2 class="sample-code"><a name="MiniTOCBookMark9"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre><code class="cpp">// Set the Brightness parameter to 0.5
+camera.BslBrightness.SetValue(0.5);
+// Set the contrast mode to Linear
+camera.BslContrastMode.SetValue(BslContrastMode_Linear);
+// Set the Contrast parameter to 1.2
+camera.BslContrast.SetValue(1.2);</code></pre></div><div class="tab-2 tab-content"><pre><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Set the Brightness parameter to 0.5
+CFloatPtr(nodemap.GetNode("BslBrightness"))-&gt;SetValue(0.5);
+// Set the contrast mode to Linear
+CEnumerationPtr(nodemap.GetNode("BslContrastMode"))-&gt;FromString("Linear");
+// Set the Contrast parameter to 1.2
+CFloatPtr(nodemap.GetNode("BslContrast"))-&gt;SetValue(1.2);</code></pre></div><div class="tab-3 tab-content"><pre><code class="csharp" generated="true">// Set the Brightness parameter to 0.5
+camera.Parameters[PLCamera.BslBrightness].SetValue(0.5);
+// Set the contrast mode to Linear
+camera.Parameters[PLCamera.BslContrastMode].SetValue(PLCamera.BslContrastMode.Linear);
+// Set the Contrast parameter to 1.2
+camera.Parameters[PLCamera.BslContrast].SetValue(1.2);</code></pre></div><div class="tab-4 tab-content"><pre><code class="csharp" generated="true">// Set the Brightness parameter to 0.5
+Pylon.DeviceSetFloatFeature(hdev, "BslBrightness", 0.5);
+// Set the contrast mode to Linear
+Pylon.DeviceFeatureFromString(hdev, "BslContrastMode", "Linear");
+// Set the Contrast parameter to 1.2
+Pylon.DeviceSetFloatFeature(hdev, "BslContrast", 1.2);</code></pre></div><div class="tab-5 tab-content"><pre><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+/* Set the Brightness parameter to 0.5 */
+errRes = PylonDeviceSetFloatFeature(hdev, "BslBrightness", 0.5);
+CHECK(errRes);
+/* Set the contrast mode to Linear */
+errRes = PylonDeviceFeatureFromString(hdev, "BslContrastMode", "Linear");
+CHECK(errRes);
+/* Set the Contrast parameter to 1.2 */
+errRes = PylonDeviceSetFloatFeature(hdev, "BslContrast", 1.2);
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

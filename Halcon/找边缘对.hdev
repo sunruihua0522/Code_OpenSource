@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="-769658447">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image (Image11117455Cam0, 'C:/项目/李博定位台需求/AssemblyBench/JPT TosaTest/bin/Debug/ImageSaved/ImageSaved/11月1日 17时4分55秒_Cam0.jpg')</l>
+<l>get_image_size(Image11117455Cam0, Width, Height)</l>
+<l>dev_close_window()</l>
+<l>dev_open_window_fit_image(Image11117455Cam0, 0, 0, -1, -1, WindowHandle)</l>
+<l>dev_display(Image11117455Cam0)</l>
+<l>draw_rectangle2(WindowHandle, Row, Column, Phi, Length1, Length2)</l>
+<l>dev_set_draw('margin')</l>
+<l>gen_rectangle2(Rectangle, Row, Column, Phi, Length1, Length2)</l>
+<l>gen_measure_rectangle2(Row, Column, Phi, Length1, Length2, Width, Height, 'nearest_neighbor', MeasureHandle)</l>
+<c>*positive找白边，negative找黑边</c>
+<l>measure_pairs(Image11117455Cam0, MeasureHandle, 1, 30, 'positive', 'all', RowEdgeFirst, ColumnEdgeFirst, AmplitudeFirst, RowEdgeSecond, ColumnEdgeSecond, AmplitudeSecond, IntraDistance, InterDistance)</l>
+<l>dev_clear_window()</l>
+<l>dev_display(Image11117455Cam0)</l>
+<l>dev_set_color('red')</l>
+<l>disp_cross(WindowHandle, RowEdgeSecond, ColumnEdgeSecond, 60, Phi)</l>
+<l>dev_set_color('green')</l>
+<l>disp_cross(WindowHandle, RowEdgeFirst, ColumnEdgeFirst, 60, Phi)</l>
+<c></c>
+<c></c>
+<c></c>
+<l>close_measure(MeasureHandle)</l>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

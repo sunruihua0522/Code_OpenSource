@@ -1,0 +1,429 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Gain Auto</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_39";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Gain Auto<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Gain Auto</h1>
+<p class="teaser">The Gain Auto 
+ <a href="features.htm">camera feature</a> automatically adjusts the <a href="gain.htm">gain</a> within specified limits until a target brightness 
+ value has been reached.</p>
+<p>The pixel data for the auto function can come from one or multiple <a href="auto_function_roi.htm">auto function ROIs</a>.</p>
+<p>If you want to use Gain Auto and <a href="exposure_auto.htm">Exposure 
+ Auto</a> at the same time, use the <a href="auto_function_profile.htm">Auto 
+ Function Profile</a> feature to specify how the effects of both are balanced.</p>
+<p>To adjust the gain manually, use the <a href="gain.htm">Gain</a> feature.</p>
+<div class="mini-toc">
+	<p align="left" style="font-weight: normal;font-style: normal;text-decoration: none;" >In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot63061" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot63061', 'MTPOPUP63061');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP63061" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Prerequisites</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Enabling or Disabling Gain Auto</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >Specifying Lower and Upper 
+ Limits</a>
+</li>
+    <li><a href="#MiniTOCBookMark6" >Specifying the Target 
+ Brightness Value</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark7" >Specifics</a>
+</li>
+   <li><a href="#MiniTOCBookMark8" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>Prerequisites</h3>
+<ul>
+	<li>At least one <a href="auto_function_roi.htm">auto function ROI</a> 
+	 must be <a href="auto_function_roi.htm#Assigning_Auto_Functions">assigned</a> 
+	 to the Gain Auto auto function.</li>
+	<li>The auto function ROI assigned must <a href="auto_function_roi.htm#Overlap_Between_Auto_Function_AOI_and_Image_AOI">overlap 
+	 the image ROI</a>, either partially or completely.</li>
+</ul>
+<h3><a name="MiniTOCBookMark4"></a>Enabling or Disabling Gain Auto</h3>
+<p>To enable or disable the Gain Auto auto function, set the <span class="parameter-name">GainAuto</span> 
+ parameter to one of the following operating modes:</p>
+<ul>
+	<li><span><span class="parameter-name">Once</span>:</span> 
+	 The camera adjusts the gain until the <a href="#Specifying_the_Target_Brightness_Value">specified 
+	 target brightness value</a> has been reached. When this has been achieved, 
+	 or after a maximum of 30 calculation cycles, the camera sets the auto 
+	 function to <span><span class="parameter-name">Off</span></span>&#160;and 
+	 applies the gain resulting from the last calculation to all following 
+	 images.</li>
+	<li><span><span class="parameter-name">Continuous</span>:</span> 
+	 The camera adjusts the gain continuously while images are acquired.</li>
+	<li><span><span class="parameter-name">Off</span>:</span> 
+	 Disables the Gain Auto auto function. The gain is set to the value 
+	 resulting from the last automatic or manual adjustment.</li>
+</ul>
+<div class="info">
+	<p>When the camera is capturing images continuously, the auto function 
+	 takes effect with a short delay. The first few images may not be affected 
+	 by the auto function.</p>
+</div>
+<h3><a name="MiniTOCBookMark5"></a><a name="Specifying_Lower_and_Upper_Limits">Specifying Lower and Upper 
+ Limits</a></h3>
+<p>The auto function adjusts the <span class="parameter-name rh-hide" data-rhtags="48">GainRaw</span><span class="parameter-name rh-hide" data-rhtags="49">Gain</span> 
+ parameter value within limits specified by you.</p>
+<p>To change the limits, set the <span class="parameter-name rh-hide" data-rhtags="48">AutoGainRawLowerLimit</span><span class="parameter-name rh-hide" data-rhtags="49">AutoGainLowerLimit</span> 
+ and the <span class="parameter-name rh-hide" data-rhtags="48">AutoGainRawUpperLimit</span><span class="parameter-name rh-hide" data-rhtags="49">AutoGainUpperLimit</span> 
+ parameters to the desired values.</p>
+<p><strong>Example:</strong> Assume you have set the <span class="parameter-name rh-hide" data-rhtags="48">AutoGainRawLowerLimit</span><span class="parameter-name rh-hide" data-rhtags="49">AutoGainLowerLimit</span> 
+ parameter to 2 and the <span class="parameter-name rh-hide" data-rhtags="48">AutoGainRawUpperLimit</span><span class="parameter-name rh-hide" data-rhtags="49">AutoGainUpperLimit</span> 
+ parameter to 6. During the automatic adjustment process, the gain will 
+ never be lower than 2 and never higher than 6.</p>
+<h3><a name="MiniTOCBookMark6"></a><a name="Specifying_the_Target_Brightness_Value">Specifying the Target 
+ Brightness Value</a></h3>
+<p>The auto function adjusts the gain until a target brightness value, 
+ i.e., an average gray value, has been reached. </p>
+<p>To specify the target value, use the <span class="parameter-name rh-hide" data-rhtags="48">AutoTargetValue</span><span class="parameter-name rh-hide" data-rhtags="49">AutoTargetBrightness</span> 
+ parameter. The parameter's value range <a href="#Specifics">depends on 
+ the camera model</a> and the pixel format used.</p>
+<div class="info">
+	<ul>
+		<li>The target value calculation does not include other image optimizations, 
+		 e.g., <a href="gamma.htm">Gamma</a>. Depending on the image optimizations 
+		 set, images output by the camera may have a significantly lower 
+		 or higher average gray value than indicated by the target value.</li>
+		<li>The camera also uses the <span class="parameter-name rh-hide" data-rhtags="48">AutoTargetValue</span><span class="parameter-name rh-hide" data-rhtags="49">AutoTargetBrightness</span> 
+		 parameter to control the <a href="exposure_auto.htm">Exposure 
+		 Auto </a>auto function. If you want to use Gain Auto and <a href="exposure_auto.htm">Exposure 
+		 Auto</a> at the same time, use the <a href="auto_function_profile.htm">Auto 
+		 Function Profile</a> feature to specify how the effects of both 
+		 are balanced. </li>
+	</ul>
+</div>
+<p>On <a href="basler_ace_gige.htm">Basler ace GigE</a> camera models, 
+ you can also specify a <a href="gray_value_adjustment_damping.htm">Gray 
+ Value Adjustment Damping</a> factor. On&#160;<a href="basler_ace_gige.htm">Basler 
+ dart </a>and <a href="basler_pulse_usb_3.0.htm">pulse</a> camera models, 
+ you can specify a <a href="brightness_adjustment_damping.htm">Brightness 
+ Adjustment Damping</a> factor.</p>
+<p>When a damping factor is used, the target value is reached more slowly.</p>
+<h2 class="specifics"><a name="MiniTOCBookMark7"></a><a name="Specifics">Specifics</a></h2>
+<div>
+<p class="info">On some camera models, you can use the <a href="remove_parameter_limits.htm">Remove 
+ Parameter Limits</a> feature to increase the target value parameter limits.</p>
+<table class="specifics-table">
+	<col />
+	<col />
+	<col />
+	<tr>
+		<th>Camera Model</th>
+		<th><p>Minimum Target Value</p></th>
+		<th><p>Maximum Target Value</p></th>
+	</tr>
+	<tr>
+		<td data-rhtags="233" class="rh-hide">All ace classic GigE camera models</td>
+		<td data-rhtags="233" class="rh-hide">2 
+		 / 32<sup>a</sup></td>
+		<td data-rhtags="233" class="rh-hide">253 
+		 / 4048<sup>a</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="234" class="rh-hide"><p data-rhtags="234" class="rh-hide">All 
+		 ace U GigE camera models</p></td>
+		<td data-rhtags="234" class="rh-hide"><p data-rhtags="234" class="rh-hide">50 
+		 / 800<sup>a</sup></p></td>
+		<td data-rhtags="234" class="rh-hide"><p data-rhtags="234" class="rh-hide">205 
+		 / 3280<sup>a</sup></p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="235" class="rh-hide"><span data-rhtags="235" class="rh-hide">All 
+		 ace L GigE camera models</span></td>
+		<td data-rhtags="235" class="rh-hide">50 
+		 / 800<sup>a</sup></td>
+		<td data-rhtags="235" class="rh-hide">205 
+		 / 3280<sup>a</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="33" class="rh-hide">All ace USB 3.0 camera models</td>
+		<td data-rhtags="33" class="rh-hide">0.2<sup>b</sup></td>
+		<td data-rhtags="33" class="rh-hide">0.8<sup>b</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="44" class="rh-hide">All dart BCON for LVDS camera models</td>
+		<td data-rhtags="44" class="rh-hide">0.1<sup>b</sup></td>
+		<td data-rhtags="44" class="rh-hide">1.0<sup>b</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="21" class="rh-hide">All dart BCON for MIPI camera models</td>
+		<td data-rhtags="21" class="rh-hide">tbd</td>
+		<td data-rhtags="21" class="rh-hide">tbd</td>
+	</tr>
+	<tr>
+		<td data-rhtags="42" class="rh-hide">All dart USB 3.0 camera models</td>
+		<td data-rhtags="42" class="rh-hide">0.1<sup>b</sup></td>
+		<td data-rhtags="42" class="rh-hide">1.0<sup>b</sup></td>
+	</tr>
+	<tr>
+		<td data-rhtags="47" class="rh-hide">All pulse USB 3.0 camera models</td>
+		<td data-rhtags="47" class="rh-hide">0.1<sup>b</sup></td>
+		<td data-rhtags="47" class="rh-hide">1.0<sup>b</sup></td>
+	</tr>
+</table>
+<p class="table-footnote rh-hide" data-rhtags="18"><sup>a</sup>8-bit 
+ / 12-bit <a href="pixel_format.htm" data-rhtags="18" class="rh-hide">pixel 
+ format</a></p>
+<p class="table-footnote rh-hide" data-rhtags="236"><sup>b</sup>The parameter's value range is 
+ based on the gray value range of the <a href="pixel_format.htm">pixel 
+ format</a> selected. For example, if you have selected an 8-bit pixel 
+ format, the maximum gray value is 256. Therefore, a parameter value of 
+ 0.5 corresponds to a gray value of approximately 128.</p>
+</div>
+<h2 class="sample-code"><a name="MiniTOCBookMark8"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre data-rhtags="48" class="rh-hide"><code class="cpp">// Set the the Gain Auto auto function to its minimum lower limit
+// and its maximum upper limit
+double minLowerLimit = camera.AutoGainRawLowerLimit.GetMin();
+double maxUpperLimit = camera.AutoGainRawUpperLimit.GetMax();
+camera.AutoGainRawLowerLimit.SetValue(minLowerLimit);
+camera.AutoGainRawUpperLimit.SetValue(maxUpperLimit);
+// Specify the target value
+camera.AutoTargetValue.SetValue(150);
+// Select auto function ROI 1
+camera.AutoFunctionAOISelector.SetValue(AutoFunctionAOISelector_AOI1);
+// Enable the 'Intensity' auto function (Gain Auto + Exposure Auto) 
+// for the auto function ROI selected
+camera.AutoFunctionAOIUsageIntensity.SetValue(true);
+// Enable Gain Auto by setting the operating mode to Continuous
+camera.GainAuto.SetValue(GainAuto_Continuous);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="cpp">// Set the the Gain Auto auto function to its minimum lower limit
+// and its maximum upper limit
+double minLowerLimit = camera.AutoGainLowerLimit.GetMin();
+double maxUpperLimit = camera.AutoGainUpperLimit.GetMax();
+camera.AutoGainLowerLimit.SetValue(minLowerLimit);
+camera.AutoGainUpperLimit.SetValue(maxUpperLimit);
+// Specify the target value
+camera.AutoTargetBrightness.SetValue(0.6);
+// Select auto function ROI 1
+camera.AutoFunctionROISelector.SetValue(AutoFunctionROISelector_ROI1);
+// Enable the 'Brightness' auto function (Gain Auto + Exposure Auto) 
+// for the auto function ROI selected
+camera.AutoFunctionROIUseBrightness.SetValue(true);
+// Enable Gain Auto by setting the operating mode to Continuous
+camera.GainAuto.SetValue(GainAuto_Continuous);</code></pre></div><div class="tab-2 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Set the the Gain Auto auto function to its minimum lower limit
+// and its maximum upper limit
+double minLowerLimit = CFloatPtr(nodemap.GetNode("AutoGainRawLowerLimit"))-&gt;GetMin();
+double maxUpperLimit = CFloatPtr(nodemap.GetNode("AutoGainRawUpperLimit"))-&gt;GetMax();
+CFloatPtr(nodemap.GetNode("AutoGainRawLowerLimit"))-&gt;SetValue(minLowerLimit);
+CFloatPtr(nodemap.GetNode("AutoGainRawUpperLimit"))-&gt;SetValue(maxUpperLimit);
+// Specify the target value
+CIntegerPtr(nodemap.GetNode("AutoTargetValue"))-&gt;SetValue(150);
+// Select auto function ROI 1
+CEnumerationPtr(nodemap.GetNode("AutoFunctionAOISelector"))-&gt;FromString("AOI1");
+// Enable the 'Intensity' auto function (Gain Auto + Exposure Auto)
+// for the auto function ROI selected
+CBooleanPtr(nodemap.GetNode("AutoFunctionAOIUsageIntensity"))-&gt;SetValue(true);
+// Enable Gain Auto by setting the operating mode to Continuous
+CEnumerationPtr(nodemap.GetNode("GainAuto"))-&gt;FromString("Continuous");</code></pre><pre data-rhtags="49" class="rh-hide"><code class="cpp" generated="true">// Set the the Gain Auto auto function to its minimum lower limit
+// and its maximum upper limit
+double minLowerLimit = CFloatPtr(nodemap.GetNode("AutoGainLowerLimit"))-&gt;GetMin();
+double maxUpperLimit = CFloatPtr(nodemap.GetNode("AutoGainUpperLimit"))-&gt;GetMax();
+CFloatPtr(nodemap.GetNode("AutoGainLowerLimit"))-&gt;SetValue(minLowerLimit);
+CFloatPtr(nodemap.GetNode("AutoGainUpperLimit"))-&gt;SetValue(maxUpperLimit);
+// Specify the target value
+CFloatPtr(nodemap.GetNode("AutoTargetBrightness"))-&gt;SetValue(0.6);
+// Select auto function ROI 1
+CEnumerationPtr(nodemap.GetNode("AutoFunctionROISelector"))-&gt;FromString("ROI1");
+// Enable the 'Brightness' auto function (Gain Auto + Exposure Auto)
+// for the auto function ROI selected
+CBooleanPtr(nodemap.GetNode("AutoFunctionROIUseBrightness"))-&gt;SetValue(true);
+// Enable Gain Auto by setting the operating mode to Continuous
+CEnumerationPtr(nodemap.GetNode("GainAuto"))-&gt;FromString("Continuous");</code></pre></div><div class="tab-3 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="csharp" generated="true">// Set the the Gain Auto auto function to its minimum lower limit
+// and its maximum upper limit
+double minLowerLimit = camera.Parameters[PLCamera.AutoGainRawLowerLimit].GetMinimum();
+double maxUpperLimit = camera.Parameters[PLCamera.AutoGainRawUpperLimit].GetMaximum();
+camera.Parameters[PLCamera.AutoGainRawLowerLimit].SetValue(minLowerLimit);
+camera.Parameters[PLCamera.AutoGainRawUpperLimit].SetValue(maxUpperLimit);
+// Specify the target value
+camera.Parameters[PLCamera.AutoTargetValue].SetValue(150);
+// Select auto function ROI 1
+camera.Parameters[PLCamera.AutoFunctionAOISelector].SetValue(PLCamera.AutoFunctionAOISelector.AOI1);
+// Enable the 'Intensity' auto function (Gain Auto + Exposure Auto)
+// for the auto function ROI selected
+camera.Parameters[PLCamera.AutoFunctionAOIUsageIntensity].SetValue(true);
+// Enable Gain Auto by setting the operating mode to Continuous
+camera.Parameters[PLCamera.GainAuto].SetValue(PLCamera.GainAuto.Continuous);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="csharp" generated="true">// Set the the Gain Auto auto function to its minimum lower limit
+// and its maximum upper limit
+double minLowerLimit = camera.Parameters[PLCamera.AutoGainLowerLimit].GetMinimum();
+double maxUpperLimit = camera.Parameters[PLCamera.AutoGainUpperLimit].GetMaximum();
+camera.Parameters[PLCamera.AutoGainLowerLimit].SetValue(minLowerLimit);
+camera.Parameters[PLCamera.AutoGainUpperLimit].SetValue(maxUpperLimit);
+// Specify the target value
+camera.Parameters[PLCamera.AutoTargetBrightness].SetValue(0.6);
+// Select auto function ROI 1
+camera.Parameters[PLCamera.AutoFunctionROISelector].SetValue(PLCamera.AutoFunctionROISelector.ROI1);
+// Enable the 'Brightness' auto function (Gain Auto + Exposure Auto)
+// for the auto function ROI selected
+camera.Parameters[PLCamera.AutoFunctionROIUseBrightness].SetValue(true);
+// Enable Gain Auto by setting the operating mode to Continuous
+camera.Parameters[PLCamera.GainAuto].SetValue(PLCamera.GainAuto.Continuous);</code></pre></div><div class="tab-4 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="csharp" generated="true">// Set the the Gain Auto auto function to its minimum lower limit
+// and its maximum upper limit
+double minLowerLimit = Pylon.DeviceGetFloatFeatureMin(hdev, "AutoGainRawLowerLimit");
+double maxUpperLimit = Pylon.DeviceGetFloatFeatureMax(hdev, "AutoGainRawUpperLimit");
+Pylon.DeviceSetFloatFeature(hdev, "AutoGainRawLowerLimit", minLowerLimit);
+Pylon.DeviceSetFloatFeature(hdev, "AutoGainRawUpperLimit", maxUpperLimit);
+// Specify the target value
+Pylon.DeviceSetIntegerFeature(hdev, "AutoTargetValue", 150);
+// Select auto function ROI 1
+Pylon.DeviceFeatureFromString(hdev, "AutoFunctionAOISelector", "AOI1");
+// Enable the 'Intensity' auto function (Gain Auto + Exposure Auto)
+// for the auto function ROI selected
+Pylon.DeviceSetBooleanFeature(hdev, "AutoFunctionAOIUsageIntensity", true);
+// Enable Gain Auto by setting the operating mode to Continuous
+Pylon.DeviceFeatureFromString(hdev, "GainAuto", "Continuous");</code></pre><pre data-rhtags="49" class="rh-hide"><code class="csharp" generated="true">// Set the the Gain Auto auto function to its minimum lower limit
+// and its maximum upper limit
+double minLowerLimit = Pylon.DeviceGetFloatFeatureMin(hdev, "AutoGainLowerLimit");
+double maxUpperLimit = Pylon.DeviceGetFloatFeatureMax(hdev, "AutoGainUpperLimit");
+Pylon.DeviceSetFloatFeature(hdev, "AutoGainLowerLimit", minLowerLimit);
+Pylon.DeviceSetFloatFeature(hdev, "AutoGainUpperLimit", maxUpperLimit);
+// Specify the target value
+Pylon.DeviceSetFloatFeature(hdev, "AutoTargetBrightness", 0.6);
+// Select auto function ROI 1
+Pylon.DeviceFeatureFromString(hdev, "AutoFunctionROISelector", "ROI1");
+// Enable the 'Brightness' auto function (Gain Auto + Exposure Auto)
+// for the auto function ROI selected
+Pylon.DeviceSetBooleanFeature(hdev, "AutoFunctionROIUseBrightness", true);
+// Enable Gain Auto by setting the operating mode to Continuous
+Pylon.DeviceFeatureFromString(hdev, "GainAuto", "Continuous");</code></pre></div><div class="tab-5 tab-content"><pre data-rhtags="48" class="rh-hide"><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+double minLowerLimit = 0;
+double maxUpperLimit = 0;
+/* Set the the Gain Auto auto function to its minimum lower limit */
+/* and its maximum upper limit */
+errRes = PylonDeviceGetFloatFeatureMin(hdev, "AutoGainRawLowerLimit", &amp;minLowerLimit);
+CHECK(errRes);
+errRes = PylonDeviceGetFloatFeatureMax(hdev, "AutoGainRawUpperLimit", &amp;maxUpperLimit);
+CHECK(errRes);
+errRes = PylonDeviceSetFloatFeature(hdev, "AutoGainRawLowerLimit", minLowerLimit);
+CHECK(errRes);
+errRes = PylonDeviceSetFloatFeature(hdev, "AutoGainRawUpperLimit", maxUpperLimit);
+CHECK(errRes);
+/* Specify the target value */
+errRes = PylonDeviceSetIntegerFeature(hdev, "AutoTargetValue", 150);
+CHECK(errRes);
+/* Select auto function ROI 1 */
+errRes = PylonDeviceFeatureFromString(hdev, "AutoFunctionAOISelector", "AOI1");
+CHECK(errRes);
+/* Enable the 'Intensity' auto function (Gain Auto + Exposure Auto) */
+/* for the auto function ROI selected */
+errRes = PylonDeviceSetBooleanFeature(hdev, "AutoFunctionAOIUsageIntensity", 1);
+CHECK(errRes);
+/* Enable Gain Auto by setting the operating mode to Continuous */
+errRes = PylonDeviceFeatureFromString(hdev, "GainAuto", "Continuous");
+CHECK(errRes);</code></pre><pre data-rhtags="49" class="rh-hide"><code class="c" generated="true">double minLowerLimit = 0;
+double maxUpperLimit = 0;
+/* Set the the Gain Auto auto function to its minimum lower limit */
+/* and its maximum upper limit */
+errRes = PylonDeviceGetFloatFeatureMin(hdev, "AutoGainLowerLimit", &amp;minLowerLimit);
+CHECK(errRes);
+errRes = PylonDeviceGetFloatFeatureMax(hdev, "AutoGainUpperLimit", &amp;maxUpperLimit);
+CHECK(errRes);
+errRes = PylonDeviceSetFloatFeature(hdev, "AutoGainLowerLimit", minLowerLimit);
+CHECK(errRes);
+errRes = PylonDeviceSetFloatFeature(hdev, "AutoGainUpperLimit", maxUpperLimit);
+CHECK(errRes);
+/* Specify the target value */
+errRes = PylonDeviceSetFloatFeature(hdev, "AutoTargetBrightness", 0.6);
+CHECK(errRes);
+/* Select auto function ROI 1 */
+errRes = PylonDeviceFeatureFromString(hdev, "AutoFunctionROISelector", "ROI1");
+CHECK(errRes);
+/* Enable the 'Brightness' auto function (Gain Auto + Exposure Auto) */
+/* for the auto function ROI selected */
+errRes = PylonDeviceSetBooleanFeature(hdev, "AutoFunctionROIUseBrightness", 1);
+CHECK(errRes);
+/* Enable Gain Auto by setting the operating mode to Continuous */
+errRes = PylonDeviceFeatureFromString(hdev, "GainAuto", "Continuous");
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

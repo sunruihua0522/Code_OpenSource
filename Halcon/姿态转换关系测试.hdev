@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="-578021809">
+<procedure name="main">
+<interface/>
+<body>
+<l>create_pose(20, 0, 0, 22, 0, 0, 'Rp+T', 'gba', 'point', Pose)</l>
+<l>pose_to_hom_mat3d(Pose, HomMat3D)</l>
+<l>hom_mat3d_invert(HomMat3D, HomMat3DInvert)</l>
+<c></c>
+<l>affine_trans_point_3d(HomMat3D, 20, 90, 90, Qx, Qy, Qz)</l>
+<l>affine_trans_point_3d(HomMat3DInvert, Qx, Qy, Qz, Qx1, Qy1, Qz1)</l>
+<c></c>
+<l>dev_close_window()</l>
+<c></c>
+<l>read_image (Image, 'C:/项目/李博定位台需求/项目资料/板子接口定义.jpg')</l>
+<c></c>
+<l>dev_open_window_fit_image(Image, 0, 0, -1, -1, WindowHandle)</l>
+<l>dev_display(Image)</l>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

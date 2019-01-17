@@ -1,0 +1,348 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="noindex" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Color Calibrator</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "4.1.1.0_12";
+</script>
+ <meta name="topic-breadcrumbs" content="Software > pylon Camera Software Suite > pylon Viewer" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"pylon_camera_software_suite.htm\">Software<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"pylon_camera_software_suite.htm#bc-1\">pylon Camera Software Suite<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"overview_of_the_pylon_viewer.htm\">pylon Viewer<\/a>  &gt;  Color Calibrator<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Color Calibrator</h1>
+<p class="teaser">The Color Calibrator in the <a href="overview_of_the_pylon_viewer.htm">pylon 
+ Viewer</a> helps you to quickly calibrate your camera for optimum color 
+ reproduction.</p>
+<p>An easy-to-use 4-step wizard guides you through the process of calibrating 
+ your camera. The Color Calibrator is only available for <a href="basler_med_ace.htm">Basler 
+ MED ace cameras</a>.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot29271" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot29271', 'MTPOPUP29271');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP29271" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >How It Works</a>
+</li>
+   <li><a href="#MiniTOCBookMark3" >Before You Start</a>
+</li>
+   <li><a href="#MiniTOCBookMark4" >Calibrating the Camera</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark5" >Step 1: Position Grid</a>
+</li>
+    <li><a href="#MiniTOCBookMark6" >Step 2: Adjust Brightness</a>
+</li>
+    <li><a href="#MiniTOCBookMark7" >Step 3: Review Calibration 
+ Results</a>
+</li>
+    <li><a href="#MiniTOCBookMark8" >Step 4: Save Calibration 
+ Results</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark9" >Troubleshooting</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>How It Works</h2>
+<p>The Color Calibrator adjusts camera parameters that influence how colors 
+ are reproduced in the final image. To do so, you place a color chart in 
+ the camera's field of view and start the Color Calibrator. The tool then 
+ compares the color values in the acquired image to the target values of 
+ the color patches in the chart.</p>
+<p>The Color Calibrator can be found in the <span class="gui-text">Tools</span> 
+ menu of the pylon Viewer. To use it, image acquisition must be stopped.</p>
+<p><img src="images/screen_color_calibrator.png" title="Color Calibrator Screenshot" alt="Color Calibrator Screenshot" /></p>
+<h2><a name="MiniTOCBookMark3"></a>Before You Start</h2>
+<p>Before you start the calibration process, you need to prepare the following:</p>
+<ul>
+	<li>Place a color chart in the camera's field of view.<br />
+	To use Basler's Color Calibrator, the &quot;X-Rite ColorChecker Classic&quot; 
+	 24-color target is required.</li>
+	<li>Choose the location.<br />
+	You have to perform the calibration in the same location and under 
+	 the same conditions that you're going to use the camera later. The 
+	 camera will not deliver the desired results if the conditions, e.g., 
+	 lighting, change.</li>
+</ul>
+<h2><a name="MiniTOCBookMark4"></a>Calibrating the Camera</h2>
+<h3><a name="MiniTOCBookMark5"></a>Step 1: Position Grid</h3>
+<p>In this step, you first need to position the grid over the color chart. 
+ You can do this manually or use the <span class="gui-text">Auto-position 
+ Grid</span> button. If<span class="gui-text"> Auto-position Grid</span> 
+ doesn't work, see <a href="#Auto-positioning_of_grid_fails">Troubleshooting</a> 
+ for more information.</p>
+<p>If you want to use camera settings that you <a href="overview_of_the_pylon_viewer.htm#Save_Features">saved</a>&#160;in 
+ a <strong>.pfs</strong> file in a previous session, you can load that 
+ <strong>.pfs</strong> file here.</p>
+<p>You can choose whether to capture images continuously or to capture 
+ a single image. Continuous image acquisition is enabled by default and 
+ yields the best results.</p>
+<h3><a name="MiniTOCBookMark6"></a><a name="Step_2:_Adjust_Brightness">Step 2: Adjust Brightness</a></h3>
+<p>In this step, you adjust the brightness of the image to ensure good 
+ calibration results. The dial on the right is an indicator whether the 
+ brightness in the image is appropriate. The needle should point to the 
+ green section of the dial.</p>
+<p><img src="images/screen_color_calibrator_dial.png" alt="Brightness Gauge" title="Brightness Gauge" /></p>
+<p>Click <span class="gui-text">Auto</span>, and the Color Calibrator will 
+ make the necessary adjustments for you. Alternatively, you can change 
+ the brightness using the <span class="gui-text">Exposure Time</span> and 
+ <span class="gui-text">Gain</span> sliders. Both methods will change the 
+ settings of the respective camera parameters. The changes are visible 
+ in the image immediately.</p>
+<p>You should only click <span class="gui-text">Next</span> in this step, 
+ if the brightness is appropriate. Otherwise, the calibration may fail.</p>
+<p>When you click <span class="gui-text">Next</span>, the wizard sets all 
+ color-related camera parameters to neutral values and starts the calibration.</p>
+<p>If you click <span class="gui-text">Cancel</span>, any changes you made 
+ are discarded. The camera's parameter settings are reset to the same state 
+ as before the wizard was started.</p>
+<h3><a name="MiniTOCBookMark7"></a><a name="Step_3:_Review_Calibration_Results">Step 3: Review Calibration 
+ Results</a></h3>
+<p>In this step, you can check the result of the calibration. To do so, 
+ look at the color patches in the chart or choose a calibration report 
+ from the <span class="gui-text">Calibration Reports</span> drop-down box.</p>
+<p class="subheading">Color Patches</p>
+<p>Each patch in the color chart is divided into three different parts: 
+ </p>
+<ul>
+	<li>Target value: value of the respective color patch</li>
+	<li>Original value: value before calibration</li>
+	<li>Current value: current value after calibration</li>
+</ul>
+<p><img src="images/screen_color_calibrator_patch.png" alt="Color Patch Layout" title="Color Patch Layout" /></p>
+<p>This allows you to visually compare the effect that the calibration 
+ has had. The RGB values are also shown for each patch when you move the 
+ mouse pointer over a patch. If you're not happy with the results, go back 
+ to the <span class="gui-text">Adjust Brightness</span> step and change 
+ the <span class="gui-text">Gain</span> and <span class="gui-text">Exposure 
+ Time</span> settings.</p>
+<p class="subheading">Calibration Reports</p>
+<p>In the <span class="gui-text">Calibration Reports</span> drop-down box, 
+ you can select which type of information you want to display. The following 
+ reports are available:</p>
+<ul>
+	<li>Colors (for more information, <a href="#Colors_Report:_Delta_E_and_Delta_C">see 
+	 below</a>)</li>
+	<li>Black Level</li>
+	<li>White Balance</li>
+	<li>Color Transformation</li>
+	<li>Color Adjustment Hue</li>
+	<li>Color Adjustment Saturation</li>
+	<li>Gamma</li>
+	<li>Hue, Saturation, Brightness, Contrast</li>
+	<li>LUT<br />
+	The LUT is disabled when the Color Calibrator wizard is started. Using 
+	 the LUT and the Color Calibrator at the same time would adversely 
+	 affect the calibration process. Therefore, the report doesn't contain 
+	 any data.</li>
+</ul>
+<p>In the <a href="#Step_4:_Save_Calibration_Results">next step</a>, you 
+ can save all the reports in an <strong>.html</strong> report file on disk.</p>
+<p>If you click <span class="gui-text">Cancel</span>, any changes you made 
+ are discarded. The camera's parameter settings are reset to the same state 
+ as before the wizard was started.</p>
+<div class="panel">
+	<div class="panel-head">
+		<p class="panel-heading"><a name="Colors_Report:_Delta_E_and_Delta_C">Colors 
+		 Report: Delta E and Delta C</a></p>
+	</div>
+	<div class="panel-content">
+		<p>The Colors report contains the Delta&#160;E and Delta&#160;C 
+		 values. These are two metrics used for judging color differences 
+		 (distances within the color space).</p>
+		<ul>
+			<li><span class="gui-text">Delta&#160;E</span> describes the 
+			 difference between two similar colors taking into account 
+			 the difference in brightness. </li>
+			<li><span class="gui-text">Delta&#160;C</span> describes the 
+			 difference between two similar colors <strong>without</strong> 
+			 taking into account the difference in brightness.</li>
+		</ul>
+		<p>The following table lists potential Delta E and Delta C values 
+		 and what they mean in terms of human perception of color.</p>
+		<table >
+			<col />
+			<col />
+			<tr>
+				<td><strong>Delta Value</strong></td>
+				<td><strong>Human Perception</strong></td>
+			</tr>
+			<tr>
+				<td>&lt;0.2</td>
+				<td>Minimal difference, normally not recognizable.</td>
+			</tr>
+			<tr>
+				<td>0.2–1.0</td>
+				<td>Very small difference, only visible to the trained 
+				 eye.</td>
+			</tr>
+			<tr>
+				<td>1.0–3.0</td>
+				<td>Small difference, visible to the untrained eye.</td>
+			</tr>
+			<tr>
+				<td>3.0–6.0</td>
+				<td>Medium difference.</td>
+			</tr>
+			<tr>
+				<td>&gt;6.0</td>
+				<td>Large difference.</td>
+			</tr>
+		</table>
+		<p>If the Delta&#160;E value in your report is quite high and you 
+		 notice a visible difference between the target and the current 
+		 color value, this may point to brightness-related problems, either 
+		 an inadequate light source or an unsuitable exposure time.</p>
+		<p>This is where it is helpful to compare Delta&#160;E and Delta&#160;C. 
+		 Because Delta&#160;C doesn't include the brightness, it is a more 
+		 accurate metric for judging the color difference. If Delta&#160;C 
+		 is significantly lower than Delta E, it indicates that the brightness-related 
+		 error is dominant compared to the color-related error in Delta&#160;E. 
+		 </p>
+		<p>Try adjusting the exposure time or the light source to see if 
+		 that makes a difference. As a rule of thumb, the closer&#160;Delta&#160;C 
+		 is to Delta&#160;E, the surer you can be of having chosen an appropriate 
+		 exposure time and light source (in terms of homogeneous illumination).</p>
+		<p>For more information about judging color differences, Delta&#160;E, 
+		 and Delta&#160;C, see &#160;<a href="https://en.wikipedia.org/wiki/Color_difference">Color 
+		 difference (Wikipedia)</a>.</p>
+	</div>
+</div>
+<h3><a name="MiniTOCBookMark8"></a><a name="Step_4:_Save_Calibration_Results">Step 4: Save Calibration 
+ Results</a></h3>
+<p>In the final step, the wizard shows you <strong>before</strong> and 
+ <strong>after</strong> versions of your image side by side. Using the 
+ slider below the image, you can compare the two versions.</p>
+<p>You can also save the results of the calibration. The following options 
+ are available:</p>
+<ul>
+	<li><span class="gui-text">Save camera settings to file</span><br />
+	This creates a <strong>.pfs</strong> file containing the parameter 
+	 settings of the camera <strong>after</strong> the calibration.</li>
+	<li><span class="gui-text">Save calibration summary</span><br />
+	This creates the following files: </li>
+	<ul>
+		<li>Two <strong>.pfs</strong> files containing parameter settings 
+		 of the camera <strong>before</strong> and <strong>after</strong> 
+		 the calibration</li>
+		<li>Two <strong>.png</strong> files showing the image before and 
+		 after calibration</li>
+		<li>One <strong>.html</strong> calibration report file containing 
+		 all the individual reports listed in <a href="#Step_3:_Review_Calibration_Results">step 
+		 3</a></li>
+	</ul>
+	<li><span class="gui-text">Save camera settings in user set</span><br />
+	This allows you to save the parameter settings of the camera in a <a href="user_sets.htm">user set</a>. If you select <span class="gui-text">Save 
+	 settings as default</span>, the selected user set will become the 
+	 default startup set.</li>
+</ul>
+<p>After you have chosen one or more of the options above, click the <span 
+	 class="gui-text">Save</span> button.</p>
+<p>If you click <span class="gui-text">Cancel</span>, any changes you made 
+ are discarded. The camera's parameter settings are reset to the same state 
+ as before the wizard was started.</p>
+<p>To exit the Color Calibrator wizard, click <span class="gui-text">Finish</span>.</p>
+<h2><a name="MiniTOCBookMark9"></a>Troubleshooting</h2>
+<p class="subheading"><a name="Auto-positioning_of_grid_fails">Auto-positioning 
+ of grid fails</a></p>
+<p>There can be several reasons for this:</p>
+<ul>
+	<li>The color chart is too close to or too far away from the camera. 
+	 Try altering the distance between the camera and the chart until auto-positioning 
+	 works.</li>
+	<li>The chart is upside down. The black color patch should be in the 
+	 bottom right corner.</li>
+	<li>The image is too dark or too bright. To fix this, go to <a href="#Step_2:_Adjust_Brightness">step 
+	 2</a> where you can adjust the brightness and then try again. Alternatively, 
+	 close the Color Calibrator and use the <a href="automatic_image_adjustment.htm">Automatic 
+	 Image Adjustment</a> feature to fix the brightness.</li>
+	<li>The color chart is positioned too close to the edge of the image. 
+	 Try moving the chart to a more central position in the camera's field 
+	 of view&#160;until auto-positioning works.</li>
+	<li>The image has a color cast. To fix this, close the Color Calibrator 
+	 and use the <a href="automatic_image_adjustment.htm">Automatic Image 
+	 Adjustment</a> feature.</li>
+</ul>
+<p class="subheading">Error message &quot;Calibration process failed&quot;</p>
+<p>This message can have several causes, the most likely are the following:</p>
+<ul>
+	<li>There is no color chart in the camera's field of view.</li>
+	<li>A light source providing only monochromatic light is used, e.g., 
+	 green LEDs only. For best results, use a light source that provides 
+	 light in the whole visible spectrum.</li>
+</ul>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

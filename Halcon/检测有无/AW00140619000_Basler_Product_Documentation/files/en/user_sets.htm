@@ -1,0 +1,2062 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>User Sets</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_93";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  User Sets<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>User Sets</h1>
+<p class="teaser">The User Sets 
+ <a href="features.htm">camera feature</a> allows you to <a href="user_sets.htm#Saving_a_User_Set">save</a> 
+ or <a href="user_sets.htm#Loading_a_User_Set">load</a> camera settings. 
+ You can also specify which settings will be <a href="user_sets.htm#Choosing_a_Startup_Set">loaded 
+ at camera startup</a>.</p>
+<p>A user set (also called &quot;configuration set&quot;) is a group of 
+ parameter values. It contains all parameter settings needed to control 
+ the camera, with a few <a href="user_sets.htm#What_s_in_a_User_Set_">exceptions</a>.</p>
+<p>Some user sets are preset and read-only. These user sets are also called 
+ &quot;factory sets&quot;.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot19759" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot19759', 'MTPOPUP19759');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP19759" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >What's in a User Set?</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Loading a User Set</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >Saving a User Set</a>
+</li>
+    <li><a href="#MiniTOCBookMark6" >Choosing a Startup Set</a>
+</li>
+    <li><a href="#MiniTOCBookMark7" >Available User Sets</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark8" >Default</a>
+</li>
+     <li><a href="#MiniTOCBookMark9" >High Gain</a>
+</li>
+     <li><a href="#MiniTOCBookMark10" >Auto Functions</a>
+</li>
+     <li><a href="#MiniTOCBookMark11" >Color</a>
+</li>
+     <li><a href="#MiniTOCBookMark12" >Color Raw</a>
+</li>
+     <li><a href="#MiniTOCBookMark13" >Light Microscopy</a>
+</li>
+     <li><a href="#MiniTOCBookMark14" >User Set 1, User Set 2, and User Set 3</a>
+</li>
+    </ul></li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark15" >Specifics</a>
+</li>
+   <li><a href="#MiniTOCBookMark16" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a><a name="What_s_in_a_User_Set_">What's in a User Set?</a></h3>
+<p>Each user set includes the values of all camera parameters, with the 
+ following exceptions:</p>
+<ul>
+	<li>Parameter values related to the following camera features are <strong>not</strong> 
+	 included:</li>
+	<ul>
+		<li><a href="action_commands.htm">Action Commands</a></li>
+		<li><a href="lut.htm">LUT</a></li>
+		<li><a href="sequencer.htm">Sequencer</a></li>
+		<li><a href="user-defined_values.htm">User-Defined Values</a></li>
+		<li><a href="precision_time_protocol.htm">Precision Time Protocol</a></li>
+	</ul>
+	<li>Values of parameters that include the term &quot;Selector&quot; 
+	 in their names are <strong>not</strong> included (e.g., <span class="parameter-name">GainSelector</span>). 
+	 Exceptions: <span class="parameter-name">TestImageSelector</span>, 
+	 <span class="parameter-name">GammaSelector</span>, 
+	 <span class="parameter-name">LightSourceSelector</span>.</li>
+	<li>The value of the <span class="parameter-name">DeviceUserID</span> 
+	 parameter is <strong>not</strong> included.</li>
+	<li>The value of the <span class="parameter-name">GevGVSPExtendedIDMode</span> 
+	 parameter is <strong>not</strong> included.</li>
+	<li>Several other parameters related to the transport layer are <strong>not</strong> 
+	 included.</li>
+</ul>
+<p>This means that when you <a href="user_sets.htm#Loading_a_User_Set">load</a> 
+ or <a href="user_sets.htm#Saving_a_User_Set">save</a> a user set, the 
+ values of all camera parameters will be loaded or saved, except the parameters 
+ listed above.</p>
+<h3><a name="MiniTOCBookMark4"></a><a name="Loading_a_User_Set">Loading a User Set</a></h3>
+<div class="info">
+	<ul>
+		<li>When a user set is loaded, it overwrites the current camera 
+		 settings.</li>
+		<li>Loading a user set is only possible when the camera is idle, 
+		 i.e., not acquiring images.</li>
+	</ul>
+</div>
+<ol>
+	<li>Set the <span class="parameter-name">UserSetSelector</span> 
+	 parameter to one of the <a href="#Available_User_Sets">available user 
+	 sets</a>, e.g., <span class="parameter-name">UserSet1</span>.</li>
+	<li>Execute the <span class="parameter-name">UserSetLoad</span> 
+	 command.</li>
+</ol>
+<h3><a name="MiniTOCBookMark5"></a><a name="Saving_a_User_Set">Saving a User Set</a></h3>
+<div class="info">
+	<ul>
+		<li>Only the <span class="parameter-name">UserSet1</span>, 
+		 <span class="parameter-name">UserSet2</span>, 
+		 and <span class="parameter-name">UserSet3</span> 
+		 user sets can be saved. The other user sets are read-only.</li>
+		<li>Saving a user set is only possible when the camera is idle, 
+		 i.e., not acquiring images.</li>
+	</ul>
+</div>
+<ol>
+	<li>Set the <span class="parameter-name">UserSetSelector</span> 
+	 parameter to one of the <a href="#Available_User_Sets">available user 
+	 sets</a>, e.g., <span class="parameter-name">UserSet1</span>.</li>
+	<li>Execute the <span class="parameter-name">UserSetSave</span> 
+	 command.</li>
+</ol>
+<h3><a name="MiniTOCBookMark6"></a><a name="Choosing_a_Startup_Set">Choosing a Startup Set</a></h3>
+<div class="info">
+	<ul>
+		<li>The user set that you have chosen as the startup set will be 
+		 loaded when the camera is powered on.</li>
+		<li>Choosing a startup set is only possible when the camera is 
+		 idle, i.e., not acquiring images.</li>
+	</ul>
+</div>
+<ol>
+	<li>Set the <span class="parameter-name rh-hide" data-rhtags="48">UserSetDefaultSelector</span><span class="parameter-name rh-hide" data-rhtags="49">UserSetDefault</span> 
+	 parameter to one of the <a href="#Available_User_Sets">available user 
+	 sets</a>, e.g., <span class="parameter-name">UserSet1</span>.</li>
+	<li>Power-cycle the camera for the new startup set to become effective.</li>
+</ol>
+<h3><a name="MiniTOCBookMark7"></a><a name="Available_User_Sets">Available User Sets</a></h3>
+<p>Depending on <a href="#Specifics">your camera model</a>, the following 
+ user sets are available:</p>
+<h4><a name="MiniTOCBookMark8"></a>Default</h4>
+<p>The <span class="parameter-name">Default</span> 
+ user set is a read-only factory set. This is the default startup set on 
+ all cameras, except <a href="basler_med_ace.htm">Basler MED ace</a> cameras.</p>
+<p><a href="user_sets.htm#Loading_a_User_Set">Loading</a> this set configures 
+ the camera to provide good camera performance for a variety of applications 
+ under average operating conditions.</p>
+<p>The <span class="parameter-name">Default</span> 
+ user set contains the factory default settings of all the camera's parameter 
+ values.</p>
+<h4><a name="MiniTOCBookMark9"></a>High Gain</h4>
+<p>The <span class="parameter-name">HighGain</span> 
+ user set is a read-only factory set.</p>
+<p><a href="user_sets.htm#Loading_a_User_Set">Loading</a> this set increases 
+ the <a href="gain.htm">gain</a> by 6 dB.</p>
+<p>The <span class="parameter-name">HighGain</span> 
+ user set contains the same parameter values as the <span class="parameter-name">Default</span> 
+ user set, with the following exceptions:</p>
+<ul>
+	<li>If available, the <span class="parameter-name">Gain</span> parameter 
+	 is set to a value that increases the gain by 6 dB compared to the 
+	 <span class="parameter-name">Default</span> 
+	 user set. The actual parameter value varies by camera model.</li>
+	<li>If available, the <span class="parameter-name">GainRaw</span> parameter 
+	 is set to a value that increases the gain by 6 dB compared to the 
+	 <span class="parameter-name">Default</span> 
+	 user set. The actual parameter value varies by camera model.</li>
+</ul>
+<h4><a name="MiniTOCBookMark10"></a>Auto Functions</h4>
+<p>The <span class="parameter-name">AutoFunctions</span> 
+ user set is a read-only factory set.</p>
+<p><a href="user_sets.htm#Loading_a_User_Set">Loading</a> this user set 
+ enables the camera's <a href="exposure_auto.htm">Exposure Auto</a> and 
+ <a href="gain_auto.htm">Gain Auto</a> auto functions.</p>
+<p>The <span class="parameter-name">AutoFunctions</span> 
+ user set contains the same parameter values as the <span class="parameter-name">Default</span> 
+ user set, with the following exceptions:</p>
+<ul>
+	<li>The <a href="gain_auto.htm"><span class="parameter-name">GainAuto</span> 
+	 </a>parameter is set to <span class="parameter-name">Continuous</span>.</li>
+	<li>The <a href="exposure_auto.htm"><span class="parameter-name">ExposureAuto</span> 
+	 </a>parameter is set to <span class="parameter-name">Continuous</span>.</li>
+	<li>The <a href="auto_function_profile.htm"><span class="parameter-name">AutoFunctionProfile</span> 
+	 </a>parameter is set to <span class="parameter-name rh-hide" data-rhtags="48">GainMinimum</span><span class="parameter-name rh-hide" data-rhtags="49">MinimizeGain</span>.</li>
+</ul>
+<h4><a name="MiniTOCBookMark11"></a>Color</h4>
+<p>The <span class="parameter-name">Color</span> 
+ user set is a read-only factory set.</p>
+<p><a href="user_sets.htm#Loading_a_User_Set">Loading</a> this user set 
+ configures the camera to produce good color images under the most common 
+ lighting conditions.</p>
+<p>The <span class="parameter-name">Color</span> 
+ user set contains the same parameter values as the <span class="parameter-name">Default</span> 
+ user set, with the following exceptions:</p>
+<ul>
+	<li>The <a href="light_source_preset.htm"><span class="parameter-name rh-hide" data-rhtags="48">LightSourceSelector</span><span class="parameter-name rh-hide" data-rhtags="49">LightSourcePreset</span> 
+	 </a>parameter is set to <span class="parameter-name rh-hide" data-rhtags="48">Daylight</span><span class="parameter-name rh-hide" data-rhtags="49">Daylight5000K</span>.</li>
+	<li>The <a href="balance_white.htm"><span class="parameter-name rh-hide" data-rhtags="48">BalanceRatioAbs</span><span class="parameter-name rh-hide" data-rhtags="49">BalanceRatio</span> 
+	 </a>parameter values are set according to the <span class="parameter-name rh-hide" data-rhtags="48">Daylight</span><span class="parameter-name rh-hide" data-rhtags="49">Daylight5000K</span> 
+	 light source preset.</li>
+	<li>If available, the <a href="gamma.htm"><span class="parameter-name">GammaSelector</span> 
+	 </a>parameter is set to <span class="parameter-name">sRGB</span>.</li>
+	<li>If available, the <a href="processed_raw_enable.htm"><span class="parameter-name">ProcessedRawEnable</span> 
+	 </a>parameter is set to <span class="parameter-name">true</span>.</li>
+</ul>
+<h4><a name="MiniTOCBookMark12"></a>Color Raw</h4>
+<p>The <span class="parameter-name">ColorRaw</span> 
+ user set is a read-only factory set.</p>
+<p><a href="user_sets.htm#Loading_a_User_Set">Loading</a> this set disables 
+ the color enhancement features.</p>
+<p>The <span class="parameter-name">ColorRaw</span> 
+ user set contains the same parameter values as the <span class="parameter-name">Default</span> 
+ user set, with the following exceptions:</p>
+<ul>
+	<li>The <a href="light_source_preset.htm"><span class="parameter-name rh-hide" data-rhtags="48">LightSourceSelector</span><span class="parameter-name rh-hide" data-rhtags="49">LightSourcePreset</span> 
+	 </a>parameter is set to <span class="parameter-name rh-hide" data-rhtags="48">Off</span><span class="parameter-name rh-hide" data-rhtags="49">Off</span>.</li>
+	<li>The <a href="balance_white.htm"><span class="parameter-name rh-hide" data-rhtags="48">BalanceRatioAbs</span><span class="parameter-name rh-hide" data-rhtags="49">BalanceRatio</span> 
+	 </a>parameter values for all color channels (red, green, blue) are 
+	 set to 1.</li>
+	<li>If available, the <a href="color_adjustment.htm"><span class="parameter-name">ColorAdjustmentEnable</span> 
+	 </a>parameter is set to <span class="parameter-name">false</span>.</li>
+	<li>If available, the <a href="gamma.htm"><span class="parameter-name">GammaEnable</span> 
+	 </a>parameter is set to <span class="parameter-name">false</span>.</li>
+	<li>If available, the <a href="gamma.htm"><span class="parameter-name">GammaSelector</span> 
+	 </a>parameter is set to <span class="parameter-name">User</span>.</li>
+</ul>
+<h4><a name="MiniTOCBookMark13"></a><a name="Light_Microscopy">Light Microscopy</a></h4>
+<p>The <span class="parameter-name">LightMicroscopy</span> 
+ user set is a read-only factory set. This is the default startup set on 
+ <a href="basler_med_ace.htm">Basler MED ace</a> cameras.</p>
+<p><a href="user_sets.htm#Loading_a_User_Set">Loading</a> this set configures 
+ the camera to produce good images with light microscopes. </p>
+<p>The <span class="parameter-name">LightMicroscopy</span> 
+ user set contains the same parameter values as the <span class="parameter-name">Default</span> 
+ user set, with the following exceptions:</p>
+<ul>
+	<li>The <a href="exposure_auto.htm"><span class="parameter-name">ExposureAuto</span></a> 
+	 parameter is set to <span class="parameter-name">Continuous</span>.</li>
+	<li>The <a href="auto_function_profile.htm"><span class="parameter-name">AutoFunctionProfile</span></a> 
+	 parameter is set to <span class="parameter-name rh-hide" data-rhtags="48">GainMinimumQuick</span><span class="parameter-name rh-hide" data-rhtags="49">MinimizeGainQuick</span>.</li>
+	<li>The <a href="gain_auto.htm#Specifying_the_Target_Brightness_Value"><span class="parameter-name rh-hide" data-rhtags="48">AutoTargetValue</span><span class="parameter-name rh-hide" data-rhtags="49">AutoTargetBrightness</span></a> 
+	 parameter is set to 0.592.</li>
+	<li>The <a href="auto_function_roi.htm"><span class="parameter-name rh-hide" data-rhtags="48">AutoFunctionAOIUsageTonalRange</span><span class="parameter-name rh-hide" data-rhtags="49">AutoFunctionROIUseTonalRange</span></a> 
+	 parameter is set to <span class="parameter-name">true</span>.</li>
+	<li>The <a href="brightness_and_contrast.htm"><span class="parameter-name">BslBrightness</span></a> 
+	 parameter is set to -0.0625.</li>
+	<li>The <a href="brightness_and_contrast.htm"><span class="parameter-name">BslContrast</span></a> 
+	 parameter is set to 0.15625.</li>
+	<li>The <span class="parameter-name rh-hide" data-rhtags="48">SharpnessEnhancementAbs</span><span class="parameter-name rh-hide" data-rhtags="49">SharpnessEnhancement</span> 
+	 parameter is set to 3.7.</li>
+	<li>On color cameras, the <a href="light_source_preset.htm"><span class="parameter-name rh-hide" data-rhtags="48">LightSourceSelector</span><span class="parameter-name rh-hide" data-rhtags="49">LightSourcePreset</span> 
+	 </a>parameter is set to <span class="parameter-name rh-hide" data-rhtags="48">Daylight6500K</span><span class="parameter-name rh-hide" data-rhtags="49">Daylight6500K</span>.</li>
+	<li>On color cameras, the <a href="pixel_format.htm"><span class="parameter-name">PixelFormat</span></a> 
+	 parameter is set to <span class="parameter-name">RGB8</span>.</li>
+	<li>On color cameras, the <a href="pgi_feature_set.htm"><span class="parameter-name">DemosaicingMode</span></a> 
+	 parameter is set to <span class="parameter-name">BaslerPGI</span>.</li>
+	<li>On mono cameras, the <a href="pgi_feature_set.htm"><span class="parameter-name">PgiMode</span></a> 
+	 parameter is set to <span class="parameter-name">On</span>.</li>
+</ul>
+<h4><a name="MiniTOCBookMark14"></a>User Set 1, User Set 2, and User Set 3</h4>
+<p>You can use the <span class="parameter-name">UserSet1</span>, 
+ <span class="parameter-name">UserSet2</span>, 
+ and <span class="parameter-name">UserSet3</span> 
+ user sets to <a href="user_sets.htm#Loading_a_User_Set">load</a> and <a href="user_sets.htm#Saving_a_User_Set">save</a> your own camera settings.</p>
+<p>Initially, these user sets contain the same parameter values as the 
+ <span class="parameter-name">Default</span> 
+ user set. You can overwrite those values with your own settings to create 
+ a user set that is customized for your application.</p>
+<p>To restore those settings every time the camera is reset, <a href="#Choosing_a_Startup_Set">choose 
+ a user set as the startup set</a>. </p>
+<h2 class="specifics"><a name="MiniTOCBookMark15"></a><a name="Specifics">Specifics</a></h2>
+<div>
+<table class="specifics-table">
+	<tr>
+		<th>Camera Model</th>
+		<th>Available User Sets</th>
+	</tr>
+	<tr>
+		<td data-rhtags="50" class="rh-hide">acA640-90gm</td>
+		<td data-rhtags="50" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="51" class="rh-hide">acA640-90gc</td>
+		<td data-rhtags="51" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="52" class="rh-hide">acA640-120gm</td>
+		<td data-rhtags="52" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="53" class="rh-hide">acA640-120gc</td>
+		<td data-rhtags="53" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="54" class="rh-hide">acA640-121gm</td>
+		<td data-rhtags="54" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="55" class="rh-hide">acA640-300gm</td>
+		<td data-rhtags="55" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="56" class="rh-hide">acA640-300gc</td>
+		<td data-rhtags="56" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="57" class="rh-hide">acA720-290gm</td>
+		<td data-rhtags="57" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="58" class="rh-hide">acA720-290gc</td>
+		<td data-rhtags="58" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="59" class="rh-hide">acA750-30gm</td>
+		<td data-rhtags="59" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="45" class="rh-hide">acA750-30gc</td>
+		<td data-rhtags="45" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="60" class="rh-hide">acA780-75gm</td>
+		<td data-rhtags="60" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="61" class="rh-hide">acA780-75gc</td>
+		<td data-rhtags="61" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="62" class="rh-hide">acA800-200gm</td>
+		<td data-rhtags="62" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="63" class="rh-hide">acA800-200gc</td>
+		<td data-rhtags="63" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="64" class="rh-hide">acA1280-60gm</td>
+		<td data-rhtags="64" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="65" class="rh-hide">acA1280-60gc</td>
+		<td data-rhtags="65" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="66" class="rh-hide">acA1300-22gm</td>
+		<td data-rhtags="66" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="67" class="rh-hide">acA1300-22gc</td>
+		<td data-rhtags="67" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="68" class="rh-hide">acA1300-30gm</td>
+		<td data-rhtags="68" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="69" class="rh-hide">acA1300-30gc</td>
+		<td data-rhtags="69" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="70" class="rh-hide">acA1300-60gm</td>
+		<td data-rhtags="70" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="71" class="rh-hide">acA1300-60gmNIR</td>
+		<td data-rhtags="71" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="72" class="rh-hide">acA1300-60gc</td>
+		<td data-rhtags="72" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="73" class="rh-hide">acA1300-75gm</td>
+		<td data-rhtags="73" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="74" class="rh-hide">acA1300-75gc</td>
+		<td data-rhtags="74" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="75" class="rh-hide">acA1440-73gm</td>
+		<td data-rhtags="75" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="76" class="rh-hide">acA1440-73gc</td>
+		<td data-rhtags="76" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="77" class="rh-hide">acA1600-20gm</td>
+		<td data-rhtags="77" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="78" class="rh-hide">acA1600-20gc</td>
+		<td data-rhtags="78" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="79" class="rh-hide">acA1600-60gm</td>
+		<td data-rhtags="79" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="80" class="rh-hide">acA1600-60gc</td>
+		<td data-rhtags="80" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="81" class="rh-hide">acA1920-25gm</td>
+		<td data-rhtags="81" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="82" class="rh-hide">acA1920-25gc</td>
+		<td data-rhtags="82" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="83" class="rh-hide">acA1920-40gm</td>
+		<td data-rhtags="83" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="84" class="rh-hide">acA1920-40gc</td>
+		<td data-rhtags="84" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="85" class="rh-hide">acA1920-48gm</td>
+		<td data-rhtags="85" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="86" class="rh-hide">acA1920-48gc</td>
+		<td data-rhtags="86" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="87" class="rh-hide">acA1920-50gm</td>
+		<td data-rhtags="87" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="88" class="rh-hide">acA1920-50gc</td>
+		<td data-rhtags="88" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="89" class="rh-hide">acA2000-50gm</td>
+		<td data-rhtags="89" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="90" class="rh-hide">acA2000-50gmNIR</td>
+		<td data-rhtags="90" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="91" class="rh-hide">acA2000-50gc</td>
+		<td data-rhtags="91" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="92" class="rh-hide">acA2040-25gm</td>
+		<td data-rhtags="92" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="93" class="rh-hide">acA2040-25gmNIR</td>
+		<td data-rhtags="93" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="94" class="rh-hide">acA2040-25gc</td>
+		<td data-rhtags="94" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="95" class="rh-hide">acA2040-35gm</td>
+		<td data-rhtags="95" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="96" class="rh-hide">acA2040-35gc</td>
+		<td data-rhtags="96" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="97" class="rh-hide">acA2440-20gm</td>
+		<td data-rhtags="97" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="98" class="rh-hide">acA2440-20gc</td>
+		<td data-rhtags="98" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="99" class="rh-hide">acA2500-14gm</td>
+		<td data-rhtags="99" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="100" class="rh-hide">acA2500-14gc</td>
+		<td data-rhtags="100" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="101" class="rh-hide">acA2500-20gm</td>
+		<td data-rhtags="101" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="102" class="rh-hide">acA2500-20gc</td>
+		<td data-rhtags="102" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="103" class="rh-hide">acA2500-20gmMED</td>
+		<td data-rhtags="103" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Light Microscopy</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="104" class="rh-hide">acA2500-20gcMED</td>
+		<td data-rhtags="104" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+			<li>Light Microscopy</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="105" class="rh-hide">acA3088-16gm</td>
+		<td data-rhtags="105" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="106" class="rh-hide">acA3088-16gc</td>
+		<td data-rhtags="106" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="107" class="rh-hide">acA3800-10gm</td>
+		<td data-rhtags="107" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="108" class="rh-hide">acA3800-10gc</td>
+		<td data-rhtags="108" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="109" class="rh-hide">acA4024-8gm</td>
+		<td data-rhtags="109" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="110" class="rh-hide">acA4024-8gc</td>
+		<td data-rhtags="110" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="111" class="rh-hide">acA4096-11gm</td>
+		<td data-rhtags="111" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="198" class="rh-hide">acA4096-11gc</td>
+		<td data-rhtags="198" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="113" class="rh-hide">acA4112-8gm</td>
+		<td data-rhtags="113" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="114" class="rh-hide">acA4112-8gc</td>
+		<td data-rhtags="114" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="115" class="rh-hide">acA4600-7gc</td>
+		<td data-rhtags="115" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="116" class="rh-hide">acA5472-5gm</td>
+		<td data-rhtags="116" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="117" class="rh-hide">acA5472-5gc</td>
+		<td data-rhtags="117" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="118" class="rh-hide">acA640-750um</td>
+		<td data-rhtags="118" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="119" class="rh-hide">acA640-750uc</td>
+		<td data-rhtags="119" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="120" class="rh-hide">acA640-90um</td>
+		<td data-rhtags="120" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="121" class="rh-hide">acA640-90uc</td>
+		<td data-rhtags="121" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="122" class="rh-hide">acA640-120um</td>
+		<td data-rhtags="122" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="123" class="rh-hide">acA640-120uc</td>
+		<td data-rhtags="123" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="124" class="rh-hide">acA720-520um</td>
+		<td data-rhtags="124" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="125" class="rh-hide">acA720-520uc</td>
+		<td data-rhtags="125" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="126" class="rh-hide">acA800-510um</td>
+		<td data-rhtags="126" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="127" class="rh-hide">acA800-510uc</td>
+		<td data-rhtags="127" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="128" class="rh-hide">acA1300-200um</td>
+		<td data-rhtags="128" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="129" class="rh-hide">acA1300-200uc</td>
+		<td data-rhtags="129" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="130" class="rh-hide">acA1300-30um</td>
+		<td data-rhtags="130" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="131" class="rh-hide">acA1300-30uc</td>
+		<td data-rhtags="131" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="132" class="rh-hide">acA1440-220um</td>
+		<td data-rhtags="132" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="133" class="rh-hide">acA1440-220uc</td>
+		<td data-rhtags="133" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="134" class="rh-hide">acA1600-20um</td>
+		<td data-rhtags="134" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="135" class="rh-hide">acA1600-20uc</td>
+		<td data-rhtags="135" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="136" class="rh-hide">acA1920-25um</td>
+		<td data-rhtags="136" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="137" class="rh-hide">acA1920-25uc</td>
+		<td data-rhtags="137" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="138" class="rh-hide">acA1920-40um</td>
+		<td data-rhtags="138" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="139" class="rh-hide">acA1920-40uc</td>
+		<td data-rhtags="139" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="140" class="rh-hide">acA1920-40umMED</td>
+		<td data-rhtags="140" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Light Microscopy</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="141" class="rh-hide">acA1920-40ucMED</td>
+		<td data-rhtags="141" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+			<li>Light Microscopy</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="142" class="rh-hide">acA1920-150um</td>
+		<td data-rhtags="142" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="143" class="rh-hide">acA1920-150uc</td>
+		<td data-rhtags="143" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="144" class="rh-hide">acA1920-155um</td>
+		<td data-rhtags="144" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="145" class="rh-hide">acA1920-155uc</td>
+		<td data-rhtags="145" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="146" class="rh-hide">acA1920-155umMED</td>
+		<td data-rhtags="146" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Light Microscopy</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="147" class="rh-hide">acA1920-155ucMED</td>
+		<td data-rhtags="147" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+			<li>Light Microscopy</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="148" class="rh-hide">acA2040-90um</td>
+		<td data-rhtags="148" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="149" class="rh-hide">acA2040-90umNIR</td>
+		<td data-rhtags="149" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="150" class="rh-hide">acA2040-90uc</td>
+		<td data-rhtags="150" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="151" class="rh-hide">acA2000-165um</td>
+		<td data-rhtags="151" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="152" class="rh-hide">acA2000-165umNIR</td>
+		<td data-rhtags="152" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="153" class="rh-hide">acA2000-165uc</td>
+		<td data-rhtags="153" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="154" class="rh-hide">acA2040-55um</td>
+		<td data-rhtags="154" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="155" class="rh-hide">acA2040-55uc</td>
+		<td data-rhtags="155" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="156" class="rh-hide">acA2040-120um</td>
+		<td data-rhtags="156" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="157" class="rh-hide">acA2040-120uc</td>
+		<td data-rhtags="157" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="158" class="rh-hide">acA2440-35um</td>
+		<td data-rhtags="158" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="159" class="rh-hide">acA2440-35uc</td>
+		<td data-rhtags="159" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="160" class="rh-hide">acA2440-35umMED</td>
+		<td data-rhtags="160" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Light Microscopy</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="161" class="rh-hide">acA2440-35ucMED</td>
+		<td data-rhtags="161" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+			<li>Light Microscopy</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="162" class="rh-hide">acA2440-75um</td>
+		<td data-rhtags="162" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="163" class="rh-hide">acA2440-75uc</td>
+		<td data-rhtags="163" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="164" class="rh-hide">acA2440-75umMED</td>
+		<td data-rhtags="164" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Light Microscopy</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="165" class="rh-hide">acA2440-75ucMED</td>
+		<td data-rhtags="165" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+			<li>Light Microscopy</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="166" class="rh-hide">acA2500-14um</td>
+		<td data-rhtags="166" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="167" class="rh-hide">acA2500-14uc</td>
+		<td data-rhtags="167" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="168" class="rh-hide">acA2500-60um</td>
+		<td data-rhtags="168" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="169" class="rh-hide">acA2500-60uc</td>
+		<td data-rhtags="169" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="170" class="rh-hide">acA3088-57um</td>
+		<td data-rhtags="170" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="171" class="rh-hide">acA3088-57uc</td>
+		<td data-rhtags="171" class="rh-hide"><ul>
+			<li><span>U</span>ser Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="172" class="rh-hide">acA3800-14um</td>
+		<td data-rhtags="172" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="173" class="rh-hide">acA3800-14uc</td>
+		<td data-rhtags="173" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="174" class="rh-hide">acA4024-29um</td>
+		<td data-rhtags="174" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="175" class="rh-hide">acA4024-29uc</td>
+		<td data-rhtags="175" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="176" class="rh-hide">acA4096-30um</td>
+		<td data-rhtags="176" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="177" class="rh-hide">acA4096-30uc</td>
+		<td data-rhtags="177" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="178" class="rh-hide">acA4096-40um</td>
+		<td data-rhtags="178" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="179" class="rh-hide">acA4096-40uc</td>
+		<td data-rhtags="179" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="180" class="rh-hide">acA4112-20um</td>
+		<td data-rhtags="180" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="181" class="rh-hide">acA4112-20uc</td>
+		<td data-rhtags="181" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="182" class="rh-hide">acA4112-30um</td>
+		<td data-rhtags="182" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="183" class="rh-hide">acA4112-30uc</td>
+		<td data-rhtags="183" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="184" class="rh-hide">acA4600-10uc</td>
+		<td data-rhtags="184" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="185" class="rh-hide">acA5472-17um</td>
+		<td data-rhtags="185" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="186" class="rh-hide">acA5472-17uc</td>
+		<td data-rhtags="186" class="rh-hide"><ul>
+			<li>User Set 1</li>
+			<li>User Set 2</li>
+			<li>User Set 3</li>
+			<li>Default</li>
+			<li>High Gain</li>
+			<li>Auto Functions</li>
+			<li>Color Raw</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="44" class="rh-hide">All dart BCON for LVDS camera models</td>
+		<td data-rhtags="44" class="rh-hide"><ul>
+			<li>User Set 1 </li>
+			<li>User Set 2 </li>
+			<li>User Set 3 </li>
+			<li>Default</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="21" class="rh-hide">All dart BCON for MIPI camera models</td>
+		<td data-rhtags="21" class="rh-hide">User Sets feature not 
+		 supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="42" class="rh-hide">All dart USB 3.0 camera models</td>
+		<td data-rhtags="42" class="rh-hide"><ul>
+			<li>User Set 1 </li>
+			<li>User Set 2 </li>
+			<li>User Set 3 </li>
+			<li>Default</li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td data-rhtags="47" class="rh-hide">All pulse USB 3.0 camera models</td>
+		<td data-rhtags="47" class="rh-hide"><ul>
+			<li>User Set 1 </li>
+			<li>User Set 2 </li>
+			<li>User Set 3 </li>
+			<li>Default</li>
+		</ul></td>
+	</tr>
+</table>
+</div>
+<h2 class="sample-code"><a name="MiniTOCBookMark16"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre><code class="cpp">// Load the High Gain user set
+camera.UserSetSelector.SetValue(UserSetSelector_HighGain);
+camera.UserSetLoad.Execute();
+// Load the User Set 1 user set
+camera.UserSetSelector.SetValue(UserSetSelector_UserSet1);
+camera.UserSetLoad.Execute();
+// Adjust some camera settings
+camera.Width.SetValue(600);
+camera.Height.SetValue(400);
+camera.ExposureTime.SetValue(3500.0);
+// Save the settings in User Set 1
+camera.UserSetSave.SetValue(UserSetSelector_UserSet1);
+camera.UserSetSave.Execute();
+// Designate User Set 1 as the startup set
+camera.UserSetDefault.SetValue(UserSetDefault_UserSet1);</code></pre></div><div class="tab-2 tab-content"><pre><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Load the High Gain user set
+CEnumerationPtr(nodemap.GetNode("UserSetSelector"))-&gt;FromString("HighGain");
+CCommandPtr(nodemap.GetNode("UserSetLoad"))-&gt;Execute();
+// Load the User Set 1 user set
+CEnumerationPtr(nodemap.GetNode("UserSetSelector"))-&gt;FromString("UserSet1");
+CCommandPtr(nodemap.GetNode("UserSetLoad"))-&gt;Execute();
+// Adjust some camera settings
+CIntegerPtr(nodemap.GetNode("Width"))-&gt;SetValue(600);
+CIntegerPtr(nodemap.GetNode("Height"))-&gt;SetValue(400);
+CFloatPtr(nodemap.GetNode("ExposureTime"))-&gt;SetValue(3500.0);
+// Save the settings in User Set 1
+CEnumerationPtr(nodemap.GetNode("UserSetSave"))-&gt;FromString("UserSet1");
+CCommandPtr(nodemap.GetNode("UserSetSave"))-&gt;Execute();
+// Designate User Set 1 as the startup set
+CEnumerationPtr(nodemap.GetNode("UserSetDefault"))-&gt;FromString("UserSet1");</code></pre></div><div class="tab-3 tab-content"><pre><code class="csharp" generated="true">// Load the High Gain user set
+camera.Parameters[PLCamera.UserSetSelector].SetValue(PLCamera.UserSetSelector.HighGain);
+camera.Parameters[PLCamera.UserSetLoad].Execute();
+// Load the User Set 1 user set
+camera.Parameters[PLCamera.UserSetSelector].SetValue(PLCamera.UserSetSelector.UserSet1);
+camera.Parameters[PLCamera.UserSetLoad].Execute();
+// Adjust some camera settings
+camera.Parameters[PLCamera.Width].SetValue(600);
+camera.Parameters[PLCamera.Height].SetValue(400);
+camera.Parameters[PLCamera.ExposureTime].SetValue(3500.0);
+// Save the settings in User Set 1
+camera.Parameters[PLCamera.UserSetSave].SetValue(PLCamera.UserSetSelector.UserSet1);
+camera.Parameters[PLCamera.UserSetSave].Execute();
+// Designate User Set 1 as the startup set
+camera.Parameters[PLCamera.UserSetDefault].SetValue(PLCamera.UserSetDefault.UserSet1);</code></pre></div><div class="tab-4 tab-content"><pre><code class="csharp" generated="true">// Load the High Gain user set
+Pylon.DeviceFeatureFromString(hdev, "UserSetSelector", "HighGain");
+Pylon.DeviceExecuteCommandFeature(hdev, "UserSetLoad");
+// Load the User Set 1 user set
+Pylon.DeviceFeatureFromString(hdev, "UserSetSelector", "UserSet1");
+Pylon.DeviceExecuteCommandFeature(hdev, "UserSetLoad");
+// Adjust some camera settings
+Pylon.DeviceSetIntegerFeature(hdev, "Width", 600);
+Pylon.DeviceSetIntegerFeature(hdev, "Height", 400);
+Pylon.DeviceSetFloatFeature(hdev, "ExposureTime", 3500.0);
+// Save the settings in User Set 1
+Pylon.DeviceFeatureFromString(hdev, "UserSetSave", "UserSet1");
+Pylon.DeviceExecuteCommandFeature(hdev, "UserSetSave");
+// Designate User Set 1 as the startup set
+Pylon.DeviceFeatureFromString(hdev, "UserSetDefault", "UserSet1");</code></pre></div><div class="tab-5 tab-content"><pre><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+/* Load the High Gain user set */
+errRes = PylonDeviceFeatureFromString(hdev, "UserSetSelector", "HighGain");
+CHECK(errRes);
+errRes = PylonDeviceExecuteCommandFeature(hdev, "UserSetLoad");
+CHECK(errRes);
+/* Load the User Set 1 user set */
+errRes = PylonDeviceFeatureFromString(hdev, "UserSetSelector", "UserSet1");
+CHECK(errRes);
+errRes = PylonDeviceExecuteCommandFeature(hdev, "UserSetLoad");
+CHECK(errRes);
+/* Adjust some camera settings */
+errRes = PylonDeviceSetIntegerFeature(hdev, "Width", 600);
+CHECK(errRes);
+errRes = PylonDeviceSetIntegerFeature(hdev, "Height", 400);
+CHECK(errRes);
+errRes = PylonDeviceSetFloatFeature(hdev, "ExposureTime", 3500.0);
+CHECK(errRes);
+/* Save the settings in User Set 1 */
+errRes = PylonDeviceFeatureFromString(hdev, "UserSetSave", "UserSet1");
+CHECK(errRes);
+errRes = PylonDeviceExecuteCommandFeature(hdev, "UserSetSave");
+CHECK(errRes);
+/* Designate User Set 1 as the startup set */
+errRes = PylonDeviceFeatureFromString(hdev, "UserSetDefault", "UserSet1");
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

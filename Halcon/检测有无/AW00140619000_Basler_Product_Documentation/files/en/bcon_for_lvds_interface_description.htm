@@ -1,0 +1,926 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="noindex" />
+<meta http-equiv="Content-Language" content="en-US" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>BCON for LVDS Interface Description</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.5.0_3";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > BCON Interfaces" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"bcon_interfaces.htm\">BCON Interfaces<\/a>  &gt;  BCON for LVDS Interface Description<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>BCON for LVDS Interface Description</h1>
+<p class="teaser">This topic describes Basler's proprietary <a href="https://www.baslerweb.com/bcon">BCON 
+ for LVDS</a> interface.</p>
+<p>The Basler BCON for LVDS interface offers the highest flexibility for 
+ connecting with LVDS -based technology like FPGA boards and SoCs (Systems 
+ on a Chip). </p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot19381" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot19381', 'MTPOPUP19381');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP19381" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Interface Specifications</a>
+</li>
+   <li><a href="#MiniTOCBookMark3" >BCON for LVDS and Channel Link</a>
+</li>
+   <li><a href="#MiniTOCBookMark4" >Data Output</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark5" >Data Flow</a>
+</li>
+    <li><a href="#MiniTOCBookMark6" >Data Serialization and Timing</a>
+</li>
+    <li><a href="#MiniTOCBookMark7" >Frame Valid Bit and Line Valid Bit</a>
+</li>
+    <li><a href="#MiniTOCBookMark8" >Frame Information</a>
+</li>
+    <li><a href="#MiniTOCBookMark9" >Line Checksum</a>
+</li>
+    <li><a href="#MiniTOCBookMark10" >Sync Pattern</a>
+</li>
+    <li><a href="#MiniTOCBookMark11" >Output Bits</a>
+</li>
+    <li><a href="#MiniTOCBookMark12" >Pixel Data</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark13" >Pixel Formats</a>
+</li>
+     <li><a href="#MiniTOCBookMark14" >Pixels per Clock Cycle</a>
+</li>
+    </ul></li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark15" >Output Clock</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark16" >Setting the Clock Speed</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark17" >Input Line</a>
+</li>
+   <li><a href="#MiniTOCBookMark18" >I²C Interface</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark19" >I²C Features</a>
+</li>
+    <li><a href="#MiniTOCBookMark20" >Basler-Specific Settings</a>
+    <ul  >
+     <li><a href="#MiniTOCBookMark21" >General Information</a>
+</li>
+     <li><a href="#MiniTOCBookMark22" >Additional I²C Control Line (I2C_ID)</a>
+</li>
+     <li><a href="#MiniTOCBookMark23" >Reset via I2C_ID Line</a>
+</li>
+    </ul></li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark24" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2><a name="MiniTOCBookMark2"></a>Interface Specifications</h2>
+<table >
+	<col />
+	<col />
+	<col />
+	<tr>
+		<th>Specification</th>
+		<th>Value</th>
+		<th>Notes</th>
+	</tr>
+	<tr>
+		<td>Data lanes</td>
+		<td>4</td>
+		<td>&#160;</td>
+	</tr>
+	<tr>
+		<td>Clock lines</td>
+		<td>1</td>
+		<td>Used for the word clock.</td>
+	</tr>
+	<tr>
+		<td>Control lines</td>
+		<td>3</td>
+		<td>I²C interface lines (clock, data, ID).</td>
+	</tr>
+	<tr>
+		<td>Input lines</td>
+		<td>1</td>
+		<td>&#160;</td>
+	</tr>
+	<tr>
+		<td>Output lines</td>
+		<td>1</td>
+		<td>&#160;</td>
+	</tr>
+	<tr>
+		<td>Serialization factor</td>
+		<td>7</td>
+		<td>&#160;</td>
+	</tr>
+	<tr>
+		<td>Data bus width</td>
+		<td>28 bit</td>
+		<td>&#160;</td>
+	</tr>
+	<tr>
+		<td>Bus width reserved for image data</td>
+		<td>24 bit</td>
+		<td>&#160;</td>
+	</tr>
+	<tr>
+		<td><p>Word clock frequency</p></td>
+		<td>12–84 MHz</td>
+		<td>Settable in increments of 8.</td>
+	</tr>
+	<tr>
+		<td><p>Word clock duty cycle</p></td>
+		<td>4/7</td>
+		<td>&#160;</td>
+	</tr>
+	<tr>
+		<td><p>Bit clock frequency</p></td>
+		<td>f<sub>WordClk</sub> * 7</td>
+		<td>&#160;</td>
+	</tr>
+</table>
+<h2><a name="MiniTOCBookMark3"></a>BCON for LVDS and Channel Link</h2>
+<p>The BCON for LVDS specifications are similar to the ChannelLink-I specifications, 
+ in particular the specifications for Texas Instrument’s DS90CR28x deserializer. 
+ This applies to the following:</p>
+<ul>
+	<li>Separation of data, clock, and control lines</li>
+	<li>Number of data lanes</li>
+	<li>Serialization factor</li>
+	<li>Bus width</li>
+	<li>Clock frequencies</li>
+	<li>Word clock duty cycle</li>
+</ul>
+<p>For more information about Channel Link, see the <a href="http://www.ti.com/lit/ug/snla167/snla167.pdf">Channel 
+ Link Design Guide</a>.</p>
+<p class="info">Because the <strong>Camera Link</strong> interface is also 
+ based on Channel Link, it can be compared to the BCON for LVDS interface. 
+ For more information, see the <a href="https://www.baslerweb.com/en/support/downloads/document-downloads/comparison-basler-bcon-interface-and-cl-interface/">Comparison 
+ of Basler BCON for LVDS and Camera Link Interfaces</a> application note.</p>
+<h2><a name="MiniTOCBookMark4"></a>Data Output</h2>
+<p>The data output by the four data lanes (X0, X1, X2, X3) consists of 
+ the following information:</p>
+<ul>
+	<li><strong>Frame valid bit</strong> (FVal): Indicates that a valid 
+	 frame is being transmitted.</li>
+	<li><strong>Line valid bit</strong> (LVal): Indicates that a valid 
+	 line is being transmitted.</li>
+	<li><strong>Frame information</strong> (FrameInfo): Includes information 
+	 about the pixel format and the number of pixels per clock cycle. Sent 
+	 before each frame transmission.</li>
+	<li><strong>Pixel data</strong> (Line 1, Line 2, ..., Line n): Pixel 
+	 data, line by line.</li>
+	<li><strong>Line checksum</strong> (Cksum 1, Cksum 2, ..., Cksum n): 
+	 Check sum for each line of pixel data. Sent after each line transmission.</li>
+	<li><strong>O</strong><strong>utput bits</strong> (Output 0 and Output 
+	 1): Two bits that can be used to transmit output signals, e.g. Flash 
+	 Window or Exposure Active.</li>
+</ul>
+<p>Frame information, pixel data, and line checksums are transmitted on 
+ a common 24-bit image data channel (&quot;Data&quot;).</p>
+<h3><a name="MiniTOCBookMark5"></a><a name="Data_Flow">Data Flow</a></h3>
+<p>The BCON for LVDS interface does not provide data flow control. Also, 
+ unlike the CameraLink interface, the interface does not provide a data 
+ valid bit (DVal). Only FVal and LVal are used as synchronization signals:</p>
+<p><img src="images/drawing_bcon_lvds_data_stream.png" alt="BCON for LVDS Data Flow Diagram" title="BCON for LVDS Data Flow Diagram" /></p>
+<p class="info">Whenever FVal is low and the camera module is not sending 
+ FrameInfo or Cksum data, a <a href="#Sync_Pattern">sync pattern</a> is 
+ transmitted. This allows you to set up the correct word alignment.</p>
+<h3><a name="MiniTOCBookMark6"></a><a name="Data_Serialization_and_Timing">Data Serialization and Timing</a></h3>
+<p><img class="large-image" src="images\drawing_bcon_lvds_timing_th.png" alt="BCON for LVDS Serialization and Timing" title="BCON for LVDS Serialization and Timing" height="319" width="550" data-rhwidget="Basic" data-popupimage="images/drawing_bcon_lvds_timing.png" /></p>
+<p>As shown above, data output is serialized using up to 28 bits on up 
+ to four data lanes (X0 to X3). </p>
+<ul>
+	<li>Two bits are reserved for the output signals (Output 0 and Output 
+	 1). They are always transmitted on data lane X0 at position 0 and 
+	 1.</li>
+	<li>Another two bits are reserved for the synchronization signals (FVal 
+	 and LVal). They are always transmitted on data lane X0 at position 
+	 2 and 3.</li>
+	<li>The remaining 24 bits are reserved for the image data channel including 
+	 frame information, pixel data, and line checksums. </li>
+</ul>
+<p>The actual number of bits and active data lanes used depends on the 
+ data being transmitted:</p>
+<table >
+	<col />
+	<col />
+	<col />
+	<tr>
+		<th>Data Transmitted</th>
+		<th>Bits Used</th>
+		<th>Data Lanes Active</th>
+	</tr>
+	<tr>
+		<td><ul>
+			<li>Frame information</li>
+			<li>8-bit pixel data</li>
+			<li>8-bit checksum </li>
+		</ul></td>
+		<td>Bit 0 – Bit 7</td>
+		<td>X0, X1</td>
+	</tr>
+	<tr>
+		<td><ul>
+			<li>12-bit pixel data</li>
+			<li>12-bit checksum</li>
+		</ul></td>
+		<td>Bit 0 – Bit 11</td>
+		<td>X0, X1, X2</td>
+	</tr>
+	<tr>
+		<td><ul>
+			<li>16-bit pixel data</li>
+			<li>16-bit checksum</li>
+		</ul></td>
+		<td>Bit 0 – Bit 15</td>
+		<td>X0, X1, X2</td>
+	</tr>
+	<tr>
+		<td><ul>
+			<li>24-bit pixel data</li>
+			<li>24-bit checksum</li>
+		</ul></td>
+		<td>Bit 0 – Bit 23</td>
+		<td>X0, X1, X2, X3</td>
+	</tr>
+</table>
+<div class="info">
+	<p>If you are only using 8-bit <a href="#Pixel_Formats">pixel formats</a>, 
+	 e.g. because you are using a monochrome camera module, the X2 and 
+	 X3 data lanes are never active. Accordingly, if you are only using 
+	 8-bit or 12-bit pixel formats, X3 is never active. </p>
+	<p>Basler recommends, however, to always connect all LVDS data lanes 
+	 from X0 to X3. </p>
+</div>
+<h3><a name="MiniTOCBookMark7"></a>Frame Valid Bit and Line Valid Bit</h3>
+<p>The frame valid bit (FVal) and the line valid bit (LVal) indicate that 
+ a valid frame or line is being transmitted.</p>
+<p>LVal and FVal are transmitted on <a href="#Data_Serialization_and_Timing">data 
+ lane X0</a> at position 2 and 3.</p>
+<h3><a name="MiniTOCBookMark8"></a><a name="Frame_Information">Frame Information</a></h3>
+<p>As shown on the <a href="#Data_Flow">data flow diagram</a>, a &quot;FrameInfo&quot; 
+ block is sent before each frame transmission.</p>
+<p>Each FrameInfo block includes the following information:</p>
+<ul>
+	<li>Pixel format valid for the following pixel data.</li>
+	<li>Number of pixels per clock cycle.</li>
+</ul>
+<p>Frame information is always transmitted on <strong>bits 0 through 7</strong> 
+ of the 24-bit data channel:</p>
+<p><img src="images/drawing_bcon_lvds_frameinfo.png" alt="Data Channel Usage During FrameInfo Transmission" title="Data Channel Usage During FrameInfo Transmission" /></p>
+<p>In every FrameInfo block, the camera module transmits the following 
+ information:</p>
+<table >
+	<col />
+	<col />
+	<col />
+	<col />
+	<col />
+	<tr>
+		<th>Clock Cycle</th>
+		<th>Description</th>
+		<th>Bit Length</th>
+		<th>Enumeration</th>
+		<th>Value</th>
+	</tr>
+	<tr>
+		<td>n</td>
+		<td>Command word</td>
+		<td>8</td>
+		<td>-</td>
+		<td>0b10111101</td>
+	</tr>
+	<tr>
+		<td rowspan="2">n+1</td>
+		<td rowspan="2">Pixels per clock cycle value</td>
+		<td rowspan="2"><p>8</p></td>
+		<td><p>One</p></td>
+		<td>0b00000000</td>
+	</tr>
+	<tr>
+		<td><p>Two</p></td>
+		<td>0b00000001</td>
+	</tr>
+	<tr>
+		<td rowspan="12">n+2 
+		<br />... 
+		<br />n+5</td>
+		<td rowspan="12"><p>Pixel format value</p>
+		<ul>
+			<li>Transmitted in 4 Bytes, least significant byte sent first</li>
+			<li>Adheres to the <a href="http://www.emva.org/wp-content/uploads/GenICamPixelFormatValues.pdf">GenICam 
+			 Pixel Format Names and Values specification</a>.</li>
+		</ul></td>
+		<td rowspan="12">32</td>
+		<td><p>Mono 8</p></td>
+		<td><p>0x01080001</p></td>
+	</tr>
+	<tr>
+		<td>Mono 12</td>
+		<td>0x01100005</td>
+	</tr>
+	<tr>
+		<td>Bayer GR 8<sup>a</sup></td>
+		<td>0x01080008</td>
+	</tr>
+	<tr>
+		<td>Bayer RG 8<sup>a</sup></td>
+		<td>0x01080009</td>
+	</tr>
+	<tr>
+		<td>Bayer GB 8<sup>a</sup></td>
+		<td>0x0108000A</td>
+	</tr>
+	<tr>
+		<td>Bayer BG 8<sup>a</sup></td>
+		<td>0x0108000B</td>
+	</tr>
+	<tr>
+		<td>Bayer GR 12<sup>a</sup></td>
+		<td>0x01100010</td>
+	</tr>
+	<tr>
+		<td>Bayer RG 12<sup>a</sup></td>
+		<td>0x01100011</td>
+	</tr>
+	<tr>
+		<td>Bayer GB 12<sup>a</sup></td>
+		<td>0x01100012</td>
+	</tr>
+	<tr>
+		<td>Bayer BG 12<sup>a</sup></td>
+		<td>0x01100013</td>
+	</tr>
+	<tr>
+		<td>YCbCr422</td>
+		<td>0x0210003B</td>
+	</tr>
+	<tr>
+		<td>RGB 8</td>
+		<td>0x02180014</td>
+	</tr>
+</table>
+<p>&#160;<sup>a</sup> The standard Bayer filter alignment for Basler dart 
+ BCON for LVDS camera modules is GB. If supported, other alignments can 
+ be set using the <a href="reverse_x_and_reverse_y.htm">Reverse X and Reverse 
+ Y</a> feature.</p>
+<p><strong>Example:</strong> If the camera module is configured for two 
+ pixels per clock cycle and Mono 12 pixel data, the camera module sends 
+ the following information before each frame transmission:</p>
+<table >
+	<col />
+	<col />
+	<col />
+	<tr>
+		<th>Clock Cycle</th>
+		<th>Data</th>
+		<th><p>Notes</p></th>
+	</tr>
+	<tr>
+		<td>n</td>
+		<td>0b10111101</td>
+		<td>Command word</td>
+	</tr>
+	<tr>
+		<td>n+1</td>
+		<td>0b00000001</td>
+		<td><p>Two pixels per clock cycle</p></td>
+	</tr>
+	<tr>
+		<td><p>n+2 </p></td>
+		<td>0b00000101</td>
+		<td rowspan="4"><p>Mono 12 pixel format value = 0x01100005</p>
+		<p>= 0b00000001 00010000 00000000 00000101</p>
+		<p>Least significant byte sent first</p></td>
+	</tr>
+	<tr>
+		<td><p>n+3</p></td>
+		<td><p>0b00000000</p></td>
+		
+	</tr>
+	<tr>
+		<td><p>n+4</p></td>
+		<td><p>0b00010000</p></td>
+		
+	</tr>
+	<tr>
+		<td><p>n+5</p></td>
+		<td><p>0b00000001</p></td>
+		
+	</tr>
+</table>
+<h3><a name="MiniTOCBookMark9"></a>Line Checksum</h3>
+<p>To detect transmission errors, the Basler BCON for LVDS interface uses 
+ even parity.</p>
+<p>For each image line, a checksum is calculated. The checksum is added 
+ to the output data at the end of each line. The checksum consists of a 
+ number of parity bits depending on the selected pixel format. For every 
+ bit position of every pixel of the current line, an even parity bit is 
+ calculated.</p>
+<p>The checksum is transmitted directly after the data of the last pixel 
+ in the image line has been transmitted (see <a href="#Data_Flow">data 
+ flow diagram</a>).</p>
+<p><strong>Example:</strong> Assume the camera module is set for Mono 8 
+ pixel data and one pixel per clock cycle. Also assume that the image ROI 
+ width is set to 5 pixels only. This means that each image line consists 
+ of 5 x 8 bit image data. The table below shows sample data for one image 
+ line under these conditions.</p>
+<table >
+	<col />
+	<col />
+	<col />
+	<col />
+	<col />
+	<col />
+	<col />
+	<col />
+	<col />
+	<tr>
+		<th rowspan="2"><p>Data Channel Bit Position</p></th>
+		<th colspan="5"><p>Sample Image Data per Clock Cycle</p></th>
+		<th rowspan="2"><p>Count of 1-bits</p></th>
+		<th rowspan="2"><p>Checksum Bit<br />
+		(Even Parity Bit)</p></th>
+		<th rowspan="2"><p>&#160;</p></th>
+	</tr>
+	<tr>
+		<th><p>n</p></th>
+		<th><p>n+1</p></th>
+		<th><p>n+2</p></th>
+		<th><p>n+3</p></th>
+		<th><p>n+4</p></th>
+		
+	</tr>
+	<tr>
+		<td><p>Bit 0</p></td>
+		<td><p>1</p></td>
+		<td><p>1</p></td>
+		<td><p>0</p></td>
+		<td><p>1</p></td>
+		<td><p>0</p></td>
+		<td><p>3</p></td>
+		<td><p>1</p></td>
+		<td rowspan="8"><p>LSB<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		</p>
+		<p>MSB</p></td>
+	</tr>
+	<tr>
+		<td><p>Bit 1</p></td>
+		<td><p>1</p></td>
+		<td><p>0</p></td>
+		<td><p>1</p></td>
+		<td><p>0</p></td>
+		<td><p>0</p></td>
+		<td><p>2</p></td>
+		<td><p>0</p></td>
+		
+	</tr>
+	<tr>
+		<td><p>Bit 2</p></td>
+		<td><p>1</p></td>
+		<td><p>0</p></td>
+		<td><p>0</p></td>
+		<td><p>0</p></td>
+		<td><p>0</p></td>
+		<td><p>1</p></td>
+		<td><p>1</p></td>
+		
+	</tr>
+	<tr>
+		<td><p>Bit 3</p></td>
+		<td><p>1</p></td>
+		<td><p>1</p></td>
+		<td><p>1</p></td>
+		<td><p>0</p></td>
+		<td><p>1</p></td>
+		<td><p>4</p></td>
+		<td><p>0</p></td>
+		
+	</tr>
+	<tr>
+		<td><p>Bit 4</p></td>
+		<td><p>1</p></td>
+		<td><p>0</p></td>
+		<td><p>1</p></td>
+		<td><p>0</p></td>
+		<td><p>0</p></td>
+		<td><p>2</p></td>
+		<td><p>0</p></td>
+		
+	</tr>
+	<tr>
+		<td><p>Bit 5</p></td>
+		<td><p>0</p></td>
+		<td><p>0</p></td>
+		<td><p>0</p></td>
+		<td><p>1</p></td>
+		<td><p>1</p></td>
+		<td><p>2</p></td>
+		<td><p>0</p></td>
+		
+	</tr>
+	<tr>
+		<td><p>Bit 6</p></td>
+		<td><p>0</p></td>
+		<td><p>0</p></td>
+		<td><p>0</p></td>
+		<td><p>0</p></td>
+		<td><p>0</p></td>
+		<td><p>0</p></td>
+		<td><p>0</p></td>
+		
+	</tr>
+	<tr>
+		<td><p>Bit 7</p></td>
+		<td><p>1</p></td>
+		<td><p>1</p></td>
+		<td><p>0</p></td>
+		<td><p>0</p></td>
+		<td><p>1</p></td>
+		<td><p>3</p></td>
+		<td><p>1</p></td>
+		
+	</tr>
+</table>
+<p>In the example shown above, the line checksum data is 0b10000101.</p>
+<h3><a name="MiniTOCBookMark10"></a><a name="Sync_Pattern">Sync Pattern</a></h3>
+<p>Whenever the frame valid bit (FVal) is low and the camera module is 
+ not sending frame information or line checksum data, a fixed sync pattern 
+ is transmitted. This allows you to set up the correct word alignment.</p>
+<p><img src="images/drawing_bcon_lvds_sync_pattern.png" alt="BCON for LVDS Sync Pattern" title="BCON for LVDS Sync Pattern" /></p>
+<h3><a name="MiniTOCBookMark11"></a>Output Bits</h3>
+<p>The BCON for LVDS interface provides two bits that can be used to transmit 
+ two output signals: Output 0 and Output 1.</p>
+<p>Output 0 and Output 1 are transmitted on <a href="#Data_Serialization_and_Timing">data 
+ lane X0 at position 0 and 1</a>.</p>
+<p>Depending on the camera model, the following output signals are available:</p>
+<ul>
+	<li>Flash Window</li>
+	<li>Exposure Active</li>
+	<li>User Output 1</li>
+	<li>User Output 2</li>
+</ul>
+<p>For more information about configuring output signals, see the <a href="line_source.htm">Line 
+ Source</a> feature.</p>
+<h3><a name="MiniTOCBookMark12"></a>Pixel Data</h3>
+<h4><a name="MiniTOCBookMark13"></a><a name="Pixel_Formats">Pixel Formats</a></h4>
+<table >
+	<col />
+	<col />
+	<col />
+	<tr>
+		<th>Pixel Format</th>
+		<th>Available on</th>
+		<th>Bit Depth</th>
+	</tr>
+	<tr>
+		<td><p>Mono 8</p></td>
+		<td>Mono camera modules only</td>
+		<td rowspan="2">8</td>
+	</tr>
+	<tr>
+		<td><p>Bayer 8</p></td>
+		<td>Color camera modules only</td>
+		
+	</tr>
+	<tr>
+		<td><p>Mono 12</p></td>
+		<td>Mono camera modules only</td>
+		<td rowspan="2">12</td>
+	</tr>
+	<tr>
+		<td><p>Bayer 12</p></td>
+		<td>Color camera modules only</td>
+		
+	</tr>
+	<tr>
+		<td><p>YCbCr422</p></td>
+		<td>Color camera modules only</td>
+		<td>16</td>
+	</tr>
+	<tr>
+		<td><p>RGB 8</p></td>
+		<td>Color camera modules only</td>
+		<td>24</td>
+	</tr>
+</table>
+<p>For image data transmission, the BCON for LVDS interface does not distinguish 
+ between the individual 8-bit pixel formats (Mono 8 / Bayer 8). Similarly, 
+ the interface does not distinguish between the individual 12-bit pixel 
+ formats (Mono 12 / Bayer 12).</p>
+<p>However, information about the specific pixel format used for frame 
+ acquisition is included in the <a href="#Frame_Information">FrameInfo 
+ part</a> of the data stream.</p>
+<h4><a name="MiniTOCBookMark14"></a><a name="Pixels_per_Clock_Cycle">Pixels per Clock Cycle</a></h4>
+<p>On all Basler BCON for LVDS camera modules, you can set the number of 
+ pixels transmitted per clock cycle.</p>
+<p class="subheading">One Pixel per Clock Cycle</p>
+<p>This mode is available for <strong>all available pixel formats</strong>.</p>
+<p>In this mode, the camera module transmits pixel data as follows:</p>
+<ul>
+	<li>On each clock cycle, data for one pixel is transmitted via the 
+	 BCON for LVDS interface.</li>
+	<li>On the first clock cycle, the camera module transmits the data 
+	 for the first pixel in line one. On the second clock cycle, the camera 
+	 module transmits the data for the second pixel in line one, and so 
+	 on until the line is complete.</li>
+	<li>When line one is complete, the camera module sends a checksum for 
+	 the line. After that, transmission of line two begins and proceeds 
+	 in a similar fashion. Data transmission continues line by line until 
+	 all frame data has been transmitted.</li>
+</ul>
+<p>During pixel data transmission, the 24 bits of the data channel will 
+ be used as shown below:</p>
+<p><img src="images/drawing_bcon_lvds_one_pixel_per_clock_cycle.png" alt="Data Channel Usage (One Pixel per Clock Cycle)" title="Data Channel Usage (One Pixel per Clock Cycle)" /></p>
+<p class="subheading">Two Pixels per Clock Cycle</p>
+<p>This mode is only available for <strong>8-bit and 12-bit pixel formats</strong> 
+ (i.e., not available for YCbCr422 and RGB 8 pixel formats).</p>
+<p>In this mode, the camera module transmits pixel data as follows:</p>
+<ul>
+	<li>On each clock cycle, the data for two pixels are transmitted via 
+	 the BCON for LVDS interface.</li>
+	<li>On the first clock cycle, the camera module transmits the data 
+	 for the first two pixels in line one. On the second clock cycle, the 
+	 camera module transmits the data for the next two pixels in line one, 
+	 and so on until the line is complete.</li>
+	<li>When line one is complete, the camera module sends a checksum for 
+	 the line. After that, transmission of line two begins and proceeds 
+	 in a similar fashion. Data transmission continues line by line until 
+	 all frame data has been transmitted.</li>
+</ul>
+<p>During pixel data transmission, the 24 bits of the data channel will 
+ be used as shown below:</p>
+<p><img src="images/drawing_bcon_lvds_two_pixels_per_clock_cycle.png" alt="Data Channel Usage (Two Pixels per Clock Cycle)" title="Data Channel Usage (Two Pixels per Clock Cycle)" /></p>
+<p class="subheading">Setting the Number of Pixels per Clock Cycle</p>
+<p>To set the number of pixels per clock cycle, set the <span class="parameter-name">BConPixelsPerClockCycle</span> 
+ parameter to <span class="parameter-name">One</span> 
+ or <span class="parameter-name">Two</span>.</p>
+<p>You can find sample code <a href="#Sample_Code">below</a>.</p>
+<p class="info">The pylon API also provides a <span class="parameter-name">PixelPerClockCycle</span> 
+ parameter that sets the pixels per clock cycle on host side. The parameter 
+ should be set to the same value as the <span class="parameter-name">BConPixelsPerClockCycle</span> 
+ parameter. When you change the <span class="parameter-name">BConPixelsPerClockCycle</span> 
+ parameter, the <span class="parameter-name">PixelPerClockCycle</span> 
+ automatically adapts, but not vice versa.</p>
+<h2><a name="MiniTOCBookMark15"></a><a name="Output_Clock">Output Clock</a></h2>
+<p>The base clock for the BCON for LVDS output is the word clock WordClk. 
+ Its frequency can range from 12 MHz to 84 MHz (settable in increments 
+ of 8, i.e. 12, 20, 28, etc.).</p>
+<p>The word clock duty cycle is 4/7, i.e, the word clock signal is active 
+ (high) during 4/7 of each period (≈57.14% of the time).</p>
+<p>The word clock is transmitted on the separate output clock line XCLK.</p>
+<p>The bit clock frequency fBitClk is not transmitted, but can be calculated. 
+ The bit clock frequency is 7 times faster than the word clock frequency:</p>
+<p>fBitClk = fWordClk * 7</p>
+<h3><a name="MiniTOCBookMark16"></a>Setting the Clock Speed</h3>
+<p>To set the clock speed, set the <span class="parameter-name">BCONClockFrequency</span> 
+ parameter to one of the following values: </p>
+<ul>
+	<li><span class="parameter-name">MHz_12</span></li>
+	<li><span class="parameter-name">MHz_20</span></li>
+	<li><span class="parameter-name">MHz_28</span></li>
+	<li><span class="parameter-name">MHz_36</span></li>
+	<li><span class="parameter-name">MHz_44</span></li>
+	<li><span class="parameter-name">MHz_52</span></li>
+	<li><span class="parameter-name">MHz_60</span></li>
+	<li><span class="parameter-name">MHz_68</span></li>
+	<li><span class="parameter-name">MHz_76</span></li>
+	<li><span class="parameter-name">MHz_84</span></li>
+</ul>
+<p>You can find <a href="#Sample_Code">sample code</a> below.</p>
+<p class="info">The pylon API also provides a <span class="parameter-name">ClockFrequency</span> 
+ parameter that sets the pixels per clock cycle on stream grabber side. 
+ The <span class="parameter-name">ClockFrequency</span> 
+ and <span class="parameter-name">BCONClockFrequency</span> 
+ parameters are automatically synchronized. When you change one parameter, 
+ the other one adapts, and vice versa.</p>
+<h2><a name="MiniTOCBookMark17"></a>Input Line</h2>
+<p>The BCON for LVDS input line can be used to send a trigger or other 
+ input signals to the camera module.</p>
+<p>The state of the input can be read via the camera module’s control interface 
+ at any time.</p>
+<p>In the pylon API, the input line is Line 3.</p>
+<h2><a name="MiniTOCBookMark18"></a>I²C Interface</h2>
+<p>The camera module is configured via a standard I²C interface. For a 
+ detailed description, refer to the <a href="http://www.nxp.com/documents/user_manual/UM10204.pdf">I²C-bus 
+ Specification and User Manual</a>.</p>
+<h3><a name="MiniTOCBookMark19"></a>I²C Features</h3>
+<p>In addition to the mandatory I²C features, BCON for LVDS uses the optional 
+ <strong>Clock Stretching</strong> feature, i.e., it may hold I2C_SCL low. 
+ </p>
+<p class="info">When designing your system, make sure that the I²C master 
+ can handle clock stretching.</p>
+<p>For detailed information about the features, see the <a href="http://www.nxp.com/documents/user_manual/UM10204.pdf">I²C-bus 
+ Specification and User Manual</a>.</p>
+<h3><a name="MiniTOCBookMark20"></a>Basler-Specific Settings</h3>
+<p>The following sections provide information about settings that deviate 
+ from the I²C bus specifications.</p>
+<h4><a name="MiniTOCBookMark21"></a>General Information</h4>
+<p>The control channel of the BCON for LVDS interface is designed as an 
+ I²C bus interface. A BCON for LVDS camera module is an I²C slave device 
+ that can handle data transfers at up to 400 kbit/s (&quot;Fast Mode&quot; 
+ according to I²C).</p>
+<p>Fast Mode (Fm) devices are downward compatible and can communicate with 
+ Standard Mode (Sm) devices in a 0 to 100 kbit/s I²C bus system.</p>
+<p>However, as they are not upward compatible, Fast Mode devices should 
+ not be integrated in an I²C bus system that is configured for a faster 
+ mode, i.e. Fast Mode Plus (Fm+) or High Speed Mode (Hs). Fast Mode devices 
+ cannot follow the higher transfer rate of the faster modes. Therefore, 
+ unpredictable states might occur.</p>
+<p>These limitations have to be observed when designing the I²C bus master.</p>
+<h4><a name="MiniTOCBookMark22"></a>Additional I²C Control Line (I2C_ID)</h4>
+<p>In addition to the standard I²C control lines (I2C_SDA data line, I2C_SCL 
+ clock line), there is an additional I²C control line, the I2C_ID line.</p>
+<p>Normally, the I2C_ID line lets you define the slave address that the 
+ camera module should respond to. You can connect up to two camera modules 
+ to a single I²C bus. The logical level of the I2C_ID line determines which 
+ slave address is used (i.e., to which the camera module should respond).</p>
+<table >
+	<col />
+	<col />
+	<col />
+	<tr>
+		<th><p>Logical Level of I2C_ID Line</p></th>
+		<th>Slave Address</th>
+		<th>Communication with</th>
+	</tr>
+	<tr>
+		<td>0 (low)</td>
+		<td>0x3c</td>
+		<td>Camera module 1</td>
+	</tr>
+	<tr>
+		<td>1 (high)</td>
+		<td>0x3d</td>
+		<td>Camera module 2</td>
+	</tr>
+</table>
+<p>Normally, the I2C_ID line is permanently wired to a fixed level, either 
+ low (0 V) or high (3.3 V), depending on the desired slave address.</p>
+<p>The I2C_ID line can also be used to reset the camera module. For more 
+ information, see below.</p>
+<h4><a name="MiniTOCBookMark23"></a>Reset via I2C_ID Line</h4>
+<p>If the camera module does not respond anymore, you can activate a reset 
+ function via the I2C_ID line.</p>
+<div class="info">
+	When you switch on the supply voltage, ensure the following: 
+	<ul>
+		<li>The I2C_ID line must have the correct logical level according 
+		 to the desired slave address.</li>
+		<li>The logical level at system start must not be changed during 
+		 operation, only in case of a reset.</li>
+	</ul>
+</div>
+<p>To reset the camera module:</p>
+<ol>
+	<li>Set the I2C_ID line to the opposite logical level for at least 
+	 100 ms.</li>
+	<li>Set the I2C_ID line back to its original logical level.<br />
+	The switch back will trigger the reset of the microcontroller.<br />
+	The FPGA will be reloaded, but not reset.</li>
+</ol>
+<h2 class="sample-code"><a name="MiniTOCBookMark24"></a><a name="Sample_Code">Sample Code</a></h2>
+<div>
+<div class="container">
+	<ul class="tabs">
+		<li class="tab-link current" data-tab="tab-1">C++ (Native)</li>
+		<li class="tab-link" data-tab="tab-2">C++ (Generic)</li>
+		<li class="tab-link" data-tab="tab-3">C#</li>
+		<li class="tab-link" data-tab="tab-4">C.NET</li>
+		<li class="tab-link" data-tab="tab-5">C</li>
+	</ul>
+	<div class="tab-1 tab-content current">
+		<pre>
+<code class="cpp">// Configure the camera to transmit two pixels per clock cycle
+camera.BConPixelsPerClockCycle.SetValue(BConPixelsPerClockCycle_Two);
+// Set the BCON output clock speed to 84 MHz
+camera.BConClockFrequency.SetValue(BConClockFrequency_MHz_84);</code></pre>
+	</div>
+	<div class="tab-2 tab-content">
+		<pre>
+<code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Configure the camera to transmit two pixels per clock cycle
+CEnumerationPtr(nodemap.GetNode(&quot;BConPixelsPerClockCycle&quot;))-&gt;FromString(&quot;Two&quot;);
+// Set the BCON output clock speed to 84 MHz
+CEnumerationPtr(nodemap.GetNode(&quot;BConClockFrequency&quot;))-&gt;FromString(&quot;MHz_84&quot;);</code></pre>
+	</div>
+	<div class="tab-3 tab-content">
+		<pre>
+<code class="csharp" generated="true">// Configure the camera to transmit two pixels per clock cycle
+camera.Parameters[PLCamera.BConPixelsPerClockCycle].SetValue(PLCamera.BConPixelsPerClockCycle.Two);
+// Set the BCON output clock speed to 84 MHz
+camera.Parameters[PLCamera.BConClockFrequency].SetValue(PLCamera.BConClockFrequency.MHz_84);</code></pre>
+	</div>
+	<div class="tab-4 tab-content">
+		<pre>
+<code class="csharp" generated="true">// Configure the camera to transmit two pixels per clock cycle
+Pylon.DeviceFeatureFromString(hdev, &quot;BConPixelsPerClockCycle&quot;, &quot;Two&quot;);
+// Set the BCON output clock speed to 84 MHz
+Pylon.DeviceFeatureFromString(hdev, &quot;BConClockFrequency&quot;, &quot;MHz_84&quot;);</code></pre>
+	</div>
+	<div class="tab-5 tab-content">
+		<pre>
+<code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK; &#160;/* Return value of pylon methods */
+/* Configure the camera to transmit two pixels per clock cycle */
+errRes = PylonDeviceFeatureFromString(hdev, &quot;BConPixelsPerClockCycle&quot;, &quot;Two&quot;);
+CHECK(errRes);
+/* Set the BCON output clock speed to 84 MHz */
+errRes = PylonDeviceFeatureFromString(hdev, &quot;BConClockFrequency&quot;, &quot;MHz_84&quot;);
+CHECK(errRes);</code></pre>
+	</div>
+</div>
+</div>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

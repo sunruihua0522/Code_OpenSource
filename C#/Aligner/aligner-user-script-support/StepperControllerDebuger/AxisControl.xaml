@@ -1,0 +1,105 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:Converter="clr-namespace:StepperControllerDebuger.Converter" 
+    x:Name="userControl" 
+    x:Class="StepperControllerDebuger.AxisControl"
+             mc:Ignorable="d" Width="1000" Height="110">
+    <UserControl.Resources>
+        <Converter:CvtOutputStateToColor x:Key="CvtOutputStateToColor"/>
+        <Converter:CvtInputStateToColor x:Key="CvtInputStateToColor"/>
+        <Converter:CvtBoolToColor x:Key="CvtBoolToColor"/>
+        <Converter:CvtErrorCodeToString x:Key="CvtErrorToString"/>
+    </UserControl.Resources>
+    <Border x:Name="border" BorderBrush="#979797" BorderThickness="1" Background="Black">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.RowSpan="2" Text="{Binding AxisState.AxisIndex, ElementName=userControl, Mode=OneWay}" Foreground="#33FFFFFF" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="72" FontWeight="Bold" FontStyle="Italic"/>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="70"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Position" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,0" FontSize="16"/>
+                <TextBlock Text="Speed" VerticalAlignment="Center" Grid.Column="2" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,0" FontSize="16" />
+                <TextBox x:Name="txtCurrentPos" Text="{Binding AxisState.AbsPosition, ElementName=userControl, Mode=OneWay}" VerticalAlignment="Center" MaxLength="5" HorizontalContentAlignment="Center" Grid.Column="1" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Style="{StaticResource TextBoxInError}" HorizontalAlignment="Stretch" Width="Auto" FontSize="16" IsReadOnly="True"/>
+                <TextBox x:Name="txtSpeed" Grid.Column="3" Text="{Binding Speed, ElementName=userControl}" VerticalAlignment="Center" MaxLength="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="16"/>
+                <CheckBox x:Name="cbxAbsMode" IsChecked="{Binding IsAbsMode, ElementName=userControl}" Grid.Column="4" VerticalContentAlignment="Center" VerticalAlignment="Center" Content="ABS" HorizontalAlignment="Center" Foreground="White" FontSize="16"/>
+                <Button x:Name="btnMoveCCW" Content="-" Grid.Column="7" FontWeight="Bold" Tag="0" Background="White" Height="30" Margin="1,0" FontSize="16" Click="btnMoveCCW_Click"/>
+                <Button x:Name="btnMoveCW" Content="+" Grid.Column="8" FontWeight="Bold" Tag="0" Background="White" Height="30" Margin="1,0" FontSize="16" Click="btnMoveCW_Click"/>
+                <TextBlock Grid.Column="5" HorizontalAlignment="Right" TextWrapping="Wrap" Text="Distance" VerticalAlignment="Center" Foreground="White" Margin="0,0,5,0" FontSize="16"/>
+                <TextBox x:Name="txtDistance" Grid.Column="6" TextWrapping="Wrap" Text="{Binding Distance, ElementName=userControl}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" MaxLength="10" FontSize="16"/>
+                <CheckBox x:Name="ckb_SetOutPortA" Content="OUT A" Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF18B2A4" Checked="ckb_SetOutPortA_Checked" Unchecked="ckb_SetOutPortA_Unchecked"/>
+                <CheckBox x:Name="ckb_SetOutPortB" Content="OUT B" Grid.Column="10" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF18B2A4" Unchecked="ckb_SetOutPortB_Unchecked" Checked="ckb_SetOutPortB_Checked"/>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="IsHomed" VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Center" Grid.Column="0"/>
+                <TextBlock Text="IsBusy" VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Center" Grid.Column="1"/>
+                <TextBlock Text="Error" VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Center" Grid.Column="2"/>
+                <TextBlock Text="CWLS" VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Center" Grid.Column="3"/>
+                <TextBlock Text="CCWLS" VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Center" Grid.Column="4"/>
+                <TextBlock Text="ORG" VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Center" Grid.Column="5"/>
+                <TextBlock Text="TIMING" VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Center" Grid.Column="6"/>
+                <TextBlock Text="IN A" VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Center" Grid.Column="7"/>
+                <TextBlock Text="IN B" VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Center" Grid.Column="8"/>
+                <TextBlock Text="OUT A" VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Center" Grid.Column="9"/>
+                <TextBlock Text="OUT B" VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Center" Grid.Column="10"/>
+                <TextBlock Text="{Binding AxisState.IsHomed, ElementName=userControl, Mode=OneWay}" VerticalAlignment="Center" Foreground="{Binding AxisState.IsHomed, Converter={StaticResource CvtBoolToColor}, ElementName=userControl, Mode=OneWay}" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="1"/>
+                <TextBlock Text="{Binding AxisState.IsRunning, ElementName=userControl, Mode=OneWay}" VerticalAlignment="Center" Foreground="{Binding AxisState.IsRunning, Converter={StaticResource CvtBoolToColor}, ElementName=userControl, Mode=OneWay}" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="1"/>
+                <TextBlock Text="{Binding AxisState.Error, ElementName=userControl, Mode=OneWay}" VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="1" ToolTip="{Binding AxisState.Error, Converter={StaticResource CvtErrorToString}, ElementName=userControl, Mode=OneWay}"/>
+                <TextBlock Text="{Binding AxisState.CWLS, ElementName=userControl, Mode=OneWay}" VerticalAlignment="Center" Foreground="{Binding AxisState.CWLS, Converter={StaticResource CvtInputStateToColor}, ElementName=userControl, Mode=OneWay}" HorizontalAlignment="Center" Grid.Column="3" Grid.Row="1"/>
+                <TextBlock Text="{Binding AxisState.CCWLS, ElementName=userControl, Mode=OneWay}" VerticalAlignment="Center" Foreground="{Binding AxisState.CCWLS, Converter={StaticResource CvtInputStateToColor}, ElementName=userControl, Mode=OneWay}" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="1"/>
+                <TextBlock Text="{Binding AxisState.ORG, ElementName=userControl, Mode=OneWay}" VerticalAlignment="Center" Foreground="{Binding AxisState.ORG, Converter={StaticResource CvtInputStateToColor}, ElementName=userControl, Mode=OneWay}" HorizontalAlignment="Center" Grid.Column="5" Grid.Row="1"/>
+                <TextBlock Text="{Binding AxisState.ZeroOut, ElementName=userControl, Mode=OneWay}" VerticalAlignment="Center" Foreground="{Binding AxisState.ZeroOut, Converter={StaticResource CvtInputStateToColor}, ElementName=userControl, Mode=OneWay}" HorizontalAlignment="Center" Grid.Column="6" Grid.Row="1"/>
+                <TextBlock Text="{Binding AxisState.IN_A, ElementName=userControl, Mode=OneWay}" VerticalAlignment="Center" Foreground="{Binding AxisState.IN_A, Converter={StaticResource CvtInputStateToColor}, ElementName=userControl, Mode=OneWay}" HorizontalAlignment="Center" Grid.Column="7" Grid.Row="1"/>
+                <TextBlock Text="{Binding AxisState.IN_B, ElementName=userControl, Mode=OneWay}" VerticalAlignment="Center" Foreground="{Binding AxisState.IN_B, Converter={StaticResource CvtInputStateToColor}, ElementName=userControl, Mode=OneWay}" HorizontalAlignment="Center" Grid.Column="8" Grid.Row="1"/>
+                <TextBlock Text="{Binding AxisState.OUT_A, ElementName=userControl, Mode=OneWay}" VerticalAlignment="Center" Foreground="{Binding AxisState.OUT_A, Converter={StaticResource CvtOutputStateToColor}, ElementName=userControl, Mode=OneWay}" HorizontalAlignment="Center" Grid.Column="9" Grid.Row="1"/>
+                <TextBlock Text="{Binding AxisState.OUT_B, ElementName=userControl, Mode=OneWay}" VerticalAlignment="Center" Foreground="{Binding AxisState.OUT_B, Converter={StaticResource CvtOutputStateToColor}, ElementName=userControl, Mode=OneWay}" HorizontalAlignment="Center" Grid.Column="10" Grid.Row="1"/>
+            </Grid>
+            <Grid Grid.Column="2" Grid.RowSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button x:Name="btnDefaultDirction" Content="Default Dir" Margin="5,10" Click="btnDefaultDirction_Click" />
+                <Button x:Name="btnReverseDirection" Content="Reverse Dir" Grid.Row="1" Margin="5,10" Click="btnReverseDirection_Click"/>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

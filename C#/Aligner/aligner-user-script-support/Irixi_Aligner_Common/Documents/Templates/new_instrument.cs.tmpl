@@ -1,0 +1,289 @@
+﻿using Irixi_Aligner_Common.Configuration;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO.Ports;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace Irixi_Aligner_Common.Equipments
+{
+    /// <summary>
+    /// Class of Keithley 2400
+    /// Contains the low-level operation functions in this class, and it's ready to bind to the view
+    /// The default unit in this class is A/V/Ohm
+    /// </summary>
+    public class new_instrument_name : MeasurementInstrumentBase
+    {
+        #region Definition
+        
+        #endregion
+
+        #region Variables
+        CancellationTokenSource cts_fetching;
+        Task task_fetch_loop = null;
+
+        SerialPort serialport;
+
+        double measured_val;
+        
+        #endregion
+
+        #region Constructor
+        //TODO The type of #Config param should be changed specific type
+        public new_instrument_name(ConfigurationBase Config) : base(Config)
+        {
+            this.Config = Config;
+
+            serialport = new SerialPort(Config.Port, Config.BaudRate, Parity.None, 8, StopBits.One)
+            {
+                ReadTimeout = 2000
+            };
+        }
+
+        #endregion
+
+        #region Properties
+        //TODO The type should be changed to the specific type
+        new public ConfigurationBase Config { get; }
+
+        /// <summary>
+        /// Every instrument must contains this property
+        /// </summary>
+        public double MeasurementValue
+        {
+            private set
+            {
+                UpdateProperty(ref measured_val, value);
+            }
+            get
+            {
+                return measured_val;
+            }
+        }
+        
+        #endregion
+
+        #region General Methods
+
+
+        #endregion
+
+        #region Override Methods
+
+        public override bool Init()
+        {
+            try
+            {
+                serialport.Open();
+
+                // wait for the K2400 to ready to receive commands
+                //e.g. Grandfather stayed up to wait for them to come to our house
+                Task.Delay(100);
+
+                // reset to default setting and clear the error query
+                Reset();
+
+                string desc = this.GetDescription();
+                if (desc.ToUpper().IndexOf("MODEL 2400") > -1)
+                {
+
+                    //TODO Insert codes here to reset the status of the instrument
+
+                    this.IsInitialized = true;
+                    return true;
+                }
+                else
+                {
+                    this.LastError = string.Format("the device connected to the port {0} might not be Keithley 2400", this.Port);
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                this.LastError = ex.Message;
+                return false;
+            }
+        }
+
+        public override double Fetch()
+        {
+            //TODO The function should be re-write according to the specific instrument
+
+            var ret = Read(":READ?");
+            string[] meas_ret = ret.Split(',');
+            if (double.TryParse(meas_ret[0], out double r))
+            {
+                return r;
+            }
+            else
+                throw new InvalidCastException(string.Format("unknown value {0} returned, {1}", ret, new StackTrace().GetFrame(0).ToString()));
+        }
+
+        public override Task<double> FetchAsync()
+        {
+            return new Task<double>(() =>
+            {
+                return Fetch();
+            });
+        }
+
+        public override void StartAutoFetching()
+        {
+            // check whether the task had been started
+            if (task_fetch_loop == null || task_fetch_loop.IsCompleted)
+            {
+                // token source to cancel the task
+                cts_fetching = new CancellationTokenSource();
+                var token = cts_fetching.Token;
+
+                // start the loop task
+                task_fetch_loop = Task.Run(() =>
+                {
+                    DoAutoFetching(token);
+                });
+            }
+        }
+
+        public override void StopAutoFetching()
+        {
+            if (task_fetch_loop != null)
+            {
+                if (task_fetch_loop.IsCompleted == false)
+                {
+                    PauseAutoFetching();
+                }
+
+                // destory the objects
+                task_fetch_loop = null;
+                cts_fetching = null;
+            }
+        }
+
+        public override void PauseAutoFetching()
+        {
+            if (task_fetch_loop != null)
+            {
+                // cancel the task of fetching loop
+                cts_fetching.Cancel();
+                TimeSpan ts = TimeSpan.FromMilliseconds(3000);
+                if (!task_fetch_loop.Wait(ts))
+                    throw new TimeoutException("unable to stop the fetching loop task");
+            }
+        }
+
+        public override void ResumeAutoFetching()
+        {
+            if (task_fetch_loop != null)
+                StartAutoFetching();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    try
+                    {
+                        //TODO Destory resouces
+
+                        // close serial port and destory the object
+                        serialport.Close();
+
+                    }
+                    finally
+                    {
+                        serialport = null;
+                    }
+                }
+
+                // TODO: 释放未托管的资源(未托管的对象)并在以下内容中替代终结器。
+                // TODO: 将大型字段设置为 null。
+
+                disposedValue = true;
+            }
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        //TODO For most cases, the following functions are common
+
+        void DoAutoFetching(CancellationToken token)
+        {
+            //TODO The function should be re-write according to the specific instrument
+
+            while (!token.IsCancellationRequested)
+            {
+                this.MeasurementValue = Fetch();
+                Thread.Sleep(20);
+            }
+        }
+
+        void Send(string Command)
+        {
+            try
+            {
+                lock (serialport)
+                {
+                    serialport.WriteLine(Command);
+
+                    Thread.Sleep(10);
+
+                    // check if error occured
+                    serialport.WriteLine(":SYST:ERR:COUN?");
+                    var ret = serialport.ReadLine().Replace("\r", "").Replace("\n", "");
+
+                    if (int.TryParse(ret, out int err_count))
+                    {
+                        if (err_count != 0) // error occured
+                        {
+                            // read all errors occured
+                            serialport.WriteLine(":SYST:ERR:ALL?");
+                            var err = serialport.ReadLine();
+                            throw new InvalidOperationException(err);
+                        }
+                    }
+                    else
+                    {
+                        throw new InvalidCastException(string.Format("unable to convert error count {0} to number", err_count));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                this.LastError = ex.Message;
+                throw ex;
+            }
+        }
+
+        string Read(string Command)
+        {
+
+            try
+            {
+                lock (serialport)
+                {
+                    serialport.WriteLine(Command);
+                    return serialport.ReadLine().Replace("\r", "").Replace("\n", "");
+                }
+            }
+            catch (TimeoutException)
+            {
+                // read all errors occured
+                serialport.WriteLine(":SYST:ERR:ALL?");
+                this.LastError = serialport.ReadLine().Replace("\r", "").Replace("\n", "");
+                throw new InvalidOperationException(this.LastError);
+            }
+            catch (Exception ex)
+            {
+                this.LastError = ex.Message;
+                throw ex;
+            }
+        }
+
+        #endregion
+    }
+}

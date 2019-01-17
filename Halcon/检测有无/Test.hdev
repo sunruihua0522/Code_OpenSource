@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.0" halcon_version="10.0" cs="669763347">
+<procedure name="main">
+<interface/>
+<body>
+<c></c>
+<l>for Index := 1 to 3 by 1</l>
+<l>read_image (Image2, 'C:/Code/Halcon/检测有无/图片1/'+Index+'.jpg')</l>
+<c></c>
+<c></c>
+<l>dev_close_window()</l>
+<l>dev_open_window_fit_image(Image2, 0, 0, -1, -1, WindowHandle)</l>
+<c></c>
+<c></c>
+<l>decompose3(Image2, Image11, Image21, Image3)</l>
+<l>trans_from_rgb (Image11, Image21, Image3, ImageResult1, ImageResult2, ImageResult3, 'hsv')</l>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<l>threshold (ImageResult2, Regions, 77, 255)</l>
+<c></c>
+<l>closing_circle(Regions, RegionOpening, 11)</l>
+<l>connection(RegionOpening, ConnectedRegions)</l>
+<l>area_center(ConnectedRegions, Area1, Row1, Column1)</l>
+<c></c>
+<l>select_shape (ConnectedRegions, SelectedRegions, 'area', 'and', 10000.59, 157565)</l>
+<c></c>
+<l>union1(SelectedRegions, RegionUnion)</l>
+<l>shape_trans(RegionUnion, RegionTrans, 'circle')</l>
+<l>dev_set_draw('margin')</l>
+<l>dev_display(Image3)</l>
+<l>dev_display(RegionTrans)</l>
+<c></c>
+<c></c>
+<c>*处理Image3</c>
+<l>decompose3(Image2, Image1, Image22, Image31)</l>
+<c></c>
+<l>erosion_circle(RegionTrans, RegionErosion, 20)</l>
+<c></c>
+<l>reduce_domain(Image31, RegionErosion, ImageReduced)</l>
+<c></c>
+<c></c>
+<c></c>
+<l>scale_image_range(ImageReduced, ImageScaled, 180, 200)</l>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<l>threshold (ImageScaled, Regions1, 170, 255)</l>
+<l>fill_up(Regions1, RegionFillUp)</l>
+<l>connection(RegionFillUp, ConnectedRegions1)</l>
+<l>area_center(ConnectedRegions1, Area, Row, Column)</l>
+<c></c>
+<l>select_shape (ConnectedRegions1, SelectedRegions1, 'area', 'and', 1000.55, 15000)</l>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<l>shape_trans(SelectedRegions1, RegionTrans1, 'rectangle2')</l>
+<c></c>
+<l>dev_display(Image2)</l>
+<c></c>
+<l>dev_display(RegionTrans1)</l>
+<c></c>
+<l>set_display_font(WindowHandle, 100, 'mono', 'true', 'false')</l>
+<l>set_tposition(WindowHandle, 10, 10)</l>
+<l>count_obj(RegionTrans1, Number)</l>
+<c></c>
+<l>if(Number#0)</l>
+<l>    dev_set_color('green')</l>
+<l>    write_string(WindowHandle, 'OK')</l>
+<l>else</l>
+<c>   </c>
+<l>     dev_set_color('red')</l>
+<l>    write_string(WindowHandle, 'NG')</l>
+<l>endif</l>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<l>stop()</l>
+<l>endfor</l>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

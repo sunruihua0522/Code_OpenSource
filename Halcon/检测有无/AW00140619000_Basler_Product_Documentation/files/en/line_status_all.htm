@@ -1,0 +1,798 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Line Status All</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_54";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Line Status All<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Line Status All</h1>
+<p class="teaser">The Line Status All 
+ <a href="features.htm">camera feature</a> allows you to determine 
+ the status of all I/O lines in a single operation.</p>
+<p>To determine the status of an individual I/O line, use the <a href="line_status.htm">Line 
+ Status</a> feature.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot36934" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot36934', 'MTPOPUP36934');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP36934" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Determining the Status of All I/O Lines</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >Line Status and I/O Status</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark5" >Specifics</a>
+</li>
+   <li><a href="#MiniTOCBookMark6" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>Determining the Status of All I/O Lines</h3>
+<p>To determine the current status of all I/O lines, read the <span class="parameter-name">LineStatusAll</span> 
+ parameter. The parameter is reported as a 64-bit value.</p>
+<p>Certain bits in the value are associated with the I/O lines. Each bit 
+ indicates the status of its associated line: </p>
+<ul>
+	<li>If a bit is 0, the status of the associated line is currently low.</li>
+	<li>If a bit is 1, the status of the associated line is currently high.</li>
+</ul>
+<p>Which bit is associated with which line depends on <a href="#Specifics">your 
+ camera model</a>.</p>
+<p class="info">If the <a href="line_inverter.htm">Line Inverter</a> feature 
+ is enabled, the camera inverts the <span class="parameter-name rh-hide" data-rhtags="48">LineStatusAll</span> 
+ parameter value. All 0 bits change to 1, and vice versa.</p>
+<h3><a name="MiniTOCBookMark4"></a>Line Status and I/O Status</h3>
+<p>→ &#160;See the <a href="line_status.htm">Line Status</a> feature documentation.</p>
+<h2 class="specifics"><a name="MiniTOCBookMark5"></a><a name="Specifics">Specifics</a></h2>
+<div>
+<table class="specifics-table">
+	<col />
+	<col />
+	<tr>
+		<th><p>Camera Model</p></th>
+		<th><p>Bit-to-Line Association</p></th>
+	</tr>
+	<tr>
+		<td data-rhtags="50" class="rh-hide">acA640-90gm</td>
+		<td data-rhtags="50" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><span><strong>Example:</strong> All lines high = 0b10000000000000001</span></p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="51" class="rh-hide">acA640-90gc</td>
+		<td data-rhtags="51" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="52" class="rh-hide">acA640-120gm</td>
+		<td data-rhtags="52" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="53" class="rh-hide">acA640-120gc</td>
+		<td data-rhtags="53" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="54" class="rh-hide">acA640-121gm</td>
+		<td data-rhtags="54" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="55" class="rh-hide">acA640-300gm</td>
+		<td data-rhtags="55" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="56" class="rh-hide">acA640-300gc</td>
+		<td data-rhtags="56" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="57" class="rh-hide">acA720-290gm</td>
+		<td data-rhtags="57" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="58" class="rh-hide">acA720-290gc</td>
+		<td data-rhtags="58" class="rh-hide"><ul>
+			<li data-rhtags="246" class="rh-hide">Bit 0 indicates 
+			 Line1 status</li>
+			<li data-rhtags="246" class="rh-hide">Bit 1 indicates 
+			 Line2 status</li>
+			<li data-rhtags="246" class="rh-hide">Bit 2 indicates 
+			 Line3 status</li>
+		<?rh-cbt_end ?>
+</ul>
+		<p data-rhtags="246" class="rh-hide"><strong data-rhtags="246" class="rh-hide">Example:</strong><span data-rhtags="246" class="rh-hide"> 
+		 All lines high = 0b111</span></p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="59" class="rh-hide">acA750-30gm</td>
+		<td data-rhtags="59" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="45" class="rh-hide">acA750-30gc</td>
+		<td data-rhtags="45" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="60" class="rh-hide">acA780-75gm</td>
+		<td data-rhtags="60" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="61" class="rh-hide">acA780-75gc</td>
+		<td data-rhtags="61" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="62" class="rh-hide">acA800-200gm</td>
+		<td data-rhtags="62" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="63" class="rh-hide">acA800-200gc</td>
+		<td data-rhtags="63" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="64" class="rh-hide">acA1280-60gm</td>
+		<td data-rhtags="64" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="65" class="rh-hide">acA1280-60gc</td>
+		<td data-rhtags="65" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="66" class="rh-hide">acA1300-22gm</td>
+		<td data-rhtags="66" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="67" class="rh-hide">acA1300-22gc</td>
+		<td data-rhtags="67" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="68" class="rh-hide">acA1300-30gm</td>
+		<td data-rhtags="68" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="69" class="rh-hide">acA1300-30gc</td>
+		<td data-rhtags="69" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="70" class="rh-hide">acA1300-60gm</td>
+		<td data-rhtags="70" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="71" class="rh-hide">acA1300-60gmNIR</td>
+		<td data-rhtags="71" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="72" class="rh-hide">acA1300-60gc</td>
+		<td data-rhtags="72" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="73" class="rh-hide">acA1300-75gm</td>
+		<td data-rhtags="73" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="74" class="rh-hide">acA1300-75gc</td>
+		<td data-rhtags="74" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="75" class="rh-hide">acA1440-73gm</td>
+		<td data-rhtags="75" class="rh-hide"><ul>
+			<li data-rhtags="247" class="rh-hide">Bit 0 indicates 
+			 Line1 status</li>
+			<li data-rhtags="247" class="rh-hide">Bit 1 indicates 
+			 Line2 status</li>
+			<li data-rhtags="247" class="rh-hide">Bit 2 indicates 
+			 Line3 status</li>
+		<?rh-cbt_end ?>
+</ul>
+		<p data-rhtags="248" class="rh-hide"><strong data-rhtags="248" class="rh-hide">Example:</strong><span data-rhtags="248" class="rh-hide"> 
+		 All lines high = 0b111</span></p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="76" class="rh-hide">acA1440-73gc</td>
+		<td data-rhtags="76" class="rh-hide"><ul>
+			<li data-rhtags="249" class="rh-hide">Bit 0 indicates 
+			 Line1 status</li>
+			<li data-rhtags="249" class="rh-hide">Bit 1 indicates 
+			 Line2 status</li>
+			<li data-rhtags="249" class="rh-hide">Bit 2 indicates 
+			 Line3 status</li>
+		<?rh-cbt_end ?>
+</ul>
+		<p data-rhtags="250" class="rh-hide"><strong data-rhtags="250" class="rh-hide">Example:</strong><span data-rhtags="250" class="rh-hide"> 
+		 All lines high = 0b111</span></p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="77" class="rh-hide">acA1600-20gm</td>
+		<td data-rhtags="77" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="78" class="rh-hide">acA1600-20gc</td>
+		<td data-rhtags="78" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="79" class="rh-hide">acA1600-60gm</td>
+		<td data-rhtags="79" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="80" class="rh-hide">acA1600-60gc</td>
+		<td data-rhtags="80" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="81" class="rh-hide">acA1920-25gm</td>
+		<td data-rhtags="81" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="82" class="rh-hide">acA1920-25gc</td>
+		<td data-rhtags="82" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="83" class="rh-hide">acA1920-40gm</td>
+		<td data-rhtags="83" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="84" class="rh-hide">acA1920-40gc</td>
+		<td data-rhtags="84" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="85" class="rh-hide">acA1920-48gm</td>
+		<td data-rhtags="85" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="86" class="rh-hide">acA1920-48gc</td>
+		<td data-rhtags="86" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="87" class="rh-hide">acA1920-50gm</td>
+		<td data-rhtags="87" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="88" class="rh-hide">acA1920-50gc</td>
+		<td data-rhtags="88" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="89" class="rh-hide">acA2000-50gm</td>
+		<td data-rhtags="89" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="90" class="rh-hide">acA2000-50gmNIR</td>
+		<td data-rhtags="90" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="91" class="rh-hide">acA2000-50gc</td>
+		<td data-rhtags="91" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="92" class="rh-hide">acA2040-25gm</td>
+		<td data-rhtags="92" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="93" class="rh-hide">acA2040-25gmNIR</td>
+		<td data-rhtags="93" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="94" class="rh-hide">acA2040-25gc</td>
+		<td data-rhtags="94" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="95" class="rh-hide">acA2040-35gm</td>
+		<td data-rhtags="95" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="96" class="rh-hide">acA2040-35gc</td>
+		<td data-rhtags="96" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="97" class="rh-hide">acA2440-20gm</td>
+		<td data-rhtags="97" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="98" class="rh-hide">acA2440-20gc</td>
+		<td data-rhtags="98" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="99" class="rh-hide">acA2500-14gm</td>
+		<td data-rhtags="99" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="100" class="rh-hide">acA2500-14gc</td>
+		<td data-rhtags="100" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="101" class="rh-hide">acA2500-20gm</td>
+		<td data-rhtags="101" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="102" class="rh-hide">acA2500-20gc</td>
+		<td data-rhtags="102" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="103" class="rh-hide">acA2500-20gmMED</td>
+		<td data-rhtags="103" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="104" class="rh-hide">acA2500-20gcMED</td>
+		<td data-rhtags="104" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="105" class="rh-hide">acA3088-16gm</td>
+		<td data-rhtags="105" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status </li>
+			<li>Bit 1 indicates Line2 status </li>
+			<li>Bit 2 indicates Line3 status </li>
+		</ul>
+		<strong>Example:</strong> All lines high = 0b111</td>
+	</tr>
+	<tr>
+		<td data-rhtags="106" class="rh-hide">acA3088-16gc</td>
+		<td data-rhtags="106" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="107" class="rh-hide">acA3800-10gm</td>
+		<td data-rhtags="107" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="108" class="rh-hide">acA3800-10gc</td>
+		<td data-rhtags="108" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="109" class="rh-hide">acA4024-8gm</td>
+		<td data-rhtags="109" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="110" class="rh-hide">acA4024-8gc</td>
+		<td data-rhtags="110" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="111" class="rh-hide">acA4096-11gm</td>
+		<td data-rhtags="111" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="198" class="rh-hide">acA4096-11gc</td>
+		<td data-rhtags="198" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="113" class="rh-hide">acA4112-8gm</td>
+		<td data-rhtags="113" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="114" class="rh-hide">acA4112-8gc</td>
+		<td data-rhtags="114" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="115" class="rh-hide">acA4600-7gc</td>
+		<td data-rhtags="115" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 16 indicates Out1 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b10000000000000001</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="116" class="rh-hide">acA5472-5gm</td>
+		<td data-rhtags="116" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="117" class="rh-hide">acA5472-5gc</td>
+		<td data-rhtags="117" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="33" class="rh-hide">All ace USB 3.0 camera models</td>
+		<td data-rhtags="33" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+			<li>Bit 2 indicates Line3 status</li>
+			<li>Bit 3 indicates Line4 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b1111</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="44" class="rh-hide">All dart BCON for LVDS camera models</td>
+		<td data-rhtags="44" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b11</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="21" class="rh-hide">All dart BCON for MIPI camera models</td>
+		<td data-rhtags="21" class="rh-hide">Line Status All feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="42" class="rh-hide">All dart USB 3.0 camera models</td>
+		<td data-rhtags="42" class="rh-hide"><ul>
+			<li>Bit 0 indicates Line1 status</li>
+			<li>Bit 1 indicates Line2 status</li>
+		</ul>
+		<p><strong>Example:</strong> All lines high = 0b11</p></td>
+	</tr>
+	<tr>
+		<td data-rhtags="47" class="rh-hide">All pulse USB 3.0 camera models</td>
+		<td data-rhtags="47" class="rh-hide">Line Status All feature 
+		 not supported</td>
+	</tr>
+</table>
+</div>
+<h2 class="sample-code"><a name="MiniTOCBookMark6"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre><code class="cpp">// Get the line status of all I/O lines. Because the GenICam interface does not
+// support 32-bit words, the line status is reported as a 64-bit value.
+int64_t lineStatus = camera.LineStatusAll.GetValue();</code></pre></div><div class="tab-2 tab-content"><pre><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Get the line status of all I/O lines. Because the GenICam interface does not
+// support 32-bit words, the line status is reported as a 64-bit value.
+int64_t lineStatus = CIntegerPtr(nodemap.GetNode("LineStatusAll"))-&gt;GetValue();</code></pre></div><div class="tab-3 tab-content"><pre><code class="csharp" generated="true">// Get the line status of all I/O lines. Because the GenICam interface does not
+// support 32-bit words, the line status is reported as a 64-bit value.
+Int64 lineStatus = camera.Parameters[PLCamera.LineStatusAll].GetValue();</code></pre></div><div class="tab-4 tab-content"><pre><code class="csharp" generated="true">// Get the line status of all I/O lines. Because the GenICam interface does not
+// support 32-bit words, the line status is reported as a 64-bit value.
+Int64 lineStatus = Pylon.DeviceGetIntegerFeature(hdev, "LineStatusAll");</code></pre></div><div class="tab-5 tab-content"><pre><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+int64_t lineStatus = 0;
+/* Get the line status of all I/O lines. Because the GenICam interface does not */
+/* support 32-bit words, the line status is reported as a 64-bit value. */
+errRes = PylonDeviceGetIntegerFeature(hdev, "LineStatusAll", &amp;lineStatus);
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

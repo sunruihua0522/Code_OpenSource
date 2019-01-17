@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="robots" content="noindex, nofollow" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Line Pitch</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_50";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Line Pitch<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Line Pitch</h1>
+<p class="teaser">The Line Pitch 
+ <a href="features.htm">camera feature</a> allows you to increase the number 
+ of bytes transmitted per pixel line. To increase the line pitch, the camera 
+ appends zeroed bytes to every line.</p>
+<p>This feature is useful if you want to align your image data to fixed-size 
+ groups of digits, e.g., to 4-byte (32-bit) or 8-byte (64-bit) words. Data 
+ alignment can improve performance.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot22696" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot22696', 'MTPOPUP22696');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP22696" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Prerequisites</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >How It Works</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >Determining the Line Pitch</a>
+</li>
+    <li><a href="#MiniTOCBookMark6" >Setting the Line Pitch and Aligning Image Data to 4-Byte Words</a>
+</li>
+    <li><a href="#MiniTOCBookMark7" >Setting the Line Pitch and Aligning Image Data to Any Word Size</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark8" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>Prerequisites</h3>
+<ul>
+	<li>The <a href="pixel_format.htm">pixel format</a> can be set to any 
+	 format <strong>except</strong> packed 12-bit pixel formats (e.g., 
+	 Mono 12p or Bayer 12p).</li>
+</ul>
+<h3><a name="MiniTOCBookMark4"></a>How It Works</h3>
+<p>Pixel data is read from the sensor line by line. For each image line, 
+ the camera transmits a specific number of bytes, depending on the <a href="image_roi.htm">image 
+ ROI</a> width and the <a href="pixel_format.htm">pixel format</a> used.</p>
+<p>The Line Pitch feature allows you to increase the number of bytes transmitted 
+ per line. To increase the line pitch, the camera appends zeroed bytes 
+ to each line. This allows you to align the image data to, e.g., 4-byte 
+ or 8-byte words.</p>
+<p><strong>Example:</strong> If you set the image ROI to a width of 250 
+ pixels and the pixel format to Mono 8, the amount of transmitted pixel 
+ data per line is 250 bytes (250 pixels x 8 bit depth = 250 bytes).</p>
+<p>This data cannot be aligned to 4-byte or 8-byte words because 250 is 
+ not a multiple of 4 or 8. To align the image data to 4-byte words, you 
+ must increase the line pitch from 250 bytes to at least 252 bytes (252 
+ is the next multiple of 4). To align the image data to 8-byte words, you 
+ must increase the line pitch to at least 256 bytes.</p>
+<p class="info">If <a href="data_chunks.htm">data chunks</a> are enabled, 
+ adjusting the line pitch will not affect the chunk data. Zeros will only 
+ be added to the image data, not to the chunk data. </p>
+<h3><a name="MiniTOCBookMark5"></a>Determining the Line Pitch</h3>
+<p>To determine the current line pitch, get the value of the <span class="parameter-name">LinePitch</span> 
+ parameter.</p>
+<p>This always returns the current line pitch in bytes, regardless of the 
+ <span class="parameter-name">LinePitchEnable</span> 
+ parameter setting.</p>
+<h3><a name="MiniTOCBookMark6"></a>Setting the Line Pitch and Aligning Image Data to 4-Byte Words</h3>
+<p>To align image data to 4-byte words, set the <span class="parameter-name">LinePitchEnable</span> 
+ parameter to <span class="parameter-name">true</span>.</p>
+<p>If the current line pitch is not a multiple of four, the line pitch 
+ is automatically set to the next multiple of four. The image data is now 
+ aligned to 4-byte words (32-bit words).</p>
+<h3><a name="MiniTOCBookMark7"></a>Setting the Line Pitch and Aligning Image Data to Any Word Size</h3>
+<p>To set the line pitch and align image data to any word size:</p>
+<ol>
+	<li>Set the <span class="parameter-name">LinePitchEnable</span> 
+	 parameter to <span class="parameter-name">true</span>.<br />
+	If the current line pitch is not a multiple of four, the line pitch 
+	 is automatically set to the next multiple of four.</li>
+	<li>Get the value of the <span class="parameter-name">LinePitch</span> 
+	 parameter.<br />
+	This returns the minimum possible value for the line pitch adjustment.</li>
+	<li>Set the <span class="parameter-name">LinePitch</span> 
+	 parameter to the desired value.<br />
+	For a 4-byte, 8-byte, 16-byte, etc. word alignment, set the parameter 
+	 value to the next multiple of 4, 8, 16, etc., starting at the minimum 
+	 possible value determined in step 2.<br />
+	<strong>Example:</strong> If the value determined in step 2 is 252 
+	 and you want to align the image data to 8-byte words, set the <span class="parameter-name">LinePitch</span> 
+	 parameter to 256 (= the next multiple of 8).</li>
+</ol>
+<h2 class="sample-code"><a name="MiniTOCBookMark8"></a>Sample Code</h2>
+<div>
+<pre>
+<code class="cpp">// Enable the line pitch feature
+camera.LinePitchEnable.SetValue(true);
+// Get the current line pitch
+int64_t i = camera.LinePitch.GetValue();
+// Set the Line Pitch parameter value to the next multiple of 8
+camera.LinePitch.SetValue(((i+7)/8)*8);</code></pre>
+</div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer </a>to easily set the parameters.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>

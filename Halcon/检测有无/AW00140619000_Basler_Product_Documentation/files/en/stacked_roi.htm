@@ -1,0 +1,985 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+ <meta name="generator" content="Adobe RoboHelp 2017" />
+<title>Stacked ROI</title>
+<link rel="StyleSheet" href="../css/main.css" type="text/css" />
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../template/scripts/constants.js"></script>
+<script type="text/javascript" src="../template/scripts/utils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="../template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="../template/scripts/mhver.js"></script>
+<script type="text/javascript" src="../template/scripts/settings.js"></script>
+<script type="text/javascript" src="../template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="../template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="../template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="../template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="../template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="../template/styles/widgets.min.css">
+ <link rel="stylesheet" type="text/css" href="../template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = "..";
+gCommonRootRelPath = "..";
+gTopicId = "1.2.0_74";
+</script>
+ <meta name="topic-breadcrumbs" content="Cameras and Camera Modules > Features" />
+</head>
+
+<body>
+
+
+<div id="header">
+	<div><script type="text/javascript" language="javascript">//<![CDATA[
+document.write("<p  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../index.htm", "breadcrumbs", " &gt; ", "", "basler_product_documentation.htm");
+document.write("<a class=\"breadcrumbs\" href=\"cameras_and_camera_modules.htm\">Cameras and Camera Modules<\/a>  &gt;  <a class=\"breadcrumbs\" href=\"features.htm\">Features<\/a>  &gt;  Stacked ROI<\/p>");
+//]]></script>
+ </div>
+</div>
+
+
+<h1><a name="MiniTOCBookMark1"></a>Stacked ROI</h1>
+<p class="teaser">The Stacked ROI 
+ <a href="features.htm">camera feature</a> allows you to define multiple 
+ zones of varying heights and equal width on the sensor array that will 
+ be transmitted as a single image.</p>
+<p>Only the pixel data from those zones will be transmitted. This increases 
+ the camera's <a href="resulting_frame_rate.htm">frame rate</a>.</p>
+<p>The Stacked ROI 
+ feature is similar to the <a href="stacked_zone_imaging.htm">Stacked Zones 
+ Imaging</a> feature, which is only available on <a href="https://www.baslerweb.com/en/products/cameras/area-scan-cameras/ace#productline=aceclassic">ace 
+ classic</a> cameras.</p>
+<div class="mini-toc">
+	<p align="left">In&#160;this&#160;topic&#160;<a class="dropspot" href="" id="MTHotSpot19815" ><span class="MTText" style="display: none;" >Show</span><span class="MTText" >Hide</span></a></p>
+<script type="text/javascript">//<![CDATA[
+ //TextPopupInit('MTHotSpot19815', 'MTPOPUP19815');
+//]]></script>
+ <div align="left" class="droptext" id="MTPOPUP19815" >
+  <ul style="text-align:left; "  >
+   <li><a href="#MiniTOCBookMark2" >Using the Feature</a>
+   <ul  >
+    <li><a href="#MiniTOCBookMark3" >Prerequisites</a>
+</li>
+    <li><a href="#MiniTOCBookMark4" >How It Works</a>
+</li>
+    <li><a href="#MiniTOCBookMark5" >Configuring the ROI Zones</a>
+</li>
+    <li><a href="#MiniTOCBookMark6" >Considerations When Using the Stacked ROI Feature</a>
+</li>
+   </ul></li>
+   <li><a href="#MiniTOCBookMark7" >Specifics</a>
+</li>
+   <li><a href="#MiniTOCBookMark8" >Sample Code</a>
+</li>
+  </ul>
+ </div>
+</div>
+<h2 class="using"><a name="MiniTOCBookMark2"></a>Using the Feature</h2>
+<h3><a name="MiniTOCBookMark3"></a>Prerequisites</h3>
+<ul>
+	<li>The camera must be idle, i.e., not capturing images.</li>
+	<li>The <a href="sequencer.htm">Sequencer</a> feature must be disabled.</li>
+</ul>
+<h3><a name="MiniTOCBookMark4"></a>How It Works</h3>
+<p>The Stacked ROI feature allows you to define vertically aligned zones 
+ of equal width on the sensor array. The maximum number of zones depends 
+ on <a href="#Specifics">your camera model</a>.</p>
+<p>When an image is acquired, only the pixel information from within the 
+ defined zones is read out of the sensor. The pixel information is then 
+ stacked together and transmitted as a single image.</p>
+<p><img src="images/drawing_roi_zones.png" alt="ROI Zones Example" title="ROI Zones Example" /></p>
+<p>The zones always have the same width and are vertically aligned. To 
+ configure the zones, Basler recommends the following procedure:</p>
+<ol>
+	<li>Define a width and a horizontal offset that is valid for <strong>all 
+	 zones</strong>.</li>
+	<li>Define the heights and vertical offsets of the <strong>individual 
+	 zones</strong>.</li>
+</ol>
+<h3><a name="MiniTOCBookMark5"></a>Configuring the ROI Zones</h3>
+<ol>
+	<li>Set the <span class="parameter-name">OffsetX</span> 
+	 parameter to the desired horizontal offset. The value is applied to 
+	 <strong>all zones</strong>.</li>
+	<li>Set the <span class="parameter-name">Width</span> 
+	 parameter to the desired zone width. The value is applied to <strong>all 
+	 zones</strong>.</li>
+	<li>Set the <span class="parameter-name">ROIZoneSelector</span> 
+	 parameter to the zone that you want to configure, e.g., <span class="parameter-name">Zone0</span>.</li>
+	<li>Set the <span class="parameter-name">ROIZoneOffset</span> 
+	 parameter to the desired vertical offset. The value is applied to 
+	 the zone selected in step 4.</li>
+	<li>Set the <span class="parameter-name">ROIZoneSize</span> 
+	 parameter to the desired zone height. The value is applied to the 
+	 zone selected in step 4.</li>
+	<li>Set the <span class="parameter-name">ROIZoneMode</span> 
+	 parameter to <span class="parameter-name">On</span> 
+	 to enable the zone.</li>
+	<li>Repeat steps 3 to 6 for every zone you want to configure.</li>
+</ol>
+<h3><a name="MiniTOCBookMark6"></a>Considerations When Using the Stacked ROI Feature</h3>
+<ul>
+	<li>You can enable the zones in any order you like. For example, you 
+	 can enable zones 1, 3, and 5 and disable zones 0, 2, and 4.</li>
+	<li>You can place the zones freely around the sensor. For example, 
+	 you can place zone 0 near the bottom, zone 2 near the top, and zone 
+	 1 in the middle. However, the camera always starts reading out and 
+	 transmitting pixel data from the topmost zone on the sensor and then 
+	 proceeds towards the bottom.</li>
+	<li>You can define vertically overlapping zones. If two zones overlap, 
+	 they are transmitted as a single merged zone. The pixel data from 
+	 the area of overlap is read out and transmitted only once.</li>
+	<li>When at least one zone has been defined, the following parameters 
+	 become read-only: 
+	<ul>
+		<li><span class="parameter-name">OffsetY</span>. 
+		 The parameter is set to the vertical offset of the topmost zone.</li>
+		<li><span class="parameter-name">Height</span>. 
+		 The parameter is set to the height of the final image, i.e., the 
+		 sum of the heights of all zones.</li>
+		<li><span class="parameter-name">CenterY</span>.</li>
+		<li>All parameters related to the <a href="sequencer.htm">Sequencer</a> 
+		 feature.</li>
+	</ul></li>
+	<li>If you have configured a zone and then enable <a href="binning.htm">binning</a>, 
+	 the position and the size of the zone are adapted automatically. The 
+	 parameter values are divided by the corresponding binning factor and 
+	 rounded down.</li>
+	<li>If you disable all zones after using the Stacked ROI feature, the 
+	 size and position of the <a href="image_roi.htm">image ROI</a> is 
+	 set to the size and position of the zone that was disabled last. For 
+	 example, assume zones 0, 1, and 2 are enabled. Then, you disable the 
+	 zones in the following order: 2, 1, 0. As a result, the size and position 
+	 of the image ROI is set to the size and position of the disabled zone 
+	 0.</li>
+</ul>
+<h2 class="specifics"><a name="MiniTOCBookMark7"></a><a name="Specifics" id="Specifics">Specifics</a></h2>
+<div>
+<table class="specifics-table">
+	<col />
+	<col />
+	<tr>
+		<th>Camera Model</th>
+		<th>Maximum Number of ROI Zones</th>
+	</tr>
+	<tr>
+		<td data-rhtags="50" class="rh-hide">acA640-90gm</td>
+		<td data-rhtags="50" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="51" class="rh-hide">acA640-90gc</td>
+		<td data-rhtags="51" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="52" class="rh-hide">acA640-120gm</td>
+		<td data-rhtags="52" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="53" class="rh-hide">acA640-120gc</td>
+		<td data-rhtags="53" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="54" class="rh-hide">acA640-121gm</td>
+		<td data-rhtags="54" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="55" class="rh-hide">acA640-300gm</td>
+		<td data-rhtags="55" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="56" class="rh-hide">acA640-300gc</td>
+		<td data-rhtags="56" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="57" class="rh-hide">acA720-290gm</td>
+		<td data-rhtags="57" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="58" class="rh-hide">acA720-290gc</td>
+		<td data-rhtags="58" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="59" class="rh-hide">acA750-30gm</td>
+		<td data-rhtags="59" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="45" class="rh-hide">acA750-30gc</td>
+		<td data-rhtags="45" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="60" class="rh-hide">acA780-75gm</td>
+		<td data-rhtags="60" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="61" class="rh-hide">acA780-75gc</td>
+		<td data-rhtags="61" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="62" class="rh-hide">acA800-200gm</td>
+		<td data-rhtags="62" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="63" class="rh-hide">acA800-200gc</td>
+		<td data-rhtags="63" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="64" class="rh-hide">acA1280-60gm</td>
+		<td data-rhtags="64" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="65" class="rh-hide">acA1280-60gc</td>
+		<td data-rhtags="65" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="66" class="rh-hide">acA1300-22gm</td>
+		<td data-rhtags="66" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="67" class="rh-hide">acA1300-22gc</td>
+		<td data-rhtags="67" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="68" class="rh-hide">acA1300-30gm</td>
+		<td data-rhtags="68" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="69" class="rh-hide">acA1300-30gc</td>
+		<td data-rhtags="69" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="70" class="rh-hide">acA1300-60gm</td>
+		<td data-rhtags="70" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="71" class="rh-hide">acA1300-60gmNIR</td>
+		<td data-rhtags="71" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="72" class="rh-hide">acA1300-60gc</td>
+		<td data-rhtags="72" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="73" class="rh-hide">acA1300-75gm</td>
+		<td data-rhtags="73" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="74" class="rh-hide">acA1300-75gc</td>
+		<td data-rhtags="74" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="75" class="rh-hide">acA1440-73gm</td>
+		<td data-rhtags="75" class="rh-hide">2</td>
+	</tr>
+	<tr>
+		<td data-rhtags="76" class="rh-hide">acA1440-73gc</td>
+		<td data-rhtags="76" class="rh-hide">2</td>
+	</tr>
+	<tr>
+		<td data-rhtags="77" class="rh-hide">acA1600-20gm</td>
+		<td data-rhtags="77" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="78" class="rh-hide">acA1600-20gc</td>
+		<td data-rhtags="78" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="79" class="rh-hide">acA1600-60gm</td>
+		<td data-rhtags="79" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="80" class="rh-hide">acA1600-60gc</td>
+		<td data-rhtags="80" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="81" class="rh-hide">acA1920-25gm</td>
+		<td data-rhtags="81" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="82" class="rh-hide">acA1920-25gc</td>
+		<td data-rhtags="82" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="83" class="rh-hide">acA1920-40gm</td>
+		<td data-rhtags="83" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="84" class="rh-hide">acA1920-40gc</td>
+		<td data-rhtags="84" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="85" class="rh-hide">acA1920-48gm</td>
+		<td data-rhtags="85" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="86" class="rh-hide">acA1920-48gc</td>
+		<td data-rhtags="86" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="87" class="rh-hide">acA1920-50gm</td>
+		<td data-rhtags="87" class="rh-hide">4</td>
+	</tr>
+	<tr>
+		<td data-rhtags="88" class="rh-hide">acA1920-50gc</td>
+		<td data-rhtags="88" class="rh-hide">4</td>
+	</tr>
+	<tr>
+		<td data-rhtags="89" class="rh-hide">acA2000-50gm</td>
+		<td data-rhtags="89" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="90" class="rh-hide">acA2000-50gmNIR</td>
+		<td data-rhtags="90" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="91" class="rh-hide">acA2000-50gc</td>
+		<td data-rhtags="91" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="92" class="rh-hide">acA2040-25gm</td>
+		<td data-rhtags="92" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="93" class="rh-hide">acA2040-25gmNIR</td>
+		<td data-rhtags="93" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="94" class="rh-hide">acA2040-25gc</td>
+		<td data-rhtags="94" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="95" class="rh-hide">acA2040-35gm</td>
+		<td data-rhtags="95" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="96" class="rh-hide">acA2040-35gc</td>
+		<td data-rhtags="96" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="97" class="rh-hide">acA2440-20gm</td>
+		<td data-rhtags="97" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="98" class="rh-hide">acA2440-20gc</td>
+		<td data-rhtags="98" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="99" class="rh-hide">acA2500-14gm</td>
+		<td data-rhtags="99" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="100" class="rh-hide">acA2500-14gc</td>
+		<td data-rhtags="100" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="101" class="rh-hide">acA2500-20gm</td>
+		<td data-rhtags="101" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="102" class="rh-hide">acA2500-20gc</td>
+		<td data-rhtags="102" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="103" class="rh-hide">acA2500-20gmMED</td>
+		<td data-rhtags="103" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="104" class="rh-hide">acA2500-20gcMED</td>
+		<td data-rhtags="104" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="105" class="rh-hide">acA3088-16gm</td>
+		<td data-rhtags="105" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="106" class="rh-hide">acA3088-16gc</td>
+		<td data-rhtags="106" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="107" class="rh-hide">acA3800-10gm</td>
+		<td data-rhtags="107" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="108" class="rh-hide">acA3800-10gc</td>
+		<td data-rhtags="108" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="109" class="rh-hide">acA4024-8gm</td>
+		<td data-rhtags="109" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="110" class="rh-hide">acA4024-8gc</td>
+		<td data-rhtags="110" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="111" class="rh-hide">acA4096-11gm</td>
+		<td data-rhtags="111" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="198" class="rh-hide">acA4096-11gc</td>
+		<td data-rhtags="198" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="113" class="rh-hide">acA4112-8gm</td>
+		<td data-rhtags="113" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="114" class="rh-hide">acA4112-8gc</td>
+		<td data-rhtags="114" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="115" class="rh-hide">acA4600-7gc</td>
+		<td data-rhtags="115" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="116" class="rh-hide">acA5472-5gm</td>
+		<td data-rhtags="116" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="117" class="rh-hide">acA5472-5gc</td>
+		<td data-rhtags="117" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="118" class="rh-hide">acA640-750um</td>
+		<td data-rhtags="118" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="119" class="rh-hide">acA640-750uc</td>
+		<td data-rhtags="119" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="120" class="rh-hide">acA640-90um</td>
+		<td data-rhtags="120" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="121" class="rh-hide">acA640-90uc</td>
+		<td data-rhtags="121" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="122" class="rh-hide">acA640-120um</td>
+		<td data-rhtags="122" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="123" class="rh-hide">acA640-120uc</td>
+		<td data-rhtags="123" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="124" class="rh-hide">acA720-520um</td>
+		<td data-rhtags="124" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="125" class="rh-hide">acA720-520uc</td>
+		<td data-rhtags="125" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="126" class="rh-hide">acA800-510um</td>
+		<td data-rhtags="126" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="127" class="rh-hide">acA800-510uc</td>
+		<td data-rhtags="127" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="128" class="rh-hide">acA1300-200um</td>
+		<td data-rhtags="128" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="129" class="rh-hide">acA1300-200uc</td>
+		<td data-rhtags="129" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="130" class="rh-hide">acA1300-30um</td>
+		<td data-rhtags="130" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="131" class="rh-hide">acA1300-30uc</td>
+		<td data-rhtags="131" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="132" class="rh-hide">acA1440-220um</td>
+		<td data-rhtags="132" class="rh-hide">2</td>
+	</tr>
+	<tr>
+		<td data-rhtags="133" class="rh-hide">acA1440-220uc</td>
+		<td data-rhtags="133" class="rh-hide">2</td>
+	</tr>
+	<tr>
+		<td data-rhtags="134" class="rh-hide">acA1600-20um</td>
+		<td data-rhtags="134" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="135" class="rh-hide">acA1600-20uc</td>
+		<td data-rhtags="135" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="136" class="rh-hide">acA1920-25um</td>
+		<td data-rhtags="136" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="137" class="rh-hide">acA1920-25uc</td>
+		<td data-rhtags="137" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="138" class="rh-hide">acA1920-40um</td>
+		<td data-rhtags="138" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="139" class="rh-hide">acA1920-40uc</td>
+		<td data-rhtags="139" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="140" class="rh-hide">acA1920-40umMED</td>
+		<td data-rhtags="140" class="rh-hide">Stacked ROI 
+		 feature not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="141" class="rh-hide">acA1920-40ucMED</td>
+		<td data-rhtags="141" class="rh-hide">Stacked ROI 
+		 feature not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="142" class="rh-hide">acA1920-150um</td>
+		<td data-rhtags="142" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="143" class="rh-hide">acA1920-150uc</td>
+		<td data-rhtags="143" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="144" class="rh-hide">acA1920-155um</td>
+		<td data-rhtags="144" class="rh-hide">4</td>
+	</tr>
+	<tr>
+		<td data-rhtags="145" class="rh-hide">acA1920-155uc</td>
+		<td data-rhtags="145" class="rh-hide">4</td>
+	</tr>
+	<tr>
+		<td data-rhtags="146" class="rh-hide">acA1920-155umMED</td>
+		<td data-rhtags="146" class="rh-hide">4</td>
+	</tr>
+	<tr>
+		<td data-rhtags="147" class="rh-hide">acA1920-155ucMED</td>
+		<td data-rhtags="147" class="rh-hide">4</td>
+	</tr>
+	<tr>
+		<td data-rhtags="148" class="rh-hide">acA2040-90um</td>
+		<td data-rhtags="148" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="149" class="rh-hide">acA2040-90umNIR</td>
+		<td data-rhtags="149" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="150" class="rh-hide">acA2040-90uc</td>
+		<td data-rhtags="150" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="151" class="rh-hide">acA2000-165um</td>
+		<td data-rhtags="151" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="152" class="rh-hide">acA2000-165umNIR</td>
+		<td data-rhtags="152" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="153" class="rh-hide">acA2000-165uc</td>
+		<td data-rhtags="153" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="154" class="rh-hide">acA2040-55um</td>
+		<td data-rhtags="154" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="155" class="rh-hide">acA2040-55uc</td>
+		<td data-rhtags="155" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="156" class="rh-hide">acA2040-120um</td>
+		<td data-rhtags="156" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="157" class="rh-hide">acA2040-120uc</td>
+		<td data-rhtags="157" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="158" class="rh-hide">acA2440-35um</td>
+		<td data-rhtags="158" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="159" class="rh-hide">acA2440-35uc</td>
+		<td data-rhtags="159" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="160" class="rh-hide">acA2440-35umMED</td>
+		<td data-rhtags="160" class="rh-hide">Stacked ROI 
+		 feature not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="161" class="rh-hide">acA2440-35ucMED</td>
+		<td data-rhtags="161" class="rh-hide">Stacked ROI 
+		 feature not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="162" class="rh-hide">acA2440-75um</td>
+		<td data-rhtags="162" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="163" class="rh-hide">acA2440-75uc</td>
+		<td data-rhtags="163" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="164" class="rh-hide">acA2440-75umMED</td>
+		<td data-rhtags="164" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="165" class="rh-hide">acA2440-75ucMED</td>
+		<td data-rhtags="165" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="166" class="rh-hide">acA2500-14um</td>
+		<td data-rhtags="166" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="167" class="rh-hide">acA2500-14uc</td>
+		<td data-rhtags="167" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="168" class="rh-hide">acA2500-60um</td>
+		<td data-rhtags="168" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="169" class="rh-hide">acA2500-60uc</td>
+		<td data-rhtags="169" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="170" class="rh-hide">acA3088-57um</td>
+		<td data-rhtags="170" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="171" class="rh-hide">acA3088-57uc</td>
+		<td data-rhtags="171" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="172" class="rh-hide">acA3800-14um</td>
+		<td data-rhtags="172" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="173" class="rh-hide">acA3800-14uc</td>
+		<td data-rhtags="173" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="174" class="rh-hide">acA4024-29um</td>
+		<td data-rhtags="174" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="175" class="rh-hide">acA4024-29uc</td>
+		<td data-rhtags="175" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="176" class="rh-hide">acA4096-30um</td>
+		<td data-rhtags="176" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="177" class="rh-hide">acA4096-30uc</td>
+		<td data-rhtags="177" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="178" class="rh-hide">acA4096-40um</td>
+		<td data-rhtags="178" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="179" class="rh-hide">acA4096-40uc</td>
+		<td data-rhtags="179" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="180" class="rh-hide">acA4112-20um</td>
+		<td data-rhtags="180" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="181" class="rh-hide">acA4112-20uc</td>
+		<td data-rhtags="181" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="182" class="rh-hide">acA4112-30um</td>
+		<td data-rhtags="182" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="183" class="rh-hide">acA4112-30uc</td>
+		<td data-rhtags="183" class="rh-hide">8</td>
+	</tr>
+	<tr>
+		<td data-rhtags="184" class="rh-hide">acA4600-10uc</td>
+		<td data-rhtags="184" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="185" class="rh-hide">acA5472-17um</td>
+		<td data-rhtags="185" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="186" class="rh-hide">acA5472-17uc</td>
+		<td data-rhtags="186" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="44" class="rh-hide">All dart BCON for LVDS camera models</td>
+		<td data-rhtags="44" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="21" class="rh-hide">All dart BCON for MIPI camera models</td>
+		<td data-rhtags="21" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="42" class="rh-hide">All dart USB 3.0 camera models</td>
+		<td data-rhtags="42" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+	<tr>
+		<td data-rhtags="47" class="rh-hide">All pulse USB 3.0 camera models</td>
+		<td data-rhtags="47" class="rh-hide">Stacked ROI feature 
+		 not supported</td>
+	</tr>
+</table>
+</div>
+<h2 class="sample-code"><a name="MiniTOCBookMark8"></a>Sample Code</h2>
+<div><div class="container"><ul class="tabs"><li class="tab-link current" data-tab="tab-1">C++ (Native)</li><li class="tab-link" data-tab="tab-2">C++ (Generic)</li><li class="tab-link" data-tab="tab-3">C#</li><li class="tab-link" data-tab="tab-4">C.NET</li><li class="tab-link" data-tab="tab-5">C</li></ul><div class="tab-1 tab-content current"><pre><code class="cpp">// Configure width and offset X for all zones
+camera.Width.SetValue(200);
+camera.OffsetX.SetValue(100);
+// Select zone 0
+camera.ROIZoneSelector.SetValue(ROIZoneSelector_Zone0);
+// Set the vertical offset for the selected zone
+camera.ROIZoneOffset.SetValue(100);
+// Set the height for the selected zone
+camera.ROIZoneSize.SetValue(100);
+// Enable the selected zone
+camera.ROIZoneMode.SetValue(ROIZoneMode_On);
+// Select zone 1
+camera.ROIZoneSelector.SetValue(ROIZoneSelector_Zone1);
+// Set the vertical offset for the selected zone
+camera.ROIZoneOffset.SetValue(250);
+// Set the height for the selected zone
+camera.ROIZoneSize.SetValue(200);
+// Enable the selected zone
+camera.ROIZoneMode.SetValue(ROIZoneMode_On);</code></pre></div><div class="tab-2 tab-content"><pre><code class="cpp" generated="true">INodeMap&amp; nodemap = camera.GetNodeMap();
+// Configure width and offset X for all zones
+CIntegerPtr(nodemap.GetNode("Width"))-&gt;SetValue(200);
+CIntegerPtr(nodemap.GetNode("OffsetX"))-&gt;SetValue(100);
+// Select zone 0
+CEnumerationPtr(nodemap.GetNode("ROIZoneSelector"))-&gt;FromString("Zone0");
+// Set the vertical offset for the selected zone
+CIntegerPtr(nodemap.GetNode("ROIZoneOffset"))-&gt;SetValue(100);
+// Set the height for the selected zone
+CIntegerPtr(nodemap.GetNode("ROIZoneSize"))-&gt;SetValue(100);
+// Enable the selected zone
+CEnumerationPtr(nodemap.GetNode("ROIZoneMode"))-&gt;FromString("On");
+// Select zone 1
+CEnumerationPtr(nodemap.GetNode("ROIZoneSelector"))-&gt;FromString("Zone1");
+// Set the vertical offset for the selected zone
+CIntegerPtr(nodemap.GetNode("ROIZoneOffset"))-&gt;SetValue(250);
+// Set the height for the selected zone
+CIntegerPtr(nodemap.GetNode("ROIZoneSize"))-&gt;SetValue(200);
+// Enable the selected zone
+CEnumerationPtr(nodemap.GetNode("ROIZoneMode"))-&gt;FromString("On");</code></pre></div><div class="tab-3 tab-content"><pre><code class="csharp" generated="true">// Configure width and offset X for all zones
+camera.Parameters[PLCamera.Width].SetValue(200);
+camera.Parameters[PLCamera.OffsetX].SetValue(100);
+// Select zone 0
+camera.Parameters[PLCamera.ROIZoneSelector].SetValue(PLCamera.ROIZoneSelector.Zone0);
+// Set the vertical offset for the selected zone
+camera.Parameters[PLCamera.ROIZoneOffset].SetValue(100);
+// Set the height for the selected zone
+camera.Parameters[PLCamera.ROIZoneSize].SetValue(100);
+// Enable the selected zone
+camera.Parameters[PLCamera.ROIZoneMode].SetValue(PLCamera.ROIZoneMode.On);
+// Select zone 1
+camera.Parameters[PLCamera.ROIZoneSelector].SetValue(PLCamera.ROIZoneSelector.Zone1);
+// Set the vertical offset for the selected zone
+camera.Parameters[PLCamera.ROIZoneOffset].SetValue(250);
+// Set the height for the selected zone
+camera.Parameters[PLCamera.ROIZoneSize].SetValue(200);
+// Enable the selected zone
+camera.Parameters[PLCamera.ROIZoneMode].SetValue(PLCamera.ROIZoneMode.On);</code></pre></div><div class="tab-4 tab-content"><pre><code class="csharp" generated="true">// Configure width and offset X for all zones
+Pylon.DeviceSetIntegerFeature(hdev, "Width", 200);
+Pylon.DeviceSetIntegerFeature(hdev, "OffsetX", 100);
+// Select zone 0
+Pylon.DeviceFeatureFromString(hdev, "ROIZoneSelector", "Zone0");
+// Set the vertical offset for the selected zone
+Pylon.DeviceSetIntegerFeature(hdev, "ROIZoneOffset", 100);
+// Set the height for the selected zone
+Pylon.DeviceSetIntegerFeature(hdev, "ROIZoneSize", 100);
+// Enable the selected zone
+Pylon.DeviceFeatureFromString(hdev, "ROIZoneMode", "On");
+// Select zone 1
+Pylon.DeviceFeatureFromString(hdev, "ROIZoneSelector", "Zone1");
+// Set the vertical offset for the selected zone
+Pylon.DeviceSetIntegerFeature(hdev, "ROIZoneOffset", 250);
+// Set the height for the selected zone
+Pylon.DeviceSetIntegerFeature(hdev, "ROIZoneSize", 200);
+// Enable the selected zone
+Pylon.DeviceFeatureFromString(hdev, "ROIZoneMode", "On");</code></pre></div><div class="tab-5 tab-content"><pre><code class="c" generated="true">/* Macro to check for errors */
+#define CHECK(errc) if (GENAPI_E_OK != errc) printErrorAndExit(errc)
+GENAPIC_RESULT errRes = GENAPI_E_OK;  /* Return value of pylon methods */
+/* Configure width and offset X for all zones */
+errRes = PylonDeviceSetIntegerFeature(hdev, "Width", 200);
+CHECK(errRes);
+errRes = PylonDeviceSetIntegerFeature(hdev, "OffsetX", 100);
+CHECK(errRes);
+/* Select zone 0 */
+errRes = PylonDeviceFeatureFromString(hdev, "ROIZoneSelector", "Zone0");
+CHECK(errRes);
+/* Set the vertical offset for the selected zone */
+errRes = PylonDeviceSetIntegerFeature(hdev, "ROIZoneOffset", 100);
+CHECK(errRes);
+/* Set the height for the selected zone */
+errRes = PylonDeviceSetIntegerFeature(hdev, "ROIZoneSize", 100);
+CHECK(errRes);
+/* Enable the selected zone */
+errRes = PylonDeviceFeatureFromString(hdev, "ROIZoneMode", "On");
+CHECK(errRes);
+/* Select zone 1 */
+errRes = PylonDeviceFeatureFromString(hdev, "ROIZoneSelector", "Zone1");
+CHECK(errRes);
+/* Set the vertical offset for the selected zone */
+errRes = PylonDeviceSetIntegerFeature(hdev, "ROIZoneOffset", 250);
+CHECK(errRes);
+/* Set the height for the selected zone */
+errRes = PylonDeviceSetIntegerFeature(hdev, "ROIZoneSize", 200);
+CHECK(errRes);
+/* Enable the selected zone */
+errRes = PylonDeviceFeatureFromString(hdev, "ROIZoneMode", "On");
+CHECK(errRes);</code></pre></div></div></div>
+<p>You can also <a href="configuring_camera_parameters.htm">use the pylon 
+ Viewer to easily set the parameters</a>.</p>
+ <div id="footer">
+	<hr size="1" align="center" />
+	<div id="footer-text">
+		<p>&#160;</p>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+	<script src="../js/config.js" type="text/javascript"></script>
+	<script src="../js/highlight.pack.js" type="text/javascript"></script>
+	<script src="../js/enhance-topic.min.js" type="text/javascript"></script>
+</div>
+</body>
+</html>
